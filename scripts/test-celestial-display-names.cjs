@@ -213,6 +213,49 @@ for (const [initialValues, expectedEffarig] of [
     "migration 105.2 must be idempotent for Effarig refinement values");
 }
 
+const alchemyKeyMigration = migrationPatch(105.3);
+const legacyAlchemyKeyPlayer = {
+  celestials: {
+    ra: {
+      highestRefinementValue: {
+        power: 7,
+        infinity: 8,
+        time: 9,
+        replication: 10,
+        dilation: 11,
+        effarig: 12,
+        힘: null,
+        무한: 20,
+        시간: "NaN",
+        복제: 5,
+        팽창: 30,
+        에파리그: 40,
+        sentinel: 99
+      },
+      untouched: true
+    }
+  },
+  eternityPoints: "NaN",
+  untouched: true
+};
+alchemyKeyMigration(legacyAlchemyKeyPlayer);
+assert.deepStrictEqual(
+  { ...legacyAlchemyKeyPlayer.celestials.ra.highestRefinementValue },
+  { power: 7, infinity: 20, time: 9, replication: 10, dilation: 30, effarig: 40, sentinel: 99 },
+  "migration 105.3 must restore canonical refinement keys without propagating NaN"
+);
+assert.equal(legacyAlchemyKeyPlayer.eternityPoints, "NaN",
+  "migration 105.3 must not guess replacements for already-corrupted unrelated currencies");
+assert.equal(legacyAlchemyKeyPlayer.untouched, true, "migration 105.3 must preserve unrelated player state");
+assert.equal(legacyAlchemyKeyPlayer.celestials.ra.untouched, true,
+  "migration 105.3 must preserve unrelated Ra state");
+alchemyKeyMigration(legacyAlchemyKeyPlayer);
+assert.deepStrictEqual(
+  { ...legacyAlchemyKeyPlayer.celestials.ra.highestRefinementValue },
+  { power: 7, infinity: 20, time: 9, replication: 10, dilation: 30, effarig: 40, sentinel: 99 },
+  "migration 105.3 must be idempotent"
+);
+
 const playerVersionProperties = [];
 walk(parseModule("src/core/player.js"), node => {
   const assignsDefaultPlayer = node.type === "AssignmentExpression" &&
@@ -225,8 +268,8 @@ walk(parseModule("src/core/player.js"), node => {
 });
 assert.equal(playerVersionProperties.length, 1, "the default player must define exactly one save version");
 assert.equal(playerVersionProperties[0].value.type, "NumericLiteral", "the default player version must be numeric");
-assert.equal(playerVersionProperties[0].value.value, 105.2,
-  "the default player version must include both Celestial name migrations");
+assert.equal(playerVersionProperties[0].value.value, 105.3,
+  "the default player version must include the alchemy localization repair migration");
 
 const legacyNameFiles = new Set([
   "src/core/storage/migrations.js",
@@ -273,7 +316,7 @@ for (const [legacyName, canonicalName] of [
 ]) {
   assert.ok(pastRuns.includes(`${legacyName}: "${canonicalName}"`) ||
     pastRuns.includes(`"${legacyName}": "${canonicalName}"`),
-    `past prestige runs must display legacy ${legacyName} records as ${canonicalName}`);
+  `past prestige runs must display legacy ${legacyName} records as ${canonicalName}`);
 }
 
 const h2p = read("src/core/secret-formula/h2p.js");

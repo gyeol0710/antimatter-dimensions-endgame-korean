@@ -131,7 +131,7 @@ export const GlyphSacrificeHandler = {
     const resource = this.glyphAlchemyResource(glyph);
     Modal.glyphRefine.show({
       idx: glyph.idx,
-      resourceName: resource.name,
+      resourceName: resource.displayName,
       resourceAmount: resource.amount,
       gain: this.glyphRefinementGain(glyph),
       cap: resource.cap

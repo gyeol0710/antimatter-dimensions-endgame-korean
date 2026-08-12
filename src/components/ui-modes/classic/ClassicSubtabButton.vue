@@ -6,7 +6,7 @@ export default {
       type: Object,
       required: true
     },
-    parentName: {
+    parentKey: {
       type: String,
       required: true
     }
@@ -25,14 +25,14 @@ export default {
         "o-tab-btn": true,
         "o-tab-btn--secondary": true,
         "o-subtab-btn--active": this.isCurrentSubtab,
-        "o-tab-btn--infinity": this.parentName === "Infinity",
-        "o-tab-btn--eternity": this.parentName === "Eternity",
-        "o-tab-btn--reality": this.parentName === "Reality",
-        "o-tab-btn--celestial": this.parentName === "Celestials",
-        "o-tab-btn--endgame": this.parentName === "Endgame",
-        "o-tab-btn--cd-expansion": this.parentName === "CD Expansion",
-        "o-tab-btn--divinity": this.parentName === "Divinity",
-        "o-tab-btn--universes": this.parentName === "Universes"
+        "o-tab-btn--infinity": this.parentKey === "infinity",
+        "o-tab-btn--eternity": this.parentKey === "eternity",
+        "o-tab-btn--reality": this.parentKey === "reality",
+        "o-tab-btn--celestial": this.parentKey === "celestials",
+        "o-tab-btn--endgame": this.parentKey === "endgame",
+        "o-tab-btn--cd-expansion": this.parentKey === "cdexpansion",
+        "o-tab-btn--divinity": this.parentKey === "divinity",
+        "o-tab-btn--universes": this.parentKey === "universes"
       };
     },
   },

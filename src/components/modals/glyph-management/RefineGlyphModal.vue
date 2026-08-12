@@ -30,7 +30,7 @@ export default {
       return GlyphSacrificeHandler.glyphAlchemyResource(this.glyph);
     },
     resourceName() {
-      return this.resource.name;
+      return this.resource.displayName;
     },
   },
   methods: {

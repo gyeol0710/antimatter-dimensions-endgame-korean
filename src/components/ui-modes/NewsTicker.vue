@@ -93,7 +93,7 @@ export default {
 
       line.style["transition-duration"] = "0ms";
       if (this.currentNews?.id === "a244" || this.currentNews?.id === "ai63" ||
-        (this.currentNews?.id === "ae570" && this.currentNews?.text === "weeeeeeeeeeee")) {
+        (this.currentNews?.id === "ae570" && this.currentNews?.isReversed)) {
         line.style.transform = "translateX(-100%)";
       } else {
         line.style.transform = "translateX(0)";
@@ -111,7 +111,7 @@ export default {
 
       line.style["transition-duration"] = `${scrollDuration}s`;
       if (this.currentNews && this.currentNews.id === "a244" ||
-        (this.currentNews?.id === "ae570" && this.currentNews?.text === "weeeeeeeeeeee")) {
+        (this.currentNews?.id === "ae570" && this.currentNews?.isReversed)) {
         line.style.transform = "translateX(0)";
       } else {
         line.style.transform = "translateX(-100%)";

@@ -14,6 +14,10 @@ class AlchemyResourceState extends GameMechanicState {
     return this.config.name;
   }
 
+  get displayName() {
+    return this.config.displayName ?? this.name;
+  }
+
   get symbol() {
     return this.config.symbol;
   }

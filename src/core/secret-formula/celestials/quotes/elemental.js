@@ -28,7 +28,7 @@ export const elementalQuotes = {
         celestialName: () => "destroyer"
       },
       {
-        text: "오 년 뒤쯤? 네가 나를 찾을 수만 있다면.",
+        text: "5년 뒤쯤? 네가 나를 찾을 수만 있다면.",
         background: "pelle",
         celestialName: "Pelle"
       },
@@ -43,7 +43,7 @@ export const elementalQuotes = {
         celestialName: () => "destroyer"
       },
       {
-        text: "바로 그거야. 믿어 봐, 큰 그림에서 오 년은 아무것도 아니야.",
+        text: "바로 그거야. 믿어 봐, 큰 그림에서 5년은 아무것도 아니야.",
         background: "pelle",
         celestialName: "Pelle"
       },
@@ -53,7 +53,7 @@ export const elementalQuotes = {
         celestialName: "Pelle"
       },
       {
-        text: "불멸의 대가가 오 년이라면 차고 넘치게 가치 있어.",
+        text: "불멸의 대가가 5년이라면 차고 넘치게 가치 있어.",
         background: "destroyer",
         celestialName: () => "destroyer"
       },
@@ -328,7 +328,7 @@ export const elementalQuotes = {
         celestialName: () => "destroyer"
       },
       {
-        text: "(앞으로 오 년을 어떻게 보낼지는 몰랐지만, 언젠가 다중우주가 내 앞에 무릎 꿇으리라는 것만은 알았다.)",
+        text: "(앞으로 5년을 어떻게 보낼지는 몰랐지만, 언젠가 다중우주가 내 앞에 무릎 꿇으리라는 것만은 알았다.)",
         background: "destroyer",
         celestialName: () => "destroyer"
       },

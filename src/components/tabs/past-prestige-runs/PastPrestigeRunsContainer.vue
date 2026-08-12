@@ -70,6 +70,9 @@ export default {
         Infinity: "무한",
       }[this.layer.name];
     },
+    singularKey() {
+      return this.layer.name;
+    },
     getRuns() {
       return this.layer.getRuns;
     },
@@ -81,7 +84,7 @@ export default {
       this.hasEmptyRecord = this.runs[0][0] === Number.MAX_VALUE;
       this.runs.push(this.averageRun);
       this.isRealityUnlocked = PlayerProgress.current.isRealityUnlocked;
-      this.shown = player.shownRuns[this.singular];
+      this.shown = player.shownRuns[this.singularKey];
       this.resourceType = player.options.statTabResources;
       this.showRate = this.resourceType === RECENT_PRESTIGE_RESOURCE.RATE;
       this.hasChallenges = this.runs.map(r => this.challengeText(r)).some(t => t);
@@ -213,7 +216,7 @@ export default {
       return rawText;
     },
     toggleShown() {
-      player.shownRuns[this.singular] = !player.shownRuns[this.singular];
+      player.shownRuns[this.singularKey] = !player.shownRuns[this.singularKey];
     },
     cellStyle(col, isHeader) {
       let width;

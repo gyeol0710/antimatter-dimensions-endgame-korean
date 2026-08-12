@@ -385,7 +385,7 @@ export const PerkNetwork = {
       const mod = Theme.current().name === "S4"
         ? 10 * Math.sin(5 * PerkNetwork.pulseTimer + 0.1 * perk._config.id)
         : 0;
-      if (perk._config.label === "START") return 35 + mod;
+      if (perk.id === GameDatabase.reality.perks.firstPerk.id) return 35 + mod;
       if (perk.isBought) return 25 + mod;
       if (perk.canBeBought) return 20 + mod;
       return 12 + mod;

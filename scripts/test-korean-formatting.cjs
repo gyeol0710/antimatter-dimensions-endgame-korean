@@ -65,4 +65,11 @@ assert.ok(prologue.includes(">5년</span>"), "the prologue time jump must begin 
 assert.ok(!prologue.includes("오월") && !prologue.includes("다섯</span>"),
   "the prologue must not restore the awkward spelled-out date or time jump");
 
+const elementalQuotes = fs.readFileSync(
+  path.join(root, "src", "core", "secret-formula", "celestials", "quotes", "elemental.js"), "utf8");
+assert.equal(elementalQuotes.match(/5년/gu)?.length, 4,
+  "The Elemental intro must use the natural numeric form 5년 in all four five-year lines");
+assert.ok(!/오\s?년|다섯 해/u.test(elementalQuotes),
+  "The Elemental intro must not restore a spelled-out five-year expression");
+
 console.log("Korean quantity and date formatting regression checks passed.");

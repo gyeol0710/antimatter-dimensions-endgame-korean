@@ -12,6 +12,18 @@
       "reason": "셀레스티얼 이름의 종성과 무관하게 자연스럽게 표시되도록 이름과 기억 획득 설명을 콜론으로 분리하며 펫 수치·조건은 유지",
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
+    "src/components/tabs/alchemy/AlchemyResourceInfo.vue": {
+      "beforeContentSha256": "6428b023d7a49accbf22eb29de5a6af22a4d4ef8bd0a960f5c25e54554de27d0",
+      "afterContentSha256": "a69e606e89a151ba75b2e0d860de0c1b13a96a09eb7fd7572f4df6a18291a843",
+      "reason": "연금술의 영문 name은 저장 키로 복원하고 화면 제목에는 별도 한국어 displayName만 표시",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/celestial-ra/RaPetLevelBar.vue": {
+      "beforeContentSha256": "bd938d92829e48d6e06ccbe607f7fb20ae0b70ad8b232e255a9f7349e1373bce",
+      "afterContentSha256": "3dcac7f5ddfcb6799d4a626615007c11eaa936338bbbc93cf5e1830106143392",
+      "reason": "Effarig 연금술의 영문 내부 name 대신 한국어 displayName을 레벨업 툴팁에만 표시",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
     "src/components/ui-modes/Prologue.vue": {
       "beforeContentSha256": "aa130fe02913765f74795d46f59c0d6548320e0380d04e485e84bb241999e083",
       "afterContentSha256": "a44108741380229d99b6aee8f77330d951a2eaa2f1aace1b425ad599d28e1d67",
@@ -25,10 +37,16 @@
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/player.js": {
-      "beforeContentSha256": "c67739b4d06bf091774c01bdc1b17d59144cdaea24134f4bc7f03cd5556c2830",
-      "afterContentSha256": "284796d378aa97c07b72418deea2bd0a01f41d92317622266b04e6586decd361",
-      "reason": "Ra 펫과 Effarig 정제 기록의 구형 한국어 저장 키를 영문 정본으로 변환하는 호환 패치를 위해 저장 버전을 105.2로 갱신",
-      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+      "beforeContentSha256": "284796d378aa97c07b72418deea2bd0a01f41d92317622266b04e6586decd361",
+      "afterContentSha256": "6bc3764a156bde34ef657ad37c1f6f34f314dada2ad62aff71d4cf4049971d81",
+      "reason": "번역으로 바뀐 기본 연금술 저장 키를 영문 정본으로 변환하는 105.3 패치를 실행하도록 저장 버전만 갱신",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/secret-formula/celestials/quotes/elemental.js": {
+      "beforeContentSha256": "1a24664acaa43937984d000fa97b6784aca23a0fa35c102db4a16617c9fafb66",
+      "afterContentSha256": "18dccc85b89c6a93ce7fca573ca67cbc24a3bd08b832f29d634a8aec730e695d",
+      "reason": "The Elemental 초반 인트로 대사 네 곳의 five years를 오 년이 아닌 5년으로 통일하며 대사 순서·ID·연출은 유지",
+      "removeAfter": "이번 인트로 표기 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/secret-formula/news.js": {
       "beforeContentSha256": "3edab489f537c11113ae5c3e2fe37df534e88fec16c43a40bca21e6ea7b7d5fb",
@@ -37,10 +55,10 @@
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/storage/migrations.js": {
-      "beforeContentSha256": "003087047c253ee8515e16791a96ee3735b771c8e115bda14e110188fa51c15f",
-      "afterContentSha256": "3f32c28fd3b9df1bafde74457099a32abe455a3f40209c9551337b8a81c4923b",
-      "reason": "기존 한국어 Ra 회상 펫 이름과 Effarig 최고 정제 기록 키를 영문 정본으로 안전하게 변환하는 105.1·105.2 패치를 추가",
-      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+      "beforeContentSha256": "3f32c28fd3b9df1bafde74457099a32abe455a3f40209c9551337b8a81c4923b",
+      "afterContentSha256": "c01ea1213532f574f9cee05d9b6a072760abc3c78ae912d41b2e4e8c57c4c840",
+      "reason": "번역된 연금술 정제 키를 영문 정본에 안전 병합하는 105.3 패치와 번역 가능한 업적명에 의존하지 않는 EndGame 동등 구세이브 변환 맵을 추가",
+      "removeAfter": "이 저장 키 호환성 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/time.js": {
       "beforeContentSha256": "c1a01b810a739b9bd6372891b2d61e6a6f97698be6b02dc4548612601937a05a",
@@ -51,11 +69,35 @@
   },
   "historicalStructureDiff": {},
   "activeStructureAllowances": {
+    "src/components/BackgroundAnimations.vue": {
+      "beforeCanonicalSha256": "392da0b43be48fa14e3fcc50456a8e8bb261f82bbd656634d164ea272ccc059e",
+      "afterCanonicalSha256": "600f949ac87e5f9de8b3c21387e3f7a395a0c56cca4edcbca18ca6a893ba2274",
+      "reason": "번역 가능한 하위 탭 이름 대신 collider·ethereal·dilation 안정 key로 동일한 배경 애니메이션을 판정",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/modals/catchup/CatchupEntry.vue": {
+      "beforeCanonicalSha256": "2feed844ed37e3b7e0987ddd26e4dd287aa1b303b6f072df0877fabf11812376",
+      "afterCanonicalSha256": "f70a7effcde0f3cd3d21879d193d6f257c7e7ae93a8815323f31b24c0b866170",
+      "reason": "콘텐츠 따라잡기의 전용 도움말 링크만 번역 가능한 alias 대신 안정 key로 조회하고 일반 링크 동작은 유지",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/modals/glyph-management/RefineGlyphModal.vue": {
+      "beforeCanonicalSha256": "9d77d5cab6c1d55c53ade13c8744efd45095aa43572e299085b506ae1fa00396",
+      "afterCanonicalSha256": "be9348cf4b9914ea873a69efe5706b78ee2074f4cb5abf0a49645d292ee3171b",
+      "reason": "연금술 정제 계산과 내부 name은 유지하고 확인 모달에는 한국어 displayName만 표시",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
     "src/components/modals/prestige/EnterCelestialsRaPet.vue": {
       "beforeCanonicalSha256": "25fee3102f4731e623ba19d24b6005b54dd0b13c5aa6b81126a3d128842aa60f",
       "afterCanonicalSha256": "58b134727ce7b8ae3ab271a2d99e77de0d1ce39cf5b44b51d2d67e107fe28924",
       "reason": "펫 해금·레벨·획득량 계산은 유지하고 이름 뒤 고정 조사를 없애는 표시 전용 문장 구조로 교체",
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/alchemy/AlchemyResourceInfo.vue": {
+      "beforeCanonicalSha256": "68b03d5dac62e7b2c93bf4c7d2c1d42f1d597bf80b50bdc5bea789212bc6202e",
+      "afterCanonicalSha256": "32ae2e62ff091fad696091f4a4ccefc0e3e9058826a362d64db792be9009fa19",
+      "reason": "연금술 수치·효과는 유지하고 제목에 저장 키인 name 대신 한국어 displayName을 표시",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/components/tabs/alchemy/AlchemyTab.vue": {
       "beforeCanonicalSha256": "97af999787fb0b6f29e3a835f80a83b5367fa9c084f5a73bcad98fe4577bf3c2",
@@ -68,6 +110,12 @@
       "afterCanonicalSha256": "18a8aeb8b845d55b91ddfac3127fe845034cf8d75f005d2753265ed8e4c2f350",
       "reason": "번역 가능한 H2P 제목 대신 안정적인 Lai'tela 별칭으로 도움말 항목을 조회해 링크 동작을 복구",
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/celestial-ra/RaPetLevelBar.vue": {
+      "beforeCanonicalSha256": "5c7dd6c12da8bc1aacc5783fbab2138a8c7346913d1db6e080579ba3d7ffa7bd",
+      "afterCanonicalSha256": "1aba7bb528068997ffeb5db4455cf11c993c0f5d78551638d03a6fdd24b232c7",
+      "reason": "Effarig 연금술의 내부 name은 유지하고 레벨업 툴팁에만 한국어 displayName을 사용",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/components/tabs/glyphs/CurrentGlyphEffects.vue": {
       "beforeCanonicalSha256": "e9f65b9840aeeba42ac1d20d461febbef734564884a33685b9ed8782706424e8",
@@ -82,10 +130,40 @@
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/components/tabs/past-prestige-runs/PastPrestigeRunsContainer.vue": {
-      "beforeCanonicalSha256": "191cccb427b50bbe72d0b0ba486fe5bd83e9e6ceded5393ed06bca506c1822c3",
-      "afterCanonicalSha256": "ee2281450655be5b2fc390a273d1d2b3cbbadac9ac73388d4922c7dba0e496a8",
-      "reason": "세이브의 영원 유형·도전 기록은 그대로 두고 화면에서 영문 도전 접두어와 구형 한국어 셀레스티얼 이름만 현재 표기로 매핑",
-      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+      "beforeCanonicalSha256": "ee2281450655be5b2fc390a273d1d2b3cbbadac9ac73388d4922c7dba0e496a8",
+      "afterCanonicalSha256": "018ad4440783665a7e427523d3cbe5c33ebec1c0c18d24847fad6f2e5830d982",
+      "reason": "한국어 단수 표시는 유지하고 player.shownRuns의 접기 상태만 Reality·Eternity·Infinity 정본 layer.name 키로 복구",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/perks/PerksTab.vue": {
+      "beforeCanonicalSha256": "3f7ceb6c6d9b4d153a48271b07b67ac571a9defcc9a4e368ab7791b38b93d0ee",
+      "afterCanonicalSha256": "95d93983b942c99640d7f29ef31c53b192582ac8a7735dd4b51336985c8f88db",
+      "reason": "시작 퍼크 크기 특례를 번역 가능한 START 라벨 대신 정본 퍼크 ID로 동일하게 판정",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/ui-modes/classic/ClassicSubtabBar.vue": {
+      "beforeCanonicalSha256": "50928487be041f910286fb3515d6811f90227d8bbb77f7fef0ebe6a06d2d496f",
+      "afterCanonicalSha256": "2c1663dda55e3e91e62e2a130b903a67217481778bf155fff5105cb9ad6c8e12",
+      "reason": "클래식 하위 탭의 색상 판정을 위해 번역 가능한 부모 name 대신 안정적인 부모 key를 전달",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/ui-modes/classic/ClassicSubtabButton.vue": {
+      "beforeCanonicalSha256": "205479eb77e1a55b32490db3ee4e25a1145923316359cdf858f56391f087df4f",
+      "afterCanonicalSha256": "e758cdcefea7324e3d095ad36937a6553f6367ef6f9d1cb963b34c83482cf2db",
+      "reason": "클래식 하위 탭 CSS 여덟 분기를 번역 가능한 부모 이름 대신 동일 탭의 안정 key에 정확히 연결",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/ui-modes/NewsTicker.vue": {
+      "beforeCanonicalSha256": "9edd3f97b3d265a448e80eca671be0fa2cad7d02ad40bb2ff80f81c48dceb395",
+      "afterCanonicalSha256": "eaa188925302d21e9ea1b9ecd3797bc1f93cafac144a6c1e70cfba8da8222235",
+      "reason": "ae570 역방향 연출을 번역 가능한 뉴스 본문 대신 뉴스 객체의 isReversed 상태로 판정",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/automator/automator-backend.js": {
+      "beforeCanonicalSha256": "e26189ad26df567846c446938b4c82ce0a357bf3b46710a1a65301d5a6173b77",
+      "afterCanonicalSha256": "d64a90e670c17192bc40eee108a4e58beedcbde041f35d281f0f283b77bc11fc",
+      "reason": "Automator 실행·파서·편집 기록은 유지하고 undo·redo의 현재 탭 판정만 번역 name에서 automator key로 복구",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/automator/compiler.js": {
       "beforeCanonicalSha256": "95e8ca325b2a75ac6b169830b88b9e19444f88ce90c6a56650bc177b5b972bec",
@@ -93,23 +171,59 @@
       "reason": "Automator 파서·컴파일·분기 로직은 유지하고 오류 메시지에서 괄호 조사 표기만 제거",
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
+    "src/core/celestials/ra/alchemy.js": {
+      "beforeCanonicalSha256": "cd96359b7781e9c8caeed251d58aea9de0d01e37bb9f83e884a142aa07ad8754",
+      "afterCanonicalSha256": "26fa0fd54be9e22f516151df7212567d153853aad4cc5fdb5d3f4fd360e863ce",
+      "reason": "name을 소문자 저장 키로 쓰는 원본 계약은 유지하고 UI 전용 displayName 접근자만 분리",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
     "src/core/format.js": {
       "beforeCanonicalSha256": "5ee9ff2f7f8b61a20b1ebfb07b4bd52c879abe2c08d7366bafc915143b5ae273",
       "afterCanonicalSha256": "c4d1994b51ad891fba0938a0614f2e2a41a5aedf59261346f0b72696b00a6f8e",
       "reason": "한국어 카운터형 단위만 숫자에 붙이는 표시 전용 결합 helper를 추가하고 기존 수치 포맷과 영문 복수형은 유지",
       "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
+    "src/core/glyphs/glyph-purge-handler.js": {
+      "beforeCanonicalSha256": "6c2aaaf3c95933cd16880e4b80eb92c505bd831a05f5ef56892d01d524292185",
+      "afterCanonicalSha256": "ea451b50deaa42dfb9f4cfc97a01d8abcf281361fe490bf43807f194ba60ae52",
+      "reason": "글리프 정제량·상한·자원 ID는 유지하고 모달 payload의 자원명만 한국어 displayName으로 전달",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
     "src/core/player.js": {
-      "beforeCanonicalSha256": "92a8ae4bb8b909240ac95c1184b4e1ac4d5dad24824d6458402d1688e7d02f8b",
-      "afterCanonicalSha256": "fa877df932d370da743aaa8b37af92b2ebb66fb9f2d72ec35100986212e00e72",
-      "reason": "두 셀레스티얼 내부 이름 호환 마이그레이션을 실행하도록 기본 저장 버전만 105.2로 갱신",
-      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+      "beforeCanonicalSha256": "fa877df932d370da743aaa8b37af92b2ebb66fb9f2d72ec35100986212e00e72",
+      "afterCanonicalSha256": "d2855bc030e859cd42d55466328c5a9fa9eec2c9747683360902b9cf0fa945a7",
+      "reason": "번역된 기본 연금술 저장 키 호환 패치를 실행하도록 기본 저장 버전만 105.3으로 갱신",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/secret-formula/celestials/alchemy.js": {
+      "beforeCanonicalSha256": "40984819997a01e75c2ed1392c29c2ec432853e93956781ab57b5cdeb101bc1d",
+      "afterCanonicalSha256": "6ec3e94f028567af9c53ad04f6a1f7843902f690a3ba69ca720cdd21d8da05c3",
+      "reason": "기본 연금술 다섯 종류의 name을 정본 영문 저장 키로 복원하고 한국어 표시명은 displayName으로 분리",
+      "removeAfter": "이 연금술 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/secret-formula/celestials/quotes/elemental.js": {
+      "beforeCanonicalSha256": "b68c1bc9aa37fdfa060703800d43a1fb660fb2587cd78aceb5389adf443c747e",
+      "afterCanonicalSha256": "1647eefbe799c1d71f99b09a669a6856d0c104579e3d13996104d51f0513a4f8",
+      "reason": "origin/main에서 번역된 celestialName 화자 ID 27개를 Pelle과 Laitela 내부 값으로 복원",
+      "removeAfter": "복원 커밋이 main에 병합되어 origin/main 대비 canonical delta가 사라진 뒤"
+    },
+    "src/core/secret-formula/h2p.js": {
+      "beforeCanonicalSha256": "c4a4c992f4f1bf231aaa26c929906de6f5a2eeb7af4f3c163e916e5861091b65",
+      "afterCanonicalSha256": "827c0e1e32ceb3d59b76d0f73c09e84f14e5947b25d0333ba6c5f028ec16cc30",
+      "reason": "도움말 제목·본문·탭 경로는 유지하고 콘텐츠 따라잡기 직접 링크용 안정 key 열두 개만 추가",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/secret-formula/news.js": {
+      "beforeCanonicalSha256": "7666e7eb13c7dfc3b44630cae295c83b0e5c4516e3b95590c8db85396c3ad218",
+      "afterCanonicalSha256": "40d19237b35c0777b4a0ea5ffdf9ddcc3e4d6fc12e46ff972b60ff8614c80a43",
+      "reason": "ae570의 기존 클릭 closure 상태를 읽는 isReversed getter만 추가하고 본문·클릭·reset 연출은 유지",
+      "removeAfter": "이 의미 키 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/storage/migrations.js": {
-      "beforeCanonicalSha256": "4182cd9dd204065a3bb2bc640852aded2bbdf4cd203795dfca54eecd5e64129d",
-      "afterCanonicalSha256": "3bec8e78dc5e73fd1b80a8c876d9d397770d03fdc865dc48fe205b26d6da6952",
-      "reason": "구형 한국어 Ra 회상 펫 이름과 Effarig 정제 기록 키를 영문 정본으로 변환하며 기존 영문·알 수 없는 값과 더 높은 기록은 보존",
-      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+      "beforeCanonicalSha256": "3bec8e78dc5e73fd1b80a8c876d9d397770d03fdc865dc48fe205b26d6da6952",
+      "afterCanonicalSha256": "a77fd7308d6aa2e18f85a976c87265977ec8ce5fac2fcfa67cdb4bd196f0a604",
+      "reason": "정상 구형 연금술 키를 최댓값 병합하고 EndGame 현행 영문 업적명 변환을 번역 DB와 분리하며 기존 rNN·sNN·bit 전환은 유지",
+      "removeAfter": "이 저장 키 호환성 복구 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
     },
     "src/core/time.js": {
       "beforeCanonicalSha256": "17ef8a951486d6e66b445d5b216d045baffdfbfc3100b8cf38dfa0da2b2264b6",

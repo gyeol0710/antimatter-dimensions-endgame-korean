@@ -92,7 +92,7 @@ export default {
         case "Teresa":
           return "무한 업그레이드를 하나 더 충전할 수 있습니다.";
         case "Effarig":
-          return `글리프 연금술에서 ${effarigAlchemyResource.name} 자원을 해금합니다.
+          return `글리프 연금술에서 ${effarigAlchemyResource.displayName} 자원을 해금합니다.
           ${effarigAlchemyResource.description}`;
         case "Enslaved":
           return `저장된 게임 시간에 ${formatX(20)}, 실제 시간을 한 시간 더 저장할 수 있습니다.`;

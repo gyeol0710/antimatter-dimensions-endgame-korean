@@ -9,7 +9,7 @@ export const catchupResources = [
   {
     name: "틱스피드 업그레이드",
     id: 1,
-    openH2pEntry: "Tickspeed",
+    openH2pEntry: "tickspeed",
     requiredStage: PROGRESS_STAGE.PRE_INFINITY,
     description: `틱스피드 업그레이드는 시간이 더 빠르게 흐르는 것처럼 반물질 차원이 다른 반물질 차원이나
       반물질을 더 빠르게 생산하도록 합니다.`
@@ -45,7 +45,7 @@ export const catchupResources = [
   {
     name: "무한 포인트",
     id: 6,
-    openH2pEntry: "Infinity",
+    openH2pEntry: "infinity",
     requiredStage: PROGRESS_STAGE.EARLY_INFINITY,
     description: `무한 포인트는 처음 무한에 도달한 뒤의 주요 자원입니다. 무한 초기화 후에도 유지되는
       기능을 구매하는 데 사용할 수 있습니다.`
@@ -53,7 +53,7 @@ export const catchupResources = [
   {
     name: "일반 도전",
     id: 7,
-    openH2pEntry: "Normal Challenges",
+    openH2pEntry: "normal-challenges",
     requiredStage: PROGRESS_STAGE.EARLY_INFINITY,
     description: () => `도전에서는 더 어려운 조건에서 반물질 ${format(Number.MAX_VALUE, 2)}개에 도달해야 합니다.
       도전을 완료하면 자동구매기를 업그레이드할 수 있습니다.`
@@ -97,7 +97,7 @@ export const catchupResources = [
   {
     name: "영원 포인트",
     id: 13,
-    openH2pEntry: "Eternity",
+    openH2pEntry: "eternity",
     requiredStage: PROGRESS_STAGE.EARLY_ETERNITY,
     description: `영원 포인트는 처음 영원에 도달한 뒤의 주요 자원이며, 영원에 도달할 때 보유한
       무한 포인트에 따라 획득량이 증가합니다.`
@@ -142,7 +142,7 @@ export const catchupResources = [
   {
     name: "타키온 입자",
     id: 19,
-    openH2pEntry: "Time Dilation",
+    openH2pEntry: "time-dilation",
     requiredStage: PROGRESS_STAGE.EARLY_DILATION,
     description: () => `타키온 입자는 반복해서 파밍할 수 없는 자원으로, 보유량을 늘리려면 팽창된 영원에서
       이전보다 더 많은 반물질을 얻어야 합니다. 타키온 입자는 팽창된 시간을 생산합니다.`
@@ -157,7 +157,7 @@ export const catchupResources = [
   {
     name: "리얼리티 머신",
     id: 21,
-    openH2pEntry: "Reality",
+    openH2pEntry: "reality",
     requiredStage: PROGRESS_STAGE.EARLY_REALITY,
     description: `리얼리티 머신은 처음 현실에 도달한 뒤의 주요 자원입니다. 현실에 도달할 때 보유한
       영원 포인트에 따라 획득량이 정해집니다.`
@@ -180,7 +180,7 @@ export const catchupResources = [
   {
     name: "오토메이터",
     id: 24,
-    openH2pEntry: "Automator Overview",
+    openH2pEntry: "automator-overview",
     requiredStage: PROGRESS_STAGE.EARLY_REALITY,
     description: `오토메이터는 스크립트 언어를 사용하는 게임 내 기능입니다. 업그레이드와 퍼크를 충분히
       확보하면 아무런 조작 없이 현실을 완료할 수 있습니다.`
@@ -211,7 +211,7 @@ export const catchupResources = [
   {
     name: "The Nameless Ones",
     id: 28,
-    openH2pEntry: "Nameless Ones",
+    openH2pEntry: "nameless-ones",
     requiredStage: PROGRESS_STAGE.ENSLAVED,
     description: `The Nameless Ones는 세 번째 셀레스티얼입니다. 그들의 현실에는 수많은 가혹한 약화 효과가
       적용되지만, 이를 극복하면 테서랙트를 해금합니다. 또한 블랙홀을 변경하여 시간을 저장할 수 있게 합니다.`
@@ -219,7 +219,7 @@ export const catchupResources = [
   {
     name: "저장된 시간",
     id: 29,
-    openH2pEntry: "Nameless Ones",
+    openH2pEntry: "nameless-ones",
     requiredStage: PROGRESS_STAGE.ENSLAVED,
     description: `블랙홀은 두 가지 방식으로 시간을 저장할 수 있습니다. 충전하면 가속된 시간을 보관했다가
       한 번에 앞으로 건너뛰는 형태로 방출할 수 있습니다. 실제 시간을 저장하면 현실을 시뮬레이션하여 해당 현실의
@@ -251,7 +251,7 @@ export const catchupResources = [
   {
     name: "기억",
     id: 33,
-    openH2pEntry: "Ra",
+    openH2pEntry: "ra",
     requiredStage: PROGRESS_STAGE.RA,
     description: `Ra는 이전 네 셀레스티얼을 지배하며, 기억 조각 수에 따라 시간이 지나면서 기억을 생산합니다.
       이 기억으로 이전 셀레스티얼의 레벨을 올리고, 특정 레벨에 도달하면 업그레이드를 얻습니다.`
@@ -259,7 +259,7 @@ export const catchupResources = [
   {
     name: "충전된 무한 업그레이드",
     id: 34,
-    openH2pEntry: "Ra",
+    openH2pEntry: "ra",
     requiredStage: PROGRESS_STAGE.RA,
     description: `Teresa의 기억을 통해 무한 업그레이드를 충전하여 비슷한 효과를 훨씬 강하게 만들 수 있습니다.
       어떤 업그레이드를 충전할지는 현실 사이에서만 변경할 수 있습니다.`
@@ -275,7 +275,7 @@ export const catchupResources = [
   {
     name: "증폭된 블랙홀",
     id: 36,
-    openH2pEntry: "Ra",
+    openH2pEntry: "ra",
     requiredStage: PROGRESS_STAGE.RA,
     description: `The Nameless Ones의 기억은 충전을 증폭하여 실제로 흐른 게임 시간보다 더 많은 게임 시간을
       저장하게 합니다. 이제 방출을 반복해서 자동으로 수행할 수도 있습니다.`
@@ -283,7 +283,7 @@ export const catchupResources = [
   {
     name: "더 어려운 V",
     id: 37,
-    openH2pEntry: "Ra",
+    openH2pEntry: "ra",
     requiredStage: PROGRESS_STAGE.RA,
     description: `V의 기억은 기존 V의 현실보다 목표가 더 어려운 변형 현실과 삼원 연구라는 새로운
       시간 연구 모음을 해금합니다.`
@@ -313,7 +313,7 @@ export const catchupResources = [
   {
     name: "암흑 물질 차원",
     id: 41,
-    openH2pEntry: "Lai'tela",
+    openH2pEntry: "laitela",
     requiredStage: PROGRESS_STAGE.LAITELA,
     description: `암흑 물질 차원은 지속적으로 생산하는 대신 틱 기반 시스템으로 작동하는 연쇄 생산 요소입니다.
       가장 낮은 단계는 암흑 물질을 생산하고, 모든 단계는 암흑 에너지를 생산합니다.`
@@ -321,7 +321,7 @@ export const catchupResources = [
   {
     name: "차원 초기화 메커니즘",
     id: 42,
-    openH2pEntry: "Lai'tela",
+    openH2pEntry: "laitela",
     requiredStage: PROGRESS_STAGE.LAITELA,
     description: `암흑 물질 차원은 두 가지 방법으로 초기화할 수 있습니다. 소멸은 모든 차원을 초기화하는 대신
       모든 암흑 물질 차원에 영구 배율을 제공합니다. 승천은 생산량을 높이지만 한 차원의 간격을 초기화합니다.`
@@ -343,7 +343,7 @@ export const catchupResources = [
   {
     name: "아마겟돈",
     id: 45,
-    openH2pEntry: "Pelle",
+    openH2pEntry: "pelle",
     requiredStage: PROGRESS_STAGE.PELLE,
     description: `아마겟돈은 언제든 수행할 수 있는 Pelle 전용 초기화입니다. 진행도를 파멸한 현실의 시작으로
       되돌리는 대신, 현실 파편을 생산하는 잔재를 얻습니다.`
@@ -351,7 +351,7 @@ export const catchupResources = [
   {
     name: "Pelle의 공격과 균열",
     id: 46,
-    openH2pEntry: "Pelle Strikes",
+    openH2pEntry: "pelle-strikes",
     requiredStage: PROGRESS_STAGE.PELLE,
     description: `Pelle에서 특정 진행 마일스톤에 도달하면 공격이 발생하여 파멸한 현실에 새로운 약화 효과를
       영구적으로 적용합니다. 각 공격에는 다른 자원을 소모하는 대신 강화 효과를 얻는 균열이 동반됩니다.

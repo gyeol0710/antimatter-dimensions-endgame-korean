@@ -4,7 +4,8 @@ export const h2p = {
   /**
    * @template
    * {
-   *  @property {String} name   Internal name for the tab entry
+   *  @property {String} name   Display name for the tab entry
+   *  @property {String} key    Stable semantic key used by direct links
    *  @property {String} alias  Display name for the tab; if not present, will use the internal name
    *  @property {Number} id     Unique ID for each entry (generated in-game, not explicitly stated)
    *  @property {function: @return String} info         Text body of information for the entry
@@ -289,6 +290,7 @@ ${formatInt(6)}개 더 필요합니다.
       tab: "dimensions/antimatter"
     }, {
       name: "틱스피드",
+      key: "tickspeed",
       info: () => `
 게임의 생산은 각 "틱"마다 이루어지며, 처음에는 초당 한 번 발생합니다. 틱스피드 업그레이드를 구매하면
 매초 여러 틱이 발생하는 것처럼 반물질 차원이 더 빠르게 생산하게 할 수 있습니다.
@@ -402,6 +404,7 @@ ${formatX(4)}에서 다시 희생하는 것은 ${formatX(8)}과 ${formatX(5)}에
       tab: "achievements"
     }, {
       name: "무한",
+      key: "infinity",
       info: () => `
 세계가 감당하기에는 너무 많은 반물질(${formatInt(2)}<sup>${formatInt(1024)}</sup>, 또는 약
 ${formatPostBreak(Number.MAX_VALUE, 6)}이며 "무한"이라고도 부릅니다)을 보유하면 강제로 “빅 크런치”를
@@ -430,6 +433,7 @@ ${format(Infinity)}로 표시됩니다.
       tab: "infinity/upgrades"
     }, {
       name: "일반 도전",
+      key: "normal-challenges",
       info: () => `
 첫 무한 이후 일반 도전이 잠금 해제됩니다. 일반 도전은 게임 메커니즘을 여러 방식으로 바꾸어 무한에 도달하기
 더 어려운 환경을 만듭니다. 도전을 완료하려면 다시 ${formatPostBreak(Number.MAX_VALUE, 2)} 반물질에
@@ -628,6 +632,7 @@ ${formatX(DC.E55)} 배율 자체도 업그레이드당 ${formatX(DC.E5)}씩 증�
       tab: "infinity/replicanti"
     }, {
       name: "영원",
+      key: "eternity",
       info: () => `
 ${formatPostBreak(Number.MAX_VALUE, 2)} 무한 포인트에 도달하면 영원을 수행할 수 있습니다. 영원은 도전 시간,
 도전과제, 통계 탭의 일반 영역에 있는 항목을 제외하고 지금까지의 모든 것을 초기화합니다. 첫 영원 이후 더 많은
@@ -804,6 +809,7 @@ Shift를 누른 채 시간 연구를 클릭하면 해당 지점까지의 모든 
       tab: "challenges/eternity"
     }, {
       name: "시간 팽창",
+      key: "time-dilation",
       info: () => `
 EC11과 EC12 연구 아래에 있는 시간 팽창 잠금 해제 시간 연구를 구매하면 시간 팽창이 잠금 해제됩니다.
 이 시간 연구를 구매하려면 연구에 도달할 수 있는 트리와 사용하지 않은 시간 정리 ${formatInt(5000)}개,
@@ -836,6 +842,7 @@ EC11과 EC12 연구 아래에 있는 시간 팽창 잠금 해제 시간 연구�
       tab: "eternity/dilation"
     }, {
       name: "현실",
+      key: "reality",
       info: () => `
 ${formatPostBreak(DC.E4000)} 영원 포인트에 도달하고 도전과제의 첫 ${formatInt(13)}줄을 완료하면 현실을
 잠금 해제하는 시간 연구를 구매할 수 있습니다. 잠금 해제하면 새 탭이 열리고 그곳에서 새 현실을 시작하는
@@ -961,6 +968,7 @@ ${formatInt(1)}개만 필요합니다.
       tab: "reality/perks"
     }, {
       name: "오토메이터 개요",
+      key: "automator-overview",
       info: () => `
 오토메이터 포인트를 총 ${formatInt(AutomatorPoints.pointsForAutomator)}개 모으면 오토메이터가 잠금 해제됩니다.
 오토메이터 포인트는 여러 퍼크나 현실 업그레이드를 잠금 해제하거나, 블랙홀을 잠금 해제하거나, 단순히
@@ -1288,6 +1296,7 @@ ${formatInt(6)}개 요구하면 힘 글리프가 선택되지 않습니다.
       tab: "celestials/glyphfilter"
     }, {
       name: "The Nameless Ones, 시간의 셀레스티얼",
+      key: "nameless-ones",
       alias: "Nameless Ones",
       info: () => `
 The Nameless Ones는 세 번째 셀레스티얼이며, Effarig의 영원을 완료하면 잠금 해제됩니다.
@@ -1417,6 +1426,7 @@ ${VUnlocks.vAchievementUnlock.isUnlocked
       tab: "celestials/v"
     }, {
       name: "Ra, 잊힌 자들의 셀레스티얼",
+      key: "ra",
       alias: "Ra",
       info: () => `
 Ra는 다섯 번째 셀레스티얼이며, V의 도전과제를 모두 완료하면 잠금 해제됩니다. Ra는 기억을 사용해 이전
@@ -1553,6 +1563,7 @@ ${formatInt(2500)}개만 반응 속도 계산에 사용됩니다. 생산물이 $
       tab: "reality/imag_upgrades"
     }, {
       name: "Lai'tela, 차원의 셀레스티얼",
+      key: "laitela",
       alias: "Lai'tela",
       info: () => `
 Lai'tela는 여섯 번째 셀레스티얼이며, 허수 머신 ${format(ImaginaryUpgrade(15).cost)}개로 해당 허수 업그레이드를
@@ -1656,6 +1667,7 @@ ${formatInt(10)}배보다 <i>더 크게</i> 증가하거나 감소하므로, 기
       tab: ""
     }, {
       name: "Pelle, 반물질의 셀레스티얼",
+      key: "pelle",
       alias: "Pelle",
       info: () => `
 마지막 허수 업그레이드를 구매해 Pelle를 잠금 해제하면 Pelle 탭이 열리며, "현실을 파멸시키세요" 버튼을 찾을
@@ -1699,6 +1711,7 @@ ${Pelle.isDoomed
       tab: "celestials/pelle"
     }, {
       name: "Pelle 타격",
+      key: "pelle-strikes",
       info: () => `
 Pelle 타격은 파멸한 현실의 여러 사건에서 발생합니다. 파멸한 현실 안에서 처음으로 무한에 도달해 첫 번째 Pelle
 타격을 만났습니다. 더 진행하면 추가 타격이 발생합니다. 각 Pelle 타격은 게임의 특정 요소를 약화하며, 타격

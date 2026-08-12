@@ -98,7 +98,7 @@ export default {
     :class="classObject"
   >
     <span class="c-alchemy-resource-info__title">
-      {{ resource.symbol }} {{ resource.name }} {{ resource.symbol }}
+      {{ resource.symbol }} {{ resource.displayName }} {{ resource.symbol }}
     </span>
     <span v-if="isDoomed">
       Pelle가 파괴함

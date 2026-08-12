@@ -31,7 +31,9 @@ export default {
     },
     showHowTo() {
       ui.view.h2pForcedTab = GameDatabase.h2p.tabs.filter(
-        tab => tab.alias === (this.hasDedicatedH2p ? this.config.openH2pEntry : this.tabToOpen))[0];
+        tab => (this.hasDedicatedH2p
+          ? tab.key === this.config.openH2pEntry
+          : tab.alias === this.tabToOpen))[0];
       Modal.h2p.show();
     },
   },

@@ -2,7 +2,8 @@ export const alchemyResources = {
   // T1 resources (Non-Effarig "base" resources)
   "power": {
     id: ALCHEMY_RESOURCE.POWER,
-    name: "힘",
+    name: "Power",
+    displayName: "힘",
     symbol: "Ω",
     isBaseResource: true,
     effect: amount => 1 + amount / 125000,
@@ -15,7 +16,8 @@ export const alchemyResources = {
   },
   "infinity": {
     id: ALCHEMY_RESOURCE.INFINITY,
-    name: "무한",
+    name: "Infinity",
+    displayName: "무한",
     symbol: "∞",
     isBaseResource: true,
     effect: amount => 1 + amount / 125000,
@@ -28,7 +30,8 @@ export const alchemyResources = {
   },
   "time": {
     id: ALCHEMY_RESOURCE.TIME,
-    name: "시간",
+    name: "Time",
+    displayName: "시간",
     symbol: "Δ",
     isBaseResource: true,
     effect: amount => 1 + amount / 125000,
@@ -41,7 +44,8 @@ export const alchemyResources = {
   },
   "replication": {
     id: ALCHEMY_RESOURCE.REPLICATION,
-    name: "복제",
+    name: "Replication",
+    displayName: "복제",
     symbol: "Ξ",
     isBaseResource: true,
     effect: amount => Decimal.pow10(amount / 500),
@@ -54,7 +58,8 @@ export const alchemyResources = {
   },
   "dilation": {
     id: ALCHEMY_RESOURCE.DILATION,
-    name: "팽창",
+    name: "Dilation",
+    displayName: "팽창",
     symbol: "Ψ",
     isBaseResource: true,
     effect: amount => Decimal.pow10(amount / 1000),

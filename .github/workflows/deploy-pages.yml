@@ -17,7 +17,7 @@ concurrency:
 
 env:
   # Public source baseline imported from the fully-audited Korean localization snapshot.
-  LOCALIZATION_AUDIT_BASE: 633d0cb22c8484c7b0912f8c9e54d319a000b5f8
+  LOCALIZATION_AUDIT_BASE: eb4d15f85e69a53dc4e91bae1d2ae894d88b4721
 
 jobs:
   deploy:

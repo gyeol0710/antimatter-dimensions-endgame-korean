@@ -3559,6 +3559,9 @@ export const news = [
       get text() {
         return wasClicked ? clicked : normal;
       },
+      get isReversed() {
+        return wasClicked;
+      },
       reset() {
         wasClicked = false;
       },
