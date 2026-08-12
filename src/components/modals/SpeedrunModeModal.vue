@@ -41,24 +41,24 @@ export default {
     @confirm="startRun"
   >
     <template #header>
-      Entering Speedrun Mode
+      스피드런 모드 시작
     </template>
     <div
       v-if="onInfoPage"
       class="c-modal-message__text"
     >
-      This will start a save with additional statistics tracking for when you reach certain points of
-      the game. These will be visible in the bottom-right of the screen and on a dedicated subtab of Statistics.
+      게임의 특정 지점에 도달한 시간을 추적하는 추가 통계가 있는 저장 파일을 시작합니다.
+      이 기록은 화면 오른쪽 아래와 통계의 전용 하위 탭에 표시됩니다.
       <br>
       <br>
-      Almost all animations and confirmations are disabled by default, but you can change any of these settings before
-      you reach their required progression. When you begin the run, the game remains paused until
-      your antimatter changes, allowing you to configure all your settings before starting. In order to avoid having
-      to wait for a long time before actually starting an optimized run, a few achievements are given for free.
+      거의 모든 애니메이션과 확인 창은 기본적으로 비활성화되지만, 필요한 진행 단계에 도달하기 전까지
+      해당 설정을 변경할 수 있습니다. 스피드런을 시작하면 반물질 수량이 변할 때까지 게임이 일시 정지되어
+      시작 전에 모든 설정을 조정할 수 있습니다. 최적화된 스피드런을 실제로 시작하기까지 오래 기다리지
+      않도록 몇 가지 도전과제가 무료로 주어집니다.
       <br>
       <br>
       <i>
-        There is no additional content in Speedrun Mode.
+        스피드런 모드에만 존재하는 추가 콘텐츠는 없습니다.
       </i>
       <br>
       <br>
@@ -66,16 +66,16 @@ export default {
         class="o-primary-btn--width-medium c-modal-hard-reset-btn c-modal__confirm-btn"
         @click="nextPage"
       >
-        Continue
+        계속
       </PrimaryButton>
     </div>
     <div
       v-else
       class="c-modal-message__text"
     >
-      You can type in text below to name your speedrun save. This will have no effects on gameplay and only identifies
-      this particular save as yours. If no name is given, a random name will be generated instead. This name can be
-      changed by clicking your name in the speedrun info box, as long as the timer has not started yet.
+      아래에 스피드런 저장 파일의 이름을 입력할 수 있습니다. 이름은 게임 플레이에 영향을 주지 않고
+      이 저장 파일의 플레이어를 식별하는 용도로만 사용됩니다. 입력하지 않으면 무작위 이름이 생성됩니다.
+      타이머가 시작되기 전에는 스피드런 정보 상자의 이름을 클릭하여 변경할 수 있습니다.
       <input
         ref="name"
         v-model="name"
@@ -85,19 +85,19 @@ export default {
       >
       <br>
       <br>
-      Speedrun saves can be imported and exported like regular saves. Importing a speedrun save will mark it as a
-      Segmented run, as importing and exporting allows for optimization of individual segments of the game.
-      Without importing, saves will remain as Single-segment runs.
+      스피드런 저장 파일도 일반 저장 파일처럼 가져오거나 내보낼 수 있습니다. 가져오기와 내보내기를 통해
+      게임의 개별 구간을 최적화할 수 있으므로 가져온 스피드런은 분할 스피드런으로 표시됩니다.
+      가져오지 않은 저장 파일은 단일 구간 스피드런으로 유지됩니다.
       <br>
       <br>
-      You can modify the Glyph RNG seed in the Options tab before starting your run, if desired.
+      원한다면 스피드런을 시작하기 전에 설정 탭에서 글리프 난수 시드를 변경할 수 있습니다.
       <br>
       <br>
       <div class="c-modal-hard-reset-danger">
-        Starting a speedrun will reset your save to the beginning of the game. Some things will remain, such as
-        full-game completion stats, visual settings, automator scripts, and Glyph cosmetics, but otherwise it
-        will be as if you had just finished the entire game and chose to restart at the credits screen. Type
-        in "Gotta Go Fast!" below to confirm and (re)start the run.
+        스피드런을 시작하면 저장 파일이 게임 시작 지점으로 초기화됩니다. 전체 게임 완료 통계, 시각 설정,
+        오토메이터 스크립트, 글리프 꾸미기 같은 일부 요소는 유지되지만, 그 밖의 상태는 게임 전체를 완료하고
+        크레딧 화면에서 다시 시작하기를 선택한 직후와 같아집니다. 아래에 "Gotta Go Fast!"를 입력하여
+        확인하고 스피드런을 시작하거나 다시 시작하세요.
       </div>
       <input
         ref="confirmPhrase"
@@ -108,10 +108,10 @@ export default {
       >
     </div>
     <template #confirm>
-      Start Run!
+      스피드런 시작!
     </template>
     <template #cancel>
-      Cancel
+      취소
     </template>
   </ModalWrapperChoice>
 </template>

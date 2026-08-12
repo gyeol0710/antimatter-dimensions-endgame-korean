@@ -16,30 +16,45 @@ export default {
     <ModalCloseButton @click="emitClose" />
     <div class="l-h2p-header">
       <div class="c-h2p-title">
-        About the game
+        게임 정보
       </div>
     </div>
     <div class="c-info-body">
-      Antimatter Dimensions is an Idle Incremental game created by Finnish developer Hevipelle. Originating as a solo
-      project in 2016, it was expanded upon by a large team of developers and testers from then on. In 2024, American
-      developer Supersonic Seven beat the vanilla game and decided to mod it for additional content and improved lore.
-      The first public release of Antimatter Dimensions: Endgame was issued by Supersonic Seven in 2025, and since
-      then has been updating the game whenever possible.
+      Antimatter Dimensions는 핀란드 개발자 Hevipelle이 만든 방치형 증분 게임입니다. 2016년 개인 프로젝트로
+      시작했으며, 이후 많은 개발자와 테스터가 참여해 확장되었습니다. 2024년에는 미국 개발자 Supersonic Seven이
+      원작을 완료한 뒤 추가 콘텐츠와 더 깊은 이야기를 담은 모드를 만들기로 했습니다.
+      Antimatter Dimensions: Endgame의 첫 공개 버전은 2025년에 Supersonic Seven이 출시했으며,
+      이후 가능한 때마다 게임을 업데이트하고 있습니다.
       <br>
       <br>
-      The game has unfolding gameplay and multiple prestige layers. The "How to Play" button contains useful
-      information about progressing.
+      게임을 진행할수록 새로운 플레이 요소와 여러 초기화 단계가 펼쳐집니다. "게임 방법" 버튼에서
+      진행에 유용한 정보를 확인할 수 있습니다.
+      <br>
+      <br>
+      이 버전은 SameMa가 번역하고 유지보수하는 비공식·비상업 한국어 팬 번역이며, 원작·Endgame 제작진 및
+      ADKorean과 공식 제휴된 배포판이 아닙니다. 기존 한국어 번역 일부는 Seonjisoup621(Jihuu621)의 ADKorean에서
+      재사용하고 용어를 참고했습니다.
     </div>
     <div class="l-socials">
       <InformationModalButton
-        name="GitHub repository"
+        name="원작 저장소"
         icon="fa-brands fa-github"
         link="https://github.com/IvarK/AntimatterDimensionsSourceCode"
       />
       <InformationModalButton
-        name="Endgame repository"
+        name="엔드게임 저장소"
         icon="fa-brands fa-github"
         link="https://github.com/Supersonic-Seven/AntimatterDimensionsEndgameUpdate"
+      />
+      <InformationModalButton
+        name="한국어 패치 저장소"
+        icon="fa-brands fa-github"
+        link="https://github.com/gyeol0710/antimatter-dimensions-endgame-korean"
+      />
+      <InformationModalButton
+        name="ADKorean 저장소"
+        icon="fa-brands fa-github"
+        link="https://github.com/Jihuu621/ADKorean"
       />
       <InformationModalButton
         name="r/AntimatterDimensions"
@@ -52,32 +67,32 @@ export default {
         link="https://www.reddit.com/r/EndgameAntimatterDims/"
       />
       <InformationModalButton
-        name="Antimatter Dimensions Discord Server"
+        name="Antimatter Dimensions Discord 서버"
         icon="fa-brands fa-discord"
         link="https://discord.gg/ST9NaXa"
       />
       <InformationModalButton
-        name="Antimatter Dimensions: Endgame Discord Server"
+        name="Antimatter Dimensions: Endgame Discord 서버"
         icon="fa-brands fa-discord"
         link="https://discord.gg/yuxrGFcJXc"
       />
       <InformationModalButton
-        name="Antimatter Dimensions on Google Play"
+        name="Google Play의 Antimatter Dimensions"
         icon="fa-brands fa-google-play"
         link="https://play.google.com/store/apps/details?id=kajfosz.antimatterdimensions"
       />
       <InformationModalButton
-        name="Antimatter Dimensions on Steam"
+        name="Steam의 Antimatter Dimensions"
         icon="fa-brands fa-steam"
         link="https://store.steampowered.com/app/1399720/Antimatter_Dimensions/"
       />
       <InformationModalButton
-        name="Credits"
+        name="제작진"
         icon="fa-solid fa-users"
         show-modal="credits"
       />
       <InformationModalButton
-        name="Game Changelog"
+        name="게임 변경 내역"
         icon="fa-solid fa-file-lines"
         show-modal="changelog"
       />

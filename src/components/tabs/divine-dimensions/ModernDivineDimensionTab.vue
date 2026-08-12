@@ -29,8 +29,8 @@ export default {
   computed: {
     changeProdDisplay() {
       return this.isProducingEnergy
-        ? "Produce Divine Matter"
-        : "Produce Divine Energy";
+        ? "신성 물질 생산"
+        : "신성 에너지 생산";
     },
     currencyProd() {
       return this.isProducingEnergy
@@ -44,7 +44,7 @@ export default {
       this.divineEnergy.copyFrom(Currency.divineEnergy);
       this.matterPerSecond.copyFrom(DivineDimension(1).productionPerSecond);
       this.energyPerSecond.copyFrom(DivineDimensions.energyPerSecond);
-      this.incomeType = player.celestials.pelle.divinity.isProducingEnergy ? "Divine Energy" : "Divine Matter";
+      this.incomeType = player.celestials.pelle.divinity.isProducingEnergy ? "신성 에너지" : "신성 물질";
       this.dispBoth = DivinityUpgrade.divineL2U10.isBought;
       this.conversionFormula1 = DivineDimensions.conversionFormula1;
       this.conversionFormula2 = DivineDimensions.conversionFormula2;
@@ -75,40 +75,40 @@ export default {
         class="o-primary-btn--subtab-option"
         @click="maxAll"
       >
-        Max all
+        모두 최대 구매
       </PrimaryButton>
       <PrimaryButton
         v-if="isAnyAutobuyerUnlocked"
         class="o-primary-btn--subtab-option"
         @click="toggleAllAutobuyers"
       >
-        Toggle all autobuyers
+        모든 자동 구매기 전환
       </PrimaryButton>
     </div>
     <div>
       <div v-if="canProduceEnergy">
-        You have <span class="c-divine-dim-description__accent">{{ format(divineEnergy, 2, 1) }}</span> Divine Energy.
+        신성 에너지를 <span class="c-divine-dim-description__accent">{{ format(divineEnergy, 2, 1) }}</span> 보유하고 있습니다.
       </div>
       <div>
         <p>
-          You have
+          보유량:
           <span class="c-divine-dim-description__accent">{{ format(divineMatter, 2, 1) }}</span>
-          Divine Matter,
+          신성 물질,
           <br>
-          translated to a
+          다음 효과로 환산됩니다:
           <span class="c-divine-dim-description__accent">{{ formatX(conversionFormula1, 2, 2) }}</span>
-          multiplier to Endgame and Ethereal Power gain, a
+          엔드게임 및 에테리얼 파워 획득량 배수,
           <span class="c-divine-dim-description__accent">{{ formatPow(conversionFormula2, 2, 3) }}</span>
-          to Antimatter Exponent while Doomed and all Machines, and a
+          파멸 상태의 반물질 지수와 모든 기계에 적용되는 제곱,
           <span class="c-divine-dim-description__accent">{{ formatPercents(conversionFormula3, 2, 2) }}</span>
-          reduction to Hadron and Remnants of Alpha Decay cap times.
+          하드론과 알파 붕괴 잔재의 상한 도달 시간 감소.
         </p>
       </div>
-      <div>Divine Matter is capped at {{ format(hardcap, 2, 0) }}.</div>
-      <div v-if="!dispBoth">You are getting {{ currencyProd }} {{ incomeType }} per second.</div>
+      <div>신성 물질의 상한은 {{ format(hardcap, 2, 0) }}입니다.</div>
+      <div v-if="!dispBoth">초당 {{ currencyProd }} {{ incomeType }}을 획득하고 있습니다.</div>
       <div v-if="dispBoth">
-        <div>You are getting {{ format(matterPerSecond, 2, 0) }} Divine Matter per second.</div>
-        <div>You are getting {{ format(energyPerSecond, 2, 2) }} Divine Energy per second.</div>
+        <div>초당 신성 물질을 {{ format(matterPerSecond, 2, 0) }} 획득하고 있습니다.</div>
+        <div>초당 신성 에너지를 {{ format(energyPerSecond, 2, 2) }} 획득하고 있습니다.</div>
       </div>
       <PrimaryButton
         v-if="canProduceEnergy && !dispBoth"

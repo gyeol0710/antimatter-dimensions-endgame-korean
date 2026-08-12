@@ -29,17 +29,17 @@ export default {
     @confirm="deleteConstants"
   >
     <template #header>
-      Deleting Automator Constants
+      오토메이터 상수 삭제
     </template>
     <div class="c-modal-message__text">
-      Are you sure you wish to delete all of your currently-defined automator constants?
+      현재 정의한 오토메이터 상수를 모두 삭제하시겠습니까?
       <br>
       <span class="l-lost-text">
-        This will irreversibly delete {{ quantify("constant", constantCount) }}!
+        상수 {{ formatInt(constantCount) }}개를 되돌릴 수 없게 삭제합니다!
       </span>
     </div>
     <template #confirm-text>
-      Delete All
+      모두 삭제
     </template>
   </ModalWrapperChoice>
 </template>

@@ -29,8 +29,8 @@ export default {
     },
     timeDisplay() {
       return this.time
-        ? `Completed in ${TimeSpan.fromMilliseconds(new Decimal(this.time)).toStringShort(true, true)}`
-        : "Not reached yet";
+        ? `달성 시간: ${TimeSpan.fromMilliseconds(new Decimal(this.time)).toStringShort(true, true)}`
+        : "아직 미달성";
     },
     classObject() {
       return {

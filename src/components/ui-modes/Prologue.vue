@@ -47,23 +47,23 @@ export default {
       v-if="introFrozen && introTick === 0"
     >
       <div class="l-intro-options-spacing">
-        <span class="l-intro-options-text">Are you new to the Realm of Existence?</span>
+        <span class="l-intro-options-text">존재의 영역이 처음인가요?</span>
         <br>
         <PrimaryButton
           class="o-primary-btn--subtab-option"
           @click="startGame"
         >
-          Start New Game
+          새 게임 시작
         </PrimaryButton>
       </div>
       <div class="l-intro-options-spacing">
-        <span class="l-intro-options-text">Or have you simply lost your way?</span>
+        <span class="l-intro-options-text">아니면 그저 길을 잃었나요?</span>
         <br>
         <PrimaryButton
           class="o-primary-btn--subtab-option"
           @click="importSave"
         >
-          Import Save
+          세이브 불러오기
         </PrimaryButton>
       </div>
     </div>
@@ -71,17 +71,17 @@ export default {
       v-if="!introFrozen && introTick > 0 && introTick < 10000"
       class="l-prologue-text"
     >
-      <span class="l-intro-text">MAY 2ND 2113</span>
+      <span class="l-intro-text">2113년 오월 2일</span>
       <br>
-      <span class="l-intro-text" :style="{ opacity: opac1 }">LOCATION: ANTI-709B</span>
+      <span class="l-intro-text" :style="{ opacity: opac1 }">위치: ANTI-709B</span>
     </div>
     <div
       v-if="!introFrozen && introTick > 20000 && introTick < 30000"
       class="l-prologue-text--alternate"
     >
-      <span class="l-intro-text--alternate">FIVE</span>
-      <span class="l-intro-text--alternate" :style="{ opacity: opac2 }">YEARS</span>
-      <span class="l-intro-text--alternate" :style="{ opacity: opac3 }">LATER</span>
+      <span class="l-intro-text--alternate">다섯</span>
+      <span class="l-intro-text--alternate" :style="{ opacity: opac2 }">해 뒤</span>
+      <span class="l-intro-text--alternate" :style="{ opacity: opac3 }">...</span>
     </div>
     <div
       v-if="!introFrozen && introTick > 50000 && introTick < 60000"

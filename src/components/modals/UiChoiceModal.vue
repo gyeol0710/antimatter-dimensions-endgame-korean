@@ -9,11 +9,9 @@ export default {
   computed: {
     listEntries() {
       return [
-        `Many more game events now have animations. If these impact your performance or gameplay, they can be
-        disabled in the Visual Options tab.`,
-        `New confirmation windows have replaced the default Javascript alert windows. These can be disabled in the
-        Gameplay Options tab.`,
-        "The game now also has a new sleek layout which was designed with more Modern design practices in mind."
+        `더 많은 게임 이벤트에 애니메이션이 추가되었습니다. 성능이나 플레이에 영향을 주면 비주얼 설정에서 끌 수 있습니다.`,
+        `새 확인 창이 기본 자바스크립트 경고 창을 대체했습니다. 게임플레이 설정에서 끌 수 있습니다.`,
+        "더 현대적인 디자인 원칙을 반영한 깔끔한 새 레이아웃도 추가되었습니다."
       ];
     }
   },
@@ -28,10 +26,10 @@ export default {
 <template>
   <ModalWrapperChoice @confirm="handleYesClick">
     <template #header>
-      Visual Changes
+      시각 요소 변경 사항
     </template>
     <div class="c-modal-message__text">
-      We noticed that you've loaded an old save; a few visual changes have been made since older versions of the game:
+      오래된 세이브를 불러왔습니다. 이전 버전 이후 다음과 같은 시각 요소가 변경되었습니다.
       <br>
       <br>
       <div class="c-visual-change-list">
@@ -46,14 +44,14 @@ export default {
       </div>
       <br>
       <br>
-      You can change between the Classic UI which older versions of the game used and the newer Modern UI in the Visual
-      Options tab at any time. Would you like to swap to the Modern UI now?
+      비주얼 설정에서 이전 버전의 클래식 UI와 새로운 모던 UI를 언제든 전환할 수 있습니다.
+      지금 모던 UI로 바꾸시겠습니까?
     </div>
     <template #cancel-text>
-      Remain
+      유지
     </template>
     <template #confirm-text>
-      Swap
+      전환
     </template>
   </ModalWrapperChoice>
 </template>

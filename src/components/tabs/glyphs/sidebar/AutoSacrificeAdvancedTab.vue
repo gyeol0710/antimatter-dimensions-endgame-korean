@@ -37,7 +37,7 @@ export default {
       };
     },
     questionmarkTooltip() {
-      return "The score of a Glyph is its rarity percentage, plus the specified amount for each effect it has.";
+      return "글리프 점수는 희귀도 백분율에 보유한 각 효과의 지정 점수를 더한 값입니다.";
     },
     // This is an absolute value limit (ie. it's allowed to go negative down to negative this value)
     weightInputLimit() {
@@ -87,7 +87,7 @@ export default {
         >
           ?
         </div>
-        <b> Threshold score</b> (rarity % + effect scores)
+        <b> 기준 점수</b> (희귀도 % + 효과 점수)
       </div>
       <input
         ref="scoreThreshold"

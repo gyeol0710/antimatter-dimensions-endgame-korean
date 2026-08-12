@@ -8,13 +8,13 @@ export default {
   },
   computed: {
     message() {
-      return `Entering the Overcharge will start a new Endgame. While inside the Overcharge, you will be trapped in
-        Eternity Challenge 12, and the tetration of Antimatter Production will be multiplied by ${formatX(0.75, 2, 2)}.
-        Furthermore, Tickspeed and all Dimension Multipliers' exponents will be raised to ${formatPow(0.72, 2, 4)},
-        like Time Dilation, per level of Overcharge. Higher levels of Overcharge will unlock new, better rewards.`;
+      return `과충전에 진입하면 새로운 엔드게임이 시작됩니다. 과충전 안에서는 영원 도전 12에 갇히며,
+        반물질 생산량의 테트레이션에 ${formatX(0.75, 2, 2)}의 배수가 적용됩니다.
+        또한 과충전 단계마다 시간 팽창처럼 틱스피드와 모든 차원 배수의 지수에 ${formatPow(0.72, 2, 4)}제곱이 적용됩니다.
+        더 높은 과충전 단계에서는 새롭고 더 강력한 보상이 해금됩니다.`;
     },
     entranceLabel() {
-      return `You are about to enter the Overcharge`;
+      return `과충전에 진입하려 합니다`;
     }
   },
   methods: {
@@ -38,7 +38,7 @@ export default {
       {{ message }}
     </div>
     <template #confirm-text>
-      Bring it on
+      받아들이기
     </template>
   </ModalWrapperChoice>
 </template>

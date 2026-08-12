@@ -29,22 +29,22 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are about to respec your Shop Purchases
+      상점 구매를 재분배하려고 합니다
     </template>
     <div class="c-modal-message__text">
-      Are you sure you want to respec your Shop Purchases? This will not cost anything and
-      return the {{ returnedSTDCount() }}
+      상점 구매를 재분배하시겠습니까? 비용은 들지 않으며, 영구 배율을 부여하는 모든 구매에 사용한
+      {{ returnedSTDCount() }}
       <img
         src="images/std_coin.png"
         class="o-shop-button-button__img"
-      > you spent on all purchases which give permanent multipliers.
+      >를 돌려받습니다.
       <br>
       <br>
-      Anything spent on offline progress and Glyph cosmetics will not be refunded. Glyph cosmetic sets are
-      permanent and will not be lost or respeced once purchased.
+      오프라인 진행과 글리프 꾸미기에 사용한 금액은 환불되지 않습니다. 글리프 꾸미기 세트는 영구 적용되며,
+      한 번 구매하면 사라지거나 재분배되지 않습니다.
       <br>
       <br>
-      <b class="o-warning">You will not be able to respec again unless you purchase more STD coins.</b>
+      <b class="o-warning">STD 코인을 더 구매하기 전까지 다시 재분배할 수 없습니다.</b>
     </div>
   </ModalWrapperChoice>
 </template>

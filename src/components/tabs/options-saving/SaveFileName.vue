@@ -26,13 +26,13 @@ export default {
 
 <template>
   <div class="o-primary-btn o-primary-btn--option o-primary-btn--input l-options-grid__button">
-    <b>Save file name:</b>
-    <span ach-tooltip="Set a custom name (up to 16 alphanumeric characters, including space and hyphen)">
+    <b>세이브 파일 이름:</b>
+    <span ach-tooltip="영문자와 숫자, 공백, 하이픈만 사용해 최대 16자로 원하는 이름을 설정할 수 있습니다.">
       <input
         class="c-custom-save-name__input"
         type="text"
         maxlength="16"
-        placeholder="Custom save name"
+        placeholder="세이브 이름"
         :value="saveFileName"
         @change="handleChange"
       >

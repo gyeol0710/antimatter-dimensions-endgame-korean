@@ -234,20 +234,20 @@ class BlackHoleState {
 
   // The logic to determine what state the black hole is in for displaying is nontrivial and used in multiple places
   get displayState() {
-    if (Pelle.isDisabled("blackhole") && !PelleDestructionUpgrade.blackHole.canBeApplied) return `<i class="fas fa-ban"></i> Disabled`;
-    if (Pelle.isDoomed && PelleDestructionUpgrade.blackHole.canBeApplied) return `♅ Doomed`;
+    if (Pelle.isDisabled("blackhole") && !PelleDestructionUpgrade.blackHole.canBeApplied) return `<i class="fas fa-ban"></i> 비활성화됨`;
+    if (Pelle.isDoomed && PelleDestructionUpgrade.blackHole.canBeApplied) return `♅ 파멸`;
     if (Enslaved.isAutoReleasing) {
-      if (Enslaved.autoReleaseTick < 3) return `<i class="fas fa-compress-arrows-alt u-fa-padding"></i> Pulsing`;
-      return `<i class="fas fa-expand-arrows-alt u-fa-padding"></i> Pulsing`;
+      if (Enslaved.autoReleaseTick < 3) return `<i class="fas fa-compress-arrows-alt u-fa-padding"></i> 파동 중`;
+      return `<i class="fas fa-expand-arrows-alt u-fa-padding"></i> 파동 중`;
     }
-    if (Enslaved.isStoringGameTime) return `<i class="fas fa-compress-arrows-alt"></i> Charging`;
-    if (BlackHoles.areNegative) return `<i class="fas fa-caret-left"></i> Inverted`;
-    if (BlackHoles.arePaused) return `<i class="fas fa-pause"></i> Paused`;
-    if (this.isPermanent) return `<i class="fas fa-infinity"></i> Permanent`;
+    if (Enslaved.isStoringGameTime) return `<i class="fas fa-compress-arrows-alt"></i> 충전 중`;
+    if (BlackHoles.areNegative) return `<i class="fas fa-caret-left"></i> 역전됨`;
+    if (BlackHoles.arePaused) return `<i class="fas fa-pause"></i> 일시 정지`;
+    if (this.isPermanent) return `<i class="fas fa-infinity"></i> 영구 활성`;
 
     const timeString = TimeSpan.fromSeconds(new Decimal(this.timeToNextStateChange)).toStringShort(true);
-    if (this.isActive) return `<i class="fas fa-play"></i> Active (${timeString})`;
-    return `<i class="fas fa-redo"></i> Inactive (${timeString})`;
+    if (this.isActive) return `<i class="fas fa-play"></i> 활성 (${timeString})`;
+    return `<i class="fas fa-redo"></i> 비활성 (${timeString})`;
   }
 
   get isActive() {
@@ -295,7 +295,7 @@ class BlackHoleState {
         this._data.phase -= this.duration;
         this._data.active = false;
         if (GameUI.notify.showBlackHoles) {
-          GameUI.notify.blackHole(`${this.description(true)} duration ended.`);
+          GameUI.notify.blackHole(`${this.description(true)}의 지속 시간이 끝났습니다.`);
         }
       }
     } else if (this.phase >= this.interval) {
@@ -303,7 +303,7 @@ class BlackHoleState {
       this._data.activations++;
       this._data.active = true;
       if (GameUI.notify.showBlackHoles) {
-        GameUI.notify.blackHole(`${this.description(true)} has activated!`);
+        GameUI.notify.blackHole(`${this.description(true)} 활성화!`);
       }
     }
   }
@@ -349,9 +349,9 @@ class BlackHoleState {
 
   description(capitalized) {
     if (RealityUpgrade(20).isBought) {
-      return `Black Hole ${this.id}`;
+      return `블랙홀 ${this.id}`;
     }
-    return capitalized ? "The Black Hole" : "the Black Hole";
+    return capitalized ? "블랙홀" : "블랙홀";
   }
 }
 
@@ -395,19 +395,21 @@ export const BlackHoles = {
     if (!BlackHoles.areUnlocked) return;
     const maxInversion = player.requirementChecks.reality.slowestBH <= 1e-300;
     if (ImaginaryUpgrade(24).isLockingMechanics && Ra.isRunning && maxInversion) {
-      if (!automatic) ImaginaryUpgrade(24).tryShowWarningModal("uninvert your Black Hole");
+      if (!automatic) ImaginaryUpgrade(24).tryShowWarningModal("블랙홀 역전을 해제");
       return;
     }
     if (player.blackHolePause) player.requirementChecks.reality.slowestBH = 1;
     player.blackHolePause = !player.blackHolePause;
     player.blackHolePauseTime = player.records.realTimePlayed;
-    const blackHoleString = RealityUpgrade(20).isBought ? "Black Holes" : "Black Hole";
+    const blackHoleString = RealityUpgrade(20).isBought ? "블랙홀들" : "블랙홀";
     // If black holes are going unpaused -> paused, use "inverted" or "paused" depending o
     // whether the player's using negative BH (i.e. BH inversion); if going paused -> unpaused,
     // use "unpaused".
     // eslint-disable-next-line no-nested-ternary
-    const pauseType = player.blackHolePause ? (BlackHoles.areNegative ? "inverted" : "paused") : "unpaused";
-    const automaticString = automatic ? "automatically " : "";
+    const pauseType = player.blackHolePause
+      ? (BlackHoles.areNegative ? "역전되었습니다" : "일시 정지되었습니다")
+      : "재개되었습니다";
+    const automaticString = automatic ? "(자동) " : "";
     GameUI.notify.blackHole(`${blackHoleString} ${automaticString}${pauseType}`);
   },
 

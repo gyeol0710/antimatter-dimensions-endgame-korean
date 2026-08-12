@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     importDestString() {
-      return this.intoEmpty ? "into an empty Tree" : "with your current Tree";
+      return this.intoEmpty ? "빈 트리에" : "현재 트리에";
     }
   },
   methods: {
@@ -29,13 +29,13 @@ export default {
 <template>
   <div class="l-modal-import-tree__tree-info-line">
     <div v-if="tree.timeTheorems === 0 && tree.spaceTheorems === 0">
-      <i>Importing this {{ importDestString }} will not purchase any new Time Studies.</i>
+      <i>이 문자열을 {{ importDestString }} 가져와도 새 시간 연구를 구매하지 않습니다.</i>
     </div>
     <div v-else>
-      Importing {{ importDestString }} will purchase:
+      {{ importDestString }} 가져오면 다음 시간 연구를 구매합니다.
       <br>
       {{ tree.newStudies }}
-      (Cost: {{ formatTheoremCost(tree.timeTheorems, tree.spaceTheorems) }})
+      (비용: {{ formatTheoremCost(tree.timeTheorems, tree.spaceTheorems) }})
     </div>
     <br>
   </div>

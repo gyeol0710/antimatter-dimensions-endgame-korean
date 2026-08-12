@@ -54,7 +54,7 @@ export default {
 
 <template>
   <div
-    v-tooltip="hidable ? isCurrentSubtab ? 'You cannot hide the tab you are on' : '' : 'Options tabs cannot be hidden'"
+    v-tooltip="hidable ? isCurrentSubtab ? '현재 열려 있는 탭은 숨길 수 없습니다' : '' : '옵션 탭은 숨길 수 없습니다'"
     :class="classObject"
     @click="toggleVisibility"
   >

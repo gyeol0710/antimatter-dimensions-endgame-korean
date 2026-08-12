@@ -48,21 +48,21 @@ export default {
     modeProps(mode) {
       switch (mode) {
         case AUTO_CELESTIAL_CRUNCH_MODE.AMOUNT: return {
-          title: "Celestial Crunch at X CIP",
+          title: "CIP X개에서 셀레스티얼 크런치",
           input: {
             property: "amount",
             type: "decimal"
           },
         };
         case AUTO_CELESTIAL_CRUNCH_MODE.TIME: return {
-          title: "Seconds between Celestial Crunches",
+          title: "셀레스티얼 크런치 간격(초)",
           input: {
             property: "time",
             type: "float"
           },
         };
         case AUTO_CELESTIAL_CRUNCH_MODE.X_HIGHEST: return {
-          title: "X times highest CIP",
+          title: "최고 CIP의 X배",
           input: {
             property: "xHighest",
             type: "decimal"
@@ -83,7 +83,7 @@ export default {
     :autobuyer="autobuyer"
     :show-interval="true"
     :is-modal="isModal"
-    name="Automatic Celestial Crunch"
+    name="셀레스티얼 크런치 자동 진행"
   >
     <template #intervalSlot>
       <ExpandingControlBox
@@ -92,7 +92,7 @@ export default {
       >
         <template #header>
           <div class="o-primary-btn c-autobuyer-box__mode-select c-autobuyer-box__mode-select-header">
-            ▼ Current Setting: ▼
+            ▼ 현재 설정: ▼
             <br>
             {{ modeName(mode) }}
           </div>
@@ -125,7 +125,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Dynamic amount
+        동적 수량
       </label>
     </template>
   </AutobuyerBox>

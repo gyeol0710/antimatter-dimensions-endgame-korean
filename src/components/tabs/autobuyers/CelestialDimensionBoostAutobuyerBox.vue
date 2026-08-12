@@ -49,7 +49,7 @@ export default {
     :autobuyer="autobuyer"
     :is-modal="isModal"
     :show-interval="!isBuyMaxUnlocked"
-    name="Automatic Celestial Dimension Boosts"
+    name="셀레스티얼 차원 가속 자동 구매"
   >
     <template
       v-if="isBuyMaxUnlocked"
@@ -59,7 +59,7 @@ export default {
         class="c-autobuyer-box__small-text"
       >
         <br>
-        Activates every X seconds:
+        X초마다 작동:
       </div>
       <AutobuyerInput
         :autobuyer="autobuyer"
@@ -79,7 +79,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Limit Celestial Dimension Boosts to:
+        셀레스티얼 차원 가속 제한:
       </label>
       <AutobuyerInput
         :autobuyer="autobuyer"
@@ -97,12 +97,12 @@ export default {
           class="o-clickable"
         >
         <span v-if="isBuyMaxUnlocked">
-          Do not buy Celestial Dimboosts<br>
-          until X Celestial Galaxies:
+          셀레스티얼 은하 X개까지<br>
+          셀레스티얼 차원 가속 구매 안 함:
         </span>
         <span v-else>
-          Celestial Galaxies required to always<br>
-          Celestial Dimboost, ignoring the limit:
+          제한을 무시하고 항상 셀레스티얼 차원 가속을<br>
+          구매하기 위해 필요한 셀레스티얼 은하:
         </span>
       </label>
       <AutobuyerInput

@@ -46,18 +46,18 @@ export default {
       @click="purchaseUpgrade"
     >
       <div>
-        Gain a Power Core
+        동력 코어 획득
         <br>
-        Current multiplier to Accelerator Speed: {{ formatX(multiplier, 2, 0) }}
+        현재 가속기 속도 배수: {{ formatX(multiplier, 2, 0) }}
       </div>
       <br>
-      Cost: {{ quantify("Total Hadron", cost, 2, 0) }}
+      비용: {{ quantify("총 하드론", cost, 2, 0) }}
     </button>
     <PrimaryButton
       class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
       @click="upgrade.buyMax(false)"
     >
-      Buy max Power Cores
+      동력 코어 최대 구매
     </PrimaryButton>
   </div>
 </template>

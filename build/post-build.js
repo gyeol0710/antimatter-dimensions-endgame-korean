@@ -15,3 +15,5 @@ const commit = {
 const json = JSON.stringify(commit);
 
 fs.writeFileSync(path.resolve(__dirname, "../dist/commit.json"), json);
+fs.copyFileSync(path.resolve(__dirname, "../LICENSE"), path.resolve(__dirname, "../dist/LICENSE.txt"));
+fs.copyFileSync(path.resolve(__dirname, "../ATTRIBUTION.md"), path.resolve(__dirname, "../dist/ATTRIBUTION.md"));

@@ -38,7 +38,7 @@ export default {
     },
     showModal() {
       Modal.glyphShowcasePanel.show({
-        name: "Potential Glyphs for this Reality",
+        name: "이번 현실의 예상 글리프",
         glyphSet: this.glyphs,
         closeEvent: GAME_EVENT.REALITY_RESET_AFTER,
         isGlyphSelection: true,
@@ -61,19 +61,19 @@ export default {
     >
       <GlyphSetPreview
         :show-name="false"
-        :text="'Upcoming Glyph selection:'"
+        :text="'예정된 글리프 선택:'"
         :glyphs="glyphs"
         :ignore-modified-level="true"
         :show-sacrifice="canSacrifice"
         :flip-tooltip="true"
         :sort="false"
       />
-      (Click to bring up details)
+      (클릭하여 세부 정보 보기)
     </div>
     <div v-else>
-      Purchase the Reality study to see
+      현실 연구를 구매하면 이번 현실에서
       <br>
-      this Reality's Glyph choices
+      선택할 글리프를 미리 볼 수 있습니다
     </div>
   </div>
 </template>

@@ -11,7 +11,7 @@ export default {
       <br>
       <div>
       <b>
-        The Universes will reveal their contents no earlier than v2.1.
+        우주는 v2.1 이전에는 내용을 드러내지 않습니다.
       </b>
       </div>
     </div>

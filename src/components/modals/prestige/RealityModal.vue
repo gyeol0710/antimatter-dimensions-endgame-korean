@@ -31,46 +31,44 @@ export default {
   },
   computed: {
     firstRealityText() {
-      return `Reality will reset everything except Challenge records and anything under the General header on the
-        Statistics tab. The first ${formatInt(13)} rows of Achievements are also reset,
-        but you will automatically get one Achievement back every
-        ${timeDisplayNoDecimals(new Decimal(30 * 60000))}. You will also gain Reality Machines based on your Eternity Points, a
-        Glyph with a level based on your Eternity Points, Replicanti, and Dilated Time, a Perk Point to spend
-        on quality of life upgrades, and unlock various upgrades.`;
+      return `현실은 도전 기록과 통계 탭의 일반 항목을 제외한 모든 것을 초기화합니다.
+        도전과제의 첫 ${formatInt(13)}개 행도 초기화되지만,
+        ${timeDisplayNoDecimals(new Decimal(30 * 60000))}마다 도전과제 하나를 자동으로 다시 얻습니다.
+        또한 영원 포인트에 따른 리얼리티 머신, 영원 포인트와 복제자 및 팽창된 시간에 따른 레벨의 글리프,
+        편의성 업그레이드에 쓸 퍼크 포인트 하나를 얻고 여러 업그레이드를 해금합니다.`;
     },
     canSacrifice() {
       return RealityUpgrade(19).isEffectActive;
     },
     warnText() {
       if (!this.hasChoice) {
-        return `You currently only have a single option for new Glyphs every
-          Reality. You can unlock the ability to choose from multiple Glyphs by canceling out of this modal and
-          purchasing the START Perk.`;
+        return `현재 현실마다 새 글리프 선택지가 하나만 주어집니다. 이 모달을 닫고 START 퍼크를 구매하면
+          여러 글리프 중 하나를 선택할 수 있습니다.`;
       }
 
       if (this.hasFilter && this.selectedGlyph === undefined) {
-        return `If you do not choose a Glyph, one will be automatically selected using your Glyph filter.`;
+        return `글리프를 선택하지 않으면 글리프 필터를 사용해 하나가 자동으로 선택됩니다.`;
       }
       return this.selectedGlyph === undefined
-        ? `You must select a Glyph in order to continue.`
+        ? `계속하려면 글리프를 선택해야 합니다.`
         : null;
     },
     gained() {
       const gainedResources = [];
-      gainedResources.push(`${quantifyHybridLarge("Reality", this.simRealities)}`);
-      gainedResources.push(`${quantifyHybridLarge("Perk Point", this.simRealities)}`);
-      gainedResources.push(`${quantify("Reality Machine", this.realityMachines, 2)}`);
+      gainedResources.push(`${quantifyHybridLarge("현실", this.simRealities)}`);
+      gainedResources.push(`${quantifyHybridLarge("퍼크 포인트", this.simRealities)}`);
+      gainedResources.push(`${quantify("리얼리티 머신", this.realityMachines, 2)}`);
       if (this.effarigUnlocked) {
-        gainedResources.push(`${quantify("Relic Shard", this.shardsGained, 2)}`);
+        gainedResources.push(`${quantify("유물 파편", this.shardsGained, 2)}`);
       }
-      return `You will gain ${makeEnumeration(gainedResources)}`;
+      return `${makeEnumeration(gainedResources)}를 얻습니다.`;
     },
     levelStats() {
       // Bit annoying to read due to needing >, <, and =, with = needing a different format.
-      return `You will get a level ${formatHybridLarge(this.level, 3)} Glyph on Reality, which is
-        ${this.level.eq(this.bestLevel) ? "equal to" : `
-        ${quantifyHybridLarge("level", this.levelDifference)}
-        ${this.level.gt(this.bestLevel) ? "higher" : "lower"} than`} your best.`;
+      return `현실에서 레벨 ${formatHybridLarge(this.level, 3)} 글리프를 얻습니다. 이는 최고 기록과
+        ${this.level.eq(this.bestLevel) ? "같습니다" : `
+        ${quantifyHybridLarge("레벨", this.levelDifference)}만큼
+        ${this.level.gt(this.bestLevel) ? "높습니다" : "낮습니다"}`}.`;
     },
     confirmationToDisable() {
       return ConfirmationTypes.glyphSelection.isUnlocked() ? "glyphSelection" : undefined;
@@ -141,7 +139,7 @@ export default {
     @confirm="confirmModal(false)"
   >
     <template #header>
-      You are about to Reality
+      현실에 도달하려 합니다
     </template>
     <div
       v-if="firstReality"
@@ -177,33 +175,32 @@ export default {
     </div>
     <div v-if="simRealities.gt(1)">
       <br>
-      After choosing this Glyph the game will simulate the rest of your Realities,
+      이 글리프를 선택하면 게임이 남은 현실을 시뮬레이션하며,
       <br>
-      automatically choosing another {{ quantifyHybridSmall("Glyph", simRealities.sub(1)) }}
-      based on your Glyph filter settings.
+      글리프 필터 설정에 따라 다른 {{ quantifyHybridSmall("글리프", simRealities.sub(1)) }}를
+      자동으로 선택합니다.
     </div>
     <div v-if="willAutoPurge">
       <br>
-      Auto-purge is currently enabled; your selected Glyph
+      자동 정리가 현재 활성화되어 있으므로 선택한 글리프가
       <br>
-      may not appear in your inventory after it triggers.
+      작동 후 보관함에 나타나지 않을 수 있습니다.
     </div>
     <div
       v-if="!hasSpace"
       class="o-warning"
     >
       <span v-if="simRealities.gt(1)">
-        You will be simulating more Realities than you have open inventory space for;
-        this may result in some Glyphs being Sacrificed.
+        빈 보관함 공간보다 더 많은 현실을 시뮬레이션하므로 일부 글리프가 희생될 수 있습니다.
       </span>
       <span v-else>
-        You do not have any free inventory space - your selected Glyph will be automatically
-        {{ canSacrifice ? "Sacrificed" : "deleted" }}!
+        빈 보관함 공간이 없습니다. 선택한 글리프가 자동으로
+        {{ canSacrifice ? "희생" : "삭제" }}됩니다!
       </span>
     </div>
     <div v-if="confirmationToDisable">
       <br>
-      You can force this modal to appear (even if disabled) by Shift-clicking the Reality button.
+      이 확인이 비활성화되어 있어도 Shift 키를 누른 채 현실 버튼을 클릭하면 모달을 강제로 열 수 있습니다.
     </div>
     <template
       v-if="canSacrifice && canConfirm"
@@ -213,7 +210,7 @@ export default {
         class="o-primary-btn--width-medium c-modal-message__okay-btn"
         @click="confirmModal(true)"
       >
-        Sacrifice
+        희생
       </PrimaryButton>
     </template>
   </ModalWrapperChoice>

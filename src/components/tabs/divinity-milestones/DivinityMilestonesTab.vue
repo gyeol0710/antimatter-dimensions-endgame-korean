@@ -36,7 +36,7 @@ export default {
 
 <template>
   <div class="l-divinity-milestone-grid">
-    <div class="o-divinity-amount">You have {{ quantify("Divinity", divinityCount, 3) }}.</div>
+    <div class="o-divinity-amount">{{ quantify("신성", divinityCount, 3) }}을 달성했습니다.</div>
     <div
       v-for="row in rows"
       :key="row"
@@ -50,7 +50,7 @@ export default {
       />
     </div>
     <div v-if="showNewFeature">
-      <span class="o-divinity-amount">Reach {{ formatInt(13) }} Divinities to unlock Universes.</span>
+      <span class="o-divinity-amount">신성을 {{ formatInt(13) }}회 달성하면 우주가 해금됩니다.</span>
     </div>
   </div>
 </template>

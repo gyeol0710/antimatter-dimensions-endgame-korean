@@ -60,7 +60,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "Alpha's", number: 7 });
+      Modal.celestials.show({ name: "알파", number: 7 });
     }
   }
 };
@@ -72,14 +72,14 @@ export default {
     <br>
     <div>
       <span class="l-alpha-text">
-        Each Alpha layer beaten also increases Endgame and Ethereal Power gain by {{ formatPercents(0.33) }}
+        알파의 각 계층을 완료할 때마다 엔드게임 및 에테리얼 파워 획득량도 {{ formatPercents(0.33) }} 증가합니다.
       </span>
     </div>
     <div class="l-alpha-unlocks-and-run">
       <div class="l-alpha-unlocks">
         <div>
           <span class="l-alpha-header">
-            Layer
+            계층
           </span>
           <p
             v-for="(layer, idx) in layers"
@@ -90,7 +90,7 @@ export default {
         </div>
         <div>
           <span class="l-alpha-header">
-            Nerf
+            약화
           </span>
           <p
             v-for="(nerf, idy) in nerfs"
@@ -101,7 +101,7 @@ export default {
         </div>
         <div>
           <span class="l-alpha-header">
-            Buff
+            강화
           </span>
           <p
             v-for="(buff, idz) in buffs"
@@ -114,7 +114,7 @@ export default {
       <div class="l-alpha-run">
         <div class="c-alpha-run-description">
           <span :class="{ 'o-pelle-disabled': isDoomed || isDestroyed }">
-            Access Alpha's Reality.
+            알파의 현실에 진입합니다.
           </span>
         </div>
         <div

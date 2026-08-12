@@ -52,7 +52,7 @@ export default {
       gapStr = `${this.currTime > ms ? "-" : "+"}${gapStr}`;
       return ms > 0
         ? `${timeStr}${showGap ? ` (${gapStr})` : ""}`
-        : "Not reached yet";
+        : "아직 미달성";
     },
     timeStyle(time) {
       const isFastest = time === [this.currTime, this.refTime, this.bestTime].filter(t => t !== 0).min();
@@ -69,14 +69,14 @@ export default {
 <template>
   <div :class="classObject">
     <span class="l-milestone-title">{{ milestone.name }}</span>
-    <span :style="timeStyle(currTime)">Current run: {{ timeString(currTime) }}</span>
+    <span :style="timeStyle(currTime)">현재 스피드런: {{ timeString(currTime) }}</span>
     <span
       v-if="refTime"
       :style="timeStyle(refTime)"
     >
-      Run {{ runIndices[0] }}: {{ timeString(refTime, true) }}
+      스피드런 {{ runIndices[0] }}: {{ timeString(refTime, true) }}
     </span>
-    <span :style="timeStyle(bestTime)">Best ({{ runIndices[1] }}): {{ timeString(bestTime, true) }}</span>
+    <span :style="timeStyle(bestTime)">최고 기록 (스피드런 {{ runIndices[1] }}): {{ timeString(bestTime, true) }}</span>
   </div>
 </template>
 

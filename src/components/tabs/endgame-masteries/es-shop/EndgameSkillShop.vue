@@ -40,7 +40,7 @@ export default {
       return formatInt;
     },
     totalEndgameSkillText() {
-      return `${quantify("total Endgame Skill", this.totalEndgameSkills, 2, 2, this.formatEndgameSkillType)}`;
+      return `${quantify("엔드게임 스킬", this.totalEndgameSkills, 2, 2, this.formatEndgameSkillType)}`;
     },
     minimizeArrowStyle() {
       return {
@@ -49,7 +49,7 @@ export default {
       };
     },
     saveLoadText() {
-      return this.$viewModel.shiftDown ? "Save:" : "Load:";
+      return this.$viewModel.shiftDown ? "저장:" : "불러오기:";
     },
     shopBottomRowHeightStyle() {
       return {
@@ -62,7 +62,7 @@ export default {
       player.endgameMasteries.shopMinimized = !player.endgameMasteries.shopMinimized;
     },
     formatGG(gg) {
-      return `${format(gg, 2, 0)} Galaxies`;
+      return `은하 ${format(gg, 2, 0)}개`;
     },
     buyWithGG() {
       EndgameSkills.buyOne(false, "gg");
@@ -115,7 +115,7 @@ export default {
         </button>
         <p class="endgameskills">
           <span class="c-es-amount">
-            {{ quantify("Endgame Skill", skillAmount, 2, 0, formatEndgameSkillType) }}
+            {{ quantify("엔드게임 스킬", skillAmount, 2, 0, formatEndgameSkillType) }}
           </span>
         </p>
         <div class="l-load-tree-area">
@@ -129,7 +129,7 @@ export default {
           </div>
           <div class="es-gen-container">
             <span>
-              You have {{ totalEndgameSkillText }}.
+              총 {{ totalEndgameSkillText }} 보유 중입니다.
             </span>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default {
             class="o-es-top-row-button c-es-buy-button c-es-buy-button--unlocked"
             @click="buyMaxSkills"
           >
-            Buy max
+            최대 구매
           </button>
         </div>
       </div>

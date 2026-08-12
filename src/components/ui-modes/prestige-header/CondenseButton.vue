@@ -104,27 +104,27 @@ export default {
   >
     <!-- Cannot Condense -->
     <template v-if="!canCondense">
-      Reach {{ format(condenseGoal, 2, 2) }}
+      {{ format(condenseGoal, 2, 2) }} 도달 필요
       <br>
-      Divine Matter
+      신성 물질
     </template>
 
     <!-- Can Condense -->
     <template v-else>
       <div v-if="!showVSRate" />
       <b>
-        Condense for
+        응축하여
         <span :style="amountStyle">{{ format(gainedVS, 2) }}</span>
         <span v-if="showVSRate"> VS</span>
-        <span v-else> Divine {{ pluralize("Star", gainedVS) }}</span>
+        <span v-else> {{ pluralize("신성 별", gainedVS) }}</span>
       </b>
       <template v-if="showVSRate">
         <br>
-        Current: {{ format(currentVSRate, 2) }} VS/min
+        현재: {{ format(currentVSRate, 2) }} VS/분
         <br>
-        Peak: {{ format(peakVSRate, 2) }} VS/min
+        최고: {{ format(peakVSRate, 2) }} VS/분
         <br>
-        at {{ format(peakVSRateVal, 2) }} VS
+        {{ format(peakVSRateVal, 2) }} VS에서 달성
       </template>
       <div v-else />
     </template>

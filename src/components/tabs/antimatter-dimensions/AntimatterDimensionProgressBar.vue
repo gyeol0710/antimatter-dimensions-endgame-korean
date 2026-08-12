@@ -36,33 +36,33 @@ export default {
         Laitela.isRunning) && !Pelle.isDoomed && !player.antimatter.gte(DC.E9E15);
       if (inSpecialRun) {
         if (Player.isInAntimatterChallenge) {
-          setProgress(Currency.antimatter.value, Player.antimatterChallenge.goal, "Percentage to Challenge goal");
+          setProgress(Currency.antimatter.value, Player.antimatterChallenge.goal, "도전의 목표까지의 진행도");
         } else if (EternityChallenge.isRunning) {
           if (Perk.studyECBulk.isBought) {
             // Note: If the EC is fully complete, this prop doesn't exist
             const goal = EternityChallenge.current.gainedCompletionStatus.nextGoalAt;
             if (goal) {
-              setProgress(Currency.infinityPoints.value, goal, "Percentage to next Challenge completion");
+              setProgress(Currency.infinityPoints.value, goal, "무한 도전의 목표까지의 진행도");
             } else {
               // In a fully completed EC, there's nothing useful we can show so we just pin it at 100% and say so
-              setProgress(Currency.infinityPoints.value, 10, "This Challenge is already fully completed!");
+              setProgress(Currency.infinityPoints.value, 10, "이 도전은 이미 완료되었습니다!");
             }
           } else {
-            setProgress(Currency.infinityPoints.value, Player.eternityGoal, "Percentage to Eternity Challenge goal");
+            setProgress(Currency.infinityPoints.value, Player.eternityGoal, "영원 도전의 목표까지의 진행도");
           }
         } else if (player.dilation.active && !Pelle.isDoomed) {
           if (player.dilation.lastEP.gt(0)) {
-            setProgress(Currency.antimatter.value, getTachyonReq(), "Percentage to gain more TP in Dilation");
+            setProgress(Currency.antimatter.value, getTachyonReq(), "팽창 중 더 많은 TP를 얻을 수 있을 때까지의 진행도");
           } else {
-            setProgress(Currency.infinityPoints.value, Player.eternityGoal, "Percentage to Eternity in Dilation");
+            setProgress(Currency.infinityPoints.value, Player.eternityGoal, "팽창 도중 영원까지의 진행도");
           }
         } else {
           // Lai'tela destabilization; since the progress bar is logarithmically-scaled, we need to pow10 the arguments
-          setProgress(Decimal.pow10(player.celestials.laitela.entropy), 10, "Percentage to Destabilized Reality");
+          setProgress(Decimal.pow10(player.celestials.laitela.entropy), 10, "불안정한 현실까지의 진행도");
         }
       } else if (Alpha.isRunning) {
         if (player.celestials.alpha.stage === 27) {
-          setProgress(Currency.eternityPoints.value, DC.E4000, "Percentage to Reality");
+          setProgress(Currency.eternityPoints.value, DC.E4000, "현실까지의 진행도");
         } else if (player.celestials.alpha.stage === 26) {
           setLinearProgress(Math.min(DilationTimeStudyState.studies.filter(u => u.isBought).length / 12, 1/3) +
             player.timestudy.theorem.div(3e9).min(1/3).toNumber() +
@@ -157,19 +157,19 @@ export default {
         } else if (PelleRifts.recursion.milestones[2].canBeApplied || GalaxyGenerator.spentGalaxies.gt(0)) {
           setProgress(new Decimal(Currency.antimatter.value.add(1).log10()), new Decimal(9e15), "Percentage to Endgame");
         } else if (PelleStrikes.dilation.hasStrike) {
-          setProgress(Currency.eternityPoints.value, DC.E4000, "Percentage to Galaxy Generator");
+          setProgress(Currency.eternityPoints.value, DC.E4000, "은하 생성기까지의 진행도");
         } else if (PelleStrikes.ECs.hasStrike) {
           setLinearProgress(
             (Math.min(Currency.timeTheorems.max.toNumber() / 12900, 1) +
             Math.min(EternityChallenges.completions / 60, 1)) / 2,
             1, "Percentage to fifth Strike");
         } else if (PelleStrikes.eternity.hasStrike) {
-          setLinearProgress(Currency.timeTheorems.max.toNumber(), 115, "Percentage to fourth Strike");
+          setLinearProgress(Currency.timeTheorems.max.toNumber(), 115, "네번째 스트라이크까지의 진행도");
         } else if (PelleStrikes.powerGalaxies.hasStrike) {
-          setProgress(Currency.infinityPoints.value, Player.eternityGoal, "Percentage to third Strike");
+          setProgress(Currency.infinityPoints.value, Player.eternityGoal, "세번째 스트라이크까지의 진행도");
         } else if (PelleStrikes.infinity.hasStrike) {
           if (player.break) {
-            setProgress(Currency.infinityPoints.value, 5e11, "Percentage to second Strike");
+            setProgress(Currency.infinityPoints.value, 5e11, "두번째 스트라이크까지의 진행도");
           } else {
             setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to Infinity");
           }
@@ -195,14 +195,14 @@ export default {
       } else if (Currency.antimatter.value.gte(DC.E9E15)) {
         setProgress(Currency.singularities.value, DC.E300, "Percentage to Galactic Power");
       } else if (Enslaved.isCompleted) {
-        setProgress(Currency.infinityPoints.value, Tesseracts.nextCost, "Percentage to next Tesseract");
+        setProgress(Currency.infinityPoints.value, Tesseracts.nextCost, "다음 테서랙트까지의 진행도");
       } else if (PlayerProgress.dilationUnlocked()) {
-        setProgress(Currency.eternityPoints.value, DC.E4000, "Percentage to Reality");
+        setProgress(Currency.eternityPoints.value, DC.E4000, "현실까지의 진행도");
       } else if (InfinityDimension(8).isUnlocked) {
-        setProgress(Currency.infinityPoints.value, Player.eternityGoal, "Percentage to Eternity");
+        setProgress(Currency.infinityPoints.value, Player.eternityGoal, "영원까지의 진행도");
       } else if (player.break) {
         const text = `Percentage to unlock a new ${InfinityDimensions.next().hasIPUnlock
-          ? "type of Dimension"
+          ? "종류의 차원을 해금하기까지의 진행도"
           : "Infinity Dimension"}`;
         const nextID = InfinityDimensions.next();
         if (nextID.ipRequirementReached) {

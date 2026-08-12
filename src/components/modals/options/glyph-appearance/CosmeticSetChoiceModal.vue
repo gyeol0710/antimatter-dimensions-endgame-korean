@@ -26,15 +26,15 @@ export default {
       return CosmeticGlyphTypes.list.filter(t => t.isCosmetic && t.isUnlocked).map(t => t.id);
     },
     setName() {
-      return this.currentSet?.name ?? "None Selected";
+      return this.currentSet?.name ?? "선택 안 함";
     },
     setContents() {
       const contents = [];
       // We explicitly pass in x => x as the formatting function in order to override END formatting; if we don't,
       // this modal will show END symbols/colors when opened at game completion
-      if (this.symbols) contents.push(quantify("symbol", this.symbols.length, 0, 0, x => x));
-      if (this.colors) contents.push(quantify("color scheme", this.colors.length, 0, 0, x => x));
-      return contents.join(" and ");
+      if (this.symbols) contents.push(quantify("기호", this.symbols.length, 0, 0, x => x));
+      if (this.colors) contents.push(quantify("색상 조합", this.colors.length, 0, 0, x => x));
+      return contents.join(" 및 ");
     },
     symbols() {
       return this.currentSet.symbol;
@@ -83,7 +83,7 @@ export default {
     @confirm="chooseSet"
   >
     <template #header>
-      Choose a Glyph Cosmetic Set
+      글리프 장식 세트 선택
     </template>
     <div class="c-center">
       <ExpandingControlBox
@@ -91,7 +91,7 @@ export default {
       >
         <template #header>
           <div class="c-dropdown-header">
-            ▼ Available Sets ▼
+            ▼ 사용 가능한 세트 ▼
             <br>
             {{ setName }}
           </div>
@@ -101,7 +101,7 @@ export default {
         </template>
       </ExpandingControlBox>
       <div v-if="currentSet">
-        The "{{ currentSet.name }}" Set contains the following {{ setContents }}:
+        "{{ currentSet.name }}" 세트에는 다음 {{ setContents }}이 포함됩니다:
         <br>
         <span
           v-for="symbol of symbols"

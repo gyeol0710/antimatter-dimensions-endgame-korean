@@ -40,7 +40,7 @@
 .o-endgame-mastery {
   width: 18rem;
   height: 10rem;
-  font-family: Typewriter, serif;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   font-size: 1rem;
   font-weight: bold;
   background-color: black;

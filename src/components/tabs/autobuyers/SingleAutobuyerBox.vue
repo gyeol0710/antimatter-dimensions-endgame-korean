@@ -29,6 +29,9 @@ export default {
     name() {
       return this.autobuyer.name;
     },
+    displayName() {
+      return this.autobuyer.displayName;
+    },
     isSacrifice() {
       return this.name === "Dimensional Sacrifice";
     },
@@ -58,20 +61,20 @@ export default {
   >
     <AutobuyerSingleToggleLabel :autobuyer="autobuyer" />
     <div>
-      {{ name }}
+      {{ displayName }}
       <AutobuyerIntervalLabel :autobuyer="autobuyer" />
 
       <b
         v-if="isHiddenSacrifice"
         class="c-autobuyer-box__small-text"
       >
-        Automatic (Achievement 118)
+        자동 (도전과제 118)
       </b>
       <span
         v-else-if="autobuyer.hasInput"
         class="c-autobuyer-box__small-text"
       >
-        Multiplier:
+        배율:
         <button
           v-if="isAnnihilation"
           class="c-annihilation-autobuyer-mode-button"

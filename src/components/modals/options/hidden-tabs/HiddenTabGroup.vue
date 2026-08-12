@@ -56,9 +56,9 @@ export default {
       };
     },
     rowVisibleIndicatorTooltip() {
-      if (this.isHidden) return "Click to unhide tab";
-      if (!this.alwaysVisible) return "Click to hide tab";
-      return "This tab cannot be hidden";
+      if (this.isHidden) return "클릭하여 탭 표시";
+      if (!this.alwaysVisible) return "클릭하여 탭 숨기기";
+      return "이 탭은 숨길 수 없습니다";
     },
   },
   methods: {

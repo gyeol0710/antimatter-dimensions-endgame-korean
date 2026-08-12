@@ -32,7 +32,7 @@ export default {
       return typeof reward === "function" ? reward() : reward;
     },
     title() {
-      return `Galactic Power ${this.config.id}:`;
+      return `은하력 ${this.config.id}:`;
     }
   },
   methods: {

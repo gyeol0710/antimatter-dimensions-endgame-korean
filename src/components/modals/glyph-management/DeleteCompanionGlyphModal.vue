@@ -14,12 +14,12 @@ export default {
   computed: {
     message() {
       switch (this.messageIndex) {
-        case 0: return "Are you sure you want to get rid of your Companion Glyph?";
-        case 1: return "You will not receive any cake.";
-        case 2: return "This is permanent! You will not get another Companion Glyph!";
-        case 3: return `You deleted your faithful Companion Glyph more quickly than any
-                        other test subject on record. Congratulations.`;
-        default: return "Invalid message index";
+        case 0: return "동반자 글리프를 정말 없애시겠습니까?";
+        case 1: return "케이크는 받을 수 없습니다.";
+        case 2: return "영구적인 결정입니다! 동반자 글리프를 다시는 얻을 수 없습니다!";
+        case 3: return `기록에 있는 어떤 실험 대상보다 충실한 동반자 글리프를 더 빨리 삭제했습니다.
+                        축하합니다.`;
+        default: return "잘못된 메시지 인덱스";
       }
     }
   },
@@ -66,13 +66,13 @@ export default {
         class="o-primary-btn--width-medium c-modal-message__okay-btn"
         @click="handleLeftButtonClick"
       >
-        {{ messageIndex < 2 ? "Delete" : "Cancel" }}
+        {{ messageIndex < 2 ? "삭제" : "취소" }}
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn--width-medium c-modal-message__okay-btn"
         @click="handleRightButtonClick"
       >
-        {{ messageIndex >= 2 ? "Delete" : "Cancel" }}
+        {{ messageIndex >= 2 ? "삭제" : "취소" }}
       </PrimaryButton>
     </div>
     <div v-else>
@@ -80,7 +80,7 @@ export default {
         class="o-primary-btn--width-medium c-modal-message__okay-btn"
         @click="handleNoClick"
       >
-        Thank you
+        감사합니다
       </PrimaryButton>
     </div>
   </div>

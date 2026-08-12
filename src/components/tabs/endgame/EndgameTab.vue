@@ -43,14 +43,15 @@ export default {
       <br>
       <div>
       <b>
-        Endgame
+        엔드게임
       </b>
       </div>
       <br>
       <div>
-        You are currently playing Antimatter Dimensions: The {{ stage }} Update, Chapter {{ chapter }}.
+        현재 Antimatter Dimensions: {{ stage === "Endgame" ? "엔드게임" : "셀레스티얼 플러스" }} 업데이트,
+        챕터 {{ chapter }}을 플레이하고 있습니다.
         <br>
-        Percentage to next chapter: {{ formatPercents(percentage, 2, 2) }}
+        다음 챕터까지의 진행도: {{ formatPercents(percentage, 2, 2) }}
       </div>
     </div>
     <br>

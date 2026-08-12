@@ -60,10 +60,10 @@ const AUTOMATOR_BLOCKS_RESETS = ["INFINITY", "ETERNITY", "REALITY", "DOOM", "ARM
 export const automatorBlocks = [
   {
     cmd: "STUDIES RESPEC",
-    alias: "RESPEC TIME STUDIES"
+    alias: "시간 연구 재설정"
   }, {
     cmd: "STUDIES LOAD",
-    alias: "LOAD STUDY PRESET",
+    alias: "연구 프리셋 불러오기",
     allowedPatterns: ["AB"],
     A: ["ID", "NAME"],
     B: ["*"],
@@ -71,7 +71,7 @@ export const automatorBlocks = [
     canWait: true
   }, {
     cmd: "STUDIES PURCHASE",
-    alias: "PURCHASE STUDIES",
+    alias: "연구 구매",
     allowedPatterns: ["A"],
     A: ["*"],
     targets: ["singleTextInput"],
@@ -117,40 +117,40 @@ export const automatorBlocks = [
     targets: ["singleSelectionInput", "singleTextInput"],
   }, {
     cmd: "AUTO",
-    alias: "CHANGE AUTOBUYER SETTING",
+    alias: "자동구매기 설정 변경",
     allowedPatterns: ["AB"],
     A: AUTOMATOR_BLOCKS_RESETS,
     B: ["ON", "OFF", "* AUTOBUYER SETTING"],
     targets: ["singleSelectionInput", "singleTextInput"],
   }, {
     cmd: "BLACK HOLE",
-    alias: "TURN BLACK HOLE",
+    alias: "블랙홀 전환",
     allowedPatterns: ["A"],
     A: ["ON", "OFF"],
     targets: ["singleSelectionInput"],
     isUnlocked: () => BlackHole(1).isUnlocked
   }, {
     cmd: "STORE GAME TIME",
-    alias: "SET GAME TIME STORAGE TO",
+    alias: "게임 시간 저장 설정",
     allowedPatterns: ["A"],
     A: ["ON", "OFF", "USE"],
     targets: ["singleSelectionInput"],
     isUnlocked: () => Enslaved.isUnlocked
   }, {
     cmd: "NOTIFY",
-    alias: "GAME NOTIFICATION:",
+    alias: "게임 알림:",
     allowedPatterns: ["A"],
     A: ["*"],
     targets: ["singleTextInput"],
   }, {
     cmd: "COMMENT",
-    alias: "NOTE:",
+    alias: "주석:",
     allowedPatterns: ["A"],
     A: ["*"],
     targets: ["singleTextInput"],
   }, {
     cmd: "WAIT",
-    alias: "PAUSE AUTOMATOR UNTIL",
+    alias: "다음 조건까지 오토메이터 대기",
     allowedPatterns: ["A", "DE", "BCB"],
     A: AUTOMATOR_BLOCKS_RESETS,
     B: [...AUTOMATOR_BLOCKS_COMPARISON_CURRENCIES, "* SPECIFIED CONSTANT"],
@@ -160,13 +160,13 @@ export const automatorBlocks = [
     targets: ["genericInput1", "compOperator", "genericInput2"]
   }, {
     cmd: "PAUSE",
-    alias: "PAUSE AUTOMATOR FOR",
+    alias: "지정 시간 동안 오토메이터 대기",
     allowedPatterns: ["A"],
     A: ["*"],
     targets: ["singleTextInput"],
   }, {
     cmd: "IF",
-    alias: "ENTER BLOCK IF",
+    alias: "조건을 만족하면 블록 실행",
     allowedPatterns: ["ABA"],
     A: [...AUTOMATOR_BLOCKS_COMPARISON_CURRENCIES, "* SPECIFIED CONSTANT"],
     B: AUTOMATOR_BLOCKS_COMPARISON_OPERATORS,
@@ -174,7 +174,7 @@ export const automatorBlocks = [
     nested: true
   }, {
     cmd: "UNTIL",
-    alias: "REPEAT BLOCK UNTIL",
+    alias: "다음 조건까지 블록 반복",
     allowedPatterns: ["A", "BCB"],
     A: AUTOMATOR_BLOCKS_RESETS,
     B: [...AUTOMATOR_BLOCKS_COMPARISON_CURRENCIES, "* SPECIFIED CONSTANT"],
@@ -183,7 +183,7 @@ export const automatorBlocks = [
     nested: true
   }, {
     cmd: "WHILE",
-    alias: "REPEAT BLOCK WHILE",
+    alias: "조건을 만족하는 동안 블록 반복",
     allowedPatterns: ["ABA"],
     A: [...AUTOMATOR_BLOCKS_COMPARISON_CURRENCIES, "* SPECIFIED CONSTANT"],
     B: AUTOMATOR_BLOCKS_COMPARISON_OPERATORS,
@@ -193,7 +193,7 @@ export const automatorBlocks = [
     cmd: "BLOB"
   }, {
     cmd: "STOP",
-    alias: "STOP EXECUTION"
+    alias: "실행 정지"
   }
 ];
 const AUTOMATOR_BLOCKS_BLACKLIST = ["BLOB"];
@@ -209,20 +209,20 @@ export const automatorBlocksMap = automatorBlocks.mapToObject(b => b.cmd, b => b
     draggable=".draggable-blocks"
   >
     <p>
-      Drag and drop these blocks to the area on the left! The blocks have names matching the commands in the reference
-      page, but may change appearance after being placed to describe what they do in a more natural-sounding manner.
-      If a block changes in this way, the alternate text will be shown as a tooltip when going to drag it over.
+      이 블록을 왼쪽 영역으로 끌어다 놓으세요! 블록 이름은 참조 페이지의 명령과 같지만, 배치한 뒤에는 기능을
+      더 자연스럽게 설명하도록 표시가 바뀔 수 있습니다. 표시가 바뀌는 블록은 드래그할 때 대체 문구를
+      툴팁으로 보여 줍니다.
     </p>
     <br>
     <p>
-      Inputs with a <span class="c-automator-input-optional">brown</span> color are optional, while inputs with a
-      <span class="c-automator-input-required">teal</span> color are required.
-      <span class="c-automator-block-row-error">Red</span> inputs are causing errors and must be changed before the
-      script can be run. For more details, check the Scripting Information pane.
+      <span class="c-automator-input-optional">갈색</span> 입력은 선택 사항이고,
+      <span class="c-automator-input-required">청록색</span> 입력은 필수입니다.
+      <span class="c-automator-block-row-error">빨간색</span> 입력은 오류를 일으키므로 스크립트를 실행하기 전에
+      바꿔야 합니다. 자세한 내용은 스크립트 정보 패널을 확인하세요.
     </p>
     <p>
-      Options in dropdown menus which start with a * will be replaced with a text box. This can be turned back into a
-      dropdown by clicking the <i class="fa-solid fa-circle-xmark" /> on the right side of the text box.
+      *로 시작하는 드롭다운 메뉴 옵션은 텍스트 상자로 바뀝니다. 텍스트 상자 오른쪽의
+      <i class="fa-solid fa-circle-xmark" />을 클릭하면 다시 드롭다운으로 바꿀 수 있습니다.
     </p>
     <draggable
       class="block-container"
@@ -241,7 +241,7 @@ export const automatorBlocksMap = automatorBlocks.mapToObject(b => b.cmd, b => b
       </div>
     </draggable>
     <p>
-      Note: Blocks and their contents count towards the character limits as if the command was typed in text mode.
+      참고: 블록과 그 내용은 텍스트 모드에서 명령을 입력한 것과 동일하게 글자 수 제한에 포함됩니다.
     </p>
   </draggable>
 </template>

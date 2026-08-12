@@ -4,9 +4,9 @@ export const pelleRifts = {
   vacuum: {
     id: 1,
     key: "vacuum",
-    name: ["Vacuum", "Hollow", "Void"],
-    drainResource: "IP",
-    baseEffect: x => `IP gain ${formatX(x, 2, 2)}`,
+    name: ["진공", "공허", "무"],
+    drainResource: "무한 포인트",
+    baseEffect: x => `무한 포인트 획득량 ${formatX(x, 2, 2)}`,
     additionalEffects: () => [PelleRifts.vacuum.milestones[2]],
     strike: () => PelleStrikes.infinity,
     percentage: totalFill => Decimal.pow(Decimal.log10(totalFill.plus(1).log10().times(10).add(1)), 2.5).div(100).toNumber(),
@@ -27,31 +27,31 @@ export const pelleRifts = {
       {
         resource: "vacuum",
         requirement: 0.04,
-        description: "You can equip a single basic Glyph with decreased level and rarity"
+        description: "레벨과 희귀도가 낮아진 기본 글리프 하나를 장착할 수 있습니다"
       },
       {
         resource: "vacuum",
         requirement: 0.06,
-        description: () => `Uncap Replicanti and make its unlock and upgrades ${formatX(1e130)} cheaper`,
+        description: () => `복제자의 상한을 없애고 해금과 업그레이드 비용을 ${formatX(1e130)}만큼 낮춥니다`,
         effect: () => 1e130
       },
       {
         resource: "vacuum",
         requirement: 0.4,
-        description: () => `${wordShift.wordCycle(PelleRifts.vacuum.name)} also affects EP gain`,
+        description: () => `${wordShift.wordCycle(PelleRifts.vacuum.name)} 균열이 영원 포인트 획득량에도 적용됩니다`,
         effect: () => Decimal.pow(4, PelleRifts.vacuum.totalFill.add(1).log10().div(2).div(308).add(3)),
-        formatEffect: x => `EP gain ${formatX(x, 2, 2)}`
+        formatEffect: x => `영원 포인트 획득량 ${formatX(x, 2, 2)}`
       },
     ],
-    galaxyGeneratorText: "There is not enough space left for more, you must fill in the $value"
+    galaxyGeneratorText: "더 만들 공간이 부족합니다. $value 균열을 채워야 합니다"
   },
   decay: {
     id: 2,
     key: "decay",
-    name: ["Decay", "Collapse", "Disarray"],
-    drainResource: "Replicanti",
+    name: ["쇠퇴", "붕괴", "혼란"],
+    drainResource: "복제자",
     spendable: true,
-    baseEffect: x => `Replicanti speed ${formatX(x, 2, 2)}`,
+    baseEffect: x => `복제자 속도 ${formatX(x, 2, 2)}`,
     additionalEffects: () => [PelleRifts.decay.milestones[0], PelleRifts.decay.milestones[2]],
     strike: () => PelleStrikes.powerGalaxies,
     // 0 - 1
@@ -66,39 +66,39 @@ export const pelleRifts = {
       {
         resource: "decay",
         requirement: 0.2,
-        description: "First rebuyable Pelle upgrade also affects 1st Infinity Dimension",
+        description: "첫 번째 반복 구매 펠레 업그레이드가 첫 번째 무한 차원에도 적용됩니다",
         effect: () => {
           const x = player.celestials.pelle.rebuyables.antimatterDimensionMult;
           return Decimal.pow(1e50, x - 9);
         },
-        formatEffect: x => `1st Infinity Dimension ${formatX(x, 2, 2)}`
+        formatEffect: x => `첫 번째 무한 차원 ${formatX(x, 2, 2)}`
       },
       {
         resource: "decay",
         requirement: 0.6,
-        description: () => `When Replicanti exceeds ${format(DC.E1300)},
-          all Galaxies are ${formatPercents(0.1)} more effective`,
+        description: () => `복제자가 ${format(DC.E1300)}을 넘으면
+          모든 은하의 효과가 ${formatPercents(0.1)}만큼 증가합니다`,
         effect: () => (Replicanti.amount.gt(DC.E1300) ? 1.1 : 1)
       },
       {
         resource: "decay",
         requirement: 1,
-        description: "Increase max Replicanti Galaxies based on total Rift milestones",
+        description: "달성한 균열 마일스톤 수에 따라 복제자 은하의 최대치를 증가시킵니다",
         effect: () => {
           const x = PelleRifts.totalMilestones();
           return new Decimal(x ** 2 - 2 * x);
         },
-        formatEffect: x => `Max RG count +${formatInt(x)}`
+        formatEffect: x => `복제자 은하 최대치 +${formatInt(x)}`
       },
     ],
-    galaxyGeneratorText: "There's not enough antimatter to form new Galaxies, you need to reverse the $value"
+    galaxyGeneratorText: "새 은하를 만들 반물질이 부족합니다. $value 균열을 되돌려야 합니다"
   },
   chaos: {
     id: 3,
     key: "chaos",
-    name: ["Chaos", "Disorder", "Impurity"],
-    drainResource: ["Decay", "Collapse", "Disarray"],
-    baseEffect: x => `Time Dimensions ${formatX(x, 2, 2)}`,
+    name: ["혼돈", "무질서", "불순"],
+    drainResource: ["쇠퇴", "붕괴", "혼란"],
+    baseEffect: x => `시간 차원 ${formatX(x, 2, 2)}`,
     strike: () => PelleStrikes.eternity,
     percentage: totalFill => totalFill / 10,
     percentageToFill: percentage => 10 * percentage,
@@ -128,27 +128,27 @@ export const pelleRifts = {
         resource: "chaos",
         requirement: 0.09,
         description: () => `${wordShift.wordCycle(PelleRifts.decay.name)} \
-        effect is always maxed and milestones always active`
+        효과가 항상 최대가 되고 마일스톤이 항상 활성화됩니다`
       },
       {
         resource: "chaos",
         requirement: 0.15,
-        description: "Glyphs gain a new Pelle-specific effect",
+        description: "글리프에 펠레 전용 효과가 새로 생깁니다",
       },
       {
         resource: "chaos",
         requirement: 1,
-        description: () => `You gain ${formatPercents(0.01)} of your EP gained on Eternity per second`,
+        description: () => `영원 시 획득하는 영원 포인트의 ${formatPercents(0.01)}를 초당 획득합니다`,
       },
     ],
-    galaxyGeneratorText: "Your Galaxies are too fragmented, you must stabilize the $value"
+    galaxyGeneratorText: "은하가 너무 많이 파편화되었습니다. $value 균열을 안정시켜야 합니다"
   },
   recursion: {
     id: 4,
     key: "recursion",
-    name: ["Recursion", "Dispersion", "Destruction"],
-    drainResource: "EP",
-    baseEffect: x => `EP formula: log(x)/${formatInt(308)} ➜ log(x)/${formatFloat(308 - x.toNumber(), 2)}`,
+    name: ["재귀", "분산", "파괴"],
+    drainResource: "영원 포인트",
+    baseEffect: x => `영원 포인트 공식: log(x)/${formatInt(308)} ➜ log(x)/${formatFloat(308 - x.toNumber(), 2)}`,
     additionalEffects: () => [PelleRifts.recursion.milestones[0], PelleRifts.recursion.milestones[1]],
     strike: () => PelleStrikes.ECs,
     percentage: totalFill => Decimal.pow(totalFill.plus(1).log10(), 0.4).div(4000 ** 0.4).toNumber(),
@@ -160,32 +160,32 @@ export const pelleRifts = {
       {
         resource: "recursion",
         requirement: 0.10,
-        description: "Dimensional Boosts are more powerful based on EC completions",
+        description: "영원 도전 완료 횟수에 따라 차원 가속이 더 강해집니다",
         effect: () => Math.max(100 * EternityChallenges.completions ** 2, 1) *
           Math.max(1e4 ** (EternityChallenges.completions - 40), 1),
-        formatEffect: x => `Dimension Boost power ${formatX(x, 2, 2)}`
+        formatEffect: x => `차원 가속 배율 ${formatX(x, 2, 2)}`
       },
       {
         resource: "recursion",
         requirement: 0.15,
-        description: "Infinity Dimensions are stronger based on EC completions",
+        description: "영원 도전 완료 횟수에 따라 무한 차원이 더 강해집니다",
         effect: () => Decimal.pow("1e1500", (Math.max(EternityChallenges.completions - 25, 0) / 20) ** 1.7).max(1),
-        formatEffect: x => `Infinity Dimensions ${formatX(x)}`
+        formatEffect: x => `무한 차원 ${formatX(x)}`
       },
       {
         resource: "recursion",
         requirement: 1,
-        description: "Permanently unlock the Galaxy Generator",
+        description: "은하 생성기를 영구적으로 해금합니다",
       },
     ],
-    galaxyGeneratorText: "Creating more Galaxies is unsustainable, you must focus the $value to allow more"
+    galaxyGeneratorText: "은하를 더 만드는 것은 지속할 수 없습니다. 더 만들려면 $value 균열에 집중해야 합니다"
   },
   paradox: {
     id: 5,
     key: "paradox",
-    name: ["Paradox", "Contradiction", "Fallacy"],
-    drainResource: "Dilated Time",
-    baseEffect: x => `All Dimensions ${formatPow(x, 2, 3)}`,
+    name: ["역설", "모순", "오류"],
+    drainResource: "팽창 시간",
+    baseEffect: x => `모든 차원 ${formatPow(x, 2, 3)}`,
     additionalEffects: () => [PelleRifts.paradox.milestones[2]],
     strike: () => PelleStrikes.dilation,
     percentage: totalFill => totalFill.plus(1).log10().div(100).toNumber(),
@@ -197,7 +197,7 @@ export const pelleRifts = {
       {
         resource: "paradox",
         requirement: 0.15,
-        description: "Time Dimensions 5-8 are much cheaper, unlock more Dilation upgrades",
+        description: "시간 차원 5-8이 훨씬 저렴해지고 시간 팽창 업그레이드를 더 해금합니다",
         // FIXME: Not a great solution
         onStateChange: () => {
           updateTimeDimensionCosts();
@@ -206,20 +206,20 @@ export const pelleRifts = {
       {
         resource: "paradox",
         requirement: 0.25,
-        description: () => `Dilated Time gain becomes Tachyon Particles ${formatPow(1.4, 1, 1)}`,
+        description: () => `팽창 시간 획득량이 타키온 입자 ${formatPow(1.4, 1, 1)}이 됩니다`,
         effect: 1.4
       },
       {
         resource: "paradox",
         requirement: 0.5,
-        description: "Dilation rebuyable purchase count improves Infinity Power conversion rate",
+        description: "반복 구매 시간 팽창 업그레이드의 구매 횟수가 무한 동력 변환율을 향상시킵니다",
         effect: () => Math.min(
           1.1075 ** (Object.values(player.dilation.rebuyables).sum() - 60),
           712
         ),
-        formatEffect: x => `Infinity Power Conversion ${formatX(x, 2, 2)}`
+        formatEffect: x => `무한 동력 변환율 ${formatX(x, 2, 2)}`
       },
     ],
-    galaxyGeneratorText: "It should be possible to create more, but Pelle has restricted you. Disregard the $value"
+    galaxyGeneratorText: "더 만들 수 있어야 하지만 펠레가 제한했습니다. $value 균열을 무시하세요"
   }
 };

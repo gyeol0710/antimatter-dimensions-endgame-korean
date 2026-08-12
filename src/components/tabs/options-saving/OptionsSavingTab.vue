@@ -38,14 +38,14 @@ export default {
   },
   computed: {
     modalTooltip() {
-      return `The game will detect certain situations where you might not want to overwrite your cloud save, and show
-        you a modal with more information if this is ON.`;
+      return `클라우드 세이브를 덮어쓰지 않는 편이 좋을 수 있는 상황을 게임이 감지합니다. 이 설정을 켜면
+        자세한 정보를 담은 모달을 표시합니다.`;
     },
     overwriteTooltip() {
-      if (this.showCloudModal) return "This setting does nothing since the modal is being shown.";
+      if (this.showCloudModal) return "모달이 표시되므로 이 설정은 아무 효과가 없습니다.";
       return this.forceCloudOverwrite
-        ? `Your local save will always overwrite your cloud save no matter what.`
-        : `Save conflicts will prevent your local save from being saved to the cloud.`;
+        ? `어떤 경우에도 로컬 세이브가 클라우드 세이브를 덮어씁니다.`
+        : `세이브 충돌이 발생하면 로컬 세이브를 클라우드에 저장하지 않습니다.`;
     },
     STEAM() {
       return STEAM;
@@ -113,8 +113,8 @@ export default {
       if (this.canModifySeed) {
         Modal.modifySeed.show();
       } else {
-        Modal.message.show(`You cannot modify your seed any more. Glyph RNG has already been used to generate
-          at least one Glyph on this run.`);
+        Modal.message.show(`더 이상 시드를 변경할 수 없습니다. 이번 진행에서 글리프 난수로 글리프를
+          하나 이상 생성했습니다.`);
       }
     },
     exportSave() {
@@ -122,11 +122,11 @@ export default {
         GameStorage.export();
         player.lastExportTime = Date.now();
         player.storedTime += 3600;
-        GameUI.notify.info("Daily Export rewards have been granted!");
+        GameUI.notify.info("세이브 내보내기 일일 보상을 받았습니다!");
       }
       if (this.hasExportedToday) {
         GameStorage.export();
-        GameUI.notify.info("You have already exported your save today!");
+        GameUI.notify.info("오늘은 이미 세이브를 내보냈습니다!");
       }
     }
   }
@@ -136,7 +136,7 @@ export default {
 <template>
   <div class="l-options-tab">
     <div>
-      You can export your save once per day to get free rewards!
+      하루에 한 번 세이브를 내보내면 무료 보상을 받을 수 있습니다!
     </div>
     <div class="l-options-grid">
       <div class="l-options-grid__row">
@@ -145,21 +145,21 @@ export default {
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           @click="exportSave()"
         >
-          Export save
+          세이브 내보내기
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option_font-x-large"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="Modal.import.show()"
         >
-          Import save
+          세이브 불러오기
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option_font-x-large"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="Modal.hardReset.show()"
         >
-          RESET THE GAME
+          게임 리셋하기
         </OptionsButton>
       </div>
       <div class="l-options-grid__row">
@@ -168,14 +168,14 @@ export default {
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="GameStorage.save(false, true)"
         >
-          Save game
+          게임 저장하기
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option_font-x-large"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="Modal.loadGame.show()"
         >
-          Choose save
+          세이브 선택하기
         </OptionsButton>
         <AutosaveIntervalSlider
           :min="10"
@@ -188,7 +188,7 @@ export default {
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="GameStorage.exportAsFile()"
         >
-          Export save as file
+          세이브를 파일로 내보내기
         </OptionsButton>
         <OptionsButton
           class="c-file-import-button"
@@ -200,13 +200,13 @@ export default {
             accept=".txt"
             @change="importAsFile"
           >
-          <label for="file">Import save from file</label>
+          <label for="file">세이브를 파일에서 가져오기</label>
         </OptionsButton>
         <PrimaryToggleButton
           v-model="showTimeSinceSave"
           class="o-primary-btn--option l-options-grid__button"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-          label="Display time since save:"
+          label="마지막으로 저장한 시간 표시:"
         />
       </div>
       <div class="l-options-grid__row">
@@ -214,7 +214,7 @@ export default {
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="Modal.backupWindows.show()"
         >
-          Open Automatic Save Backup Menu
+          자동 백업 메뉴 열기
         </OptionsButton>
         <SaveFileName />
       </div>
@@ -225,7 +225,7 @@ export default {
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="Modal.enterSpeedrun.show()"
         >
-          Start Speedrun
+          스피드런 시작하기
         </OptionsButton>
         <OptionsButton
           v-if="inSpeedrun"
@@ -235,7 +235,7 @@ export default {
           }"
           @click="openSeedModal()"
         >
-          Change Glyph RNG Seed
+          글리프 난수 시드 바꾸기
         </OptionsButton>
       </div>
       <OpenModalHotkeysButton />
@@ -244,13 +244,13 @@ export default {
       v-if="cloudAvailable"
       class="c-cloud-options-header"
     >
-      <span v-if="hideGoogleName">Logged in to Google <i>(name hidden)</i></span>
-      <span v-else-if="loggedIn">Logged in as {{ userName }}</span>
-      <span v-else>Not logged in</span>
+      <span v-if="hideGoogleName">구글 계정으로 로그인됨 <i>(이름 숨김)</i></span>
+      <span v-else-if="loggedIn">로그인한 구글 계정: {{ userName }}</span>
+      <span v-else>로그인되지 않음</span>
     </h2>
     <div v-if="loggedIn">
-      <span v-if="cloudEnabled">Cloud Saving will occur automatically every 10 minutes.</span>
-      <span v-else>Cloud Saving has been disabled on this save.</span>
+      <span v-if="cloudEnabled">10분마다 클라우드에 자동으로 저장합니다.</span>
+      <span v-else>이 세이브에서 클라우드 저장이 비활성화되어 있습니다.</span>
     </div>
     <div
       v-if="cloudAvailable"
@@ -264,23 +264,23 @@ export default {
           v-if="loggedIn"
           onclick="GameOptions.logout()"
         >
-          Disconnect Google Account and disable Cloud Saving
+          구글 계정 연결을 끊고 클라우드 저장을 비활성화하기
         </OptionsButton>
         <OptionsButton
           v-else
-          v-tooltip="'This will connect your Google Account to your Antimatter Dimensions savefiles'"
+          v-tooltip="'구글 계정을 게임 세이브 파일에 연결합니다.'"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
           onclick="GameOptions.login()"
         >
-          Login with Google to enable Cloud Saving
+          구글로 로그인하여 클라우드 저장을 활성화하기
         </OptionsButton>
         <PrimaryToggleButton
           v-if="loggedIn"
           v-model="hideGoogleName"
-          v-tooltip="'This will hide your Google Account name from the UI for privacy. Saving/loading is unaffected.'"
+          v-tooltip="'개인정보 보호를 위해 화면에서 구글 계정 이름을 숨깁니다. 저장과 불러오기에는 영향을 주지 않습니다.'"
           class="o-primary-btn--option l-options-grid__button"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-          label="Hide Google Account name:"
+          label="구글 계정 이름 숨기기:"
         />
       </div>
       <div
@@ -291,19 +291,19 @@ export default {
           onclick="GameOptions.cloudSave()"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
         >
-          Cloud save
+          클라우드 저장
         </OptionsButton>
         <OptionsButton
           onclick="GameOptions.cloudLoad()"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
         >
-          Cloud load
+          클라우드 불러오기
         </OptionsButton>
         <PrimaryToggleButton
           v-model="syncSaveIntervals"
           class="o-primary-btn--option l-options-grid__button"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-          label="Force local save before cloud saving:"
+          label="클라우드 저장 전 로컬에 강제 저장:"
         />
       </div>
       <div
@@ -314,21 +314,21 @@ export default {
           v-model="cloudEnabled"
           class="o-primary-btn--option l-options-grid__button"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-          label="Automatic cloud saving/loading:"
+          label="클라우드 자동 저장 및 불러오기:"
         />
         <PrimaryToggleButton
           v-model="showCloudModal"
           v-tooltip="modalTooltip"
           class="o-primary-btn--option l-options-grid__button"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-          label="Show modal if possible saving conflict:"
+          label="세이브 충돌 가능성이 있으면 모달 표시:"
         />
         <PrimaryToggleButton
           v-model="forceCloudOverwrite"
           v-tooltip="overwriteTooltip"
           class="o-primary-btn--option l-options-grid__button"
           :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-          label="Force cloud saving despite conflicts:"
+          label="충돌이 있어도 클라우드에 강제 저장:"
         />
       </div>
     </div>

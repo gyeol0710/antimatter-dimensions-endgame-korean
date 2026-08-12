@@ -31,16 +31,16 @@ export default {
   },
   computed: {
     name() {
-      return `${DivineDimension(this.tier).shortDisplayName} Divine Dimension`;
+      return `${DivineDimension(this.tier).shortDisplayName} 신성 차원`;
     },
     costDisplay() {
-      return this.showCostTitle ? `Cost: ${format(this.cost)} VM` : `${format(this.cost)} VM`;
+      return this.showCostTitle ? `비용: ${format(this.cost)} VM` : `${format(this.cost)} VM`;
     },
     hasLongText() {
       return this.costDisplay.length > 20;
     },
     purchaseTooltip() {
-      return `Purchased ${quantifyHybridLarge("time", this.purchases)}`;
+      return `${quantifyHybridLarge("회", this.purchases)} 구매함`;
     },
     showCostTitle() {
       return this.cost.log10().lt(1e5);
@@ -100,7 +100,7 @@ export default {
         v-if="isAutobuyerUnlocked"
         v-model="isAutobuyerOn"
         class="o-primary-btn--vd-auto"
-        label="Auto:"
+        label="자동:"
       />
       <PrimaryButton
         v-else
@@ -108,7 +108,7 @@ export default {
         class="o-primary-btn--vd-auto"
         @click="buyMaxDivineDimension"
       >
-        Buy Max
+        최대 구매
       </PrimaryButton>
     </div>
   </div>

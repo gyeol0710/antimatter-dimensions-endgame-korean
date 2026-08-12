@@ -58,6 +58,21 @@ export default {
         "o-primary-btn--subtab-option": true,
         "o-active-type": type === this.glyph.cosmetic
       };
+    },
+    typeName(type) {
+      return {
+        power: "힘",
+        infinity: "무한",
+        replication: "복제",
+        time: "시간",
+        dilation: "팽창",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동료",
+        music: "음악",
+        blob: "블롭",
+      }[type] ?? type.capitalize();
     }
   }
 };
@@ -66,13 +81,13 @@ export default {
 <template>
   <ModalWrapperOptions class="c-modal-options__large">
     <template #header>
-      Modifying Single Glyph Appearance
+      개별 글리프 외형 변경
     </template>
     <PrimaryButton
       class="o-primary-btn--subtab-option"
       @click="setType(undefined)"
     >
-      Reset this Glyph's appearance
+      이 글리프의 외형 초기화
     </PrimaryButton>
     <GlyphCustomizationSingleType
       :key="defaultKeySwap"
@@ -80,20 +95,20 @@ export default {
       :glyph-id="glyphId"
     />
     <div v-if="cosmeticTypes && glyph.fixedCosmetic">
-      This Glyph's Cosmetic Type cannot be changed!
+      이 글리프의 장식 유형은 변경할 수 없습니다!
     </div>
     <div
       v-else-if="cosmeticTypes"
       class="c-special-type"
     >
-      Apply Special Cosmetic Type:
+      특수 장식 유형 적용:
       <PrimaryButton
         v-for="type in cosmeticTypes"
         :key="type"
         :class="cosmeticTypeClass(type)"
         @click="setType(type)"
       >
-        {{ type.capitalize() }}
+        {{ typeName(type) }}
       </PrimaryButton>
     </div>
   </ModalWrapperOptions>

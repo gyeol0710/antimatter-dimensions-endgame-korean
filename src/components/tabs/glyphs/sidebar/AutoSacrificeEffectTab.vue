@@ -34,9 +34,9 @@ export default {
       };
     },
     questionmarkTooltip() {
-      return `Glyph score is rarity, minus ${formatInt(200)} for every missing effect.
-        Glyphs with less than the specified rarity are sacrificed. Additional effects
-        beyond ones specified will not increase Glyph score.`;
+      return `글리프 점수는 희귀도에서 누락된 효과 하나마다 ${formatInt(200)}을 뺀 값입니다.
+        지정한 희귀도보다 낮은 글리프는 희생됩니다. 지정한 효과 외의 추가 효과는
+        글리프 점수를 높이지 않습니다.`;
     }
   },
   methods: {
@@ -62,7 +62,7 @@ export default {
       >
         ?
       </span>
-      Selected Glyphs will have at least
+      선택되는 글리프는 효과가 총
       <input
         ref="effectCount"
         type="number"
@@ -72,7 +72,7 @@ export default {
         :value="effectCount"
         @blur="setEffectCount"
       >
-      effects total, which must include <i>all</i> of the following effects:
+      개 이상이어야 하며, 다음 효과를 <i>모두</i> 포함해야 합니다:
     </div>
     <div
       v-for="effect in effects"
@@ -86,7 +86,7 @@ export default {
         :style="descStyle"
       />
     </div>
-    Click to toggle individual effects on/off
+    클릭하여 각 효과를 켜거나 끌 수 있습니다
   </div>
 </template>
 

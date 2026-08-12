@@ -16,14 +16,14 @@ export default {
   },
   computed: {
     gainText() {
-      if (this.tachyonGain.lte(0)) return `not gain anything`;
-      return `gain ${quantify("Tachyon Particle", this.tachyonGain, 2, 1)}`;
+      if (this.tachyonGain.lte(0)) return `아무것도 얻지 못합니다`;
+      return `${quantify("타키온 입자", this.tachyonGain, 2, 1)}를 얻습니다`;
     },
     isInEC() {
       return Player.anyChallenge instanceof EternityChallengeState;
     },
     confirmText() {
-      return this.isDoomed ? "Okay" : "Exit";
+      return this.isDoomed ? "확인" : "나가기";
     }
   },
   methods: {
@@ -54,24 +54,24 @@ export default {
   >
     <template #header>
       <span v-if="isDoomed">
-        You cannot exit Dilation while Doomed
+        파멸한 동안에는 시간 팽창에서 나갈 수 없습니다
       </span>
       <span v-else>
-        You are about to exit Dilation
+        시간 팽창에서 나가려 합니다
       </span>
     </template>
     <div class="c-modal-message__text">
       <span v-if="isDoomed">
-        Dilation is permanent. You will {{ gainText }} and reset your current Eternity.
+        시간 팽창은 영구적입니다. {{ gainText }}. 또한 현재 영원이 초기화됩니다.
       </span>
       <span v-else>
-        If you exit Dilation now, you will {{ gainText }}.
+        지금 시간 팽창에서 나가면 {{ gainText }}.
       </span>
       <div v-if="isInEC">
-        You will also exit your current Eternity Challenge as well.
+        현재 영원 도전에서도 함께 나갑니다.
       </div>
       <br>
-      Are you sure you want to proceed?
+      정말로 진행하시겠습니까?
     </div>
     <template #confirm-text>
       {{ confirmText }}

@@ -12,9 +12,9 @@ export const glyphSacrifice = {
       const sacCap = GlyphSacrificeHandler.maxSacrificeForEffects;
       const nextDistantGalaxy = Decimal.pow(10, Decimal.pow((amount.add(1)).div(750), new Decimal(1 / 1.2)).times(100)).sub(1);
       const nextGalaxyText = amount.lt(750)
-        ? ` (next at ${format(nextDistantGalaxy, 2, 2)})`
+        ? ` (다음: ${format(nextDistantGalaxy, 2, 2)})`
         : "";
-      return `Distant Galaxy scaling starts ${formatHybridLarge(amount, 3)} later${nextGalaxyText}`;
+      return `먼 반물질 은하의 가격 상승 시작점이 ${formatHybridLarge(amount, 3)}개 늦춰짐${nextGalaxyText}`;
     },
     cap: () => GlyphSacrificeHandler.maxSacrificeForEffects
   },
@@ -26,7 +26,7 @@ export const glyphSacrifice = {
       const capped = Decimal.clampMax(sac, GlyphSacrificeHandler.maxSacrificeForEffects);
       return new Decimal(Decimal.log10(Decimal.pow(capped, 0.2).div(100).add(1))).add(1);
     },
-    description: amount => `${formatX(amount, 2, 2)} bigger multiplier when buying 8th Infinity Dimension`,
+    description: amount => `제8 무한 차원 구매 배율이 ${formatX(amount, 2, 2)} 더 커짐`,
     cap: () => GlyphSacrificeHandler.maxSacrificeForEffects
   },
   "time": {
@@ -37,7 +37,7 @@ export const glyphSacrifice = {
       const capped = Decimal.clampMax(sac, GlyphSacrificeHandler.maxSacrificeForEffects);
       return Decimal.pow(Decimal.pow(capped, 0.2).div(100).add(1), 2);
     },
-    description: amount => `${formatX(amount, 2, 2)} bigger multiplier when buying 8th Time Dimension`,
+    description: amount => `제8 시간 차원 구매 배율이 ${formatX(amount, 2, 2)} 더 커짐`,
     cap: () => GlyphSacrificeHandler.maxSacrificeForEffects
   },
   "replication": {
@@ -53,9 +53,9 @@ export const glyphSacrifice = {
       const sacCap = GlyphSacrificeHandler.maxSacrificeForEffects;
       const nextDistantGalaxy = Decimal.pow(10, Decimal.pow((amount.add(1)).div(1500), new Decimal(1 / 1.2)).times(100)).sub(1);
       const nextGalaxyText = amount.lt(1500)
-        ? ` (next at ${format(nextDistantGalaxy, 2, 2)})`
+        ? ` (다음: ${format(nextDistantGalaxy, 2, 2)})`
         : "";
-      return `Replicanti Galaxy scaling starts ${formatHybridLarge(amount, 3)} later${nextGalaxyText}`;
+      return `복제자 은하의 가격 상승 시작점이 ${formatHybridLarge(amount, 3)}개 늦춰짐${nextGalaxyText}`;
     },
     cap: () => GlyphSacrificeHandler.maxSacrificeForEffects
   },
@@ -68,7 +68,7 @@ export const glyphSacrifice = {
       const exponent = Decimal.pow(new Decimal(Decimal.log10(capped.add(1))).div(100), 0.1).times(0.32);
       return Decimal.pow(Decimal.clampMin(capped, 1), exponent);
     },
-    description: amount => `Multiply Tachyon Particle gain by ${formatX(amount, 2, 2)}`,
+    description: amount => `타키온 입자 획득량에 ${formatX(amount, 2, 2)} 배율 적용`,
     cap: () => GlyphSacrificeHandler.maxSacrificeForEffects
   },
   "effarig": {
@@ -83,7 +83,7 @@ export const glyphSacrifice = {
         : Decimal.clampMax(sac, 1e70);
       return new Decimal(Decimal.log10(capped.div(1e20).add(1))).times(2);
     },
-    description: amount => `+${formatDecimalPercents(amount.div(100), 2)} additional Glyph rarity`,
+    description: amount => `글리프 희귀도 +${formatDecimalPercents(amount.div(100), 2)}`,
     cap: () => EffarigUnlock.endgame.canBeApplied ? GlyphSacrificeHandler.maxSacrificeForEffects : new Decimal(1e70)
   },
   "reality": {
@@ -94,7 +94,7 @@ export const glyphSacrifice = {
       // This cap is only feasibly reached with the imaginary upgrade, but we still want to cap it at a nice number
       return Decimal.clampMax(Decimal.sqrt(sac).div(15).add(1), 100);
     },
-    description: amount => `Multiply Memory Chunk gain by ${formatX(amount, 2, 3)}`,
+    description: amount => `기억 조각 획득량에 ${formatX(amount, 2, 3)} 배율 적용`,
     cap: () => GlyphSacrificeHandler.maxSacrificeForEffects
   }
 };

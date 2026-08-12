@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     name() {
-      return this.autobuyer.name;
+      return this.autobuyer.displayName;
     },
   },
   methods: {

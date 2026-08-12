@@ -39,11 +39,12 @@ export default {
       if (!this.hasEffarig && !this.hasReality) return "";
       const uniqueGlyphs = [];
       if (this.hasEffarig) uniqueGlyphs.push(
-        `<span style="color: ${GlyphAppearanceHandler.getBorderColor("effarig")};">Effarig</span>`);
+        `<span style="color: ${GlyphAppearanceHandler.getBorderColor("effarig")};">에파리그</span>`);
       if (this.hasReality) uniqueGlyphs.push(
-        `<span style="animation: a-reality-glyph-description-cycle 10s infinite;">Reality</span>`);
-      return `You cannot have more than ${formatInt(this.maxSpecialGlyphs)} ${uniqueGlyphs.join(" or ")}
-        ${this.maxSpecialGlyphs !== 1 ? "Glyphs" : "Glyph"} equipped${uniqueGlyphs.length > 1 ? " each." : "."}`;
+        `<span style="animation: a-reality-glyph-description-cycle 10s infinite;">현실</span>`);
+      return `최대 ${formatInt(this.maxSpecialGlyphs)}개의 ${uniqueGlyphs.join(" 또는 ")}
+        ${this.maxSpecialGlyphs !== 1 ? "글리프를" : "글리프를"}
+        장착할 수 있습니다${uniqueGlyphs.length > 1 ? " (각 종류마다)." : "."}`;
     },
     noEffects() {
       return !this.effects.length;
@@ -54,9 +55,9 @@ export default {
     pelleGlyphText() {
       return Pelle.isDoomed
         ? (!PelleDestructionUpgrade.glyphRarity.canBeApplied
-           ? `Glyph Rarity is set to ${formatPercents(strengthToRarity(Pelle.glyphStrength))} and `
+           ? `글리프 희귀도가 ${formatPercents(strengthToRarity(Pelle.glyphStrength))}로 고정되며 `
            : "")
-          + `Level is capped at ${formatInt(Pelle.glyphMaxLevel)}`
+          + `레벨 상한은 ${formatInt(Pelle.glyphMaxLevel)}입니다`
         : "";
     },
     showChaosText() {
@@ -103,7 +104,7 @@ export default {
       {{ pelleGlyphText }}
     </div>
     <div class="c-current-glyph-effects__header">
-      Currently active Glyph effects:
+      현재 적용 중인 글리프 효과:
     </div>
     <GlyphSetName :glyph-set="glyphSet" />
     <br v-if="isSoftcapActive || hasEffarig || hasReality">
@@ -112,12 +113,12 @@ export default {
       v-if="isSoftcapActive"
       class="l-current-glyph-effects__capped-header"
     >
-      <span class="c-current-glyph-effects__effect--capped">Italic</span> effects have been slightly reduced
-      due to a softcap
+      <span class="c-current-glyph-effects__effect--capped">기울임꼴</span> 효과는 소프트캡으로 인해
+      다소 감소했습니다
     </div>
     <br>
     <div v-if="noEffects">
-      None (equip Glyphs to get their effects)
+      없음 (글리프를 장착하면 효과를 얻습니다)
     </div>
     <CurrentGlyphEffect
       v-for="effect in effects"

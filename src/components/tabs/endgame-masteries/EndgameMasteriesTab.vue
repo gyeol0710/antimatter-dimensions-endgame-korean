@@ -94,10 +94,10 @@ export default {
     },
     exportMasteryTree() {
       if (player.endgameMasteries.masteries.length === 0) {
-        GameUI.notify.error("You cannot export an empty Endgame Mastery Tree!");
+        GameUI.notify.error("빈 엔드게임 마스터리 트리는 내보낼 수 없습니다!");
       } else {
         copyToClipboard(GameCache.currentMasteryTree.value.exportString);
-        GameUI.notify.info("Exported current Endgame Masteries to your clipboard");
+        GameUI.notify.info("현재 엔드게임 마스터리를 클립보드로 내보냈습니다.");
       }
     }
   }
@@ -111,19 +111,19 @@ export default {
         class="o-primary-btn--subtab-option"
         @click="exportMasteryTree"
       >
-        Export tree
+        트리 내보내기
       </PrimaryButton>
       <PrimaryButton
         :class="respecClassObject"
         @click="respec = !respec"
       >
-        Respec Endgame Masteries on next Endgame
+        다음 엔드게임에서 엔드게임 마스터리 재분배
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn--subtab-option"
         onclick="Modal.masteryString.show({ id: -1 })"
       >
-        Import tree
+        트리 가져오기
       </PrimaryButton>
     </div>
     <div

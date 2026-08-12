@@ -46,7 +46,7 @@ export default {
         v-if="hasTutorial"
         class="h2p-tooltip"
       >
-        Click for info
+        정보를 보려면 클릭
       </div>
     </div>
     <div

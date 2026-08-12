@@ -21,15 +21,15 @@ export default {
   computed: {
     sortModes() {
       // These are the keys for AUTO_SORT_MODE, with SCORE only added conditionally if unlocked
-      const availableSortModes = ["NONE", "LEVEL", "POWER", "EFFECT"];
-      if (this.showScoreFilter) availableSortModes.push("SCORE");
+      const availableSortModes = ["없음", "레벨", "성능", "효과"];
+      if (this.showScoreFilter) availableSortModes.push("점수");
       return availableSortModes;
     },
     questionMarkTooltip() {
-      return `The automatic settings below will apply after every Reality`;
+      return `아래의 자동 설정은 현실에 도달할 때마다 적용됩니다`;
     },
     keepTooltip() {
-      return "If set to ON, Glyphs which your filter accepts will never be auto-purged even if they are worse";
+      return "활성화하면 필터가 선택한 글리프는 성능이 더 나쁘더라도 자동으로 정리되지 않습니다";
     }
   },
   watch: {
@@ -68,30 +68,30 @@ export default {
       >
         ?
       </div>
-      Auto Glyph Arrangement:
+      자동 글리프 정렬:
     </div>
     <ButtonCycle
       v-model="autoSort"
       class="c-glyph-inventory-option"
-      text="Auto-sort Mode:"
+      text="자동 정렬 모드:"
       :labels="sortModes"
     />
     <ToggleButton
       v-model="autoCollapse"
       class="c-glyph-inventory-option"
-      label="Auto-collapse space:"
+      label="빈 공간 자동 정리:"
     />
     <ToggleButton
       v-if="showAutoAutoClean"
       v-model="autoAutoClean"
       class="c-glyph-inventory-option"
-      label="Auto-purge on Realities:"
+      label="현실 달성 시 자동 정리:"
     />
     <ToggleButton
       v-if="showAutoAutoClean"
       v-model="applyFilterToPurge"
       class="c-glyph-inventory-option"
-      label="Never Auto-purge Glyphs accepted by filter:"
+      label="필터가 선택한 글리프는 자동 정리하지 않기:"
       tooltip-class="c-glyph-inventory-option__tooltip"
       :tooltip-content="keepTooltip"
     />

@@ -19,7 +19,12 @@ export default {
       return this.unlock.pet.id;
     },
     petName() {
-      return this.unlock.pet.name;
+      return {
+        Teresa: "테레사",
+        Effarig: "에파리그",
+        Enslaved: "이름없는 자들",
+        V: "V",
+      }[this.unlock.pet.name] ?? this.unlock.pet.name;
     },
     icon() {
       return this.unlock.displayIcon;
@@ -53,7 +58,7 @@ export default {
     />
     <div class="c-ra-pet-upgrade__tooltip">
       <div class="c-ra-pet-upgrade__tooltip__name">
-        {{ petName }} Level {{ formatInt(level) }}
+        {{ petName }} 레벨 {{ formatInt(level) }}
       </div>
       <div
         class="c-ra-pet-upgrade__tooltip__description"

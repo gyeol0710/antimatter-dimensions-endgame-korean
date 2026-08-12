@@ -42,7 +42,17 @@ export default {
       return this.glyph.type;
     },
     typeCapitalized() {
-      return this.type.capitalize();
+      return {
+        power: "힘",
+        infinity: "무한",
+        replication: "복제",
+        time: "시간",
+        dilation: "팽창",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동료",
+      }[this.type] ?? this.type.capitalize();
     },
     level() {
       return this.glyph.level;

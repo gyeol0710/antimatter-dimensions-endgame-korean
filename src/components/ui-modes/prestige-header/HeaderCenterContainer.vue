@@ -66,11 +66,11 @@ export default {
     <div
       v-if="showEndgame"
     >
-      You have <span class="cp-text">{{ format(celestialPoints, 2) }}</span> {{ pluralize("Celestial Point", celestialPoints) }}.
-      You have <span class="dp-text">{{ format(doomedParticles, 2) }}</span> {{ pluralize("Doomed Particle", doomedParticles) }}.
+      셀레스티얼 포인트 보유량: <span class="cp-text">{{ format(celestialPoints, 2) }}</span> {{ pluralize("개", celestialPoints) }}.
+      파멸 입자 보유량: <span class="dp-text">{{ format(doomedParticles, 2) }}</span> {{ pluralize("개", doomedParticles) }}.
     <br>
     </div>
-    <span>You have <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span> antimatter.</span>
+    <span>반물질: <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span>.</span>
     <div
       v-if="hasRealityButton"
       class="c-reality-container"
@@ -90,7 +90,7 @@ export default {
       />
     </div>
     <div v-else>
-      You are getting {{ format(antimatterPerSec, 2) }} antimatter per second.
+      초당 반물질을 {{ format(antimatterPerSec, 2) }} 획득하고 있습니다.
       <br>
       <HeaderTickspeedInfo />
     </div>

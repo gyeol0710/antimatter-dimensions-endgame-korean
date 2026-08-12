@@ -77,7 +77,7 @@ body.t-s11 {
 
 .o-tachyon-particle {
   fill: orange !important;
-  font-family: Typewriter;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   font-size: 20px;
   pointer-events: none;
   -webkit-user-select: none;

@@ -24,19 +24,19 @@ export default {
       v-if="treeStatus.firstPaths"
       class="l-modal-import-tree__tree-info-line"
     >
-      Dimension Split: {{ treeStatus.firstPaths }}
+      차원 분기: {{ treeStatus.firstPaths }}
     </div>
     <div
       v-if="treeStatus.secondPaths"
       class="l-modal-import-tree__tree-info-line"
     >
-      Pace Split: {{ treeStatus.secondPaths }}
+      진행 방식 분기: {{ treeStatus.secondPaths }}
     </div>
     <div
       v-if="treeStatus.ec > 0"
       class="l-modal-import-tree__tree-info-line"
     >
-      Eternity Challenge: {{ treeStatus.ec }} {{ treeStatus.startEC ? "(will start)" : "" }}
+      영원 도전: {{ treeStatus.ec }} {{ treeStatus.startEC ? "(시작 예정)" : "" }}
     </div>
   </div>
 </template>

@@ -35,11 +35,11 @@ export default {
     glyphBGStr() {
       switch (this.glyphBG) {
         case GLYPH_BG_SETTING.AUTO:
-          return "Auto";
+          return "자동";
         case GLYPH_BG_SETTING.LIGHT:
-          return "Light";
+          return "밝게";
         case GLYPH_BG_SETTING.DARK:
-          return "Dark";
+          return "어둡게";
         default:
           throw new Error("Unrecognized Glyph BG setting");
       }
@@ -105,51 +105,51 @@ export default {
 <template>
   <ModalWrapperOptions class="c-modal-options__glyph">
     <template #header>
-      Glyph Display Options
+      글리프 표시 설정
     </template>
     <div class="c-glyph-visual-options c-modal--short">
       <div class="c-modal-options__button-container">
         <ModalOptionsToggleButton
           v-model="newGlyphs"
-          text="New Glyph identifier:"
+          text="새 글리프 표시:"
         />
         <ModalOptionsToggleButton
           v-model="showUnequippedGlyphIcon"
-          text="Unequipped Glyph identifier:"
+          text="장착 해제된 글리프 표시:"
         />
         <ModalOptionsToggleButton
           v-model="glyphEffectDots"
-          text="Always show Glyph effect dots:"
+          text="글리프 효과 점 항상 표시:"
         />
         <ModalOptionsToggleButton
           v-model="glyphBorders"
-          text="Fancy Glyph borders:"
+          text="화려한 글리프 테두리:"
         />
         <button
           class="o-primary-btn o-primary-btn--modal-option"
           @click="cycleBG()"
         >
-          Glyph BG color: {{ glyphBGStr }}
+          글리프 배경색: {{ glyphBGStr }}
         </button>
         <ModalOptionsToggleButton
           v-model="showGlyphInfoByDefault"
           :style="noEffectStyle()"
-          text="Always show Glyph Info:"
+          text="글리프 정보 항상 표시:"
         />
         <ModalOptionsToggleButton
           v-model="highContrastRarity"
-          text="High-contrast rarity colors:"
+          text="고대비 희귀도 색상:"
         />
         <ModalOptionsToggleButton
           v-model="swapGlyphColors"
-          text="Swap border and symbol colors:"
+          text="테두리와 기호 색상 교체:"
         />
         <ExpandingControlBox
           class="o-primary-btn c-dropdown-btn"
         >
           <template #header>
             <div class="c-dropdown-header">
-              ▼ Additional Glyph Info: ▼
+              ▼ 추가 글리프 정보: ▼
               <br>
               {{ infoLabel }}
             </div>

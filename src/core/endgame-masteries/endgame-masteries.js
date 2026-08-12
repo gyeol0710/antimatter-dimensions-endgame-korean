@@ -41,7 +41,7 @@ export function buyMasteriesUntil(id) {
   } else if (EndgameMastery.preferredPaths.compression.path.length > 0) {
     masteryArray.push(...EndgameMastery.preferredPaths.compression.masteries);
   } else if (currTree.currCompPathCount < currTree.allowedCompPathCount) {
-    GameUI.notify.error("You haven't selected enough preferred Compression paths.");
+    GameUI.notify.error("선호 압축 경로를 충분히 선택하지 않았습니다.");
     return masteryArray;
   }
 
@@ -70,7 +70,7 @@ export function buyMasteriesUntil(id) {
   } else if (EndgameMastery.preferredPaths.currency.path.length > 0) {
     masteryArray.push(...EndgameMastery.preferredPaths.currency.masteries);
   } else if (currTree.currCurrPathCount < currTree.allowedCurrPathCount) {
-    GameUI.notify.error("You haven't selected enough preferred Currency paths.");
+    GameUI.notify.error("선호 재화 경로를 충분히 선택하지 않았습니다.");
     return masteryArray;
   }
 

@@ -30,8 +30,8 @@ export default {
       return this.upgrade.config;
     },
     costText() {
-      if (this.cost.gte(DC.NUMMAX)) return `Cost: ${Notations.current.infinite} Null Matter`;
-      return `Cost: ${format(this.cost, 2)} Null Matter`;
+      if (this.cost.gte(DC.NUMMAX)) return `비용: 무효 물질 ${Notations.current.infinite}`;
+      return `비용: 무효 물질 ${format(this.cost, 2)}`;
     },
     classObject() {
       return {

@@ -36,9 +36,9 @@ export const glyphEffects = {
     bitmaskIndex: 0,
     isGenerated: true,
     glyphTypes: ["time"],
-    singleDesc: "Time Dimension power +{value}",
-    totalDesc: "Time Dimension multipliers ^{value}",
-    shortDesc: "TD power +{value}",
+    singleDesc: "시간 차원 지수 +{value}",
+    totalDesc: "시간 차원 배율 ^{value}",
+    shortDesc: "시간 차원 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.4).times(Math.pow(strength, 1.2)).div(50).add(1).toNumber()
       : Decimal.pow(level, 0.32).times(Math.pow(strength, 0.45)).div(75).add(1.01).toNumber()),
@@ -52,10 +52,10 @@ export const glyphEffects = {
     bitmaskIndex: 1,
     isGenerated: true,
     glyphTypes: ["time"],
-    singleDesc: "Multiply game speed by {value}",
-    totalDesc: "Game runs ×{value} faster",
-    genericDesc: "Game speed multiplier",
-    shortDesc: "Game speed ×{value}",
+    singleDesc: "게임 속도에 {value} 배율 적용",
+    totalDesc: "게임이 ×{value} 빠르게 진행",
+    genericDesc: "게임 속도 배율",
+    shortDesc: "게임 속도 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, strength).add(1)
       : (GlyphAlteration.isEmpowered("time")
@@ -72,10 +72,10 @@ export const glyphEffects = {
     bitmaskIndex: 2,
     isGenerated: true,
     glyphTypes: ["time"],
-    singleDesc: "Multiply Eternity gain by {value}",
-    totalDesc: "Eternity gain ×{value}",
-    genericDesc: "Eternity gain multiplier",
-    shortDesc: "Eternities ×{value}",
+    singleDesc: "영원 횟수 획득량에 {value} 배율 적용",
+    totalDesc: "영원 횟수 획득량 ×{value}",
+    genericDesc: "영원 횟수 획득 배율",
+    shortDesc: "영원 횟수 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(Decimal.pow(level, 0.25).times(strength).times(GlyphAlteration.sacrificeBoost("time")))
       : Decimal.pow(new Decimal(strength + 3).times(level), 0.9).times(
@@ -92,17 +92,17 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["time"],
     singleDesc: () => (GlyphAlteration.isAdded("time")
-      ? "Eternity Point gain \n×{value} [and ^]{value2}"
-      : "Multiply Eternity Point gain by {value}"),
+      ? "영원 포인트 획득량 \n×{value} [및 ^]{value2}"
+      : "영원 포인트 획득량에 {value} 배율 적용"),
     totalDesc: () => (GlyphAlteration.isAdded("time")
-      ? "Eternity Point gain ×{value} and ^{value2}"
-      : "Eternity Point gain ×{value}"),
+      ? "영원 포인트 획득량 ×{value} 및 ^{value2}"
+      : "영원 포인트 획득량 ×{value}"),
     genericDesc: () => (GlyphAlteration.isAdded("time")
-      ? "Eternity Point gain multiplier and power"
-      : "Eternity Point gain multiplier"),
+      ? "영원 포인트 획득 배율 및 지수"
+      : "영원 포인트 획득 배율"),
     shortDesc: () => (GlyphAlteration.isAdded("time")
-      ? "EP ×{value} and ^{value2}"
-      : "EP ×{value}"),
+      ? "영원 포인트 ×{value} 및 ^{value2}"
+      : "영원 포인트 ×{value}"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(Decimal.pow(level, strength + 1).times(100))
       : Decimal.clampMin(Decimal.pow(level.times(strength), 3).times(100), 1)),
@@ -121,9 +121,9 @@ export const glyphEffects = {
     bitmaskIndex: 4,
     isGenerated: true,
     glyphTypes: ["dilation"],
-    singleDesc: "Multiply Dilated Time gain by {value}",
-    totalDesc: "Dilated Time gain ×{value}",
-    shortDesc: "DT ×{value}",
+    singleDesc: "팽창된 시간 획득량에 {value} 배율 적용",
+    totalDesc: "팽창된 시간 획득량 ×{value}",
+    shortDesc: "팽창된 시간 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(level.times(strength).div(150))
       : (GlyphAlteration.isEmpowered("dilation")
@@ -140,9 +140,9 @@ export const glyphEffects = {
     bitmaskIndex: 5,
     isGenerated: true,
     glyphTypes: ["dilation"],
-    singleDesc: "Tachyon Galaxy threshold multiplier ×{value}",
-    genericDesc: "Tachyon Galaxy cost multiplier",
-    shortDesc: "TG threshold ×{value}",
+    singleDesc: "타키온 은하 요구량 배율 ×{value}",
+    genericDesc: "타키온 은하 가격 배율",
+    shortDesc: "타키온 은하 요구량 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.max(DC.D1.sub(Decimal.pow(level, 0.4).times(strength).div(100)).sub(GlyphAlteration.sacrificeBoost("dilation") / 40), 0.1)
         .div(Decimal.max(1, Decimal.abs((DC.D1.sub(Decimal.pow(level, 0.4).times(strength).div(100)).sub(
@@ -168,17 +168,17 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["dilation"],
     singleDesc: () => (GlyphAlteration.isAdded("dilation")
-      ? "Generates {value} Time Theorems/hour \n[and multiplies Time Theorem \ngeneration by] {value2}"
-      : "Generates {value} Time Theorems per hour"),
+      ? "시간당 시간 정리 {value}개 생산 \n[및 시간 정리 \n생산량에] {value2} 배율 적용"
+      : "시간당 시간 정리 {value}개 생산"),
     totalDesc: () => (GlyphAlteration.isAdded("dilation")
-      ? "Generating {value} Time Theorems/hour and Time Theorem generation ×{value2}"
-      : "Generating {value} Time Theorems per hour"),
+      ? "시간당 시간 정리 {value}개 생산 및 시간 정리 생산량 ×{value2}"
+      : "시간당 시간 정리 {value}개 생산"),
     genericDesc: () => (GlyphAlteration.isAdded("dilation")
-      ? "Time Theorem generation and multiplier"
-      : "Time Theorem generation"),
+      ? "시간 정리 생산 및 배율"
+      : "시간 정리 생산"),
     shortDesc: () => (GlyphAlteration.isAdded("dilation")
-      ? "{value} TT/hr and TTgen ×{value2}"
-      : "{value} TT/hr"),
+      ? "시간당 시간 정리 {value}개 및 생산량 ×{value2}"
+      : "시간당 시간 정리 {value}개"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level.times(strength), 0.6).div(1000)
       : Decimal.pow(level.times(strength), 0.5).div(10000)),
@@ -198,10 +198,10 @@ export const glyphEffects = {
     bitmaskIndex: 7,
     isGenerated: true,
     glyphTypes: ["dilation"],
-    singleDesc: "Antimatter Dimension power +{value} while Dilated",
-    totalDesc: "Antimatter Dimension multipliers ^{value} while Dilated",
-    genericDesc: "Antimatter Dimensions ^x while Dilated",
-    shortDesc: "Dilated AD power +{value}",
+    singleDesc: "시간 팽창 중 반물질 차원 지수 +{value}",
+    totalDesc: "시간 팽창 중 반물질 차원 배율 ^{value}",
+    genericDesc: "시간 팽창 중 반물질 차원 ^x",
+    shortDesc: "팽창 중 반물질 차원 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? level.times(strength).add(1).toNumber()
       : Decimal.pow(level, 0.7).times(Math.pow(strength, 0.7)).div(25).add(1.1).toNumber()),
@@ -215,10 +215,10 @@ export const glyphEffects = {
     bitmaskIndex: 8,
     isGenerated: true,
     glyphTypes: ["replication"],
-    singleDesc: "Multiply Replication speed by {value}",
-    totalDesc: "Replication speed ×{value}",
-    genericDesc: "Replication speed multiplier",
-    shortDesc: "Replication speed ×{value}",
+    singleDesc: "복제 속도에 {value} 배율 적용",
+    totalDesc: "복제 속도 ×{value}",
+    genericDesc: "복제 속도 배율",
+    shortDesc: "복제 속도 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(level.times(strength).div(100))
       : (GlyphAlteration.isEmpowered("replication")
@@ -235,9 +235,9 @@ export const glyphEffects = {
     bitmaskIndex: 9,
     isGenerated: true,
     glyphTypes: ["replication"],
-    singleDesc: "Replicanti multiplier power +{value}",
-    totalDesc: "Replicanti multiplier ^{value}",
-    shortDesc: "Replicanti mult. power +{value}",
+    singleDesc: "복제자 배율 지수 +{value}",
+    totalDesc: "복제자 배율 ^{value}",
+    shortDesc: "복제자 배율 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? level.times(Math.pow(strength, 2)).times(GlyphAlteration.sacrificeBoost("replication")).add(1).toNumber()
       : Decimal.pow(level, 0.5).times(strength).div(25).add(GlyphAlteration.sacrificeBoost("replication") * 3).add(1.1).toNumber()),
@@ -254,17 +254,17 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["replication"],
     singleDesc: () => (GlyphAlteration.isAdded("replication")
-      ? `Multiply Dilated Time \n[and Replicanti speed] by \n+{value} per ${format(DC.E10000)} replicanti`
-      : `Multiply Dilated Time gain by \n+{value} per ${format(DC.E10000)} replicanti`),
+      ? `복제자 ${format(DC.E10000)}개마다 팽창된 시간 \n[및 복제자 속도] 배율 \n+{value}`
+      : `복제자 ${format(DC.E10000)}개마다 팽창된 시간 \n획득 배율 +{value}`),
     totalDesc: () => (GlyphAlteration.isAdded("replication")
-      ? `Multiply Dilated Time and Replication speed by +{value} per ${format(DC.E10000)} replicanti`
-      : `Multiply Dilated Time gain by +{value} per ${format(DC.E10000)} replicanti`),
+      ? `복제자 ${format(DC.E10000)}개마다 팽창된 시간 및 복제 속도 배율 +{value}`
+      : `복제자 ${format(DC.E10000)}개마다 팽창된 시간 획득 배율 +{value}`),
     genericDesc: () => (GlyphAlteration.isAdded("replication")
-      ? "Dilated Time+Replicanti mult from replicanti"
-      : "Dilated Time gain multiplier from replicanti"),
+      ? "복제자에 따른 팽창된 시간 및 복제자 배율"
+      : "복제자에 따른 팽창된 시간 획득 배율"),
     shortDesc: () => (GlyphAlteration.isAdded("replication")
-      ? `×DT and repl. by +{value} per ${format(DC.E10000)} replicanti`
-      : `×DT by +{value} per ${format(DC.E10000)} replicanti`),
+      ? `복제자 ${format(DC.E10000)}개마다 팽창된 시간 및 복제 속도 +{value}`
+      : `복제자 ${format(DC.E10000)}개마다 팽창된 시간 +{value}`),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, strength).times(0.0005)
       : Decimal.pow(level, 0.3).times(Decimal.pow(strength, 0.65)).times(0.0003)),
@@ -290,12 +290,12 @@ export const glyphEffects = {
     bitmaskIndex: 11,
     isGenerated: true,
     glyphTypes: ["replication"],
-    singleDesc: () => `Replicanti factor for Glyph level:\n ^${format(0.4, 1, 1)}
+    singleDesc: () => `글리프 레벨의 복제자 요소:\n ^${format(0.4, 1, 1)}
       ➜ ^(${format(0.4, 1, 1)} + {value})`,
-    totalDesc: () => `Replicanti factor for Glyph level: ^${format(0.4, 1, 1)}
+    totalDesc: () => `글리프 레벨의 복제자 요소: ^${format(0.4, 1, 1)}
       ➜ ^(${format(0.4, 1, 1)} + {value})`,
-    genericDesc: "Replicanti factor for Glyph level",
-    shortDesc: "Replicanti pow. for level +{value}",
+    genericDesc: "글리프 레벨의 복제자 요소",
+    shortDesc: "레벨의 복제자 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(Decimal.pow(level, 0.3).times(strength), 0.5).div(40).toNumber()
       : Decimal.pow(Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)), 0.5).div(50).toNumber()),
@@ -314,9 +314,9 @@ export const glyphEffects = {
     bitmaskIndex: 12,
     isGenerated: true,
     glyphTypes: ["infinity"],
-    singleDesc: "Infinity Dimension power +{value}",
-    totalDesc: "Infinity Dimension multipliers ^{value}",
-    shortDesc: "ID power +{value}",
+    singleDesc: "무한 차원 지수 +{value}",
+    totalDesc: "무한 차원 배율 ^{value}",
+    shortDesc: "무한 차원 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.3).times(strength).div(50).add(Math.min(GlyphAlteration.sacrificeBoost("infinity") / 50, 2.5)).add(
         Math.pow(Math.max(Math.log10(GlyphAlteration.sacrificeBoost("infinity")) - Math.log10(125), 0) + 1, 2.5) - 1).add(1).toNumber()
@@ -335,12 +335,12 @@ export const glyphEffects = {
     bitmaskIndex: 13,
     isGenerated: true,
     glyphTypes: ["infinity"],
-    singleDesc: () => `Infinity Power conversion rate: \n^${formatInt(7)}
+    singleDesc: () => `무한력 변환 비율: \n^${formatInt(7)}
       ➜ ^(${formatInt(7)} + {value})`,
-    totalDesc: () => `Infinity Power conversion rate: ^${formatInt(7)}
+    totalDesc: () => `무한력 변환 비율: ^${formatInt(7)}
       ➜ ^(${formatInt(7)} + {value})`,
-    genericDesc: "Infinity Power conversion rate",
-    shortDesc: "Infinity Power conversion +{value}",
+    genericDesc: "무한력 변환 비율",
+    shortDesc: "무한력 변환 +{value}",
     effect: (level, strength) => EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.25).times(strength).times(0.05).toNumber()
       : Decimal.pow(level, 0.2).times(Math.pow(strength, 0.4)).times(0.04).toNumber(),
@@ -354,17 +354,17 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["infinity"],
     singleDesc: () => (GlyphAlteration.isAdded("infinity")
-      ? "Infinity Point gain \n×{value} [and ^]{value2}"
-      : "Multiply Infinity Point gain by {value}"),
+      ? "무한 포인트 획득량 \n×{value} [및 ^]{value2}"
+      : "무한 포인트 획득량에 {value} 배율 적용"),
     totalDesc: () => (GlyphAlteration.isAdded("infinity")
-      ? "Infinity Point gain ×{value} and ^{value2}"
-      : "Infinity Point gain ×{value}"),
+      ? "무한 포인트 획득량 ×{value} 및 ^{value2}"
+      : "무한 포인트 획득량 ×{value}"),
     genericDesc: () => (GlyphAlteration.isAdded("infinity")
-      ? "Infinity Point gain multiplier and power"
-      : "Infinity Point gain multiplier"),
+      ? "무한 포인트 획득 배율 및 지수"
+      : "무한 포인트 획득 배율"),
     shortDesc: () => (GlyphAlteration.isAdded("infinity")
-      ? "IP ×{value} and ^{value2}"
-      : "IP ×{value}"),
+      ? "무한 포인트 ×{value} 및 ^{value2}"
+      : "무한 포인트 ×{value}"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(Decimal.pow(level, strength + 1).times(10000))
       : Decimal.clampMin(Decimal.pow(level.times(strength + 1), 6).times(10000), 1)),
@@ -387,10 +387,10 @@ export const glyphEffects = {
     bitmaskIndex: 15,
     isGenerated: true,
     glyphTypes: ["infinity"],
-    singleDesc: "Multiply Infinity gain by {value}",
-    totalDesc: "Infinity gain ×{value}",
-    genericDesc: "Infinity gain multiplier",
-    shortDesc: "Infinities ×{value}",
+    singleDesc: "무한 횟수 획득량에 {value} 배율 적용",
+    totalDesc: "무한 횟수 획득량 ×{value}",
+    genericDesc: "무한 횟수 획득 배율",
+    shortDesc: "무한 횟수 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(level.times(strength))
       : (GlyphAlteration.isEmpowered("infinity")
@@ -408,17 +408,17 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["power"],
     singleDesc: () => (GlyphAlteration.isAdded("power")
-      ? "Antimatter Dimension power +{value}\n[and Antimatter Galaxy cost ×]{value2}"
-      : "Antimatter Dimension power +{value}"),
+      ? "반물질 차원 지수 +{value}\n[및 반물질 은하 가격 ×]{value2}"
+      : "반물질 차원 지수 +{value}"),
     totalDesc: () => (GlyphAlteration.isAdded("power")
-      ? "Antimatter Dimension multipliers ^{value} and Antimatter Galaxy cost ×{value2}"
-      : "Antimatter Dimension multipliers ^{value}"),
+      ? "반물질 차원 배율 ^{value} 및 반물질 은하 가격 ×{value2}"
+      : "반물질 차원 배율 ^{value}"),
     genericDesc: () => (GlyphAlteration.isAdded("power")
-      ? "Antimatter Dimensions multipliers ^x and Antimatter Galaxy cost multiplier"
-      : "Antimatter Dimension multipliers ^x"),
+      ? "반물질 차원 배율 ^x 및 반물질 은하 가격 배율"
+      : "반물질 차원 배율 ^x"),
     shortDesc: () => (GlyphAlteration.isAdded("power")
-      ? "AD power +{value} and AG cost ×{value2}"
-      : "AD power +{value}"),
+      ? "반물질 차원 지수 +{value} 및 은하 가격 ×{value2}"
+      : "반물질 차원 지수 +{value}"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.25).times(strength).div(50).add(1).toNumber()
       : Decimal.pow(level, 0.2).times(Math.pow(strength, 0.4)).div(75).add(1.015).toNumber()),
@@ -436,8 +436,8 @@ export const glyphEffects = {
     bitmaskIndex: 17,
     isGenerated: true,
     glyphTypes: ["power"],
-    singleDesc: "Antimatter Dimension multipliers ×{value}",
-    shortDesc: "AD ×{value}",
+    singleDesc: "반물질 차원 배율 ×{value}",
+    shortDesc: "반물질 차원 ×{value}",
     effect: (level, strength) => EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(Decimal.pow(level, strength).times(9e15))
       : (GlyphAlteration.isEmpowered("power")
@@ -454,9 +454,9 @@ export const glyphEffects = {
     bitmaskIndex: 18,
     isGenerated: true,
     glyphTypes: ["power"],
-    singleDesc: "Dimension Boost multiplier ×{value}",
-    genericDesc: "Dimension Boost multiplier",
-    shortDesc: "Dimboost mult. ×{value}",
+    singleDesc: "차원 가속 배율 ×{value}",
+    genericDesc: "차원 가속 배율",
+    shortDesc: "차원 가속 배율 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(Decimal.pow(level, 0.5).times(strength).times(GlyphAlteration.sacrificeBoost("power")))
       : Decimal.clampMin(Decimal.pow(level.times(strength), 0.5).times(
@@ -472,10 +472,10 @@ export const glyphEffects = {
     bitmaskIndex: 19,
     isGenerated: true,
     glyphTypes: ["power"],
-    singleDesc: () => `Increase the bonus from buying ${formatInt(10)} Antimatter Dimensions by {value}`,
-    totalDesc: () => `Multiplier from "Buy ${formatInt(10)}" ×{value}`,
-    genericDesc: () => `"Buy ${formatInt(10)}" bonus increase`,
-    shortDesc: () => `AD "Buy ${formatInt(10)}" mult. ×{value}`,
+    singleDesc: () => `반물질 차원 ${formatInt(10)}개 구매 보너스를 {value}만큼 증가`,
+    totalDesc: () => `"${formatInt(10)}개 구매" 배율 ×{value}`,
+    genericDesc: () => `"${formatInt(10)}개 구매" 보너스 증가`,
+    shortDesc: () => `반물질 차원 "${formatInt(10)}개 구매" 배율 ×{value}`,
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, strength).add(1).toNumber()
       : level.times(strength).div(12).add(1).toNumber()),
@@ -488,9 +488,9 @@ export const glyphEffects = {
     bitmaskIndex: 20,
     isGenerated: true,
     glyphTypes: ["effarig"],
-    singleDesc: "Reality Machine multiplier ×{value}",
-    genericDesc: "Reality Machine multiplier",
-    shortDesc: "RM ×{value}",
+    singleDesc: "리얼리티 머신 배율 ×{value}",
+    genericDesc: "리얼리티 머신 배율",
+    shortDesc: "리얼리티 머신 ×{value}",
     effect: (level, strength) => EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow10(Decimal.pow(level, 0.6).times(strength))
       : (GlyphAlteration.isEmpowered("effarig")
@@ -507,9 +507,9 @@ export const glyphEffects = {
     bitmaskIndex: 21,
     isGenerated: true,
     glyphTypes: ["effarig"],
-    singleDesc: "Glyph Instability starting level +{value}",
-    genericDesc: "Glyph Instability delay",
-    shortDesc: "Instability delay +{value}",
+    singleDesc: "글리프 불안정 시작 레벨 +{value}",
+    genericDesc: "글리프 불안정 지연",
+    shortDesc: "불안정 지연 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.floor(Decimal.pow(level.times(strength), 0.6).times(10)).toNumber()
       : Decimal.floor(Decimal.pow(level.times(strength), 0.5).times(10)).toNumber()),
@@ -522,10 +522,10 @@ export const glyphEffects = {
     bitmaskIndex: 22,
     isGenerated: true,
     glyphTypes: ["effarig"],
-    singleDesc: "Game speed power +{value}",
-    totalDesc: "Game speed ^{value}",
-    genericDesc: "Game speed ^x",
-    shortDesc: "Game speed power +{value}",
+    singleDesc: "게임 속도 지수 +{value}",
+    totalDesc: "게임 속도 ^{value}",
+    genericDesc: "게임 속도 ^x",
+    shortDesc: "게임 속도 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.27).times(Math.pow(strength, 0.45)).div(72).add(1).toNumber()
       : Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)).div(75).add(1).toNumber()),
@@ -539,10 +539,10 @@ export const glyphEffects = {
     bitmaskIndex: 23,
     isGenerated: true,
     glyphTypes: ["effarig"],
-    singleDesc: "Achievement multiplier power +{value}",
-    totalDesc: "Achievement multiplier ^{value}",
-    genericDesc: "Achievement multiplier ^x",
-    shortDesc: "Achievement mult. power +{value}",
+    singleDesc: "도전과제 배율 지수 +{value}",
+    totalDesc: "도전과제 배율 ^{value}",
+    genericDesc: "도전과제 배율 ^x",
+    shortDesc: "도전과제 배율 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.5).times(strength).div(50).add(GlyphAlteration.sacrificeBoost("effarig") / 8).add(1).toNumber()
       : Decimal.pow(level, 0.4).times(Math.pow(strength, 0.6)).div(60).add(
@@ -560,17 +560,17 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["effarig"],
     singleDesc: () => (GlyphAlteration.isAdded("effarig")
-      ? `"Buy ${formatInt(10)}" multiplier ^{value} [and\nDimension Boost multiplier ^]{value2}`
-      : `Bonus from buying ${formatInt(10)} Dimensions ^{value}`),
+      ? `"${formatInt(10)}개 구매" 배율 ^{value} [및\n차원 가속 배율 ^]{value2}`
+      : `차원 ${formatInt(10)}개 구매 보너스 ^{value}`),
     totalDesc: () => (GlyphAlteration.isAdded("effarig")
-      ? `Multiplier from "Buy ${formatInt(10)}" ^{value} and Dimension Boost multiplier ^{value2}`
-      : `Multiplier from "Buy ${formatInt(10)}" ^{value}`),
+      ? `"${formatInt(10)}개 구매" 배율 ^{value} 및 차원 가속 배율 ^{value2}`
+      : `"${formatInt(10)}개 구매" 배율 ^{value}`),
     genericDesc: () => (GlyphAlteration.isAdded("effarig")
-      ? `"Buy ${formatInt(10)}" and Dimension Boost multipliers ^x`
-      : `"Buy ${formatInt(10)}" multiplier ^x`),
+      ? `"${formatInt(10)}개 구매" 및 차원 가속 배율 ^x`
+      : `"${formatInt(10)}개 구매" 배율 ^x`),
     shortDesc: () => (GlyphAlteration.isAdded("effarig")
-      ? `Buy ${formatInt(10)} mult. ^{value}, Dimboost mult. ^{value2}`
-      : `Buy ${formatInt(10)} mult. ^{value}`),
+      ? `${formatInt(10)}개 구매 배율 ^{value}, 차원 가속 배율 ^{value2}`
+      : `${formatInt(10)}개 구매 배율 ^{value}`),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.5).times(strength).times(2).add(1).toNumber()
       : Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)).times(2).add(1).toNumber()),
@@ -587,10 +587,10 @@ export const glyphEffects = {
     bitmaskIndex: 25,
     isGenerated: true,
     glyphTypes: ["effarig"],
-    singleDesc: "All Dimension power +{value}",
-    totalDesc: "All Dimension multipliers ^{value}",
-    genericDesc: "All Dimension multipliers ^x",
-    shortDesc: "All Dimension power +{value}",
+    singleDesc: "모든 차원 지수 +{value}",
+    totalDesc: "모든 차원 배율 ^{value}",
+    genericDesc: "모든 차원 배율 ^x",
+    shortDesc: "모든 차원 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.3).times(Math.pow(strength, 0.75)).div(400).add(1).toNumber()
       : Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)).div(500).add(1).toNumber()),
@@ -604,9 +604,9 @@ export const glyphEffects = {
     bitmaskIndex: 26,
     isGenerated: true,
     glyphTypes: ["effarig"],
-    singleDesc: () => `Antimatter production:\n${formatInt(10)}^x ➜ ${formatInt(10)}^(x^{value})`,
-    genericDesc: "Antimatter production exponent power",
-    shortDesc: "AM production exponent ^{value}",
+    singleDesc: () => `반물질 생산:\n${formatInt(10)}^x ➜ ${formatInt(10)}^(x^{value})`,
+    genericDesc: "반물질 생산 지수의 지수",
+    shortDesc: "반물질 생산 지수 ^{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.26).times(Math.pow(strength, 0.45)).div(4800).add(1).toNumber()
       : Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)).div(5000).add(1).toNumber()),
@@ -620,10 +620,10 @@ export const glyphEffects = {
     isGenerated: true,
     // This gets explicitly added to time glyphs elsewhere (once unlocked)
     glyphTypes: [],
-    singleDesc: "Time Shard power +{value}",
-    totalDesc: "Time Shard gain ^{value}",
-    genericDesc: "Time Shards ^x",
-    shortDesc: "Time Shard power +{value}",
+    singleDesc: "시간 파편 지수 +{value}",
+    totalDesc: "시간 파편 획득량 ^{value}",
+    genericDesc: "시간 파편 ^x",
+    shortDesc: "시간 파편 지수 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.4).times(strength).div(1000).add(1).toNumber()
       : Decimal.pow(level, 0.35).times(strength / 3.5).div(400).add(1).toNumber()),
@@ -637,9 +637,9 @@ export const glyphEffects = {
     bitmaskIndex: 0,
     isGenerated: false,
     glyphTypes: ["cursed"],
-    singleDesc: `All Galaxies are {value} weaker`,
-    totalDesc: "All Galaxy strength -{value}",
-    shortDesc: "Galaxy Strength -{value}",
+    singleDesc: `모든 은하가 {value} 약해짐`,
+    totalDesc: "모든 은하의 성능 -{value}",
+    shortDesc: "은하 성능 -{value}",
     // Multiplies by 0.768 per glyph
     effect: level => Decimal.pow(level, -0.03).toNumber(),
     formatEffect: x => formatPercents(1 - x, 2),
@@ -651,8 +651,8 @@ export const glyphEffects = {
     bitmaskIndex: 1,
     isGenerated: false,
     glyphTypes: ["cursed"],
-    singleDesc: "All Dimension multipliers ^{value}",
-    shortDesc: "All Dimensions ^{value}",
+    singleDesc: "모든 차원 배율 ^{value}",
+    shortDesc: "모든 차원 ^{value}",
     // Multiplies by 0.734 per glyph
     effect: level => Decimal.pow(level, -0.035).toNumber(),
     formatEffect: x => format(x, 3, 3),
@@ -664,9 +664,9 @@ export const glyphEffects = {
     bitmaskIndex: 2,
     isGenerated: false,
     glyphTypes: ["cursed"],
-    singleDesc: "The threshold for Tickspeed Upgrades from Time Dimensions is multiplied by ×{value}",
-    totalDesc: "The threshold for Tickspeed Upgrades from Time Dimensions is increased by ×{value}",
-    shortDesc: "TD Tickspeed threshold ×{value}",
+    singleDesc: "시간 차원의 틱스피드 업그레이드 요구량에 ×{value} 배율 적용",
+    totalDesc: "시간 차원의 틱스피드 업그레이드 요구량이 ×{value} 증가",
+    shortDesc: "시간 차원 틱스피드 요구량 ×{value}",
     // Additive 3.82 per glyph
     effect: level => Decimal.clampMin(Decimal.log10(level), 1).toNumber(),
     formatEffect: x => format(x, 3, 3),
@@ -678,9 +678,9 @@ export const glyphEffects = {
     bitmaskIndex: 3,
     isGenerated: false,
     glyphTypes: ["cursed"],
-    singleDesc: "Divide Eternity Point gain by {value}",
-    totalDesc: "Eternity Point gain / {value}",
-    shortDesc: "EP / {value}",
+    singleDesc: "영원 포인트 획득량을 {value}로 나눔",
+    totalDesc: "영원 포인트 획득량 / {value}",
+    shortDesc: "영원 포인트 / {value}",
     // Divides e666.6 per glyph
     effect: level => Decimal.pow10(level.neg().div(10)),
     formatEffect: x => format(x.reciprocal()),
@@ -692,9 +692,9 @@ export const glyphEffects = {
     bitmaskIndex: 4,
     isGenerated: false,
     glyphTypes: ["reality"],
-    singleDesc: "Increase the effective level of equipped basic Glyphs by {value}",
-    totalDesc: "Equipped basic Glyph level +{value}",
-    shortDesc: "Basic Glyph Level +{value}",
+    singleDesc: "장착한 기본 글리프의 유효 레벨을 {value}만큼 증가",
+    totalDesc: "장착한 기본 글리프 레벨 +{value}",
+    shortDesc: "기본 글리프 레벨 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.floor(level.div(15).times(strength / 3.5)).toNumber()
       : Decimal.floor(Decimal.sqrt(level.times(90).times(strength / 3.5))).toNumber()),
@@ -707,9 +707,9 @@ export const glyphEffects = {
     bitmaskIndex: 5,
     isGenerated: false,
     glyphTypes: ["reality"],
-    singleDesc: "All Galaxies are {value} stronger",
-    totalDesc: "All Galaxy strength +{value}",
-    shortDesc: "Galaxy Strength +{value}",
+    singleDesc: "모든 은하가 {value} 강해짐",
+    totalDesc: "모든 은하의 성능 +{value}",
+    shortDesc: "은하 성능 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level.div(50000).times(strength / 3.5), 0.6).add(1).toNumber()
       : Decimal.pow(level.div(100000).times(strength / 3.5), 0.5).add(1).toNumber()),
@@ -722,9 +722,9 @@ export const glyphEffects = {
     bitmaskIndex: 6,
     isGenerated: false,
     glyphTypes: ["reality"],
-    singleDesc: "Multiplier from Reality Upgrade Amplifiers ^{value}",
-    totalDesc: "Reality Upgrade Amplifier multiplier ^{value}",
-    shortDesc: "Amplifier Multiplier ^{value}",
+    singleDesc: "현실 업그레이드 증폭기의 배율 ^{value}",
+    totalDesc: "현실 업그레이드 증폭기 배율 ^{value}",
+    shortDesc: "증폭기 배율 ^{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level.div(100000).times(strength / 3.5), 1.5).add(1).toNumber()
       : level.div(125000).times(strength / 3.5).add(1).toNumber()),
@@ -737,12 +737,12 @@ export const glyphEffects = {
     bitmaskIndex: 7,
     isGenerated: false,
     glyphTypes: ["reality"],
-    singleDesc: () => `Dilated Time factor for Glyph level: \n^${format(1.3, 1, 1)}
+    singleDesc: () => `글리프 레벨의 팽창된 시간 요소: \n^${format(1.3, 1, 1)}
       ➜ ^(${format(1.3, 1, 1)} + {value})`,
-    totalDesc: () => `Dilated Time factor for Glyph level: ^${format(1.3, 1, 1)}
+    totalDesc: () => `글리프 레벨의 팽창된 시간 요소: ^${format(1.3, 1, 1)}
       ➜ ^(${format(1.3, 1, 1)} + {value})`,
-    genericDesc: "Dilated Time factor for Glyph level",
-    shortDesc: "DT pow. for level +{value}",
+    genericDesc: "글리프 레벨의 팽창된 시간 요소",
+    shortDesc: "레벨의 팽창된 시간 지수 +{value}",
     // You can only get this effect on level 25000 reality glyphs anyway, might as well make it look nice
     // Disregard my man Hevi's above comment we pushing this shit
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
@@ -761,10 +761,10 @@ export const glyphEffects = {
     bitmaskIndex: 8,
     isGenerated: false,
     glyphTypes: ["companion"],
-    singleDesc: "It does nothing but sit there and cutely smile at you, whisper into your dreams politely, " +
-      "and plot the demise of all who stand against you. This one-of-a-kind Glyph will never leave you.",
-    totalDesc: "+{value} happiness",
-    shortDesc: "Doesn't want to hurt you",
+    singleDesc: "아무것도 하지 않고 그저 앉아서 귀엽게 미소 지으며, 꿈속에서 정중히 속삭이고, " +
+      "당신을 가로막는 모두의 몰락을 꾀합니다. 이 세상에 하나뿐인 글리프는 절대 당신을 떠나지 않습니다.",
+    totalDesc: "행복 +{value}",
+    shortDesc: "당신을 해치고 싶어 하지 않음",
     effect: () => {
       if (Enslaved.isRunning) return 0;
       const cursedCount = Glyphs.active.countWhere(g => g?.type === "cursed");
@@ -780,9 +780,9 @@ export const glyphEffects = {
     bitmaskIndex: 9,
     isGenerated: false,
     glyphTypes: ["companion"],
-    singleDesc: "Thanks for your dedication for the game! You reached {value} Eternity Points on your first Reality.",
-    shortDesc: "It loves you very, very much",
-    totalDesc: () => ((Enslaved.isRunning || Glyphs.active.countWhere(g => g?.type === "cursed")) ? "Help me" : "Yay!"),
+    singleDesc: "게임에 헌신해 주셔서 감사합니다! 첫 현실에서 영원 포인트 {value}개에 도달했습니다.",
+    shortDesc: "당신을 정말, 정말 사랑함",
+    totalDesc: () => ((Enslaved.isRunning || Glyphs.active.countWhere(g => g?.type === "cursed")) ? "도와줘" : "신난다!"),
     // The EP value for this is entirely encoded in rarity, but level needs to be present to
     // make sure the proper parameter is being used. The actual glyph level shouldn't do anything.
     // eslint-disable-next-line no-unused-vars

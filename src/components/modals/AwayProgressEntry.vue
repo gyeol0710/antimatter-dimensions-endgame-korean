@@ -43,6 +43,8 @@ export default {
       };
     },
     formattedName() {
+      if (this.name === "firstBlackHole") return "첫 번째 블랙홀";
+      if (this.name === "secondBlackHole") return "두 번째 블랙홀";
       return this.item.formatName;
     },
     increased() {
@@ -69,7 +71,7 @@ export default {
     },
     formatBlackHoleActivations() {
       const activations = this.after - this.before;
-      return quantifyHybridSmall("time", activations);
+      return quantifyHybridSmall("회", activations);
     },
     isVeryLarge() {
       return this.isBlackHole
@@ -108,16 +110,15 @@ export default {
     @click="hideEntry"
   >
     <span v-if="isBlackHole">
-      Your
-      <b>{{ formattedName }}</b>
-      activated
-      {{ formatBlackHoleActivations }}
+      당신의
+      <b>{{ formattedName }}</b>이
+      {{ formatBlackHoleActivations }} 활성화되었습니다.
     </span>
     <span v-else>
       <b>{{ formattedName }}</b>
-      <i v-if="isVeryLarge"> exponent</i>
-      increased from
-      {{ formatBefore }} to {{ formatAfter }}
+      <i v-if="isVeryLarge">의 지수</i>
+      이(가)
+      {{ formatBefore }}에서 {{ formatAfter }}로 증가했습니다.
     </span>
   </div>
 </template>

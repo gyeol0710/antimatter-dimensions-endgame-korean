@@ -25,8 +25,8 @@ export const perkShop = {
     id: 0,
     initialCost: 1,
     increment: 2,
-    description: () => PerkShopUpgrade.glyphLevel.viewCharge ? `Multiply pre-instability Glyph level based on highest-ever
-      Glyph level` : `Increase pre-instability Glyph levels by ${formatPercents(0.05)}`,
+    description: () => PerkShopUpgrade.glyphLevel.viewCharge ? `역대 최고 글리프 레벨에 따라 불안정성 이전
+      글리프 레벨에 배율을 적용합니다` : `불안정성 이전 글리프 레벨을 ${formatPercents(0.05)}만큼 증가시킵니다`,
     effect: () => player.disablePostReality ? 1 : (PerkShopUpgrade.glyphLevel.isCharged
       ? PerkShopUpgrade.glyphLevel.chargedEffect()
       : PerkShopUpgrade.glyphLevel.preChargedEffect()),
@@ -44,8 +44,8 @@ export const perkShop = {
     id: 1,
     initialCost: 1,
     increment: 2,
-    description: () => PerkShopUpgrade.rmMult.viewCharge ? `Multiply Reality Machine gain and cap based on
-      Antimatter amount` : `Double Reality Machine gain`,
+    description: () => PerkShopUpgrade.rmMult.viewCharge ? `반물질 양에 따라 리얼리티 머신 획득량과
+      상한에 배율을 적용합니다` : `리얼리티 머신 획득량을 두 배로 만듭니다`,
     effect: () => player.disablePostReality ? DC.D1 : (PerkShopUpgrade.rmMult.isCharged
       ? PerkShopUpgrade.rmMult.chargedEffect()
       : PerkShopUpgrade.rmMult.preChargedEffect()),
@@ -63,8 +63,8 @@ export const perkShop = {
     id: 2,
     initialCost: 100,
     increment: 2,
-    description: () => PerkShopUpgrade.bulkDilation.viewCharge ? `Dilation Autobuyers always buy max.` : `Dilation
-      autobuyers buy twice as many Dilation Upgrades at once.`,
+    description: () => PerkShopUpgrade.bulkDilation.viewCharge ? `팽창 자동구매기가 항상 최대로 구매합니다.` : `팽창
+      자동구매기가 한 번에 두 배 많은 팽창 업그레이드를 구매합니다.`,
     effect: () => player.disablePostReality ? 1 : (PerkShopUpgrade.bulkDilation.isCharged
       ? PerkShopUpgrade.bulkDilation.chargedEffect()
       : PerkShopUpgrade.bulkDilation.preChargedEffect()),
@@ -82,8 +82,8 @@ export const perkShop = {
     id: 3,
     initialCost: 1000,
     increment: 2,
-    description: () => PerkShopUpgrade.autoSpeed.viewCharge ? `Infinity Dimension, Time Dimension, Dilation, and Replicanti autobuyer
-      intervals are Instant.` : `Infinity Dimension, Time Dimension, Dilation, and Replicanti autobuyers are ${formatX(2)} faster.`,
+    description: () => PerkShopUpgrade.autoSpeed.viewCharge ? `무한 차원, 시간 차원, 팽창, 복제자 자동구매기의
+      간격이 즉시가 됩니다.` : `무한 차원, 시간 차원, 팽창, 복제자 자동구매기가 ${formatX(2)} 빨라집니다.`,
     effect: () => player.disablePostReality ? 1 : (PerkShopUpgrade.autoSpeed.isCharged
       ? PerkShopUpgrade.autoSpeed.chargedEffect()
       : PerkShopUpgrade.autoSpeed.preChargedEffect()),
@@ -99,8 +99,8 @@ export const perkShop = {
   }),
   musicGlyph: rebuyable({
     id: 4,
-    description: () => PerkShopUpgrade.musicGlyph.viewCharge ? `Unlock an Autobuyer to automatically purchase and purge Music
-      Glyphs.` : `Receive a Music Glyph of a random type that is ${formatPercents(0.8)} of your highest level. (Try clicking it!)`,
+    description: () => PerkShopUpgrade.musicGlyph.viewCharge ? `음악 글리프를 자동으로 구매하고 제거하는
+      자동구매기를 해금합니다.` : `최고 레벨의 ${formatPercents(0.8)}인 무작위 종류의 음악 글리프를 받습니다. (눌러 보세요!)`,
     cost: () => 1,
     formatCost: value => formatInt(value),
     costCap: () => Number.MAX_VALUE,
@@ -110,7 +110,7 @@ export const perkShop = {
   // Only appears with the perk shop increase upgrade
   fillMusicGlyph: rebuyable({
     id: 5,
-    description: () => `Fill all empty slots in your inventory with Music Glyphs`,
+    description: () => `보관함의 모든 빈 슬롯을 음악 글리프로 채웁니다`,
     cost: () => Math.clampMin(GameCache.glyphInventorySpace.value, 1),
     otherReq: () => GameCache.glyphInventorySpace.value > 0,
     formatCost: value => formatInt(value),
@@ -123,7 +123,7 @@ export const perkShop = {
     id: 6,
     initialCost: 1e10,
     increment: 1e10,
-    description: () => `Unlock a new Charged Perk Upgrade`,
+    description: () => `새로운 충전된 퍼크 업그레이드를 해금합니다`,
     effect: bought => Math.floor(bought),
     formatEffect: value => formatInt(value),
     formatCost: value => format(value, 2),

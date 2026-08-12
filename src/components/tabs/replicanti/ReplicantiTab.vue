@@ -62,8 +62,8 @@ export default {
     replicantiChanceSetup() {
       return new ReplicantiUpgradeButtonSetup(
         ReplicantiUpgrade.chance,
-        value => `Replicate chance: ${formatDecimalPercents(value)}`,
-        cost => `+${formatPercents(0.01)} Costs: ${format(cost)} IP`
+        value => `복제 확률: ${formatDecimalPercents(value)}`,
+        cost => `+${formatPercents(0.01)} 비용: ${format(cost)} IP`
       );
     },
     replicantiIntervalSetup() {
@@ -86,9 +86,9 @@ export default {
       }
       return new ReplicantiUpgradeButtonSetup(
         upgrade,
-        value => `Interval: ${formatInterval(value)}`,
+        value => `간격: ${formatInterval(value)}`,
         cost =>
-          `➜ ${formatInterval(upgrade.nextValue)} Costs: ${format(cost)} IP`
+          `➜ ${formatInterval(upgrade.nextValue)} 비용: ${format(cost)} IP`
       );
     },
     maxGalaxySetup() {
@@ -96,7 +96,7 @@ export default {
       return new ReplicantiUpgradeButtonSetup(
         upgrade,
         value => {
-          let description = `Max Replicanti Galaxies: `;
+          let description = `최대 복제자 은하: `;
           const extra = upgrade.extra;
           if (extra.gt(0)) {
             const total = value.add(extra);
@@ -106,49 +106,48 @@ export default {
           }
           return description;
         },
-        cost => `+${formatInt(1)} Costs: ${format(cost)} IP`
+        cost => `+${formatInt(1)} 비용: ${format(cost)} IP`
       );
     },
     boostText() {
       const boostList = [];
-      boostList.push(`a <span class="c-replicanti-description__accent">${formatX(this.mult, 2, 2)}</span>
-        multiplier${this.hasPow ? ` and a
-        <span class="c-replicanti-description__accent">${formatPow(this.pow, 2, 3)}</span> power` : ""}
-        on all Infinity Dimensions`);
+      boostList.push(`모든 무한 차원에 <span class="c-replicanti-description__accent">${formatX(this.mult, 2, 2)}</span>
+        배율${this.hasPow ? ` 및
+        <span class="c-replicanti-description__accent">${formatPow(this.pow, 2, 3)}</span> 지수` : ""} 적용`);
       if (this.hasTDMult) {
-        boostList.push(`a <span class="c-replicanti-description__accent">${formatX(this.multTD, 2, 2)}</span>
-          multiplier${this.hasTDPow ? ` and a
-          <span class="c-replicanti-description__accent">${formatPow(this.powTD, 2, 3)}</span> power` : ""}
-          on all Time Dimensions from a Dilation Upgrade`);
+        boostList.push(`시간 팽창 업그레이드로 모든 시간 차원에
+          <span class="c-replicanti-description__accent">${formatX(this.multTD, 2, 2)}</span>
+          배율${this.hasTDPow ? ` 및
+          <span class="c-replicanti-description__accent">${formatPow(this.powTD, 2, 3)}</span> 지수` : ""} 적용`);
       }
       if (this.hasDTMult) {
-        const additionalEffect = GlyphAlteration.isAdded("replication") ? "and Replicanti speed " : "";
-        boostList.push(`a <span class="c-replicanti-description__accent">${formatX(this.multDT, 2, 2)}</span>
-          multiplier${this.hasDTPow ? ` and a
-          <span class="c-replicanti-description__accent">${formatPow(this.powDT, 2, 3)}</span> power` : ""}
-          to Dilated Time ${additionalEffect}from Glyphs`);
+        const additionalEffect = GlyphAlteration.isAdded("replication") ? "과 복제자 속도" : "";
+        boostList.push(`글리프로 팽창된 시간${additionalEffect}에
+          <span class="c-replicanti-description__accent">${formatX(this.multDT, 2, 2)}</span>
+          배율${this.hasDTPow ? ` 및
+          <span class="c-replicanti-description__accent">${formatPow(this.powDT, 2, 3)}</span> 지수` : ""} 적용`);
       }
       if (this.hasIPMult) {
-        boostList.push(`a <span class="c-replicanti-description__accent">${formatX(this.multIP)}</span>
-          multiplier${this.hasIPPow ? ` and a
-          <span class="c-replicanti-description__accent">${formatPow(this.powIP, 2, 3)}</span> power` : ""}
-          to Infinity Points from Glyph Alchemy`);
+        boostList.push(`글리프 연금술로 얻는 무한 포인트에
+          <span class="c-replicanti-description__accent">${formatX(this.multIP)}</span>
+          배율${this.hasIPPow ? ` 및
+          <span class="c-replicanti-description__accent">${formatPow(this.powIP, 2, 3)}</span> 지수` : ""} 적용`);
       }
       if (this.hasDEMult) {
-        boostList.push(`a <span class="c-replicanti-description__accent">${formatX(this.multDE, 2, 2)}</span>
-          multiplier${this.hasDEPow ? ` and a
-          <span class="c-replicanti-description__accent">${formatPow(this.powDE, 2, 3)}</span> power` : ""}
-          to Dark Energy from an Alpha Reward`);
+        boostList.push(`알파 보상으로 얻는 암흑 에너지에
+          <span class="c-replicanti-description__accent">${formatX(this.multDE, 2, 2)}</span>
+          배율${this.hasDEPow ? ` 및
+          <span class="c-replicanti-description__accent">${formatPow(this.powDE, 2, 3)}</span> 지수` : ""} 적용`);
       }
       if (boostList.length === 1) return `${boostList[0]}.`;
-      if (boostList.length === 2) return `${boostList[0]}<br> and ${boostList[1]}.`;
-      return `${boostList.slice(0, -1).join(",<br>")},<br> and ${boostList[boostList.length - 1]}.`;
+      if (boostList.length === 2) return `${boostList[0]}<br>그리고 ${boostList[1]}.`;
+      return `${boostList.slice(0, -1).join(",<br>")},<br>그리고 ${boostList[boostList.length - 1]}.`;
     },
     hasMaxText: () => PlayerProgress.realityUnlocked() && !Pelle.isDoomed,
     toMaxTooltip() {
       if (this.amount.lte(this.replicantiCap)) return null;
       return this.estimateToMax.lt(0.01)
-        ? "Currently Increasing"
+        ? "현재 증가 중"
         : TimeSpan.fromSeconds(this.estimateToMax).toStringShort();
     }
   },
@@ -191,7 +190,7 @@ export default {
       if (this.hasRaisedCap) {
         const mult = this.replicantiCap.div(DC.NUMMAX);
         this.capMultText = TimeStudy(31).canBeApplied
-          ? `Base: ${formatX(mult.pow(1 / TimeStudy(31).effectValue), 2)}; after TS31: ${formatX(mult, 2)}`
+          ? `기본: ${formatX(mult.pow(1 / TimeStudy(31).effectValue), 2)}; TS31 적용 후: ${formatX(mult, 2)}`
           : formatX(mult, 2);
       }
       this.distantRG = ReplicantiUpgrade.galaxies.distantRGStart;
@@ -233,33 +232,33 @@ export default {
       class="o-primary-btn--replicanti-unlock"
       onclick="Replicanti.unlock();"
     >
-      Unlock Replicanti
+      복제자 해금하기
       <br>
-      Cost: {{ format(unlockCost) }} IP
+      가격: {{ format(unlockCost) }} 무한 포인트
     </PrimaryButton>
     <template v-else>
       <div
         v-if="isDoomed"
         class="modified-cap"
       >
-        Your Replicanti cap has been removed due to the second {{ scrambledText }} milestone.
+        두 번째 {{ scrambledText }} 마일스톤으로 복제자 상한이 제거되었습니다.
       </div>
       <div
         v-else-if="hasRaisedCap"
         class="modified-cap"
       >
-        Completion of Effarig's Infinity is giving you the following rewards:
+        에파리그의 무한을 완료하여 다음 보상을 받고 있습니다:
         <br>
-        Your Replicanti cap without TS192 is now {{ format(replicantiCap, 2) }}
+        TS192가 없을 때의 복제자 상한: {{ format(replicantiCap, 2) }}
         ({{ capMultText }})
         <br>
-        {{ quantifyHybridLarge("extra Replicanti Galaxy", effarigInfinityBonusRG) }}
-        (Next Replicanti Galaxy at {{ format(nextEffarigRGThreshold, 2) }} cap)
+        {{ quantifyHybridLarge("추가 복제자 은하", effarigInfinityBonusRG) }}
+        (다음 복제자 은하: 상한 {{ format(nextEffarigRGThreshold, 2) }})
       </div>
       <p class="c-replicanti-description">
-        You have
+        복제자
         <span class="c-replicanti-description__accent">{{ format(amount, 2, 0) }}</span>
-        Replicanti, translated to
+        개를 보유하고 있습니다.
         <br>
         <span v-html="boostText" />
       </p>
@@ -267,7 +266,7 @@ export default {
         v-if="hasMaxText"
         class="c-replicanti-description"
       >
-        Your maximum Replicanti reached this Reality is
+        이번 현실에서 도달한 최대 복제자는
         <span
           v-tooltip="toMaxTooltip"
           class="max-accent"
@@ -275,7 +274,7 @@ export default {
       </div>
       <br>
       <div v-if="isInEC8">
-        You have {{ quantifyInt("purchase", ec8Purchases) }} left within Eternity Challenge 8.
+        영원 도전 8에서 {{ quantifyInt("회", ec8Purchases) }} 더 구매할 수 있습니다.
       </div>
       <div class="l-replicanti-upgrade-row">
         <ReplicantiUpgradeButton :setup="replicantiChanceSetup" />
@@ -283,19 +282,19 @@ export default {
         <ReplicantiUpgradeButton :setup="maxGalaxySetup" />
       </div>
       <div>
-        The Max Replicanti Galaxy upgrade can be purchased endlessly, but costs increase
+        최대 복제자 은하 업그레이드는 무한히 구매할 수 있지만,
         <br>
-        more rapidly above {{ formatInt(distantRG) }} Replicanti Galaxies
-        and even more so above {{ formatInt(remoteRG) }} Replicanti Galaxies.
+        복제자 은하 {{ formatInt(distantRG) }}개부터 비용이 더 빠르게 증가하고,
+        {{ formatInt(remoteRG) }}개부터는 훨씬 더 빠르게 증가합니다.
       </div>
       <br>
       <div
         v-if="isContingent"
         class="contingency-text"
       >
-        Your Replicanti Galaxies have become Contingent. This is because they are taking up too much space in the Universe.
+        복제자 은하가 우주의 공간을 너무 많이 차지하여 조건부 상태가 되었습니다.
         <br>
-        This effect started at {{ formatInt(contingentRG) }} Replicanti Galaxies, and will continue until the End of Time.
+        이 효과는 복제자 은하 {{ formatInt(contingentRG) }}개부터 시작되며 시간의 끝까지 계속됩니다.
       </div>
       <br><br>
       <ReplicantiGainText />

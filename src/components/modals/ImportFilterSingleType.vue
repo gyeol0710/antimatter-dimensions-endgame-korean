@@ -92,23 +92,23 @@ export default {
         <span
           class="c-rarity"
           :class="topLevelClassObject('rarity')"
-          ach-tooltip="Setting for Rarity Threshold and Specified Effect"
+          ach-tooltip="희귀도 기준 및 지정 효과 설정"
         >
           {{ rarityStr }}
         </span>
         <span
           class="c-effects-count"
           :class="topLevelClassObject('effectCount')"
-          ach-tooltip="Number of effects in Specified Effect"
+          ach-tooltip="지정 효과 모드의 효과 개수"
         >
-          Minimum Effects: {{ effectStr }}
+          최소 효과 수: {{ effectStr }}
         </span>
         <span
           class="c-target-score"
           :class="topLevelClassObject('score')"
-          ach-tooltip="Threshold for Effect Score"
+          ach-tooltip="효과 점수 기준값"
         >
-          Score: {{ scoreStr }}
+          점수: {{ scoreStr }}
         </span>
       </span>
       <br>
@@ -140,7 +140,7 @@ export default {
       </span>
     </span>
     <span v-else>
-      (No changes)
+      (변경 없음)
     </span>
   </div>
 </template>

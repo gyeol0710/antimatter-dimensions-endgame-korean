@@ -44,11 +44,11 @@ export default {
       };
     },
     dimBoostName() {
-      if (Ascensions.dbA.isUnlocked) return "Dimension Surge";
-      return "Dimension Boost";
+      if (Ascensions.dbA.isUnlocked) return "차원 쇄도";
+      return "차원 가속";
     },
     imaginaryText() {
-      return `(${formatHybridLarge(this.imaginaryBoosts, 3)} free Dimension Boosts, which do not provide a power effect)`;
+      return `(효과 거듭제곱을 제공하지 않는 무료 차원 가속 ${formatHybridLarge(this.imaginaryBoosts, 3)}개)`;
     }
   },
   methods: {
@@ -77,7 +77,7 @@ export default {
 <template>
   <div class="reset-container dimboost">
     <h4>{{ dimBoostName }} ({{ boostCountText }})</h4>
-    <span>Requires: {{ formatHybridLarge(requirement.amount, 3) }} {{ dimName }} Antimatter D</span>
+    <span>필요: {{ dimName }} 반물질 차원 {{ formatHybridLarge(requirement.amount, 3) }}개</span>
     <span v-if="hasSurge">{{ imaginaryText }}</span>
     <button
       :class="classObject"

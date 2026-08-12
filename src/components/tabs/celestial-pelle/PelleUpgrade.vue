@@ -33,8 +33,8 @@ export default {
       canBuy: false,
       isBought: false,
       purchases: 0,
-      currentTimeEstimate: "Calculating...",
-      projectedTimeEstimate: "Calculating...",
+      currentTimeEstimate: "계산 중...",
+      projectedTimeEstimate: "계산 중...",
       isCapped: false,
       hovering: false,
       hasRemnants: false,
@@ -48,7 +48,7 @@ export default {
     },
     effectText() {
       if (!this.config.formatEffect) return false;
-      const prefix = this.isCapped ? "Capped:" : "Currently:";
+      const prefix = this.isCapped ? "상한:" : "현재:";
       const formattedEffect = x => this.config.formatEffect(this.config.effect(x));
       const value = formattedEffect(this.purchases);
       const next = (!this.isCapped && this.hovering)
@@ -58,7 +58,7 @@ export default {
     },
     timeEstimate() {
       if (!this.hasTimeEstimate || !this.hasRemnants) return null;
-      if (this.notAffordable) return "Never affordable due to Generated Galaxy cap";
+      if (this.notAffordable) return "생성된 은하 상한 때문에 구매할 수 없음";
       return this.currentTimeEstimate;
     },
     hasTimeEstimate() {
@@ -70,6 +70,14 @@ export default {
     },
     shouldEstimateImprovement() {
       return this.showImprovedEstimate && this.hasTimeEstimate;
+    },
+    currencyName() {
+      if (!this.galaxyGenerator) return "현실 파편";
+      return {
+        Galaxy: "은하",
+        "Reality Shard": "현실 파편",
+        Remnant: "잔재",
+      }[this.config.currencyLabel] ?? this.config.currencyLabel;
     },
     estimateImprovement() {
       if (!this.shouldEstimateImprovement) return "";
@@ -172,7 +180,7 @@ export default {
     <CostDisplay
       v-if="!isCapped"
       :config="config"
-      :name="galaxyGenerator ? config.currencyLabel : 'Reality Shard'"
+      :name="currencyName"
     />
   </button>
 </template>

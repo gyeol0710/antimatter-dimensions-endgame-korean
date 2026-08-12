@@ -148,7 +148,7 @@ export const GameStorage = {
     Tabs.all.find(t => t.id === player.options.lastOpenTab).show(false);
     Modal.hideAll();
     Cloud.resetTempState();
-    GameUI.notify.info("Game loaded");
+    GameUI.notify.info("게임을 불러왔습니다");
     Achievements.updateSteamStatus();
   },
 
@@ -158,7 +158,7 @@ export const GameStorage = {
     }
     const newPlayer = GameSaveSerializer.deserialize(saveData);
     if (this.checkPlayerObject(newPlayer) !== "") {
-      Modal.message.show("Could not load the save (format unrecognized or invalid).");
+      Modal.message.show("세이브를 불러올 수 없습니다(형식을 인식할 수 없거나 올바르지 않습니다).");
       return;
     }
     this.oldBackupTimer = player.backupTimer;
@@ -177,7 +177,7 @@ export const GameStorage = {
     // You can doom your reality even if you haven't unlocked infinity yet if you import while the Pelle tab
     // is showing
     Tab.options.subtabs[0].show();
-    GameUI.notify.info("Game imported");
+    GameUI.notify.info("게임을 가져왔습니다");
     Achievements.updateSteamStatus();
   },
 
@@ -203,10 +203,10 @@ export const GameStorage = {
   checkPlayerObject(save) {
     // Sometimes save is the output of GameSaveSerializer.deserialize, and if that function fails then it will result
     // in the input parameter here being undefined
-    if (save === undefined || save === null) return "Save decoding failed (invalid format)";
+    if (save === undefined || save === null) return "세이브 디코딩 실패(올바르지 않은 형식)";
     // Right now all we do is check for the existence of an antimatter prop, but if we wanted to do further save
     // verification then here's where we'd do it
-    if (save.money === undefined && save.antimatter === undefined) return "Save does not have antimatter property";
+    if (save.money === undefined && save.antimatter === undefined) return "세이브에 반물질 속성이 없습니다";
 
     // Recursively check for any NaN props and add any we find to an array
     const invalidProps = [];
@@ -238,7 +238,7 @@ export const GameStorage = {
     checkNaN(save, "player");
 
     if (invalidProps.length === 0 || player.DEV) return "";
-    return `${quantify("NaN player property", invalidProps.length)} found:
+    return `${quantify("NaN 플레이어 속성", invalidProps.length)} 발견:
       ${invalidProps.join(", ")}`;
   },
 
@@ -261,7 +261,7 @@ export const GameStorage = {
       saves: this.saves
     };
     localStorage.setItem(this.localStorageKey, GameSaveSerializer.serialize(root));
-    if (!silent) GameUI.notify.info("Game saved");
+    if (!silent) GameUI.notify.info("게임을 저장했습니다");
   },
 
   // Saves a backup, updates save timers (this is called before nextBackup is updated), and then saves the timers too.
@@ -348,7 +348,7 @@ export const GameStorage = {
 
   export() {
     copyToClipboard(this.exportModifiedSave());
-    GameUI.notify.info("Exported current savefile to your clipboard");
+    GameUI.notify.info("현재 세이브 파일을 클립보드에 내보냈습니다");
   },
 
   get exportDateString() {
@@ -368,7 +368,7 @@ export const GameStorage = {
     download(
       `AD Save, Slot ${GameStorage.currentSlot + 1}${saveFileName} #${player.options.exportedFileCount} \
 (${this.exportDateString}).txt`, save);
-    GameUI.notify.info("Successfully downloaded current save file to your computer");
+    GameUI.notify.info("현재 세이브 파일을 컴퓨터에 다운로드했습니다");
   },
 
   exportBackupsAsFile() {
@@ -382,7 +382,7 @@ export const GameStorage = {
     download(
       `AD Save Backups, Slot ${GameStorage.currentSlot + 1} #${player.options.exportedFileCount} \
 (${this.exportDateString}).txt`, GameSaveSerializer.serialize(backupData));
-    GameUI.notify.info("Successfully downloaded save file backups to your computer");
+    GameUI.notify.info("세이브 파일 백업을 컴퓨터에 다운로드했습니다");
   },
 
   importBackupsFromFile(importText) {
@@ -399,7 +399,7 @@ export const GameStorage = {
       };
     }
     this.resetBackupTimer();
-    GameUI.notify.info("Successfully imported save file backups from file");
+    GameUI.notify.info("파일에서 세이브 백업을 가져왔습니다");
   },
 
   // There are a couple props which may need to export with different values, so we handle that here
@@ -428,7 +428,7 @@ export const GameStorage = {
     if (playerObject === Player.defaultStart || checkString !== "") {
       if (DEV && checkString !== "") {
         // eslint-disable-next-line no-console
-        console.log(`Savefile was invalid and has been reset - ${checkString}`);
+        console.log(`세이브 파일이 올바르지 않아 초기화했습니다 - ${checkString}`);
       }
       player = deepmergeAll([{}, Player.defaultStart]);
       player.records.gameCreatedTime = Date.now();

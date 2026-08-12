@@ -18,8 +18,8 @@ export default {
     },
     overwriteText() {
       return this.isSaving
-        ? "Overwrite Cloud Save"
-        : "Load save from Cloud";
+        ? "클라우드 세이브 덮어쓰기"
+        : "클라우드 세이브 불러오기";
     }
   },
   methods: {
@@ -43,30 +43,27 @@ export default {
     @confirm="ignore()"
   >
     <template #header>
-      Could not compare with Cloud Save
+      클라우드 세이브를 비교할 수 없음
     </template>
-    While attempting to compare your saves, the game was unable to properly process the data in your
-    Cloud save. This is most likely due to the Cloud save being very outdated, using a data
-    format from a much older version of the game.
+    세이브를 비교하는 중 클라우드 세이브 데이터를 정상적으로 처리하지 못했습니다.
+    클라우드 세이브가 매우 오래되어 이전 게임 버전의 데이터 형식을 사용하기 때문일 가능성이 큽니다.
     <br>
     <br>
     <span v-if="isSaving">
-      It is probably safe to overwrite your Cloud save. You can click "Cloud load" and force the save
-      to be loaded if you would like to attempt to convert it to a valid save format that you can use.
+      클라우드 세이브를 덮어써도 안전할 가능성이 큽니다. 사용 가능한 올바른 세이브 형식으로 변환해 보려면
+      "클라우드 불러오기"를 눌러 세이브를 강제로 불러올 수 있습니다.
     </span>
     <span v-else>
-      You can try to load your data from the Cloud if desired. The game will attempt to load in your
-      Cloud data by converting its format, but this may not work and in the worst case may require you
-      to reset this save slot in order for the game to work again.
+      원한다면 클라우드 데이터를 불러올 수 있습니다. 게임이 데이터 형식을 변환해 불러오려고 시도하지만
+      실패할 수 있으며, 최악의 경우 게임을 다시 작동시키려면 이 세이브 슬롯을 초기화해야 할 수도 있습니다.
     </span>
     <br>
-    Note: This modal will show up regardless of your settings, because this issue will continue to prevent
-    the 10-minute autosave until it is resolved.
+    참고: 이 문제가 해결될 때까지 10분 간격 자동 저장이 계속 차단되므로, 설정과 관계없이 이 모달이 표시됩니다.
     <template #cancel-text>
       {{ overwriteText }}
     </template>
     <template #confirm-text>
-      Do not overwrite
+      덮어쓰지 않기
     </template>
   </ModalWrapperChoice>
 </template>

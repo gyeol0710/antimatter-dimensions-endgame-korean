@@ -1,93 +1,92 @@
 export const expansionPacks = {
   teresaPack: {
-    name: "Teresa's Expansion Pack",
+    name: "테레사의 확장팩",
     id: "teresaPack",
     symbol: "Ϟ",
     description: () =>
-      `Uncap Teresa's Canister. Teresa's Canister now affects the Reality Machine cap as well as Reality Machine gain.
-      Unlock Charged Perk Upgrades in the Teresa Tab. Automatically pour RM into Teresa.`,
+      `테레사의 용기 상한을 제거합니다. 이제 테레사의 용기가 리얼리티 머신 획득량뿐 아니라 리얼리티 머신 상한에도 영향을 줍니다.
+      테레사 탭에서 충전된 퍼크 업그레이드를 해금합니다. 리얼리티 머신을 테레사에게 자동으로 붓습니다.`,
     cost: Decimal.pow(10, 1e30),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   effarigPack: {
-    name: "Effarig's Expansion Pack",
+    name: "에파리그의 확장팩",
     id: "effarigPack",
     symbol: "Ϙ",
     description: () =>
-      `Multiply Relic Shard gain by the logarithm of your Antimatter amount. The Effarig Level ${formatInt(10)} reward in Ra
-      is improved so that Effarig Glyphs are always generated with ${formatInt(7)} effects. Increase Glyph Alchemy caps to one-third
-      of your all-time maximum Glyph Level. Alchemy resources are kept on Endgame, and making a Reality Glyph no longer spends
-      Reality resources. Effarig's Shop starts completed. Layers of Effarig's Reality will automatically complete at one-tenth the
-      time of your fastest Endgame.`,
+      `유물 파편 획득량에 보유 반물질의 로그값을 곱합니다. 라의 에파리그 레벨 ${formatInt(10)} 보상이 개선되어
+      에파리그 글리프가 항상 효과 ${formatInt(7)}개를 가진 채 생성됩니다. 글리프 연금술 상한이 역대 최고 글리프 레벨의 삼분의 일로 증가합니다.
+      엔드게임 시 연금술 자원을 유지하며, 현실 글리프를 만들어도 현실 자원이 소모되지 않습니다. 에파리그의 상점이 완료된 상태로 시작합니다.
+      에파리그의 현실 각 단계가 가장 빠른 엔드게임 시간의 십분의 일이 지나면 자동으로 완료됩니다.`,
     cost: Decimal.pow(10, 1e50),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   enslavedPack: {
-    name: "The Nameless Ones' Expansion Pack",
+    name: "이름없는 자들의 확장팩",
     id: "enslavedPack",
     symbol: "\uf0c1",
     description: () =>
-      `Charging your Black Hole always only takes ${formatPercents(0.99)} of your total Game Speed. Unlock optimizers for
-      adjusting the amount of your stored time you desire to discharge as well as the interval at which you want to discharge
-      your Stored Time. Double the strength of all Effective Tesseracts. Tesseracts multiply Endgames as well as reducing the Infinity
-      Dimension Compression Magnitude slightly. Start Endgames with the Nameless Ones completed. Unlock an autobuyer for Tesseracts.`,
+      `블랙홀 충전에 항상 총 게임 속도의 ${formatPercents(0.99)}만 사용합니다. 방출할 저장된 시간의 양과
+      저장된 시간을 방출할 간격을 조정하는 최적화 기능을 해금합니다. 모든 유효 테서랙트의 효과를 두 배로 만듭니다.
+      테서랙트가 엔드게임에 배율을 적용하고 무한 차원 압축 규모를 소폭 감소시킵니다. 이름없는 자들을 완료한 상태로 엔드게임을 시작합니다.
+      테서랙트 자동구매기를 해금합니다.`,
     cost: Decimal.pow(10, 1e70),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   vPack: {
-    name: "V's Expansion Pack",
+    name: "V의 확장팩",
     id: "vPack",
     symbol: "⌬",
     description: () =>
-      `Start with V's Reality unlocked. Automatically unlock one V-Achievement every ${TimeSpan.fromSeconds(new Decimal(60))},
-      which can be reduced by spending Celestial Points. This includes Hard V-Achievements. Double all gained Space Theorems.`,
+      `V의 현실이 해금된 상태로 시작합니다. ${TimeSpan.fromSeconds(new Decimal(60))}마다 V-도전과제를 하나씩 자동으로 해금하며,
+      셀레스티얼 포인트를 사용해 이 시간을 단축할 수 있습니다. 어려운 V-도전과제도 포함됩니다. 획득하는 모든 공간 정리를 두 배로 만듭니다.`,
     cost: Decimal.pow(10, 1e90),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   raPack: {
-    name: "Ra's Expansion Pack",
+    name: "라의 확장팩",
     id: "raPack",
     symbol: "\uf185",
     description: () =>
-      `Ra is kept on Endgame. Raise the level cap of all Celestials to the double-logarithm of your record Antimatter amount.
-      Unlock ${formatInt(7)} new effects for each Celestial which can be obtained by increasing the level of each Celestial.
-      Multiply Memory and Memory Chunk gain by ${formatX(10)}.`,
+      `엔드게임 시 라를 유지합니다. 모든 셀레스티얼의 레벨 상한이 최고 반물질 기록의 이중 로그값까지 증가합니다.
+      각 셀레스티얼의 레벨을 올려 획득할 수 있는 새로운 효과를 셀레스티얼마다 ${formatInt(7)}개씩 해금합니다.
+      기억과 기억 덩어리 획득량에 ${formatX(10)}를 곱합니다.`,
     cost: Decimal.pow(10, 1e110),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   laitelaPack: {
-    name: "Lai'tela's Expansion Pack",
+    name: "라이텔라의 확장팩",
     id: "laitelaPack",
     symbol: "ᛝ",
     description: () =>
-      `Unlock an autobuyer that will increase/decrease the bulk Singularity level based on an inputted time for each. While in
-      Lai'tela's Reality, Game Speed returns to normal twice as fast. Square the Annihilation to ${formatInt(8)}th DMD multiplier
-      if Annihilation multiplier currently affects the ${formatInt(8)}th DMD. Reduce the DMD Interval increase on Ascension
-      by ${formatInt(200)}. Multiply Dark Matter gain by the double-logarithm of your Antimatter amount or the logarithm of
-      your Imaginary Machine amount, whichever is bigger. Start Endgames with ${formatInt(10)} Singularities. Multiply Dark Energy
-      gain by the logarithm of your Singularity amount squared. Raise the Annihilation effect to a power based on Dark Matter.
-      Improve the Annihilation autobuyer. Unlock the ability to Hadronize Lai'tela's Reality. The reward for destabilizing Lai'tela's
-      Reality now affects the Dark Matter Cap as well. The maximum gain of Entropy per second is multiplied by ${formatInt(10)}.`,
+      `각각 입력한 시간을 기준으로 일괄 특이점 레벨을 높이거나 낮추는 자동구매기를 해금합니다. 라이텔라의 현실에서는
+      게임 속도가 정상으로 두 배 더 빠르게 돌아옵니다. 소멸 배율이 현재 ${formatInt(8)}번째 암흑 물질 차원에 영향을 준다면
+      ${formatInt(8)}번째 암흑 물질 차원에 적용되는 소멸 배율을 제곱합니다. 승천 시 암흑 물질 차원 간격 증가량을
+      ${formatInt(200)}만큼 감소시킵니다. 반물질 양의 이중 로그값과 허수 머신 양의 로그값 중 큰 값을 암흑 물질 획득량에 곱합니다.
+      특이점 ${formatInt(10)}개를 보유한 채 엔드게임을 시작합니다. 암흑 에너지 획득량에 특이점 개수 로그값의 제곱을 곱합니다.
+      암흑 물질에 따라 소멸 효과를 거듭제곱합니다. 소멸 자동구매기를 개선합니다. 라이텔라의 현실을 하드론화하는 능력을 해금합니다.
+      이제 라이텔라의 현실을 불안정화하는 보상이 암흑 물질 상한에도 영향을 줍니다.
+      초당 엔트로피 최대 획득량에 ${formatInt(10)}을 곱합니다.`,
     cost: Decimal.pow(10, 1e130),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   pellePack: {
-    name: "Pelle's Expansion Pack",
+    name: "펠레의 확장팩",
     id: "pellePack",
     symbol: "♅",
     description: () =>
-      `Reduce the Galaxy Generator Instability Magnitude by ${formatInt(1)}, raise the first three types of Dimensions to
-      a power based on your all-time record Galaxy amount, and unlock autobuyers for the repeatable Galaxy Generator upgrades.`,
+      `은하 생성기 불안정성 규모를 ${formatInt(1)}만큼 감소시키고, 역대 최고 은하 기록에 따라 처음 세 종류 차원의 배율을 거듭제곱하며,
+      반복 구매 가능한 은하 생성기 업그레이드의 자동구매기를 해금합니다.`,
     cost: Decimal.pow(10, 1e150),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   alphaPack: {
-    name: "Alpha's Expansion Pack",
+    name: "알파의 확장팩",
     id: "alphaPack",
     symbol: "α",
     description: () =>
-      `Unlock the Large Hadron Collider, which can accelerate your Hadrons to exponentially gain more Antimatter. This will also
-      unlock The Void, which is a feature that functions similarly to Time Dilation and boosts Accelerator production.`,
+      `하드론을 가속해 반물질 획득량을 기하급수적으로 늘릴 수 있는 대형 강입자 충돌기를 해금합니다. 또한
+      시간 팽창과 비슷하게 작동하며 가속기 생산량을 강화하는 공허를 해금합니다.`,
     cost: Decimal.pow(10, 1e200),
     formatCost: value => formatPostBreak(value, 2, 0)
   }

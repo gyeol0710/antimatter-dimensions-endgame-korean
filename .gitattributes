@@ -5,3 +5,4 @@
 *.md     eol=crlf
 *.txt    eol=crlf
 *.json   eol=crlf
+.gitignore whitespace=cr-at-eol

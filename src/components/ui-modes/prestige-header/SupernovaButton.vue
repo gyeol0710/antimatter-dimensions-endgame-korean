@@ -104,27 +104,27 @@ export default {
   >
     <!-- Cannot Supernova -->
     <template v-if="!canSupernova">
-      Reach {{ format(supernovaGoal, 2, 2) }}
+      {{ format(supernovaGoal, 2, 2) }} 도달 필요
       <br>
-      Divine Stars
+      신성 별
     </template>
 
     <!-- Can Supernova -->
     <template v-else>
       <div v-if="!showNebRate" />
       <b>
-        Supernova for
+        초신성으로
         <span :style="amountStyle">{{ format(gainedNeb, 2) }}</span>
-        <span v-if="showNebRate"> Neb</span>
-        <span v-else> {{ pluralize("Nebula", gainedNeb) }}</span>
+        <span v-if="showNebRate"> 성운</span>
+        <span v-else> {{ pluralize("성운", gainedNeb) }}</span>
       </b>
       <template v-if="showNebRate">
         <br>
-        Current: {{ format(currentNebRate, 2) }} Neb/min
+        현재: 분당 {{ format(currentNebRate, 2) }} 성운
         <br>
-        Peak: {{ format(peakNebRate, 2) }} Neb/min
+        최고: 분당 {{ format(peakNebRate, 2) }} 성운
         <br>
-        at {{ format(peakNebRateVal, 2) }} Neb
+        성운 {{ format(peakNebRateVal, 2) }}에서 달성
       </template>
       <div v-else />
     </template>

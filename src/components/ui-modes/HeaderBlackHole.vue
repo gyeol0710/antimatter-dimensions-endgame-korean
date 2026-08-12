@@ -30,7 +30,7 @@ export default {
       return this.blackHole.id;
     },
     dischargeText() {
-      return `Discharge: ${timeDisplayShort(new Decimal(this.storedTime))}`;
+      return `방출: ${timeDisplayShort(new Decimal(this.storedTime))}`;
     },
     hasLongText() {
       return this.dischargeText.length > 15;
@@ -57,12 +57,12 @@ export default {
       this.isEndgameUnlocked = PlayerProgress.endgameUnlocked();
     },
     pauseButtonText() {
-      if (BlackHoles.arePaused && player.blackHoleNegative < 1) return "Uninvert BH";
-      if (BlackHoles.arePaused) return "Unpause BH";
+      if (BlackHoles.arePaused && player.blackHoleNegative < 1) return "블랙홀 역전 해제";
+      if (BlackHoles.arePaused) return "블랙홀 재개";
       const accel = BlackHoles.unpauseAccelerationFactor;
-      if (accel !== 1) return `${formatPercents(accel, 1)} speed`;
-      if (player.blackHoleNegative < 1) return "Invert BH";
-      return "Pause BH";
+      if (accel !== 1) return `속도 ${formatPercents(accel, 1)}`;
+      if (player.blackHoleNegative < 1) return "블랙홀 역전";
+      return "블랙홀 일시 정지";
     },
     timeDisplayShort(ms) {
       return timeDisplayShort(ms);
@@ -98,10 +98,10 @@ export default {
           onclick="Enslaved.toggleStoreBlackHole()"
         >
           <span v-if="isCharging">
-            Stop Charging
+            충전 중지
           </span>
           <span v-else>
-            Charge
+            충전
           </span>
         </PrimaryButton>
       </span>
@@ -130,7 +130,7 @@ export default {
         <PrimaryToggleButton
           v-model="isAutoReleasing"
           class="o-primary-btn--buy-max c-primary-btn--black-hole-header"
-          label="Pulse:"
+          label="파동:"
         />
       </span>
     </span>
@@ -139,7 +139,7 @@ export default {
         class="o-toggle-btn c-primary-btn--black-hole-header"
         @click="toggleCelestialMatterMultiplier"
       >
-        Toggle Celestial Matter
+        셀레스티얼 물질 전환
       </PrimaryButton>
     </span>
   </span>

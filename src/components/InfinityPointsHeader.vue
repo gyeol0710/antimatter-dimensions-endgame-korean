@@ -21,9 +21,9 @@ export default {
     v-show="isVisible"
     class="c-infinity-tab__header"
   >
-    You have
+    무한 포인트를
     <span class="c-infinity-tab__infinity-points">{{ format(infinityPoints, 2) }}</span>
-    {{ pluralize("Infinity Point", infinityPoints) }}.
+    {{ pluralize("개", infinityPoints) }} 보유하고 있습니다.
   </div>
 </template>
 

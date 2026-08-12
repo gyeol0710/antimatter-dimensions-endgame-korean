@@ -19,7 +19,7 @@ export default {
       };
     },
     text() {
-      return this.isBroken ? "ETERNITY IS BROKEN" : "BREAK ETERNITY";
+      return this.isBroken ? "영원이 돌파되었습니다" : "영원 돌파";
     }
   },
   methods: {

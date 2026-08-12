@@ -20,7 +20,19 @@ export default {
   },
   computed: {
     name() {
-      return this.type.capitalize();
+      return {
+        power: "힘",
+        infinity: "무한",
+        replication: "복제",
+        time: "시간",
+        dilation: "팽창",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동료",
+        music: "음악",
+        blob: "블롭",
+      }[this.type] ?? this.type.capitalize();
     },
     symbols() {
       return GlyphAppearanceHandler.availableSymbols;
@@ -38,10 +50,10 @@ export default {
       v-if="glyphId === -1"
       class="c-name"
     >
-      Appearance Options for {{ name }} Glyphs
+      {{ name }} 글리프 외형 설정
     </span>
     <div v-if="type === 'companion'">
-      Companion Glyphs cannot have their symbol modified.
+      동료 글리프의 기호는 변경할 수 없습니다.
     </div>
     <GlyphCustomizationSlidingWindow
       v-else

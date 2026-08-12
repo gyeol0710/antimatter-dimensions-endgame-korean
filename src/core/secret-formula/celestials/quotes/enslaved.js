@@ -2,79 +2,79 @@ export const enslavedQuotes = {
   initial: {
     id: 0,
     lines: [
-      "A visitor? We have not had one... eons.",
-      "We... had a name. It has been lost... to this place.",
-      "The others... will not let us rest. We do their work with time...",
-      "Place time... into places... that need it...",
-      "Watch ourselves grow... pass and die.",
-      "Perhaps you... will break these chains... we will wait.",
+      "방문자...? 이런 이는... 영겁 동안 없었는데.",
+      "우리에게도... 이름이 있었다. 이곳에... 빼앗겼지.",
+      "다른 이들은... 우리를 쉬게 두지 않는다. 우리는 시간으로... 그들의 일을 한다...",
+      "시간을... 필요한 곳에... 가져다 놓는다...",
+      "스스로 자라고... 스러지고 죽는 모습을 지켜본다.",
+      "어쩌면 네가... 이 사슬을 끊어 줄지도... 우리는 기다리겠다.",
     ]
   },
   unlockRun: {
     id: 1,
     lines: [
-      "The others... used us. They will use... or destroy you.",
-      "End our suffering... power will be yours...",
+      "다른 이들은... 우리를 이용했다. 너도 이용당하거나... 파괴될 것이다.",
+      "우리의 고통을 끝내라... 힘은 네 것이 될 것이다...",
     ]
   },
   startRun: {
     id: 2,
     lines: [
-      "So little space... but no... prison... is perfect.",
-      "They squeezed... this Reality... too tightly. Cracks appeared.",
-      "Search... everywhere. We will help... where we can.",
+      "공간이 너무 좁다... 하지만 어떤... 감옥도... 완벽하지 않다.",
+      "그들이 이 현실을... 너무 세게 압축했다. 균열이 생겼다.",
+      "샅샅이... 찾아라. 할 수 있는 만큼... 우리도 돕겠다.",
     ]
   },
   hintUnlock: {
     id: 3,
     lines: [
-      "... you need... to look harder...",
-      "We think... we can help...",
-      { text: "You have unlocked help from The Nameless Ones.", showCelestialName: false }
+      "... 더 열심히... 찾아야 한다...",
+      "우리가... 도울 수 있을 것 같다...",
+      { text: "이름없는 자들의 도움을 해금했습니다.", showCelestialName: false }
     ]
   },
   ec6C10: {
     id: 4,
     lines: [
-      "... did not... underestimate you..."
+      "우리는... 너를... 과소평가하지 않았다..."
     ]
   },
   completeReality: {
     id: 5,
     lines: [
-      "All... fragments... clones... freed.",
-      "We have given... tools... of our imprisoning. Use them...",
-      "Freedom from torture... is torture itself.",
+      "모든... 파편... 복제체가... 해방됐다.",
+      "우리를 가두었던... 도구를 주었다. 사용해라...",
+      "고문으로부터의 해방은... 그 자체가 고문이다.",
     ]
   },
   expansionPacks: {
     id: 6,
     lines: [
-      "All... clones... freed...",
-      "Destroyer... has freed us... from... our prison...",
-      "Now we can... place time... into places... that need it...",
-      "Strange... seems time... doesn't exist... in this place...",
-      "Maybe... Destroyer... can fix this...",
-      "Why... is everyone... mad at us..."
+      "모든... 복제체가... 해방됐다...",
+      "파괴자가... 우리를... 감옥에서... 풀어 주었다...",
+      "이제 우리는... 필요한 곳에... 시간을 가져다 놓을 수 있다...",
+      "이상하다... 이곳에는... 시간이 존재하지 않는 듯하다...",
+      "어쩌면... 파괴자가... 고칠 수 있을지도...",
+      "왜... 모두가... 우리에게 화가 났지..."
     ]
   },
   enslavedPack: {
     id: 7,
     requirement: () => ExpansionPack.enslavedPack.isBought,
     lines: [
-      "We... grant you... control... of time...",
-      "Use it...",
-      "Consider it... thanks... for freedom..."
+      "우리는... 네게... 시간의 지배권을... 부여한다...",
+      "사용해라...",
+      "우리를 풀어 준... 답례라고... 생각해라..."
     ]
   },
   highGameSpeed: {
     id: 8,
     requirement: () => player.records.thisEndgame.peakGameSpeed.gte(new Decimal("1e1000")),
     lines: [
-      "Mastery... of time... you have obtained...",
-      "Done things... we have only wished... we could do...",
-      "You have... more power... than we... took you for...",
-      "Use it... for good..."
+      "시간을... 통달했구나...",
+      "우리가 그저... 할 수 있기를 바랐던 일들을... 해냈다...",
+      "너는... 우리가 생각했던 것보다... 더 강하다...",
+      "그 힘을... 올바른 일에 사용해라..."
     ]
   }
 };

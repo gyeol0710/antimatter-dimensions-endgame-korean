@@ -42,14 +42,14 @@ export default {
 
 <template>
   <div class="l-modal-options__save-record">
-    <h3>Save #{{ saveId + 1 }}:<span v-if="isSelected"> (selected)</span></h3>
-    <span v-if="fileName">File name: {{ fileName }}</span>
-    <span>Antimatter: {{ formatAntimatter(antimatter) }}</span>
+    <h3>세이브 #{{ saveId + 1 }}:<span v-if="isSelected"> (선택됨)</span></h3>
+    <span v-if="fileName">세이브 파일 이름: {{ fileName }}</span>
+    <span>반물질: {{ formatAntimatter(antimatter) }}</span>
     <PrimaryButton
       class="o-primary-btn--width-medium"
       @click="load"
     >
-      Load
+      불러오기
     </PrimaryButton>
   </div>
 </template>

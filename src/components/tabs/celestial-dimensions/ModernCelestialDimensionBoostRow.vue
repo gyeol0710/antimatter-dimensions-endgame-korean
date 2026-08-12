@@ -51,8 +51,8 @@ export default {
 
 <template>
   <div class="reset-container dimboost">
-    <h4>Celestial Dimension Boost ({{ boostCountText }})</h4>
-    <span>Requires: {{ formatHybridLarge(requirement.amount, 3) }} Cel Matter</span>
+    <h4>셀레스티얼 차원 가속 ({{ boostCountText }})</h4>
+    <span>필요량: 셀레스티얼 물질 {{ formatHybridLarge(requirement.amount, 3) }}개</span>
     <button
       :class="classObject"
       @click.exact="celestialDimensionBoost(true)"

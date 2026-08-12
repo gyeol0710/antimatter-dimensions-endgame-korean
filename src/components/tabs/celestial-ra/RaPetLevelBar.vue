@@ -20,6 +20,14 @@ export default {
     pet() {
       return this.petConfig.pet;
     },
+    displayName() {
+      return {
+        Teresa: "테레사",
+        Effarig: "에파리그",
+        Enslaved: "이름없는 자들",
+        V: "V",
+      }[this.pet.name] ?? this.pet.name;
+    },
     shiftDown() {
       return ui.view.shiftDown;
     },
@@ -82,14 +90,14 @@ export default {
       const effarigAlchemyResource = AlchemyResources.all.filter(res => res.unlockedAt === this.level + 1)[0];
       switch (this.pet.name) {
         case "Teresa":
-          return "You can charge an additional Infinity Upgrade";
+          return "무한 업그레이드를 하나 더 충전할 수 있습니다.";
         case "Effarig":
-          return `Unlock the ${effarigAlchemyResource.name} resource in Glyph Alchemy, which
+          return `글리프 연금술에서 ${effarigAlchemyResource.name} 자원을 해금합니다.
           ${effarigAlchemyResource.description}`;
         case "Enslaved":
-          return `${formatX(20)} to stored game time, and you can store an additional hour of real time`;
+          return `저장된 게임 시간에 ${formatX(20)}, 실제 시간을 한 시간 더 저장할 수 있습니다.`;
         case "V":
-          return "You can purchase an additional Triad Study";
+          return "삼원 연구를 하나 더 구매할 수 있습니다.";
         default:
           return "false";
       }
@@ -130,7 +138,7 @@ export default {
       <span class="fas fa-arrow-up" />
       <div class="c-ra-pet-upgrade__tooltip">
         <div class="c-ra-pet-upgrade__tooltip__name">
-          Level {{ pet.name }} to {{ formatInt(level + 1) }}
+          {{ displayName }} 레벨을 {{ formatInt(level + 1) }}로 올리기
         </div>
         <div class="c-ra-pet-upgrade__tooltip__description">
           {{ reward }}
@@ -142,7 +150,7 @@ export default {
           </div>
         </div>
         <div class="c-ra-pet-upgrade__tooltip__footer">
-          Cost: {{ quantify("Memory", requiredMemories, 2, 2) }}
+          비용: 기억 {{ quantify("개", requiredMemories, 2, 2) }}
           <span v-if="memories.lte(requiredMemories)">{{ nextLevelEstimate }}</span>
         </div>
       </div>

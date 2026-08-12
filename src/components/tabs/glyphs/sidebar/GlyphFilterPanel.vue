@@ -57,13 +57,13 @@ export default {
       };
     },
     questionmarkTooltip() {
-      return `All Glyph choices are given a score and compared to a threshold based on the chosen mode. 
-        The Glyph with the highest score is picked, but will still be Sacrificed if below the threshold.
-        (click for more detail)`;
+      return `모든 글리프 선택지에 점수를 매기고 선택한 모드에 따른 기준값과 비교합니다.
+        점수가 가장 높은 글리프를 선택하지만, 기준값보다 낮으면 희생합니다.
+        (클릭하여 자세히 보기)`;
     },
     autoRealityTooltip() {
-      return `If Auto-Reality is on, ignore all other settings and immediately Reality if no upcoming
-        Glyphs would be kept`;
+      return `자동 현실이 켜져 있고 다음 글리프 중 보관할 것이 없다면 다른 모든 설정을 무시하고
+        즉시 현실에 도달합니다`;
     },
     unlockedModes() {
       return Object.values(this.modes).filter(idx => this.isUnlocked(idx));
@@ -172,6 +172,20 @@ export default {
     getSymbol(type) {
       return CosmeticGlyphTypes[type].currentSymbol.symbol;
     },
+    glyphTypeName(type) {
+      const names = {
+        time: "시간",
+        dilation: "팽창",
+        replication: "복제",
+        infinity: "무한",
+        power: "동력",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동반자",
+      };
+      return names[type] ?? type.capitalize();
+    },
     toggleAutoReality() {
       player.options.autoRealityForFilter = !player.options.autoRealityForFilter;
       this.autoRealityForFilter = player.options.autoRealityForFilter;
@@ -184,7 +198,7 @@ export default {
       const simpleData = [filter.select, filter.simple, filter.trash].join("|");
       const typeData = ALCHEMY_BASIC_GLYPH_TYPES.map(t => serializeType(filter.types[t])).join("|");
       copyToClipboard(GameSaveSerializer.encodeText(`${simpleData}|${typeData}`, "glyph filter"));
-      GameUI.notify.info("Filter settings copied to clipboard");
+      GameUI.notify.info("필터 설정을 클립보드에 복사했습니다");
     },
     importFilterSettings() {
       Modal.importFilter.show();
@@ -198,12 +212,12 @@ export default {
     <div class="c-glyph-sacrifice-options c-glyph-sacrifice-options-container">
       <div class="c-filter-extra-btns c-top-left">
         <i
-          v-tooltip="'Export filter settings'"
+          v-tooltip="'필터 설정 내보내기'"
           class="fas fa-file-export l-top-left-btn"
           @click="exportFilterSettings"
         />
         <i
-          v-tooltip="'Import filter settings'"
+          v-tooltip="'필터 설정 가져오기'"
           class="fas fa-file-import l-top-left-btn"
           @click="importFilterSettings"
         />
@@ -221,7 +235,7 @@ export default {
           @click="showFilterHowTo"
         />
       </div>
-      Current Filter Mode:
+      현재 필터 모드:
       <br>
       {{ filterMode(mode) }}
       <br>
@@ -243,18 +257,18 @@ export default {
       class="c-glyph-sacrifice-options__advanced"
     >
       <br>
-      Glyph score is assigned based on type. Priority is given to Glyphs belonging to the type of which you have
-      the least total Glyph Sacrifice value.
+      종류에 따라 글리프 점수가 정해집니다. 총 글리프 희생 수치가 가장 낮은 종류의 글리프를
+      우선합니다.
       <br>
       <br>
-      This mode never keeps Glyphs, but will instead always sacrifice the Glyph it chooses.
+      이 모드는 글리프를 보관하지 않고 선택한 글리프를 항상 희생합니다.
     </div>
     <div
       v-if="mode === modes.EFFECT_COUNT"
       class=" c-glyph-sacrifice-options__advanced"
     >
       <br>
-      Glyphs must have at least
+      선택되는 글리프는 효과가 최소
       <input
         ref="effectCount"
         type="number"
@@ -264,14 +278,14 @@ export default {
         :value="effectCount"
         @blur="setEffectCount"
       >
-      effects to be chosen. Rarer Glyphs are preferred in ties.
+      개 있어야 합니다. 점수가 같으면 희귀도가 높은 글리프를 우선합니다.
     </div>
     <div
       v-if="mode === modes.RARITY_THRESHOLD"
       class="l-glyph-sacrifice-options__rarity-sliders"
     >
       <span class="c-glyph-sacrifice-options__advanced">
-        Any Glyphs with rarity below these thresholds will be sacrificed.
+        희귀도가 아래 기준값보다 낮은 글리프는 모두 희생됩니다.
       </span>
       <div
         v-for="type in glyphTypes"
@@ -298,11 +312,11 @@ export default {
       class="c-glyph-sacrifice-options__advanced"
     >
       <div>
-        Glyph Type:
+        글리프 종류:
         <span
           v-for="type in glyphTypes"
           :key="type.id"
-          v-tooltip="type.id.capitalize()"
+          v-tooltip="glyphTypeName(type.id)"
           class="l-glyph-sacrifice-options__advanced-type-select c-glyph-sacrifice-options__advanced-type-select"
           :style="advancedTypeSelectStyle(type)"
           @click="advancedType=type.id"
@@ -339,11 +353,11 @@ export default {
       class="c-glyph-sacrifice-options__advanced"
     >
       <div>
-        Glyph Type:
+        글리프 종류:
         <span
           v-for="type in glyphTypes"
           :key="type.id"
-          v-tooltip="type.id.capitalize()"
+          v-tooltip="glyphTypeName(type.id)"
           class="l-glyph-sacrifice-options__advanced-type-select c-glyph-sacrifice-options__advanced-type-select"
           :style="advancedTypeSelectStyle(type)"
           @click="advancedType=type.id"
@@ -365,23 +379,23 @@ export default {
       class="c-glyph-sacrifice-options__advanced"
     >
       <br>
-      Glyph score is assigned based on current Alchemy Resource totals. Priority is given to the Glyph type with
-      the lowest associated alchemy resource total.
+      현재 연금술 자원 총량에 따라 글리프 점수가 정해집니다. 연결된 연금술 자원의 총량이
+      가장 적은 글리프 종류를 우선합니다.
       <br>
       <br>
-      This mode never keeps Glyphs.
+      이 모드는 글리프를 보관하지 않습니다.
     </div>
     <div
       v-if="mode === modes.ALCHEMY_VALUE"
       class="c-glyph-sacrifice-options__advanced"
     >
       <br>
-      Glyphs will be assigned values based on <i>current</i> refinement value, accounting for the type-specific
-      resource caps. Priority is given to Glyphs which are worth the most alchemy resources; Glyphs which would
-      cause you to hit a cap are effectively worth less.
+      종류별 자원 상한을 고려한 <i>현재</i> 정제 가치에 따라 글리프의 가치가 정해집니다.
+      가장 많은 연금술 자원을 얻는 글리프를 우선하며, 자원 상한에 도달하게 만드는 글리프는
+      실질적인 가치가 더 낮습니다.
       <br>
       <br>
-      This mode never keeps Glyphs.
+      이 모드는 글리프를 보관하지 않습니다.
     </div>
   </div>
 </template>

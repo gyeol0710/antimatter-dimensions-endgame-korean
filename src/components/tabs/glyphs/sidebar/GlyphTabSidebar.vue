@@ -65,28 +65,28 @@ export default {
         :class="sidebarClass(sidebarEnum.INVENTORY_MANAGEMENT)"
         @click="setSidebarState(sidebarEnum.INVENTORY_MANAGEMENT)"
       >
-        Manage Inventory
+        인벤토리 관리
       </button>
       <button
         v-if="unlockedFilter"
         :class="sidebarClass(sidebarEnum.FILTER_SETTINGS)"
         @click="setSidebarState(sidebarEnum.FILTER_SETTINGS)"
       >
-        Glyph Filter
+        글리프 필터
       </button>
       <button
         v-if="unlockedSets"
         :class="sidebarClass(sidebarEnum.SAVED_SETS)"
         @click="setSidebarState(sidebarEnum.SAVED_SETS)"
       >
-        Glyph Presets
+        글리프 프리셋
       </button>
       <button
         v-if="unlockedAlchemy"
         :class="sidebarClass(sidebarEnum.SACRIFICE_TYPE)"
         @click="setSidebarState(sidebarEnum.SACRIFICE_TYPE)"
       >
-        Sacrifice Type
+        제거 방식
       </button>
     </div>
     <GlyphInventoryManagementPanel

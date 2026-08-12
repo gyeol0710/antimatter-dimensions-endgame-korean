@@ -25,12 +25,12 @@ export default {
   computed: {
     infoTooltip() {
       return this.isLaitela
-        ? "The physics of this Reality do not allow Black Hole Inversion"
-        : "Black Hole must be paused to activate Inversion";
+        ? "이 현실의 물리 법칙에서는 블랙홀 역전을 사용할 수 없습니다"
+        : "역전을 활성화하려면 블랙홀을 일시 정지해야 합니다";
     },
     reqLockText() {
-      return `Inversion strength cannot be modified due to Lock for
-        "${ImaginaryUpgrade(24).name}"`;
+      return `"${ImaginaryUpgrade(24).name}"의 잠금 조건 때문에
+        역전 강도를 변경할 수 없습니다.`;
     }
   },
   methods: {
@@ -100,8 +100,8 @@ export default {
       class="l-black-hole-sliders"
     >
       <b>
-        Inverted Black Hole divides game speed by {{ format(negativeBHDivisor, 2, 2) }}.
-        (Currently {{ isInverted ? "active" : "inactive" }}<span
+        역전된 블랙홀은 게임 속도를 {{ format(negativeBHDivisor, 2, 2) }}로 나눕니다.
+        (현재 {{ isInverted ? "활성" : "비활성" }}<span
           v-if="negativeSlider !== 0 && !isInverted"
           :ach-tooltip="infoTooltip"
         >
@@ -121,8 +121,8 @@ export default {
         {{ reqLockText }}
       </div>
       <br>
-      Inverting the Black Hole only affects its own speedup, no other upgrades or effects, although
-      it will also indirectly affect the Effarig Game speed power effect.
+      블랙홀 역전은 블랙홀 자체의 가속에만 영향을 주고 다른 업그레이드나 효과에는 영향을 주지 않지만,
+      에파리그의 게임 속도 거듭제곱 효과에는 간접적으로 영향을 줍니다.
     </div>
     <br>
     <div
@@ -130,7 +130,7 @@ export default {
       class="l-black-hole-sliders"
     >
       <b>
-        Black Holes will auto-release {{ formatPercents(amountSlider / 500, 2, 1) }} of Stored Game Time per second if Pulse is on.
+        파동이 켜져 있으면 블랙홀이 매초 저장된 게임 시간의 {{ formatPercents(amountSlider / 500, 2, 1) }}를 자동 방출합니다.
       </b>
       <SliderComponent
         v-if="areExtraSlidersUnlocked"
@@ -140,7 +140,7 @@ export default {
       />
       <br>
       <b>
-        Black Holes currently release Stored Game Time every {{ formatInt(timeSlider) }} ticks of Pulse is on.
+        파동이 켜져 있으면 블랙홀이 현재 {{ formatInt(timeSlider) }}틱마다 저장된 게임 시간을 방출합니다.
       </b>
       <SliderComponent
         v-if="areExtraSlidersUnlocked"

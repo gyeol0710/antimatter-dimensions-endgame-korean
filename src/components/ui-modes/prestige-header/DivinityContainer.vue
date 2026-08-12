@@ -34,9 +34,9 @@ export default {
       class="c-prestige-button-container"
     >
       <div class="c-divine-stars">
-        You have
+        보유량:
         <span class="c-game-header__vs-amount">{{ format(divineStars, 2) }}</span>
-        {{ pluralize("Divine Star", divineStars) }}.
+        {{ pluralize("신성 별", divineStars) }}.
       </div>
       <CondenseButton />
     </div>
@@ -45,9 +45,9 @@ export default {
       class="c-prestige-button-container"
     >
       <div class="c-divine-stars">
-        You have
+        보유량:
         <span class="c-game-header__neb-amount">{{ format(nebulae, 2) }}</span>
-        {{ pluralize("Nebula", nebulae) }}.
+        {{ pluralize("성운", nebulae) }}.
       </div>
       <SupernovaButton />
     </div>

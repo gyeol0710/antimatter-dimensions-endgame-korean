@@ -27,8 +27,8 @@ export default {
       return this.automatorType === AUTOMATOR_TYPE.TEXT;
     },
     automatorModeTooltip() {
-      if (this.automatorType === AUTOMATOR_TYPE.BLOCK) return "Switch to the text editor";
-      return "Switch to the block editor";
+      if (this.automatorType === AUTOMATOR_TYPE.BLOCK) return "텍스트 편집기로 전환";
+      return "블록 편집기로 전환";
     },
     tutorialClass() {
       return {
@@ -59,7 +59,7 @@ export default {
       }
       if (BlockAutomator.hasUnparsableCommands(this.currentScript) &&
         player.reality.automator.type === AUTOMATOR_TYPE.BLOCK) {
-        Modal.message.show(`Some script commands were unrecognizable - defaulting to text editor.`);
+        Modal.message.show(`일부 스크립트 명령을 인식할 수 없어 텍스트 편집기를 사용합니다.`);
         AutomatorBackend.changeModes(this.currentScriptID);
       }
       this.$nextTick(() => BlockAutomator.updateEditor(this.currentScript));

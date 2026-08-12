@@ -70,7 +70,7 @@ export default {
     },
     tesseractAutobuyerTextDisplay() {
       const auto = this.isTesseractAutoActive;
-      return `Auto Tesseract ${auto ? "ON" : "OFF"}`;
+      return `테서랙트 자동구매 ${auto ? "켜짐" : "꺼짐"}`;
     },
     penteractCountString() {
       const extra = this.extraPenteracts > 0 ? ` + ${format(this.extraPenteracts, 2, 2)}` : "";
@@ -89,16 +89,16 @@ export default {
       return `${formatHybridSmall(this.boughtOcteracts, 3)}${extra}`;
     },
     penteractLockString() {
-      if (this.penteractsUnlocked) return `Buy a Penteract (${this.penteractCountString})`;
-      else return `Purchase Duality Upgrade 25 to unlock Penteracts`;
+      if (this.penteractsUnlocked) return `펜터랙트 구매 (${this.penteractCountString})`;
+      else return `이중성 업그레이드 25를 구매하면 펜터랙트가 해금됩니다.`;
     },
     hexeractLockString() {
-      if (this.hexeractsUnlocked) return `Buy a Hexeract (${this.hexeractCountString})`;
-      else return `Hadronize Lai'tela ${formatInt(40)} times to unlock Hexeracts`;
+      if (this.hexeractsUnlocked) return `헥서랙트 구매 (${this.hexeractCountString})`;
+      else return `라이텔라를 ${formatInt(40)}회 하드론화하면 헥서랙트가 해금됩니다.`;
     },
     hepteractLockString() {
-      if (this.hepteractsUnlocked) return `Buy a Hepteract (${this.hepteractCountString})`;
-      else return `Perform a Celestial Eternity to unlock Hepteracts`;
+      if (this.hepteractsUnlocked) return `헵터랙트 구매 (${this.hepteractCountString})`;
+      else return `셀레스티얼 영원을 진행하면 헵터랙트가 해금됩니다.`;
     },
   },
   methods: {
@@ -171,13 +171,13 @@ export default {
       this.update();
     },
     octeractLockString() {
-      if (this.octeractsUnlocked) return `Buy a Octeract (${this.octeractCountString})`;
+      if (this.octeractsUnlocked) return `옥터랙트 구매 (${this.octeractCountString})`;
       //somewhat ugly method to make it continuously update
-      else return this.time >= 0 ? `Reach ${wordShift.randomCrossWords("Expanse Transfer")} to unlock Octeracts` : `Reach ${wordShift.randomCrossWords("Expanse Transfer")} to unlock Octeracts`;
+      else return this.time >= 0 ? `${wordShift.randomCrossWords("광야 전이")}에 도달하면 옥터랙트가 해금됩니다.` : `${wordShift.randomCrossWords("광야 전이")}에 도달하면 옥터랙트가 해금됩니다.`;
     },
     octeractResourceString() {
-      if (false) return `Expansial Fragments`;
-      else return this.time >= 0 ? `${wordShift.randomCrossWords("Expansial Fragments")}` : `${wordShift.randomCrossWords("Expansial Fragments")}`;
+      if (false) return `광야 파편`;
+      else return this.time >= 0 ? `${wordShift.randomCrossWords("광야 파편")}` : `${wordShift.randomCrossWords("광야 파편")}`;
     },
   }
 };
@@ -196,11 +196,11 @@ export default {
           @click="buyTesseract"
         >
           <p>
-            Buy a Tesseract ({{ tesseractCountString }})
+            테서랙트 구매 ({{ tesseractCountString }})
           </p>
-          <p>Increase Infinity Dimension caps by {{ format(nextInfinityDimCapIncrease, 2) }}</p>
-          <p><b>Costs: {{ format(tesseractCost) }} IP</b></p>
-          <p>Total Tesseract effect: {{ format(totalInfinityDimCap, 2) }}</p>
+          <p>무한 차원 상한을 {{ format(nextInfinityDimCapIncrease, 2) }}만큼 증가</p>
+          <p><b>비용: {{ format(tesseractCost) }} IP</b></p>
+          <p>총 테서랙트 효과: {{ format(totalInfinityDimCap, 2) }}</p>
         </button>
         <br>
         <PrimaryToggleButton
@@ -224,9 +224,9 @@ export default {
           <p>
             {{ penteractLockString }}
           </p>
-          <p>Reduce Time Dimension threshold softcap by {{ formatDecimalPercents(nextFreeTickspeedReduction, 2, 2) }}</p>
-          <p><b>Costs: {{ format(penteractCost) }} EP</b></p>
-          <p>Total Penteract effect: {{ formatPow(totalFreeTickspeedReduction, 2, 4) }}</p>
+          <p>시간 차원 임계값 소프트캡을 {{ formatDecimalPercents(nextFreeTickspeedReduction, 2, 2) }}만큼 감소</p>
+          <p><b>비용: {{ format(penteractCost) }} EP</b></p>
+          <p>총 펜터랙트 효과: {{ formatPow(totalFreeTickspeedReduction, 2, 4) }}</p>
         </button>
       </div>
       <div class="l-hypercubes-btn">
@@ -241,9 +241,9 @@ export default {
           <p>
             {{ hexeractLockString }}
           </p>
-          <p>Reduce Dark Matter Dimension threshold softcaps by {{ formatDecimalPercents(nextDarkMatterSoftcapReduction, 2, 2) }}</p>
-          <p><b>Costs: {{ format(hexeractCost) }} DM</b></p>
-          <p>Total Hexeract effect: {{ formatPow(totalDarkMatterSoftcapReduction, 2, 4) }}</p>
+          <p>암흑 물질 차원 임계값 소프트캡을 {{ formatDecimalPercents(nextDarkMatterSoftcapReduction, 2, 2) }}만큼 감소</p>
+          <p><b>비용: {{ format(hexeractCost) }} DM</b></p>
+          <p>총 헥서랙트 효과: {{ formatPow(totalDarkMatterSoftcapReduction, 2, 4) }}</p>
         </button>
       </div>
     </div>
@@ -260,9 +260,9 @@ export default {
           <p>
             {{ hepteractLockString }}
           </p>
-          <p>Reduce Celestial Dimension Softcap power by {{ formatDecimalPercents(nextCelestialDimSoftcapReduction, 2, 2) }}</p>
-          <p><b>Costs: {{ format(hepteractCost) }} CP</b></p>
-          <p>Total Hepteract effect: {{ formatPow(totalCelestialDimSoftcapReduction, 2, 4) }}</p>
+          <p>셀레스티얼 차원 소프트캡 지수를 {{ formatDecimalPercents(nextCelestialDimSoftcapReduction, 2, 2) }}만큼 감소</p>
+          <p><b>비용: {{ format(hepteractCost) }} CP</b></p>
+          <p>총 헵터랙트 효과: {{ formatPow(totalCelestialDimSoftcapReduction, 2, 4) }}</p>
         </button>
       </div>
       <div class="l-hypercubes-btn">
@@ -277,9 +277,9 @@ export default {
           <p>
             {{ octeractLockString() }}
           </p>
-          <p>Increase the strength of all cubes by {{ formatPercents(nextTotalCubeBoost, 2, 2) }}</p>
-          <p><b>Costs: {{ format(octeractCost) }} {{ octeractResourceString() }}</b></p>
-          <p>Total Octeract effect: {{ formatX(totalCubeBoost, 2, 2) }}</p>
+          <p>모든 큐브의 효과를 {{ formatPercents(nextTotalCubeBoost, 2, 2) }}만큼 증가</p>
+          <p><b>비용: {{ format(octeractCost) }} {{ octeractResourceString() }}</b></p>
+          <p>총 옥터랙트 효과: {{ formatX(totalCubeBoost, 2, 2) }}</p>
         </button>
       </div>
     </div>

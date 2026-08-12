@@ -21,10 +21,10 @@ export default {
     types: () => GLYPH_TYPES.filter(type => type !== "cursed" && type !== "companion"),
     lastMachines() {
       return this.lastMachinesTeresa.gte(DC.E20000)
-        ? `${quantify("Dual Machine", this.lastMachinesTeresa.dividedBy(DC.E20000), 2)}`
+        ? `${quantify("이중성 머신", this.lastMachinesTeresa.dividedBy(DC.E20000), 2)}`
         : (this.lastMachinesTeresa.lt(DC.E10000)
-          ? `${quantify("Reality Machine", this.lastMachinesTeresa, 2)}`
-          : `${quantify("Imaginary Machine", this.lastMachinesTeresa.dividedBy(DC.E10000), 2)}`);
+          ? `${quantify("리얼리티 머신", this.lastMachinesTeresa, 2)}`
+          : `${quantify("허수 머신", this.lastMachinesTeresa.dividedBy(DC.E10000), 2)}`);
     },
     dropDownIconClass() {
       return this.hideAlteration ? "far fa-plus-square" : "far fa-minus-square";
@@ -121,11 +121,11 @@ export default {
         v-if="isDoomed"
         class="pelle-current-glyph-effects"
       >
-        You cannot sacrifice Glyphs while Doomed.
+        파멸 상태에서는 글리프를 희생할 수 없습니다.
       </span>
       <span v-else>
-        <div>Drag Glyphs here or shift-click to Sacrifice.</div>
-        <div>The confirmation can be disabled in Options or by holding Ctrl.</div>
+        <div>글리프를 이곳으로 끌어오거나 Shift+클릭하여 희생하세요.</div>
+        <div>설정에서 확인 창을 끄거나 Ctrl을 누른 채 진행할 수 있습니다.</div>
       </span>
     </div>
     <div v-if="hasAlteration">
@@ -134,37 +134,37 @@ export default {
         @click="toggleAlteration"
       >
         <i :class="dropDownIconClass" />
-        <b> Altered Glyphs</b>
+        <b> 변형된 글리프</b>
       </span>
       <br>
       <div v-if="hideAlteration">
-        (Details hidden, click to unhide)
+        (세부 정보 숨김, 클릭하여 표시)
       </div>
       <div v-else>
-        Glyph types will have one of their effects improved<br>
-        when their Glyph type's total sacrifice value is above:
+        각 글리프 종류의 총 희생 수치가 다음 값을 넘으면<br>
+        해당 종류의 효과 하나가 개선됩니다:
         <br><br>
         <b>
-          <span :style="addStyle">{{ format(addThreshold) }} - an additional secondary effect</span>
+          <span :style="addStyle">{{ format(addThreshold) }} - 보조 효과 하나 추가</span>
           <br>
-          <span :style="empowerStyle">{{ format(empowerThreshold) }} - formula drastically improved</span>
+          <span :style="empowerStyle">{{ format(empowerThreshold) }} - 공식 대폭 개선</span>
           <br>
-          <span :style="boostStyle">{{ format(boostThreshold) }} - a boost depending on Glyph Sacrifice</span>
+          <span :style="boostStyle">{{ format(boostThreshold) }} - 글리프 희생에 따른 강화</span>
         </b>
         <br><br>
-        All effects from Glyph Sacrifice can no longer be increased once they reach {{ format(maxSacrifice) }}.
+        글리프 희생의 모든 효과는 {{ format(maxSacrifice) }}에 도달하면 더 이상 증가하지 않습니다.
       </div>
     </div>
     <br>
     <div class="c-sacrificed-glyphs__header">
-      Glyph Sacrifice Boosts:
+      글리프 희생 강화:
     </div>
     <div v-if="anySacrifices && !isDoomed">
       <div v-if="teresaMult.gt(1)">
-        Glyph sacrifice values are multiplied by {{ formatX(teresaMult, 2, 2) }};
-        Teresa was last done at {{ lastMachines }}.
+        글리프 희생 수치에 {{ formatX(teresaMult, 2, 2) }} 배율이 적용됩니다.
+        테레사를 마지막으로 완료했을 때는 {{ lastMachines }}이었습니다.
         <span v-if="hasSeenRealityGlyph">
-          Reality Glyphs are unaffected by this multiplier and have no altered effects.
+          현실 글리프는 이 배율의 영향을 받지 않으며 변형 효과도 없습니다.
         </span>
       </div>
       <template v-for="type in types">
@@ -179,10 +179,10 @@ export default {
       v-else-if="isDoomed"
       class="pelle-current-glyph-effects"
     >
-      All boosts from Glyph Sacrifice are disabled while Doomed, including changes to effects due to Altered Glyphs.
+      파멸 상태에서는 변형된 글리프에 따른 효과 변경을 포함해 글리프 희생의 모든 강화가 비활성화됩니다.
     </div>
     <div v-else>
-      You haven't Sacrificed any Glyphs yet!
+      아직 희생한 글리프가 없습니다!
     </div>
   </div>
 </template>

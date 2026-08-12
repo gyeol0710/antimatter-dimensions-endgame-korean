@@ -1,0 +1,11 @@
+{
+  "historicalCheckpoint": {
+    "base": "0000000000000000000000000000000000000000",
+    "introducedBy": "0000000000000000000000000000000000000000",
+    "reason": "공개 배포 초기 스냅샷 이전의 내부 작업 이력은 포함하지 않음"
+  },
+  "historicalProtectedTokenDiff": {},
+  "activeProtectedTokenAllowances": {},
+  "historicalStructureDiff": {},
+  "activeStructureAllowances": {}
+}

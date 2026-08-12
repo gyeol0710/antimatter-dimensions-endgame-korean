@@ -39,11 +39,11 @@ export default {
       return ShopPurchase.all;
     },
     enableText() {
-      return `In-app Purchases: ${this.IAPsEnabled ? "Enabled" : "Disabled"}`;
+      return `인앱 구매: ${this.IAPsEnabled ? "활성화" : "비활성화"}`;
     },
     respecText() {
-      if (!this.loggedIn) return "Not logged in!";
-      if (!this.canRespec) return "No respec available! (Purchase STDs or wait 3 days since your last one)";
+      if (!this.loggedIn) return "로그인하지 않았습니다!";
+      if (!this.canRespec) return "사용 가능한 재분배가 없습니다! (STD를 구매하거나 마지막 재분배 후 3일 기다리세요)";
       return null;
     },
     hiddenName() {
@@ -69,7 +69,7 @@ export default {
       if (this.creditsClosed) return;
       SecretAchievement(33).unlock();
       if (this.loggedIn) Modal.shop.show();
-      else Modal.message.show("You cannot purchase STD coins without logging in first.");
+      else Modal.message.show("먼저 로그인해야 STD 코인을 구매할 수 있습니다.");
     },
     onCancel() {
       Payments.cancelPurchase(false);
@@ -97,18 +97,18 @@ export default {
 <template>
   <div class="tab shop">
     <div class="c-shop-disclaimer">
-      Disclaimer: These are not required to progress in the game, they are just for supporting the developer.
-      The game is balanced without the use of any microtransactions.
+      안내: 이 상품들은 게임 진행에 필요하지 않으며 개발자를 후원하기 위한 것입니다.
+      게임은 소액 결제를 사용하지 않아도 균형이 맞도록 설계되어 있습니다.
     </div>
     <div>
-      Note: Shop purchases made on the Android, Steam, and Web versions are
-      separate and non-transferable due to legal reasons.
+      참고: 법적인 이유로 Android, Steam, 웹 버전에서 구매한 상점 상품은
+      서로 분리되며 다른 버전으로 이전할 수 없습니다.
     </div>
     <div class="c-subtab-option-container">
       <PrimaryButton
         class="o-primary-btn--subtab-option"
         :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-        label="Disable in-app-purchases:"
+        label="인앱 구매 비활성화:"
         @click="toggleEnable()"
       >
         {{ enableText }}
@@ -119,27 +119,27 @@ export default {
         :class="respecClass()"
         @click="respec()"
       >
-        Respec Shop
+        상점 구매 재분배
       </PrimaryButton>
     </div>
     <div v-if="loggedIn && !canRespec && !STEAM">
-      Time until respec available: {{ respecTimeStr }}
+      다음 재분배까지: {{ respecTimeStr }}
     </div>
     <div
       v-if="loggedIn"
       class="c-login-info"
     >
       <template v-if="STEAM">
-        You are logged in as {{ username }}.
+        {{ username }} 계정으로 로그인했습니다.
       </template>
       <template v-else>
-        <span v-if="hiddenName">You are logged in. <i>(name hidden)</i></span>
-        <span v-else>You are logged in as {{ username }}.</span>
+        <span v-if="hiddenName">로그인했습니다. <i>(이름 숨김)</i></span>
+        <span v-else>{{ username }} 계정으로 로그인했습니다.</span>
         <button
           class="o-shop-button-button"
           onclick="GameOptions.logout()"
         >
-          Disconnect Google Account
+          Google 계정 연결 해제
         </button>
       </template>
     </div>
@@ -147,16 +147,16 @@ export default {
       v-else
       class="c-login-info"
     >
-      You must be logged in to purchase STD coins or use these upgrades.
+      STD 코인을 구매하거나 이 업그레이드를 사용하려면 로그인해야 합니다.
       <button
         class="o-shop-button-button"
         onclick="GameOptions.login()"
       >
-        Login with Google
+        Google로 로그인
       </button>
     </div>
     <div class="c-shop-header">
-      <span>You have {{ availableSTD }}</span>
+      <span>{{ availableSTD }}개 보유</span>
       <img
         src="images/std_coin.png"
         class="c-shop-header__img"
@@ -166,10 +166,10 @@ export default {
         :class="{ 'o-shop-button-button--disabled': !loggedIn }"
         @click="showStore()"
       >
-        Buy More
+        더 구매하기
       </button>
     </div>
-    Note: All numbers on this page are intentionally unaffected by your notation settings
+    참고: 이 페이지의 모든 숫자에는 의도적으로 표기법 설정이 적용되지 않습니다
     <div class="l-shop-buttons-container">
       <ShopButton
         v-for="purchase in purchases"

@@ -9,7 +9,7 @@ export default {
   },
   computed: {
     resetText() {
-      return "Start this Endgame over";
+      return "이 엔드게임을 처음부터 다시 시작";
     },
   },
   methods: {
@@ -22,19 +22,19 @@ export default {
       if (GameEnd.creditsClosed) return;
       if (this.isDoomed) {
         if (confirms.resetEndgame) Modal.resetEndgame.show({
-          endgameState: "in a Doomed Reality",
-          suggestion: "just wait it out"
+          endgameState: "멸망한 현실에 있는 상태",
+          suggestion: "그냥 끝날 때까지 기다리는 것"
         });
         else Endgame.resetNoReward();
       } else if (this.canEndgame) {
         if (confirms.resetEndgame) Modal.resetEndgame.show({
-          endgameState: "able to Endgame",
-          suggestion: "just Endgame with rewards rather than with nothing"
+          endgameState: "엔드게임을 진행할 수 있는 상태",
+          suggestion: "아무것도 없이 초기화하는 대신 보상을 받고 엔드게임을 진행하는 것"
         });
         else Endgame.resetNoReward();
       } else if (confirms.resetEndgame) Modal.resetEndgame.show({
-        endgameState: "outside Doom",
-        suggestion: "reset if you really want to"
+        endgameState: "멸망 밖에 있는 상태",
+        suggestion: "정말 원한다면 초기화하는 것"
       });
       else Endgame.resetNoReward();
     },

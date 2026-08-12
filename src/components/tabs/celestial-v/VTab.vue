@@ -120,13 +120,13 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "V's", number: 3 });
+      Modal.celestials.show({ name: "V", number: 3 });
     },
     has(info) {
       return info.isUnlocked;
     },
     mode(hex) {
-      return hex.config.mode === V_REDUCTION_MODE.SUBTRACTION ? "reduced" : "divided";
+      return hex.config.mode === V_REDUCTION_MODE.SUBTRACTION ? "감소" : "나눔";
     },
     reductionValue(hex) {
       return hex.config.mode === V_REDUCTION_MODE.SUBTRACTION
@@ -146,8 +146,8 @@ export default {
       V.checkForUnlocks();
     },
     reductionTooltip(hex) {
-      return `Spend ${quantify("Perk Point", hex.reductionCost, 2, 0)}
-        to reduce goal by ${format(hex.config.perReductionStep)}`;
+      return `퍼크 포인트 ${quantify("개", hex.reductionCost, 2, 0)}를 사용해
+        목표를 ${format(hex.config.perReductionStep)}만큼 낮춥니다.`;
     },
     hexColor(hex) {
       const completions = hex.completions;
@@ -199,33 +199,33 @@ export default {
           class="o-primary-btn--subtab-option"
           @click="toggleFlipped"
         >
-          <span v-if="wantsFlipped">Hide</span>
-          <span v-else>Show</span>
-          Hard V
+          <span v-if="wantsFlipped">숨기기</span>
+          <span v-else>표시하기</span>
+          고난도 V
         </PrimaryButton>
         <PrimaryButton
           class="o-primary-btn--subtab-option l-cursed-glyph-creation"
           @click="createCursedGlyph"
         >
-          Create a Cursed Glyph
+          저주받은 글리프 생성
         </PrimaryButton>
         <br>
-        Cursed Glyphs can be created here or in the Effarig tab.
+        저주받은 글리프는 이곳이나 에파리그 탭에서 생성할 수 있습니다.
         <br>
-        Cursed Glyphs count as {{ formatInt(-3) }} Glyphs for the purposes of all requirements related to Glyph count.
+        글리프 개수와 관련된 모든 조건에서 저주받은 글리프 하나는 글리프 {{ formatInt(-3) }}개로 계산됩니다.
         <br>
-        <span v-if="!isDoomed">The Black Hole can now be used to slow down time if they are both permanent.</span>
+        <span v-if="!isDoomed">두 블랙홀이 모두 영구적이면 이제 블랙홀로 시간을 느리게 할 수 있습니다.</span>
         <br><br>
-        Each Hard V-Achievement counts as two V-Achievements and will award {{ formatInt(2) }} Space Theorems
-        instead of {{ formatInt(1) }}.
+        고난도 V 도전과제 하나는 V 도전과제 두 개로 계산되며 공간 정리를 {{ formatInt(2) }}개 보상으로 줍니다.
+        이는 일반 보상인 {{ formatInt(1) }}개보다 많습니다.
         <br>
-        Goal reduction is significantly more expensive for Hard V-Achievements.
+        고난도 V 도전과제는 목표 감소 비용이 훨씬 비쌉니다.
       </div>
       <div
         v-if="showReduction"
         class="c-v-info-text"
       >
-        You have {{ quantify("Perk Point", pp, 2, 0) }}.
+        퍼크 포인트를 {{ quantify("개", pp, 2, 0) }} 보유하고 있습니다.
       </div>
       <div class="l-v-upgrades-grid">
         <VUpgradeButton
@@ -257,14 +257,14 @@ export default {
               v-if="has(runMilestones[0][0]) && hex.isReduced"
               class="o-v-unlock-goal-reduction"
             >
-              Goal has been {{ mode(hex) }} by {{ reductionValue(hex) }}
+              목표가 {{ mode(hex) }} 방식으로 {{ reductionValue(hex) }} 조정됨
             </p>
             <p class="o-v-unlock-amount">
-              {{ formatInt(hex.completions) }}/{{ formatInt(hex.config.values.length) }} done
+              완료: {{ formatInt(hex.completions) }}/{{ formatInt(hex.config.values.length) }}
             </p>
             <div v-if="showRecord(hex)">
               <p class="o-v-unlock-record">
-                Best: {{ hex.config.formatRecord(runRecords[hex.id]) }}
+                최고 기록: {{ hex.config.formatRecord(runRecords[hex.id]) }}
               </p>
               <p>
                 <GlyphSetPreview
@@ -295,9 +295,9 @@ export default {
               class="o-v-start-text"
               :class="{ 'o-pelle-disabled': isDoomed }"
             >
-              <span v-if="isRunning">You are in </span>
-              <span v-else>Start </span>
-              V's Reality.
+              <span v-if="isRunning">진입 중: </span>
+              <span v-else>시작: </span>
+              V의 현실
             </b>
             <br>
             <div :style="{ 'font-size': hasAlchemy ? '1.2rem' : '' }">
@@ -313,16 +313,16 @@ export default {
         </li>
       </div>
       <div class="c-v-info-text">
-        V-Achievements can only be completed within V's Reality, but are permanent and do not reset upon leaving
-        and re-entering the Reality.
+        V 도전과제는 V의 현실 안에서만 완료할 수 있지만 영구적이며, 현실을 나갔다가
+        다시 들어와도 초기화되지 않습니다.
       </div>
       <div class="c-v-info-text">
-        You have {{ formatInt(totalUnlocks) }} V-Achievements done.
+        V 도전과제를 {{ formatInt(totalUnlocks) }}개 완료했습니다.
         <span v-if="!isDoomed">
-          You gain {{ formatInt(1) }} Space Theorem for each completion,
-          allowing you to purchase Time Studies which are normally locked.
+          하나 완료할 때마다 공간 정리 {{ formatInt(1) }}개를 얻어
+          평소에는 잠겨 있는 시간 연구를 구매할 수 있습니다.
           <br>
-          Space Theorems can also be used as a Currency in the Automator.
+          공간 정리는 오토메이터의 자원으로도 사용할 수 있습니다.
         </span>
       </div>
       <br>
@@ -341,9 +341,9 @@ export default {
           >
             <div :class="{ 'o-pelle-disabled': isDoomed && milestone.pelleDisabled }">
               <p>{{ milestone.description }}</p>
-              <p>Reward: {{ milestone.rewardText }}</p>
+              <p>보상: {{ milestone.rewardText }}</p>
               <p v-if="milestone.formattedEffect">
-                Currently: <b>{{ milestone.formattedEffect }}</b>
+                현재: <b>{{ milestone.formattedEffect }}</b>
               </p>
             </div>
           </div>

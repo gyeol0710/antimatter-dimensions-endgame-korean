@@ -31,30 +31,29 @@ export default {
     },
     requirement() {
       if (this.id === 1) {
-        if (this.maxTT.gte(1e9)) return `Requirement: ${formatInt(5)} EC11 and EC12 completions
-          and ${format(this.maxTT, 2, 2)}/${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)}
-          total Time Theorems`;
-        return `Requirement: ${formatInt(5)} EC11 and EC12 completions
-          and ${formatHybridSmall(this.maxTT, 3)}/${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)}
-          total Time Theorems`;
+        if (this.maxTT.gte(1e9)) return `요구 조건: EC11과 EC12를 각각 ${formatInt(5)}회 완료하고
+          총 시간 정리 ${format(this.maxTT, 2, 2)}/${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)} 획득`;
+        return `요구 조건: EC11과 EC12를 각각 ${formatInt(5)}회 완료하고
+          총 시간 정리 ${formatHybridSmall(this.maxTT, 3)}/${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)} 획득`;
       }
       if (this.id === 6) {
-        const achRows = Perk.firstPerk.isBought ? "" : ` and ${formatInt(13)} rows of Achievements`;
-        return `Requirement: ${format("1e4000")} Eternity Points${achRows}`;
+        const achRows = Perk.firstPerk.isBought ? "" : `, ${formatInt(13)}줄의 모든 도전과제 해금`;
+        return `조건: ${format("1e4000")} 영원 포인트${achRows}`;
       }
       return "";
     },
     theoremTimeEstimate() {
       if (this.study.isBought || !this.study.cost || this.ttGen.eq(0)) return null;
       const time = Decimal.sub(this.study.cost, this.currTT).dividedBy(this.ttGen);
-      return time.gt(0) ? `Enough TT in ${TimeSpan.fromSeconds(time).toStringShort()}` : null;
+      return time.gt(0) ? `시간 정리 충족까지 ${TimeSpan.fromSeconds(time).toStringShort()}` : null;
     }
   },
   methods: {
     update() {
       if (this.id === 1) {
         this.maxTT.copyFrom(Currency.timeTheorems.max);
-        this.showRequirement = !this.study.isBought && (!Perk.bypassECDilation.canBeApplied || player.disablePostReality);
+        this.showRequirement = !this.study.isBought &&
+          (!Perk.bypassECDilation.canBeApplied || player.disablePostReality);
       }
       if (this.id === 6) {
         this.showRequirement = !Pelle.isDoomed;

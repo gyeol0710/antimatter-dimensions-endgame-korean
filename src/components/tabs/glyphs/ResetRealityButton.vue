@@ -11,10 +11,10 @@ export default {
   },
   computed: {
     resetText() {
-      if (this.isDoomed) return "Start this Armageddon over";
-      if (this.isInCelestialReality && !this.resetCelestial) return "Exit this Celestial early";
-      if (this.isInCelestialReality && this.resetCelestial) return "Restart this Celestial";
-      return "Start this Reality over";
+      if (this.isDoomed) return "이번 아마겟돈 다시 시작";
+      if (this.isInCelestialReality && !this.resetCelestial) return "이 셀레스티얼에서 조기 퇴장";
+      if (this.isInCelestialReality && this.resetCelestial) return "이 셀레스티얼 다시 시작";
+      return "이번 현실 다시 시작";
     },
   },
   methods: {
@@ -29,8 +29,8 @@ export default {
       if (GameEnd.creditsClosed) return;
       if (this.isInCelestialReality) {
         if (confirms.exitChallenge) Modal.exitChallenge.show({
-          challengeName: "a Celestial Reality",
-          normalName: "Reality",
+          challengeName: "셀레스티얼 현실",
+          normalName: "현실",
           hasHigherLayers: false,
           exitFn: () => Alpha.isRunning ? Alpha.escapeTheMatrix() : beginProcessReality(getRealityProps(true))
         });

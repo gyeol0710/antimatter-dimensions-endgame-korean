@@ -22,14 +22,14 @@ export default {
   computed: {
     resetActionDisplay() {
       return this.isDivideUnlocked && !Pelle.isDoomed
-        ? `Divide Replicanti by ${format(Number.MAX_VALUE, 1, 1)}`
-        : "Reset Replicanti amount";
+        ? `복제자의 갯수를 ${format(Number.MAX_VALUE, 1, 1)}로 나누고`
+        : "복제자를 전부 초기화하고";
     },
     galaxyCountDisplay() {
       const bought = this.boughtGalaxies;
       const extra = this.extraGalaxies;
       const galaxyCount = extra.gt(0) ? `${formatHybridLarge(bought, 3)}+${formatHybridLarge(extra, 3)}` : formatHybridLarge(bought, 3);
-      return `Currently: ${galaxyCount}`;
+      return `현재: ${galaxyCount}`;
     },
     autobuyer() {
       return Autobuyer.replicantiGalaxy;
@@ -37,7 +37,7 @@ export default {
     autobuyerTextDisplay() {
       const auto = this.isAutoActive;
       const disabled = !this.isAutoEnabled;
-      return `Auto Galaxy ${auto ? "ON" : "OFF"}${disabled ? " (disabled)" : ""}`;
+      return `복제자 은하 자동: ${auto ? "켜짐" : "꺼짐"}${disabled ? " (비활성)" : ""}`;
     },
   },
   methods: {
@@ -70,7 +70,7 @@ export default {
       class="o-primary-btn--replicanti-galaxy"
       @click="handleClick"
     >
-      {{ resetActionDisplay }} for a Replicanti Galaxy
+      {{ resetActionDisplay }} 복제자 은하를 획득합니다
       <br>
       {{ galaxyCountDisplay }}
     </PrimaryButton>

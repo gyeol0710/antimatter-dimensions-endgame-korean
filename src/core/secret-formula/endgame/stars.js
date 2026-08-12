@@ -9,7 +9,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)), 0.4).div(200).add(1), boost.div(100).add(1));
     },
-    description: amount => `Raise the Exponents of all Antimatter Dimension Multipliers to ${formatPow(amount, 2, 4)}`
+    description: amount => `모든 반물질 차원 배율의 지수를 ${formatPow(amount, 2, 4)}로 만듭니다`
   },
   orange: {
     id: 1,
@@ -21,7 +21,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)), 0.5).div(200).add(1), boost.div(100).add(1));
     },
-    description: amount => `Raise the Exponents of all Infinity Dimension Multipliers to ${formatPow(amount, 2, 4)}`
+    description: amount => `모든 무한 차원 배율의 지수를 ${formatPow(amount, 2, 4)}로 만듭니다`
   },
   yellow: {
     id: 2,
@@ -33,7 +33,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)), 1.2).div(10).add(1), boost.div(100).add(1));
     },
-    description: amount => `Multiply the Celestial Matter Conversion Exponent by ${formatX(amount, 2, 3)}`
+    description: amount => `셀레스티얼 물질 변환 지수에 ${formatX(amount, 2, 3)}를 곱합니다`
   },
   green: {
     id: 3,
@@ -45,7 +45,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)), 1.5).div(40).add(1), boost.div(100).add(1));
     },
-    description: amount => `Raise Imaginary Machine Gain and Cap to ${formatPow(amount, 2, 3)}`
+    description: amount => `허수 머신 획득량과 상한을 ${formatPow(amount, 2, 3)}만큼 거듭제곱합니다`
   },
   blue: {
     id: 4,
@@ -58,7 +58,7 @@ export const stars = {
       return Decimal.pow(Decimal.pow(amount.add(1), 0.8).min(1e25).times(
         Decimal.pow10(Decimal.pow(5, amount.max(1e25).div(1e25).log10().add(1).log10()).sub(1))), boost.div(100).add(1));
     },
-    description: amount => `Multiply Ethereal Power Gain by ${formatX(amount, 2, 3)}`
+    description: amount => `에테리얼 파워 획득량에 ${formatX(amount, 2, 3)}를 곱합니다`
   },
   purple: {
     id: 5,
@@ -70,7 +70,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)), 0.8).div(200).add(1), boost.div(100).add(1));
     },
-    description: amount => `Raise the Exponents of all Time Dimension Multipliers to ${formatPow(amount, 2, 4)}`
+    description: amount => `모든 시간 차원 배율의 지수를 ${formatPow(amount, 2, 4)}로 만듭니다`
   },
   white: {
     id: 6,
@@ -82,7 +82,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow10(Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)).times(100), 1.8), boost.div(100).add(1)));
     },
-    description: amount => `Delay all Dark Matter softcaps by ${formatX(amount, 2)}`
+    description: amount => `모든 암흑 물질 소프트캡을 ${formatX(amount, 2)}만큼 늦춥니다`
   },
   black: {
     id: 7,
@@ -94,7 +94,7 @@ export const stars = {
       if (player.disablePostReality) return DC.D1;
       return Decimal.pow(Decimal.pow(Decimal.log10(amount.add(1)), 1.3).div(200).add(1), boost.div(100).add(1));
     },
-    description: amount => `Raise the Antimatter Exponent to ${formatPow(amount, 2, 4)}`
+    description: amount => `반물질 지수를 ${formatPow(amount, 2, 4)}만큼 거듭제곱합니다`
   },
   gray: {
     id: 8,
@@ -105,6 +105,6 @@ export const stars = {
       if (player.disablePostReality) return DC.D0;
       return Decimal.log10(Decimal.log10(amount.add(1)).add(1)).times(20);
     },
-    description: amount => `Increase the effectiveness of all other stars by ${formatPercents(amount.div(100).toNumber(), 2)}`
+    description: amount => `다른 모든 별의 효과를 ${formatPercents(amount.div(100).toNumber(), 2)}만큼 증가시킵니다`
   },
 };

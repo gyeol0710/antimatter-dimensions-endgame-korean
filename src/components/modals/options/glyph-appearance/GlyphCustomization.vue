@@ -92,6 +92,21 @@ export default {
         "c-type-other": this.selectedIndex !== index,
       };
     },
+    typeName(type) {
+      return {
+        power: "힘",
+        infinity: "무한",
+        replication: "복제",
+        time: "시간",
+        dilation: "팽창",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동료",
+        music: "음악",
+        blob: "블롭",
+      }[type] ?? type.capitalize();
+    },
     resetIndividual() {
       for (const glyph of Glyphs.allGlyphs) {
         if (!glyph.fixedCosmetic) glyph.cosmetic = undefined;
@@ -105,35 +120,35 @@ export default {
 
 <template>
   <div class="c-glyph-customization-group">
-    <b>Custom Glyph Appearance</b>
+    <b>사용자 지정 글리프 외형</b>
     <PrimaryToggleButton
       v-model="enabled"
       class="o-primary-btn--subtab-option"
-      on="Enabled"
-      off="Disabled"
+      on="활성화"
+      off="비활성화"
     />
     <br>
     <div v-if="hasCustomSets">
-      Reset Appearances to Default:
+      외형을 기본값으로 초기화:
       <PrimaryButton
         class="o-primary-btn--subtab-option"
         :class="{ 'o-primary-btn--disabled' : !enabled }"
         @click="resetAll"
       >
-        All Types
+        모든 유형
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn--subtab-option"
         :class="{ 'o-primary-btn--disabled' : !enabled }"
         @click="resetSingle"
       >
-        This Type
+        이 유형
       </PrimaryButton>
       <br>
-      <i>This will not reset any individually-modified Glyphs.</i>
+      <i>개별적으로 변경한 글리프는 초기화되지 않습니다.</i>
       <br>
       <br>
-      Glyph Type:
+      글리프 유형:
       <br>
       <div class="c-type-selection">
         <div
@@ -143,7 +158,7 @@ export default {
           @click="selectedIndex = index"
         >
           <GlyphComponent
-            v-tooltip="type.capitalize()"
+            v-tooltip="typeName(type)"
             v-bind="glyphIconProps"
             :glyph="fakeGlyph(type)"
           />
@@ -153,25 +168,25 @@ export default {
         :key="selectedIndex + enabled + defaultKeySwap"
         :type="cosmeticTypes[selectedIndex]"
       />
-      Note: Some options may cause very poor color contrast or readability on certain themes with certain Glyph types.
+      참고: 일부 설정은 특정 테마와 글리프 유형에서 색상 대비나 가독성이 매우 떨어질 수 있습니다.
     </div>
     <div v-else>
-      You currently have no available options for changing the default appearance of your Glyphs. To unlock some, visit
-      the Shop Tab or beat the game.
+      현재 글리프의 기본 외형을 변경할 수 있는 설정이 없습니다. 설정을 잠금 해제하려면
+      상점 탭을 방문하거나 게임을 완료하세요.
       <br>
       <br>
       <span v-if="hasSpecialTypes">
-        Enabling this setting will allow you to change individual Glyphs to special cosmetic types you have unlocked.
+        이 설정을 활성화하면 개별 글리프를 잠금 해제한 특수 장식 유형으로 변경할 수 있습니다.
       </span>
       <span v-else>
-        Enabling or disabling this option will currently do nothing.
+        현재 이 설정을 활성화하거나 비활성화해도 아무 효과가 없습니다.
       </span>
     </div>
     <PrimaryButton
       class="o-primary-btn--subtab-option"
       @click="resetIndividual"
     >
-      Reset all individual Glyph cosmetics
+      모든 개별 글리프 장식 초기화
     </PrimaryButton>
   </div>
 </template>

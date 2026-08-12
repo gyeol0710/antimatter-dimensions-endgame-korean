@@ -5,7 +5,7 @@ import { MultiplierTabIcons } from "./icons";
 // See index.js for documentation
 export const TP = {
   total: {
-    name: "Total Tachyon Particles",
+    name: "총 타키온 입자",
     displayOverride: () => {
       const baseTPStr = format(new Decimal(Currency.tachyonParticles.value), 2, 2);
       return PelleRifts.paradox.milestones[1].canBeApplied
@@ -23,51 +23,51 @@ export const TP = {
     icon: MultiplierTabIcons.TACHYON_PARTICLES,
   },
   base: {
-    name: "Base Tachyon Particle Count",
+    name: "기본 타키온 입자 수",
     isBase: true,
     multValue: () => new Decimal(Currency.tachyonParticles.value).div(tachyonGainMultiplier()),
     isActive: () => new Decimal(Currency.tachyonParticles.value).gt(0),
     icon: MultiplierTabIcons.TACHYON_PARTICLES,
   },
   achievementMult: {
-    name: "Achievement Multiplier",
+    name: "도전과제 배율",
     multValue: () => RealityUpgrade(8).effectOrDefault(1),
     isActive: () => RealityUpgrade(8).canBeApplied && !Pelle.isDoomed,
     icon: MultiplierTabIcons.ACHIEVEMENT,
   },
   achievement: {
-    name: "Achievement 132",
+    name: "도전과제 132",
     multValue: () => Achievement(132).effectOrDefault(1),
     isActive: () => Achievement(132).canBeApplied,
     icon: MultiplierTabIcons.ACHIEVEMENT,
   },
   dilation: {
-    name: () => `Dilation Upgrade - Repeatable ${formatX(3)} TP`,
+    name: () => `시간 팽창 업그레이드 - 반복 구매 ${formatX(3)} 타키온 입자`,
     multValue: () => DilationUpgrade.tachyonGain.effectOrDefault(1),
     isActive: () => DilationUpgrade.tachyonGain.canBeApplied,
     icon: MultiplierTabIcons.UPGRADE("dilation"),
   },
   amplifierTP: {
-    name: "Reality Upgrade - Superluminal Amplifier",
+    name: "현실 업그레이드 - 초광속 증폭기",
     multValue: () => DC.D1.timesEffectsOf(RealityUpgrade(4)),
     isActive: () => PlayerProgress.realityUnlocked() && !Pelle.isDoomed,
     icon: MultiplierTabIcons.UPGRADE("reality"),
   },
   realityUpgrade: {
-    name: "Reality Upgrade - The Paradoxical Forever",
+    name: "현실 업그레이드 - 역설적 영원",
     multValue: () => DC.D1.timesEffectsOf(RealityUpgrade(15)),
     isActive: () => PlayerProgress.realityUnlocked() && !Pelle.isDoomed,
     icon: MultiplierTabIcons.UPGRADE("reality"),
   },
   dilationGlyphSacrifice: {
-    name: "Dilation Glyph Sacrifice",
+    name: "팽창 글리프 희생",
     multValue: () => GlyphSacrifice.dilation.effectValue,
     isActive: () => GlyphSacrifice.dilation.effectValue > 1,
     icon: MultiplierTabIcons.SACRIFICE("dilation"),
   },
 
   nerfEnslaved: {
-    name: "The Nameless Ones' Reality",
+    name: "이름없는 자들의 현실",
     powValue: () => Enslaved.tachyonNerf,
     isActive: () => Enslaved.isRunning,
     icon: MultiplierTabIcons.GENERIC_ENSLAVED,

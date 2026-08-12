@@ -32,14 +32,14 @@ export default {
         return this.challenge.config;
       }
       return {
-        description: `Infinity ${formatInt(this.lockedAt)} times to unlock.`
+        description: `무한 ${formatInt(this.lockedAt)}회 달성 시 해금됩니다.`
       };
     },
     name() {
-      return `C${this.challenge.id}`;
+      return `일반 도전 ${this.challenge.id}`;
     },
     overrideLabel() {
-      return this.isBroken ? "Broken" : "";
+      return this.isBroken ? "파괴됨" : "";
     },
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
       <DescriptionDisplay :config="descriptionDisplayConfig" />
     </template>
     <template #bottom>
-      <span :class="{ 'o-pelle-disabled': isDisabled }">Reward: {{ challenge.config.reward }}</span>
+      <span :class="{ 'o-pelle-disabled': isDisabled }">보상: {{ challenge.config.reward }}</span>
     </template>
   </ChallengeBox>
 </template>

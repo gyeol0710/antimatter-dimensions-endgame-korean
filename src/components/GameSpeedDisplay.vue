@@ -16,11 +16,11 @@ export default {
   computed: {
     baseSpeedText() {
       if (this.isStopped) {
-        return "Stopped (storing real time)";
+        return "정지됨 (현실 시간 저장 중)";
       }
       const speed = this.formatNumber(this.baseSpeed);
       if (this.isEC12) {
-        return `${speed} (fixed)`;
+        return `${speed} (고정)`;
       }
       return `${speed}`;
     },
@@ -29,8 +29,8 @@ export default {
     },
     baseText() {
       if (!this.hasSeenAlteredSpeed) return null;
-      if (this.baseSpeed.eq(1)) return "The game is running at normal speed.";
-      return `Game speed is altered: ${this.baseSpeedText}`;
+      if (this.baseSpeed.eq(1)) return "게임이 정상 속도로 실행 중입니다.";
+      return `게임 속도 변경됨: ${this.baseSpeedText}`;
     }
   },
   methods: {

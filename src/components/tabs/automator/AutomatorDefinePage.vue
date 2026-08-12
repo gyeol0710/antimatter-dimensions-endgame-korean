@@ -54,27 +54,26 @@ export default {
 
 <template>
   <div class="l-panel-padding">
-    This panel allows you to define case-sensitive constant values which can be used in place of numbers or Time Study
-    import strings. These definitions are shared across all of your scripts and are limited to a maximum of
-    {{ maxConstantCount }} defined constants. Additionally, constant names and values are limited to lengths of
-    {{ maxNameLength }} and {{ maxValueLength }} characters respectively. Changes made to constants will not apply
-    until any currently running scripts are restarted.
+    이 패널에서는 숫자나 시간 연구 가져오기 문자열 대신 사용할, 대소문자를 구분하는 상숫값을 정의할 수 있습니다.
+    정의한 상수는 모든 스크립트에서 공유하며 최대 {{ maxConstantCount }}개까지 만들 수 있습니다. 또한 상수 이름과 값은
+    각각 {{ maxNameLength }}자와 {{ maxValueLength }}자로 제한됩니다. 상수 변경 사항은 현재 실행 중인 스크립트를
+    다시 시작해야 적용됩니다.
     <br>
     <br>
-    As a usage example, defining
+    사용 예시로
     <b>first 🠈 11,21,22,31,32,33</b>
-    allows you to use
+    를 정의하면 첫 세 줄의 연구를 모두 구매하기 위해
     <b>studies purchase first</b>
-    in order to purchase all of the studies in the first three rows.
+    를 사용할 수 있습니다.
     <br>
     <br>
     <PrimaryButton
-      v-tooltip="hasConstants ? null : 'You have no valid constants to delete!'"
+      v-tooltip="hasConstants ? null : '삭제할 수 있는 상수가 없습니다!'"
       class="c-delete-margin o-primary-btn--subtab-option"
       :class="{ 'o-primary-btn--disabled' : !hasConstants }"
       @click="deleteAllConstants"
     >
-      Delete all constants
+      모든 상수 삭제
     </PrimaryButton>
     <br>
     <br>
@@ -82,7 +81,7 @@ export default {
       class="c-delete-margin o-primary-btn--subtab-option"
       @click="importPresets"
     >
-      Import Time Study Presets
+      시간 연구 프리셋 가져오기
     </PrimaryButton>
     <div
       :key="count + refreshConstants"

@@ -31,17 +31,16 @@ export default {
 <template>
   <div>
     <div class="l-header">
-      You have {{ formatInt(totalPoints) }} / {{ formatInt(pointsForAutomator) }}
-      Automator Points towards unlocking the Automator.
+      오토메이터 해금에 필요한 오토메이터 포인트를 {{ formatInt(totalPoints) }} / {{ formatInt(pointsForAutomator) }} 보유하고 있습니다.
       <br>
-      You gain Automator Points from the following sources:
+      다음 요소에서 오토메이터 포인트를 얻습니다:
     </div>
     <div class="l-automator-points-list-container">
       <div class="l-automator-points-list-side-col c-automator-points-list-col">
         <span class="c-automator-points-list-symbol fas fa-project-diagram" />
         <span class="c-automator-points-list-ap--large">{{ formatInt(fromPerks) }} AP</span>
         <span class="l-large-text">
-          Perks
+          퍼크
         </span>
         <div
           v-for="perk in perkSources"
@@ -79,7 +78,7 @@ export default {
         <span class="c-automator-points-list-symbol fas fa-arrow-up" />
         <span class="c-automator-points-list-ap--large">{{ formatInt(fromUpgrades) }} AP</span>
         <span class="l-large-text">
-          Reality Upgrades
+          현실 업그레이드
         </span>
         <div
           v-for="upgrade in upgradeSources"
@@ -96,14 +95,12 @@ export default {
     </div>
     <br>
     <div>
-      The Automator allows (amongst other things) buying full Time Study Trees, entering Eternity Challenges,
-      or starting Dilation.
+      오토메이터는 전체 시간 연구 트리를 구매하고, 영원 도전에 진입하거나 시간 팽창을 시작하는 등의 작업을 수행합니다.
       <br>
-      It can also force prestige events on certain conditions independently from your Autobuyers or modify
-      some of your Autobuyer settings.
+      또한 자동구매기와 별개로 특정 조건에서 프레스티지를 강제로 실행하거나 일부 자동구매기 설정을 변경할 수 있습니다.
       <br>
-      The speed of the Automator gradually increases as you get more Realities. If unlocked right now,
-      it would run {{ format(1000 / automatorInterval, 2, 2) }} commands per real-time second.
+      오토메이터의 속도는 현실 횟수가 늘어날수록 점차 빨라집니다. 지금 해금한다면 실제 시간 기준 초당
+      명령 {{ format(1000 / automatorInterval, 2, 2) }}개를 실행합니다.
     </div>
   </div>
 </template>

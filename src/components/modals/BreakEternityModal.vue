@@ -8,7 +8,7 @@ export default {
   },
   computed: {
     message() {
-      return `Breaking Eternity will allow you to gain antimatter past 1e9e15. You will gain additional Celestial Points and Doomed Particles on Endgame based on antimatter produced over 1e9e15 while inside the Doomed Reality. It will also unlock Break Eternity Upgrades and other features.`.split("\n");
+      return `영원을 돌파하면 1e9e15를 초과하여 반물질을 얻을 수 있습니다. 파멸한 현실 안에서 1e9e15를 초과하여 생산한 반물질에 따라 엔드게임 시 추가 셀레스티얼 포인트와 파멸 입자를 얻습니다. 또한 영원 돌파 업그레이드와 다른 기능이 해금됩니다.`.split("\n");
     },
   },
   methods: {
@@ -25,7 +25,7 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are Breaking Eternity
+      영원 돌파
     </template>
     <div class="c-modal-message__text">
       <span
@@ -36,7 +36,7 @@ export default {
       </span>
     </div>
     <template #confirm-text>
-      Break
+      돌파
     </template>
   </ModalWrapperChoice>
 </template>

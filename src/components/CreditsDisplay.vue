@@ -55,7 +55,7 @@ export default {
 
     <br><br><br><br><br><br><br><br><br>
     <h1 class="c-credits-header">
-      Thank you so much for playing!
+      플레이해 주셔서 정말 감사합니다!
     </h1>
   </div>
 </template>

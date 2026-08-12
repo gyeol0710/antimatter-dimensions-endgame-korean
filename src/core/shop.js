@@ -61,11 +61,11 @@ export const ShopPurchaseData = {
         const statusRes = await fetch(`${STD_BACKEND_URL}/STDData?user=${Cloud.user.id}`);
         newSTDData = await statusRes.json();
       } catch (e) {
-        GameUI.notify.error("Could not sync STD purchases!", 10000);
+        GameUI.notify.error("STD 구매 내역을 동기화할 수 없습니다!", 10000);
         return;
       }
     }
-    if (showNotification && newSTDData.totalSTD > 0) GameUI.notify.info("STD purchases successfully loaded!", 10000);
+    if (showNotification && newSTDData.totalSTD > 0) GameUI.notify.info("STD 구매 내역을 불러왔습니다!", 10000);
     this.updateLocalSTD(newSTDData);
   },
 
@@ -81,7 +81,7 @@ export const ShopPurchaseData = {
     if (!this.canRespec) {
       // This case only happens if the player is cheating and using the console to make the game think it has a respec
       // when on the backend they don't. Nevertheless, responsive UI rarely hurts
-      GameUI.notify.error("You do not have a respec available", 10000);
+      GameUI.notify.error("사용 가능한 STD 구매 재분배가 없습니다", 10000);
       return;
     }
     let res;
@@ -94,12 +94,12 @@ export const ShopPurchaseData = {
         body: JSON.stringify({ user: Cloud.user.id })
       });
     } catch (e) {
-      GameUI.notify.error("Unable to respec STD purchases!", 10000);
+      GameUI.notify.error("STD 구매를 재분배할 수 없습니다!", 10000);
       return;
     }
     const stdData = await res.json();
-    if (stdData.success) GameUI.notify.info("STD respec successful!", 10000);
-    else GameUI.notify.error("No purchases to respec!", 10000);
+    if (stdData.success) GameUI.notify.info("STD 구매 재분배를 완료했습니다!", 10000);
+    else GameUI.notify.error("재분배할 구매 항목이 없습니다!", 10000);
     this.updateLocalSTD(stdData.data);
   },
 };

@@ -40,10 +40,10 @@ export default {
 <template>
   <div v-show="isUnlocked">
     <div class="c-ascension-text">
-      Ascension {{ id }}:
+      승천 {{ id }}:
       {{ name }}
       <br>
-      Effect: {{ description }}.
+      효과: {{ description }}.
     </div>
   </div>
 </template>

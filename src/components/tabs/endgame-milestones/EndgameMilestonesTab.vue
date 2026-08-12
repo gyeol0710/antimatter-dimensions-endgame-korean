@@ -34,7 +34,7 @@ export default {
 
 <template>
   <div class="l-endgame-milestone-grid">
-    <div>You have {{ quantify("Endgame", endgameCount, 3) }}.</div>
+    <div>{{ quantify("엔드게임", endgameCount, 3) }}을 완료했습니다.</div>
     <div
       v-for="row in rows"
       :key="row"

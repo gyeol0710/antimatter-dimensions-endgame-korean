@@ -13,25 +13,25 @@ export default {
   },
   computed: {
     removeString() {
-      if (this.isRefining) return "Refine";
-      if (this.glyphSacrificeUnlocked) return "Sacrifice";
-      return "Delete";
+      if (this.isRefining) return "정제";
+      if (this.glyphSacrificeUnlocked) return "희생";
+      return "삭제";
     },
     autoCleanTooltip() {
-      return `${this.removeString} Glyphs that are worse in every way than
-        enough other Glyphs${this.hasPerkShop ? " (ignores customized Glyphs)" : ""}`;
+      return `충분한 수의 다른 글리프보다 모든 면에서 뒤처지는 글리프를 ${this.removeString}합니다${this.hasPerkShop
+        ? " (꾸민 글리프 제외)" : ""}`;
     },
     harshAutoCleanTooltip() {
-      return `${this.removeString} Glyphs that are worse in every way than
-        ANY other Glyph${this.hasPerkShop ? " (includes customized Glyphs)" : ""}`;
+      return `다른 글리프 하나보다 모든 면에서 뒤처지는 글리프를 ${this.removeString}합니다${this.hasPerkShop
+        ? " (꾸민 글리프 포함)" : ""}`;
     },
     deleteRejectedTooltip() {
       const negativeWarning = AutoGlyphProcessor.hasNegativeEffectScore()
-        ? " You also have some negative Effect Filter scores; this may remove some Glyphs you normally want to keep!"
+        ? " 효과 필터 점수가 음수인 항목도 있어 평소 보관하려던 글리프가 제거될 수 있습니다!"
         : "";
       return this.removeCount === 0
-        ? `This will not remove any Glyphs, adjust your Filter settings to remove some.`
-        : `This will remove ${quantifyInt("Glyph", this.removeCount)}!${negativeWarning}`;
+        ? `제거되는 글리프가 없습니다. 일부를 제거하려면 필터 설정을 조정하세요.`
+        : `${quantifyInt("글리프", this.removeCount)}가 제거됩니다!${negativeWarning}`;
     }
   },
   methods: {
@@ -87,13 +87,13 @@ export default {
     class="o-glyph-inventory-management-group"
   >
     <div class="l-glyph-sacrifice-options__header">
-      Remove weaker Glyphs:
+      약한 글리프 제거:
     </div>
     <button
       class="c-glyph-inventory-option"
       @click="autoClean"
     >
-      Purge Glyphs
+      글리프 정리
       <div class="c-glyph-inventory-option__tooltip">
         {{ autoCleanTooltip }}
       </div>
@@ -102,7 +102,7 @@ export default {
       class="c-glyph-inventory-option"
       @click="harshAutoClean"
     >
-      Harsh Purge Glyphs
+      글리프 강력 정리
       <div class="c-glyph-inventory-option__tooltip">
         {{ harshAutoCleanTooltip }}
       </div>
@@ -111,14 +111,14 @@ export default {
       class="c-glyph-inventory-option"
       @click="deleteAllUnprotected"
     >
-      {{ removeString }} all unprotected Glyphs
+      보호되지 않은 모든 글리프 {{ removeString }}
     </button>
     <button
       v-if="hasFilter"
       class="c-glyph-inventory-option"
       @click="deleteAllRejected"
     >
-      {{ removeString }} all Glyphs rejected by filtering
+      필터에서 제외된 모든 글리프 {{ removeString }}
       <div
         class="c-glyph-inventory-option__tooltip l-rejected-tooltip"
       >

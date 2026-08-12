@@ -271,7 +271,7 @@ export default {
       let errorInfo = this.errors.find(e => e.startLine === this.lineNumber).info;
       errorInfo = errorInfo
         .replaceAll("\n", "")
-        .replace(/Expecting: one of these possible Token sequences:.*but found: (.*)/ui, "Unexpected input format: $1");
+        .replace(/Expecting: one of these possible Token sequences:.*but found: (.*)/ui, "예상하지 못한 입력 형식: $1");
       return {
         content:
           `<div class="c-block-automator-error">

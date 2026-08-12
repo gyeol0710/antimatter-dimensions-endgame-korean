@@ -48,21 +48,21 @@ export default {
     modeProps(mode) {
       switch (mode) {
         case AUTO_CELESTIAL_ETERNITY_MODE.AMOUNT: return {
-          title: "Celestial Eternity at X CEP",
+          title: "CEP X개에서 셀레스티얼 영원",
           input: {
             property: "amount",
             type: "decimal"
           },
         };
         case AUTO_CELESTIAL_ETERNITY_MODE.TIME: return {
-          title: "Seconds between Celestial Eternities",
+          title: "셀레스티얼 영원 간격(초)",
           input: {
             property: "time",
             type: "float"
           },
         };
         case AUTO_CELESTIAL_ETERNITY_MODE.X_HIGHEST: return {
-          title: "X times highest CEP",
+          title: "최고 CEP의 X배",
           input: {
             property: "xHighest",
             type: "decimal"
@@ -83,7 +83,7 @@ export default {
     :autobuyer="autobuyer"
     :show-interval="true"
     :is-modal="isModal"
-    name="Automatic Celestial Eternity"
+    name="셀레스티얼 영원 자동 진행"
   >
     <template #intervalSlot>
       <ExpandingControlBox
@@ -92,7 +92,7 @@ export default {
       >
         <template #header>
           <div class="o-primary-btn c-autobuyer-box__mode-select c-autobuyer-box__mode-select-header">
-            ▼ Current Setting: ▼
+            ▼ 현재 설정: ▼
             <br>
             {{ modeName(mode) }}
           </div>
@@ -125,7 +125,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Dynamic amount
+        동적 수량
       </label>
     </template>
   </AutobuyerBox>

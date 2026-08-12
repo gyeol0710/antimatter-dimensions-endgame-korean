@@ -37,15 +37,15 @@ export const automatorTemplates = {
     },
     {
       name: "boolean",
-      boolDisplay: [true, false],
+      boolDisplay: ["예", "아니요"],
     },
     {
       name: "nowait",
-      boolDisplay: ["Continue onward", "Keep buying Studies"],
+      boolDisplay: ["계속 진행", "연구를 계속 구매"],
     },
     {
       name: "mode",
-      boolDisplay: ["X times highest", "Seconds since last"],
+      boolDisplay: ["최고 기록의 X배", "마지막 실행 후 경과 시간(초)"],
       map: x => (x ? "mult" : "time"),
     },
   ],
@@ -56,6 +56,7 @@ export const automatorTemplates = {
     * {
     *  @property {String} name          Name of script template, also used as a key within the constructor for
     *   ScriptTemplate objects
+    *  @property {String} displayName   Localized name to display in the UI
     *  @property {String} description   Text description of what the template does when used in the automator
     *  @property {Object[]} inputs      Fields of the param object which need to be filled for the template to
     *   have all the information it needs. Contains the name of the field, the type (drawn from paramTypes above),
@@ -67,130 +68,132 @@ export const automatorTemplates = {
   scripts: [
     {
       name: "Climb EP",
-      description: `This script performs repeated Eternities, attempting to re-purchase a Time Study Tree every
-        Eternity. Autobuyer settings must be supplied for the Infinity and Eternity Autobuyers. The script will
-        repeat until a final Eternity Point value is reached.`,
+      displayName: "영원 포인트 불리기",
+      description: `이 스크립트는 영원을 반복하며, 영원을 수행할 때마다 시간 연구 트리를 다시 구매하려고 합니다.
+        무한 및 영원 자동구매기의 설정을 입력해야 합니다. 지정한 영원 포인트에 도달할 때까지 반복합니다.`,
       inputs: [
-        { name: "treeStudies", type: "tree", prompt: "Or directly enter your time studies" },
-        { name: "treeNowait", type: "nowait", prompt: "Missing Study behavior" },
-        { name: "finalEP", type: "decimal", prompt: "Target EP" },
-        { name: "autoInfMode", type: "mode", prompt: "Infinity Autobuyer Mode" },
-        { name: "autoInfValue", type: "decimal", prompt: "Infinity Autobuyer Threshold" },
-        { name: "autoEterMode", type: "mode", prompt: "Eternity Autobuyer Mode" },
-        { name: "autoEterValue", type: "decimal", prompt: "Eternity Autobuyer Threshold" },
+        { name: "treeStudies", type: "tree", prompt: "또는 시간 연구를 직접 입력" },
+        { name: "treeNowait", type: "nowait", prompt: "시간 연구가 남았을 때의 동작" },
+        { name: "finalEP", type: "decimal", prompt: "목표 영원 포인트" },
+        { name: "autoInfMode", type: "mode", prompt: "무한 자동구매기 모드" },
+        { name: "autoInfValue", type: "decimal", prompt: "무한 자동구매기 기준값" },
+        { name: "autoEterMode", type: "mode", prompt: "영원 자동구매기 모드" },
+        { name: "autoEterValue", type: "decimal", prompt: "영원 자동구매기 기준값" },
       ],
       warnings: () => {
         const list = [];
         if (!RealityUpgrade(10).isBought) {
-          list.push(`This script will be unable to properly set Autobuyer modes without at least ${formatInt(100)}
-            Eternities. Consider getting Reality Upgrade "${RealityUpgrade(10).name}" before using this at the start
-            of a Reality.`);
+          list.push(`영원 횟수가 ${formatInt(100)}회 미만이면 이 스크립트가 자동구매기 모드를 올바르게
+            설정할 수 없습니다. 현실을 시작할 때 사용하려면 먼저 현실 업그레이드
+            "${RealityUpgrade(10).name}" 구매를 권장합니다.`);
         }
         // Telemechanical Process (TD/5xEP autobuyers)
         if (!RealityUpgrade(13).isBought) {
-          list.push(`This template may perform poorly without Reality Upgrade "${RealityUpgrade(13).name}"`);
+          list.push(`현실 업그레이드 "${RealityUpgrade(13).name}" 미보유 시 이 템플릿의 성능이 떨어질 수 있습니다`);
         }
         if (!Perk.ttBuySingle.isBought) {
-          list.push(`This template may perform poorly without Perk "${Perk.ttBuySingle.label}" unless you can generate
-            Time Theorems without purchsing them`);
+          list.push(`시간 정리를 구매하지 않고도 생성할 수 있는 경우가 아니라면, 퍼크
+            "${Perk.ttBuySingle.label}" 미보유 시 이 템플릿의 성능이 떨어질 수 있습니다`);
         }
         return list;
       },
     },
     {
       name: "Grind Eternities",
-      description: `This script performs repeated fast Eternities after buying a specified Time Study Tree.
-        Auto-Infinity will be set to "Times Highest" with a specified number of crunches and Auto-Eternity will
-        trigger as soon as possible. The script will repeat until a final Eternity count is reached.`,
+      displayName: "영원 횟수 모으기",
+      description: `이 스크립트는 지정한 시간 연구 트리를 구매한 뒤 빠른 영원을 반복합니다. 무한 자동구매기는
+        지정한 빅 크런치 횟수에 맞춰 "최고 기록의 X배" 모드로 설정되고, 영원 자동구매기는 가능한 즉시 실행됩니다.
+        지정한 영원 횟수에 도달할 때까지 반복합니다.`,
       inputs: [
-        { name: "treeStudies", type: "tree", prompt: "Or directly enter your time studies" },
-        { name: "treeNowait", type: "nowait", prompt: "Missing Study behavior" },
-        { name: "crunchesPerEternity", type: "integer", prompt: "Crunches per Eternity" },
-        { name: "eternities", type: "decimal", prompt: "Target Eternity Count" },
+        { name: "treeStudies", type: "tree", prompt: "또는 시간 연구를 직접 입력" },
+        { name: "treeNowait", type: "nowait", prompt: "시간 연구가 남았을 때의 동작" },
+        { name: "crunchesPerEternity", type: "integer", prompt: "영원 한 번당 빅 크런치 횟수" },
+        { name: "eternities", type: "decimal", prompt: "목표 영원 횟수" },
       ],
       warnings: () => {
         const list = [];
         // Eternal flow (eternity generation)
         if (RealityUpgrade(14).isBought) {
-          list.push(`You probably do not need to use this due to Reality Upgrade "${RealityUpgrade(14).name}"`);
+          list.push(`현실 업그레이드 "${RealityUpgrade(14).name}" 때문에 이 템플릿은 필요하지 않을 가능성이 큽니다`);
         }
         return list;
       },
     },
     {
       name: "Grind Infinities",
-      description: `This script buys a specified Time Study Tree and then configures your Autobuyers for gaining
-        Infinities. It will repeat until a final Infinity count is reached; the count can be for Banked Infinities,
-        in which case it will get all Infinities before performing a single Eternity.`,
+      displayName: "무한 횟수 모으기",
+      description: `이 스크립트는 지정한 시간 연구 트리를 구매한 뒤 무한 횟수를 얻도록 자동구매기를 설정합니다.
+        지정한 무한 횟수에 도달할 때까지 반복합니다. 저장된 무한 횟수를 목표로 삼을 수도 있으며, 이 경우 한 번 영원하기
+        전에 필요한 무한 횟수를 모두 얻습니다.`,
       inputs: [
-        { name: "treeStudies", type: "tree", prompt: "Or directly enter your time studies" },
-        { name: "treeNowait", type: "nowait", prompt: "Missing Study behavior" },
-        { name: "infinities", type: "decimal", prompt: "Target Infinity Count" },
-        { name: "isBanked", type: "boolean", prompt: "Use Banked for Target?" },
+        { name: "treeStudies", type: "tree", prompt: "또는 시간 연구를 직접 입력" },
+        { name: "treeNowait", type: "nowait", prompt: "시간 연구가 남았을 때의 동작" },
+        { name: "infinities", type: "decimal", prompt: "목표 무한 횟수" },
+        { name: "isBanked", type: "boolean", prompt: "저장된 무한 횟수를 목표로 사용" },
       ],
       warnings: () => {
         const list = [];
         if (!Perk.achievementGroup5.isBought) {
-          list.push(`You will not start this Reality with Achievement "${Achievement(131).name}" - grinding
-            Infinities may be less useful than expected since they cannot be Banked until later`);
+          list.push(`이번 현실을 도전과제 "${Achievement(131).name}" 없이 시작합니다. 나중이 되어야 무한 횟수를
+            저장할 수 있으므로, 무한 횟수 모으기가 예상보다 덜 유용할 수 있습니다`);
         }
         // Boundless flow (infinity generation)
         if (RealityUpgrade(11).isBought) {
-          list.push(`You probably do not need to use this due to Reality Upgrade "${RealityUpgrade(11).name}"`);
+          list.push(`현실 업그레이드 "${RealityUpgrade(11).name}" 때문에 이 템플릿은 필요하지 않을 가능성이 큽니다`);
         }
         return list;
       },
     },
     {
       name: "Complete Eternity Challenge",
-      description: `This script buys a specified Time Study Tree and then unlocks a specified Eternity Challenge.
-        Then it will set your Infinity Autobuyer to your specified settings and enter the Eternity Challenge.
-        Finally, it will wait until at least the desired number of completions before triggering an Eternity to
-        complete the Challenge.`,
+      displayName: "영원 도전 완료하기",
+      description: `이 스크립트는 지정한 시간 연구 트리를 구매하고 지정한 영원 도전을 해금합니다. 무한 자동구매기를
+        입력한 설정으로 바꾼 뒤 영원 도전에 진입합니다. 마지막으로 목표 완료 횟수에 도달할 때까지 기다렸다가
+        영원을 수행해 도전을 완료합니다.`,
       inputs: [
-        { name: "treeStudies", type: "tree", prompt: "Or directly enter your time studies" },
-        { name: "treeNowait", type: "nowait", prompt: "Missing Study behavior" },
-        { name: "ec", type: "integer", prompt: "Eternity Challenge ID" },
-        { name: "completions", type: "integer", prompt: "Target Completion Count" },
-        { name: "autoInfMode", type: "mode", prompt: "Infinity Autobuyer Mode" },
-        { name: "autoInfValue", type: "decimal", prompt: "Infinity Autobuyer Threshold" },
+        { name: "treeStudies", type: "tree", prompt: "또는 시간 연구를 직접 입력" },
+        { name: "treeNowait", type: "nowait", prompt: "시간 연구가 남았을 때의 동작" },
+        { name: "ec", type: "integer", prompt: "영원 도전 번호" },
+        { name: "completions", type: "integer", prompt: "목표 완료 횟수" },
+        { name: "autoInfMode", type: "mode", prompt: "무한 자동구매기 모드" },
+        { name: "autoInfValue", type: "decimal", prompt: "무한 자동구매기 기준값" },
       ],
       warnings: () => {
         const list = [];
         if (!Perk.studyECRequirement.isBought) {
-          list.push(`Eternity Challenges may not be reliably unlockable due to secondary resource requirements, consider
-            unlocking Perk "${Perk.studyECRequirement.label}" before using this template`);
+          list.push(`보조 자원 요구 조건 때문에 영원 도전을 안정적으로 해금하지 못할 수 있습니다. 이 템플릿을
+            사용하기 전에 퍼크 "${Perk.studyECRequirement.label}" 해금을 권장합니다`);
         }
         if (!Perk.studyECBulk.isBought) {
-          list.push(`Using this template without bulk completions of Eternity Challenges may lead to long scripts which
-            are slower and difficult to modify. If you use this template, consider returning to simplify your scripts
-            after unlocking Perk "${Perk.studyECBulk.label}"`);
+          list.push(`영원 도전 일괄 완료 없이 이 템플릿을 사용하면 스크립트가 길어져 느려지고 수정하기 어려울 수
+            있습니다. 이 템플릿을 사용했다면 퍼크 "${Perk.studyECBulk.label}" 해금 후 스크립트를 다시 단순하게
+            정리하는 것을 권장합니다`);
         }
         return list;
       },
     },
     {
       name: "Unlock Dilation",
-      description: `This script performs repeated Eternities, attempting to re-purchase a Time Study Tree every
-        Eternity. Settings must be supplied for the Eternity Autobuyer; your Infinity Autobuyer will be
-        turned off. The script loops until you have the total Time Theorem requirement to unlock Dilation, and then
-        it will unlock Dilation once it does.`,
+      displayName: "시간 팽창 해금하기",
+      description: `이 스크립트는 영원을 반복하며, 영원을 수행할 때마다 시간 연구 트리를 다시 구매하려고 합니다.
+        영원 자동구매기의 설정을 입력해야 하며 무한 자동구매기는 꺼집니다. 시간 팽창 해금에 필요한 총 시간 정리를
+        보유할 때까지 반복한 뒤 시간 팽창을 해금합니다.`,
       inputs: [
-        { name: "treeStudies", type: "tree", prompt: "Or directly enter your time studies" },
-        { name: "treeNowait", type: "nowait", prompt: "Missing Study behavior" },
-        { name: "finalEP", type: "decimal", prompt: "Target EP" },
-        { name: "autoEterMode", type: "mode", prompt: "Eternity Autobuyer Mode" },
-        { name: "autoEterValue", type: "decimal", prompt: "Eternity Autobuyer Threshold" },
+        { name: "treeStudies", type: "tree", prompt: "또는 시간 연구를 직접 입력" },
+        { name: "treeNowait", type: "nowait", prompt: "시간 연구가 남았을 때의 동작" },
+        { name: "finalEP", type: "decimal", prompt: "목표 영원 포인트" },
+        { name: "autoEterMode", type: "mode", prompt: "영원 자동구매기 모드" },
+        { name: "autoEterValue", type: "decimal", prompt: "영원 자동구매기 기준값" },
       ],
       warnings: () => {
         const list = [];
         // Telemechanical Process (TD/5xEP autobuyers)
         if (!RealityUpgrade(13).isBought) {
-          list.push(`This template may perform poorly without Reality Upgrade "${RealityUpgrade(13).name}"`);
+          list.push(`현실 업그레이드 "${RealityUpgrade(13).name}" 미보유 시 이 템플릿의 성능이 떨어질 수 있습니다`);
         }
         if (!Perk.ttBuySingle.isBought) {
-          list.push(`This template may perform poorly without Perk "${Perk.ttBuySingle.label}" unless you can generate
-            Time Theorems without purchsing them`);
+          list.push(`시간 정리를 구매하지 않고도 생성할 수 있는 경우가 아니라면, 퍼크
+            "${Perk.ttBuySingle.label}" 미보유 시 이 템플릿의 성능이 떨어질 수 있습니다`);
         }
         return list;
       },

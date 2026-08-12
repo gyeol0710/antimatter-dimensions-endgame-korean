@@ -37,7 +37,7 @@ export default {
       this.conversionExponent = CelestialDimensions.conversionExponent;
       this.dimMultiplier.copyFrom(this.celestialMatter.pow(this.conversionExponent).max(1));
       this.matterPerSecond.copyFrom(CelestialDimension(1).productionPerRealSecond);
-      this.incomeType = "Celestial Matter";
+      this.incomeType = "셀레스티얼 물질";
       this.totalDimCap.copyFrom(CelestialDimensions.totalDimCap);
       this.creditsClosed = GameEnd.creditsEverClosed;
       this.isEffectActive = player.endgame.celestialMatterMultiplier.isActive;
@@ -64,42 +64,42 @@ export default {
         class="o-primary-btn--subtab-option"
         @click="maxAll"
       >
-        Max all
+        모두 최대 구매
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn--subtab-option"
         @click="toggleCelestialMatterMultiplier"
       >
-        Toggle Celestial Matter
+        셀레스티얼 물질 효과 전환
       </PrimaryButton>
       <PrimaryButton
         v-if="isAnyAutobuyerUnlocked"
         class="o-primary-btn--subtab-option"
         @click="toggleAllAutobuyers"
       >
-        Toggle all autobuyers
+        모든 자동 구매기 전환
       </PrimaryButton>
     </div>
     <div>
       <p>
-        You have
+        보유량:
         <span class="c-celestial-dim-description__accent">{{ format(celestialMatter, 2, 1) }}</span>
-        Celestial Matter <span v-if="!isEffectActive">(Disabled)</span>,
+        셀레스티얼 물질 <span v-if="!isEffectActive">(비활성화)</span>,
         <br>
         <span>
-          increased by
+          셀레스티얼 물질에
           <span class="c-celestial-dim-description__accent">{{ formatPow(conversionExponent, 2, 3) }}</span>
+          제곱을 적용하여
         </span>
-        to a
+        게임 속도에
         <span class="c-celestial-dim-description__accent">{{ formatX(dimMultiplier, 2, 1) }}</span>
-        multiplier to
-        <span>Game Speed.</span>
+        배의 효과를 <span>제공합니다.</span>
       </p>
     </div>
     <div>
-      All Celestial Dimensions can be purchased until {{ format(totalDimCap, 2, 2) }} Celestial Points.
+      모든 셀레스티얼 차원은 셀레스티얼 포인트 {{ format(totalDimCap, 2, 2) }}개까지 구매할 수 있습니다.
     </div>
-    <div>You are getting {{ format(matterPerSecond, 2, 0) }} {{ incomeType }} per second.</div>
+    <div>초당 {{ format(matterPerSecond, 2, 0) }} {{ incomeType }}을 획득하고 있습니다.</div>
     <CelestialTickspeedRow v-if="isExpanded"/>
     <div class="l-dimensions-container">
       <CelestialDimensionRow
@@ -111,7 +111,7 @@ export default {
       <CelestialGalaxyRow v-if="isExpanded"/>
     </div>
     <div v-if="showLockedDimCostNote">
-      Hold shift to see the Celestial Point cost for locked Celestial Dimensions.
+      Shift 키를 누르면 잠긴 셀레스티얼 차원의 셀레스티얼 포인트 비용을 볼 수 있습니다.
     </div>
   </div>
 </template>

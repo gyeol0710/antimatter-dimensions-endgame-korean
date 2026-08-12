@@ -33,8 +33,8 @@ export const dilationUpgrades = {
           SingularityMilestone.dilatedTimeFromSingularities,
           Achievement(187),
           BreakEternityUpgrade.dilatedTimeMultiplier
-        ), 2, 2)} Dilated Time gain`
-        : "Double Dilated Time gain"),
+        ), 2, 2)} 팽창 시간 획득량`
+        : "팽창 시간 획득량 두 배"),
     effect: bought => {
       const base = 2 * Effects.product(
         SingularityMilestone.dilatedTimeFromSingularities,
@@ -60,15 +60,15 @@ export const dilationUpgrades = {
     superExponent: () => 100000,
     description: () =>
       ((Perk.bypassTGReset.isBought && !player.disablePostReality) && (!Pelle.isDoomed || PellePerkUpgrade.perkTGR.canBeApplied)
-        ? "Reset Tachyon Galaxies, but lower their threshold"
-        : "Reset Dilated Time and Tachyon Galaxies, but lower their threshold"),
+        ? "타키온 은하를 초기화하지만 요구 기준을 낮춥니다"
+        : "팽창 시간과 타키온 은하를 초기화하지만 요구 기준을 낮춥니다"),
     // The 38th purchase is at 1e80, and is the last purchase.
     effect: bought => (bought < 38 || (BreakEternityUpgrade.tgThresholdUncap.isBought && !player.disablePostReality) ? Decimal.pow(0.8, bought) : DC.D0),
     formatEffect: effect => {
       if (effect.eq(0)) return `${formatX(getTachyonGalaxyMultForDisplay(effect), 4, 4)}`;
       const nextEffect = effect.eq(Decimal.pow(0.8, 37)) && (!BreakEternityUpgrade.tgThresholdUncap.isBought || player.disablePostReality) ? DC.D0 : effect.times(0.8);
       return `${formatX(getTachyonGalaxyMultForDisplay(effect), 4, 4)} ➜
-        Next: ${formatX(getTachyonGalaxyMultForDisplay(nextEffect), 4, 4)}`;
+        다음: ${formatX(getTachyonGalaxyMultForDisplay(nextEffect), 4, 4)}`;
     },
     formatCost: value => format(value, 2),
     purchaseCap: () => (BreakEternityUpgrade.tgThresholdUncap.isBought && !player.disablePostReality) ? Number.MAX_VALUE : 38
@@ -79,10 +79,10 @@ export const dilationUpgrades = {
     increment: 20,
     capIncreaseAt: () => Decimal.floor((Decimal.log10(DilationUpgradeScaling.PRIMARY_SCALING).div(Math.log10(20))).sub(Math.log10(5e5) / Math.log10(20))).toNumber(),
     description: () => {
-      if (Pelle.isDoomed && !PelleDestructionUpgrade.x3TPUpgrade.canBeApplied) return `Multiply the amount of Tachyon Particles gained by ${formatInt(1)}`;
-      if (Enslaved.isRunning) return `Multiply the amount of Tachyon Particles gained
-      by ${Math.pow(3, Enslaved.tachyonNerf).toFixed(2)}`;
-      return "Triple the amount of Tachyon Particles gained";
+      if (Pelle.isDoomed && !PelleDestructionUpgrade.x3TPUpgrade.canBeApplied) return `타키온 입자 획득량에 ${formatInt(1)}배를 적용합니다`;
+      if (Enslaved.isRunning) return `타키온 입자 획득량에
+      ${Math.pow(3, Enslaved.tachyonNerf).toFixed(2)}배를 적용합니다`;
+      return "타키온 입자 획득량이 세 배가 됩니다";
     },
     effect: bought => {
       if (Pelle.isDoomed && !PelleDestructionUpgrade.x3TPUpgrade.canBeApplied) return DC.D1.pow(bought);
@@ -96,8 +96,8 @@ export const dilationUpgrades = {
     id: 4,
     cost: 5e6,
     description: () => (Alpha.isDestroyed
-      ? `Gain twice as many Tachyon Galaxies`
-      : `Gain twice as many Tachyon Galaxies, up to ${formatInt(500)} base Galaxies`),
+      ? `타키온 은하를 두 배로 얻습니다`
+      : `기본 타키온 은하 ${formatInt(500)}개까지 타키온 은하를 두 배로 얻습니다`),
     effect: 2
   },
   tdMultReplicanti: {
@@ -112,8 +112,8 @@ export const dilationUpgrades = {
           multiplier = ratio.toFixed(2);
         }
       }
-      return `Time Dimensions are affected by Replicanti multiplier ${formatPow(multiplier, 1, 3)}, reduced
-        effect above ${formatX(DC.E9000)}`;
+      return `시간 차원이 복제자 배율의 ${formatPow(multiplier, 1, 3)}제곱만큼 영향을 받으며,
+        ${formatX(DC.E9000)} 이상에서는 효과가 감소합니다`;
     },
     effect: () => {
       let rep10 = replicantiMult().pLog10().times(0.1);
@@ -125,14 +125,14 @@ export const dilationUpgrades = {
   ndMultDT: {
     id: 6,
     cost: 5e7,
-    description: "Antimatter Dimension multiplier based on Dilated Time, unaffected by Time Dilation",
+    description: "팽창 시간에 따라 반물질 차원에 배율을 적용하며, 시간 팽창의 영향을 받지 않습니다",
     effect: () => Currency.dilatedTime.value.pow(308).clampMin(1),
     formatEffect: value => formatX(value, 2, 1)
   },
   ipMultDT: {
     id: 7,
     cost: 2e12,
-    description: "Gain a multiplier to Infinity Points based on Dilated Time",
+    description: "팽창 시간에 따라 무한 포인트에 배율을 적용합니다",
     effect: () => Currency.dilatedTime.value.pow(1000).clampMin(1),
     formatEffect: value => formatX(value, 2, 1),
     cap: () => Effarig.eternityCap
@@ -140,21 +140,21 @@ export const dilationUpgrades = {
   timeStudySplit: {
     id: 8,
     cost: 1e10,
-    description: "You can buy all three Time Study paths from the Dimension Split"
+    description: "차원 분기에서 세 시간 연구 경로를 모두 구매할 수 있습니다"
   },
   dilationPenalty: {
     id: 9,
     cost: 1e11,
-    description: () => `Reduce the Dilation penalty (${formatPow(1.05, 2, 2)} after reduction)`,
+    description: () => `시간 팽창 페널티를 완화합니다 (완화 후 ${formatPow(1.05, 2, 2)})`,
     effect: 1.05,
   },
   ttGenerator: {
     id: 10,
     cost: 1e15,
-    description: "Generate Time Theorems based on Tachyon Particles",
+    description: "타키온 입자에 따라 시간 정리를 생성합니다",
     effect: () => Currency.tachyonParticles.value.div(20000).times(
       Alpha.isRunning ? AlphaUnlocks.timeTheoremGeneration.effects.nerf.effectOrDefault(1) : 1),
-    formatEffect: value => `${format(value, 2, 1)}/sec`
+    formatEffect: value => `${format(value, 2, 1)}/초`
   },
   dtGainPelle: rebuyable({
     id: 11,
@@ -162,7 +162,7 @@ export const dilationUpgrades = {
     increment: 100,
     capIncreaseAt: () => Decimal.floor((Decimal.log10(DilationUpgradeScaling.PRIMARY_SCALING).div(2)).sub(6)).toNumber(),
     pelleOnly: true,
-    description: () => `${formatX(5)} Dilated Time gain`,
+    description: () => `팽창 시간 획득량 ${formatX(5)}`,
     effect: bought => Decimal.pow(5, bought),
     formatEffect: value => formatX(value, 2),
     formatCost: value => format(value, 2),
@@ -174,7 +174,7 @@ export const dilationUpgrades = {
     increment: 1000,
     capIncreaseAt: () => Decimal.floor((Decimal.log10(DilationUpgradeScaling.PRIMARY_SCALING).div(3)).sub(4)).toNumber(),
     pelleOnly: true,
-    description: "Multiply Tachyon Galaxies gained, applies after TG doubling upgrade",
+    description: "타키온 은하 획득량에 배율을 적용하며, 타키온 은하 두 배 업그레이드 이후 적용됩니다",
     effect: bought => bought + 1,
     formatEffect: value => `${formatX(value, 2)} ➜ ${formatX(value + 1, 2)}`,
     formatCost: value => format(value, 2),
@@ -186,7 +186,7 @@ export const dilationUpgrades = {
     increment: 1e4,
     capIncreaseAt: () => Decimal.floor((Decimal.log10(DilationUpgradeScaling.PRIMARY_SCALING).div(4)).sub(3)).toNumber(),
     pelleOnly: true,
-    description: "Gain a power to Tickspeed",
+    description: "틱스피드를 거듭제곱합니다",
     effect: bought => 1 + bought * 0.03,
     formatEffect: value => `${formatPow(value, 2, 2)} ➜ ${formatPow(value + 0.03, 2, 2)}`,
     formatCost: value => format(value, 2),
@@ -196,14 +196,14 @@ export const dilationUpgrades = {
     id: 14,
     cost: 1e45,
     pelleOnly: true,
-    description: "Apply a cube root to the Tachyon Galaxy threshold",
+    description: "타키온 은하 요구 기준에 세제곱근을 적용합니다",
     effect: 1 / 3
   },
   flatDilationMult: {
     id: 15,
     cost: 1e55,
     pelleOnly: true,
-    description: () => `Gain more Dilated Time based on current EP`,
+    description: () => `현재 영원 포인트에 따라 팽창 시간을 더 얻습니다`,
     effect: () => Decimal.pow(1e9, Decimal.min(Decimal.pow(Decimal.max(player.eternityPoints.add(1).log10().sub(1500), 0).div(2500), 1.2), 1).times(Alpha.isDestroyed ? player.eternityPoints.add(1).log10().sub(4000).max(1).log10().max(1) : 1)),
     formatEffect: value => formatX(value, 2, 2)
   },

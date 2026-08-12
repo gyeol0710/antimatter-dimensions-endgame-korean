@@ -145,19 +145,19 @@ export default {
         v-if="!isBought && !isCapped"
         br
         :config="upgrade.config"
-        name="Dilated Time"
+        name="팽창된 시간"
       />
     </button>
     <PrimaryToggleButton
       v-if="isRebuyable && isAutoUnlocked"
       v-model="isAutobuyerOn"
-      label="Auto:"
+      label="자동:"
       class="l--spoon-btn-group__little-spoon o-primary-btn--dilation-upgrade-toggle"
     />
     <PrimaryToggleButton
       v-if="isRebuyable && isPelleAutoUnlocked"
       v-model="isPelleAutobuyerOn"
-      label="Auto:"
+      label="자동:"
       class="l--spoon-btn-group__little-spoon o-primary-btn--dilation-upgrade-toggle"
     />
   </div>

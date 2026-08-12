@@ -20,20 +20,20 @@ export default {
   },
   computed: {
     resourceStr() {
-      const states = ["Singularity Count", "Condense Count", "Manual Time", "Auto Time"];
+      const states = ["특이점 개수", "응축 횟수", "수동 시간", "자동 시간"];
       return states[this.resourceVal];
     },
     sortStr() {
-      const states = ["Singularities needed", "Current Completions", "Progress to full completion",
-        "Final Singularities", "Most Recent"];
+      const states = ["필요한 특이점", "현재 완료 횟수", "완전 완료까지 진행도",
+        "최종 완료에 필요한 특이점", "최근 획득"];
       return states[this.sortVal];
     },
     completedStr() {
-      const states = ["First", "Last", "Don't move"];
+      const states = ["처음", "마지막", "이동하지 않음"];
       return states[this.completedVal];
     },
     orderStr() {
-      const states = ["Ascending", "Descending"];
+      const states = ["오름차순", "내림차순"];
       return states[this.orderVal];
     },
   },
@@ -107,7 +107,7 @@ export default {
 <template>
   <ModalWrapper>
     <template #header>
-      Singularity Milestones
+      특이점 마일스톤
     </template>
     <div
       class="c-modal__confirmation-toggle"
@@ -120,7 +120,7 @@ export default {
         />
       </div>
       <span class="c-modal__confirmation-toggle__text">
-        Make button glow when new milestones have been reached
+        새 마일스톤에 도달하면 버튼 빛내기
       </span>
     </div>
     <div class="l-singularity-milestone-modal-container-outer">
@@ -137,7 +137,7 @@ export default {
         class="c-singularity-milestone-modal-sort-button"
         @click="cycleButton(0)"
       >
-        To Milestone:
+        마일스톤까지:
         <br>
         {{ resourceStr }}
       </button>
@@ -145,7 +145,7 @@ export default {
         class="c-singularity-milestone-modal-sort-button"
         @click="cycleButton(1)"
       >
-        Sort by:
+        정렬 기준:
         <br>
         {{ sortStr }}
       </button>
@@ -153,7 +153,7 @@ export default {
         class="c-singularity-milestone-modal-sort-button"
         @click="cycleButton(2)"
       >
-        Completed Milestones:
+        완료한 마일스톤:
         <br>
         {{ completedStr }}
       </button>
@@ -161,7 +161,7 @@ export default {
         class="c-singularity-milestone-modal-sort-button"
         @click="cycleButton(3)"
       >
-        Sort Order:
+        정렬 순서:
         <br>
         {{ orderStr }}
       </button>

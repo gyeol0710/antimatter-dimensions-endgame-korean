@@ -48,18 +48,18 @@ export default {
       @click="purchaseUpgrade"
     >
       <div>
-        Multiply Celestial Eternity Points from all sources by {{ formatX(5) }}
+        모든 셀레스티얼 영원 포인트 획득량에 {{ formatX(5) }}
         <br>
-        Currently: {{ formatX(multiplier, 2, 0) }}
+        현재: {{ formatX(multiplier, 2, 0) }}
       </div>
       <br>
-      Cost: {{ quantify("Celestial Eternity Point", cost, 2, 0) }}
+      비용: {{ quantify("셀레스티얼 영원 포인트", cost, 2, 0) }}
     </button>
     <PrimaryButton
       class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
       @click="upgrade.buyMax(false)"
     >
-      Max Cel Eternity Point mult
+      셀레스티얼 영원 포인트 배수 최대 구매
     </PrimaryButton>
   </div>
 </template>

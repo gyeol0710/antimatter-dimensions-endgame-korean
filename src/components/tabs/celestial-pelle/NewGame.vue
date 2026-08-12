@@ -22,7 +22,7 @@ export default {
       this.visible = GameEnd.endState > END_STATE_MARKERS.SHOW_NEW_GAME && !GameEnd.removeAdditionalEnd;
       this.opacity = (GameEnd.endState - END_STATE_MARKERS.SHOW_NEW_GAME) * 2;
       this.hasMoreCosmetics = GlyphAppearanceHandler.lockedSets.length > 0;
-      this.selectedSetName = GlyphAppearanceHandler.chosenFromModal?.name ?? "None (will choose randomly)";
+      this.selectedSetName = GlyphAppearanceHandler.chosenFromModal?.name ?? "없음 (무작위 선택)";
     },
     startNewGame() {
       Endgame.newEndgame();
@@ -40,40 +40,40 @@ export default {
     :style="style"
   >
     <h2>
-      Are you sure you want to Endgame? Endgame will reset the entire game, but keep Record Antimatter, Automator Scripts, Study Presets, Secret Themes,
-      Normal/Secret Achievements (only Rows 19+ for Normal Achievements), Options, and Companion Glyphs.
+      정말 엔드게임을 시작하시겠습니까? 엔드게임을 시작하면 게임 전체가 초기화되지만 기록 반물질, 오토메이터 스크립트, 연구 프리셋, 비밀 테마,
+      일반/비밀 도전과제(일반 도전과제는 19행 이상만), 설정, 동료 글리프는 유지됩니다.
     </h2>
-    <h3>You can use the button in the top-right to view the game as it is right now.</h3>
+    <h3>오른쪽 위 버튼을 사용하면 현재 상태의 게임을 볼 수 있습니다.</h3>
     <div class="c-new-game-button-container">
       <button
         class="c-new-game-button"
         @click="startNewGame"
       >
-        Enter The Endgame
+        엔드게임 진입
       </button>
     </div>
     <br>
     <h3 v-if="hasMoreCosmetics">
-      For completing the vanilla game, you also unlock a new cosmetic set of your choice for Glyphs. These are freely
-      modifiable once you reach Reality again, but are purely visual and offer no gameplay bonuses.
+      원본 게임을 완료한 보상으로 원하는 글리프 장식 세트 하나도 해금합니다. 다시 현실에 도달하면 자유롭게
+      변경할 수 있지만, 외형만 바뀌며 게임 플레이 보너스는 없습니다.
       <br>
       <button
         class="c-new-game-button"
         @click="openSelectionModal"
       >
-        Choose Cosmetic Set
+        장식 세트 선택
       </button>
       <br>
       <br>
-      Selected Set: {{ selectedSetName }}
+      선택한 세트: {{ selectedSetName }}
     </h3>
     <h3 v-else>
-      You have unlocked all Glyph cosmetic sets!
+      모든 글리프 장식 세트를 해금했습니다!
     </h3>
     <br>
     <h3>
-      You can also import "speedrun" to start the game again with additional tracking for speedrunning purposes, however,
-      this may reset progress up to Endgame.
+      "speedrun"을 불러오면 스피드런용 추가 기록 기능과 함께 게임을 다시 시작할 수도 있습니다.
+      단, 엔드게임까지의 진행 상황이 초기화될 수 있습니다.
     </h3>
   </div>
 </template>

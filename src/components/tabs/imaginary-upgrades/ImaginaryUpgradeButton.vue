@@ -80,7 +80,7 @@ export default {
       if (this.canBeBought || !this.isAvailableForPurchase || this.isBought || Pelle.isDoomed) return "";
       const time = MachineHandler.estimateIMTimer(this.upgrade.cost);
       if (isFinite(new Decimal(time).toNumber())) return TimeSpan.fromSeconds(new Decimal(time)).toString();
-      return "Never affordable";
+      return "구매 가능해지지 않음";
     },
     toggleLock(upgrade) {
       if (this.isRebuyable) return;
@@ -117,7 +117,7 @@ export default {
           <br>
           <DescriptionDisplay
             :config="requirementConfig"
-            label="Requirement:"
+            label="요구 조건:"
             class="c-reality-upgrade-btn__requirement"
           />
         </template>
@@ -130,7 +130,7 @@ export default {
             v-if="!isBought"
             :config="config"
             br
-            name="Imaginary Machine"
+            name="허수 머신"
           />
         </template>
       </span>
@@ -151,7 +151,7 @@ export default {
     <PrimaryToggleButton
       v-if="isRebuyable && isAutoUnlocked"
       v-model="isAutobuyerOn"
-      label="Auto:"
+      label="자동:"
       class="l--spoon-btn-group__little-spoon-reality-btn o-primary-btn--reality-upgrade-toggle"
     />
   </div>

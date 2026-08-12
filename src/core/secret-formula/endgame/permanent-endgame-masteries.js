@@ -1,7 +1,7 @@
 export const permanentEndgameMasteries = [
   {
     id: 1,
-    description: "Unlock Endgame Upgrades",
+    description: "엔드게임 업그레이드를 해금합니다",
     cost: 20,
     requirement: () => {
       const esRequirement = Currency.endgameSkills.max.gte(EndgameMastery.endgameUpgrades.totalEndgameSkillRequirement);
@@ -11,7 +11,7 @@ export const permanentEndgameMasteries = [
   },
   {
     id: 2,
-    description: "Make all above non-permanent Endgame Masteries free",
+    description: "위에 있는 모든 비영구 엔드게임 마스터리를 무료로 만듭니다",
     cost: 100,
     requirement: () => {
       const esRequirement = Currency.endgameSkills.max.gte(EndgameMastery.permaMasteries.totalEndgameSkillRequirement);
@@ -21,7 +21,7 @@ export const permanentEndgameMasteries = [
   },
   {
     id: 3,
-    description: "Unlock Time Compression",
+    description: "시간 압축을 해금합니다",
     cost: 7000000,
     requirement: () => {
       const esRequirement = Currency.endgameSkills.max.gte(EndgameMastery.timeCompression.totalEndgameSkillRequirement);

@@ -22,7 +22,7 @@ export default {
   <div class="l-challenges-tab">
     <ChallengeTabHeader />
     <div>
-      Some Normal Challenges have requirements to be able to run that challenge.
+      일부 일반 도전은 해당 도전을 시작하기 위한 조건이 있습니다.
     </div>
     <div>
       If you have an active Big Crunch Autobuyer, it will attempt to Crunch

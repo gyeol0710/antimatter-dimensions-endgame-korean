@@ -15,105 +15,97 @@ export const h2p = {
    */
   tabs: [
     {
-      name: "This Modal",
+      name: "이 도움말 창",
       info: () => `
-Welcome to the How to Play!
+게임 방법 도움말에 오신 것을 환영합니다!
 <br>
 <br>
-This modal (pop-up window) contains in-depth explanations and additional details for everything you will encounter
-as you progress through the game. As you unlock new features and mechanics, you will also gain access to additional
-pages here. If you ever feel lost or confused about how something in the game works, you may find a helpful
-explanation within the related entry in here. 
+이 모달(팝업 창)에는 게임을 진행하며 만나게 될 모든 요소에 관한 자세한 설명과 추가 정보가 담겨 있습니다.
+새로운 기능과 메커니즘을 잠금 해제하면 이곳에서 더 많은 페이지를 볼 수 있습니다. 게임의 어떤 요소가
+어떻게 작동하는지 몰라 막막하거나 혼란스럽다면, 이곳의 관련 항목에서 도움이 되는 설명을 찾을 수 있습니다.
 <br>
 <br>
-For now, opening the How to Play will always start you on this page. After you get your first Dimension Boost,
-opening this modal will instead place you on the How to Play entry most relevant to the game content on your currently
-visible tab and subtab, if such an entry exists.
+지금은 게임 방법 도움말을 열면 항상 이 페이지에서 시작합니다. 첫 차원 가속을 달성한 뒤부터는,
+현재 보고 있는 탭과 하위 탭의 게임 콘텐츠에 대응하는 도움말 항목이 있다면 이 모달을 열 때 해당 항목으로
+바로 이동합니다.
 `,
       isUnlocked: () => true,
       tags: ["h2p", "how", "to", "play", "modal"],
       tab: ""
     },
     {
-      name: "Your savefile",
+      name: "저장 파일",
       info: () => `
-Your game's save data is stored on your computer's browser data if you are playing on a web browser, or in your Steam
-installation folder if you are playing on Steam. This means that clearing your browser's cache or cookies, or fully
-uninstalling the game from Steam will also delete your save file.
-Similarly, if you are playing in a private or incognito window, your save
-will not be there the next time you open up your browser. The saves are browser-specific as well, so for example
-if you play the game on Chrome, you will not find your save on Firefox. Lastly, any saves you have on the web version
-and the Steam version will also be completely independent from each other.
+웹 브라우저에서 플레이할 때 게임 저장 데이터는 컴퓨터의 브라우저 데이터에 저장되며, Steam에서 플레이할
+때는 Steam 설치 폴더에 저장됩니다. 따라서 브라우저의 캐시나 쿠키를 지우거나 Steam에서 게임을 완전히
+제거하면 저장 파일도 함께 삭제됩니다. 비공개 또는 시크릿 창에서 플레이하는 경우에도 다음에 브라우저를
+열었을 때 저장 데이터가 남아 있지 않습니다. 저장 데이터는 브라우저마다 별개이므로, 예를 들어 Chrome에서
+플레이한 저장 파일은 Firefox에서 찾을 수 없습니다. 또한 웹 버전과 Steam 버전의 저장 데이터도 서로 완전히
+독립적입니다.
 <br>
 <br>
-You can transfer your save between places by using the export function, which will copy a <i>very</i> long string of
-random-looking characters into your clipboard. That text contains your save data, which you can load back into the
-game by pasting it into the text box on the import prompt. You need the entirety of the save text for importing to
-work properly, or else the game might not recognize the text as a valid save. Certain messaging applications may
-cut off part of the text if you are using one to transfer the save between devices.
+내보내기 기능을 사용하면 무작위처럼 보이는 <i>매우</i> 긴 문자열이 클립보드에 복사되며, 이를 이용해 저장
+파일을 다른 곳으로 옮길 수 있습니다. 이 문자열에는 저장 데이터가 들어 있으며, 불러오기 창의 텍스트 상자에
+붙여 넣으면 게임으로 다시 불러올 수 있습니다. 정상적으로 불러오려면 저장 문자열 전체가 필요합니다. 일부가
+빠지면 게임에서 올바른 저장 데이터로 인식하지 못할 수 있습니다. 기기 사이에서 저장 데이터를 옮길 때 일부
+메신저 앱은 문자열의 일부를 잘라낼 수 있습니다.
 <br>
 <br>
-A properly-formatted save string from the Reality update will start with
-<b>${GameSaveSerializer.startingString.savefile}</b> and end with <b>${GameSaveSerializer.endingString.savefile}</b>.
-If you are importing from a version of the game from before Reality was released, it will instead start with <b>eyJ</b>
-and end with <b>In19</b>, <b>fX0=</b>, or <b>fQ==</b>. If neither of these are the case, then part of your save is
-missing and it will fail to import. In addition to importing and exporting to your clipboard, you can also import
-and export from text files as well.
+현실 업데이트 이후의 올바른 저장 문자열은 <b>${GameSaveSerializer.startingString.savefile}</b>(으)로
+시작해 <b>${GameSaveSerializer.endingString.savefile}</b>(으)로 끝납니다. 현실 출시 이전 버전의 저장
+파일이라면 대신 <b>eyJ</b>(으)로 시작해 <b>In19</b>, <b>fX0=</b>, 또는 <b>fQ==</b>(으)로 끝납니다. 어느
+형식에도 해당하지 않으면 저장 문자열 일부가 빠진 것이므로 불러오기에 실패합니다. 클립보드뿐 아니라 텍스트
+파일을 통해서도 저장 데이터를 불러오거나 내보낼 수 있습니다.
 <br>
-You can use the "Choose save" button to pick between three separate saves on your browser. These saves are, for most
-intents and purposes, completely separate from each other. Importing and exporting will only affect the current save
-slot. <b>The only exception is clearing your browser or Steam data, in which case all three saves will be reset.</b>
-<br>
-<br>
-The game automatically saves periodically, by default once every ${formatInt(30)} seconds.
-Keep this in mind if you need to close the game - anything you
-do right before closing it might not be saved unless you wait for the autosave interval or manually save again. The
-length of the autosave interval is adjustable, and its timer can be seen in the bottom-left of the screen.
+"저장 파일 선택" 버튼으로 브라우저에 있는 서로 다른 세 저장 파일 중 하나를 고를 수 있습니다. 이 저장
+파일들은 사실상 서로 완전히 별개이며, 불러오기와 내보내기는 현재 저장 슬롯에만 영향을 줍니다. <b>단,
+브라우저 또는 Steam 데이터를 지우면 세 저장 파일이 모두 초기화됩니다.</b>
 <br>
 <br>
-Backups of your savefile are also saved after certain amounts of time online or offline, which you can examine and
-reload at any point by clicking the "Open Automatic Save Backup Menu" button. These backups may be useful if you wish
-to revert your save to what it looked like some time in the past, such as a few minutes ago or when you were last
-offline for a while.
+게임은 기본적으로 ${formatInt(30)}초마다 한 번씩 자동 저장됩니다. 게임을 종료해야 할 때는 이 점을
+기억하세요. 자동 저장 주기를 기다리거나 직접 다시 저장하지 않으면 종료 직전에 한 행동이 저장되지 않을 수
+있습니다. 자동 저장 간격은 조절할 수 있으며, 화면 왼쪽 아래에서 타이머를 확인할 수 있습니다.
 <br>
 <br>
-You can also connect a Google Account to the game, allowing you to save your progress online. This allows you to play
-with the same save on any device which is also logged into the same account. Cloud saving is only compatible with other
-saves on the web or Steam versions of the game; saves from the Android app of the game will not be automatically linked
-via Cloud saving. Saving and loading from the Cloud will
-automatically overwrite the other save unless the other save is either older or has noticeably more progression, in
-which case a modal will appear which asks you which save you want to keep.
+온라인이나 오프라인에서 일정 시간이 지나면 저장 파일의 백업도 생성됩니다. "자동 저장 백업 메뉴 열기"
+버튼을 누르면 언제든 백업을 확인하고 다시 불러올 수 있습니다. 몇 분 전이나 마지막으로 오랫동안 오프라인이던
+시점처럼 과거 상태로 저장 파일을 되돌리고 싶을 때 유용합니다.
 <br>
 <br>
-You can completely reset your save at any point if desired by clicking the button, which brings up a prompt you need
-to fill out in order to make sure you intentionally wanted to reset. Going through with this reset will only clear
-your current save; the other save slots will be unaffected. <b>Resetting your game in this way is completely
-irreversible and gives you no permanent benefits, secret or otherwise.</b>
+Google 계정을 게임에 연결해 진행 상황을 온라인에 저장할 수도 있습니다. 같은 계정에 로그인한 모든 기기에서
+동일한 저장 파일로 플레이할 수 있습니다. 클라우드 저장은 웹 또는 Steam 버전의 저장 파일끼리만 호환되며,
+Android 앱의 저장 파일은 클라우드 저장을 통해 자동으로 연결되지 않습니다. 클라우드에 저장하거나 클라우드에서
+불러오면 일반적으로 다른 쪽 저장 파일을 자동으로 덮어씁니다. 다만 다른 저장 파일이 더 오래되었거나 진행도가
+눈에 띄게 높다면 어느 저장 파일을 유지할지 묻는 모달이 나타납니다.
+<br>
+<br>
+원한다면 언제든 버튼을 눌러 저장 파일을 완전히 초기화할 수 있습니다. 버튼을 누르면 의도적으로 초기화하는
+것인지 확인하기 위해 내용을 입력해야 하는 창이 나타납니다. 초기화를 진행하면 현재 저장 파일만 지워지고 다른
+저장 슬롯은 영향을 받지 않습니다. <b>이 방식으로 게임을 초기화하면 절대 되돌릴 수 없으며, 숨겨진 것을
+포함해 어떠한 영구적 이득도 얻지 못합니다.</b>
 `,
       isUnlocked: () => true,
       tags: ["choose", "cloud", "google", "save", "import", "export", "reset"],
       tab: "options/saving"
     },
     {
-      name: "Customization",
+      name: "꾸미기",
       info: () => `
-The game has two different UI layouts - the Classic UI maintains the style of Antimatter Dimensions from before the
-Reality update, while the Modern UI is a redesign based on more modern dark theme styles. Additionally, there are
-various themes which can be applied to modify the appearance of everything in the game. There are a few secret themes
-which can be unlocked through importing certain phrases. Both UI layouts support all the different possible themes.
+게임에는 두 가지 UI 배치가 있습니다. 클래식 UI는 현실 업데이트 이전의 Antimatter Dimensions 스타일을
+유지하며, 모던 UI는 현대적인 어두운 테마를 바탕으로 새롭게 디자인되었습니다. 이와 함께 게임 전체의 모습을
+바꿀 수 있는 다양한 테마도 있습니다. 특정 문구를 불러오면 잠금 해제되는 비밀 테마도 몇 가지 있습니다.
+두 UI 배치 모두 사용 가능한 모든 테마를 지원합니다.
 <br>
 <br>
-The notation used to display numbers in the game defaults to Mixed Scientific, but can be changed to one of numerous
-options in the drop-down menu. Many of these notations are intended as jokes and in some cases will format numbers
-in a way that causes text to spill over into other parts of the screen - this is not a bug. You can additionally
-configure what numbers look like when they are extremely large using the "Exponent Notation Options" menu,
-although this may result in some odd text appearances in some places.
+게임에서 숫자를 표시하는 표기법은 기본적으로 혼합 과학적 표기법이지만, 드롭다운 메뉴에서 여러 선택지 중
+하나로 바꿀 수 있습니다. 많은 표기법은 농담으로 만들어졌으며, 경우에 따라 숫자가 화면의 다른 영역까지
+넘치도록 표시될 수 있습니다. 이는 버그가 아닙니다. "지수 표기법 설정" 메뉴에서는 극도로 큰 숫자의 표시
+방식도 설정할 수 있지만, 일부 위치에서 글자가 다소 이상하게 보일 수 있습니다.
 <br>
 <br>
-Many events in the game trigger full-screen animations or pop-up modals which require you to confirm that you want to
-continue. Most of these animations and confirmations can be disabled on an individual basis through the options,
-although the ability to disable any given animation or confirmation will only appear after they have already shown up
-at least once.
+게임의 여러 사건은 전체 화면 애니메이션이나 계속 진행할지 확인하는 팝업 모달을 띄웁니다. 이러한 애니메이션과
+확인 창은 대부분 설정에서 개별적으로 비활성화할 수 있지만, 각 항목을 끄는 설정은 해당 애니메이션이나 확인
+창이 적어도 한 번 나타난 뒤에만 표시됩니다.
 `,
       isUnlocked: () => true,
       tags: ["UI", "update", "news", "theme", "notation", "comma", "exponent", "animation", "retry", "confirmation",
@@ -121,1167 +113,1107 @@ at least once.
       tab: "options/visual"
     },
     {
-      name: "Offline Progress",
+      name: "오프라인 진행",
       info: () => `
-Antimatter Dimensions has a catch-up mechanic which attempts to simulate the game's behavior if the game is closed for
-an extended period of time. The simulation behavior is only somewhat accurate, as the game is too mathematically
-complicated to be run at full accuracy in a reasonable amount of time. At the end of the simulation, the game will
-summarize how various relevant resources have changed while you were gone.
+Antimatter Dimensions에는 게임을 오랫동안 닫아 두었을 때 그동안의 동작을 재현하려는 따라잡기 메커니즘이
+있습니다. 게임의 수학적 구조가 너무 복잡해 합리적인 시간 안에 완벽한 정확도로 실행할 수 없으므로, 시뮬레이션은
+어느 정도의 오차가 있습니다. 시뮬레이션이 끝나면 자리를 비운 동안 관련 자원들이 어떻게 변했는지 요약해 줍니다.
 <br>
 <br>
-If the game is left open and becomes unfocused or otherwise suspended for an extended period of time, it will attempt
-to apply the missed time as offline progress when you return. This can be potentially unreliable, as different devices
-handle these situations differently. If this results in undesirable behavior, there is a toggle to turn this off in the
-options - in that case the game will try to apply all the missed time in a single tick.
+게임을 켜 둔 채 오랫동안 창의 포커스를 잃거나 다른 이유로 중단되면, 돌아왔을 때 지나간 시간을 오프라인
+진행으로 적용하려고 합니다. 기기마다 이런 상황을 처리하는 방식이 달라 결과가 불안정할 수 있습니다. 원하지
+않는 동작이 발생한다면 설정에서 이 기능을 끌 수 있으며, 이 경우 게임은 지나간 시간을 한 틱에 모두 적용하려고
+합니다.
 <br>
 <br>
-The game runs on a system where everything is updated once per tick - all Dimensions and resources do one unit of
-production, all autobuyers trigger once, all multipliers and values are changed accordingly, and all the displayed
-numbers are updated. By default there are ${formatInt(20)} ticks per second when the game is running, although this can
-be modified by changing the "Update rate" within the game Options.
-Your current settings will run the game at ${format(1000 / player.options.updateRate, 2, 1)} ticks per second on
-average, although lag and internal javascript behavior may cause individual ticks to vary by a few percent.
+게임의 모든 것은 틱마다 한 번 갱신됩니다. 모든 차원과 자원이 한 단위만큼 생산하고, 모든 자동구매기가 한 번
+작동하며, 모든 배율과 값이 그에 맞게 변하고, 화면에 표시된 숫자도 갱신됩니다. 게임 실행 중에는 기본적으로
+초당 ${formatInt(20)}틱이 진행되지만, 게임 설정의 "업데이트 주기"를 바꾸어 조절할 수 있습니다. 현재
+설정에서는 평균적으로 초당 ${format(1000 / player.options.updateRate, 2, 1)}틱이 진행됩니다. 다만 지연과
+내부 JavaScript 동작 때문에 개별 틱은 몇 퍼센트 정도 달라질 수 있습니다.
 <br>
 <br>
-When offline simulation is active, these ticks have an adjusted length in order to fill the amount of time you were
-away - for example having a setting for ${formatInt(1000)} offline ticks and closing the game for an hour will result in
-ticks which are ${format(3.6, 1, 1)} seconds long each. For most things in the game, this is not an issue because this
-will still result in approximately the same amount of resources after the simulation completes. A notable exception is
-autobuyers - in this situation autobuyers will effectively only trigger once every ${format(3.6, 1, 1)} seconds, which
-may have a strong impact depending on the part of the game.
+오프라인 시뮬레이션 중에는 자리를 비운 시간을 채우도록 각 틱의 길이가 조절됩니다. 예를 들어 오프라인 틱을
+${formatInt(1000)}회로 설정하고 게임을 한 시간 닫아 두면 각 틱의 길이는 ${format(3.6, 1, 1)}초가 됩니다.
+대부분의 게임 요소는 시뮬레이션이 끝났을 때 자원량이 대략 같으므로 문제가 되지 않습니다. 눈에 띄는 예외는
+자동구매기입니다. 이 상황에서는 자동구매기가 실질적으로 ${format(3.6, 1, 1)}초마다 한 번만 작동하므로,
+진행 구간에 따라 큰 영향을 줄 수 있습니다.
 <br>
 <br>
 ${player.blackHole[0].unlocked
-    ? `<b>Offline Black Hole behavior:</b> Once the Black Hole has been unlocked, the offline progress simulation will
-      attempt to run the game in a way where each tick contains roughly the same amount of <i>game</i> time. This may
-      give the appearance of the Black Hole(s) being active for a much larger fraction of time than normal while
-      simulating, when in fact the game is running active periods more slowly and "skipping past" the inactive periods
-      because they contribute much less production per real time. This results in behavior which is generally in your
-      favor when compared to ticks with constant real time.
+    ? `<b>오프라인 블랙홀 동작:</b> 블랙홀을 잠금 해제한 뒤에는 오프라인 진행 시뮬레이션이 각 틱에 대략
+      같은 양의 <i>게임</i> 시간이 들어가도록 게임을 실행합니다. 시뮬레이션 중 블랙홀이 평소보다 훨씬 오랜
+      비율로 활성화된 것처럼 보일 수 있지만, 실제로는 활성 구간을 더 천천히 실행하고 현실 시간당 생산량이
+      훨씬 적은 비활성 구간을 "건너뛰는" 것입니다. 현실 시간이 일정한 틱과 비교하면 대체로 플레이어에게
+      유리한 결과가 나옵니다.
       <br>
       <br>`
     : ""
 }
-Offline tick count can be adjusted between ${formatInt(500)} and ${formatInt(DC.E6)} ticks. Smaller counts will result
-in faster but less accurate simulations, while larger counts will result in more accurate simulations which take longer
-to complete. There is a limit of one day of time per game tick, meaning there are some rare situations (such as not
-playing the game for more than a year) where you may not get all of the time you were away.
+오프라인 틱 수는 ${formatInt(500)}틱에서 ${formatInt(DC.E6)}틱 사이로 조절할 수 있습니다. 틱 수가 적으면
+시뮬레이션이 빠르지만 덜 정확하고, 틱 수가 많으면 더 정확하지만 완료하는 데 오래 걸립니다. 게임 틱 하나에는
+최대 하루까지만 담을 수 있으므로, 게임을 일 년 넘게 플레이하지 않은 경우처럼 드문 상황에서는 자리를 비운
+시간을 전부 받지 못할 수 있습니다.
 <br>
 <br>
-Offline progress can be disabled entirely if desired, for example for diagnostic or timing purposes, or in order
-to do an "online only" playthrough of the game. Otherwise, offline progress is on by default from the very beginning
-of the game. Note that if offline progress is disabled, the statistic for total time played will also be paused while
-the game closed.
+진단이나 시간 측정, 또는 "온라인 전용" 플레이를 위해 원한다면 오프라인 진행을 완전히 비활성화할 수
+있습니다. 그렇지 않으면 게임을 처음 시작할 때부터 기본적으로 켜져 있습니다. 오프라인 진행을 비활성화하면
+게임을 닫아 둔 동안 총 플레이 시간 통계도 멈춘다는 점에 유의하세요.
 `,
       isUnlocked: () => true,
       tags: ["offline", "away", "progress"],
       tab: "options/gameplay"
     }, {
-      name: "Effect Stacking",
+      name: "효과 중첩",
       info: () => `
-Most of the effects and upgrades in Antimatter Dimensions largely fall into three categories:
+Antimatter Dimensions의 효과와 업그레이드는 대부분 다음 세 범주로 나뉩니다.
 <br>
-- <b>Additive:</b> These effects are typically denoted with a + (or the word "increase") followed by a number,
-and add their value to some
-base amount. Multiple additive effects are summed up. These can also sometimes show up as subtractive effects which
-reduce resource costs.
+- <b>덧셈:</b> 보통 + 기호(또는 "증가"라는 단어) 뒤에 숫자가 붙어 표시되며, 어떤 기본값에 해당 값을
+더합니다. 여러 덧셈 효과는 서로 합산됩니다. 자원 비용을 줄이는 뺄셈 효과로 나타나기도 합니다.
 <br>
-- <b>Multiplicative:</b> These effects are shown either by a × (or the word "multiply") followed by a number or,
-more rarely, as two numbers
-separated by a ➜. Different multiplicative sources always combine by multiplying, never by adding. In some situations,
-there may be negative effects or cost reductions that apply in this category as division.
+- <b>곱셈:</b> × 기호(또는 "곱하기"라는 단어) 뒤에 숫자가 붙거나, 드물게 두 숫자를 ➜ 기호로 구분해
+표시됩니다. 서로 다른 곱셈 효과는 항상 곱해지며 절대로 더해지지 않습니다. 일부 상황에서는 부정적 효과나
+비용 감소가 나눗셈으로 적용되기도 합니다.
 <br>
-- <b>Power</b>: These effects are much rarer and appear as ^ followed by a number. Multiple power effects apply
-sequentially, or equivalently by multiplying the values of the power effects together and applying the final value
-as a single power. In rare situations, negative effects may apply here in this category as powers which are less
-than ${formatInt(1)}.
+- <b>거듭제곱</b>: 훨씬 드물며 ^ 기호 뒤에 숫자가 붙어 표시됩니다. 여러 거듭제곱 효과는 차례로 적용됩니다.
+이는 각 거듭제곱 효과의 값을 모두 곱한 뒤 최종 값을 하나의 거듭제곱으로 적용하는 것과 같습니다. 드물게
+${formatInt(1)}보다 작은 거듭제곱이 부정적 효과로 적용될 수 있습니다.
 <br>
 <br>
-Unless otherwise noted when an upgrade or reward <i>replaces</i> an older value, all of these effects stack
-with each other. In the case of an upgrade replacing an older value with a newer value, the replacement occurs before
-any of the above effects are applied. To determine the final value of a set of effects, the effects from each category
-are individually combined, and then applied in the order of additive, multiplicative, then power effects.
+업그레이드나 보상이 이전 값을 <i>대체</i>한다고 따로 명시되지 않는 한 이 효과들은 모두 서로 중첩됩니다.
+업그레이드가 이전 값을 새 값으로 대체하는 경우에는 위 효과가 적용되기 전에 대체가 먼저 이루어집니다.
+여러 효과의 최종 값을 구할 때는 각 범주의 효과를 먼저 개별적으로 결합한 뒤 덧셈, 곱셈, 거듭제곱 순서로
+적용합니다.
 <br>
 <br>
 ${PlayerProgress.realityUnlocked() || PlayerProgress.dilationUnlocked()
-    ? "Dilation and any Dilation-like effects apply <i>after</i> all of these other effects are stacked together."
+    ? "팽창 및 팽창과 유사한 효과는 위의 다른 효과가 모두 중첩된 <i>뒤에</i> 적용됩니다."
     : ""}
 <br>
 <br>
 ${PlayerProgress.realityUnlocked()
-    ? `Glyph Effects effectively have two stacking attributes; their internal way of stacking together and the way
-      they stack with all other game effects. These may not necessarily be the same - for example, the "Antimatter
-      Dimension Power" effect will stack <i>additively with itself</i>, but then the total effect will be added to
-      a base value of ${formatInt(1)} and then applied as a <i>power effect</i> to Antimatter Dimensions.`
+    ? `글리프 효과에는 실질적으로 두 가지 중첩 속성이 있습니다. 글리프 효과끼리 내부적으로 중첩되는 방식과
+      게임의 다른 모든 효과와 중첩되는 방식입니다. 두 방식은 반드시 같지는 않습니다. 예를 들어 "반물질
+      차원 거듭제곱" 효과는 <i>자기 자신과 덧셈으로</i> 중첩되지만, 그 총효과를 기본값 ${formatInt(1)}에
+      더한 뒤 반물질 차원에 <i>거듭제곱 효과</i>로 적용합니다.`
     : ""}
 `,
       isUnlocked: () => true,
       tags: ["effect", "stack", "combine", "add", "reduce", "multiply", "divide", "power", "dilation", "glyph"],
       tab: "options/gameplay"
     }, {
-      name: "Common Abbreviations",
+      name: "자주 쓰는 약어",
       info: () => `
-Many resources within the game may appear in an abbreviated format as text in order to save space. This How to
-Play entry will update itself with additional entries for new resources as you encounter them for the first time.
+게임의 여러 자원은 공간을 절약하기 위해 줄임말로 표시될 수 있습니다. 새로운 자원을 처음 만날 때마다 이
+게임 방법 항목에도 해당 자원의 약어가 추가됩니다.
 <br>
-- <b>AM</b>: Antimatter<br>
-- <b>AD</b>: Antimatter Dimension<br>
-- <b>AG</b>: Antimatter Galaxy<br>
-${PlayerProgress.infinityUnlocked() ? "- <b>IP</b>: Infinity Point<br>" : ""}
-${PlayerProgress.infinityUnlocked() ? "- <b>NC</b>: Normal Challenge<br>" : ""}
-${PlayerProgress.infinityUnlocked() ? "- <b>IC</b>: Infinity Challenge<br>" : ""}
-${InfinityDimension(1).isUnlocked || PlayerProgress.eternityUnlocked() ? "- <b>ID</b>: Infinity Dimension<br>" : ""}
-${PlayerProgress.replicantiUnlocked() ? "- <b>RG</b>: Replicanti Galaxy<br>" : ""}
-${PlayerProgress.eternityUnlocked() ? "- <b>EP</b>: Eternity Point<br>" : ""}
-${PlayerProgress.eternityUnlocked() ? "- <b>TT</b>: Time Theorem<br>" : ""}
-${PlayerProgress.eternityUnlocked() ? "- <b>TD</b>: Time Dimension<br>" : ""}
-${PlayerProgress.eternityUnlocked() ? "- <b>EC</b>: Eternity Challenge<br>" : ""}
-${PlayerProgress.dilationUnlocked() ? "- <b>TP</b>: Tachyon Particle<br>" : ""}
-${PlayerProgress.dilationUnlocked() ? "- <b>DT</b>: Dilated Time<br>" : ""}
-${PlayerProgress.dilationUnlocked() ? "- <b>TG</b>: Tachyon Galaxy<br>" : ""}
-${PlayerProgress.realityUnlocked() ? "- <b>RM</b>: Reality Machine<br>" : ""}
-${PlayerProgress.realityUnlocked() ? "- <b>AP</b>: Automator Point<br>" : ""}
-${PlayerProgress.realityUnlocked() ? "- <b>BH</b>: Black Hole<br>" : ""}
-${MachineHandler.isIMUnlocked ? "- <b>iM</b>: Imaginary Machine<br>" : ""}
-${Laitela.isUnlocked ? "- <b>DM</b>: Dark Matter<br>" : ""}
-${Laitela.isUnlocked ? "- <b>DE</b>: Dark Energy<br>" : ""}
+- <b>AM</b>: 반물질<br>
+- <b>AD</b>: 반물질 차원<br>
+- <b>AG</b>: 반물질 은하<br>
+${PlayerProgress.infinityUnlocked() ? "- <b>IP</b>: 무한 포인트<br>" : ""}
+${PlayerProgress.infinityUnlocked() ? "- <b>NC</b>: 일반 도전<br>" : ""}
+${PlayerProgress.infinityUnlocked() ? "- <b>IC</b>: 무한 도전<br>" : ""}
+${InfinityDimension(1).isUnlocked || PlayerProgress.eternityUnlocked() ? "- <b>ID</b>: 무한 차원<br>" : ""}
+${PlayerProgress.replicantiUnlocked() ? "- <b>RG</b>: 복제자 은하<br>" : ""}
+${PlayerProgress.eternityUnlocked() ? "- <b>EP</b>: 영원 포인트<br>" : ""}
+${PlayerProgress.eternityUnlocked() ? "- <b>TT</b>: 시간 정리<br>" : ""}
+${PlayerProgress.eternityUnlocked() ? "- <b>TD</b>: 시간 차원<br>" : ""}
+${PlayerProgress.eternityUnlocked() ? "- <b>EC</b>: 영원 도전<br>" : ""}
+${PlayerProgress.dilationUnlocked() ? "- <b>TP</b>: 타키온 입자<br>" : ""}
+${PlayerProgress.dilationUnlocked() ? "- <b>DT</b>: 팽창된 시간<br>" : ""}
+${PlayerProgress.dilationUnlocked() ? "- <b>TG</b>: 타키온 은하<br>" : ""}
+${PlayerProgress.realityUnlocked() ? "- <b>RM</b>: 리얼리티 머신<br>" : ""}
+${PlayerProgress.realityUnlocked() ? "- <b>AP</b>: 오토메이터 포인트<br>" : ""}
+${PlayerProgress.realityUnlocked() ? "- <b>BH</b>: 블랙홀<br>" : ""}
+${MachineHandler.isIMUnlocked ? "- <b>iM</b>: 허수 머신<br>" : ""}
+${Laitela.isUnlocked ? "- <b>DM</b>: 암흑 물질<br>" : ""}
+${Laitela.isUnlocked ? "- <b>DE</b>: 암흑 에너지<br>" : ""}
 `,
       isUnlocked: () => true,
       tags: ["abbreviation", "shorten", "am", "ad", "ag", "ip", "nc", "ic", "id", "rg", "ep", "tt", "td", "ec", "tp",
         "dt", "tg", "rm", "ap", "bh", "im", "dm", "de"],
       tab: ""
     }, {
-      name: "Antimatter Dimensions",
+      name: "반물질 차원",
       info: () => `
-Antimatter is a resource that is used throughout the entire game for purchasing various things as you progress. You
-start with ${formatInt(10)} antimatter when you first open the game, and you can
-spend it to buy the 1st Antimatter Dimension to start the game.
+반물질은 게임을 진행하며 여러 가지를 구매하는 데 계속 사용되는 자원입니다. 게임을 처음 열면
+${formatInt(10)} 반물질을 가지고 시작하며, 이를 사용해 1번째 반물질 차원을 구매하면 게임이 시작됩니다.
 <br>
 <br>
-Antimatter Dimensions are your production units in game. The 1st Antimatter Dimension produces your antimatter.
-Each consecutive Antimatter Dimension produces the previous one, allowing you to have steady growth.
-There are eight Antimatter Dimensions total.
+반물질 차원은 게임의 생산 단위입니다. 1번째 반물질 차원은 반물질을 생산하고, 그다음 반물질 차원은 바로
+이전 차원을 생산하여 지속적인 성장을 가능하게 합니다. 반물질 차원은 모두 여덟 개입니다.
 <br>
 <br>
-<b>Dimension Multiplier:</b> Beside the Dimension there is a multiplier (example: 1st Dimension ${formatX(1, 1, 1)}).
-The base production of each Dimension is multiplied by this number.
-This multiplier increases by ${formatX(2)} for every ${formatInt(10)} of that Dimension purchased.
-Each time this occurs, the price of the dimension will increase.
+<b>차원 배율:</b> 차원 옆에는 배율이 표시됩니다(예: 1번째 차원 ${formatX(1, 1, 1)}). 각 차원의 기본
+생산량에 이 숫자가 곱해집니다. 해당 차원을 ${formatInt(10)}개 구매할 때마다 배율이 ${formatX(2)}만큼
+증가하며, 그때마다 차원의 가격도 상승합니다.
 <br>
 <br>
-<b>Accumulated Dimension Quantity:</b> The next column is your current amount of that Dimension you own.
-This is a combination of how many you have purchased with antimatter,
-as well as produced from the higher Dimension.
+<b>누적 차원 수량:</b> 다음 열에는 현재 보유한 해당 차원의 수량이 표시됩니다. 반물질로 구매한 수량과
+상위 차원에서 생산된 수량을 합친 값입니다.
 <br>
 <br>
-<b>Purchased Dimensions Quantity:</b> Next to each accumulated quantity of owned Dimensions,
-the amount of that Dimension purchased toward the next multiplier upgrade is displayed in brackets.
-For example if you have (${formatInt(4)}) next to your accumulated dimension quantity,
-you will need ${formatInt(6)} more of that dimension for the next multiplier increase.
+<b>구매한 차원 수량:</b> 보유 차원의 누적 수량 옆 괄호에는 다음 배율 증가를 향해 구매한 해당 차원의
+수량이 표시됩니다. 예를 들어 누적 차원 수량 옆에 (${formatInt(4)})가 있다면, 다음 배율 증가까지 그 차원이
+${formatInt(6)}개 더 필요합니다.
 <br>
 <br>
-<b>Dimension Growth Percent:</b> This number represents the amount of growth that each
-Dimension experiences per second. ${formatPercents(1)} means the dimension is doubling each second.
-This allows you to judge overall growth.
+<b>차원 성장률:</b> 각 차원이 초당 얼마나 성장하는지를 나타내는 숫자입니다. ${formatPercents(1)}는 해당
+차원의 수량이 매초 두 배가 된다는 뜻이며, 이를 통해 전체적인 성장 속도를 가늠할 수 있습니다.
 <br>
 <br>
-<b>Cost &amp; until ${formatInt(10)}:</b>
-You can buy a single quantity of each Dimension with antimatter when the cost button is highlighted.
-Alternatively, if the Until ${formatInt(10)} button is highlighted,
-you can buy whatever quantity gets you to that Dimension's next Dimension multiplier.
+<b>비용 및 ${formatInt(10)}개까지:</b> 비용 버튼이 강조되었을 때 반물질로 해당 차원을 한 개 구매할 수
+있습니다. 또는 ${formatInt(10)}개까지 버튼이 강조되었을 때는 해당 차원의 다음 차원 배율에 도달하는 데
+필요한 만큼 구매할 수 있습니다.
 <br>
 <br>
-<b>Max all:</b> Max all will buy until ${formatInt(10)} of the 1st Antimatter Dimension until it cannot anymore,
-then second, and so on until the 8th Antimatter Dimension, and then buy max Tickspeed Upgrades.
+<b>모두 최대로:</b> 먼저 1번째 반물질 차원을 더 이상 살 수 없을 때까지 ${formatInt(10)}개 단위로 구매하고,
+이후 두 번째부터 8번째 반물질 차원까지 차례로 같은 작업을 한 다음 틱스피드 업그레이드를 최대한 구매합니다.
 <br>
 <br>
-<b>Dimension base prices:</b> ${Array.range(1, 8)
+<b>차원 기본 가격:</b> ${Array.range(1, 8)
     .map(tier => format(AntimatterDimension(tier)._baseCost, 2, 2))
     .join(", ")}
 <br>
-<b>Base per ${formatInt(10)} bought dimension price increases:</b> ${Array.range(1, 8)
+<b>차원 ${formatInt(10)}개 구매당 기본 가격 증가량:</b> ${Array.range(1, 8)
   .map(tier => format(AntimatterDimension(tier)._baseCostMultiplier, 2, 2))
   .join(", ")}
 <br>
 <br>
-<b>Hotkeys: 1, 2, 3, 4, 5, 6, 7, 8</b> for buy until ${formatInt(10)} Xth Dimension
-(you can also hold down Shift while buying Dimensions, which will only buy
-${formatInt(1)} instead of ${formatInt(10)}), <b>M</b> for Max all
+<b>단축키: 1, 2, 3, 4, 5, 6, 7, 8</b>을 누르면 X번째 차원을 ${formatInt(10)}개 단위로 구매합니다.
+(차원을 구매할 때 Shift를 누르고 있으면 ${formatInt(10)}개 대신 ${formatInt(1)}개만 구매합니다.)
+<b>M</b>을 누르면 모두 최대로 구매합니다.
 `,
       isUnlocked: () => true,
       tags: ["dims", "normal", "antimatter", "ad"],
       tab: "dimensions/antimatter"
     }, {
-      name: "Tickspeed",
+      name: "틱스피드",
       info: () => `
-Production in the game happens on each "tick", which initially occurs once per second. By buying Tickspeed Upgrades,
-you can make your Antimatter Dimensions produce faster, as if multiple ticks occur in each second.
+게임의 생산은 각 "틱"마다 이루어지며, 처음에는 초당 한 번 발생합니다. 틱스피드 업그레이드를 구매하면
+매초 여러 틱이 발생하는 것처럼 반물질 차원이 더 빠르게 생산하게 할 수 있습니다.
 <br>
 <br>
-<b>Tickspeed:</b> This states how many game ticks are occurring every second. Fractional ticks are accounted for,
-boosting production as if part of a game tick has passed. Note that the actual tickspeed time is simulated and the
-game always runs calculations at the update rate you've chosen in the Options tab.
+<b>틱스피드:</b> 초당 발생하는 게임 틱 수를 나타냅니다. 소수 단위의 틱도 계산되어, 게임 틱의 일부가
+지난 것처럼 생산량을 높입니다. 실제 틱스피드 시간은 시뮬레이션되며, 게임 계산은 항상 설정 탭에서 선택한
+업데이트 주기로 실행된다는 점에 유의하세요.
 <br>
 <br>
-<b>Cost:</b> The cost of antimatter for multiplying ticks/sec by the displayed multiplier.
-(without any Galaxies, this is ${formatX(1.1245, 0, 3)} per purchase)
+<b>비용:</b> 초당 틱 수에 표시된 배율을 곱하는 데 드는 반물질입니다.
+(은하가 없으면 구매할 때마다 ${formatX(1.1245, 0, 3)})
 <br>
 <br>
-<b>Buy Max:</b> This will buy the maximum amount of Tickspeed Upgrades available
-with your current amount of antimatter.
+<b>최대 구매:</b> 현재 보유한 반물질로 살 수 있는 틱스피드 업그레이드를 최대한 구매합니다.
 <br>
 <br>
-<b>Hotkeys: T</b> will purchase as many Tickspeed Upgrades as possible, or <b>Shift+T</b> to buy a single upgrade.
-<b>M</b> for Max all.
+<b>단축키: T</b>를 누르면 틱스피드 업그레이드를 최대한 구매하고, <b>Shift+T</b>를 누르면 업그레이드를
+하나 구매합니다. <b>M</b>을 누르면 모두 최대로 구매합니다.
 `,
       isUnlocked: () => Tickspeed.isUnlocked,
       tags: ["dimension", "earlygame", "time"],
       tab: "dimensions/antimatter"
     }, {
-      name: "Dimension Boosts",
+      name: "차원 가속",
       info: () => `
-<b>Dimension Boost:</b> This resets your antimatter and all of your Antimatter Dimensions, but unlocks another
-Antimatter Dimension for you to purchase and boosts your Dimension multipliers.
-The 1st Dimension Boost requires ${formatInt(20)} 4th Dimensions, the 2nd requires ${formatInt(20)} 5th Dimensions, etc.
-After unlocking all ${formatInt(8)} Dimensions,
-every additional boost will cost ${formatInt(15)} more 8th Dimensions than the previous Boost and will no longer
-unlock a Dimension, but will continue to increase your Dimension multipliers.
+<b>차원 가속:</b> 반물질과 모든 반물질 차원을 초기화하지만, 구매할 수 있는 다음 반물질 차원을 잠금
+해제하고 차원 배율을 높입니다. 1번째 차원 가속에는 4번째 차원 ${formatInt(20)}개, 2번째에는 5번째 차원
+${formatInt(20)}개가 필요한 식입니다. 차원 ${formatInt(8)}개를 모두 잠금 해제한 뒤에는 추가 가속마다
+이전 가속보다 8번째 차원이 ${formatInt(15)}개 더 필요합니다. 더 이상 차원을 잠금 해제하지는 않지만 차원
+배율은 계속 증가합니다.
 <br>
 <br>
-You gain a ${formatX(2)} multiplier to the 1st Dimension for every Dimension Boost you have. Each higher
-Dimension will have the multiplier applied one less time as the previous, down to a minimum of ${formatInt(0)}.
-For example, with ${formatInt(3)} Boosts, the 1st Dimension will gain ${formatX(8)}, the 2nd Dimension ${formatX(4)},
-the 3rd Dimension ${formatX(2)}, and all other Dimensions are unaffected.
+차원 가속 하나마다 1번째 차원에 ${formatX(2)} 배율을 얻습니다. 상위 차원으로 갈수록 바로 이전 차원보다
+배율이 한 번 덜 적용되며, 최소 ${formatInt(0)}번까지 줄어듭니다. 예를 들어 가속이 ${formatInt(3)}회라면
+1번째 차원은 ${formatX(8)}, 2번째 차원은 ${formatX(4)}, 3번째 차원은 ${formatX(2)}를 얻고 나머지 차원은
+영향을 받지 않습니다.
 <br>
 <br>
-<b>Hotkey: D</b> will try to purchase a Dimension Boost.
+<b>단축키: D</b>를 누르면 차원 가속 구매를 시도합니다.
 `,
       isUnlocked: () => true,
       tags: ["dimboost", "reset", "earlygame"],
       tab: "dimensions/antimatter"
     }, {
-      name: "Antimatter Galaxies",
+      name: "반물질 은하",
       info: () => `
-Purchasing an Antimatter Galaxy will reset your game back to the point where only ${formatInt(4)} Dimensions are
-available, but will increase the effect of your Tickspeed Upgrades by +${format(0.02, 0, 2)} for your first two
-Galaxies. As you get more Galaxies, the multiplier will continue becoming stronger and stronger.
+반물질 은하를 구매하면 사용할 수 있는 차원이 ${formatInt(4)}개뿐인 시점으로 게임이 초기화되지만, 처음
+두 은하에서는 틱스피드 업그레이드의 효과가 +${format(0.02, 0, 2)}만큼 증가합니다. 은하를 더 얻을수록
+배율은 계속 강해집니다.
 <br>
 <br>
-Though it will have very little impact for the first few Tickspeed purchases,
-the increase is multiplicative and will not take long to be visible.
+처음 몇 번의 틱스피드 구매에는 영향이 거의 없지만, 곱셈으로 증가하므로 금세 효과가 눈에 띄게 됩니다.
 <br>
 <br>
-Your first Antimatter Galaxy requires ${formatInt(80)} Eighth Dimensions, and each additional Galaxy will cost
-another ${formatInt(60)} more.
+첫 반물질 은하에는 여덟 번째 차원 ${formatInt(80)}개가 필요하며, 추가 은하마다 필요량이 ${formatInt(60)}개씩
+늘어납니다.
 <br>
-<b>Distant Galaxy scaling:</b> Above ${formatInt(100)} Antimatter Galaxies the cost increase between Galaxies will
-increase by ${formatInt(2)} per Galaxy, making the next Galaxy cost ${formatInt(62)} more, then ${formatInt(64)} more,
-etc.
+<b>먼 은하 스케일링:</b> 반물질 은하가 ${formatInt(100)}개를 넘으면 은하 사이의 비용 증가량이 은하 하나당
+${formatInt(2)}개씩 더 늘어납니다. 다음 은하는 ${formatInt(62)}개, 그다음은 ${formatInt(64)}개가 더
+필요한 식입니다.
 <br>
-<b>Remote Galaxy scaling:</b> Above ${formatInt(Galaxy.remoteStart)} Antimatter Galaxies, the <i>total</i> cost
-increases by another ${formatPercents(0.002, 1)} per Galaxy, on top of Distant scaling.
+<b>아득한 은하 스케일링:</b> 반물질 은하가 ${formatInt(Galaxy.remoteStart)}개를 넘으면 먼 은하 스케일링에
+더해 <i>총</i> 비용이 은하 하나당 ${formatPercents(0.002, 1)}씩 추가로 증가합니다.
 <br>
 <br>
-<b>Hotkey: G</b> will try to purchase an Antimatter Galaxy.
+<b>단축키: G</b>를 누르면 반물질 은하 구매를 시도합니다.
 `,
       isUnlocked: () => true,
       tags: ["8th", "reset", "galaxy", "earlygame"],
       tab: "dimensions/antimatter"
     }, {
-      name: "Dimensional Sacrifice",
+      name: "차원 희생",
       info: () => `
-<b>You unlock Dimensional Sacrifice after your fifth Dimension Boost.</b>
+<b>다섯 번째 차원 가속 이후 차원 희생을 잠금 해제합니다.</b>
 <br>
 <br>
-Sacrificing will immediately reset the owned quantity of all non-Eighth Dimensions to zero, without reducing the
-multiplier or the current cost. In return, it will multiply the Eighth Dimension Multiplier by the shown value.
-It will take time to get back to the production you previously had, but you will end up with a net increase.
+희생하면 여덟 번째 차원을 제외한 모든 차원의 보유량이 즉시 0으로 초기화되지만, 배율이나 현재 비용은 줄어들지
+않습니다. 그 대신 여덟 번째 차원 배율에 표시된 값을 곱합니다. 이전 생산량을 회복하는 데 시간이 걸리지만 최종적으로
+생산량이 증가합니다.
 <br>
 <br>
-The Dimensional Sacrifice multiplier scales with the number of 1st Dimensions you had at the time of sacrifice,
-and the scaling can be improved by completing certain Achievements and challenges. The multiplier is kept between
-sacrifices, meaning that sacrificing once at ${formatX(10)} and then once at ${formatX(4)} will be the same as
-${formatX(8)} then ${formatX(5)}; in both cases you will end up with a total sacrifice multiplier of ${formatX(40)}.
+차원 희생 배율은 희생할 때 보유한 1번째 차원의 수에 따라 증가하며, 특정 도전과 도전과제를 완료하면
+스케일링을 개선할 수 있습니다. 배율은 희생 사이에도 유지됩니다. 즉 ${formatX(10)}에서 한 번 희생하고
+${formatX(4)}에서 다시 희생하는 것은 ${formatX(8)}과 ${formatX(5)}에서 차례로 희생하는 것과 같으며,
+두 경우 모두 총 희생 배율은 ${formatX(40)}가 됩니다.
 <br>
 <br>
-<b>Hotkey: S</b> will try to sacrifice.
+<b>단축키: S</b>를 누르면 희생을 시도합니다.
 `,
       isUnlocked: () => Sacrifice.isVisible,
       tags: ["8th", "reset", "earlygame", "gods", "earlygame"],
       tab: "dimensions/antimatter"
     }, {
-      name: "Achievements",
+      name: "도전과제",
       info: () => `
-Each Achievement has requirements to unlock. Once unlocked, some Achievements give a reward.
-Requirements and rewards vary in difficulty and benefit significantly.
+각 도전과제에는 잠금 해제 조건이 있습니다. 일부 도전과제는 잠금 해제하면 보상을 제공합니다.
+조건의 난이도와 보상의 이득은 도전과제마다 크게 다릅니다.
 <br>
 <br>
-In addition to any specific rewards for individual Achievements, you will receive a ${formatX(1.03, 2, 2)} multiplier
-to all Antimatter Dimensions. Each fully completed row also gives another ${formatX(1.25, 2, 2)}. The total multiplier
-effect from all Achievements together is shown above all the Achievement images.
+각 도전과제의 고유 보상과 별개로, 도전과제 하나당 모든 반물질 차원에 ${formatX(1.03, 2, 2)} 배율을
+얻습니다. 한 줄을 모두 완료할 때마다 ${formatX(1.25, 2, 2)} 배율도 추가로 얻습니다. 모든 도전과제에서
+얻는 총배율 효과는 도전과제 이미지 위쪽에 표시됩니다.
 <br>
 <br>
-Secret Achievements offer no gameplay benefits or advantages and are simply there for fun. Hovering over a Secret
-Achievement will give a hint on how to attain them.
+비밀 도전과제는 게임 진행에 아무런 이득이나 유리한 효과를 주지 않으며 재미를 위한 요소입니다. 비밀
+도전과제에 마우스를 올리면 달성 방법에 관한 힌트를 볼 수 있습니다.
 `,
       isUnlocked: () => true,
       tags: ["earlygame", "awards", "earlygame"],
       tab: "achievements"
     }, {
-      name: "Infinity",
+      name: "무한",
       info: () => `
-Once you have too much antimatter for the world to handle (${formatInt(2)}<sup>${formatInt(1024)}</sup>
-or about ${formatPostBreak(Number.MAX_VALUE, 6)},
-sometimes called "Infinity"), you will be forced to do a “Big Crunch”. This will reset your antimatter, Antimatter
-Dimensions, Dimension Boosts, and your Antimatter Galaxies. Doing a Big Crunch is also sometimes referred to as
-"Infinitying".
+세계가 감당하기에는 너무 많은 반물질(${formatInt(2)}<sup>${formatInt(1024)}</sup>, 또는 약
+${formatPostBreak(Number.MAX_VALUE, 6)}이며 "무한"이라고도 부릅니다)을 보유하면 강제로 “빅 크런치”를
+수행합니다. 빅 크런치를 하면 반물질, 반물질 차원, 차원 가속, 반물질 은하가 초기화됩니다. 빅 크런치를
+수행하는 것을 "무한하기"라고 부르기도 합니다.
 <br>
 <br>
-You will eventually be able to pass ${formatPostBreak(Number.MAX_VALUE, 6)}, but until then any larger numbers will
-display as ${format(Infinity)}.
+나중에는 ${formatPostBreak(Number.MAX_VALUE, 6)}보다 큰 값에 도달할 수 있지만, 그전까지 이를 넘는 숫자는
+${format(Infinity)}로 표시됩니다.
 <br>
 <br>
-Each Infinity completed will give an Infinity Point, which can be spent on upgrades in the new Infinity tab.
-You must purchase these upgrades from top to bottom. You will also gain one "Infinity", which is effectively
-the number of times you have crunched.
+무한을 완료할 때마다 무한 포인트를 얻으며, 새로 생긴 무한 탭에서 업그레이드를 구매하는 데 사용할 수 있습니다.
+이 업그레이드는 위에서 아래 순서로 구매해야 합니다. 또한 빅 크런치를 수행한 횟수를 나타내는 "무한"을
+하나 얻습니다.
 <br>
 <br>
-The "Multiply Infinity Points from all sources by ${formatInt(2)}" upgrade can be bought multiple times,
-but each purchase requires ${formatInt(10)} times as much IP.
-You must complete the Achievement "No DLC required" to start purchasing this particular upgrade.
+"모든 무한 포인트 획득량에 ${formatInt(2)}를 곱합니다" 업그레이드는 여러 번 구매할 수 있지만, 구매할
+때마다 이전보다 ${formatInt(10)}배 많은 무한 포인트가 필요합니다. 이 업그레이드를 처음 구매하려면
+"DLC 필요 없음" 도전과제를 완료해야 합니다.
 <br>
 <br>
-<b>Hotkey: C</b> will try to perform a Big Crunch.
+<b>단축키: C</b>를 누르면 빅 크런치를 시도합니다.
 `,
       isUnlocked: () => PlayerProgress.infinityUnlocked(),
       tags: ["crunch", "big", "upgrades", "ip", "reset", "prestige", "earlygame"],
       tab: "infinity/upgrades"
     }, {
-      name: "Normal Challenges",
+      name: "일반 도전",
       info: () => `
-Normal Challenges are unlocked after your first Infinity; they change in-game mechanics in different ways to create more
-difficult Infinity circumstances. To complete a challenge, you must reach ${formatPostBreak(Number.MAX_VALUE, 2)}
-antimatter again.
+첫 무한 이후 일반 도전이 잠금 해제됩니다. 일반 도전은 게임 메커니즘을 여러 방식으로 바꾸어 무한에 도달하기
+더 어려운 환경을 만듭니다. 도전을 완료하려면 다시 ${formatPostBreak(Number.MAX_VALUE, 2)} 반물질에
+도달해야 합니다.
 <br>
 <br>
-Each completed Normal Challenge will award an autobuyer or the ability to upgrade an existing autobuyer.
-You can run them multiple times (though only the first time grants a reward),
-and they can be exited at any time via the “Exit Challenge” button.
+일반 도전을 완료할 때마다 자동구매기 또는 기존 자동구매기를 업그레이드할 능력을 보상으로 얻습니다. 도전은
+여러 번 진행할 수 있지만 보상은 처음에만 받을 수 있으며, “도전 나가기” 버튼으로 언제든 나갈 수 있습니다.
 <br>
 <br>
-Your first Infinity is considered to be the first Normal Challenge, and is thus already completed when
-you unlock challenges.
+첫 무한은 첫 번째 일반 도전으로 간주되므로, 도전이 잠금 해제될 때 이미 완료된 상태입니다.
 <br>
 <br>
-The rightmost column of Infinity Upgrades does not work in challenges.
+무한 업그레이드의 가장 오른쪽 열은 도전 안에서 작동하지 않습니다.
 `,
       isUnlocked: () => PlayerProgress.infinityUnlocked(),
       tags: ["infinity", "autobuyer", "earlygame"],
       tab: "challenges/normal"
     }, {
-      name: "Autobuyers",
+      name: "자동구매기",
       info: () => `
-Autobuyers allow you to automatically purchase dimensions, upgrades, or prestiges. All autobuyer
-controls are located under the "Autobuyers" subtab of the "Automation" tab, including any additional autobuyers
-unlocked later in the game.
+자동구매기를 사용하면 차원과 업그레이드를 자동으로 구매하거나 자동으로 프레스티지를 수행할 수 있습니다.
+게임 후반에 추가로 잠금 해제되는 자동구매기를 포함해 모든 자동구매기 조작은 "자동화" 탭의 "자동구매기"
+하위 탭에 있습니다.
 <br>
 <br>
-Antimatter Dimension Autobuyers and the Tickspeed Upgrade Autobuyer can be unlocked based on your total antimatter,
-but most other autobuyers require upgrades to be purchased or challenges to be beaten.
+반물질 차원 자동구매기와 틱스피드 업그레이드 자동구매기는 총 반물질에 따라 잠금 해제할 수 있지만, 다른
+자동구매기는 대부분 업그레이드를 구매하거나 도전을 완료해야 잠금 해제됩니다.
 <br>
 <br>
-Most Autobuyers have similar attributes:
+대부분의 자동구매기는 다음과 비슷한 속성을 가집니다.
 <br>
 <br>
-<b>Autobuyer Interval:</b> The cooldown period before the autobuyer attempts to make another purchase.
-Antimatter Dimension Autobuyers and the Tickspeed Upgrade Autobuyer require their respective challenges to be beaten
-before their interval can be upgraded.
+<b>자동구매기 간격:</b> 자동구매기가 다음 구매를 시도하기 전까지의 재사용 대기시간입니다. 반물질 차원
+자동구매기와 틱스피드 업그레이드 자동구매기의 간격을 업그레이드하려면 각각에 대응하는 도전을 완료해야 합니다.
 <br>
 <br>
-<b>Antimatter Dimension Autobuyer Bulk Buy:</b> Once the interval of an autobuyer reaches its minimum
-(at ${formatInt(100)} ms), all future upgrades will double the maximum amount the autobuyer can purchase per tick.
-This can be disabled.
+<b>반물질 차원 자동구매기 대량 구매:</b> 자동구매기 간격이 최솟값(${formatInt(100)} ms)에 도달하면 이후의
+모든 업그레이드는 틱당 최대 구매량을 두 배로 늘립니다. 이 기능은 비활성화할 수 있습니다.
 <br>
 <br>
-<b>Antimatter Dimension Autobuyer Buy Quantity:</b> Autobuyers for Dimensions can be set to buy a single Dimension,
-or until ${formatInt(10)}. Bulk buy is disabled when the autobuyer is set to singles.
+<b>반물질 차원 자동구매기 구매량:</b> 차원 자동구매기는 차원을 한 개씩 구매하거나 ${formatInt(10)}개 단위로
+구매하도록 설정할 수 있습니다. 한 개 구매로 설정하면 대량 구매가 비활성화됩니다.
 <br>
 <br>
-<b>Tickspeed Autobuyer Buy Quantity:</b> The tickspeed autobuyer can be set to buy a single upgrade per activation
-or to buy the max possible once the Tickspeed Challenge (C9) has been beaten.
+<b>틱스피드 자동구매기 구매량:</b> 틱스피드 자동구매기는 작동할 때마다 업그레이드를 하나 구매하도록 설정할
+수 있습니다. 틱스피드 도전(C9)을 완료하면 최대한 구매하도록 설정할 수도 있습니다.
 <br>
 <br>
-<b>Automatic Dimension Boost Customization:</b> With the Dimension Boost autobuyer you can set the max number of
-Boosts it will attempt to buy, a minimum number of Antimatter Galaxies before Dimension Boosts are
-always auto-purchased, and (when unlocked) the ability to buy an exact number of Dimension Boosts in bulk.
-If you reach your specified Galaxy threshold, the autobuyer will ignore your max Boost limit.
+<b>자동 차원 가속 설정:</b> 차원 가속 자동구매기에서는 구매를 시도할 최대 가속 수, 차원 가속을
+항상 자동 구매하기 시작할 최소 반물질 은하 수, 그리고 잠금 해제된 경우 정확히 지정한 수의 차원 가속을
+한꺼번에 구매하는 기능을 설정할 수 있습니다. 지정한 은하 기준에 도달하면 자동구매기는 최대 가속 제한을
+무시합니다.
 <br>
 <br>
-<b>Max Galaxies:</b> The highest amount of Galaxies the Galaxies autobuyer will buy.
+<b>최대 은하:</b> 은하 자동구매기가 구매할 은하의 최대 수입니다.
 <br>
 <br>
-<b>IP on crunch:</b> Once you Break Infinity, you can set how many IP you would like to wait for before crunching.
+<b>크런치할 무한 포인트:</b> 무한 돌파 이후 빅 크런치 전에 기다릴 무한 포인트를 설정할 수 있습니다.
 <br>
 <br>
-<b>Sacrifice Autobuyer:</b> This autobuyer starts with a maxed interval, potentially triggering every tick.
+<b>희생 자동구매기:</b> 처음부터 간격이 최대 업그레이드되어 있어 매 틱 작동할 수 있습니다.
 <br>
 <br>
-<b>Dynamic Amount:</b> Upgraded prestige autobuyers have a mode that triggers a prestige when a specified threshold
-is passed. Turning on "Dynamic Amount" will allow this threshold value to be automatically increased when unlocking
-certain upgrades or achievements which apply a multiplier to this value.
+<b>동적 수량:</b> 업그레이드된 프레스티지 자동구매기에는 지정한 기준값을 넘으면 프레스티지를 수행하는 모드가
+있습니다. "동적 수량"을 켜면 이 값에 배율을 적용하는 특정 업그레이드나 도전과제를 잠금 해제할 때 기준값도
+자동으로 증가합니다.
 <br>
 <br>
-<b>Pause/Resume Autobuyers:</b> This button will pause or resume autobuyers which are turned on.
-It does not change individual autobuyer settings. Think of it like a master switch.
+<b>자동구매기 일시 정지/재개:</b> 켜져 있는 자동구매기를 일시 정지하거나 다시 작동시킵니다. 개별 자동구매기
+설정은 바꾸지 않으며, 전체를 제어하는 주 스위치와 같습니다.
 <br>
 <br>
-<b>Enable/Disable All Autobuyers:</b> This button will turn all of your autobuyers on or off individually.
+<b>모든 자동구매기 활성화/비활성화:</b> 모든 자동구매기를 개별적으로 켜거나 끕니다.
 <br>
 <br>
-<b>Hotkey: A</b> (for pausing/resuming autobuyers).
-Additionally, holding <b>Alt</b> when pressing a hotkey associated with an upgrade, dimension, or prestige will
-toggle the associated autobuyer.
+<b>단축키: A</b>를 누르면 자동구매기를 일시 정지하거나 재개합니다. 또한 업그레이드, 차원, 프레스티지에
+대응하는 단축키를 누를 때 <b>Alt</b>를 함께 누르면 관련 자동구매기를 켜거나 끕니다.
 `,
       isUnlocked: () => true,
       tags: ["infinity", "automation", "challenges", "rewards", "interval", "earlygame"],
       tab: "automation/autobuyers"
     }, {
-      name: "Break Infinity",
+      name: "무한 돌파",
       info: () => `
-Once you Break Infinity, you are no longer limited to ${formatPostBreak(Number.MAX_VALUE, 2)} antimatter and can start
-gaining more than ${formatInt(1)} IP per crunch depending on how much more antimatter you have when you crunch.
+무한을 돌파하면 더 이상 반물질이 ${formatPostBreak(Number.MAX_VALUE, 2)}로 제한되지 않으며, 빅 크런치를
+할 때 보유한 반물질에 따라 크런치 한 번에 ${formatInt(1)}보다 많은 무한 포인트를 얻을 수 있습니다.
 <br>
 <br>
-You now gain ~${format(1.78, 2, 2)} IP for crunching at ${formatPostBreak(Number.MAX_VALUE, 2)} antimatter. The IP you
-gain for crunching is multiplied by ${formatInt(10)} for every additional factor of
-${formatPostBreak(Number.MAX_VALUE, 2)} antimatter you gain (in a continuous manner). This is rounded down to the
-nearest integer <i>after</i> all multipliers are applied.
+이제 ${formatPostBreak(Number.MAX_VALUE, 2)} 반물질에서 빅 크런치를 하면 약 ${format(1.78, 2, 2)} 무한
+포인트를 얻습니다. 보유 반물질이 ${formatPostBreak(Number.MAX_VALUE, 2)}배씩 늘어날 때마다 크런치로 얻는
+무한 포인트에 ${formatInt(10)}을 곱하며, 이 효과는 연속적으로 적용됩니다. 모든 배율을 적용한 <i>뒤에</i>
+가장 가까운 정수로 내림합니다.
 <br>
 <br>
-The antimatter costs of all Dimensions begin to increase faster after they pass
-${formatPostBreak(Number.MAX_VALUE, 2)}. The cost <i>between</i> upgrades will increase by ${formatX(10)}
-<i>per upgrade</i> above ${formatPostBreak(Number.MAX_VALUE, 2)}, and a similar scaling happens to
-Tickspeed Upgrade costs as well.
+모든 차원의 반물질 비용은 ${formatPostBreak(Number.MAX_VALUE, 2)}를 넘으면 더 빠르게 증가하기 시작합니다.
+${formatPostBreak(Number.MAX_VALUE, 2)} 이후에는 <i>업그레이드마다</i> 업그레이드 <i>사이</i>의 비용 증가량이
+${formatX(10)}씩 늘어나며, 틱스피드 업그레이드 비용에도 비슷한 스케일링이 적용됩니다.
 `,
       isUnlocked: () => Autobuyer.bigCrunch.hasMaxedInterval || PlayerProgress.eternityUnlocked(),
       tags: ["limit", "crunch", "upgrades", "midgame"],
       tab: "infinity/break"
     }, {
-      name: "Infinity Dimensions",
+      name: "무한 차원",
       info: () => `
-<b>Unlocking Infinity Dimensions:</b> Infinity Dimensions are unlocked by reaching a certain amount of antimatter.
+<b>무한 차원 잠금 해제:</b> 일정량의 반물질에 도달하면 무한 차원이 잠금 해제됩니다.
 <br>
 <br>
-<b>Infinity Dimension Purchasing:</b> Infinity Dimensions are only purchasable in sets of ${formatInt(10)}, and cost
-Infinity Points. They give a permanent multiplier per purchase, similar to the other dimensions. The actual multiplier
-applied depends on which Infinity Dimension you purchase. <!-- Sorry Garnet :/ -->
+<b>무한 차원 구매:</b> 무한 차원은 ${formatInt(10)}개 단위로만 구매할 수 있으며 무한 포인트가 필요합니다.
+다른 차원과 비슷하게 구매할 때마다 영구 배율을 얻습니다. 실제로 적용되는 배율은 구매하는 무한 차원에 따라
+다릅니다. <!-- Sorry Garnet :/ -->
 <br>
 <br>
-<b>Infinity Dimension Production:</b> Just like Antimatter Dimensions, each Infinity Dimension produces the
-next lower Infinity Dimension.
+<b>무한 차원 생산:</b> 반물질 차원과 마찬가지로 각 무한 차원은 바로 아래 단계의 무한 차원을 생산합니다.
 <br>
 <br>
-Every crunch, your produced Infinity Dimensions are reset to the amount you purchased. While the production
-of Infinity Dimensions does not carry between crunches, all the multipliers you got from purchasing them do.
+빅 크런치를 할 때마다 생산된 무한 차원은 구매한 수량으로 초기화됩니다. 생산된 무한 차원은 크런치 사이에
+유지되지 않지만, 구매로 얻은 모든 배율은 유지됩니다.
 <br>
 <br>
-<b>Infinity Dimension unlock thresholds (antimatter):</b> ${Array.range(1, 8)
+<b>무한 차원 잠금 해제 기준(반물질):</b> ${Array.range(1, 8)
     .map(tier => formatPostBreak(InfinityDimension(tier)._unlockRequirement))
     .join(", ")}
 <br>
-<b>Infinity Dimension purchase multipliers:</b> ${Array.range(1, 8)
+<b>무한 차원 구매 배율:</b> ${Array.range(1, 8)
     .map(tier => format(InfinityDimension(tier)._powerMultiplier))
     .join(", ")}
 <br>
-<b>Infinity Dimension base prices (IP):</b> ${Array.range(1, 8)
+<b>무한 차원 기본 가격(무한 포인트):</b> ${Array.range(1, 8)
     .map(tier => format(InfinityDimension(tier)._baseCost))
     .join(", ")}
 <br>
-<b>Infinity Dimension price increases:</b> ${Array.range(1, 8)
+<b>무한 차원 가격 증가량:</b> ${Array.range(1, 8)
     .map(tier => format(InfinityDimension(tier)._costMultiplier))
     .join(", ")}
 <br>
 <br>
-Instead of antimatter, the 1st Infinity Dimension produces Infinity Power, which gives a multiplier applied
-to all Antimatter Dimensions equal to (power<sup>${formatInt(7)}</sup>). Infinity Dimensions are not
-affected by Tickspeed Upgrades.
+1번째 무한 차원은 반물질 대신 무한 동력을 생산합니다. 무한 동력은 모든 반물질 차원에
+(동력<sup>${formatInt(7)}</sup>)만큼의 배율을 제공합니다. 무한 차원은 틱스피드 업그레이드의 영향을
+받지 않습니다.
 `,
       isUnlocked: () => Autobuyer.bigCrunch.hasMaxedInterval || PlayerProgress.eternityUnlocked(),
       tags: ["id", "power", "new", "dims", "unlock", "break", "midgame"],
       tab: "dimensions/infinity"
     }, {
-      name: "Infinity Challenges",
+      name: "무한 도전",
       // This one could use some work!
       info: () => `
-Infinity Challenges are like Normal Challenges, but they have higher end goals and are generally harder. Instead of
-only unlocking autobuyers, they give you boosts to your various forms of production in more unique ways. Similarly to
-Normal Challenges, the rightmost column of Infinity Upgrades are disabled within Infinity Challenges.
+무한 도전은 일반 도전과 비슷하지만 최종 목표가 더 높고 대체로 더 어렵습니다. 자동구매기만 잠금 해제하는
+대신, 여러 생산 요소를 독특한 방식으로 강화합니다. 일반 도전과 마찬가지로 무한 도전에서는 무한 업그레이드의
+가장 오른쪽 열이 비활성화됩니다.
 <br>
 <br>
-Unlike the Normal Challenges, which are all unlocked at once, Infinity Challenges require you to reach a certain
-amount of antimatter before you can attempt them.
+한꺼번에 모두 잠금 해제되는 일반 도전과 달리, 각 무한 도전은 일정량의 반물질에 도달해야 시도할 수 있습니다.
 <br>
 <br>
-<b>Infinity Challenge unlock thresholds:</b> ${GameDatabase.challenges.infinity
+<b>무한 도전 잠금 해제 기준:</b> ${GameDatabase.challenges.infinity
     .map(ic => formatPostBreak(ic.unlockAM)).join(", ")}
 `,
       isUnlocked: () => Autobuyer.bigCrunch.hasMaxedInterval || PlayerProgress.eternityUnlocked(),
       tags: ["rewards", "break", "ic", "midgame"],
       tab: "challenges/infinity"
     }, {
-      name: "Replicanti",
+      name: "복제자",
       info: () => `
-Replicanti are another resource you unlock at ${format(DC.E140)} IP. Rather
-than producing something else, Replicanti actually produces <i>itself</i> up to a maximum of
-${formatPostBreak(Number.MAX_VALUE, 2)}. Replicanti are produced at their own pace, unaffected by Tickspeed Upgrades.
-Each individual Replicanti has a certain chance (initially ${formatPercents(0.01)}) of producing another Replicanti
-every Replicanti tick (initially every second), and both of these can be upgraded by spending IP.
+복제자는 ${format(DC.E140)} 무한 포인트에서 잠금 해제되는 또 다른 자원입니다. 다른 무언가를 생산하는 대신
+복제자는 최대 ${formatPostBreak(Number.MAX_VALUE, 2)}까지 <i>자기 자신</i>을 생산합니다. 복제자는
+틱스피드 업그레이드의 영향을 받지 않고 고유한 속도로 생산됩니다. 각 복제자는 복제자 틱마다 처음에는
+${formatPercents(0.01)}의 확률로 새로운 복제자를 생산합니다. 복제자 틱은 처음에는 매초 발생하며, 확률과
+간격 모두 무한 포인트를 사용해 업그레이드할 수 있습니다.
 <br>
 <br>
-If you have purchased a Replicanti Galaxy upgrade, then you can get a "free" Replicanti Galaxy in exchange for
-resetting your Replicanti count back to ${formatInt(1)}. This Galaxy is free in that it will act as if it was an
-Antimatter Galaxy, but it will not make your next Antimatter Galaxy more expensive. However, it will still reset the
-same things as an Antimatter Galaxy does.
+복제자 은하 업그레이드를 구매했다면 복제자 수를 ${formatInt(1)}로 초기화하는 대신 "무료" 복제자 은하를
+얻을 수 있습니다. 이 은하는 반물질 은하처럼 작동하면서도 다음 반물질 은하의 비용을 높이지 않는다는 점에서
+무료입니다. 다만 반물질 은하와 같은 요소들을 초기화합니다.
 <br>
 <br>
-<b>Hotkey: R</b> will try to purchase a Replicanti Galaxy.
+<b>단축키: R</b>을 누르면 복제자 은하 구매를 시도합니다.
 <br>
-Replicanti give a multiplier to all Infinity Dimensions, which will reach a maximum of
-${formatX(Math.pow(2, 20), 2, 2)} at ${formatPostBreak(Number.MAX_VALUE, 2)} Replicanti.
+복제자는 모든 무한 차원에 배율을 제공하며, 복제자가 ${formatPostBreak(Number.MAX_VALUE, 2)}일 때 최대
+${formatX(Math.pow(2, 20), 2, 2)}에 도달합니다.
 <br>
 <br>
-<b>Chance upgrade cost:</b> Base ${format(DC.E150)} IP, cost increment ${formatX(DC.E15)} IP
+<b>확률 업그레이드 비용:</b> 기본 ${format(DC.E150)} 무한 포인트, 비용 증가 ${formatX(DC.E15)} 무한 포인트
 <br>
-<b>Interval upgrade cost:</b> Base ${format(DC.E140)} IP, cost increment ${formatX(DC.E10)} IP
+<b>간격 업그레이드 비용:</b> 기본 ${format(DC.E140)} 무한 포인트, 비용 증가 ${formatX(DC.E10)} 무한 포인트
 <br>
-<b>Galaxy upgrade cost:</b> Base ${format(DC.E170)} IP, cost increment ${formatX(DC.E25)} IP and an additional
-${formatX(1e5)} IP per upgrade, scaling similarly to distant Antimatter Galaxies. Above ${formatInt(100)} Replicanti
-Galaxies, this ${formatX(1e5)} per upgrade changes to ${formatX(DC.E55)}. Above ${formatInt(1000)}, the scaling switches
-from quadratic to cubic, with the ${formatX(DC.E55)} multiplier itself increasing by ${formatX(DC.E5)} per upgrade.
+<b>은하 업그레이드 비용:</b> 기본 ${format(DC.E170)} 무한 포인트이며, 비용은 ${formatX(DC.E25)} 무한
+포인트와 업그레이드당 추가 ${formatX(1e5)} 무한 포인트만큼 증가합니다. 먼 반물질 은하와 비슷하게
+스케일링됩니다. 복제자 은하가 ${formatInt(100)}개를 넘으면 업그레이드당 ${formatX(1e5)}가
+${formatX(DC.E55)}로 바뀝니다. ${formatInt(1000)}개를 넘으면 스케일링이 제곱에서 세제곱으로 바뀌고,
+${formatX(DC.E55)} 배율 자체도 업그레이드당 ${formatX(DC.E5)}씩 증가합니다.
 `,
       isUnlocked: () => Replicanti.areUnlocked || PlayerProgress.eternityUnlocked(),
       tags: ["interval", "chance", "infinity", "galaxy", "galaxies", "midgame"],
       tab: "infinity/replicanti"
     }, {
-      name: "Eternity",
+      name: "영원",
       info: () => `
-Upon reaching ${formatPostBreak(Number.MAX_VALUE, 2)} IP, you can Eternity. Eternities will reset everything before this
-point except challenge times, Achievements, and anything under the General section of the Statistics tab. You will be
-able to access more content after your first Eternity.
+${formatPostBreak(Number.MAX_VALUE, 2)} 무한 포인트에 도달하면 영원을 수행할 수 있습니다. 영원은 도전 시간,
+도전과제, 통계 탭의 일반 영역에 있는 항목을 제외하고 지금까지의 모든 것을 초기화합니다. 첫 영원 이후 더 많은
+콘텐츠를 이용할 수 있습니다.
 <br>
 <br>
-You can pass ${formatPostBreak(Number.MAX_VALUE, 2)} IP without anything being forced upon you, unlike the first time
-you reached ${formatPostBreak(Number.MAX_VALUE, 2)} antimatter. You will receive more Eternity Points the more
-Infinity Points you had before going Eternal. You will also gain one "Eternity" for completing an Eternity.
+처음 ${formatPostBreak(Number.MAX_VALUE, 2)} 반물질에 도달했을 때와 달리,
+${formatPostBreak(Number.MAX_VALUE, 2)} 무한 포인트를 넘어도 강제로 아무 행동도 하지 않습니다. 영원을
+수행하기 전에 보유한 무한 포인트가 많을수록 더 많은 영원 포인트를 받습니다. 영원을 완료하면 "영원"도 하나
+얻습니다.
 <br>
 <br>
-Eternity Point gain scales similarly to Infinity Point gain, but scaling off of Infinity Points instead of antimatter.
-The base amount of EP gained at ${formatPostBreak(Number.MAX_VALUE, 2)} IP is ~${format(1.62, 2, 2)} EP, multiplied by
-${formatInt(5)} for every factor of ${formatPostBreak(Number.MAX_VALUE, 2)} more IP you have. This is always rounded
-down, which means that you will get ${formatInt(1)} EP at ${formatPostBreak(Number.MAX_VALUE, 2)} IP but will not reach
-${formatInt(2)} EP until ${formatPostBreak(DC.E349)}.
+영원 포인트 획득량은 무한 포인트 획득량과 비슷하게 증가하지만, 반물질 대신 무한 포인트를 기준으로 합니다.
+${formatPostBreak(Number.MAX_VALUE, 2)} 무한 포인트에서 얻는 기본 영원 포인트는 약 ${format(1.62, 2, 2)}이며,
+무한 포인트가 ${formatPostBreak(Number.MAX_VALUE, 2)}배씩 늘어날 때마다 ${formatInt(5)}를 곱합니다. 항상
+내림하므로 ${formatPostBreak(Number.MAX_VALUE, 2)} 무한 포인트에서는 영원 포인트 ${formatInt(1)}개를 얻지만,
+${formatPostBreak(DC.E349)} 전까지는 ${formatInt(2)}개를 얻지 못합니다.
 <br>
 <br>
-<b>Hotkey: E</b> will try to perform an Eternity reset.
+<b>단축키: E</b>를 누르면 영원 초기화를 시도합니다.
 `,
       isUnlocked: () => PlayerProgress.eternityUnlocked(),
       tags: ["eternal", "ep", "reset", "prestige", "midgame"],
       tab: "eternity/upgrades"
     }, {
-      name: "Eternity Milestones",
+      name: "영원 마일스톤",
       info: () => `
-To make Eternities faster and more convenient, you will unlock various buffs as you get more "Eternity". These
-buffs will generally let you start with certain upgrades you would otherwise lose after Eternity, give you new
-autobuyers for better automation, or give you a way to passively gain resources offline at a reduced rate.
+영원을 더 빠르고 편리하게 만들기 위해 "영원"을 더 많이 얻을수록 다양한 강화 효과가 잠금 해제됩니다.
+대체로 영원 후 잃게 되는 특정 업그레이드를 보유한 채 시작하게 하거나, 자동화를 개선하는 새 자동구매기를
+제공하거나, 오프라인에서 감소된 속도로 자원을 자동 획득하게 합니다.
 <br>
 <br>
-Milestones which give you upgrades will automatically purchase and upgrade them to their maximum when first starting
-the Eternity, effectively letting you have them permanently.
+업그레이드를 제공하는 마일스톤은 영원을 처음 시작할 때 해당 업그레이드를 자동으로 구매하고 최대까지
+업그레이드하므로, 실질적으로 영구 보유하게 됩니다.
 <br>
 <br>
-All of the new autobuyers will have toggles next to their respective manual buttons (for example, Infinity Dimension
-autobuyers can be found on the Infinity Dimension tab) in addition to their entries on the autobuyers tab.
-The improvements to the Dimension Boost, Antimatter Galaxy, and Big Crunch autobuyers update their
-already existing entries on the autobuyer tab.
+새 자동구매기는 자동구매기 탭의 항목뿐 아니라 각각의 수동 버튼 옆에도 켜기/끄기 버튼이 생깁니다. 예를 들어
+무한 차원 자동구매기는 무한 차원 탭에서 찾을 수 있습니다. 차원 가속, 반물질 은하, 빅 크런치 자동구매기의
+개선 효과는 자동구매기 탭에 이미 존재하는 항목을 갱신합니다.
 <br>
 <br>
-The passive generation milestones only work offline by design and may need certain autobuyer settings to work
-properly, as noted on the milestone page itself.
+자동 생산 마일스톤은 의도적으로 오프라인에서만 작동하며, 마일스톤 페이지에 안내된 대로 제대로 작동하려면
+특정 자동구매기 설정이 필요할 수 있습니다.
 `,
       isUnlocked: () => PlayerProgress.eternityUnlocked(),
       tags: ["eternities", "rewards", "automation", "midgame"],
       tab: "eternity/milestones"
     }, {
-      name: "Time Dimensions",
+      name: "시간 차원",
       info: () => `
-After your first Eternity, you unlock Time Dimensions. You buy them with Eternity Points and they produce Time Shards,
-which provide Tickspeed Upgrades. These Tickspeed Upgrades function like normal Tickspeed Upgrades but do not increase
-their cost. Time Dimensions, Time Shards, and the Tickspeed Upgrades they provide are kept on Infinity,
-but reset every Eternity.
+첫 영원 이후 시간 차원이 잠금 해제됩니다. 시간 차원은 영원 포인트로 구매하며, 틱스피드 업그레이드를 제공하는
+시간 파편을 생산합니다. 이 틱스피드 업그레이드는 일반 틱스피드 업그레이드처럼 작동하지만 비용은 증가하지
+않습니다. 시간 차원, 시간 파편, 여기서 제공하는 틱스피드 업그레이드는 무한 시 유지되지만 영원마다 초기화됩니다.
 <br>
 <br>
-Similarly to the other dimensions, Second Time Dimensions produce 1st Time Dimensions and so on. Similarly to Infinity
-Dimensions, your production will be reset to the amount you purchased after every Eternity, but you will keep any
-upgrades to your multipliers you purchased.
+다른 차원과 마찬가지로 두 번째 시간 차원은 1번째 시간 차원을 생산하는 식으로 이어집니다. 무한 차원과
+마찬가지로 영원할 때마다 생산된 수량은 구매한 수량으로 초기화되지만, 구매한 배율 업그레이드는 유지됩니다.
 <br>
 <br>
-Each purchase increases the multiplier of that specific Time Dimension by ${formatX(4)}. The cost multiplier between
-upgrades has a base value, but is increased by ${formatX(1.5, 1, 1)} at
-${format(TimeDimension(1)._costIncreaseThresholds[0], 2)} EP and ${formatX(2.2, 1, 1)} (of the base value) at
-${format(TimeDimension(1)._costIncreaseThresholds[1])} EP. These increases apply retroactively, causing the cost to
-jump when they reach those thresholds, and only apply to the first four dimensions. Beyond
-${format(TimeDimension(1)._costIncreaseThresholds[2])} EP each dimension purchase counts as four purchases for the
-purpose of cost increases, causing the price to rise much more steeply.
+구매할 때마다 해당 시간 차원의 배율이 ${formatX(4)}만큼 증가합니다. 업그레이드 사이의 비용 배율에는 기본값이
+있지만, ${format(TimeDimension(1)._costIncreaseThresholds[0], 2)} 영원 포인트에서 ${formatX(1.5, 1, 1)},
+${format(TimeDimension(1)._costIncreaseThresholds[1])} 영원 포인트에서 기본값의 ${formatX(2.2, 1, 1)}만큼
+증가합니다. 이 증가는 소급 적용되어 기준에 도달하는 순간 비용이 크게 뛰며, 처음 네 차원에만 적용됩니다.
+${format(TimeDimension(1)._costIncreaseThresholds[2])} 영원 포인트 이후에는 비용 증가 계산에서 차원 구매
+한 번을 네 번의 구매로 취급하므로 가격이 훨씬 가파르게 상승합니다.
 <br>
-<b>Time Dimension base prices (EP):</b> ${Array.range(1, 8)
+<b>시간 차원 기본 가격(영원 포인트):</b> ${Array.range(1, 8)
     .map(tier => format(TimeDimension(tier)._baseCost))
     .join(", ")}
 <br>
-<b>Time Dimension base price increases:</b> ${Array.range(1, 8)
+<b>시간 차원 기본 가격 증가량:</b> ${Array.range(1, 8)
     .map(tier => format(TimeDimension(tier)._costMultiplier))
     .join(", ")}
 <br>
 <br>
-Each threshold to gain another Tickspeed Upgrade is ${formatPercents(0.33)} more Time Shards than the previous,
-or ${formatPercents(0.25)} with the relevant Time Study. After ${formatInt(FreeTickspeed.softcap)} upgrades, the
-multiplier between each successive free Tickspeed Upgrade will gradually increase at a rate of ~${formatX(1.35, 0, 2)}
-per ${formatInt(50000)} upgrades (${formatX(1.000006, 0, 6)} per upgrade).
+다음 틱스피드 업그레이드를 얻기 위한 기준에는 이전보다 ${formatPercents(0.33)} 많은 시간 파편이 필요하며,
+관련 시간 연구를 보유하면 이전보다 ${formatPercents(0.25)} 많은 시간 파편이 필요합니다. 업그레이드가
+${formatInt(FreeTickspeed.softcap)}회를 넘으면 연속된 무료 틱스피드 업그레이드 사이의 배율이 업그레이드
+${formatInt(50000)}회당 약 ${formatX(1.35, 0, 2)}의 속도로 서서히 증가합니다(업그레이드당
+${formatX(1.000006, 0, 6)}).
 `,
       isUnlocked: () => PlayerProgress.eternityUnlocked(),
       tags: ["dims", "td", "shards", "eternity", "midgame"],
       tab: "dimensions/time"
     }, {
-      name: "Time Studies",
+      name: "시간 연구",
       info: () => `
-A Time Study is a powerful post-Eternity upgrade, which costs a new resource called Time Theorems. Time Studies can
-boost the production of anything you have seen so far in the game, or even change the way some formulas work.
+시간 연구는 영원 이후의 강력한 업그레이드로, 시간 정리라는 새 자원이 필요합니다. 시간 연구는 지금까지
+게임에서 본 모든 요소의 생산량을 강화하거나 일부 공식의 작동 방식을 바꾸기도 합니다.
 <br>
 <br>
-Time Theorems are a limited resource which costs more for each one you buy. They can be bought with antimatter,
-Infinity Points, or Eternity Points. Their cost increases by a set factor per purchase. Time Theorems do not
-reset on Eternity.
+시간 정리는 구매할 때마다 비용이 증가하는 제한된 자원입니다. 반물질, 무한 포인트, 영원 포인트로 구매할 수
+있으며 구매마다 비용에 일정한 배율이 적용됩니다. 시간 정리는 영원할 때 초기화되지 않습니다.
 <br>
 <br>
-Studies are laid out in a tree-like fashion, where you must buy prerequisites before continuing. The only study you
-can buy at first is the very top one, and then from there you can purchase any study directly below it which you can
-afford. However, there are three exceptions:
+연구는 나무 형태로 배치되어 있으며 계속 진행하려면 선행 연구를 구매해야 합니다. 처음에는 맨 위의 연구만
+구매할 수 있고, 이후 그 바로 아래에서 비용을 지불할 수 있는 연구를 구매할 수 있습니다. 다만 다음 세 가지
+예외가 있습니다.
 <br>
-Where the lines between studies have a color, you can only choose one of the three paths at a time.
+연구 사이의 선에 색이 있는 곳에서는 세 경로 중 하나만 선택할 수 있습니다.
 <br>
-When a study for an Eternity Challenge is in the way, you need to complete all challenges connected to it at least
-once in order to access the study. You do not need to have the challenge study purchased in order to access it.
+영원 도전 연구가 경로를 막고 있다면, 해당 연구를 지나가기 위해 연결된 모든 도전을 적어도 한 번씩 완료해야
+합니다. 경로를 이용할 때 도전 연구를 구매한 상태일 필요는 없습니다.
 <br>
-Near the bottom, where all the edges join together again, you can only pick one study out of each pair.
-<br>
-<br>
-You are able to hold down shift and then click on a Time Study to buy all studies until that point. This might not buy
-the studies you want if you shift-click a study in a position where you would have to choose between two or more
-different options which you cannot get together (see above), or you cannot afford all the studies needed to reach that
-point. Shift-click will buy studies greedily, getting as many as possible per row before moving farther downward.
+아래쪽에서 모든 경로가 다시 합쳐지는 곳에서는 각 연구 쌍 중 하나만 선택할 수 있습니다.
 <br>
 <br>
-<b>Presets:</b> The buttons initially labeled 1 through 6 allow you to save your current set of studies into the slot,
-letting you quickly buy that particular set of studies again with a single click. You can hover over the button and
-use the tooltip to load/save a slot, or click to load and shift-click to save. These presets can be renamed, but you
-are not allowed to give multiple presets the same name.
+Shift를 누른 채 시간 연구를 클릭하면 해당 지점까지의 모든 연구를 구매할 수 있습니다. 함께 구매할 수 없는
+둘 이상의 선택지 중 하나를 골라야 하는 위치의 연구를 Shift+클릭하거나, 해당 지점까지 필요한 연구를 전부
+살 수 없다면 원하는 연구가 구매되지 않을 수 있습니다. Shift+클릭은 아래쪽으로 이동하기 전에 각 줄에서
+가능한 한 많은 연구를 우선 구매합니다.
 <br>
 <br>
-<b>Import Tree/Edit Preset:</b> When editing a preset or importing a Time Study Tree, the modal will display what
-Time Studies will be bought when it is loaded, along with any errors.
-For the split paths, you can use the name as a shorthand for the collection of studies.
-For instance, you can replace "71, 81, 91, 101" to represent fully purchasing the antimatter split with
-just "antimatter". Additionally, if a Time Study string has a valid Eternity Challenge, adding a "!" to the end of
-the string will make the game to try to immediately unlock and enter the Eternity Challenge when used.
+<b>프리셋:</b> 처음에 1부터 6까지 표시된 버튼을 사용하면 현재 연구 구성을 슬롯에 저장하여 나중에 한 번의
+클릭으로 빠르게 다시 구매할 수 있습니다. 버튼에 마우스를 올리고 툴팁에서 슬롯을 불러오거나 저장할 수 있으며,
+클릭하면 불러오고 Shift+클릭하면 저장합니다. 프리셋의 이름은 바꿀 수 있지만 여러 프리셋에 같은 이름을 붙일
+수는 없습니다.
 <br>
 <br>
-<b>Preferences:</b> Clicking the gear icon will open up a dialog which lets you select "default" paths to pick in the
-three-way branches. Choosing a default will change the shift-click behavior mentioned above so that it will attempt
-to buy your preferred path and continue on instead of stopping completely at the tree splits. You can choose two paths
-for the Dimension split in this dialog if you have purchased the relevant Time Study.
+<b>연구 트리 불러오기/프리셋 편집:</b> 프리셋을 편집하거나 시간 연구 트리를 불러올 때, 모달에는 불러오면
+구매될 시간 연구와 발생한 오류가 함께 표시됩니다. 분기 경로는 연구 묶음의 이름을 줄임말로 사용할 수 있습니다.
+예를 들어 반물질 분기를 모두 구매하는 "71, 81, 91, 101"을 "antimatter"로 대체할 수 있습니다. 또한 시간
+연구 문자열에 유효한 영원 도전이 있다면 문자열 끝에 "!"를 붙여 사용할 때 해당 영원 도전을 즉시 잠금
+해제하고 진입하도록 시도할 수 있습니다.
 <br>
 <br>
-<b>Respecs:</b> A respec allows you to reset the upgrades you have in the tree to retrieve all of the Time Theorems
-spent on them. It can be done for free, but only triggers on finishing an Eternity; you cannot respec Time Studies in
-the middle of an Eternity.
+<b>선호 설정:</b> 톱니바퀴 아이콘을 누르면 세 갈래 분기에서 선택할 "기본" 경로를 지정하는 창이 열립니다.
+기본 경로를 선택하면 앞서 설명한 Shift+클릭 동작이 바뀌어, 트리 분기에서 완전히 멈추는 대신 선호 경로를
+구매하고 계속 진행하려고 합니다. 관련 시간 연구를 구매했다면 이 창에서 차원 분기의 경로를 두 개 선택할 수
+있습니다.
 <br>
 <br>
-<b>Costs for Time Theorems:</b>
+<b>재분배:</b> 트리에서 구매한 업그레이드를 초기화하고 사용한 시간 정리를 모두 돌려받습니다. 비용 없이 할
+수 있지만 영원을 완료할 때만 적용되며, 영원 진행 중에는 시간 연구를 재분배할 수 없습니다.
 <br>
-<b>Antimatter:</b> Initially ${format(DC.E20000)}, ${formatX(DC.E20000)} per Theorem
 <br>
-<b>Infinity Points:</b> Initially ${formatInt(1)}, ${formatX(DC.E100)} per Theorem
+<b>시간 정리 비용:</b>
 <br>
-<b>Eternity Points:</b> Initially ${formatInt(1)}, ${formatX(2)} per Theorem
+<b>반물질:</b> 처음에는 ${format(DC.E20000)}, 정리당 ${formatX(DC.E20000)}
+<br>
+<b>무한 포인트:</b> 처음에는 ${formatInt(1)}, 정리당 ${formatX(DC.E100)}
+<br>
+<b>영원 포인트:</b> 처음에는 ${formatInt(1)}, 정리당 ${formatX(2)}
 `,
       isUnlocked: () => PlayerProgress.eternityUnlocked(),
       tags: ["eternity", "ts", "theorems", "tree", "study", "midgame"],
       tab: "eternity/studies"
     }, {
-      name: "Eternity Challenges",
+      name: "영원 도전",
       info: () => `
-Eternity Challenges are another set of challenges which are unlocked by the Time Study Tree. They require a certain
-amount of Time Theorems and a secondary requirement which you must meet when you unlock the challenge.
+영원 도전은 시간 연구 트리에서 잠금 해제하는 또 다른 도전 묶음입니다. 일정량의 시간 정리와 도전을 잠금
+해제할 때 달성해야 하는 보조 조건이 필요합니다.
 <br>
 <br>
-When you enter an Eternity Challenge, your goal becomes reaching a certain target IP. After completing the challenge,
-you do not need to have the Eternity Challenge's study unlocked for the reward to take effect. The rewards for these
-challenges are similar to Time Studies, but often even stronger and permanent since they do not require you to spend
-Time Theorems to have their effects.
+영원 도전에 진입하면 일정한 목표 무한 포인트에 도달하는 것이 목표가 됩니다. 도전을 완료한 뒤에는 영원 도전
+연구를 잠금 해제한 상태가 아니어도 보상이 적용됩니다. 보상은 시간 연구와 비슷하지만 효과를 유지하는 데 시간
+정리를 사용할 필요가 없어 영구적이며, 대개 더 강력합니다.
 <br>
 <br>
-You can only have one Eternity Challenge unlocked at a time.
+한 번에 하나의 영원 도전만 잠금 해제할 수 있습니다.
 <br>
 <br>
-You can complete each Eternity Challenge up to five times. After each completion, the rewards grow stronger but the
-goal to the next completion also increases. Additionally, the secondary requirement to unlock the challenge again will
-also increase. The Time Theorem cost does not increase.
+각 영원 도전은 최대 다섯 번 완료할 수 있습니다. 완료할 때마다 보상이 강해지지만 다음 완료 목표도 증가합니다.
+도전을 다시 잠금 해제하기 위한 보조 조건도 증가하지만 시간 정리 비용은 증가하지 않습니다.
 <br>
 <br>
-Completing an Eternity Challenge's secondary requirements will remove them from the study requirement until you complete
-that particular Eternity Challenge, meaning you only need to complete the secondary requirement <i>once</i>.
-As a result, you can unlock an Eternity Challenge with one set of studies, and then respec into a different set of
-studies to beat the challenge. EC11 and EC12 are exceptions to this rule - the Dimension path restrictions remain even
-if you respec your time studies.
+영원 도전의 보조 조건을 달성하면 해당 영원 도전을 완료할 때까지 연구 조건에서 보조 조건이 제거됩니다. 즉,
+보조 조건은 <i>한 번만</i> 달성하면 됩니다. 따라서 한 연구 구성으로 영원 도전을 잠금 해제한 뒤 다른 연구
+구성으로 재분배하여 도전을 완료할 수 있습니다. EC11과 EC12는 예외로, 시간 연구를 재분배해도 차원 경로
+제한이 유지됩니다.
 `,
       isUnlocked: () => PlayerProgress.eternityUnlocked(),
       tags: ["ec", "study", "time", "rewards", "completions", "midgame"],
       tab: "challenges/eternity"
     }, {
-      name: "Time Dilation",
+      name: "시간 팽창",
       info: () => `
-Time Dilation is unlocked when you purchase the Time Study to unlock it below the EC11 and EC12 studies.
-In order to purchase this Time Study, you need ${formatInt(5000)} unspent TT with a tree that can reach
-the study, a <i>total</i> of ${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)} TT, and must have
-completed both EC11 and EC12 five times each.
+EC11과 EC12 연구 아래에 있는 시간 팽창 잠금 해제 시간 연구를 구매하면 시간 팽창이 잠금 해제됩니다.
+이 시간 연구를 구매하려면 연구에 도달할 수 있는 트리와 사용하지 않은 시간 정리 ${formatInt(5000)}개,
+<i>총</i> 시간 정리 ${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)}개가 필요하며, EC11과 EC12를
+각각 다섯 번 완료해야 합니다.
 <br>
 <br>
-Dilating time will start a modified Eternity, called Time Dilation, in which all of your Antimatter/Infinity/Time
-Dimension multipliers’ <i>exponents</i> and the tickspeed multipliers’ <i>exponent</i> will be raised to
-${formatPow(0.75, 2, 2)}, significantly reducing them. If you can reach ${formatPostBreak(Number.MAX_VALUE, 2)} IP
-to complete this Dilated Eternity, you will be rewarded with a new resource called Tachyon Particles.
+시간을 팽창시키면 시간 팽창이라는 변형된 영원을 시작합니다. 이 안에서는 모든 반물질/무한/시간 차원 배율의
+<i>지수</i>와 틱스피드 배율의 <i>지수</i>를 ${formatPow(0.75, 2, 2)}하여 크게 감소시킵니다. 이 팽창된
+영원에서 ${formatPostBreak(Number.MAX_VALUE, 2)} 무한 포인트에 도달해 완료하면 타키온 입자라는 새 자원을
+보상으로 얻습니다.
 <br>
 <br>
-You can Dilate as many times as you want, but Tachyon Particles cannot be "farmed" like other resources. Tachyon
-Particles are never reduced, only increased, and they are increased up to a cap based on your TP multipliers and
-antimatter earned in the current Dilation. As a result, you generally cannot increase your TP unless
-you have gained a TP multiplier or are able to significantly increase your antimatter in Dilation.
+원하는 만큼 팽창할 수 있지만 타키온 입자는 다른 자원처럼 "파밍"할 수 없습니다. 타키온 입자는 절대 줄어들지
+않고 증가만 하며, 타키온 입자 배율과 현재 팽창에서 얻은 반물질에 따른 상한까지만 증가합니다. 따라서 일반적으로
+타키온 입자 배율을 얻거나 팽창 안에서 반물질을 크게 늘릴 수 있게 되기 전에는 타키온 입자를 늘릴 수 없습니다.
 <br>
 <br>
-Tachyon Particles generate another currency called Dilated Time. Dilated Time is translated into Tachyon Galaxies by
-reaching thresholds similarly to the Tickspeed Upgrades gained from Time Dimensions. These Tachyon Galaxies are like
-Replicanti Galaxies in that they affect tickspeed as if they were Antimatter Galaxies but they do not increase the cost
-of your next Antimatter Galaxy.
+타키온 입자는 팽창된 시간이라는 또 다른 화폐를 생성합니다. 시간 차원에서 얻는 틱스피드 업그레이드와 비슷하게
+일정 기준의 팽창된 시간에 도달하면 타키온 은하를 얻습니다. 타키온 은하는 반물질 은하처럼 틱스피드에 영향을
+주지만 다음 반물질 은하의 비용을 높이지 않는다는 점에서 복제자 은하와 비슷합니다.
 <br>
 <br>
-Unlocking Time Dilation also unlocks upgrades you can purchase using Dilated Time. The first and third upgrades in the
-first row of Dilation Upgrades can be repeatedly purchased as many times as you can afford them. The second upgrade can
-also be repeatedly bought, but eventually reaches a cap.
+시간 팽창을 잠금 해제하면 팽창된 시간으로 구매하는 업그레이드도 잠금 해제됩니다. 팽창 업그레이드 첫 번째
+줄의 첫 번째와 세 번째 업그레이드는 비용을 감당할 수 있는 만큼 반복 구매할 수 있습니다. 두 번째 업그레이드도
+반복 구매할 수 있지만 결국 상한에 도달합니다.
 `,
       isUnlocked: () => DilationTimeStudyState.studies[1].isBought || PlayerProgress.realityUnlocked(),
       tags: ["dial", "dt", "dilated", "tachyon", "particle", "study", "free", "galaxy", "galaxies", "midgame"],
       tab: "eternity/dilation"
     }, {
-      name: "Reality",
+      name: "현실",
       info: () => `
-When you reach ${formatPostBreak(DC.E4000)} EP and have completed the first
-${formatInt(13)} rows of Achievements, you will be able to purchase the Time Study that unlocks Reality.
-Unlocking it opens a new tab, where you can find the button to make a new Reality. Starting a new Reality
-will reset almost the entire game up to this point, but in exchange gives
-you a new currency known as Reality Machines, a Glyph, and a Perk Point.
+${formatPostBreak(DC.E4000)} 영원 포인트에 도달하고 도전과제의 첫 ${formatInt(13)}줄을 완료하면 현실을
+잠금 해제하는 시간 연구를 구매할 수 있습니다. 잠금 해제하면 새 탭이 열리고 그곳에서 새 현실을 시작하는
+버튼을 찾을 수 있습니다. 새 현실을 시작하면 지금까지 게임의 거의 모든 것이 초기화되지만, 그 대가로
+리얼리티 머신이라는 새 화폐와 글리프, 퍼크 포인트를 얻습니다.
 <br>
 <br>
-Unlike the other resets so far, you also lose the first ${formatInt(13)} rows of Achievements - that is, all of the
-pre-Reality Achievements and all of their associated rewards. However, you will still keep all values under the General
-header in the Statistics tab and all of your best Challenge times.
+지금까지의 다른 초기화와 달리 도전과제의 첫 ${formatInt(13)}줄, 즉 현실 이전의 모든 도전과제와 관련
+보상도 잃습니다. 다만 통계 탭의 일반 제목 아래에 있는 모든 값과 각 도전의 최고 기록은 유지됩니다.
 <br>
 <br>
-After completing your first Reality, the Glyphs tab contain a button which lets you restart your current Reality again,
-without changing what your upcoming Glyph choices are. <b>Note that this will not give you any rewards, even if you
-would otherwise be able to complete the Reality normally.</b>
+첫 현실을 완료하면 글리프 탭에 예정된 글리프 선택지를 바꾸지 않고 현재 현실을 다시 시작하는 버튼이
+생깁니다. <b>이 방식으로 다시 시작하면 정상적으로 현실을 완료할 수 있는 상태여도 아무런 보상을 받지
+못한다는 점에 유의하세요.</b>
 <br>
 <br>
-You need to redo the requirements for each Achievement in order to get their rewards again, but you will also passively
-unlock the next incomplete Achievement every ${timeDisplayNoDecimals(new Decimal(30 * 60000))} without any effort even if you
-otherwise do not have the requirements to do so. This automatic completion can be disabled, in which case the timer will
-count down to zero and pause, immediately completing another Achievement when unpaused. The timer still progresses
-at the same rate while offline.
+각 도전과제의 보상을 다시 받으려면 조건을 다시 달성해야 합니다. 하지만 조건을 달성하지 않았더라도 아무런
+노력 없이 ${timeDisplayNoDecimals(new Decimal(30 * 60000))}마다 완료하지 않은 다음 도전과제가 자동으로 잠금
+해제됩니다. 자동 완료 기능은 비활성화할 수 있습니다. 이 경우 타이머가 0까지 내려간 뒤 멈추며, 기능을 다시
+활성화하면 즉시 다음 도전과제를 완료합니다. 오프라인에서도 타이머는 같은 속도로 진행됩니다.
 <br>
 <br>
-Reality Machines can be spent on different upgrades throughout the Reality tab and are your primary currency from this
-point onwards. Glyphs are equippable objects which you must equip in order to use their boosts. Perk Points are another
-currency that can be spent in the Perks subtab on different Perks.
+리얼리티 머신은 현실 탭의 여러 업그레이드에 사용할 수 있으며, 이 시점부터 주요 화폐가 됩니다. 글리프는
+장착해야 강화 효과를 사용할 수 있는 장비입니다. 퍼크 포인트는 퍼크 하위 탭의 여러 퍼크에 사용하는 또 다른
+화폐입니다.
 <br>
 <br>
-Reality Machines scale purely off of EP, and the Reality button will tell you how much EP you need in order to gain
-the next one. The first ${formatInt(10)} RM scale linearly in the exponent between
-${formatPostBreak(DC.E4000)} EP and ${formatPostBreak(DC.C10P16000D3)} EP, and then past that
-RM = ${formatInt(1000)}<sup>log<sub>${formatInt(10)}</sub>(EP)/${formatInt(4000)}-${formatInt(1)}</sup>. This formula
-is higher RM gain than linear above ${formatPostBreak(DC.C10P16000D3)} EP.
+리얼리티 머신은 오직 영원 포인트에 따라 증가하며, 현실 버튼에는 다음 리얼리티 머신을 얻는 데 필요한
+영원 포인트가 표시됩니다. 처음 ${formatInt(10)} RM은 ${formatPostBreak(DC.E4000)} EP와
+${formatPostBreak(DC.C10P16000D3)} EP 사이에서 지수에 따라 선형으로 증가합니다. 그 이후에는
+RM = ${formatInt(1000)}<sup>log<sub>${formatInt(10)}</sub>(EP)/${formatInt(4000)}-${formatInt(1)}</sup>입니다.
+${formatPostBreak(DC.C10P16000D3)} EP 이후에는 이 공식으로 선형 증가보다 많은 RM을 얻습니다.
 <br>
 <br>
-Glyph level scales off of a combination of Eternity Points, Replicanti, and Dilated Time, with a minimum level of
-${formatInt(1)}. The type, effects, and rarity of Glyphs are randomized.
+글리프 레벨은 영원 포인트, 복제자, 팽창된 시간을 조합한 값에 따라 증가하며 최소 레벨은 ${formatInt(1)}입니다.
+글리프의 종류, 효과, 희귀도는 무작위로 정해집니다.
 <br>
 <br>
-You get exactly ${formatInt(1)} Perk Point per Reality.
+현실마다 정확히 ${formatInt(1)} 퍼크 포인트를 얻습니다.
 <br>
 <br>
-<b>Hotkey: Y</b> will try to perform a Reality reset.
+<b>단축키: Y</b>를 누르면 현실 초기화를 시도합니다.
 `,
       isUnlocked: () => PlayerProgress.realityUnlocked() || TimeStudy.reality.isBought,
       tags: ["rm", "machines", "glyph", "perk", "reset", "prestige", "lategame"],
       tab: "reality/upgrades"
     }, {
-      name: "Glyphs",
+      name: "글리프",
       info: () => `
-A Glyph is an equippable object that has four attributes:
+글리프는 장착할 수 있는 물체로 다음 네 가지 속성을 가집니다.
 <br>
-<b>Type</b> - This is a name given to the Glyph based on what part of the game it will tend to boost
-(eg. "Glyph of X"). This determines the possible effects it may have.
+<b>종류</b> - 주로 강화하는 게임 요소에 따라 글리프에 붙는 이름입니다(예: "X 글리프"). 글리프가 가질 수
+있는 효과가 이 속성으로 결정됩니다.
 <br>
-<b>Level</b> - This contributes to how strong your Glyph is, and it scales based how much of various
-resources you obtained in the Reality you gained it from.
+<b>레벨</b> - 글리프의 강도에 영향을 주며, 글리프를 얻은 현실에서 여러 자원을 얼마나 획득했는지에 따라
+증가합니다.
 <br>
-<b>Rarity</b> - This is a percentage, between ${formatPercents(0)} and ${formatPercents(1)}, which also
-affects the strength of your Glyph. This is random, but can be influenced by various upgrades.
-The percentage is effectively a quality
-rating, higher values are better. Specific ranges of rarities are given names, such as Common or Uncommon.
+<b>희귀도</b> - ${formatPercents(0)}에서 ${formatPercents(1)} 사이의 비율로, 글리프의 강도에도 영향을
+줍니다. 무작위로 정해지지만 여러 업그레이드의 영향을 받을 수 있습니다. 이 비율은 실질적으로 품질을 나타내며
+높을수록 좋습니다. 희귀도의 각 범위에는 일반, 고급 같은 이름이 붙습니다.
 <br>
-<b>Effects</b> - These are the boosts that equipping the Glyph will give you, and can contain up to four effects.
-Glyphs with higher level or rarity will generally have more effects than weaker Glyphs.
+<b>효과</b> - 글리프를 장착했을 때 얻는 강화 효과이며, 최대 네 개까지 가질 수 있습니다. 레벨이나 희귀도가
+높은 글리프는 일반적으로 약한 글리프보다 더 많은 효과를 가집니다.
 <br>
-<b>Note: Your first Glyph will have a fixed effect and rarity, but its level will scale based on your progress before
-any Reality content. Once you receive a Glyph, its attributes cannot be changed.</b>
-<br>
-<br>
-To equip a Glyph, double-click or drag the icon from your inventory into one of the active circles in the middle
-of the screen. When equipped, Glyph icons become circular and add their effects to the list on the right.
+<b>참고: 첫 글리프의 효과와 희귀도는 고정되어 있지만, 레벨은 현실 콘텐츠 이전의 진행도에 따라 증가합니다.
+글리프를 받은 뒤에는 속성을 바꿀 수 없습니다.</b>
 <br>
 <br>
-Equipping multiple Glyphs with the same effect will combine their effects; effects with "+" will generally add
-their values together and effects with "×" will generally multiply their values together.
+글리프를 장착하려면 보관함의 아이콘을 더블 클릭하거나 화면 가운데의 활성 원 중 하나로 드래그하세요. 장착한
+글리프 아이콘은 원형으로 바뀌며 오른쪽 목록에 효과가 추가됩니다.
 <br>
 <br>
-You can equip Glyphs into <i>empty</i> active slots at any time during a Reality, which will immediately apply the
-effects of the new Glyph. You can also drag Glyphs into already-occupied slots to switch which ones you have equipped,
-but this will restart your current Reality.
+같은 효과를 가진 글리프를 여러 개 장착하면 효과가 결합됩니다. "+"가 붙은 효과는 일반적으로 값을 서로 더하고,
+"×"가 붙은 효과는 일반적으로 값을 서로 곱합니다.
 <br>
 <br>
-The slots in the first rows of your inventory are "protected" slots. New Glyphs will never be placed into them (even if
-there is no more room in your inventory), and they are unaffected by the Sort and Auto clean buttons. If you run out of
-space for new Glyphs in your inventory, any Glyphs you would receive will be automatically deleted (or sacrificed
-if unlocked).
+현실 도중 언제든 <i>빈</i> 활성 슬롯에 글리프를 장착할 수 있으며, 새 글리프의 효과가 즉시 적용됩니다.
+이미 차 있는 슬롯으로 글리프를 드래그해 장착한 글리프를 바꿀 수도 있지만, 현재 현실이 다시 시작됩니다.
 <br>
 <br>
-You can delete Glyphs from your inventory by shift-clicking them, which will prompt you with a confirmation dialog
-asking if you are sure you want to delete the Glyph. Holding shift and ctrl together while clicking will bypass this
-dialog. <b>However, deleting Glyphs will give you no benefit beyond clearing up inventory space if you do so before
-unlocking Glyph Sacrifice from a Reality Upgrade!</b>
+보관함의 첫 줄에 있는 슬롯은 "보호" 슬롯입니다. 보관함에 자리가 더 없어도 새 글리프가 이곳에 배치되지
+않으며, 정렬 및 자동 정리 버튼의 영향도 받지 않습니다. 보관함에 새 글리프를 넣을 공간이 없으면 받을 글리프가
+자동으로 삭제됩니다(잠금 해제했다면 희생됩니다).
 <br>
 <br>
-Once you unlock Glyph Sacrifice, you will be able to disable the Glyph Selection modal from appearing. If desired, you
-can force the modal to appear again for this Reality (ignoring this setting) by shift-clicking the Reality button.
-Completing a Reality with the selection modal disabled will choose a random Glyph from your options.
+보관함의 글리프를 Shift+클릭하면 정말 삭제할지 묻는 확인 창이 나타나고 글리프를 삭제할 수 있습니다.
+Shift와 Ctrl을 함께 누른 채 클릭하면 확인 창을 건너뜁니다. <b>하지만 현실 업그레이드에서 글리프 희생을
+잠금 해제하기 전에 글리프를 삭제하면 보관함 공간을 비우는 것 외에는 아무런 이득이 없습니다!</b>
 <br>
 <br>
-Clicking a group of circular Glyphs outside of a modal window will open up a modal which displays a detailed summary
-of all those Glyphs and their various attributes. The summary will show the information for all Glyphs at once with
-slightly shorter descriptions, making it more suitable for sharing with others. This can be done for Glyph records
-in the Statistics page, your equipped Glyphs, and the Upcoming Glyph Selection this Reality.
+글리프 희생을 잠금 해제하면 글리프 선택 모달이 나타나지 않도록 설정할 수 있습니다. 원한다면 현실 버튼을
+Shift+클릭해 이 설정을 무시하고 현재 현실에서 모달을 강제로 다시 표시할 수 있습니다. 선택 모달을 끈 채
+현실을 완료하면 선택지 중 무작위 글리프를 고릅니다.
+<br>
+<br>
+모달 창 밖에서 원형 글리프 묶음을 클릭하면 해당 글리프와 여러 속성의 자세한 요약을 보여 주는 모달이 열립니다.
+요약은 모든 글리프의 정보를 조금 더 짧은 설명과 함께 한꺼번에 보여 주어 다른 사람과 공유하기에 적합합니다.
+통계 페이지의 글리프 기록, 장착 중인 글리프, 이번 현실에 예정된 글리프 선택에서 사용할 수 있습니다.
 `,
       isUnlocked: () => PlayerProgress.realityUnlocked() || TimeStudy.reality.isBought,
       tags: ["reality", "sacrifice", "level", "lategame"],
       tab: "reality/glyphs"
     }, {
-      name: "Perks",
+      name: "퍼크",
       info: () => `
-Perks are a type of upgrade unlocked upon Reality. Each Perk effect varies, but most are QoL (quality of life)
-improvements which you can choose your own path through. All Perks only require ${formatInt(1)} Perk Point to buy.
+퍼크는 현실 이후 잠금 해제되는 업그레이드의 한 종류입니다. 퍼크마다 효과는 다르지만 대부분 편의성을
+개선하며, 원하는 경로를 직접 선택할 수 있습니다. 모든 퍼크는 구매하는 데 퍼크 포인트
+${formatInt(1)}개만 필요합니다.
 <br>
 <br>
-Each Reality you gain ${formatInt(1)} Perk Point which can be spent on an upgrade on the tree, starting with
-"You can now choose from ${formatInt(Perk.firstPerk.config.effect)} Glyphs on Reality". You can only unlock Perks
-which are directly adjacent
-to Perks you already have, although there are loops in the tree which you can go through in either direction.
+현실마다 퍼크 포인트 ${formatInt(1)}개를 얻어 트리의 업그레이드에 사용할 수 있으며, 처음에는
+"이제 현실에서 글리프 ${formatInt(Perk.firstPerk.config.effect)}개 중 하나를 선택할 수 있습니다"에서
+시작합니다. 이미 보유한 퍼크에 바로 인접한 퍼크만 잠금 해제할 수 있지만, 트리에는 어느 방향으로든 진행할 수
+있는 순환 경로도 있습니다.
 <br>
 <br>
-The Perk nodes can have two different shapes - circular or diamond. The only difference between the two is that
-diamond-shaped Perks give Automator Points in addition to their normal effect. Different nodes also have
-different colors, roughly indicating which part of the game they affect the most.
+퍼크 노드는 원형과 마름모형 두 가지 모양이 있습니다. 둘의 유일한 차이는 마름모형 퍼크가 일반 효과와 함께
+오토메이터 포인트도 제공한다는 것입니다. 노드마다 색도 다르며, 주로 게임의 어느 부분에 영향을 주는지 대략
+나타냅니다.
 `,
       isUnlocked: () => PlayerProgress.realityUnlocked() || TimeStudy.reality.isBought,
       tags: ["pp", "reality", "tree", "lategame"],
       tab: "reality/perks"
     }, {
-      name: "Automator Overview",
+      name: "오토메이터 개요",
       info: () => `
-The Automator is unlocked upon reaching a total of ${formatInt(AutomatorPoints.pointsForAutomator)} Automator Points.
-Automator Points are given when unlocking various Perks or Reality Upgrades, by unlocking the Black Hole, or by
-simply completing more Realities.
+오토메이터 포인트를 총 ${formatInt(AutomatorPoints.pointsForAutomator)}개 모으면 오토메이터가 잠금 해제됩니다.
+오토메이터 포인트는 여러 퍼크나 현실 업그레이드를 잠금 해제하거나, 블랙홀을 잠금 해제하거나, 단순히
+현실을 더 많이 완료하면 얻을 수 있습니다.
 <br>
 <br>
-The Automator uses a scripting language that allows you to automate nearly the entire game.
-The interface has two panes, a script pane on the left where you enter the commands to automate the game and a pane
-on the right which has multiple panels which do many different things as explained on the Automator Introduction page.
+오토메이터는 게임의 거의 모든 것을 자동화할 수 있는 스크립트 언어를 사용합니다. 화면은 두 영역으로 나뉩니다.
+왼쪽 스크립트 영역에는 게임을 자동화할 명령을 입력하고, 오른쪽에는 오토메이터 소개 페이지에서 설명하는 여러
+기능의 패널이 있습니다.
 <br>
 <br>
-If you want a larger workspace, you can press the button in the top right corner of the documentation pane of the
-Automator to expand it to fullscreen. You can also drag the boundary between the panes horizontally to resize the
-panes if you want more room to write your script or read documentation.
+더 넓은 작업 공간이 필요하다면 오토메이터 문서 영역 오른쪽 위의 버튼을 눌러 전체 화면으로 확장할 수 있습니다.
+영역 사이의 경계를 가로로 드래그해 크기를 조절하여 스크립트를 쓰거나 문서를 읽을 공간을 더 확보할 수도 있습니다.
 <br>
 <br>
-By pressing the top-right button on the script pane, you can switch between the Automator's block and text editor
-modes; the block mode may be more approachable if you are unfamiliar with programming. To enter commands in block mode,
-select the command block pane on the right and drag the box for the relevant command into the script pane and drop it
-where you want the command to go. Commands can be freely rearranged by dragging the blocks around if needed. Switching
-between block and text mode will attempt to automatically translate your script as well, although you may lose part of
-your converted script if it contains errors.
+스크립트 영역 오른쪽 위의 버튼을 누르면 오토메이터의 블록 편집기와 텍스트 편집기 모드를 전환할 수 있습니다.
+프로그래밍에 익숙하지 않다면 블록 모드가 더 쉽게 느껴질 수 있습니다. 블록 모드에서 명령을 입력하려면 오른쪽의
+명령 블록 영역을 선택한 뒤 해당 명령 상자를 스크립트 영역의 원하는 위치로 드래그해 놓으세요. 필요하면 블록을
+드래그해 명령 순서를 자유롭게 바꿀 수 있습니다. 블록과 텍스트 모드를 전환하면 스크립트도 자동 변환을 시도하지만,
+오류가 있다면 변환된 스크립트 일부가 사라질 수 있습니다.
 <br>
 <br>
-Just like your entire savefile, individual Automator scripts can be imported and exported from the game.
-Properly-formatted script strings will begin with <b>${GameSaveSerializer.startingString["automator script"]}</b> and
-end with <b>${GameSaveSerializer.endingString["automator script"]}</b>. If this is not the case then part of your script
-was lost in the process of copy-pasting. The import function will load the script into a new slot; your current script
-will not be lost or overwritten.
+전체 저장 파일과 마찬가지로 개별 오토메이터 스크립트도 게임에서 불러오거나 내보낼 수 있습니다. 올바른 형식의
+스크립트 문자열은 <b>${GameSaveSerializer.startingString["automator script"]}</b>(으)로 시작해
+<b>${GameSaveSerializer.endingString["automator script"]}</b>(으)로 끝납니다. 그렇지 않다면 복사하고 붙여
+넣는 과정에서 스크립트 일부가 빠진 것입니다. 불러온 스크립트는 새 슬롯에 저장되며 현재 스크립트는 사라지거나
+덮어쓰이지 않습니다.
 <br>
 <br>
-<b>Hotkey: U</b> will pause/unpause the Automator.
+<b>단축키: U</b>를 누르면 오토메이터를 일시 정지하거나 재개합니다.
 `,
       isUnlocked: () => Player.automatorUnlocked,
       tags: ["automation", "reality", "code", "script", "lategame"],
       tab: "automation/automator"
     }, {
-      name: "Automator Technical Details",
+      name: "오토메이터 기술 정보",
       info: () => `
-<b>Technical Limits</b>
+<b>기술적 제한</b>
 <br>
 <br>
-There are a few limitations to scripts in order to reduce lag and prevent save file size from getting too large.
-These limits are as follows:
+지연을 줄이고 저장 파일이 지나치게 커지는 것을 막기 위해 스크립트에는 다음과 같은 제한이 있습니다.
 <br>
-- Individual scripts are limited to a maximum of ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_CHARACTERS)}
-characters each and all scripts combined together cannot exceed ${formatInt(AutomatorData.MAX_ALLOWED_TOTAL_CHARACTERS)}
-characters total.
+- 개별 스크립트는 각각 최대 ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_CHARACTERS)}자까지 작성할 수 있으며,
+모든 스크립트를 합친 길이는 총 ${formatInt(AutomatorData.MAX_ALLOWED_TOTAL_CHARACTERS)}자를 넘을 수 없습니다.
 <br>
-- Script names cannot exceed ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_NAME_LENGTH)} characters.
+- 스크립트 이름은 ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_NAME_LENGTH)}자를 넘을 수 없습니다.
 <br>
-- Defined constants cannot have names longer than ${formatInt(AutomatorData.MAX_ALLOWED_CONSTANT_NAME_LENGTH)}
-characters, or values longer than ${formatInt(AutomatorData.MAX_ALLOWED_CONSTANT_VALUE_LENGTH)} characters.
+- 정의한 상수의 이름은 ${formatInt(AutomatorData.MAX_ALLOWED_CONSTANT_NAME_LENGTH)}자, 값은
+${formatInt(AutomatorData.MAX_ALLOWED_CONSTANT_VALUE_LENGTH)}자를 넘을 수 없습니다.
 <br>
-- You cannot have more than a total of ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_COUNT)} scripts or
-${formatInt(AutomatorData.MAX_ALLOWED_CONSTANT_COUNT)} defined constants.
+- 스크립트는 총 ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_COUNT)}개, 정의된 상수는
+${formatInt(AutomatorData.MAX_ALLOWED_CONSTANT_COUNT)}개를 넘게 보유할 수 없습니다.
 <br>
 <br>
-<b>Script Saving</b>
+<b>스크립트 저장</b>
 <br>
 <br>
-Scripts are automatically saved as you edit them, but are not saved to your game save until the global autosave timer
-(ie. "Time since last save") triggers a full game save. If you make changes to scripts right before closing the game,
-you should wait until the game saves afterwards in order to not lose your changes. Any edits made to your scripts
-while above the length limits will not be saved until you shorten your scripts to be below them again.
+스크립트는 편집하는 동안 자동으로 저장되지만, 전체 자동 저장 타이머(즉 "마지막 저장 이후 시간")가 게임
+전체를 저장하기 전까지는 게임 저장 파일에 반영되지 않습니다. 게임을 닫기 직전에 스크립트를 수정했다면 변경
+사항을 잃지 않도록 그 이후 게임이 저장될 때까지 기다려야 합니다. 길이 제한을 넘긴 상태에서 한 편집 내용은
+스크립트를 다시 제한 아래로 줄일 때까지 저장되지 않습니다.
 <br>
 <br>
-<b>Automator Ticks</b>
+<b>오토메이터 틱</b>
 <br>
 <br>
-The Automator's "execution timer" is based on real time, and is therefore unaffected by things such as the Black Hole,
-Time Glyph effects, and EC12's negative effect. However this execution timer runs entirely independently from the main
-game's production loop, meaning that at faster speeds the Automator can run multiple commands per production tick.
+오토메이터의 "실행 타이머"는 현실 시간을 기준으로 하므로 블랙홀, 시간 글리프 효과, EC12의 부정적 효과에
+영향받지 않습니다. 하지만 실행 타이머는 게임의 주 생산 반복과 완전히 독립적으로 작동하므로, 속도가 빠를 때는
+한 생산 틱에 오토메이터 명령 여러 개를 실행할 수 있습니다.
 <br>
 <br>
-Some commands are more intensive on the game's internal code and may take longer than a single Automator tick in order
-to process on slower computers. In that case, the Automator will execute those commands and then attempt to "catch up"
-by executing the following commands as quickly as possible until it has run as many commands as it should have at a
-constant execution speed.
+일부 명령은 게임 내부 코드의 처리량이 많아 느린 컴퓨터에서는 오토메이터 틱 하나보다 처리 시간이 길 수
+있습니다. 이 경우 오토메이터는 해당 명령을 실행한 뒤, 일정한 실행 속도라면 실행했어야 할 명령 수를 채울
+때까지 다음 명령을 최대한 빠르게 실행하여 "따라잡기"를 시도합니다.
 <br>
 <br>
-<b>Interactions with Offline Progress</b>
+<b>오프라인 진행과의 상호작용</b>
 <br>
 <br>
-Longer production ticks during Offline Progress simulation means that all of your resources are effectively given
-in large chunks instead of more continuously. This may have potentially adverse effects on your script's
-behavior while offline, depending on how exactly your script depends on the game state to work properly.
-Additionally, the PAUSE command may behave oddly due to it also being based on real time.
+오프라인 진행 시뮬레이션에서 생산 틱이 길어진다는 것은 모든 자원을 연속적으로 받는 대신 실질적으로 큰 덩어리로
+받는다는 뜻입니다. 스크립트가 올바르게 작동하기 위해 게임 상태에 얼마나 의존하는지에 따라 오프라인에서의
+동작에 좋지 않은 영향을 줄 수 있습니다. 또한 PAUSE 명령도 현실 시간을 기준으로 하므로 이상하게 작동할 수
+있습니다.
 `,
       isUnlocked: () => Player.automatorUnlocked,
       tags: ["automation", "reality", "code", "script", "lategame"],
       tab: "automation/automator"
     }, {
-      name: "Black Hole",
+      name: "블랙홀",
       info: () => `
-The Black Hole is a feature which speeds up how fast the game runs, on a periodic cycle.
-The game will run at normal speed for some amount of time, then have a burst of running extremely fast for a short
-period of time before going back to normal speed and repeating the cycle.
+블랙홀은 주기적으로 게임 진행 속도를 높이는 기능입니다. 게임이 일정 시간 정상 속도로 진행된 뒤 짧은 시간 동안
+극도로 빠르게 진행되고, 다시 정상 속도로 돌아가 이 주기를 반복합니다.
 <br>
 <br>
-Increased game speed from Black Holes is much stronger than tickspeed because unlike tickspeed, it affects
-<i>everything equally</i>, including things which are only partially affected by tickspeed
-(eg. Infinity/Time Dimensions), things which are normally completely unaffected (eg. DT/TT generation),
-and effects which are boosted purely on time spent (eg. idle path IP/EP multipliers).
+블랙홀의 게임 속도 증가는 틱스피드보다 훨씬 강력합니다. 틱스피드와 달리 일부만 영향받는 요소(예: 무한/시간
+차원), 일반적으로 전혀 영향받지 않는 요소(예: 팽창된 시간/시간 정리 생성), 순수하게 경과 시간으로 강화되는
+효과(예: 방치 경로의 무한/영원 포인트 배율)를 포함해 <i>모든 것에 똑같이</i> 영향을 주기 때문입니다.
 <br>
 <br>
-While most features in the game are boosted by this increased game speed, there are some which remain unaffected.
-In these cases, it will be specifically mentioned that a given time is stated as <i>real time</i> as opposed to
-<i>game time</i>. One such example is the set of Perks which automatically completes Eternity Challenges over time.
-Otherwise, it should be assumed from this point onward that all references to time are for <i>game time</i>.
-Note that this also includes situations where you may want to have a <i>lower</i> amount of time spent, like
-the Reality Upgrade "Replicative Rapidity" for example.
+게임의 대부분 기능은 증가한 게임 속도로 강화되지만 영향을 받지 않는 요소도 있습니다. 이런 경우 해당 시간이
+<i>게임 시간</i>이 아니라 <i>현실 시간</i>이라고 명확히 표시됩니다. 시간이 지나면 영원 도전을 자동 완료하는
+퍼크 묶음이 한 예입니다. 별도 표시가 없다면 이제부터 언급되는 모든 시간은 <i>게임 시간</i>이라고 보면 됩니다.
+현실 업그레이드 "복제의 신속함"처럼 경과 시간이 <i>짧기를</i> 원하는 상황도 여기에 포함됩니다.
 <br>
 <br>
-You can buy upgrades for the Black Hole by using Reality Machines. There are three upgrades for the Black Hole:
+리얼리티 머신으로 블랙홀 업그레이드를 구매할 수 있습니다. 블랙홀에는 세 가지 업그레이드가 있습니다.
 <br>
-<b>Interval</b> - How long the Black Hole is inactive between bursts,
-reduced by ${formatPercents(0.2)} per upgrade.
+<b>간격</b> - 폭발적인 가속 사이에 블랙홀이 비활성화되는 시간으로, 업그레이드마다
+${formatPercents(0.2)}씩 감소합니다.
 <br>
-<b>Power</b> - How much faster the game runs during the temporary speed bursts,
-increased by ${formatPercents(0.35)} per upgrade.
+<b>배율</b> - 일시적인 가속 중 게임이 얼마나 빠르게 진행되는지 나타내며, 업그레이드마다
+${formatPercents(0.35)}씩 증가합니다.
 <br>
-<b>Duration</b> - How long each speed burst lasts before going back to normal speed,
-increased by ${formatPercents(0.3)} per upgrade.
-<br>
-<br>
-${formatInt(100)} days of <i>game time</i> after unlocking the Black Hole, you unlock the ability to purchase
-a Reality Upgrade that allows you to have a second Black Hole.
-The timer on the second Black Hole only advances when the first Black Hole is active. So, for example, if the first
-Black Hole has a duration of ${formatInt(4)} minutes and the second has an interval of ${formatInt(8)} minutes, the
-second Black Hole will only activate once every two cycles of the first Black Hole regardless of how short the
-first Black Hole's interval is. Note that the timer shown in the in-game header takes account of this and shows
-the actual time until the second Black Hole activates; in the Black Hole tab, you can see the amount of time with
-the first Black Hole active needed for the second Black Hole to activate.
+<b>지속 시간</b> - 정상 속도로 돌아가기 전까지 가속이 지속되는 시간으로, 업그레이드마다
+${formatPercents(0.3)}씩 증가합니다.
 <br>
 <br>
-When a Black Hole is active at least ${formatPercents(0.9999, 2)} of the time, it becomes permanently active.
-This is tracked separately for the two Black Holes.
+블랙홀을 잠금 해제한 뒤 <i>게임 시간</i>으로 ${formatInt(100)}일이 지나면 두 번째 블랙홀을 보유하게 하는
+현실 업그레이드를 구매할 수 있습니다. 두 번째 블랙홀의 타이머는 첫 번째 블랙홀이 활성화된 동안에만
+진행됩니다. 예를 들어 첫 번째 블랙홀의 지속 시간이 ${formatInt(4)}분이고 두 번째 블랙홀의 간격이
+${formatInt(8)}분이라면, 첫 번째 블랙홀의 간격이 아무리 짧아도 두 번째 블랙홀은 첫 번째 블랙홀의 두 주기마다
+한 번만 활성화됩니다. 게임 머리글의 타이머는 이를 반영해 두 번째 블랙홀이 활성화될 때까지의 실제 시간을
+보여 줍니다. 블랙홀 탭에서는 두 번째 블랙홀이 활성화되는 데 필요한 첫 번째 블랙홀의 활성 시간을 볼 수 있습니다.
 <br>
 <br>
-While offline, Black Hole cycles will still advance normally and their active speed boosts will apply fully as if the
-game were still open. Offline time simulates segments of inactive and active Black Holes with different tick lengths
-in order to reduce the negative effects of small tick count during active periods; the entry for "Offline Progress"
-has been updated with more technical details.
+블랙홀이 전체 시간 중 적어도 ${formatPercents(0.9999, 2)} 동안 활성화되면 영구적으로 활성화됩니다.
+두 블랙홀은 이 값을 따로 계산합니다.
 <br>
 <br>
-The Black Holes can be paused, completely halting their interval/duration cycle. However, when unpausing them, it will
-take ${BlackHoles.ACCELERATION_TIME} real-time seconds for them to go from inactive to their maximum boosted speed.
-This acceleration time will still advance the cycle as if it were running at full speed; so
-while pausing gives some more control, it also ultimately results in some boosted time being lost.
+오프라인에서도 블랙홀 주기는 정상적으로 진행되며, 게임을 켜 둔 것처럼 활성 속도 배율이 온전히 적용됩니다.
+오프라인 시간은 활성 구간의 적은 틱 수가 주는 부정적 영향을 줄이기 위해 블랙홀의 비활성 및 활성 구간을 서로
+다른 틱 길이로 시뮬레이션합니다. 자세한 기술 정보는 "오프라인 진행" 항목에서 볼 수 있습니다.
 <br>
 <br>
-Pausing and unpausing affects both Black Holes; they cannot be paused or unpaused independently. They can be paused
-automatically ${BlackHoles.ACCELERATION_TIME} real-time seconds before activation by toggling the relevant setting on
-the Black Hole tab.
+블랙홀을 일시 정지하면 간격/지속 시간 주기가 완전히 멈춥니다. 하지만 다시 시작하면 비활성 상태에서 최대
+가속 속도에 도달하기까지 현실 시간으로 ${BlackHoles.ACCELERATION_TIME}초가 걸립니다. 가속 중에도 최대 속도로
+작동하는 것처럼 주기는 계속 진행되므로, 일시 정지로 제어력을 조금 더 얻는 대신 일부 가속 시간을 잃게 됩니다.
 <br>
 <br>
-<b>Upgrade Cost Information:</b>
-<br>
-<b>Interval</b> - Base cost of ${formatInt(15)} RM and increase of ${formatX(3.5, 0, 1)} per upgrade.
-<br>
-<b>Power</b> - Base cost of ${formatInt(20)} RM and increase of ${formatX(2)} per upgrade.
-<br>
-<b>Duration</b> - Base cost of ${formatInt(10)} RM and increase of ${formatX(4)} per upgrade.
-<br>
-<b>Increased cost scaling:</b> Above ${format(1e30)} RM, the cost multiplier between purchases increases by an additive
-+${format(0.2, 0, 1)} per upgrade. Above ${format(Number.MAX_VALUE, 1)} RM, a new scaling occurs which ignores all the
-previous behavior. From this point, all upgrades instead behave as if they had an initial cost of ${format(DC.E310)}
-and further upgrade costs increase by ${format(1e6)}, ${format(1e7)}, and so on (${formatX(10)} between upgrades).
-<br>
-<b>Black Hole 2:</b> All upgrades have an initial cost ${formatX(1000)} higher than the first Black Hole,
-but the same cost multipliers.
+일시 정지와 재개는 두 블랙홀에 모두 영향을 주며 따로 제어할 수 없습니다. 블랙홀 탭에서 관련 설정을 켜면
+활성화되기 현실 시간 ${BlackHoles.ACCELERATION_TIME}초 전에 자동으로 일시 정지할 수 있습니다.
 <br>
 <br>
-<b>Hotkey: B</b> will pause/unpause the Black Holes.
+<b>업그레이드 비용 정보:</b>
+<br>
+<b>간격</b> - 기본 비용은 ${formatInt(15)} RM이며 업그레이드마다 ${formatX(3.5, 0, 1)}씩 증가합니다.
+<br>
+<b>배율</b> - 기본 비용은 ${formatInt(20)} RM이며 업그레이드마다 ${formatX(2)}씩 증가합니다.
+<br>
+<b>지속 시간</b> - 기본 비용은 ${formatInt(10)} RM이며 업그레이드마다 ${formatX(4)}씩 증가합니다.
+<br>
+<b>비용 스케일링 증가:</b> ${format(1e30)} RM 이후에는 구매 사이의 비용 배율이 업그레이드마다 덧셈으로
++${format(0.2, 0, 1)}씩 증가합니다. ${format(Number.MAX_VALUE, 1)} RM 이후에는 이전 동작을 모두 무시하는
+새 스케일링이 적용됩니다. 이 시점부터 모든 업그레이드는 초기 비용이 ${format(DC.E310)}인 것처럼 작동하며,
+이후 비용은 ${format(1e6)}, ${format(1e7)} 등으로 증가합니다(업그레이드 사이 ${formatX(10)}).
+<br>
+<b>블랙홀 2:</b> 모든 업그레이드의 초기 비용은 첫 번째 블랙홀보다 ${formatX(1000)} 높지만 비용 배율은 같습니다.
+<br>
+<br>
+<b>단축키: B</b>를 누르면 블랙홀을 일시 정지하거나 재개합니다.
 `,
       isUnlocked: () => player.blackHole[0].unlocked,
       tags: ["reality", "time", "speed", "duration", "interval", "rm", "lategame"],
       tab: "reality/hole"
     }, {
-      name: "Celestials",
+      name: "셀레스티얼",
       info: () => `
-Once you get all of the Reality Upgrades, the first Celestial is unlocked. This opens up a new tab for Celestials, next
-to the Reality tab. The first subtab under the Celestials tab shows a map called "Celestial Navigation" which updates as
-you progress through the game. Only part of the map will be visible when first unlocked, but new content will gradually
-be revealed as you approach it, generally with a visual indication of your progress towards the next step.
+현실 업그레이드를 모두 얻으면 첫 번째 셀레스티얼이 잠금 해제됩니다. 현실 탭 옆에 새 셀레스티얼 탭이
+열립니다. 셀레스티얼 탭의 첫 하위 탭에는 게임 진행에 따라 갱신되는 "셀레스티얼 항해" 지도가 표시됩니다.
+처음 잠금 해제했을 때는 지도 일부만 보이지만 새로운 콘텐츠에 가까워질수록 점차 드러나며, 일반적으로 다음
+단계까지의 진행도가 시각적으로 표시됩니다.
 <br>
 <br>
-Each Celestial has unique mechanics and upgrades, and you need to defeat all seven to beat the game.
-Unlocking or defeating a Celestial has different conditions depending on the Celestial's mechanics.
+각 셀레스티얼은 고유한 메커니즘과 업그레이드를 가지며, 게임을 완료하려면 일곱 셀레스티얼을 모두 쓰러뜨려야
+합니다. 셀레스티얼을 잠금 해제하거나 쓰러뜨리는 조건은 각자의 메커니즘에 따라 다릅니다.
 <br>
 <br>
-All Celestials have their own Celestial Reality, but how the Reality is relevant to each Celestial and the rest of
-the game will depend on the Celestial.
+모든 셀레스티얼은 자신만의 셀레스티얼 현실을 가지지만, 이 현실이 해당 셀레스티얼과 게임의 나머지
+부분에 어떤 관계를 가지는지는 셀레스티얼마다 다릅니다.
 <br>
 <br>
-Celestials are timeless entities. Unless otherwise stated, any new mechanics introduced by Celestials are not affected
-by game speed multipliers and instead refer specifically to real time instead of game time.
+셀레스티얼은 시간을 초월한 존재입니다. 별도 설명이 없다면 셀레스티얼이 도입하는 새 메커니즘은 게임 속도
+배율의 영향을 받지 않으며 게임 시간이 아닌 현실 시간을 기준으로 합니다.
 `,
       isUnlocked: () => Teresa.isUnlocked,
       tags: ["reality", "challenges", "lategame"],
       tab: "celestials/celestial-navigation"
     }, {
-      name: "Teresa, Celestial of Reality",
+      name: "테레사, 현실의 셀레스티얼",
       alias: "Teresa",
       info: () => `
-Teresa is the first Celestial. They are unlocked by Achievement 147, which requires obtaining all Reality Upgrades.
+테레사는 첫 번째 셀레스티얼입니다. 모든 현실 업그레이드를 얻어야 하는 도전과제 147을 달성하면 잠금
+해제됩니다.
 <br>
 <br>
-On the main screen, there is a bar with a button above it that says "Pour RM". This allows you to put your RM into the
-container for a Reality Machine multiplier. RM which has been poured into the container cannot be retrieved.
-When you reach ${format(TeresaUnlocks.run.price)} RM inside of the container, you unlock Teresa's Reality.
+메인 화면에는 위에 "RM 붓기" 버튼이 있는 막대가 있습니다. RM을 용기에 넣어 리얼리티 머신 배율을 얻을 수
+있습니다. 용기에 부은 RM은 되찾을 수 없습니다. 용기 안의 RM이 ${format(TeresaUnlocks.run.price)}에
+도달하면 테레사의 현실이 잠금 해제됩니다.
 <br>
 <br>
-When you complete Teresa's Reality,
+테레사의 현실을 완료하면
 ${Teresa.runCompleted
-    ? "your Glyph Sacrifice is multiplied based on the amount of antimatter gained during the run"
-    : "<div style='color: var(--color-bad);'>(complete Teresa's Reality to see the reward)</div>"}.
-Completing Teresa's Reality is only part of the story; you need to keep pouring RM in order to progress. Once
-you are at ${format(TeresaUnlocks.effarig.price)} RM in the container, you will unlock the next Celestial.
+    ? "도전 중 얻은 반물질에 따라 글리프 희생에 배율이 적용됩니다"
+    : "<div style='color: var(--color-bad);'>(보상을 보려면 테레사의 현실을 완료하세요)</div>"}.
+테레사의 현실 완료는 이야기의 일부일 뿐이며, 진행하려면 계속 RM을 부어야 합니다. 용기의 RM이
+${format(TeresaUnlocks.effarig.price)}에 도달하면 다음 셀레스티얼이 잠금 해제됩니다.
 <br>
 <br>
 ${Teresa.runCompleted
-    ? "Teresa's Reality can be entered again after completing it, and its reward will become stronger if you " +
-      "reach a higher amount of antimatter on this repeat run."
-    : "(More information available - complete Teresa's Reality)"}
+    ? "테레사의 현실은 완료한 뒤에도 다시 진입할 수 있으며, 반복 도전에서 더 많은 반물질에 도달하면 " +
+      "보상이 강해집니다."
+    : "(추가 정보가 있습니다 - 테레사의 현실을 완료하세요)"}
 `,
       isUnlocked: () => Teresa.isUnlocked,
       tags: ["rm", "lategame", "perks", "sacrifice", "boo", "ghost", "celestial"],
       tab: "celestials/teresa"
     }, {
-      name: "Effarig, Celestial of Ancient Relics",
+      name: "에파리그, 고대 유물의 셀레스티얼",
       alias: "Effarig",
       info: () => `
-Effarig is the second Celestial you encounter.
-They are unlocked by pouring at least ${format(TeresaUnlocks.effarig.price)} RM into Teresa's container.
+에파리그는 두 번째로 만나는 셀레스티얼입니다. 테레사의 용기에 RM을 적어도
+${format(TeresaUnlocks.effarig.price)}만큼 부으면 잠금 해제됩니다.
 <br>
 <br>
-Effarig introduces a currency called Relic Shards, which are obtained by using different kinds of Glyph effects during
-a Reality. The number of distinct effects active during the Reality very strongly affects Relic Shard gain, and EP
-affects it to a much lesser degree. Relic Shards are the currency for Effarig unlocks, and will be gained from every
-Reality from now on.
+에파리그는 현실에서 서로 다른 종류의 글리프 효과를 사용해 얻는 유물 파편이라는 화폐를 도입합니다.
+현실 중 활성화된 고유 효과의 수가 유물 파편 획득량에 매우 큰 영향을 주며, 영원 포인트도 훨씬 약하게
+영향을 줍니다. 유물 파편은 에파리그 잠금 해제에 쓰이는 화폐이며, 이제부터 모든 현실에서 얻습니다.
 <br>
 <br>
-Using Relic Shards, you can purchase multiple upgrades (see "Advanced Glyph Mechanics") which improve your Glyphs and
-allow you to filter them based on their effects and rarity when you are doing fully automated Realities.
+유물 파편으로 글리프를 개선하고 완전 자동 현실에서 효과와 희귀도에 따라 글리프를 거르는 여러 업그레이드를
+구매할 수 있습니다("고급 글리프 메커니즘" 참고).
 <br>
 <br>
-Effarig's final unlock is their own Reality at ${format(GameDatabase.celestials.effarig.unlocks.run.cost)} Relic
-Shards.
+에파리그의 마지막 잠금 해제 요소는 유물 파편 ${format(GameDatabase.celestials.effarig.unlocks.run.cost)}개에서
+열리는 에파리그의 현실입니다.
 ${EffarigUnlock.run.isUnlocked
-    ? "Their Reality is divided into three layers: Infinity, Eternity, and Reality. You must complete each layer " +
-      "before getting access to the next one. Completing Effarig's Eternity unlocks the next Celestial."
-    : "<div style='color: var(--color-effarig--base);'>(unlock Effarig's Reality to see details about it)</div>"
+    ? "에파리그의 현실은 무한, 영원, 현실의 세 단계로 나뉩니다. 각 단계를 완료해야 다음 단계에 " +
+      "진입할 수 있습니다. 에파리그의 영원을 완료하면 다음 셀레스티얼이 잠금 해제됩니다."
+    : "<div style='color: var(--color-effarig--base);'>(자세한 내용을 보려면 에파리그의 현실을 잠금 해제하세요)</div>"
 }
 <br>
 <br>
-Completing Effarig's Reality unlocks
+에파리그의 현실을 완료하면
 ${EffarigUnlock.reality.isUnlocked
-    ? `a new Glyph type, <span style='color: var(--color-effarig--base);'>Effarig</span> Glyphs. Effarig Glyphs have
-      ${formatInt(7)} different possible effects, which you can view in the Glyph filter settings. You can only
-      have one Effarig Glyph equipped at a time.
+    ? `새 글리프 종류인 <span style='color: var(--color-effarig--base);'>에파리그</span> 글리프가 잠금
+      해제됩니다. 에파리그 글리프는 ${formatInt(7)}가지 효과를 가질 수 있으며 글리프 필터 설정에서 확인할 수
+      있습니다. 한 번에 에파리그 글리프 하나만 장착할 수 있습니다.
 ${Ra.unlocks.glyphEffectCount.canBeApplied
-    ? `Due to having Effarig at level 10 within Ra, there are no longer any restrictions on effects that appear on
-      Effarig Glyphs. Any given Effarig Glyph can now have up to all ${formatInt(7)} effects at the same time.`
-    : `Effarig Glyphs can only have at most ${formatInt(4)} effects, and the RM multiplier and Glyph instability
-      effects cannot appear together on the same Glyph.`}`
-    : "<span style='color: var(--color-effarig--base);'>(complete Effarig's Reality to see reward details)</span>"}
+    ? `라 안에서 에파리그가 레벨 10에 도달했으므로 에파리그 글리프에 나타나는 효과 제한이 사라집니다.
+      이제 에파리그 글리프 하나에 ${formatInt(7)}가지 효과가 모두 동시에 나타날 수 있습니다.`
+    : `에파리그 글리프는 최대 ${formatInt(4)}개의 효과만 가질 수 있으며, RM 배율과 글리프 불안정 효과는
+      같은 글리프에 함께 나타날 수 없습니다.`}`
+    : "<span style='color: var(--color-effarig--base);'>(보상 정보를 보려면 에파리그의 현실을 완료하세요)</span>"}
 <br>
 <br>
 `,
@@ -1289,127 +1221,120 @@ ${Ra.unlocks.glyphEffectCount.canBeApplied
       tags: ["glyph", "sacrifice", "shards", "reality", "spectralflame", "lategame", "celestial"],
       tab: "celestials/effarig"
     }, {
-      name: "Advanced Glyph Mechanics",
+      name: "고급 글리프 메커니즘",
       info: () => `
-Glyph level Adjustment is purchasable for ${format(GameDatabase.celestials.effarig.unlocks.adjuster.cost)} Relic
-Shards. This allows you to set weights for each resource (EP, DT, Replicanti, Eternities), in how much they affect the
-level of Glyphs gained on Reality.
+글리프 레벨 조정은 유물 파편 ${format(GameDatabase.celestials.effarig.unlocks.adjuster.cost)}개로 구매할 수
+있습니다. 영원 포인트, 팽창된 시간, 복제자, 영원이 현실에서 얻는 글리프의 레벨에 미치는 가중치를 각각
+설정할 수 있습니다.
 <br>
 <br>
-Automatic Glyph Filtering is purchasable for ${format(GameDatabase.celestials.effarig.unlocks.glyphFilter.cost)}
-Relic Shards. This system uses one of many methods to assign a score to your Glyph choices, and then picks the choice
-with the highest score. After picking this Glyph, it checks the score against a threshold and either keeps it if the
-score is above the threshold, or sacrifices it instead. There are three basic modes:
+자동 글리프 필터는 유물 파편 ${format(GameDatabase.celestials.effarig.unlocks.glyphFilter.cost)}개로 구매할 수
+있습니다. 여러 방식 중 하나를 사용해 글리프 선택지에 점수를 매긴 뒤 점수가 가장 높은 선택지를 고릅니다.
+글리프를 고른 다음 점수를 기준값과 비교하여 기준보다 높으면 보관하고, 그렇지 않으면 희생합니다. 기본 모드는
+세 가지입니다.
 <br>
-<b>Lowest total sacrifice:</b> Glyphs are given a score based on how much sacrifice value you have of that
-particular Glyph's type. Glyphs of the type you have the least sacrifice value in will have the highest score.
-This mode does not have a threshold and always sacrifices your Glyphs.
+<b>가장 낮은 총 희생량:</b> 해당 글리프 종류의 희생 수치에 따라 점수를 매깁니다. 희생 수치가 가장 낮은
+종류의 글리프가 가장 높은 점수를 받습니다. 이 모드에는 기준값이 없으며 글리프를 항상 희생합니다.
 <br>
-<b>Number of effects:</b> Glyphs are given a score equal to the number of effects they have, and when multiple
-Glyphs have the same effect count, Glyphs with higher rarity will be picked. The threshold they are
-compared to is specified by your input in the text box.
+<b>효과 수:</b> 글리프가 가진 효과 수만큼 점수를 매기며, 여러 글리프의 효과 수가 같다면 희귀도가 높은
+글리프를 고릅니다. 비교할 기준값은 텍스트 상자에 입력한 값으로 정합니다.
 <br>
-<b>Rarity Threshold Mode:</b> Glyphs are given a score equal to their rarity percent. The comparison threshold
-can be set individually per Glyph type.
+<b>희귀도 기준 모드:</b> 글리프의 희귀도 비율만큼 점수를 매깁니다. 비교 기준은 글리프 종류마다 따로 설정할
+수 있습니다.
 <br>
 <br>
-Additionally, there are two more advanced modes with some additional flexibility. You may not need these initially, but
-they can come in handy later on:
+이와 함께 더 유연하게 설정할 수 있는 고급 모드가 두 가지 더 있습니다. 처음에는 필요하지 않을 수 있지만
+나중에 유용할 수 있습니다.
 <br>
-<b>Specified Effect Mode:</b> Glyphs are given a score equal to their rarity and checked against the rarity threshold
-you specify, but this score is modified based on your inputs for effects. The Glyph will be checked for having a minimum
-number of effects and having all of the effects you choose, and its score is lowered by ${formatInt(200)} for every
-missing effect. This guarantees that any Glyph that does not have the effects you want will be below the threshold. You
-can forbid specific Glyph <i>types</i> by setting impossible conditions (eg. at least ${formatInt(6)} effects on a Power
-Glyph will prevent Power Glyphs from being selected).
+<b>지정 효과 모드:</b> 글리프의 희귀도만큼 점수를 매겨 지정한 희귀도 기준과 비교하지만, 효과 입력값에 따라
+점수가 변합니다. 글리프가 최소 효과 수와 선택한 효과를 모두 가졌는지 확인하고, 빠진 효과마다 점수를
+${formatInt(200)}씩 낮춥니다. 따라서 원하는 효과가 없는 글리프는 반드시 기준보다 낮아집니다. 달성 불가능한
+조건을 설정해 특정 글리프 <i>종류</i>를 금지할 수도 있습니다. 예를 들어 힘 글리프에 효과를 적어도
+${formatInt(6)}개 요구하면 힘 글리프가 선택되지 않습니다.
 <br>
-<b>Effect Score Mode:</b> The score of a Glyph is calculated from its rarity plus the score of each effect it has,
-and you can set the threshold and values of each effect individually. Some possible ways this could be used:
+<b>효과 점수 모드:</b> 글리프의 희귀도와 가진 효과 각각의 점수를 더해 점수를 계산하며, 기준과 각 효과의
+값을 따로 설정할 수 있습니다. 활용 예시는 다음과 같습니다.
 <br>
-- Giving a weaker effect a value of ${formatInt(5)} allows you to keep Glyphs without that effect as long as they are
-rarer to compensate for being weaker
+- 약한 효과에 ${formatInt(5)}의 값을 주면 그 효과가 없는 글리프도 더 높은 희귀도로 약함을 보완하는 한
+보관할 수 있습니다.
 <br>
-- Assigning a large negative score to a certain effect you do <i>not</i> want will forbid Glyphs with that effect from
-being selected; this can be useful for effect testing and other more limited situations
+- 원하지 <i>않는</i> 특정 효과에 큰 음수 점수를 주면 해당 효과를 가진 글리프가 선택되지 않습니다. 효과를
+시험하거나 그 밖의 제한적인 상황에 유용합니다.
 <br>
-- Setting an impossible condition (eg. a threshold score of ${formatInt(999)} and all effects worth ${formatInt(0)})
-will let you forbid entire types like Specified Effect Mode as well
-<br>
-<br>
-The Glyph Filter mode is a global setting which applies to all Glyph types at once; for example, you cannot filter
-power Glyphs with "Rarity Threshold" and time Glyphs with "Specified Effect". Selecting one mode will require
-you to configure every Glyph type within its settings for proper filtering. Each filter mode has its own settings
-which will be kept if you switch to another mode.
+- 달성 불가능한 조건(예: 기준 점수 ${formatInt(999)}, 모든 효과의 값 ${formatInt(0)})을 설정하면 지정 효과
+모드처럼 종류 전체를 금지할 수 있습니다.
 <br>
 <br>
-Unlocking the Glyph Filter also lets you use the highest Glyph score amongst your upcoming choices as a comparable
-Currency in the Automator. Additionally, you can make your Filter force an immediate Reality (once available) if
-none of the upcoming choices will be kept by the filter, as long as the Reality autobuyer is on.
+글리프 필터 모드는 모든 글리프 종류에 한꺼번에 적용되는 전체 설정입니다. 예를 들어 힘 글리프에는 "희귀도
+기준", 시간 글리프에는 "지정 효과"를 따로 적용할 수 없습니다. 모드를 하나 선택하면 올바르게 필터링하도록
+설정 안에서 모든 글리프 종류를 구성해야 합니다. 각 필터 모드에는 고유한 설정이 있으며 다른 모드로 전환해도
+유지됩니다.
 <br>
 <br>
-Glyph Presets are purchasable for ${format(GameDatabase.celestials.effarig.unlocks.setSaves.cost)} Relic
-Shards. This unlocks ${formatInt(7)} slots that allow you to save your currently equipped Glyphs into sets.
-You cannot overwrite a set, you must delete it first. When you load a set, each Glyph in it is found and equipped.
-If any are not found, it will display a warning, but equip all the rest regardless.
-When loading a set, you can be Level and/or Rarity sensitive. The best Glyph from the possible Glyphs
-will always be the one equipped. Just like other groups of circular Glyphs, you can click any of them
-in order to bring up a modal summarizing the whole set of Glyphs.
+글리프 필터를 잠금 해제하면 예정된 선택지 중 가장 높은 글리프 점수를 오토메이터에서 비교 가능한 화폐로 사용할
+수 있습니다. 또한 현실 자동구매기가 켜져 있고 예정된 선택지 중 필터가 보관할 글리프가 없다면, 가능한
+즉시 현실을 강제로 수행하도록 필터를 설정할 수 있습니다.
+<br>
+<br>
+글리프 프리셋은 유물 파편 ${format(GameDatabase.celestials.effarig.unlocks.setSaves.cost)}개로 구매할 수
+있습니다. 현재 장착한 글리프를 묶음으로 저장하는 슬롯 ${formatInt(7)}개가 잠금 해제됩니다. 묶음을 덮어쓸
+수는 없으므로 먼저 삭제해야 합니다. 묶음을 불러오면 안의 각 글리프를 찾아 장착합니다. 일부 글리프를 찾지
+못하면 경고를 표시하지만 나머지는 모두 장착합니다. 묶음을 불러올 때 레벨 및/또는 희귀도를 구분하도록 설정할
+수 있으며, 가능한 글리프 중 가장 좋은 글리프가 항상 장착됩니다. 다른 원형 글리프 묶음과 마찬가지로 하나를
+클릭하면 전체 글리프 묶음을 요약하는 모달이 열립니다.
 `,
       isUnlocked: () => EffarigUnlock.adjuster.isUnlocked,
       tags: ["glyph", "weight", "adjustment", "sacrifice", "filter", "threshold", "set", "save", "reality", "lategame"],
       tab: "celestials/glyphfilter"
     }, {
-      name: "The Nameless Ones, Celestial of Time",
+      name: "이름없는 자들, 시간의 셀레스티얼",
       alias: "Nameless Ones",
       info: () => `
-The Nameless Ones are the third Celestial, unlocked by completing Effarig's Eternity.
+이름없는 자들은 세 번째 셀레스티얼이며, 에파리그의 영원을 완료하면 잠금 해제됩니다.
 <br>
 <br>
-When unlocking The Nameless Ones, you immediately gain access to two new mechanics related to time. You can store
-"game time" by charging your Black Hole, and you can store "real time" by intentionally halting your production.
-Stored game time is also used as a currency for purchasing unlocks from The Nameless Ones.
+이름없는 자들을 잠금 해제하면 시간과 관련된 두 가지 새 메커니즘을 즉시 이용할 수 있습니다. 블랙홀을 충전해
+"게임 시간"을 저장하고, 생산을 의도적으로 멈춰 "현실 시간"을 저장할 수 있습니다. 저장된 게임 시간은 이름
+없는 자들의 잠금 해제 요소를 구매하는 화폐로도 사용됩니다.
 <br>
 <br>
-Charging your Black Hole gives you stored game time, which it does at the expense of setting your game speed to
-${formatInt(1)}. The game is in effect using your increased game speed in order to store game time itself. Its
-main use is to discharge the Black Hole, which takes uses your stored game time to skip forward in time by a duration
-equal to the game time stored. This is different than regular game speed multipliers in that discharging is not subject
-to any modifiers to game speed when it is used, only when it is stored.
+블랙홀을 충전하면 게임 속도가 ${formatInt(1)}로 고정되는 대신 게임 시간을 저장합니다. 실질적으로 증가한
+게임 속도를 사용해 게임 시간 자체를 저장하는 것입니다. 주된 용도는 블랙홀을 방출해 저장된 게임 시간만큼
+시간을 건너뛰는 것입니다. 방출은 사용할 때 게임 속도 변경 효과의 영향을 받지 않고 저장할 때만 영향을 받는다는
+점에서 일반적인 게임 속도 배율과 다릅니다.
 <br>
 <br>
-Storing real time completely stops all production, effectively pausing your game. For every real-time second that
-passes, you gain stored real time (modified by some efficiency factor). You can use stored real time in order to
-amplify a Reality in the Glyphs tab. When you complete the Reality, this uses all of your stored real time at once
-in order to attempt to repeat that
-exact Reality over and over, giving you all the rewards you would normally get from the repetitions. For example, if
-you have ${formatInt(50)} minutes stored and amplify a Reality which has lasted ${formatInt(10)} minutes and would
-give ${format(DC.E30)} RM and ${format(DC.E12)} Relic Shards, the amplified Reality will give you ${format(5e30)} RM,
-${format(5e12)} Relic Shards, ${formatInt(5)} Glyphs (subject to your filtering settings),
-and ${formatInt(5)} Perk Points.
+현실 시간을 저장하면 모든 생산이 완전히 멈춰 게임이 사실상 일시 정지됩니다. 현실 시간으로 매초가 지날 때마다
+효율 배율이 적용된 현실 시간을 저장합니다. 저장된 현실 시간은 글리프 탭에서 현실을 증폭하는 데 사용할 수
+있습니다. 현실을 완료하면 저장된 현실 시간을 한꺼번에 사용해 똑같은 현실을 반복하려고 시도하며, 반복할
+때 정상적으로 얻을 보상을 모두 받습니다. 예를 들어 ${formatInt(50)}분을 저장한 상태에서 ${formatInt(10)}분
+동안 진행되어 ${format(DC.E30)} RM과 유물 파편 ${format(DC.E12)}개를 주는 현실을 증폭하면,
+${format(5e30)} RM, 유물 파편 ${format(5e12)}개, 글리프 ${formatInt(5)}개(필터 설정 적용), 퍼크 포인트
+${formatInt(5)}개를 얻습니다.
 <br>
 <br>
-However, if your Reality has lasted for less than ${formatInt(1)} second, the amplification factor is capped by the
-amount of seconds stored. For example, if you have ${formatInt(1000)} seconds stored and amplify a Reality which has
-lasted ${format(0.2, 2, 2)} seconds, you will use ${formatInt(200)} seconds to simulate ${formatInt(1000)} Realities.
+다만 현실의 지속 시간이 ${formatInt(1)}초보다 짧으면 증폭 배율은 저장한 초 단위 시간으로 제한됩니다.
+예를 들어 ${formatInt(1000)}초를 저장한 상태에서 ${format(0.2, 2, 2)}초 동안 진행된 현실을 증폭하면,
+${formatInt(200)}초를 사용해 현실 ${formatInt(1000)}회를 시뮬레이션합니다.
 <br>
 <br>
-You can toggle a setting to automatically store offline time as stored real time.
+오프라인 시간을 저장된 현실 시간으로 자동 저장하는 설정을 켤 수 있습니다.
 <br>
 <br>
-Their first unlock costs ${format(TimeSpan.fromMilliseconds(new Decimal(ENSLAVED_UNLOCKS.FREE_TICKSPEED_SOFTCAP.price)).totalYears)}
-years of stored game time. It increases the softcap to Tickspeed Upgrades gained from Time Dimensions
-(the point at which their cost starts increasing faster)
-by ${format(1e5)} Tickspeed Upgrades.
+첫 잠금 해제에는 저장된 게임 시간
+${format(TimeSpan.fromMilliseconds(new Decimal(ENSLAVED_UNLOCKS.FREE_TICKSPEED_SOFTCAP.price)).totalYears)}년이
+필요합니다. 시간 차원에서 얻는 틱스피드 업그레이드의 소프트캡(비용이 더 빠르게 증가하기 시작하는 지점)을
+틱스피드 업그레이드 ${format(1e5)}회만큼 높입니다.
 <br>
 <br>
-At ${format(TimeSpan.fromMilliseconds(new Decimal(ENSLAVED_UNLOCKS.RUN.price)).totalYears)} years of stored game time, you are able
-to finally unlock their Reality. The reward for completing The Nameless Ones' Reality is
+저장된 게임 시간이 ${format(TimeSpan.fromMilliseconds(new Decimal(ENSLAVED_UNLOCKS.RUN.price)).totalYears)}년에
+도달하면 마침내 이름없는 자들의 현실을 잠금 해제할 수 있습니다. 현실 완료 보상은
 ${Enslaved.isCompleted
-    ? "unlocking Tesseracts, which have their own How To Play entry."
-    : "<span style='color: var(--color-bad);'>(complete The Nameless Ones' Reality to see reward details)</span>"}
+    ? "별도의 게임 방법 항목이 있는 테서랙트 잠금 해제입니다."
+    : "<span style='color: var(--color-bad);'>(보상 정보를 보려면 이름없는 자들의 현실을 완료하세요)</span>"}
 <br>
 <br>
-The Nameless Ones will not directly unlock the next Celestial.
+이름없는 자들은 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.
 `,
       isUnlocked: () => EffarigUnlock.eternity.isUnlocked,
       tags: ["reality", "time", "blackhole", "lategame", "testers", "celestial",
@@ -1417,160 +1342,152 @@ The Nameless Ones will not directly unlock the next Celestial.
       ],
       tab: "celestials/enslaved"
     }, {
-      name: "Tesseracts",
+      name: "테서랙트",
       info: () => `
-Tesseracts are a new resource you unlock for completing The Nameless Ones' Reality.
+테서랙트는 이름없는 자들의 현실을 완료하면 잠금 해제되는 새 자원입니다.
 <br>
 <br>
-Infinity Dimensions are normally capped at ${format(InfinityDimensions.HARDCAP_PURCHASES)} total purchases,
-which limits how large their multipliers can grow since eventually you cannot upgrade them any more.
-Tesseracts allow you to raise this cap by spending Infinity Points.
+무한 차원은 일반적으로 총 구매 횟수가 ${format(InfinityDimensions.HARDCAP_PURCHASES)}회로 제한됩니다.
+결국 더 이상 업그레이드할 수 없게 되어 배율의 성장에도 한계가 생깁니다. 테서랙트는 무한 포인트를 사용해
+이 상한을 높입니다.
 <br>
 <br>
-The cost of Tesseracts increases super-exponentially, but each successive Tesseract is significantly stronger than
-the last in order to make up for that. Tesseract count is never reset, meaning that once purchased, you do not need
-to reach the IP cost again in order to take advantage of the raised cap in later Realities.
+테서랙트 비용은 초지수적으로 증가하지만 이를 보완하도록 다음 테서랙트는 이전보다 훨씬 강력합니다. 테서랙트
+수는 절대 초기화되지 않으므로 한 번 구매하면 이후 현실에서 높아진 상한을 이용하기 위해 해당 무한 포인트
+비용에 다시 도달할 필요가 없습니다.
 <br>
 <br>
-You can see additional information about your current Tesseract count and the cost of the next one in the Infinity
-Dimensions tab. Additionally, your current Infinity Points will now also show a percentage towards the next Tesseract.
-If affordable, the Infinity button itself will visually change and bring you to the Infinity Dimension tab when clicked.
+무한 차원 탭에서 현재 테서랙트 수와 다음 테서랙트 비용에 관한 추가 정보를 볼 수 있습니다. 이제 현재 무한
+포인트에는 다음 테서랙트까지의 비율도 표시됩니다. 구매할 수 있다면 무한 버튼의 모습이 바뀌며, 클릭하면 무한
+차원 탭으로 이동합니다.
 `,
       isUnlocked: () => Enslaved.isCompleted,
       tags: ["reality", "lategame", "tesseract", "id", "celestial"],
       tab: "celestials/tesseract"
     }, {
-      name: "V, Celestial of Achievements",
+      name: "V, 도전과제의 셀레스티얼",
       alias: "V",
       info: () => `
-V is a special Celestial in the sense that they are not unlocked by another Celestial,
-but is instead unlocked by completing Achievement ID 151 (row ${formatInt(15)}, column ${formatInt(1)},
-"You really didn't need it anyway"), which requires you to get ${formatInt(800)} Antimatter Galaxies
-without buying 8th Antimatter Dimensions in your current Infinity.
+V는 다른 셀레스티얼을 통해 잠금 해제되지 않는 특별한 셀레스티얼입니다. 대신 현재 무한에서 8번째 반물질
+차원을 구매하지 않고 반물질 은하 ${formatInt(800)}개를 얻어야 하는 도전과제 ID 151(${formatInt(15)}번째 줄,
+${formatInt(1)}번째 칸, "어차피 필요 없었잖아")을 완료하면 잠금 해제됩니다.
 <br>
 <br>
-After the subtab is unlocked from the Achievement, you are met with another set of requirements to fully unlock V.
-You must have completed ${formatInt(GameDatabase.celestials.v.mainUnlock.realities.requirement)} Realities and have
-${format(GameDatabase.celestials.v.mainUnlock.realityMachines.requirement)} unspent RM.
-Additionally you need to reach ${format(GameDatabase.celestials.v.mainUnlock.eternities.requirement)} Eternities,
-${format(GameDatabase.celestials.v.mainUnlock.infinities.requirement)} Infinities,
-${format(GameDatabase.celestials.v.mainUnlock.dilatedTime.requirement)} Dilated Time, and
-${format(GameDatabase.celestials.v.mainUnlock.replicanti.requirement)} Replicanti, all in the same Reality.
+도전과제로 하위 탭을 잠금 해제하면 V를 완전히 잠금 해제하기 위한 또 다른 조건들이 나타납니다. 현실을
+${formatInt(GameDatabase.celestials.v.mainUnlock.realities.requirement)}회 완료하고 사용하지 않은 RM
+${format(GameDatabase.celestials.v.mainUnlock.realityMachines.requirement)}을 보유해야 합니다. 또한 같은
+현실에서 영원 ${format(GameDatabase.celestials.v.mainUnlock.eternities.requirement)}, 무한
+${format(GameDatabase.celestials.v.mainUnlock.infinities.requirement)}, 팽창된 시간
+${format(GameDatabase.celestials.v.mainUnlock.dilatedTime.requirement)}, 복제자
+${format(GameDatabase.celestials.v.mainUnlock.replicanti.requirement)}에 도달해야 합니다.
 <br>
 <br>
-When you meet all of those requirements, you will be able to access V's Reality.
+모든 조건을 달성하면 V의 현실에 진입할 수 있습니다.
 ${VUnlocks.vAchievementUnlock.isUnlocked
-    ? `However, completing the Reality itself is only the beginning. V has six different requirements, each of which
-      require you to make a certain amount of progress within V's Reality. Completing a requirement rewards you with a
-      V-Achievement.
-      V-Achievements are permanent and persist after exiting V's Reality, and do not all need to be done simultaneously.
+    ? `하지만 현실 자체를 완료하는 것은 시작일 뿐입니다. V에게는 여섯 가지 조건이 있으며, 각각 V의
+      현실 안에서 일정 수준까지 진행해야 합니다. 조건을 완료하면 V 도전과제를 보상으로 얻습니다.
+      V 도전과제는 영구적이고 V의 현실을 나가도 유지되며, 모두 동시에 달성할 필요는 없습니다.
       <br>
       <br>
-      After completing the requirement, the V-Achievement threshold then increases and can be completed again
-      if you can reach the new goal.  You can complete each category of V-Achievement up to six times.
-      Completed V-Achievements do two things:
+      조건을 완료하면 V 도전과제의 기준이 증가하며, 새 목표에 도달하면 다시 완료할 수 있습니다. 각 V
+      도전과제 항목은 최대 여섯 번 완료할 수 있습니다. 완료한 V 도전과제에는 두 가지 효과가 있습니다.
       <br>
-      - Upon reaching certain totals of V-Achievements, you automatically unlock upgrades on the V tab without needing
-      to spend any resources.
+      - V 도전과제 총합이 일정 수에 도달하면 자원을 사용하지 않고 V 탭의 업그레이드가 자동으로 잠금
+      해제됩니다.
       <br>
-      - Each V-Achievement also gives you one Space Theorem.
-      <br>
-      <br>
-      The goal reduction unlocked by having ${formatInt(2)} V-Achievements allows you to make some V-Achievement
-      requirements easier to complete by spending Perk Points, down to a limit of whatever the easiest tier requires.
-      The cost of reducing a goal does not increase as it is used, and will also reduce future tiers as well.
+      - V 도전과제마다 공간 정리 하나를 얻습니다.
       <br>
       <br>
-      Space Theorems allow you to purchase Time Studies which are normally forbidden, such as multiple paths in the
-      Pace Split after the improved IP formula, or both Time Studies within a dark/light pair near the bottom.
-      Like Time Theorems, they are freely given back every time you respec your studies.
-      With enough Space Theorems you will eventually be able to purchase every single Time Study at once!
+      V 도전과제 ${formatInt(2)}개로 잠금 해제되는 목표 감소 기능은 퍼크 포인트를 사용해 일부 V 도전과제의
+      조건을 가장 쉬운 단계의 조건까지 낮출 수 있게 합니다. 목표 감소 비용은 사용할 때 증가하지 않으며 이후
+      단계의 목표도 함께 감소시킵니다.
       <br>
       <br>
-      Reaching ${formatInt(36)} V-Achievements (and therefore completing all of V's Achievements) unlocks the next
-      Celestial.`
-    : "<span style='color: var(--color-bad);'>(unlock V's Reality to see further details)</span>"}
+      공간 정리를 사용하면 개선된 무한 포인트 공식 이후 속도 분기의 여러 경로나 아래쪽 어둠/빛 쌍의 두 시간
+      연구처럼 원래 함께 살 수 없는 시간 연구를 구매할 수 있습니다. 시간 정리와 마찬가지로 연구를 재분배할
+      때마다 자유롭게 돌려받습니다. 공간 정리가 충분하면 결국 모든 시간 연구를 한꺼번에 구매할 수 있습니다!
+      <br>
+      <br>
+      V 도전과제 ${formatInt(36)}개에 도달해 V의 도전과제를 모두 완료하면 다음 셀레스티얼이 잠금 해제됩니다.`
+    : "<span style='color: var(--color-bad);'>(자세한 내용을 보려면 V의 현실을 잠금 해제하세요)</span>"}
 `,
       isUnlocked: () => Achievement(151).isUnlocked,
       tags: ["reality", "lategame", "girlfriend", "challenges", "achievement", "space", "theorems",
         "study", "triad", "celestial"],
       tab: "celestials/v"
     }, {
-      name: "Ra, Celestial of the Forgotten",
+      name: "라, 잊힌 자들의 셀레스티얼",
       alias: "Ra",
       info: () => `
-Ra is the fifth Celestial, unlocked by fully completing all of V's Achievements. They use their memories in order to
-bring back positive effects from previous Celestials in a stronger way. Over time, you will unlock the previous four
-Celestials <i>within</i> Ra, with each Celestial offering additional upgrades related to their original themes.
+라는 다섯 번째 셀레스티얼이며, V의 도전과제를 모두 완료하면 잠금 해제됩니다. 라는 기억을 사용해 이전
+셀레스티얼의 긍정적인 효과를 더 강한 모습으로 되돌립니다. 진행하면서 라 <i>안에서</i> 이전 네 셀레스티얼을
+잠금 해제하며, 각 셀레스티얼은 원래 주제와 관련된 추가 업그레이드를 제공합니다.
 <br>
 <br>
-Each previous Celestial within Ra gains levels by using memories, which are generated passively over time from
-Memory Chunks. Memory Chunks can only be gained by entering Ra's Reality, but inside of the Reality Chunks will
-be generated passively based on certain resource totals. If you are storing real time, you will not gain any
-Chunks inside of Ra's Reality, but Memories will still be generated normally. Having a total of
-${formatInt(Ra.remembrance.requiredLevels)} levels across all Celestials unlocks Remembrance,
-which allows you to choose a particular Celestial to gain more chunks while inside of Ra's Reality.
+라 안의 이전 셀레스티얼은 기억을 사용해 레벨을 올립니다. 기억은 시간이 지나면 기억 조각에서 자동으로
+생성됩니다. 기억 조각은 라의 현실에 진입해야만 얻을 수 있으며, 현실 안에서는 특정 자원 총량에 따라
+자동으로 생성됩니다. 현실 시간을 저장하는 동안에는 라의 현실 안에서 기억 조각을 얻지 못하지만 기억은
+정상적으로 생성됩니다. 모든 셀레스티얼의 총레벨이 ${formatInt(Ra.remembrance.requiredLevels)}에 도달하면
+회상이 잠금 해제되어, 라의 현실 안에서 더 많은 조각을 얻을 셀레스티얼 하나를 선택할 수 있습니다.
 <br>
 <br>
-Memories can be spent on three things - an increase to Memory Chunk gain, an increase to Memory gain, and leveling up
-the Celestial. You start Ra with only Teresa unlocked and each successive Celestial is unlocked by reaching level
-${formatInt(8)} with the previous Celestial. Levels are capped at ${formatInt(25)}.
+기억은 기억 조각 획득량 증가, 기억 획득량 증가, 셀레스티얼 레벨 상승의 세 가지 용도로 사용합니다. 라를
+시작할 때는 테레사만 잠금 해제되어 있으며, 이전 셀레스티얼이 레벨 ${formatInt(8)}에 도달할 때마다 다음
+셀레스티얼이 잠금 해제됩니다. 레벨 상한은 ${formatInt(25)}입니다.
 <br>
 <br>
-Teresa unlocks the ability to charge your Infinity Upgrades, making them much stronger. They also
-improve your Glyph effects once you reach certain thresholds in Glyph sacrifice value.
+테레사는 무한 업그레이드를 충전해 훨씬 강하게 만드는 능력을 잠금 해제합니다. 또한 글리프 희생 수치가 특정
+기준에 도달하면 글리프 효과를 개선합니다.
 <br>
 <br>
-At level ${formatInt(2)}, Effarig unlocks
+레벨 ${formatInt(2)}에서 에파리그는
 ${Ra.unlocks.effarigUnlock.canBeApplied
-    ? "a new mechanic called Glyph Alchemy and later on also makes Effarig Glyphs stronger while gradually removing " +
-      "almost all random elements of Glyph generation. Glyph Alchemy also has its own How To Play entry."
-    : "<span style='color: var(--color-bad);'>(unlock Effarig within Ra to see unlock details)</span>"}
+    ? "글리프 연금술이라는 새 메커니즘을 잠금 해제합니다. 이후 에파리그 글리프를 강화하고 글리프 생성의 " +
+      "무작위 요소를 거의 모두 서서히 제거합니다. 글리프 연금술에는 별도의 게임 방법 항목도 있습니다."
+    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 라 안에서 에파리그를 잠금 해제하세요)</span>"}
 <br>
 <br>
-The Nameless Ones unlocks
+이름없는 자들은
 ${Ra.unlocks.enslavedUnlock.canBeApplied
-    ? "additional mechanics related to charging the Black Holes, as well as making them significantly stronger."
-    : "<span style='color: var(--color-bad);'>(unlock The Nameless Ones within Ra to see unlock details)</span>"}
+    ? "블랙홀 충전과 관련된 추가 메커니즘을 잠금 해제하고 블랙홀을 크게 강화합니다."
+    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 라 안에서 이름없는 자들을 잠금 해제하세요)</span>"}
 <br>
 <br>
-V unlocks
+V는
 ${Ra.unlocks.vUnlock.canBeApplied
-    ? "Triad Studies, which are new studies near the bottom of the tree which cost Space Theorems. Each Triad Study " +
-      "requires you to also have the three nearby studies as well in order to purchase them. They also unlock a " +
-      "smaller set of more difficult V-Achievements to complete for additional Space Theorems."
-    : "<span style='color: var(--color-bad);'>(unlock V within Ra to see unlock details)</span>"}
+    ? "트리 아래쪽에서 공간 정리로 구매하는 새 연구인 삼원 연구를 잠금 해제합니다. 각 삼원 연구를 구매하려면 " +
+      "주변의 세 연구도 보유해야 합니다. 또한 더 어려운 소규모 V 도전과제를 잠금 해제하여 추가 공간 정리를 " +
+      "얻을 수 있게 합니다."
+    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 라 안에서 V를 잠금 해제하세요)</span>"}
 <br>
 <br>
-Ra will not directly unlock the next Celestial.`,
+라는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.`,
       isUnlocked: () => VUnlocks.raUnlock.isUnlocked,
       tags: ["reality", "memories", "razenpok", "levels", "glyphs", "lategame",
         "effarig", "teresa", "nameless", "v", "celestial"],
       tab: "celestials/ra"
     }, {
-      name: "Glyph Alchemy Resources",
+      name: "글리프 연금술 자원",
       info: () => `
-Glyph Alchemy is a mechanic unlocked by reaching Effarig level ${formatInt(2)} in Ra. It unlocks the ability to
-use up your Glyphs by refining them into Alchemy Resources associated with their type. You can refine Glyphs by
-setting your Sacrifice Type to something other than "Always Sacrifice" in the Glyphs tab, and doing the normal
-procedure for a sacrifice.
-Each Alchemy Resource has a unique effect, which you can view on the Alchemy tab.
+글리프 연금술은 라 안에서 에파리그가 레벨 ${formatInt(2)}에 도달하면 잠금 해제되는 메커니즘입니다. 글리프를
+종류와 연관된 연금술 자원으로 정제해 소모할 수 있게 합니다. 글리프 탭에서 희생 방식을 "항상 희생"이 아닌
+것으로 설정한 뒤 일반적인 희생 절차를 수행하면 글리프를 정제할 수 있습니다. 각 연금술 자원에는 고유한 효과가
+있으며 연금술 탭에서 확인할 수 있습니다.
 <br>
 <br>
-In addition to all their other properties, Glyphs now have a <i>refinement value</i> which determines how much of
-its associated Alchemy Resource it is worth. This value is based on the cube of the Glyph's level, scaled
-so that level ${formatInt(10000)} Glyphs correspond to ${formatInt(10000)} Alchemy Resources. A single Glyph itself,
-however, only gives ${formatPercents(GlyphSacrificeHandler.glyphRefinementEfficiency)} of this value when refined.
-These are values for ${formatPercents(1)} rarity Glyphs; Glyphs of lower rarity still have the same cap but give
-proportionally less resources. For example, a ${formatPercents(0.5)} rarity Glyph will give only half as much.
+이제 글리프에는 다른 모든 속성과 함께 관련 연금술 자원을 얼마나 얻는지 결정하는 <i>정제 수치</i>가 있습니다.
+이 값은 글리프 레벨의 세제곱을 바탕으로 하며, 레벨 ${formatInt(10000)} 글리프가 연금술 자원
+${formatInt(10000)}개에 해당하도록 조정됩니다. 다만 글리프 하나를 정제할 때는 이 값의
+${formatPercents(GlyphSacrificeHandler.glyphRefinementEfficiency)}만 얻습니다. 이는 희귀도
+${formatPercents(1)} 글리프를 기준으로 한 값입니다. 희귀도가 낮은 글리프도 상한은 같지만 그에 비례해 적은
+자원을 줍니다. 예를 들어 희귀도 ${formatPercents(0.5)} 글리프는 절반만 줍니다.
 <br>
 <br>
-Alchemy Resources cannot be gained indefinitely; there is a per-resource cap which is based on the highest refinement
-value of all the Glyphs of that type you have refined. For example, if the highest level Time Glyph you have refined
-is level ${formatInt(8000)} (refinement value: ${formatInt(GlyphSacrificeHandler.levelRefinementValue(8000))}), then no
-matter how many Time Glyphs you refine, you can never have more than
-${formatInt(GlyphSacrificeHandler.levelRefinementValue(8000))} of the Time resource until you refine another Time Glyph
-with a higher refinement value.
+연금술 자원은 무한히 얻을 수 없습니다. 자원마다 해당 종류에서 지금까지 정제한 글리프 중 가장 높은 정제 수치를
+기준으로 하는 상한이 있습니다. 예를 들어 지금까지 정제한 시간 글리프의 최고 레벨이 ${formatInt(8000)}이고
+정제 수치가 ${formatInt(GlyphSacrificeHandler.levelRefinementValue(8000))}이라면, 시간 글리프를 아무리 많이
+정제해도 정제 수치가 더 높은 시간 글리프를 정제하기 전까지 시간 자원을
+${formatInt(GlyphSacrificeHandler.levelRefinementValue(8000))}보다 많이 보유할 수 없습니다.
 `,
       isUnlocked: () => Ra.unlocks.unlockGlyphAlchemy.canBeApplied,
       // Oh god I'm so sorry this is so many words
@@ -1580,26 +1497,24 @@ with a higher refinement value.
         "reaction"],
       tab: "reality/alchemy"
     }, {
-      name: "Glyph Alchemy Reactions",
+      name: "글리프 연금술 반응",
       info: () => `
-Alchemy Resources can be combined together in certain combinations in order to create new compound resources, which
-are unlocked at certain Effarig levels. Resources are combined once per Reality, unaffected by real time
-amplification. Reactions have a higher yield and thus happen faster when your reagent amounts are higher. The cap for
-compound resources is equal to the lowest cap amongst all of its reagents. In order for a reaction to occur, the
-current amount of all reagents must be greater than the current amount of the produced resource.
+연금술 자원을 특정 조합으로 결합해 새로운 복합 자원을 만들 수 있으며, 복합 자원은 에파리그의 특정 레벨에서
+잠금 해제됩니다. 자원은 현실마다 한 번 결합되며 현실 시간 증폭의 영향을 받지 않습니다. 시약이 많을수록
+반응의 수율이 높아져 더 빠르게 진행됩니다. 복합 자원의 상한은 모든 시약의 상한 중 가장 낮은 값과 같습니다.
+반응이 일어나려면 모든 시약의 현재량이 생산할 자원의 현재량보다 많아야 합니다.
 <br>
 <br>
-Reaction speed is proportional to the amount of usable reagents for the reaction, but only reagent amounts above the
-product amount are eligible for being used. For example, if you have ${formatInt(10000)} of all reagents and
-${formatInt(7500)} of the product, only ${formatInt(2500)} of the reagents are used in calculating the reaction speed.
-If you instead had ${formatInt(0)} of the product, <i>all</i> of the reagent is available for the reaction and it will
-produce ${formatX(4)} faster. Lastly, if you had ${formatInt(10000)} of the product, then none of the reagent can be
-used and the reaction will not run at all.
+반응 속도는 반응에 사용할 수 있는 시약의 양에 비례하지만, 생산물의 양을 넘는 시약만 사용할 수 있습니다.
+예를 들어 모든 시약을 ${formatInt(10000)}개, 생산물을 ${formatInt(7500)}개 보유했다면 시약
+${formatInt(2500)}개만 반응 속도 계산에 사용됩니다. 생산물이 ${formatInt(0)}개라면 시약 <i>전체</i>를
+반응에 사용할 수 있어 ${formatX(4)} 빠르게 생산합니다. 마지막으로 생산물이 ${formatInt(10000)}개라면
+시약을 하나도 사용할 수 없어 반응이 전혀 진행되지 않습니다.
 <br>
 <br>
-To activate or deactivate a reaction, click the circle corresponding to the reaction's product. When the reaction can
-be applied, moving lines will be shown from all reagents to the product. If a connection is a solid line, that means
-that the reaction cannot proceed due to not having enough of that reagent to get more of the product due to its cap.
+반응을 활성화하거나 비활성화하려면 반응의 생산물에 해당하는 원을 클릭하세요. 반응을 적용할 수 있으면 모든
+시약에서 생산물로 이어지는 움직이는 선이 표시됩니다. 연결선이 실선이라면 해당 시약의 상한이 부족하여 생산물을
+더 얻을 수 없으므로 반응을 진행할 수 없다는 뜻입니다.
 `,
       isUnlocked: () => Ra.unlocks.unlockGlyphAlchemy.canBeApplied,
       tags: ["reality", "lategame", "ra", "effarig", "alchemy", "power", "infinity", "time", "replication",
@@ -1608,105 +1523,99 @@ that the reaction cannot proceed due to not having enough of that reagent to get
         "reaction"],
       tab: "reality/alchemy"
     }, {
-      name: "Imaginary Machines",
+      name: "허수 머신",
       info: () => `
-Once you are able to gain at least ${format(MachineHandler.baseRMCap)} Reality Machines in a single Reality, you
-unlock the ability to gain a new resource called Imaginary Machines. Reality Machines will also become hardcapped
-at ${format(MachineHandler.baseRMCap)}; you will be unable to gain any more past this limit.
+한 현실에서 리얼리티 머신을 적어도 ${format(MachineHandler.baseRMCap)}개 얻을 수 있게 되면 허수 머신이라는
+새 자원을 얻는 능력이 잠금 해제됩니다. 리얼리티 머신에도 ${format(MachineHandler.baseRMCap)}의 하드캡이
+생겨 이 제한을 넘어 더 얻을 수 없습니다.
 <br>
 <br>
-Additionally you unlock the Imaginary Upgrades tab, which contains a set of upgrades similar to the Reality Upgrades -
-each upgrade has a condition you must fulfill to unlock it and an Imaginary Machine cost to actually purchase it.
-The first two rows of upgrades can be repeatedly bought, while the other three are one-time upgrades.
+현실 업그레이드와 비슷한 업그레이드 묶음이 있는 허수 업그레이드 탭도 잠금 해제됩니다. 각 업그레이드는
+잠금 해제하기 위해 달성해야 하는 조건과 실제 구매에 필요한 허수 머신 비용이 있습니다. 처음 두 줄의
+업그레이드는 반복 구매할 수 있고 나머지 세 줄은 한 번만 구매할 수 있습니다.
 <br>
 <br>
-Your iM amount is affected by two things:
+허수 머신 보유량은 두 가지 요소의 영향을 받습니다.
 <br>
-<b>iM Cap</b> - There is a maximum amount of iM you can ever have, which is based on the highest RM amount you would
-have been able to get if there were no RM cap. This is updated on a continual basis and thus will immediately increase
-if you ever surpass your previous highest uncapped RM amount.
+<b>허수 머신 상한</b> - 보유할 수 있는 허수 머신의 최대량으로, 리얼리티 머신 상한이 없었다면 얻을 수 있었던
+최고 리얼리티 머신을 기준으로 합니다. 지속적으로 갱신되므로 상한이 없을 때의 기존 최고 리얼리티 머신을 넘는
+즉시 증가합니다.
 <br>
-<b>Current iM</b> - Over time your current iM will passively rise towards your iM cap, in a way that slows down
-exponentially as you approach the cap. By default iM slows down at a rate where the amount you are <i>missing</i>
-(ie. your cap minus your current amount) is cut in half every minute. This growth rate is unaffected by any
-modifiers to game speed.
+<b>현재 허수 머신</b> - 시간이 지나면 현재 허수 머신이 상한을 향해 자동으로 증가하며, 상한에 가까워질수록
+지수적으로 느려집니다. 기본적으로 <i>부족한</i> 양, 즉 상한에서 현재량을 뺀 값이 매분 절반으로 줄어드는
+속도로 느려집니다. 이 성장 속도는 게임 속도 변경 효과의 영향을 받지 않습니다.
 <br>
 <br>
-Imaginary Machine upgrades will unlock the final two Celestials.
+허수 머신 업그레이드는 마지막 두 셀레스티얼을 잠금 해제합니다.
 `,
       isUnlocked: () => MachineHandler.isIMUnlocked,
       tags: ["imaginary", "machines", "reality", "lategame"],
       tab: "reality/imag_upgrades"
     }, {
-      name: "Lai'tela, Celestial of Dimensions",
+      name: "라이텔라, 차원의 셀레스티얼",
       alias: "Lai'tela",
       info: () => `
-Lai'tela is the sixth Celestial, unlocked by purchasing the appropriate Imaginary Upgrade for
-${format(ImaginaryUpgrade(15).cost)} iM.
+라이텔라는 여섯 번째 셀레스티얼이며, 허수 머신 ${format(ImaginaryUpgrade(15).cost)}개로 해당 허수 업그레이드를
+구매하면 잠금 해제됩니다.
 <br>
 <br>
-Lai'tela gives a new currency called Dark Matter, which provides a multiplier to Continuum's effect
-based on the highest amount of Dark Matter you have ever had. Dark Matter is produced by
-Dark Matter Dimensions, in a similar cascading way to all other types of dimensions in the game. Unlike other
-dimensions, there are only four Dark Matter Dimensions rather than eight. You start with the first one unlocked
-immediately and the higher ones are unlocked via Imaginary Upgrades. When unlocking dimensions, you are given
-${formatInt(1)} of the dimension and cannot gain more without having it produced from the next tier up.
+라이텔라는 암흑 물질이라는 새 화폐를 제공합니다. 지금까지 보유한 암흑 물질 최고량에 따라 연속체 효과에 배율을
+제공합니다. 암흑 물질은 게임의 다른 차원 종류처럼 연쇄적인 방식으로 암흑 물질 차원이 생산합니다. 다른 차원과
+달리 암흑 물질 차원은 여덟 개가 아니라 네 개뿐입니다. 처음부터 첫 번째 차원이 잠금 해제되어 있으며 상위 차원은
+허수 업그레이드로 잠금 해제됩니다. 차원을 잠금 해제하면 해당 차원을 ${formatInt(1)}개 받으며, 바로 위 단계의
+차원이 생산하기 전에는 더 얻을 수 없습니다.
 <br>
 <br>
-Each Dark Matter Dimension, after a certain interval of time, generates two things: Dark Matter or the next lower
-Dark Matter Dimension and another resource called Dark Energy. Dark Matter and Dark Matter Dimension production
-per interval is equal to the product of your Dark Matter multiplier and the number of dimensions you have, while
-Dark Energy production is independent of your dimension amount. Dark Energy is used to produce Singularities, which
-have their own How To Play entry.
+각 암흑 물질 차원은 일정한 시간 간격마다 암흑 물질 또는 바로 아래 암흑 물질 차원과, 암흑 에너지라는 또 다른
+자원까지 두 가지를 생성합니다. 간격당 암흑 물질과 암흑 물질 차원의 생산량은 암흑 물질 배율과 보유 차원 수를
+곱한 값이며, 암흑 에너지 생산량은 차원 수와 무관합니다. 암흑 에너지는 별도의 게임 방법 항목이 있는 특이점을
+생성하는 데 사용합니다.
 <br>
 <br>
-Dark Matter Dimensions can have their intervals upgraded down to a minimum of ${formatInt(10)}ms, at which point
-you cannot upgrade the interval any further. You can choose to ascend Dark Matter Dimensions which reach
-that point, which initially multiplies Dark Matter gain by ${formatInt(POWER_DM_PER_ASCENSION)} and Dark Energy by
-${formatInt(POWER_DE_PER_ASCENSION)}. The interval gets multiplied by ${formatInt(1200)}, but can be upgraded once
-again. Reaching ${formatInt(10)}ms again allows you to ascend again if you choose to.
+암흑 물질 차원의 간격은 최소 ${formatInt(10)}ms까지 업그레이드할 수 있으며, 이 지점에서는 더 줄일 수
+없습니다. 여기에 도달한 암흑 물질 차원을 승천시킬 수 있습니다. 처음에는 암흑 물질 획득량에
+${formatInt(POWER_DM_PER_ASCENSION)}, 암흑 에너지 획득량에 ${formatInt(POWER_DE_PER_ASCENSION)}를 곱합니다.
+간격에는 ${formatInt(1200)}을 곱하지만 다시 업그레이드할 수 있습니다. 다시 ${formatInt(10)}ms에 도달하면
+원할 때 다시 승천할 수 있습니다.
 <br>
 <br>
-An Imaginary Upgrade allows you to unlock a prestige called Annihilation. Annihilation resets your Dark Matter
-and Dark Matter Dimensions, but adds to a permanent multiplier to Dark Matter that applies to all Dark Matter
-Dimensions. You can Annihilate multiple times; the additions to the multiplier stack additively, and there is
-no need to Annihilate for a greater addition each time. You must have at least
-${format(Laitela.annihilationDMRequirement)} Dark Matter in order to Annihilate.
+허수 업그레이드로 소멸이라는 프레스티지를 잠금 해제할 수 있습니다. 소멸은 암흑 물질과 암흑 물질 차원을
+초기화하지만, 모든 암흑 물질 차원에 적용되는 영구 암흑 물질 배율을 더합니다. 여러 번 소멸할 수 있으며 배율
+증가량은 덧셈으로 중첩되므로 매번 더 큰 증가량에서 소멸할 필요는 없습니다. 소멸하려면 암흑 물질을 적어도
+${format(Laitela.annihilationDMRequirement)}개 보유해야 합니다.
 <br>
 <br>
-Lai'tela has a Reality which gives a multiplier to Dark Matter Dimensions' Dark Matter power based on how well you
-do in the Reality. Whenever you complete the Reality in under ${formatInt(30)} seconds, your highest available
-Dimension will be permanently disabled during further attempts of the Reality. Disabling all of your dimensions by
-completing the Reality in under ${formatInt(30)} seconds eight times will also give you a ${formatX(8)} multiplier
-to Dark Energy gain.
+라이텔라에게는 현실에서 거둔 성과에 따라 암흑 물질 차원의 암흑 물질 생산력에 배율을 제공하는 현실이
+있습니다. 현실을 ${formatInt(30)}초 안에 완료할 때마다 이후 현실 시도에서 사용할 수 있는 가장 높은
+차원이 영구적으로 비활성화됩니다. ${formatInt(30)}초 안에 현실을 여덟 번 완료해 모든 차원을 비활성화하면
+암흑 에너지 획득량에 ${formatX(8)} 배율도 얻습니다.
 <br>
 <br>
-Lai'tela will not directly unlock the next Celestial.
+라이텔라는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.
 `,
       isUnlocked: () => Laitela.isUnlocked,
       tags: ["omsi", "reality", "dark", "matter", "dimensions", "lategame", "ascend", "celestial"],
       tab: "celestials/laitela"
     }, {
-      name: "Continuum",
+      name: "연속체",
       info: () => `
-When you unlock Lai'tela, your Antimatter Dimensions and Tickspeed Upgrades switch to a new mode of production
-called Continuum, which gives the same effect as previously but allows for buying partial Dimension or
-Tickspeed Upgrades. These fractional purchases are given for free without spending your antimatter and will provide
-an appropriate portion of their multiplier.
+라이텔라를 잠금 해제하면 반물질 차원과 틱스피드 업그레이드가 연속체라는 새 생산 모드로 전환됩니다. 이전과
+같은 효과를 제공하지만 차원이나 틱스피드 업그레이드의 일부만 구매할 수 있습니다. 이 소수 단위 구매는 반물질을
+사용하지 않고 무료로 주어지며 그에 맞는 배율 일부를 제공합니다.
 <br>
 <br>
-The purchase buttons for Antimatter Dimensions and Tickspeed Upgrades become modified to display the number of upgrades
-you would be able to purchase if Continuum was inactive, and the purchase count is scaled smoothly with antimatter.
-For example, having ${format(2e7)} antimatter will give you a Continuum value of ${format(5.3, 0, 1)} for tickspeed
-(initial cost of ${format(1e3)} and increase of ${formatX(10)}) since you can purchase it ${formatInt(5)} times and
-are roughly ${formatPercents(0.3)} of the way to the next. Tickspeed Continuum in this case will then
-give a production boost equal to (upgrade multiplier)<sup>${format(5.3, 0, 1)}</sup>.
+반물질 차원과 틱스피드 업그레이드의 구매 버튼은 연속체가 비활성화되었을 때 구매할 수 있는 업그레이드 수를
+표시하도록 바뀌며, 구매 횟수는 반물질에 따라 부드럽게 증가합니다. 예를 들어 반물질 ${format(2e7)}을
+보유하면 틱스피드의 연속체 값은 ${format(5.3, 0, 1)}가 됩니다. 틱스피드는 초기 비용이 ${format(1e3)}이고
+${formatX(10)}씩 증가하여 ${formatInt(5)}번 구매할 수 있으며 다음 구매까지 약 ${formatPercents(0.3)}만큼
+진행했기 때문입니다. 이 경우 틱스피드 연속체는 (업그레이드 배율)<sup>${format(5.3, 0, 1)}</sup>만큼 생산량을
+강화합니다.
 <br>
 <br>
-Some upgrades will multiply Continuum value directly, which gives a production boost without affecting the cost
-scaling. However, these upgrades will not function if Continuum is disabled on the Autobuyers page, which may result
-in a loss of production if disabled. Continuum makes your autobuyers for Antimatter Dimensions and Tickspeed obsolete,
-so all the related autobuyer settings for these autobuyers are now hidden on that tab as long as Continuum is active.
+일부 업그레이드는 연속체 값에 직접 배율을 적용하여 비용 스케일링에 영향을 주지 않고 생산량을 강화합니다.
+하지만 자동구매기 페이지에서 연속체를 비활성화하면 이 업그레이드가 작동하지 않아 생산량이 감소할 수 있습니다.
+연속체가 반물질 차원과 틱스피드 자동구매기를 쓸모없게 만들므로, 연속체가 활성화된 동안에는 해당 자동구매기의
+관련 설정이 모두 그 탭에서 숨겨집니다.
 `,
       // Apparently continuumUnlocked is really important in a lot of places and if we keep it unlocked
       // Things break, so we check for the iMU instead.
@@ -1714,135 +1623,129 @@ so all the related autobuyer settings for these autobuyers are now hidden on tha
       tags: ["continuum", "purchase", "reality", "lategame"],
       tab: ""
     }, {
-      name: "Singularities",
+      name: "특이점",
       info: () => `
-Singularities are a new resource which you can obtain using features within Lai'tela.
+특이점은 라이텔라의 기능을 이용해 얻는 새 자원입니다.
 <br>
 <br>
-In order to obtain Singularities, you need to reach ${format(200)} Dark Energy. When you do, you get the option to
-condense all your Dark Energy into a Singularity, resetting it back to zero. Any extra Dark Energy above this amount
-do not carry over, and is thus wasted. Note that only Dark Energy is reset, the status of your Dark Matter and its
-dimensions stays the same when condensing Singularities.
+특이점을 얻으려면 암흑 에너지 ${format(200)}에 도달해야 합니다. 도달하면 모든 암흑 에너지를 특이점 하나로
+응축하고 영으로 초기화하는 선택지가 생깁니다. 이 값을 넘는 추가 암흑 에너지는 이월되지 않고 사라집니다.
+특이점을 응축할 때는 암흑 에너지만 초기화되고 암흑 물질과 암흑 물질 차원의 상태는 그대로 유지됩니다.
 <br>
 <br>
-Once you reach ${formatInt(10)} Singularities, you can freely increase or decrease the Dark Energy requirement to
-condense Singularities by a factor of ${formatInt(10)} (with a minimum of ${format(200)}). This increases or decreases
-the number of Singularities gained from resetting at the cap by <i>more than</i> a factor of ${formatInt(10)}, making
-higher caps worth more if you are willing to wait.
+특이점 ${formatInt(10)}개에 도달하면 특이점 응축에 필요한 암흑 에너지를 ${formatInt(10)}배 단위로 자유롭게
+높이거나 낮출 수 있습니다(최소 ${format(200)}). 이에 따라 상한에서 초기화할 때 얻는 특이점 수가
+${formatInt(10)}배보다 <i>더 크게</i> 증가하거나 감소하므로, 기다릴 수 있다면 높은 상한이 더 효율적입니다.
 <br>
 <br>
-The purpose of Singularities is to unlock Singularity Milestones, which act similarly to Eternity Milestones. Unlocking
-these milestones simply requires you to reach the total number of Singularities specified; Singularities are not spent.
-There are three types of milestones - one-time milestones, milestones repeatable a limited number of times, and
-milestones which can be repeated indefinitely.
+특이점의 목적은 영원 마일스톤과 비슷하게 작동하는 특이점 마일스톤을 잠금 해제하는 것입니다. 마일스톤을 잠금
+해제하려면 지정된 총 특이점 수에 도달하기만 하면 되며 특이점은 소모되지 않습니다. 마일스톤은 한 번만 해금되는
+것, 제한된 횟수만큼 반복할 수 있는 것, 무한히 반복할 수 있는 것의 세 종류입니다.
 <br>
 <br>
-Independently of the milestone type, milestones also have an icon indicating what kind of upgrade they generally give:
+종류와 별개로 각 마일스톤에는 일반적으로 어떤 업그레이드를 제공하는지 나타내는 아이콘도 있습니다.
 <br>
-<b>ᛝ</b> These milestones help mechanics specific to Lai'tela
+<b>ᛝ</b> 라이텔라 전용 메커니즘을 돕는 마일스톤
 <br>
-<i class="fas fa-arrows-alt"></i> These milestones let a resource in Lai'tela affect the rest of the game
+<i class="fas fa-arrows-alt"></i> 라이텔라의 자원이 게임의 나머지 부분에 영향을 주게 하는 마일스톤
 <br>
-<i class="fas fa-compress-arrows-alt"></i> These milestones improve Lai'tela based on something outside of Lai'tela
+<i class="fas fa-compress-arrows-alt"></i> 라이텔라 외부의 요소를 바탕으로 라이텔라를 개선하는 마일스톤
 `,
       isUnlocked: () => Laitela.isUnlocked,
       tags: ["reality", "lategame", "laitela", "dark"],
       tab: ""
     }, {
-      name: "Pelle, Celestial of Antimatter",
+      name: "펠레, 반물질의 셀레스티얼",
       alias: "Pelle",
       info: () => `
-When you purchase the last Imaginary Upgrade and unlock Pelle, you unlock their tab, where you can find a button to
-"Doom your Reality". In order to Doom your Reality, you must have completed all ${formatInt(17)} rows of Achievements
-available to you at this point, and attained ${formatInt(25000)} of each Alchemy Resource.
+마지막 허수 업그레이드를 구매해 펠레를 잠금 해제하면 펠레 탭이 열리며, "현실을 파멸시키세요" 버튼을 찾을
+수 있습니다. 현실을 파멸시키려면 이 시점에 이용할 수 있는 도전과제 ${formatInt(17)}줄을 모두 완료하고 각
+연금술 자원을 ${formatInt(25000)}개씩 보유해야 합니다.
 <br>
 <br>
 ${Pelle.isDoomed
-    ? `Dooming your Reality will start a new <b>Doomed Reality</b>, resetting almost the entire game up to
-      Reality, not giving you any rewards from your progress in your current Reality.
+    ? `현실을 파멸시키면 새로운 <b>파멸한 현실</b>을 시작하며, 현실까지 게임의 거의 모든 것이
+      초기화되고 현재 현실의 진행도에서는 아무런 보상도 받지 못합니다.
       <br>
       <br>
-      When you enter the Doomed Reality, you keep all values under the General and Reality headers in the Statistics
-      tab and all of your best Challenge times. Inside Doomed Realities, multiple upgrades, Time Studies, Challenge and
-      Celestial rewards, Perks, and other game mechanics are disabled or grant no reward.
-      You can view the "Show effects in Doomed Reality" in Pelle tab for further information.
+      파멸한 현실에 진입하면 통계 탭의 일반 및 현실 제목 아래에 있는 모든 값과 각 도전의 최고 기록이
+      유지됩니다. 파멸한 현실 안에서는 여러 업그레이드, 시간 연구, 도전 및 셀레스티얼 보상, 퍼크와 그 밖의
+      게임 메커니즘이 비활성화되거나 보상을 제공하지 않습니다. 자세한 내용은 펠레 탭의 "파멸한 현실의 효과
+      보기"에서 확인할 수 있습니다.
       <br>
       <br>
-      Remnants are a new currency gained on Armageddon resets. Remnant gain is based on your best ever antimatter,
-      Infinity Points, and Eternity Points across all Doomed Realities. Remnants produce Reality Shards which can be
-      spent on Pelle Upgrades.
+      잔재는 아마겟돈 초기화에서 얻는 새 화폐입니다. 잔재 획득량은 모든 파멸한 현실에서 기록한 역대 최고
+      반물질, 무한 포인트, 영원 포인트를 기준으로 합니다. 잔재는 펠레 업그레이드에 사용할 수 있는 현실 파편을
+      생산합니다.
       <br>
       <br>
-      Pelle Upgrades can be divided into two categories. The five upgrades in the first row can be repeatedly bought,
-      but eventually reach a cap. They grant boosts to different aspects of the game, making progression within Doomed
-      Realities easier.
+      펠레 업그레이드는 두 범주로 나뉩니다. 첫 줄의 다섯 업그레이드는 반복 구매할 수 있지만 결국 상한에
+      도달합니다. 게임의 여러 요소를 강화하여 파멸한 현실 안의 진행을 더 쉽게 만듭니다.
       <br>
       <br>
-      The other upgrades in the bottom rows offer automation and QoL (quality of life) improvements. Everything unlocked
-      from these upgrades cannot be unlocked by their usual methods in the game; for example, none of the Normal
-      Challenges will unlock autobuyers if completed since they are all locked behind Pelle Upgrades instead.
-      You can toggle a button above upgrade to hide bought upgrades or click the
-      <i class="fas fa-compress-arrows-alt"></i>-icon to collapse and hide the entire panel.
+      아래쪽 줄의 나머지 업그레이드는 자동화와 편의성 개선을 제공합니다. 이 업그레이드에서 잠금 해제하는
+      모든 요소는 게임의 일반적인 방법으로 잠금 해제할 수 없습니다. 예를 들어 자동구매기는 펠레 업그레이드
+      뒤에 잠겨 있으므로 일반 도전을 완료해도 자동구매기가 잠금 해제되지 않습니다. 업그레이드 위의 버튼으로
+      구매한 업그레이드를 숨기거나 <i class="fas fa-compress-arrows-alt"></i> 아이콘을 눌러 패널 전체를
+      접고 숨길 수 있습니다.
       <br>
       <br>
-      <b>Hotkey: Z</b> will try to perform an Armageddon reset.`
-    : "<span style='color: var(--color-bad);'><b>You must Doom your Reality to read the rest of this entry.</b></span>"
+      <b>단축키: Z</b>를 누르면 아마겟돈 초기화를 시도합니다.`
+    : "<span style='color: var(--color-bad);'><b>이 항목의 나머지를 읽으려면 현실을 파멸시켜야 합니다.</b></span>"
 }
 `,
       isUnlocked: () => Pelle.isUnlocked,
       tags: ["reality", "antimatter", "lategame", "final", "hevipelle", "celestial", "doom"],
       tab: "celestials/pelle"
     }, {
-      name: "Pelle Strikes",
+      name: "펠레 타격",
       info: () => `
-Pelle Strikes are encountered on different events in the Doomed Reality. You have encountered the first Pelle Strike by
-reaching Infinity for the first time within a Doomed Reality. More Strikes eventually occur by further progression.
-Each Pelle Strike adds a nerf to a specific aspect of the game, which can be seen by clicking on the Strike name.
-Each Pelle Strike also unlocks a Rift bar.
+펠레 타격은 파멸한 현실의 여러 사건에서 발생합니다. 파멸한 현실 안에서 처음으로 무한에 도달해 첫 번째 펠레
+타격을 만났습니다. 더 진행하면 추가 타격이 발생합니다. 각 펠레 타격은 게임의 특정 요소를 약화하며, 타격
+이름을 클릭해 확인할 수 있습니다. 각 펠레 타격은 균열 막대도 잠금 해제합니다.
 <br>
 <br>
-Rift bars can be filled by clicking them to toggle between "Idle" and "Filling", although only two Rifts can be
-"Filling" at any given time. When active, Rifts consume ${formatInt(3)}% of a Rift-specific resource per second. Each
-Rift offers a Rift-specific effect which are based on the total amount filled.
+균열 막대를 클릭하면 "대기"와 "채우는 중" 상태를 전환해 채울 수 있지만, 동시에 "채우는 중"일 수 있는
+균열은 두 개뿐입니다. 활성화된 균열은 매초 해당 균열의 자원 ${formatInt(3)}%를 소모합니다. 각 균열은 지금까지
+채운 총량을 바탕으로 고유한 효과를 제공합니다.
 ${PelleStrikes.eternity.hasStrike
-    ? `An exception for this is Decay/Collapse/Disarray, whose effect gets capped once you have drained a total of
-    ${formatPostBreak(DC.E2000)} Replicanti.`
+    ? `쇠퇴/붕괴/혼란은 예외로, 복제자를 총 ${formatPostBreak(DC.E2000)}만큼 소모하면 효과가 상한에
+    도달합니다.`
     : ""}
-In addition, each Rift offers three milestone rewards for filling them up to a certain percentage.
+또한 각 균열을 일정 비율까지 채우면 세 가지 마일스톤 보상을 얻습니다.
 `,
       isUnlocked: () => PelleStrikes.infinity.hasStrike,
       tags: ["reality", "antimatter", "lategame", "final", "pelle", "strike", "rift", "celestial"],
       tab: "celestials/pelle"
     }, {
-      name: "The Galaxy Generator",
+      name: "은하 생성기",
       info: () => `
-When you reach ${formatInt(100)}% Recursion/Dispersion/Destruction, you unlock the <b>Galaxy Generator</b>, which can
-passively generate Galaxies. Generated Galaxies are like Replicanti Galaxies and Tachyon Galaxies in that they affect
-tickspeed as if they were Antimatter Galaxies, but they do not increase the cost of your next Antimatter Galaxy. You
-also unlock five new upgrades. The first upgrade increases the base amount of Galaxies generated. The other four
-upgrades then give a multiplier to this base amount. The first two upgrades can be bought by spending antimatter and
-Generated Galaxies. Replicanti or Tachyon Galaxies cannot be spent for purchasing those upgrades.
+재귀/분산/파괴가 ${formatInt(100)}%에 도달하면 은하를 자동으로 생성하는 <b>은하 생성기</b>를 잠금
+해제합니다. 생성된 은하는 반물질 은하처럼 틱스피드에 영향을 주면서도 다음 반물질 은하의 비용을 높이지 않는다는
+점에서 복제자 은하 및 타키온 은하와 비슷합니다. 새 업그레이드 다섯 개도 잠금 해제됩니다. 첫 업그레이드는
+생성되는 은하의 기본량을 늘리고 나머지 네 업그레이드는 이 기본량에 배율을 제공합니다. 처음 두 업그레이드는
+반물질과 생성된 은하를 사용해 구매할 수 있습니다. 복제자 은하나 타키온 은하는 이 업그레이드 구매에 사용할
+수 없습니다.
 <br>
 <br>
-The <b>Galaxy Generator</b> has a maximum number of Galaxies it can generate, which can only be increased by draining
-Rifts once the current cap has been reached.`,
+<b>은하 생성기</b>에는 생성할 수 있는 은하의 최대 수가 있으며, 현재 상한에 도달한 뒤 균열을 소모해야만
+높일 수 있습니다.`,
       isUnlocked: () => Pelle.hasGalaxyGenerator,
       tags: ["reality", "antimatter", "lategame", "final", "pelle", "galaxy",
         "galaxies", "generator", "celestial"],
       tab: "celestials/pelle"
     }, {
-      name: "Endgame",
+      name: "엔드게임",
       info: () => `
-After reaching ${format(DC.E9E15)} antimatter in the Doomed Reality, you will be able to do an <b>Endgame</b>.
-This resets everything except things under the General tab in Statistics, Achievements in rows ${formatInt(19)}+,
-and challenge times. You will get one Endgame for performing an Endgame reset. Endgames grant milestones to make
-the game faster and easier, both outside and inside the Doomed Reality.
+파멸한 현실에서 ${format(DC.E9E15)} 반물질에 도달하면 <b>엔드게임</b>을 수행할 수 있습니다. 통계의 일반
+탭에 있는 항목, ${formatInt(19)}번째 줄 이후의 도전과제, 도전 시간을 제외한 모든 것을 초기화합니다.
+엔드게임 초기화를 수행하면 엔드게임 하나를 얻습니다. 엔드게임은 파멸한 현실 안팎에서 게임을 더 빠르고 쉽게
+만드는 마일스톤을 제공합니다.
 <br>
 <br>
-After performing an <b>Endgame</b>, you will get two different resources: Celestial Points and Doomed Particles.
-Celestial Points are used for purchasing Celestial Dimensions, and Doomed Particles are for nerfing the Doomed Reality
-and re-enabling things inside of it. You will eventually be able to pass ${format(DC.E9E15)} antimatter,
-but for now it is impossible.
+<b>엔드게임</b>을 수행하면 셀레스티얼 포인트와 파멸 입자라는 두 자원을 얻습니다. 셀레스티얼 포인트는
+셀레스티얼 차원을 구매하는 데 사용하고, 파멸 입자는 파멸한 현실을 약화하고 그 안의 요소를 다시 활성화하는 데
+사용합니다. 나중에는 ${format(DC.E9E15)} 반물질을 넘을 수 있지만 지금은 불가능합니다.
 `,
       isUnlocked: () => PlayerProgress.endgameUnlocked(),
       tags: ["endgame", "cp", "celp", "dp", "points", "particles", "end", "reset", "prestige", "enter",

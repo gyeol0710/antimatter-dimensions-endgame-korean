@@ -36,7 +36,7 @@ export const normalTimeStudies = [
     // All requirements of an empty array will always evaluate to true, so this study is always purchasable
     requirement: [],
     reqType: TS_REQUIREMENT_TYPE.ALL,
-    description: "Tickspeed affects 1st Time Dimension with reduced effect",
+    description: "제1 시간 차원이 틱스피드에 따라 배율을 받는다.",
     effect: () => {
       const tickspeed = Tickspeed.current.dividedBy(1000);
       const firstPart = tickspeed.pow(0.008).times(0.95);
@@ -51,8 +51,8 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [11],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Improve Replicanti multiplier formula to
-      (log2(x)${formatPow(2)})+x${formatPow(0.04, 3, 3)}`,
+    description: () => `복제자 배율 공식을
+      (log2(x)${formatPow(2)})+x${formatPow(0.04, 3, 3)}로 개선한다.`,
     effect: () => Replicanti.amount.pow(0.04),
     // This is a special case because the study itself is *added* to the existing formula, but it makes more sense
     // to display a multiplicative increase just like every other study. We need to do the calculation in here in order
@@ -68,7 +68,7 @@ export const normalTimeStudies = [
     cost: 2,
     requirement: [11],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Base Replicanti interval limit ${formatInt(50)}ms ➜ ${formatInt(1)}ms`,
+    description: () => `복제자의 간격 제한을 ${formatInt(50)}ms ➜ ${formatInt(1)}ms로 낮춘다.`,
     effect: 1
   },
   {
@@ -76,7 +76,7 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [21],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Powers up multipliers that are based on your Infinities (Bonuses${formatPow(100)})`,
+    description: () => `무한 횟수에 기반한 배율을 강화한다. (보너스${formatPow(100)})`,
     effect: 100
   },
   {
@@ -84,7 +84,7 @@ export const normalTimeStudies = [
     cost: 2,
     requirement: [22],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: `You gain more Infinities based on Dimension Boosts`,
+    description: `차원 가속 횟수에 비례하여 무한 횟수를 더욱 많이 얻는다.`,
     effect: () => Decimal.max(DimBoost.totalBoosts.times(10), 1),
     formatEffect: value => formatX(value, 2)
   },
@@ -93,14 +93,14 @@ export const normalTimeStudies = [
     cost: 2,
     requirement: [22],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "You keep half of your Replicanti Galaxies on Infinity"
+    description: "빅 크런치를 해도 복제자 은하의 절반이 초기화되지 않는다."
   },
   {
     id: 41,
     cost: 4,
     requirement: [31],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `All Galaxies give a ${formatX(DC.D1_2, 1, 1)} multiplier to Infinity Points gained`,
+    description: () => `모든 은하들의 수만큼 무한 포인트의 지급량을 ${formatX(DC.D1_2, 1, 1)}배 늘린다`,
     effect: () => DC.D1_2.pow(GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(
       player.galaxies.max(1)).times(player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)) :
       Replicanti.galaxies.total.add(player.galaxies).add(player.dilation.totalTachyonGalaxies).add(GalacticPower.freeGalaxies)),
@@ -111,8 +111,8 @@ export const normalTimeStudies = [
     cost: 6,
     requirement: [32],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Antimatter Galaxy requirement increases by ${formatInt(52)}
-      8th Dimensions instead of ${formatInt(60)}`,
+    description: () => `반물질 은하 요구량이 제8 반물질 차원 ${formatInt(60)}개가 아닌
+      ${formatInt(52)}개씩 증가한다.`,
     effect: 52
   },
   {
@@ -120,7 +120,7 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [41, 42],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `You gain ${formatX(1e15)} more Infinity Points`,
+    description: () => `무한 포인트를 ${formatX(1e15)}배 더 얻는다.`,
     effect: 1e15
   },
   {
@@ -128,7 +128,7 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [51],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `You gain ${formatX(25)} more Eternity Points`,
+    description: () => `영원 포인트를 ${formatX(25)}배 더 얻는다.`,
     effect: 25
   },
   {
@@ -136,7 +136,7 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [42, () => (Perk.bypassEC5Lock.isBought && !player.disablePostReality) || EternityChallenge(5).completions > 0],
     reqType: TS_REQUIREMENT_TYPE.ALL,
-    description: () => `You gain Replicanti ${formatInt(3)} times faster`,
+    description: () => `복제자 생성 속도가 ${formatInt(3)}배 빨라진다.`,
     effect: 3
   },
   {
@@ -144,7 +144,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [61, () => Perk.studyECRequirement.isBought || !EternityChallenge(12).isUnlocked],
     reqType: TS_REQUIREMENT_TYPE.DIMENSION_PATH,
-    description: "Dimensional Sacrifice affects all other Antimatter Dimensions with reduced effect",
+    description: "차원 희생이 다른 반물질 차원에게도 작은 영향을 미친다.",
     effect: () => Ascensions.sacA.isUnlocked ? Sacrifice.totalPower.sub(1).div(4).add(1) : Sacrifice.totalBoost.pow(0.25).clampMin(1),
     cap: () => Ascensions.sacA.isUnlocked ? DC.BEMAX : (Alpha.isDestroyed ? DC.BEMAX : DC.E210000),
     formatEffect: value => Ascensions.sacA.isUnlocked ? formatPow(value, 2, 3) : formatX(value, 2, 1)
@@ -156,7 +156,7 @@ export const normalTimeStudies = [
       () => Perk.studyECRequirement.isBought ||
         (!EternityChallenge(11).isUnlocked && !EternityChallenge(12).isUnlocked)],
     reqType: TS_REQUIREMENT_TYPE.DIMENSION_PATH,
-    description: "Dimensional Sacrifice affects 4th Infinity Dimension with greatly reduced effect",
+    description: "차원 희생이 제4 무한 차원에 아주 작은 영향을 미친다.",
     effect: () => Ascensions.sacA.isUnlocked ? Sacrifice.totalPower.sub(1).div(25).add(1) : Sacrifice.totalBoost.pow(0.04).clampMin(1),
     cap: () => Ascensions.sacA.isUnlocked ? DC.BEMAX : (Alpha.isDestroyed ? DC.BEMAX : DC.E30000),
     formatEffect: value => Ascensions.sacA.isUnlocked ? formatPow(value, 2, 3) : formatX(value, 2, 1)
@@ -166,7 +166,7 @@ export const normalTimeStudies = [
     cost: 5,
     requirement: [61, () => Perk.studyECRequirement.isBought || !EternityChallenge(11).isUnlocked],
     reqType: TS_REQUIREMENT_TYPE.DIMENSION_PATH,
-    description: "Dimensional Sacrifice affects 3rd Time Dimension with greatly reduced effect",
+    description: "차원 희생이 제3 시간 차원에 아주 작은 영향을 미친다.",
     effect: () => Ascensions.sacA.isUnlocked ? Sacrifice.totalPower.sub(1).div(200).add(1) : Sacrifice.totalBoost.pow(0.005).clampMin(1),
     cap: () => Ascensions.sacA.isUnlocked ? DC.BEMAX : (Alpha.isDestroyed ? DC.BEMAX : DC.E1300),
     formatEffect: value => Ascensions.sacA.isUnlocked ? formatPow(value, 2, 3) : formatX(value, 2, 1)
@@ -176,7 +176,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [71],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Base Dimension Boost power becomes ${formatX(10)}`,
+    description: () => `차원 가속의 생산량 증가 효과가 ${formatX(10)}배로 바뀐다.`,
     effect: 10
   },
   {
@@ -184,7 +184,7 @@ export const normalTimeStudies = [
     cost: 6,
     requirement: [72],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Dimension Boosts affect Infinity Dimensions",
+    description: "차원 가속이 무한 차원에 영향을 미친다.",
     effect: () => DC.D1_0000109.pow(Decimal.pow(DimBoost.totalBoosts, 2)).min(Decimal.pow10(1e50)).times(
       DC.D1_0000109.pow(DimBoost.totalBoosts.sub(1e25).max(0).times(1e25))),
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E1E7,
@@ -195,7 +195,7 @@ export const normalTimeStudies = [
     cost: 5,
     requirement: [73],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Dimension Boost multiplier based on tick upgrades gained from TDs",
+    description: "시간 차원으로 획득한 틱스피드 업그레이드가 차원 가속에 영향을 준다.",
     effect: () => DC.D1_0004.pow(player.totalTickGained).min(1e30).times(
       Decimal.pow(Decimal.max(player.totalTickGained.sub(172728), 1), 1000)),
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E30,
@@ -206,7 +206,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [81],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Antimatter Dimension multiplier based on time spent in this Eternity",
+    description: "반물질 차원이 현재 영원에서 보낸 시간에 따라서 증폭된다.",
     effect: () => Decimal.pow10(Decimal.min(Time.thisEternity.totalMinutes, 20).times(15).toNumber()).times(
       Time.thisEternity.totalMinutes.sub(20).times(15).max(1)),
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E300,
@@ -217,7 +217,7 @@ export const normalTimeStudies = [
     cost: 5,
     requirement: [82],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Infinity Dimension multiplier based on fastest Eternity time",
+    description: "무한 차원이 가장 빠른 영원 달성 기록에 따라서 증폭된다.",
     effect: () => DC.D2.pow(new Decimal(60).div(Time.bestEternity.totalSeconds)),
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.C2P30,
     formatEffect: value => formatX(value, 2, 1)
@@ -227,7 +227,7 @@ export const normalTimeStudies = [
     cost: 7,
     requirement: [83],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Time Dimension multiplier based on tick upgrades gained",
+    description: "시간 차원이 틱스피드 업그레이드 횟수에 따라서 증폭된다.",
     effect: () => Decimal.pow(player.totalTickGained, 0.25).clampMin(1),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -236,7 +236,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [91],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Antimatter Dimension multiplier equal to Replicanti amount",
+    description: "반물질 차원이 복제자의 갯수만큼 증폭된다.",
     effect: () => Decimal.max(Replicanti.amount, 1),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -245,7 +245,7 @@ export const normalTimeStudies = [
     cost: 6,
     requirement: [92],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Replicanti Galaxies boost Replicanti multiplier",
+    description: "복제자 은하가 복제자 배수를 증폭하게 된다.",
     effect: () => DC.D5.pow(player.replicanti.galaxies),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -254,7 +254,7 @@ export const normalTimeStudies = [
     cost: 6,
     requirement: [93],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Time Dimension multiplier equal to Replicanti Galaxy amount",
+    description: "복제자 은하의 수 만큼 시간 차원을 증폭하게 된다.",
     effect: () => Decimal.max(player.replicanti.galaxies, 1),
     formatEffect: value => formatX(value, 2, 0)
   },
@@ -264,8 +264,8 @@ export const normalTimeStudies = [
     requirement: [101, 102, 103],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     description: () => (Achievement(103).canBeApplied
-      ? `Make the Infinity Point formula better log(x)/${formatFloat(307.8, 1)} ➜ log(x)/${formatInt(280)}`
-      : `Make the Infinity Point formula better log(x)/${formatInt(308)} ➜ log(x)/${formatInt(280)}`),
+      ? `무한 포인트 공식을 개선한다. log(x)/${formatFloat(307.8, 1)} ➜ log(x)/${formatInt(280)}`
+      : `무한 포인트 공식을 개선한다. log(x)/${formatInt(308)} ➜ log(x)/${formatInt(280)}`),
     effect: 280
   },
   {
@@ -276,9 +276,8 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [122, 123],
     description: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
-      ? `You gain ${formatX(50)} more Eternity Points`
-      : `You gain more EP based on how fast your last ten Eternities
-      were${PlayerProgress.realityUnlocked() ? " (real time)" : ""}`),
+      ? `영원 포인트를 ${formatX(50)}배 더 얻는다.`
+      : `최근 영원 10회의 속도에 따라 영원 포인트를 더 얻는다${PlayerProgress.realityUnlocked() ? " (실제 시간)" : ""}`),
     effect: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
       ? 50
       : Math.clamp(250 / Player.averageRealTimePerEternity, 1, 50)),
@@ -293,8 +292,8 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [121, 123],
     description: () => ((Perk.studyPassive.isBought && !player.disablePostReality)
-      ? `You gain ${formatX(50)} more Eternity Points`
-      : `You gain ${formatX(35)} more Eternity Points`),
+      ? `영원 포인트를 ${formatX(50)}배 더 얻는다.`
+      : `영원 포인트를 ${formatX(35)}배 더 얻는다.`),
     effect: () => ((Perk.studyPassive.isBought && !player.disablePostReality) ? 50 : 35)
   },
   {
@@ -304,7 +303,7 @@ export const normalTimeStudies = [
     requirement: [111],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [121, 122],
-    description: "You gain more Eternity Points based on time spent this Eternity",
+    description: "현재 영원에서 보낸 시간에 따라서 더 많은 영원 포인트를 얻는다.",
     effect: () => {
       const perkEffect = (player.disablePostReality
         ? TimeSpan.fromMinutes(DC.D0)
@@ -322,8 +321,8 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [132, 133],
     description: () => (Achievement(138).isUnlocked
-      ? `You can get ${formatPercents(0.5)} more Replicanti Galaxies`
-      : `Automatic Replicanti Galaxies are disabled, but you can get ${formatPercents(0.5)} more`),
+      ? `복제자 은하를 ${formatPercents(0.5)}개 더 많이 얻을 수 있다.`
+      : `복제자 은하 자동구매기가 비활성화되지만, 복제자 은하를 ${formatPercents(0.5)}개 더 많이 얻을 수 있다.`),
     effect: () => Decimal.floor(player.replicanti.boughtGalaxyCap.div(2))
   },
   {
@@ -334,9 +333,9 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [131, 133],
     description: () => ((Pelle.isDoomed && !PelleDestructionUpgrade.timestudy132.canBeApplied)
-      ? `Replicanti Galaxies are ${formatPercents(0.4)} stronger`
-      : `Replicanti Galaxies are ${formatPercents(0.4)} stronger and Replicanti are 
-        ${(Perk.studyPassive.isBought && !player.disablePostReality) ? formatX(3) : formatX(1.5, 1, 1)} faster`),
+      ? `복제자 은하가 ${formatPercents(0.4)} 더 강해진다.`
+      : `복제자 은하가 ${formatPercents(0.4)} 더 강해지고 복제자 생성 속도가
+        ${(Perk.studyPassive.isBought && !player.disablePostReality) ? formatX(3) : formatX(1.5, 1, 1)}배 빨라진다.`),
     effect: 0.4
   },
   {
@@ -347,9 +346,9 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [131, 132],
     description: () => (Achievement(138).isUnlocked
-      ? `Replicanti Galaxies are ${formatPercents(0.5)} stronger`
-      : `Replicanti are ${formatX(10)} slower until ${format(Number.MAX_VALUE, 2)}` +
-    `, but Replicanti Galaxies are ${formatPercents(0.5)} stronger`),
+      ? `복제자 은하가 ${formatPercents(0.5)} 효율적이게 된다.`
+      : `복제자가 ${format(Number.MAX_VALUE, 2)}개가 될 때까지 생성 속도가 ${formatX(10)}배 느려지지만, ` +
+    `복제자 은하가 ${formatPercents(0.5)} 더 강해진다.`),
     effect: 0.5
   },
   {
@@ -360,8 +359,8 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [142, 143],
     description: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
-      ? `You gain ${formatX(DC.E45)} more Infinity Points`
-      : "Multiplier to Infinity Points, which decays over this Infinity"),
+      ? `무한 포인트를 ${formatX(DC.E45)}배 더 얻는다.`
+      : "현재 무한에서 지낸 시간에 반비례하여 무한 포인트의 획득량을 증폭한다."),
     effect: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
       ? DC.E45
       : DC.E45.divide(thisInfinityMult(Alpha.isRunning
@@ -376,7 +375,7 @@ export const normalTimeStudies = [
     requirement: [132],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [141, 143],
-    description: () => `You gain ${formatX(passiveIPMult())} more Infinity Points`,
+    description: () => `무한 포인트를 ${formatX(passiveIPMult())}배 더 얻는다.`,
     effect: passiveIPMult,
     cap: () => (Effarig.eternityCap === undefined ? undefined : Effarig.eternityCap.toNumber())
   },
@@ -387,7 +386,7 @@ export const normalTimeStudies = [
     requirement: [133],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [141, 142],
-    description: "Multiplier to Infinity Points, which increases over this Infinity",
+    description: "현재 무한에서 지낸 시간에 비례하여 무한 포인트의 획득량을 증폭한다.",
     effect: () => {
       const perkEffect = (player.disablePostReality
         ? TimeSpan.fromMinutes(DC.D0)
@@ -403,7 +402,7 @@ export const normalTimeStudies = [
     cost: 8,
     requirement: [141, 142, 143],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `${formatX(1e6)} multiplier on all Time Dimensions`,
+    description: () => `모든 시간 차원에 ${formatX(1e6)} 배율을 적용한다.`,
     effect: 1e6
   },
   {
@@ -411,7 +410,7 @@ export const normalTimeStudies = [
     cost: 7,
     requirement: [151],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `${formatX(DC.E616)} multiplier on all Antimatter Dimensions`,
+    description: () => `모든 반물질 차원이 ${formatX(DC.E616)}배 증폭된다.`,
     effect: () => DC.E616
   },
   {
@@ -419,7 +418,7 @@ export const normalTimeStudies = [
     cost: 7,
     requirement: [151],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `${formatX(1e11)} multiplier on all Infinity Dimensions`,
+    description: () => `모든 무한 차원이 ${formatX(1e11)}배 증폭된다.`,
     effect: 1e11
   },
   {
@@ -427,7 +426,7 @@ export const normalTimeStudies = [
     cost: 15,
     requirement: [161, 162],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Time Shard requirement for the next Tickspeed upgrade goes up slower
+    description: () => `다음 틱스피드 업그레이드의 시간 파편 요구량이 더 느리게 증가한다.
       ${formatX(1.33, 0, 2)} ➜ ${formatX(1.25, 0, 2)}`,
     effect: () => TS171_MULTIPLIER
   },
@@ -439,7 +438,7 @@ export const normalTimeStudies = [
       () => EternityChallenge(2).completions > 0 || (Perk.bypassEC2Lock.isBought && !player.disablePostReality),
       () => EternityChallenge(3).completions > 0 || (Perk.bypassEC3Lock.isBought && !player.disablePostReality)],
     reqType: TS_REQUIREMENT_TYPE.ALL,
-    description: () => `You gain ${formatPercents(0.01)} of your Infinity Points gained on crunch each second`,
+    description: () => `현재 획득할 수 있는 무한 포인트의 ${formatPercents(0.01)}를 매초 획득한다.`,
     effect: () => gainedInfinityPoints().times(Time.deltaTime.div(100))
       .timesEffectOf(Ra.unlocks.continuousTTBoost.effects.autoPrestige)
   },
@@ -448,8 +447,8 @@ export const normalTimeStudies = [
     cost: 400,
     requirement: [181, () => EternityChallenge(10).completions > 0],
     reqType: TS_REQUIREMENT_TYPE.ALL,
-    description: () => `After Eternity you permanently keep ${formatPercents(0.05)}
-    of your Infinities as Banked Infinities and get double Infinities`,
+    description: () => `영원 후 무한 횟수의 ${formatPercents(0.05)}를 저장된 무한으로 영구 보존하고
+    무한 횟수를 두 배로 얻는다.`,
     effects: {
       infinitiesGain: 2,
       bankedInfinitiesGain: () => Currency.infinities.value.times(0.05).floor()
@@ -461,15 +460,15 @@ export const normalTimeStudies = [
     requirement: [181, () => EternityChallenge(10).completions > 0, () => !Enslaved.isRunning],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     description: () => (Enslaved.isRunning
-      ? "There is not enough space in this Reality"
-      : `Replicanti can go beyond ${format(replicantiCap(), 2, 1)}, but growth slows down at higher amounts`)
+      ? "이 현실에서 복제자를 만들 공간이 충분하지 않다."
+      : `복제자를 ${format(replicantiCap(), 2, 1)}개 이상 획득할 수 있지만, 복제자 갯수가 많을수록 복제자의 생성 속도가 느려진다.`)
   },
   {
     id: 193,
     cost: 300,
     requirement: [181, () => EternityChallenge(10).completions > 0],
     reqType: TS_REQUIREMENT_TYPE.ALL,
-    description: "Antimatter Dimension multiplier based on Eternities",
+    description: "반물질 차원이 영원 횟수에 비례하여 증폭된다.",
     effect: () => DC.E2000.pow(Currency.eternities.value.div(1e5).clampMax(15)).times(
       DC.E2000.pow(Decimal.log10(Currency.eternities.value.sub(1.4e6).div(1e5).max(1)))),
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E30000,
@@ -480,14 +479,14 @@ export const normalTimeStudies = [
     cost: 900,
     requirement: [192],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Pick a second path from the Dimension Split"
+    description: "첫번째 시간 연구 분기점에서 하나의 길을 더 고를 수 있다."
   },
   {
     id: 211,
     cost: 120,
     requirement: [191],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `Dimension Boost requirement scaling is reduced by ${formatInt(5)}`,
+    description: () => `차원 가속의 가격 상승 가속화가 ${formatInt(5)}개 만큼 미뤄진다.`,
     effect: 5
   },
   {
@@ -495,7 +494,7 @@ export const normalTimeStudies = [
     cost: 150,
     requirement: [191],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "All Galaxies are stronger based on your Time Shards",
+    description: "모든 은하들의 성능이 시간 파편의 갯수에 비례해 증가한다.",
     effect: () => Decimal.pow(Currency.timeShards.value.clampMin(2).log2(), 0.008).min(1.2).times(
       Currency.timeShards.value.clampMin(2).log2().add(1).log2().add(1).log2().sub(2.1).div(3).max(1)).toNumber(),
     cap: () => Alpha.isDestroyed ? Infinity : 1.2,
@@ -506,7 +505,7 @@ export const normalTimeStudies = [
     cost: 200,
     requirement: [193],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `You gain Replicanti ${formatInt(50)} times faster`,
+    description: () => `복제자 생성 속도가 ${formatInt(50)}배 빨라진다.`,
     effect: 50
   },
   {
@@ -514,7 +513,7 @@ export const normalTimeStudies = [
     cost: 120,
     requirement: [193],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "Dimensional Sacrifice boosts the 8th Antimatter Dimension even more",
+    description: "차원 희생이 제8 반물질 차원을 더욱 많이 증폭한다.",
     effect: () => {
       if (Ascensions.sacA.isUnlocked) return Sacrifice.totalPower.sub(1).times(21.5).add(1);
       const totalBoost = Sacrifice.totalBoost;
@@ -532,7 +531,7 @@ export const normalTimeStudies = [
     requirement: [211],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [222],
-    description: "Time Dimension multiplier based on Dimension Boosts",
+    description: "차원 가속 횟수에 비례하여 시간 차원이 증폭된다.",
     effect: () => DC.D1_0025.pow(DimBoost.totalBoosts),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -543,7 +542,7 @@ export const normalTimeStudies = [
     requirement: [211],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [221],
-    description: () => `Dimension Boost costs scale by another ${formatInt(2)} less`,
+    description: () => `차원 가속 구매시 가격 상승량이 ${formatInt(2)}개 더 감소한다.`,
     effect: 2
   },
   {
@@ -553,7 +552,7 @@ export const normalTimeStudies = [
     requirement: [212],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [224],
-    description: () => `Distant Galaxy cost scaling starts ${formatInt(7)} Galaxies later`,
+    description: () => `먼 반물질 은하의 가격 상승이 은하 ${formatInt(7)}개만큼 늦춰진다.`,
     effect: 7
   },
   {
@@ -565,8 +564,8 @@ export const normalTimeStudies = [
     requiresST: [223],
     description() {
       const effect = TimeStudy(224).effectValue;
-      return `Distant Galaxy cost scaling starts ${quantifyHybridLarge("Galaxy", effect)} later
-        (${formatInt(1)} per ${formatInt(2000)} Dim Boosts)`;
+      return `먼 반물질 은하의 가격 증가가 ${quantifyHybridLarge("은하", effect)}만큼 늦게 시작한다.
+        (차원 가속 ${formatInt(2000)}회당 ${formatInt(1)}개)`;
     },
     effect: () => Decimal.floor(DimBoost.totalBoosts.div(2000)).toNumber()
   },
@@ -577,7 +576,7 @@ export const normalTimeStudies = [
     requirement: [213],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [226],
-    description: "You gain extra Replicanti Galaxies based on Replicanti amount",
+    description: "복제자의 갯수에 따라서 복제자 은하를 추가로 얻는다.",
     effect: () => Decimal.floor(Replicanti.amount.add(1).log10().div(1000).min(1e10).times(Replicanti.amount.add(1).log10().add(1).log10().sub(3).div(10).max(1))),
     formatEffect: value => `+${formatHybridLarge(value, 3)} RG`
   },
@@ -588,7 +587,7 @@ export const normalTimeStudies = [
     requirement: [213],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [225],
-    description: "You gain extra Replicanti Galaxies based on their max",
+    description: "복제자 은하의 최대 보유 갯수에 비례하여 복제자 은하를 추가로 얻는다.",
     effect: () => Decimal.floor(player.replicanti.boughtGalaxyCap.div(12)),
     formatEffect: value => `+${formatHybridLarge(value, 3)} RG`
   },
@@ -599,7 +598,7 @@ export const normalTimeStudies = [
     requirement: [214],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [228],
-    description: "Dimensional Sacrifice affects 4th Time Dimension with reduced effect",
+    description: "차원 희생이 제4 시간 차원에 작은 영향을 미친다.",
     effect: () => Decimal.max(Decimal.pow(Sacrifice.totalBoost.add(1).pLog10(), 20), 1),
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E300,
     formatEffect: value => formatX(value, 2, 2)
@@ -611,7 +610,7 @@ export const normalTimeStudies = [
     requirement: [214],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [227],
-    description: () => `Dimensional Sacrifice formula scales better
+    description: () => `차원 희생 공식의 증가 효율이 개선된다.
       ${Sacrifice.getSacrificeDescription({ "TimeStudy228": false })} ➜
       ${Sacrifice.getSacrificeDescription({ "TimeStudy228": true })}`,
     effect: 0.2
@@ -623,7 +622,7 @@ export const normalTimeStudies = [
     requirement: [221, 222],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [232],
-    description: "Dimension Boosts are stronger based on their amount",
+    description: "차원 가속의 성능이 그 횟수에 비례하여 증가한다.",
     effect: () => Decimal.pow(DimBoost.totalBoosts, 0.375).clampMin(1),
     formatEffect: value => formatX(value, 2, 2)
   },
@@ -634,7 +633,7 @@ export const normalTimeStudies = [
     requirement: [223, 224],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [231],
-    description: "All Galaxies are stronger based on Antimatter Galaxies",
+    description: "모든 은하들의 성능이 반물질 은하의 갯수에 비례하여 증가한다.",
     effect: () => Decimal.pow(player.galaxies.div(500).add(1), 0.25).toNumber(),
     formatEffect: value => `+${formatPercents(value - 1, 3)}`
   },
@@ -645,7 +644,7 @@ export const normalTimeStudies = [
     requirement: [225, 226],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [234],
-    description: "Max Replicanti Galaxy upgrade is cheaper based on current Replicanti",
+    description: "복제자 은하 최대 보유 갯수 업그레이드의 비용이 복제자의 갯수가 많을수록 감소한다.",
     effect: () => Replicanti.amount.pow(0.625),
     formatEffect: value => `/ ${format(value, 1, 2)}`
   },
@@ -656,7 +655,7 @@ export const normalTimeStudies = [
     requirement: [227, 228],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [233],
-    description: "Dimensional Sacrifice applies to 1st Antimatter Dimension",
+    description: "차원 희생이 제1 반물질 차원에 영향을 미친다.",
     effect: () => Ascensions.sacA.isUnlocked ? Sacrifice.totalPower : Sacrifice.totalBoost,
   },
   // Note: These last 4 entries are the triad studies
@@ -667,7 +666,7 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 1, 221, 222, 231],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [221, 222, 231],
-    description: "Time Study 231 improves the effect of Time Study 221",
+    description: "시간 연구 231의 효과가 시간 연구 221의 효과를 증폭시킨다.",
     effect: () => Decimal.pow(TimeStudy(221).effectValue.pow(TimeStudy(231).effectValue.minus(1)),
       Ra.unlocks.triadBuff.effectOrDefault(1)).clampMin(1),
     formatEffect: value => formatX(value, 2, 1),
@@ -680,8 +679,8 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2, 223, 224, 232],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [223, 224, 232],
-    description: () => `Distant Galaxy scaling threshold starts another
-      ${formatInt(Math.pow(3000, Ra.unlocks.triadBuff.effectOrDefault(1)))} Antimatter Galaxies later`,
+    description: () => `먼 반물질 은하의 가격 증가 기준점이 반물질 은하
+      ${formatInt(Math.pow(3000, Ra.unlocks.triadBuff.effectOrDefault(1)))}개만큼 더 늦게 시작한다.`,
     effect: () => Math.pow(3000, Ra.unlocks.triadBuff.effectOrDefault(1)),
     unlocked: () => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2
   },
@@ -692,8 +691,8 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3, 225, 226, 233],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [225, 226, 233],
-    description: () => `Gain ${formatPercents(0.5 * Ra.unlocks.triadBuff.effectOrDefault(1))} more extra Replicanti
-      Galaxies from Time Studies 225 and 226, and from Effarig's Infinity`,
+    description: () => `시간 연구 225와 226 및 에파리그의 무한에서 추가 복제자 은하를
+      ${formatPercents(0.5 * Ra.unlocks.triadBuff.effectOrDefault(1))} 더 얻는다.`,
     effect: () => 1 + 0.5 * Ra.unlocks.triadBuff.effectOrDefault(1),
     unlocked: () => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3
   },
@@ -705,8 +704,8 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [227, 228, 234],
     description: () => (Ra.unlocks.triadBuff.canBeApplied
-      ? `Dimensional Sacrifice multiplier is raised to the power of ${format(2 * Ra.unlocks.triadBuff.effectOrDefault(1), 2, 2)}`
-      : `Dimensional Sacrifice multiplier is squared`),
+      ? `차원 희생 배율을 ${format(2 * Ra.unlocks.triadBuff.effectOrDefault(1), 2, 2)}제곱한다.`
+      : `차원 희생 배율을 제곱한다.`),
     effect: () => 2 * Ra.unlocks.triadBuff.effectOrDefault(1),
     unlocked: () => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 4
   }

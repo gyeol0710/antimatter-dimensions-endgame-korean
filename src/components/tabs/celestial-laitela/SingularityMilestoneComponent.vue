@@ -67,25 +67,25 @@ export default {
     },
     completionsDisplay() {
       const maxStr = Number.isFinite(this.limit) ? formatInt(this.maxCompletions) : "∞";
-      return `${formatInt(this.completions)}/${maxStr} ${pluralize("completion", this.completions)}`;
+      return `${formatInt(this.completions)}/${maxStr} ${pluralize("회 완료", this.completions)}`;
     },
     progressDisplay() {
       const condenseCount = this.remainingSingularities.div(this.singularitiesPerCondense);
       let thisSingularityTime, extraTime, timeText;
       switch (this.milestoneMode) {
         case SINGULARITY_MILESTONE_RESOURCE.SINGULARITIES:
-          return `In ${quantify("Singularity", this.remainingSingularities, 2)}`;
+          return `특이점 ${quantify("개", this.remainingSingularities, 2)} 후`;
         case SINGULARITY_MILESTONE_RESOURCE.CONDENSE_COUNT:
-          return `Condense ${quantify("time", condenseCount, 2, 2)}`;
+          return `${quantify("회", condenseCount, 2, 2)} 응축`;
         case SINGULARITY_MILESTONE_RESOURCE.MANUAL_TIME:
           thisSingularityTime = Decimal.clampMin(0, this.currentCondenseTime);
           extraTime = Decimal.ceil(condenseCount.sub(1)).mul(this.baseCondenseTime);
-          return `In ${TimeSpan.fromSeconds(new Decimal(thisSingularityTime.add(extraTime))).toStringShort()} (manual)`;
+          return `${TimeSpan.fromSeconds(new Decimal(thisSingularityTime.add(extraTime))).toStringShort()} 후 (수동)`;
         case SINGULARITY_MILESTONE_RESOURCE.AUTO_TIME:
           thisSingularityTime = Decimal.clampMin(0, this.currentCondenseTime.add(this.autoCondenseDelay));
           extraTime = Decimal.ceil(condenseCount.sub(1)).times(this.baseCondenseTime.add(this.autoCondenseDelay));
-          timeText = `In ${TimeSpan.fromSeconds(new Decimal(thisSingularityTime.add(extraTime))).toStringShort()}`;
-          return this.autoSingActive ? timeText : `Auto-Singularity is OFF`;
+          timeText = `${TimeSpan.fromSeconds(new Decimal(thisSingularityTime.add(extraTime))).toStringShort()} 후`;
+          return this.autoSingActive ? timeText : `자동 특이점 꺼짐`;
         default:
           throw new Error("Unrecognized Singularity Milestone mode");
       }

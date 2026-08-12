@@ -18,7 +18,9 @@ export default {
   computed: {
     disableText() {
       // Doesn't need to be reactive or check strike status; it's always permanent once entered in Doomed
-      return Pelle.isDoomed && !PelleStrikes.dilation.isDestroyed() ? "Dilation is permanent." : "Disable Dilation.";
+      return Pelle.isDoomed && !PelleStrikes.dilation.isDestroyed()
+        ? "시간 팽창은 영구적입니다."
+        : "시간 팽창을 종료합니다.";
     }
   },
   methods: {
@@ -54,27 +56,27 @@ export default {
     :class="isUnlocked ? 'o-dilation-btn--unlocked' : 'o-dilation-btn--locked'"
     @click="dilate()"
   >
-    <span v-if="!isUnlocked">Purchase the Dilation Study to unlock.</span>
+    <span v-if="!isUnlocked">시간 팽창 연구를 구매해야 해금됩니다.</span>
     <span v-else-if="!isRunning">
-      Dilate time.
+      시간을 팽창시킵니다.
       <div v-if="showRequirement">
-        Requires {{ format(remnantRequirement, 2) }} Remnants
+        잔재 {{ format(remnantRequirement, 2) }}개 필요
       </div>
     </span>
     <span v-else-if="canEternity && hasGain">
       {{ disableText }}
       <br>
-      Gain {{ quantify("Tachyon Particle", tachyonGain, 2, 1) }}.
+      {{ quantify("타키온 입자", tachyonGain, 2, 1) }} 획득.
     </span>
     <span v-else-if="hasGain">
       {{ disableText }}
       <br>
-      Reach {{ quantify("Infinity Point", eternityGoal, 1, 0) }} to Eternity and gain Tachyon Particles.
+      {{ quantify("무한 포인트", eternityGoal, 1, 0) }}에 도달해 영원하고 타키온 입자를 획득합니다.
     </span>
     <span v-else>
       {{ disableText }}
       <br>
-      Reach {{ format(requiredForGain, 2, 1) }} antimatter to gain more Tachyon Particles.
+      반물질 {{ format(requiredForGain, 2, 1) }}에 도달하면 더 많은 타키온 입자를 획득합니다.
     </span>
   </button>
 </template>

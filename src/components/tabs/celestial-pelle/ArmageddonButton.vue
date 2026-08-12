@@ -52,16 +52,16 @@ export default {
     :class="buttonClassObject"
     @click="manualArmageddon"
   >
-    <span v-if="isHeader">You cannot escape a Doomed Reality!<br></span>
+    <span v-if="isHeader">파멸한 현실에서는 벗어날 수 없습니다!<br></span>
     <span class="c-remnant-gain-display">
-      Armageddon for
+      아마겟돈으로
       <span class="c-remnant-gain">{{ remnants }}</span>
-      Remnants
+      잔재 획득
     </span>
     <br>
-    Reality Shards
-    <span class="c-reality-shard-gain">{{ format(realityShardGain, 2, 2) }}</span>/s ➜
-    <span class="c-reality-shard-gain">{{ format(nextRealityShardGain, 2, 2) }}</span>/s
+    현실 파편
+    <span class="c-reality-shard-gain">{{ format(realityShardGain, 2, 2) }}</span>/초 ➜
+    <span class="c-reality-shard-gain">{{ format(nextRealityShardGain, 2, 2) }}</span>/초
   </button>
 </template>
 

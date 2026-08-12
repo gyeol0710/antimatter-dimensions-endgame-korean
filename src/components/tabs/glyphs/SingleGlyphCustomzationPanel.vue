@@ -28,19 +28,48 @@ export default {
         cosmetic: g.cosmetic,
       };
     },
+    glyphTypeName() {
+      const names = {
+        time: "시간",
+        dilation: "팽창",
+        replication: "복제",
+        infinity: "무한",
+        power: "동력",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동반자",
+      };
+      return names[this.glyph.type] ?? this.glyph.type.capitalize();
+    },
     typeCosmetic() {
       const changes = [];
-      if (GlyphAppearanceHandler.symbolMap[this.glyph.type]) changes.push("Symbol");
-      if (GlyphAppearanceHandler.colorMap[this.glyph.type]) changes.push("Color");
-      if (changes.length === 0) return "None";
+      if (GlyphAppearanceHandler.symbolMap[this.glyph.type]) changes.push("기호");
+      if (GlyphAppearanceHandler.colorMap[this.glyph.type]) changes.push("색상");
+      if (changes.length === 0) return "없음";
       return changes.join("/");
     },
     specialCosmetic() {
-      if (this.glyph.cosmetic) return this.glyph.cosmetic.capitalize();
+      if (this.glyph.cosmetic) {
+        const names = {
+          time: "시간",
+          dilation: "팽창",
+          replication: "복제",
+          infinity: "무한",
+          power: "동력",
+          effarig: "에파리그",
+          reality: "현실",
+          cursed: "저주받은",
+          companion: "동반자",
+          music: "음악",
+          blob: "블롭",
+        };
+        return names[this.glyph.cosmetic] ?? this.glyph.cosmetic.capitalize();
+      }
       const changes = [];
-      if (this.glyph.symbol) changes.push("Symbol");
-      if (this.glyph.color) changes.push("Color");
-      if (changes.length === 0) return "None";
+      if (this.glyph.symbol) changes.push("기호");
+      if (this.glyph.color) changes.push("색상");
+      if (changes.length === 0) return "없음";
       return changes.join("/");
     }
   },
@@ -96,31 +125,31 @@ export default {
         />
       </div>
       <div class="c-glyph-info-section c-cosmetic-text">
-        <u>Cosmetic Attributes</u>
-        Type: {{ glyph.type.capitalize() }}
+        <u>외형 속성</u>
+        종류: {{ glyphTypeName }}
         <br>
-        All: {{ typeCosmetic }}
+        전체: {{ typeCosmetic }}
         <br>
-        Single: {{ specialCosmetic }}
+        개별: {{ specialCosmetic }}
       </div>
       <div class="c-glyph-info-section">
         <PrimaryButton
           class="o-primary-btn--subtab-option"
           @click="openModal"
         >
-          Customize!
+          꾸미기
         </PrimaryButton>
         <PrimaryButton
           class="o-primary-btn--subtab-option"
           @click="glyphID = -1"
         >
-          Clear Box
+          칸 비우기
         </PrimaryButton>
       </div>
     </div>
     <div v-else>
-      Drag a Glyph over this box to change its appearance! This will make a visual copy of it here,
-      but leave the actual Glyph itself in your inventory. Removing, gaining, or moving any Glyphs will clear this box.
+      이 칸으로 글리프를 끌어오면 외형을 바꿀 수 있습니다! 이곳에는 외형만 복사되며,
+      실제 글리프는 인벤토리에 그대로 남습니다. 글리프를 제거하거나 획득하거나 옮기면 이 칸이 비워집니다.
     </div>
   </div>
 </template>

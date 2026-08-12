@@ -124,10 +124,10 @@ export default {
     },
     exportStudyTree() {
       if (player.timestudy.studies.length === 0) {
-        GameUI.notify.error("You cannot export an empty Time Study Tree!");
+        GameUI.notify.error("빈 시간 연구 트리는 내보낼 수 없습니다!");
       } else {
         copyToClipboard(GameCache.currentStudyTree.value.exportString);
-        GameUI.notify.info("Exported current Time Studies to your clipboard");
+        GameUI.notify.info("현재 시간 연구 트리를 클립보드로 내보냈습니다");
       }
     }
   }
@@ -141,19 +141,19 @@ export default {
         class="o-primary-btn--subtab-option"
         @click="exportStudyTree"
       >
-        Export tree
+        트리 내보내기
       </PrimaryButton>
       <PrimaryButton
         :class="respecClassObject"
         @click="respec = !respec"
       >
-        Respec Time Studies on next Eternity
+        다음 영원에서 시간 연구 리셋하기
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn--subtab-option"
         onclick="Modal.studyString.show({ id: -1 })"
       >
-        Import tree
+        트리 가져오기
       </PrimaryButton>
     </div>
     <div

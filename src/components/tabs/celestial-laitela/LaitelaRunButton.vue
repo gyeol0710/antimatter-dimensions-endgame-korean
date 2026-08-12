@@ -23,8 +23,8 @@ export default {
   },
   computed: {
     completionTime() {
-      if (this.tierNotCompleted) return "Not completed at this tier";
-      return `Fastest Completion: ${TimeSpan.fromSeconds(new Decimal(this.realityTime)).toStringShort()}`;
+      if (this.tierNotCompleted) return "이 단계에서는 완료하지 못함";
+      return `최단 완료: ${TimeSpan.fromSeconds(new Decimal(this.realityTime)).toStringShort()}`;
     },
     runEffects() {
       return GameDatabase.celestials.descriptions[5].effects().split("\n");
@@ -50,7 +50,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "Lai'tela's", number: 5 });
+      Modal.celestials.show({ name: "라이텔라", number: 5 });
     },
     classObject() {
       return {
@@ -77,7 +77,7 @@ export default {
 <template>
   <button :class="classObject()">
     <span :class="{ 'o-pelle-disabled': isDoomed }">
-      <b>Start Lai'tela's Reality</b>
+      <b>라이텔라의 현실 시작</b>
     </span>
     <div
       :class="runButtonClassObject()"
@@ -85,17 +85,17 @@ export default {
     />
     <div v-if="realityReward.gt(1)">
       <b>
-        All Dark Matter multipliers are {{ formatX(realityReward, 2, 2) }} higher.
+        모든 암흑 물질 배율이 {{ formatX(realityReward, 2, 2) }} 증가합니다.
       </b>
       <br>
       <span v-if="maxDimTier === 0 || hasHadronizes">
         <b>
-          You also gain an additional {{ formatX(darkEnergyBoost) }} Dark Energy.
+          암흑 에너지도 추가로 {{ formatX(darkEnergyBoost) }} 획득합니다.
         </b>
       </span>
       <span v-if="hasHadronizes">
         <b>
-          You have Hadronized Lai'tela's Reality {{ formatHybridSmall(hadronizes, 3) }} times.
+          라이텔라의 현실을 {{ formatHybridSmall(hadronizes, 3) }}회 강입자화했습니다.
         </b>
       </span>
       <span v-if="maxDimTier > 0">
@@ -103,12 +103,12 @@ export default {
         {{ completionTime }}
         <br>
         <span v-if="maxDimTier <= 7">
-          <b>Highest active dimension: {{ formatInt(maxDimTier) }}</b>
+          <b>활성화된 최고 차원: {{ formatInt(maxDimTier) }}</b>
         </span>
         <br><br>
-        Glyph Set:
+        글리프 세트:
         <GlyphSetPreview
-          text="Fastest Destabilization Glyph Set"
+          text="최단 불안정화 글리프 세트"
           :text-hidden="true"
           :force-name-color="false"
           :glyphs="bestSet"
@@ -116,7 +116,7 @@ export default {
       </span>
       <span v-else>
         <br><br>
-        Lai'tela's Reality has been fully destabilized and cannot have its reward further improved.
+        라이텔라의 현실이 완전히 불안정화되어 보상을 더 개선할 수 없습니다.
       </span>
       <br>
     </div>
@@ -134,14 +134,13 @@ export default {
         class="l-laitela-hadronize-button c-laitela-hadronize-button"
         @click="hadronize"
       >
-        <b>Hadronize Laitela's Reality</b>
+        <b>라이텔라의 현실 강입자화</b>
       </button>
       <br>
       <br>
-      Hadronizing Lai'tela's Reality will restabilize all {{ formatInt(8) }} Dimensions, so you can use them again.
-      Rewards for completing Lai'tela's Reality from previous Hadronizes will persist, and you will be able to gain
-      more rewards for destabilizing Lai'tela's Reality again. Each Hadronization, the reward for destabilizing
-      Lai'tela's Reality will be multiplied by {{ formatInt(8) }}.
+      라이텔라의 현실을 강입자화하면 {{ formatInt(8) }}개 차원이 모두 다시 안정되어 다시 사용할 수 있습니다.
+      이전 강입자화 전에 라이텔라의 현실을 완료해 얻은 보상은 유지되며, 현실을 다시 불안정화하여
+      보상을 더 얻을 수 있습니다. 강입자화할 때마다 라이텔라의 현실 불안정화 보상이 {{ formatInt(8) }}배로 증가합니다.
     </div>
   </button>
 </template>

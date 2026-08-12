@@ -110,7 +110,7 @@ export default {
         class="c-collapse-icon-clickable"
         @click="toggleCollapse"
       />
-      Galaxy Generator
+      은하 생성기
     </div>
     <div
       v-if="!isCollapsed"
@@ -118,30 +118,29 @@ export default {
     >
       <div v-if="isUnlocked">
         <div>
-          You have a total of
+          은하를 총
           <span class="c-galaxies-amount">{{ galaxyText }}</span>
-          Galaxies.
-          <span class="c-galaxies-amount">+{{ format(galaxiesPerSecond, 2, 1) }}/s</span>
+          보유하고 있습니다.
+          <span class="c-galaxies-amount">+{{ format(galaxiesPerSecond, 2, 1) }}/초</span>
           <div v-if="isInstabilityShown">
-            Your Galaxy Generator Instability Magnitude is
-            <span class="c-galaxies-amount">{{ format(galGenInstability, 2, 1) }}</span>,
-            which is dividing Galaxies above {{ format(instabilityStart, 2, 1) }} by
-            <span class="c-galaxies-amount">{{ format(generationReduction, 2, 1) }}</span>.
+            은하 생성기의 불안정성 크기는
+            <span class="c-galaxies-amount">{{ format(galGenInstability, 2, 1) }}</span>이며,
+            {{ format(instabilityStart, 2, 1) }}을 넘는 은하를
+            <span class="c-galaxies-amount">{{ format(generationReduction, 2, 1) }}</span>로 나눕니다.
           </div>
           <br>
           <div v-if="isSecondInstabilityShown">
             <span class="c-danger-text">
-              Your Galaxy Generator has produced too many Galaxies, and is starting to break down.
-              This started at {{ format(harshInstabilityStart, 2, 1) }} Galaxies.
+              은하 생성기가 은하를 너무 많이 생성하여 망가지기 시작했습니다.
+              이 현상은 은하 {{ format(harshInstabilityStart, 2, 1) }}개부터 시작됩니다.
               <br>
-              This effect is currently raising your Galaxy Generator Instability Magnitude by
-              <span class="c-galaxies-amount">{{ formatPow(harshGalGenInstability, 2, 3) }}</span>,
-              making it effectively equal to
-              <span class="c-galaxies-amount">{{ format(effectiveInstability, 2, 1) }}</span>.
+              이 효과는 현재 은하 생성기의 불안정성 크기를
+              <span class="c-galaxies-amount">{{ formatPow(harshGalGenInstability, 2, 3) }}</span>제곱하여 실질적으로
+              <span class="c-galaxies-amount">{{ format(effectiveInstability, 2, 1) }}</span>가 됩니다.
               <br>
-              Therefore, whereas your Galaxy production would normally be divided by the number above,
-              it is instead being divided by
-              <span class="c-galaxies-amount">{{ format(trueGenerationReduction, 2, 1) }}</span>.
+              따라서 평소라면 은하 생산량을 위의 수로 나누지만,
+              현재는 대신
+              <span class="c-galaxies-amount">{{ format(trueGenerationReduction, 2, 1) }}</span>로 나눕니다.
             </span>
           </div>
         </div>
@@ -167,20 +166,20 @@ export default {
                 v-if="!sacrificeActive"
                 class="c-big-text"
               >
-                Sacrifice your {{ capRiftName }}
+                {{ capRiftName }} 희생
               </span>
               <span
                 v-else
                 class="c-big-text"
               >
-                Getting rid of all that {{ capRiftName }}...
+                모든 {{ capRiftName }} 제거 중...
               </span>
             </div>
             <div
               v-else
               class="c-increase-cap-text c-medium-text"
             >
-              {{ format(generatedGalaxies, 2) }} / {{ format(cap, 2) }} Galaxies generated
+              생성된 은하: {{ format(generatedGalaxies, 2) }} / {{ format(cap, 2) }}
             </div>
           </button>
         </div>
@@ -198,13 +197,13 @@ export default {
         class="c-generator-unlock-button"
         @click="unlock"
       >
-        Unlock the Galaxy Generator
+        은하 생성기 해금
       </button>
       <button
         v-if="!isDilated && !isFinalized"
         class="c-generator-locked-button"
       >
-        You must be inside Dilation to unlock the Galaxy Generator
+        은하 생성기를 해금하려면 시간 팽창에 진입해야 합니다.
       </button>
     </div>
   </div>

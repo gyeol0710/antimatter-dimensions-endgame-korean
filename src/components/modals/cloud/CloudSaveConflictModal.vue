@@ -28,27 +28,26 @@ export default {
       const goodStyle = `style="color: var(--color-good)"`;
       const badStyle = `style="color: var(--color-infinity)"`;
 
-      const suggestions = ["Saving to the Cloud "];
+      const suggestions = ["클라우드에 저장하는 것은 "];
       const cloudProg = this.conflict.cloud.compositeProgress, localProg = this.conflict.local.compositeProgress;
       const warnOverwrite = this.farther && Math.abs(cloudProg - localProg) > 0.15;
       suggestions.push(warnOverwrite
-        ? `<b ${badStyle}>would overwrite a save with significantly more progress</b>`
-        : `<b ${goodStyle}>is probably safe</b>`);
+        ? `<b ${badStyle}>진행도가 훨씬 높은 세이브를 덮어씁니다</b>`
+        : `<b ${goodStyle}>안전할 가능성이 큽니다</b>`);
       if (this.hasDifferentName || this.wrongHash) {
-        suggestions.push(` ${warnOverwrite ? "Additionally" : "However"}, you may be overwriting a 
-          <b ${badStyle}>save from a different device</b>.`);
+        suggestions.push(` ${warnOverwrite ? "또한" : "하지만"},
+          <b ${badStyle}>다른 기기의 세이브</b>를 덮어쓸 수 있습니다.`);
       }
       if (warnOverwrite || this.hasDifferentName || this.wrongHash) {
-        suggestions.push(`<br><b ${badStyle}>Are you sure you wish to overwrite the Cloud save?</b>`);
+        suggestions.push(`<br><b ${badStyle}>클라우드 세이브를 정말 덮어쓰시겠습니까?</b>`);
       }
       return suggestions.join("");
     },
     noOverwriteInfo() {
-      return `Save conflicts will keep occurring without overwriting.`;
+      return `덮어쓰지 않으면 세이브 충돌이 계속 발생합니다.`;
     },
     overwriteInfo() {
-      return `If another device is also saving to the cloud on this Google Account at the same time,
-        this modal may appear repeatedly.`;
+      return `다른 기기도 같은 구글 계정으로 동시에 클라우드에 저장하면 이 모달이 반복해서 나타날 수 있습니다.`;
     }
   },
   methods: {
@@ -73,22 +72,22 @@ export default {
     @confirm="doNotSave()"
   >
     <template #header>
-      Save Game to Cloud
+      게임을 클라우드에 저장
     </template>
     <span v-if="wrongHash">
-      Your Cloud Save has been <b>changed by a different device</b> since you last saved to the Cloud this session.
+      이번 실행에서 마지막으로 클라우드에 저장한 뒤 클라우드 세이브가 <b>다른 기기에서 변경되었습니다</b>.
     </span>
     <span v-else-if="hasDifferentName">
-      Your Local and Cloud Saves have <b>different names</b>.
+      로컬 세이브와 클라우드 세이브의 <b>이름이 다릅니다</b>.
     </span>
     <span v-else-if="older">
-      Saving to the Cloud would <b>overwrite an older save</b>.
+      클라우드에 저장하면 <b>더 오래된 세이브를 덮어씁니다</b>.
     </span>
     <span v-else-if="farther">
-      Saving to the Cloud would <b>overwrite a save with more progress</b>.
+      클라우드에 저장하면 <b>진행도가 더 높은 세이브를 덮어씁니다</b>.
     </span>
     <span v-else>
-      Your Local Save and Cloud Save <b>appear to have similar amounts of progress</b>.
+      로컬 세이브와 클라우드 세이브의 <b>진행도가 비슷해 보입니다</b>.
     </span>
     <br>
     <SaveInfoEntry
@@ -96,36 +95,34 @@ export default {
       :other-data="conflict.cloud"
       :save-id="conflict.saveId"
       :show-name="hasDifferentName"
-      save-type="Local Save"
+      save-type="로컬 세이브"
     />
     <SaveInfoEntry
       :save-data="conflict.cloud"
       :other-data="conflict.local"
       :save-id="conflict.saveId"
       :show-name="hasDifferentName"
-      save-type="Cloud Save"
+      save-type="클라우드 세이브"
     />
     <span v-html="suggestionText" />
     <br>
     <span>
-      Not overwriting will turn off Cloud saving and you will need to manually turn it back on again
-      if you want to use it.
+      덮어쓰지 않으면 클라우드 저장이 꺼집니다. 다시 사용하려면 직접 켜야 합니다.
       <span :ach-tooltip="noOverwriteInfo">
         <i class="fas fa-question-circle" />
       </span>
     </span>
     <span>
-      Overwriting will force a save to the Cloud in this particular instance; in most
-      cases this should prevent this modal from reappearing afterwards.
+      덮어쓰면 이번에는 클라우드에 강제로 저장합니다. 대부분의 경우 이후 이 모달이 다시 나타나지 않습니다.
       <span :ach-tooltip="overwriteInfo">
         <i class="fas fa-question-circle" />
       </span>
     </span>
     <template #cancel-text>
-      Overwrite Cloud Save
+      클라우드 세이브 덮어쓰기
     </template>
     <template #confirm-text>
-      Do not overwrite
+      덮어쓰지 않기
     </template>
   </ModalWrapperChoice>
 </template>

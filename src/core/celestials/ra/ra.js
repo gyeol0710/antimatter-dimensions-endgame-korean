@@ -24,8 +24,8 @@ class RaUnlockState extends GameMechanicState {
   get requirementText() {
     const pet = this.pet.name;
     return this.level === 1
-      ? `Unlock ${pet}`
-      : `Get ${pet} to level ${this.level}`;
+      ? `${pet} 해금`
+      : `${pet} 레벨 ${this.level} 달성`;
   }
 
   get reward() {
@@ -240,8 +240,8 @@ const pets = mapGameDataToObject(
 );
 
 export const Ra = {
-  displayName: "Ra",
-  possessiveName: "Ra's",
+  displayName: "라",
+  possessiveName: "라의",
   unlocks,
   pets,
   remembrance: {
@@ -279,12 +279,12 @@ export const Ra = {
     for (const pet of Ra.pets.all) {
       if (pet.memoryProductionMultiplier !== 1) boostList.push(pet.memoryGain);
     }
-    if (Achievement(168).isUnlocked) boostList.push("Achievement 168");
-    if (Ra.unlocks.continuousTTBoost.canBeApplied) boostList.push("current TT");
+    if (Achievement(168).isUnlocked) boostList.push("도전과제 168");
+    if (Ra.unlocks.continuousTTBoost.canBeApplied) boostList.push("현재 시간 정리");
 
     if (boostList.length === 1) return `${boostList[0]}`;
-    if (boostList.length === 2) return `${boostList[0]} and ${boostList[1]}`;
-    return `${boostList.slice(0, -1).join(", ")}, and ${boostList[boostList.length - 1]}`;
+    if (boostList.length === 2) return `${boostList[0]} 및 ${boostList[1]}`;
+    return `${boostList.slice(0, -1).join(", ")}, 그리고 ${boostList[boostList.length - 1]}`;
   },
   // This is the exp required ON "level" in order to reach "level + 1"
   requiredMemoriesForLevel(level) {
@@ -306,7 +306,7 @@ export const Ra = {
     if (a.eq(0)) estimate = c.neg().div(b);
     else if (a.neq(0)) estimate = (Decimal.sqrt(Decimal.pow(b, 2).sub(a.times(c).times(4))).sub(b)).div(a.times(2));
     if (Decimal.isFinite(estimate)) {
-      return `in ${TimeSpan.fromSeconds(estimate).toStringShort()}`;
+      return `${TimeSpan.fromSeconds(estimate).toStringShort()} 후`;
     }
     return "";
   },

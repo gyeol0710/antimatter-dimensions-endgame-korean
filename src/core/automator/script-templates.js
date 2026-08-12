@@ -72,10 +72,10 @@ export class ScriptTemplate {
       this.storedTreeStr = `studies${nowaitStr} purchase ${params.treeStudies}`;
       this.storedTreeObj = new TimeStudyTree(params.treeStudies);
     }
-    if (this.storedTreeObj.invalidStudies.length > 0) this.warnings.push("Tree contains invalid Study IDs");
+    if (this.storedTreeObj.invalidStudies.length > 0) this.warnings.push("트리에 올바르지 않은 시간 연구 ID가 있습니다");
     if (this.storedTreeObj.purchasedStudies.length < this.storedTreeObj.selectedStudies.length) {
-      this.warnings.push("Tree structure results in some unbought studies when imported with an empty tree");
-      if (!params.treeNowait) this.warnings.push(`Automator may possibly get stuck with "Keep buying Studies" setting`);
+      this.warnings.push("빈 트리에 가져오면 트리 구조상 일부 시간 연구를 구매하지 못합니다");
+      if (!params.treeNowait) this.warnings.push(`"연구를 계속 구매" 설정에서는 오토메이터가 멈출 수 있습니다`);
     }
   }
 
@@ -109,8 +109,8 @@ export class ScriptTemplate {
    * @param {Object} params.autoEterValue   Multiplier threshold or time for eternity autobuyer
    */
   templateClimbEP(params) {
-    this.lines.push("// Template: Climb EP");
-    this.lines.push(`notify "Running Template Climb EP (to ${format(params.finalEP)})"`);
+    this.lines.push("// 템플릿: 영원 포인트 불리기");
+    this.lines.push(`notify "영원 포인트 불리기 템플릿 실행 중 (목표: ${format(params.finalEP)})"`);
     this.storeTreeData(params);
     this.lines.push(`auto infinity ${this.parseAutobuyerProp(params.autoInfMode, params.autoInfValue)}`);
     this.lines.push(`auto eternity ${this.parseAutobuyerProp(params.autoEterMode, params.autoEterValue)}`);
@@ -130,8 +130,8 @@ export class ScriptTemplate {
    * @param {Decimal} params.eternities           Eternity count at which to stop grinding and move on
    */
   templateGrindEternities(params) {
-    this.lines.push("// Template: Grind Eternities");
-    this.lines.push(`notify "Running Template Grind Eternities (to ${format(params.eternities)})"`);
+    this.lines.push("// 템플릿: 영원 횟수 모으기");
+    this.lines.push(`notify "영원 횟수 모으기 템플릿 실행 중 (목표: ${format(params.eternities)})"`);
     this.storeTreeData(params);
     this.lines.push(this.storedTreeStr);
     this.lines.push("auto eternity 0 ep");
@@ -157,18 +157,18 @@ export class ScriptTemplate {
    *  slower due to some resources needing to be rebuilt every eternity
    */
   templateGrindInfinities(params) {
-    this.lines.push("// Template: Grind Infinities");
-    this.lines.push(`notify "Running Template Grind Infinities (to ${format(params.infinities)})"`);
+    this.lines.push("// 템플릿: 무한 횟수 모으기");
+    this.lines.push(`notify "무한 횟수 모으기 템플릿 실행 중 (목표: ${format(params.infinities)})"`);
     this.storeTreeData(params);
     this.lines.push(this.storedTreeStr);
     this.lines.push("auto eternity off");
     this.lines.push(`auto infinity 5s`);
     if (params.isBanked) {
       const has191 = this.storedTreeObj.purchasedStudies.includes(TimeStudy(191));
-      if (!has191) this.warnings.push(`TS191 is not reachable from an empty tree; banking anything in this template
-        will require Achievement "${Achievement(131).name}"`);
+      if (!has191) this.warnings.push(`빈 트리에서는 TS191에 도달할 수 없습니다. 이 템플릿에서 무한 횟수를
+        저장하려면 도전과제 "${Achievement(131).name}" 달성이 필요합니다`);
       const bankRate = has191 ? 0.1 : 0.05;
-      this.lines.push("// Note: This template attempts to get all the Banked Infinities within a single Eternity");
+      this.lines.push("// 참고: 이 템플릿은 한 번의 영원 안에서 저장된 무한 횟수를 모두 얻으려고 시도합니다");
       this.lines.push(`wait infinities > ${this.format(params.infinities.dividedBy(bankRate), 2)}`);
       this.lines.push("eternity");
     } else {
@@ -188,8 +188,8 @@ export class ScriptTemplate {
    * @param {Object} params.autoInfValue    Multiplier threshold or time for infinity autobuyer
    */
   templateDoEC(params) {
-    this.lines.push("// Template: Complete Eternity Challenge");
-    this.lines.push(`notify "Running Template Complete Eternity Challenge (EC${params.ec})"`);
+    this.lines.push("// 템플릿: 영원 도전 완료하기");
+    this.lines.push(`notify "영원 도전 완료하기 템플릿 실행 중 (영원 도전 ${params.ec})"`);
     // Force an eternity in order to buy the study tree first
     this.lines.push("eternity respec");
 
@@ -201,18 +201,18 @@ export class ScriptTemplate {
       this.lines.push(`unlock ec ${params.ec}`);
       // Attempt to buy it, supplying an error if we can't actually reach it
       if (!tree.hasRequirements(TimeStudy.eternityChallenge(params.ec), true)) {
-        this.warnings.push("Specified Study Tree cannot reach specified EC");
+        this.warnings.push("지정한 시간 연구 트리로는 지정한 영원 도전에 도달할 수 없습니다");
       }
-    } else if (tree.ec !== params.ec) this.warnings.push("Specified Study Tree already has a different EC unlocked");
+    } else if (tree.ec !== params.ec) this.warnings.push("지정한 시간 연구 트리에 이미 다른 영원 도전이 해금되어 있습니다");
 
     // Apply autobuyer settings; we specifically want to turn auto-eternity off so that we can manually trigger the
     // prestige - otherwise, the autobuyer may end up preempting multiple completions
     this.lines.push(`auto infinity ${this.parseAutobuyerProp(params.autoInfMode, params.autoInfValue)}`);
     this.lines.push(`auto eternity off`);
-    if (!TimeStudy.eternityChallenge(params.ec)) this.warnings.push(`Specified template EC does not exist`);
+    if (!TimeStudy.eternityChallenge(params.ec)) this.warnings.push("지정한 템플릿의 영원 도전이 존재하지 않습니다");
     this.lines.push(`start ec ${params.ec}`);
 
-    if (params.completions > 5) this.warnings.push(`ECs cannot be completed more than ${formatInt(5)} times`);
+    if (params.completions > 5) this.warnings.push(`영원 도전은 ${formatInt(5)}회를 초과해 완료할 수 없습니다`);
     this.lines.push(`wait pending completions >= ${params.completions}`);
     this.lines.push("eternity");
   }
@@ -227,11 +227,11 @@ export class ScriptTemplate {
    * @param {Object} params.autoEterValue   Multiplier threshold or time for eternity autobuyer
    */
   templateUnlockDilation(params) {
-    this.lines.push("// Template: Unlock Dilation");
-    this.lines.push(`notify "Running Template Unlock Dilation"`);
+    this.lines.push("// 템플릿: 시간 팽창 해금하기");
+    this.lines.push(`notify "시간 팽창 해금하기 템플릿 실행 중"`);
     this.storeTreeData(params);
     if (![231, 232, 233, 234].some(s => this.storedTreeObj.purchasedStudies.includes(TimeStudy(s)))) {
-      this.warnings.push("Specified Study Tree cannot reach Dilation");
+      this.warnings.push("지정한 시간 연구 트리로는 시간 팽창에 도달할 수 없습니다");
     }
     this.lines.push(`auto infinity off`);
     this.lines.push(`auto eternity ${this.parseAutobuyerProp(params.autoEterMode, params.autoEterValue)}`);

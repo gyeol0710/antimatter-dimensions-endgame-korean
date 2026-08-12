@@ -37,8 +37,9 @@ window.GlobalErrorHandler = {
   },
   crash(message) {
     if (window.GameUI !== undefined && GameUI.initialized) {
-      Modal.message.show(`Huh. Looks like whatever you just did crashed the game. All good, just send this message to me, Supersonic Seven, in the Discord, along with whatever you did to trigger it:
-      "${message}".<br>Thanks for playing AD: Endgame! We'll fix your issue as soon as we can!`, {}, 3);
+      Modal.message.show(`방금 수행한 작업 때문에 게임이 충돌한 것 같습니다. 괜찮습니다. 이 메시지와 충돌을
+      일으킨 작업을 Discord에서 Supersonic Seven에게 보내 주세요:
+      "${message}".<br>AD: Endgame을 플레이해 주셔서 감사합니다! 가능한 한 빨리 문제를 해결하겠습니다!`, {}, 3);
     }
     // eslint-disable-next-line no-debugger
     debugger;

@@ -52,16 +52,16 @@ export default {
     },
     TTgenRateText() {
       if (this.theoremGeneration.lt(1 / 3600)) {
-        return `one TT every ${TimeSpan.fromSeconds(
-          this.theoremGeneration.reciprocal()).toStringShort(false)}`;
+        return `${TimeSpan.fromSeconds(
+          this.theoremGeneration.reciprocal()).toStringShort(false)}마다 TT 하나`;
       }
       if (this.theoremGeneration.lt(0.1)) {
-        return `${format(this.theoremGeneration.times(3600), 2, 2)} TT/hour`;
+        return `${format(this.theoremGeneration.times(3600), 2, 2)} TT/시간`;
       }
-      return `${format(this.theoremGeneration, 2, 2)} TT/sec`;
+      return `${format(this.theoremGeneration, 2, 2)} TT/초`;
     },
     totalTimeTheoremText() {
-      return `${quantify("total Time Theorem", this.totalTimeTheorems, 2, 2, this.formatTimeTheoremType)}`;
+      return this.formatTimeTheoremType(this.totalTimeTheorems, 2, 2);
     },
     minimizeArrowStyle() {
       return {
@@ -70,7 +70,7 @@ export default {
       };
     },
     saveLoadText() {
-      return this.$viewModel.shiftDown ? "Save:" : "Load:";
+      return this.$viewModel.shiftDown ? "저장:" : "불러오기:";
     },
     shopBottomRowHeightStyle() {
       return {
@@ -155,11 +155,11 @@ export default {
         </button>
         <p class="timetheorems">
           <span class="c-tt-amount">
-            {{ quantify("Time Theorem", theoremAmount, 2, 0, formatTimeTheoremType) }}
+            시간 정리: {{ formatTimeTheoremType(theoremAmount, 2, 0) }}
           </span>
           <span v-if="showST">
             <br>
-            {{ quantifyInt("Space Theorem", STamount) }}
+            공간 정리: {{ formatInt(STamount) }}
           </span>
         </p>
         <div class="l-load-tree-area">
@@ -175,8 +175,8 @@ export default {
             <span
               v-if="hasTTGen"
               class="checkbox-margin"
-              ach-tooltip="This shows TT generation by default and total TT if you hold shift.
-                Check this box to swap this behavior."
+              ach-tooltip="기본적으로 TT 생성량을 표시하고 Shift를 누르면 총 TT를 표시합니다.
+                이 동작을 서로 바꾸려면 체크하세요."
             >
               <input
                 v-model="invertTTgenDisplay"
@@ -187,10 +187,10 @@ export default {
               >
             </span>
             <span v-if="showTTGen">
-              You are gaining {{ TTgenRateText }}.
+              시간 정리 획득 속도: {{ TTgenRateText }}
             </span>
             <span v-else>
-              You have {{ totalTimeTheoremText }}.
+              시간 정리 총 획득량: {{ totalTimeTheoremText }}
             </span>
           </div>
         </div>
@@ -224,13 +224,13 @@ export default {
             class="o-tt-top-row-button c-tt-buy-button c-tt-buy-button--unlocked"
             @click="buyMaxTheorems"
           >
-            Buy max
+            최대 구매
           </button>
           <PrimaryToggleButton
             v-if="!minimized && hasTTAutobuyer"
             v-model="isAutobuyerOn"
             class="o-tt-autobuyer-button c-tt-buy-button c-tt-buy-button--unlocked"
-            label="Auto:"
+            label="자동:"
           />
         </div>
       </div>

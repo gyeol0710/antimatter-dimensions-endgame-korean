@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     newsOnOffLabel() {
-      return `News: ${this.enabled ? "On" : "Off"}`;
+      return `뉴스: ${this.enabled ? "켜짐" : "꺼짐"}`;
     },
     sliderPropsRepeatBuffer() {
       return {
@@ -152,7 +152,7 @@ export default {
 <template>
   <ModalWrapperOptions>
     <template #header>
-      News Options
+      뉴스 설정
     </template>
     <PrimaryButton
       class="o-primary-btn o-primary-btn--option-wide"
@@ -161,7 +161,7 @@ export default {
       {{ newsOnOffLabel }}
     </PrimaryButton>
     <div class="o-primary-btn o-primary-btn--option-wide o-primary-btn--slider">
-      <b>{{ formatInt(parseInt(repeatBuffer)) }} message repeat buffer</b>
+      <b>메시지 반복 방지 범위: {{ formatInt(parseInt(repeatBuffer)) }}개</b>
       <SliderComponent
         class="o-primary-btn--slider__slider"
         v-bind="sliderPropsRepeatBuffer"
@@ -170,7 +170,7 @@ export default {
       />
     </div>
     <div class="o-primary-btn o-primary-btn--option-wide o-primary-btn--slider">
-      <b>{{ formatPercents(parseFloat(AIChance)) }} AI messages</b>
+      <b>인공지능 메시지: {{ formatPercents(parseFloat(AIChance)) }}</b>
       <SliderComponent
         class="o-primary-btn--slider__slider"
         v-bind="sliderPropsAIChance"
@@ -179,7 +179,7 @@ export default {
       />
     </div>
     <div class="o-primary-btn o-primary-btn--option-wide o-primary-btn--slider">
-      <b>{{ formatPercents(parseFloat(ENDChance)) }} Endgame messages</b>
+      <b>엔드게임 메시지: {{ formatPercents(parseFloat(ENDChance)) }}</b>
       <SliderComponent
         class="o-primary-btn--slider__slider"
         v-bind="sliderPropsENDChance"
@@ -188,7 +188,7 @@ export default {
       />
     </div>
     <div class="o-primary-btn o-primary-btn--option-wide o-primary-btn--slider">
-      <b>{{ formatPercents(parseFloat(StoryChance)) }} Life's and Midnight's Story </b>
+      <b>Life와 Midnight의 이야기: {{ formatPercents(parseFloat(StoryChance)) }} </b>
       <SliderComponent
         class="o-primary-btn--slider__slider"
         v-bind="sliderPropsStoryChance"
@@ -197,7 +197,7 @@ export default {
       />
     </div>
     <div class="o-primary-btn o-primary-btn--option-wide o-primary-btn--slider">
-      <b>{{ formatPercents(parseFloat(MatureChance)) }} Mature Messages </b>
+      <b>성인용 메시지: {{ formatPercents(parseFloat(MatureChance)) }} </b>
       <SliderComponent
         class="o-primary-btn--slider__slider"
         v-bind="sliderPropsMatureChance"
@@ -206,7 +206,7 @@ export default {
       />
     </div>
     <div class="o-primary-btn o-primary-btn--option-wide o-primary-btn--slider">
-      <b>{{ formatPercents(parseFloat(speed)) }} scroll speed</b>
+      <b>스크롤 속도: {{ formatPercents(parseFloat(speed)) }}</b>
       <SliderComponent
         class="o-primary-btn--slider__slider"
         v-bind="sliderPropsSpeed"
@@ -217,7 +217,7 @@ export default {
     <ModalOptionsToggleButton
       v-model="includeAnimated"
       class="o-primary-btn o-primary-btn--option-wide"
-      text="Animation Effects:"
+      text="애니메이션 효과:"
     />
   </ModalWrapperOptions>
 </template>

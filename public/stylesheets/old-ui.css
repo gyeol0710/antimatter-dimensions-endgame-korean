@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Typewriter;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   src: url("MonospaceTypewriter.ttf");
 }
 
@@ -67,7 +67,7 @@
   width: 36rem;
   height: 10rem;
   z-index: 1;
-  font-family: Typewriter, serif;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   font-size: 5rem;
 }
 
@@ -75,7 +75,7 @@
   width: 36rem;
   height: 10rem;
   z-index: 1;
-  font-family: Typewriter, serif;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   font-size: 5rem;
 }
 
@@ -83,7 +83,7 @@
   width: 36rem;
   height: 10rem;
   z-index: 1;
-  font-family: Typewriter, serif;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   font-size: 5rem;
 }
 

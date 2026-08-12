@@ -27,24 +27,24 @@ export default {
     intervalConfig() {
       return {
         upgrade: this.blackHole.intervalUpgrade,
-        description: () => `Reduce ${this.blackHoleDescription}'s inactive time by ${formatPercents(0.2)}`,
-        effectTitle: "Current interval",
+        description: () => `${this.blackHoleDescription}의 비활성 시간을 ${formatPercents(0.2)} 단축`,
+        effectTitle: "현재 간격",
         formatEffect: () => `${TimeSpan.fromSeconds(new Decimal(this.blackHole.rawInterval)).toStringShort(false)}`
       };
     },
     powerConfig() {
       return {
         upgrade: this.blackHole.powerUpgrade,
-        description: () => `Make ${this.blackHoleDescription} ${formatPercents(0.35)} stronger`,
-        effectTitle: "Current power",
+        description: () => `${this.blackHoleDescription}의 효과를 ${formatPercents(0.35)} 강화`,
+        effectTitle: "현재 배율",
         formatEffect: value => `${formatX(value, 2, 2)}`
       };
     },
     durationConfig() {
       return {
         upgrade: this.blackHole.durationUpgrade,
-        description: () => `Extend ${this.blackHoleDescription}'s duration by ${formatPercents(0.3)}`,
-        effectTitle: "Current duration",
+        description: () => `${this.blackHoleDescription}의 지속 시간을 ${formatPercents(0.3)} 연장`,
+        effectTitle: "현재 지속 시간",
         formatEffect: () => `${TimeSpan.fromSeconds(new Decimal(this.blackHole.duration)).toStringShort(false)}`
       };
     }

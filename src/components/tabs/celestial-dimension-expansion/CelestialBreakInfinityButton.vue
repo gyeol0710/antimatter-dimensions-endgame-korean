@@ -20,8 +20,8 @@ export default {
     },
     text() {
       return this.isUnlocked
-        ? (this.isBroken ? "CELESTIAL INFINITY IS BROKEN".split("\n") : "BREAK CELESTIAL INFINITY".split("\n"))
-        : `PURCHASE CELESTIAL BREAK INFINITY\n\nCOSTS: ${formatInt(10000)} CIP`.split("\n");
+        ? (this.isBroken ? "셀레스티얼 무한 돌파 활성화됨".split("\n") : "셀레스티얼 무한 돌파".split("\n"))
+        : `셀레스티얼 무한 돌파 구매\n\n비용: ${formatInt(10000)} CIP`.split("\n");
     }
   },
   methods: {

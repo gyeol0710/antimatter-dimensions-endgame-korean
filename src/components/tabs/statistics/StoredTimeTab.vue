@@ -16,19 +16,19 @@ export default {
       return TimeSpan.fromSeconds(new Decimal(this.storedTime)).toStringShort();
     },
     oneMinuteDisp() {
-      return `Spend ${TimeSpan.fromMinutes(1).toStringShort()} of Stored Time`;
+      return `저장된 시간 ${TimeSpan.fromMinutes(1).toStringShort()} 사용`;
     },
     tenMinutesDisp() {
-      return `Spend ${TimeSpan.fromMinutes(10).toStringShort()} of Stored Time`;
+      return `저장된 시간 ${TimeSpan.fromMinutes(10).toStringShort()} 사용`;
     },
     oneHourDisp() {
-      return `Spend ${TimeSpan.fromHours(1).toStringShort()} of Stored Time`;
+      return `저장된 시간 ${TimeSpan.fromHours(1).toStringShort()} 사용`;
     },
     fiveHoursDisp() {
-      return `Spend ${TimeSpan.fromHours(5).toStringShort()} of Stored Time`;
+      return `저장된 시간 ${TimeSpan.fromHours(5).toStringShort()} 사용`;
     },
     allDisp() {
-      return `Spend all Stored Time`;
+      return `저장된 시간 모두 사용`;
     },
     classObj1() {
       return {
@@ -103,7 +103,7 @@ export default {
   <div>
     <div class="normal-text">
       <br>
-      <span>You have </span><span class="special-text">{{ timeDisplay }}</span><span> Stored Time.</span>
+      <span>저장된 시간: </span><span class="special-text">{{ timeDisplay }}</span><span> 보유</span>
     </div>
     <div class="c-subtab-option-container">
       <PrimaryButton

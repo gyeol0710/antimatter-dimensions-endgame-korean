@@ -48,7 +48,7 @@ export default {
   <AutobuyerBox
     :autobuyer="autobuyer"
     :is-modal="isModal"
-    name="Automatic Celestial Galaxies"
+    name="셀레스티얼 은하 자동 구매"
     :show-interval="!isBuyMaxUnlocked"
   >
     <template
@@ -56,7 +56,7 @@ export default {
       #intervalSlot
     >
       <div class="c-autobuyer-box__small-text">
-        Activates every X seconds:
+        X초마다 작동:
       </div>
       <AutobuyerInput
         :autobuyer="autobuyer"
@@ -73,7 +73,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Limit Celestial Galaxies to:
+        셀레스티얼 은하 제한:
       </label>
       <AutobuyerInput
         :autobuyer="autobuyer"

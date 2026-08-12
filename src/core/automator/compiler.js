@@ -36,8 +36,8 @@ class Validator extends BaseVisitor {
         startLine: err.line,
         startOffset: err.offset,
         endOffset: err.offset + err.length,
-        info: `Unexpected characters: ${this.rawText.substr(err.offset, err.length)}`,
-        tip: `${this.rawText.substr(err.offset, err.length)} cannot be part of a command, remove them`
+        info: `예상하지 못한 문자: ${this.rawText.substr(err.offset, err.length)}`,
+        tip: `${this.rawText.substr(err.offset, err.length)}은(는) 명령에 포함할 수 없으므로 제거하세요`
       });
     }
   }
@@ -64,12 +64,12 @@ class Validator extends BaseVisitor {
       const isEndToken = parseError.token.tokenType.name === "EOF" || parseError.token.tokenType.name === "EOL";
       if (parseError.name === "NoViableAltException") {
         if (!isEndToken) {
-          err.info = `Unexpected input ${parseError.token.image}`;
-          err.tip = `Remove ${parseError.token.image}`;
+          err.info = `예상하지 못한 입력 ${parseError.token.image}`;
+          err.tip = `${parseError.token.image}을(를) 제거하세요`;
         }
       } else if (parseError.name === "EarlyExitException") {
-        err.info = "Unexpected end of command";
-        err.tip = "Complete the command by adding the other parameters";
+        err.info = "명령이 예상보다 일찍 끝났습니다";
+        err.tip = "나머지 매개변수를 추가해 명령을 완성하세요";
       }
       this.errors.push(err);
     }
@@ -147,19 +147,19 @@ class Validator extends BaseVisitor {
 
       if (err.info.match(/EOF but found.*\}/gu)) {
         err.info = err.info.replaceAll("--> ", "[").replaceAll(" <--", "]");
-        err.tip = "Remove }. Parser halted at this line and may miss errors farther down the script.";
+        err.tip = "}를 제거하세요. 파서가 이 줄에서 멈춰 스크립트 뒷부분의 오류를 놓칠 수 있습니다.";
       } else if (err.info.match(/found.*\}/gu)) {
         err.info = err.info.replaceAll("--> ", "[").replaceAll(" <--", "]");
-        err.tip = "Remove }";
+        err.tip = "}를 제거하세요";
       } else if (err.info.match(/Expecting/gu)) {
         err.info = err.info.replaceAll("--> ", "[").replaceAll(" <--", "]");
-        err.tip = "Use the appropriate type of data in the command as specified in the command help";
+        err.tip = "명령 도움말에 지정된 올바른 데이터 유형을 사용하세요";
       } else if (err.info.match(/End of line/gu)) {
-        err.tip = "Provide the remaining arguments to complete the incomplete command";
+        err.tip = "나머지 인수를 입력해 미완성 명령을 완성하세요";
       } else if (err.info.match(/EOF but found:/gu)) {
-        err.tip = "Remove extra command argument";
+        err.tip = "불필요한 명령 인수를 제거하세요";
       } else {
-        err.tip = "This error's cause is unclear";
+        err.tip = "이 오류의 원인이 명확하지 않습니다";
       }
       modifiedErrors.push(err);
       lastLine = err.startLine;
@@ -181,8 +181,8 @@ class Validator extends BaseVisitor {
   checkTimeStudyNumber(token) {
     const tsNumber = parseFloat(token.image);
     if (!TimeStudy(tsNumber) || (TimeStudy(tsNumber).isTriad && !Ra.canBuyTriad)) {
-      this.addError(token, `Invalid Time Study identifier ${tsNumber}`,
-        `Make sure you copied or typed in your time study IDs correctly`);
+      this.addError(token, `올바르지 않은 시간 연구 식별자 ${tsNumber}`,
+        `시간 연구 ID를 올바르게 복사하거나 입력했는지 확인하세요`);
       return 0;
     }
     return tsNumber;
@@ -193,8 +193,8 @@ class Validator extends BaseVisitor {
     const varInfo = {};
     const constants = player.reality.automator.constants;
     if (!Object.keys(constants).includes(varName)) {
-      this.addError(identifier, `Variable ${varName} has not been defined`,
-        `Use the definition panel to define ${varName} in order to reference it, or check for typos`);
+      this.addError(identifier, `변수 ${varName}이(가) 정의되지 않았습니다`,
+        `정의 패널에서 ${varName}을(를) 정의한 뒤 참조하거나 오타를 확인하세요`);
       return undefined;
     }
     const value = constants[varName];
@@ -246,12 +246,12 @@ class Validator extends BaseVisitor {
   duration(ctx) {
     if (ctx.$value) return ctx.$value;
     if (!ctx.TimeUnit || ctx.TimeUnit[0].isInsertedInRecovery) {
-      this.addError(ctx, "Missing time unit", "Provide a unit of time (eg. seconds or minutes)");
+      this.addError(ctx, "시간 단위가 없습니다", "시간 단위를 입력하세요 (예: seconds 또는 minutes)");
       return undefined;
     }
     const value = parseFloat(ctx.NumberLiteral[0].image) * ctx.TimeUnit[0].tokenType.$scale;
     if (isNaN(value)) {
-      this.addError(ctx, "Error parsing duration", "Provide a properly-formatted number for time");
+      this.addError(ctx, "기간을 해석하는 중 오류가 발생했습니다", "시간을 올바른 형식의 숫자로 입력하세요");
       return undefined;
     }
     ctx.$value = value;
@@ -261,7 +261,7 @@ class Validator extends BaseVisitor {
   xHighest(ctx) {
     if (ctx.$value) return ctx.$value;
     if (!ctx.NumberLiteral || ctx.NumberLiteral[0].isInsertedInRecovery) {
-      this.addError(ctx, "Missing multiplier", "Provide a multiplier to set the autobuyer to");
+      this.addError(ctx, "배율이 없습니다", "자동구매기에 설정할 배율을 입력하세요");
       return undefined;
     }
     ctx.$value = new Decimal(ctx.NumberLiteral[0].image);
@@ -271,7 +271,7 @@ class Validator extends BaseVisitor {
   currencyAmount(ctx) {
     if (ctx.$value) return ctx.$value;
     if (!ctx.NumberLiteral || ctx.NumberLiteral[0].isInsertedInRecovery) {
-      this.addError(ctx, "Missing amount", "Provide a threshold to set the autobuyer to");
+      this.addError(ctx, "수량이 없습니다", "자동구매기에 설정할 기준값을 입력하세요");
       return undefined;
     }
     ctx.$value = new Decimal(ctx.NumberLiteral[0].image);
@@ -281,8 +281,8 @@ class Validator extends BaseVisitor {
   studyRange(ctx, studiesOut) {
     if (!ctx.firstStudy || ctx.firstStudy[0].isInsertedInRecovery ||
       !ctx.lastStudy || ctx.lastStudy[0].isInsertedInRecovery) {
-      this.addError(ctx, "Missing Time Study number in range",
-        "Provide starting and ending IDs for Time Study number ranges");
+      this.addError(ctx, "시간 연구 범위에 번호가 없습니다",
+        "시간 연구 번호 범위의 시작 ID와 끝 ID를 입력하세요");
       return;
     }
     const first = this.checkTimeStudyNumber(ctx.firstStudy[0]);
@@ -300,7 +300,7 @@ class Validator extends BaseVisitor {
     }
     if (ctx.NumberLiteral) {
       if (ctx.NumberLiteral[0].isInsertedInRecovery) {
-        this.addError(ctx, "Missing Time Study number", "Provide a Time Study ID to purchase");
+        this.addError(ctx, "시간 연구 번호가 없습니다", "구매할 시간 연구 ID를 입력하세요");
         return;
       }
       const id = this.checkTimeStudyNumber(ctx.NumberLiteral[0]);
@@ -327,13 +327,13 @@ class Validator extends BaseVisitor {
     };
     if (ctx.ECNumber) {
       if (ctx.ECNumber.isInsertedInRecovery) {
-        this.addError(ctx.Pipe[0], "Missing Eternity Challenge number",
-          "Specify which Eternity Challenge is being referred to");
+        this.addError(ctx.Pipe[0], "영원 도전 번호가 없습니다",
+          "참조할 영원 도전을 지정하세요");
       }
       const ecNumber = parseFloat(ctx.ECNumber[0].image);
       if (!Number.isInteger(ecNumber) || ecNumber < 0 || ecNumber > 12) {
-        this.addError(ctx.ECNumber, `Invalid Eternity Challenge ID ${ecNumber}`,
-          `Eternity Challenge ${ecNumber} does not exist, use an integer between ${format(1)} and ${format(12)}`);
+        this.addError(ctx.ECNumber, `올바르지 않은 영원 도전 ID ${ecNumber}`,
+          `영원 도전 ${ecNumber}은(는) 존재하지 않습니다. ${format(1)}에서 ${format(12)} 사이의 정수를 사용하세요`);
       }
       ctx.$cached.ec = ecNumber;
     }
@@ -346,8 +346,8 @@ class Validator extends BaseVisitor {
       ctx.$value = new Decimal(ctx.NumberLiteral[0].image);
     } else if (ctx.Identifier) {
       if (!this.isValidVarFormat(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.NUMBER)) {
-        this.addError(ctx, `Constant ${ctx.Identifier[0].image} cannot be used for comparison`,
-          `Ensure that ${ctx.Identifier[0].image} contains a properly-formatted number and not a Time Study string`);
+        this.addError(ctx, `상수 ${ctx.Identifier[0].image}은(는) 비교에 사용할 수 없습니다`,
+          `${ctx.Identifier[0].image}에 시간 연구 문자열이 아닌 올바른 형식의 숫자가 들어 있는지 확인하세요`);
       }
       const varLookup = this.lookupVar(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.NUMBER);
       if (varLookup) ctx.$value = ctx.Identifier[0].image;
@@ -358,23 +358,23 @@ class Validator extends BaseVisitor {
     super.comparison(ctx);
     if (!ctx.compareValue || ctx.compareValue[0].recoveredNode ||
       ctx.compareValue.length !== 2 || ctx.compareValue[1].recoveredNode) {
-      this.addError(ctx, "Missing value for comparison", "Ensure that the comparison has two values");
+      this.addError(ctx, "비교할 값이 없습니다", "비교식에 값이 두 개 있는지 확인하세요");
     }
     if (!ctx.ComparisonOperator || ctx.ComparisonOperator[0].isInsertedInRecovery) {
-      this.addError(ctx, "Missing comparison operator (<, >, <=, >=)", "Insert the appropriate comparison operator");
+      this.addError(ctx, "비교 연산자가 없습니다 (<, >, <=, >=)", "알맞은 비교 연산자를 입력하세요");
       return;
     }
     if (ctx.ComparisonOperator[0].tokenType === T.OpEQ || ctx.ComparisonOperator[0].tokenType === T.EqualSign) {
-      this.addError(ctx, "Please use an inequality comparison (>, <, >=, <=)",
-        "Comparisons cannot be done with equality, only with inequality operators");
+      this.addError(ctx, "부등식 비교를 사용하세요 (>, <, >=, <=)",
+        "비교에는 등호를 사용할 수 없으며 부등호 연산자만 사용할 수 있습니다");
     }
   }
 
   badCommand(ctx) {
     const firstToken = ctx.badCommandToken[0].children;
     const firstTokenType = Object.keys(firstToken)[0];
-    this.addError(firstToken[firstTokenType][0], `Unrecognized command "${firstToken[firstTokenType][0].image}"`,
-      "Check to make sure you have typed in the command name correctly");
+    this.addError(firstToken[firstTokenType][0], `인식할 수 없는 명령 "${firstToken[firstTokenType][0].image}"`,
+      "명령 이름을 올바르게 입력했는지 확인하세요");
   }
 
   eternityChallenge(ctx) {
@@ -386,13 +386,13 @@ class Validator extends BaseVisitor {
       ecNumber = parseFloat(ctx.NumberLiteral[0].image);
       errToken = ctx.NumberLiteral[0];
     } else {
-      this.addError(ctx, "Missing Eternity Challenge number",
-        "Specify which Eternity Challenge is being referred to");
+      this.addError(ctx, "영원 도전 번호가 없습니다",
+        "참조할 영원 도전을 지정하세요");
       return;
     }
     if (!Number.isInteger(ecNumber) || ecNumber < 1 || ecNumber > 12) {
-      this.addError(errToken, `Invalid Eternity Challenge ID ${ecNumber}`,
-        `Eternity Challenge ${ecNumber} does not exist, use an integer between ${format(1)} and ${format(12)}`);
+      this.addError(errToken, `올바르지 않은 영원 도전 ID ${ecNumber}`,
+        `영원 도전 ${ecNumber}은(는) 존재하지 않습니다. ${format(1)}에서 ${format(12)} 사이의 정수를 사용하세요`);
     }
     ctx.$ecNumber = ecNumber;
   }
@@ -400,13 +400,13 @@ class Validator extends BaseVisitor {
   checkBlock(ctx, commandToken) {
     let hadError = false;
     if (!ctx.RCurly || ctx.RCurly[0].isInsertedInRecovery) {
-      this.addError(commandToken[0], "Missing closing }",
-        "This loop has mismatched brackets, add a corresponding } on another line to close the loop");
+      this.addError(commandToken[0], "닫는 }가 없습니다",
+        "반복문의 괄호가 맞지 않습니다. 다른 줄에 대응하는 }를 추가해 반복문을 닫으세요");
       hadError = true;
     }
     if (!ctx.LCurly || ctx.LCurly[0].isInsertedInRecovery) {
-      this.addError(commandToken[0], "Missing opening {",
-        "This line has an extra } closing a loop which does not exist, remove the }");
+      this.addError(commandToken[0], "여는 {가 없습니다",
+        "이 줄의 불필요한 }가 존재하지 않는 반복문을 닫고 있으므로 }를 제거하세요");
       hadError = true;
     }
     return !hadError;

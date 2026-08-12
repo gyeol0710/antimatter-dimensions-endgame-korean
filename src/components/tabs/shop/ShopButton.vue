@@ -39,7 +39,7 @@ export default {
       this.iapDisabled = !ShopPurchaseData.isIAPEnabled;
       this.cost = Math.clampMin(this.purchase.cost, 0);
       this.hasChosen = GlyphAppearanceHandler.chosenFromModal !== null;
-      this.chosenSet = GlyphAppearanceHandler.chosenFromModal?.name ?? "Not Selected";
+      this.chosenSet = GlyphAppearanceHandler.chosenFromModal?.name ?? "선택하지 않음";
       this.lockedCount = GlyphAppearanceHandler.lockedSets.length;
     },
     openSelectionModal() {
@@ -72,7 +72,7 @@ export default {
         class="o-shop-button-multiplier"
         :class="{ 'o-shop-button-multiplier--disabled': iapDisabled }"
       >
-        Currently {{ purchase.formatEffect(currentMult) }}, next: {{ purchase.formatEffect(nextMult) }}
+        현재 {{ purchase.formatEffect(currentMult) }}, 다음: {{ purchase.formatEffect(nextMult) }}
       </span>
     </div>
     <div>
@@ -81,16 +81,16 @@ export default {
           v-if="allSetsUnlocked"
           class="o-shop-button-multiplier"
         >
-          All Sets unlocked!
+          모든 세트 해금 완료!
         </div>
         <div v-else>
           <button
             class="o-shop-button-button"
             @click="openSelectionModal"
           >
-            Choose Set
+            세트 선택
           </button>
-          Chosen Set: {{ chosenSet }}
+          선택한 세트: {{ chosenSet }}
         </div>
       </div>
       <div
@@ -98,10 +98,10 @@ export default {
         class="o-shop-button-multiplier"
       >
         <div v-if="allSetsUnlocked">
-          All Sets unlocked!
+          모든 세트 해금 완료!
         </div>
         <div v-else>
-          Will unlock {{ quantify("set", lockedCount) }}
+          {{ quantify("세트", lockedCount) }}를 해금합니다
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@ export default {
       :class="purchaseButtonObject()"
       @click="performPurchase"
     >
-      Cost: {{ cost }}
+      비용: {{ cost }}
       <img
         src="images/std_coin.png"
         class="o-shop-button-button__img"
@@ -119,7 +119,7 @@ export default {
       v-if="!purchase.isUnlocked()"
       class="o-shop-button-locked-text"
     >
-      This affects a feature you have not unlocked yet ({{ purchase.lockText }})
+      아직 해금하지 않은 기능에 적용됩니다 ({{ purchase.lockText }})
     </div>
   </div>
 </template>

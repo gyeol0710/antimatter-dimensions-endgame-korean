@@ -27,22 +27,22 @@ export default {
       };
     },
     multiplierDisplay() {
-      if (InfinityChallenge(3).isRunning) return `Multiply all Antimatter Dimensions by
-        ${formatX(this.galaxyCount.times(0.005).add(1.05), 3, 3)}`;
+      if (InfinityChallenge(3).isRunning) return `모든 반물질 차원에
+        ${formatX(this.galaxyCount.times(0.005).add(1.05), 3, 3)}를 곱함`;
       const tickmult = this.mult;
-      return `${formatX(tickmult.reciprocal(), 2, 3)} faster / upgrade.`;
+      return `업그레이드마다 ${formatX(tickmult.reciprocal(), 2, 3)} 더 빨라짐`;
     },
     tickspeedDisplay() {
-      return `Tickspeed: ${format(this.tickspeed, 2, 3)} / sec`;
+      return `틱스피드: ${format(this.tickspeed, 2, 3)}/초`;
     },
     continuumString() {
       return formatHybridFloat(this.continuumValue, 2);
     },
     upgradeCount() {
       const purchased = this.purchasedTickspeed;
-      if (!this.freeTickspeed) return quantifyHybridLarge("Purchased Upgrade", purchased);
-      if (purchased.eq(0) || this.isContinuumActive) return `${formatHybridLarge(this.freeTickspeed, 3)} Free Upgrades`;
-      return `${formatHybridLarge(purchased, 3)} Purchased + ${formatHybridLarge(this.freeTickspeed, 3)} Free`;
+      if (!this.freeTickspeed) return quantifyHybridLarge("구매한 업그레이드", purchased);
+      if (purchased.eq(0) || this.isContinuumActive) return `무료 업그레이드 ${formatHybridLarge(this.freeTickspeed, 3)}개`;
+      return `구매 ${formatHybridLarge(purchased, 3)}개 + 무료 ${formatHybridLarge(this.freeTickspeed, 3)}개`;
     }
   },
   methods: {
@@ -85,13 +85,13 @@ export default {
         onclick="buyTickSpeed()"
       >
         <span v-if="isContinuumActive">
-          Tickspeed Continuum: {{ continuumString }}
+          틱스피드 연속체: {{ continuumString }}
         </span>
         <span v-else-if="isEC9">
-          Tickspeed Unpurchasable (EC 9)
+          틱스피드 구매 불가 (영원 도전 9)
         </span>
         <span v-else>
-          Tickspeed Cost: {{ format(cost) }}
+          틱스피드 가격: {{ format(cost) }}
         </span>
         <div
           v-if="hasTutorial"
@@ -104,7 +104,7 @@ export default {
         :class="{ 'o-primary-btn--disabled': !isAffordable && !isContinuumActive }"
         onclick="buyMaxTickSpeed()"
       >
-        Buy Max
+        전체 구매
       </button>
     </div>
     <div

@@ -40,19 +40,19 @@ export default {
       return ui.view.shiftDown;
     },
     name() {
-      return `${CelestialDimension(this.tier).shortDisplayName} Celestial Dimension`;
+      return `${CelestialDimension(this.tier).shortDisplayName} 셀레스티얼 차원`;
     },
     costDisplay() {
       if (this.isUnlocked || this.shiftDown) {
-        if (this.isCapped) return "Capped";
-        return this.showCostTitle ? `Cost: ${format(this.cost)} CP` : `${format(this.cost)} CP`;
+        if (this.isCapped) return "상한 도달";
+        return this.showCostTitle ? `비용: ${format(this.cost)} CP` : `${format(this.cost)} CP`;
       }
 
       if (this.canUnlock) {
-        return "Unlock";
+        return "해금";
       }
 
-      return `Reach ${format(CelestialDimension(this.tier).cpRequirement)} CP`;
+      return `${format(CelestialDimension(this.tier).cpRequirement)} CP 도달 필요`;
     },
     hasLongText() {
       return this.costDisplay.length > 20;
@@ -61,8 +61,8 @@ export default {
       return format(this.hardcap, 1, 1);
     },
     capTooltip() {
-      if (this.isCapped) return `Cap reached at ${format(this.capCP)} CP`;
-      return `Purchased ${quantifyHybridLarge("time", this.purchases)}`;
+      if (this.isCapped) return `${format(this.capCP)} CP에서 상한 도달`;
+      return `${quantifyHybridLarge("회", this.purchases)} 구매함`;
     },
     showRow() {
       return this.isUnlocked || this.canUnlock || this.amount.gt(0) ||
@@ -136,7 +136,7 @@ export default {
         v-if="isAutobuyerUnlocked"
         v-model="isAutobuyerOn"
         class="o-primary-btn--cd-auto"
-        label="Auto:"
+        label="자동:"
       />
       <PrimaryButton
         v-else
@@ -144,7 +144,7 @@ export default {
         class="o-primary-btn--cd-auto"
         @click="buyMaxCelestialDimension"
       >
-        Buy Max
+        최대 구매
       </PrimaryButton>
     </div>
   </div>

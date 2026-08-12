@@ -99,8 +99,8 @@ export default {
       return combinedTree;
     },
     modalTitle() {
-      if (this.deleting) return `Deleting Study Preset "${this.name}"`;
-      return this.isImporting ? "Input your tree" : `Editing Study Preset "${this.name}"`;
+      if (this.deleting) return `연구 프리셋 "${this.name}" 삭제`;
+      return this.isImporting ? "연구 트리 입력" : `연구 프리셋 "${this.name}" 편집`;
     },
     invalidMessage() {
       if (!this.inputIsValidTree || this.importedTree.invalidStudies.length === 0) return null;
@@ -123,7 +123,7 @@ export default {
             break;
         }
       }
-      return `Your import string has invalid study IDs: ${coloredString.replaceAll("#", "").replaceAll(",", ", ")}
+      return `가져오기 문자열에 잘못된 연구 ID가 있습니다: ${coloredString.replaceAll("#", "").replaceAll(",", ", ")}
         <br><br>`;
     },
     truncatedInput() {
@@ -148,8 +148,8 @@ export default {
       return secretStrings.includes(sha512_256(this.input.toLowerCase()));
     },
     confirmText() {
-      if (this.deleting) return "Delete";
-      return this.isImporting ? "Import" : "Save";
+      if (this.deleting) return "삭제";
+      return this.isImporting ? "가져오기" : "저장";
     }
   },
   watch: {
@@ -200,16 +200,16 @@ export default {
     savePreset() {
       if (this.inputIsValid) {
         player.timestudy.presets[this.id].studies = this.input;
-        GameUI.notify.eternity(`Study Tree ${this.name} successfully edited.`);
+        GameUI.notify.eternity(`연구 트리 ${this.name} 편집을 완료했습니다.`);
         this.emitClose();
       }
     },
     deletePreset() {
       const name = player.timestudy.presets[this.id].name;
-      const presetName = name ? `Study preset "${name}"` : "Study preset";
+      const presetName = name ? `연구 프리셋 "${name}"` : "연구 프리셋";
       player.timestudy.presets[this.id].studies = "";
       player.timestudy.presets[this.id].name = "";
-      GameUI.notify.eternity(`${presetName} deleted from slot ${this.id + 1}`);
+      GameUI.notify.eternity(`${presetName} 삭제 완료 — ${this.id + 1}번 슬롯`);
     },
     studyString(study) {
       return study instanceof ECTimeStudyState ? `EC${study.id}` : `${study.id}`;
@@ -261,22 +261,22 @@ export default {
           />
           <StudyTreeInfo
             v-if="deleting && importedTree.hasInfo"
-            header-text="Study Preset contains:"
+            header-text="연구 프리셋 내용:"
             :tree-status="importedTree"
           />
           <StudyTreeInfo
             v-if="!deleting && !isImporting && importedTree.hasInfo"
-            header-text="Status after loading with <b>no studies</b>:"
+            header-text="<b>연구가 없는 상태</b>에서 불러온 결과:"
             :tree-status="importedTree"
           />
           <StudyTreeInfo
             v-if="!deleting && combinedTree.hasInfo"
-            header-text="Status after loading with <b>current tree</b>:"
+            header-text="<b>현재 트리</b>에서 불러온 결과:"
             :tree-status="combinedTree"
           />
         </template>
         <div v-if="!deleting && !inputIsValidTree && hasInput">
-          Not a valid tree
+          올바른 트리가 아닙니다
         </div>
       </div>
       <div class="c-study-preview">
@@ -292,16 +292,16 @@ export default {
       <br>
       <PrimaryButton
         v-if="!deleting"
-        v-tooltip="'This will format the study preset text, for example, changing \'a,b,c|d\' to \'a, b, c | d\'.'"
+        v-tooltip="'연구 프리셋 텍스트의 형식을 정리합니다. 예: \'a,b,c|d\'를 \'a, b, c | d\'로 변경합니다.'"
         @click="convertInputShorthands"
       >
-        Format Preset Text
+        프리셋 텍스트 형식 정리
       </PrimaryButton>
     </div>
     <span v-if="isImporting">
       <br>
       <div
-        v-tooltip="canEternity ? '' : 'You are currently unable to eternity, so this will only do a normal load.'"
+        v-tooltip="canEternity ? '' : '현재 영원을 진행할 수 없으므로 일반 불러오기만 수행합니다.'"
         class="c-modal__confirmation-toggle"
         @click="respecAndLoad = !respecAndLoad"
       >
@@ -317,7 +317,7 @@ export default {
           />
         </div>
         <span class="c-modal__confirmation-toggle__text">
-          Also respec tree and eternity
+          트리 재분배와 영원도 함께 진행
           <span
             v-if="!canEternity"
             class="c-modal__confirmation-toggle__warning"

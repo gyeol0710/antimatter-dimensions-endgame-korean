@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     importDestString() {
-      return this.intoEmpty ? "into an empty Tree" : "with your current Tree";
+      return this.intoEmpty ? "빈 트리에 가져오면" : "현재 트리에 가져오면";
     }
   },
   methods: {
@@ -28,13 +28,13 @@ export default {
 <template>
   <div class="l-modal-import-tree__tree-info-line">
     <div v-if="tree.endgameSkills === 0">
-      <i>Importing this {{ importDestString }} will not purchase any new Endgame Masteries.</i>
+      <i>이 문자열을 {{ importDestString }} 새로운 엔드게임 마스터리를 구매하지 않습니다.</i>
     </div>
     <div v-else>
-      Importing {{ importDestString }} will purchase:
+      {{ importDestString }} 다음을 구매합니다:
       <br>
       {{ tree.newMasteries }}
-      (Cost: {{ formatSkillCost(tree.endgameMasteries) }})
+      (비용: {{ formatSkillCost(tree.endgameMasteries) }})
     </div>
     <br>
   </div>

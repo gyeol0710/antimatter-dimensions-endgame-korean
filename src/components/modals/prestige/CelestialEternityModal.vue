@@ -16,17 +16,17 @@ export default {
   computed: {
     message() {
       return PlayerProgress.celestialEternityUnlocked()
-        ? `Celestial Eternity will reset everything Celestial Dimension-related up to this point.`
-        : `Celestial Eternity will reset everything Celestial Dimension-related up to this point.
-          You will also gain a Celestial Eternity Point and unlock various upgrades.`;
+        ? `셀레스티얼 영원은 지금까지의 셀레스티얼 차원 관련 요소를 모두 초기화합니다.`
+        : `셀레스티얼 영원은 지금까지의 셀레스티얼 차원 관련 요소를 모두 초기화합니다.
+          셀레스티얼 영원 포인트도 하나 얻고 여러 업그레이드를 해금합니다.`;
     },
     gainedCEPOnCelestialEternity() {
-      return `You will gain ${quantify("Celestial Eternity", this.gainedCelestialEternities, 2)} 
-      and ${quantify("Celestial Eternity Point", this.gainedCelestialEternityPoints, 2)} on Celestial Eternity.`;
+      return `셀레스티얼 영원 시 ${quantify("셀레스티얼 영원", this.gainedCelestialEternities, 2)} 및
+      ${quantify("셀레스티얼 영원 포인트", this.gainedCelestialEternityPoints, 2)}를 얻습니다.`;
     },
     startWithCIP() {
       return this.startingCIP.gt(0)
-        ? `You will start your next Celestial Eternity with ${quantify("Celestial Infinity Point", this.startingCIP, 2)}.`
+        ? `다음 셀레스티얼 영원을 ${quantify("셀레스티얼 무한 포인트", this.startingCIP, 2)}와 함께 시작합니다.`
         : ``;
     },
   },
@@ -46,7 +46,7 @@ export default {
 
 <template>
   <ResetModal
-    :header="'You are about to Eternity'"
+    :header="'셀레스티얼 영원을 진행하려 합니다'"
     :message="message"
     :gained-resources="gainedCEPOnCelestialEternity"
     :starting-resources="startWithCIP"

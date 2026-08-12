@@ -16,9 +16,9 @@ export default {
 
 <template>
   <div class="c-eternity-tab__header">
-    You have
+    영원 포인트를
     <span class="c-eternity-tab__eternity-points">{{ format(eternityPoints, 2) }}</span>
-    {{ pluralize("Eternity Point", eternityPoints) }}.
+    {{ pluralize("개", eternityPoints) }} 보유하고 있습니다.
   </div>
 </template>
 

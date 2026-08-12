@@ -35,9 +35,9 @@ export default {
       </template>
       <template #dropdown>
         <div class="c-pelle-strike-dropdown">
-          <span :class="{ 'o-pelle-disabled': strike.isDestroyed() == true }">Penalty: {{ strike.penalty }}</span>
+          <span :class="{ 'o-pelle-disabled': strike.isDestroyed() == true }">페널티: {{ strike.penalty }}</span>
           <br>
-          <span>Reward: {{ strikeReward }}</span>
+          <span>보상: {{ strikeReward }}</span>
         </div>
       </template>
     </ExpandingControlBox>

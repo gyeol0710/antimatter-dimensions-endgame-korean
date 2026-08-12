@@ -69,10 +69,10 @@ export default {
     @click="handleClick"
   >
     <span>
-      Unlock a Secret Achievement
+      비밀 도전과제 해금
       <br>
       <br>
-      (Double click to hide)
+      (더블 클릭하여 숨기기)
     </span>
   </button>
 </template>

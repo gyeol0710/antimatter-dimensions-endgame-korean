@@ -32,7 +32,7 @@ export default {
       AUTO_ENDGAME_MODE.AMOUNTCP,
       AUTO_ENDGAME_MODE.AMOUNTDP,
       AUTO_ENDGAME_MODE.TIME,
-      AUTO_ENDGAME_MODE.X_HIGHEST_CP,      
+      AUTO_ENDGAME_MODE.X_HIGHEST_CP,
       AUTO_ENDGAME_MODE.X_HIGHEST_DP,
     ],
     amountMode: () => AUTO_ENDGAME_MODE.AMOUNTCP,
@@ -52,35 +52,35 @@ export default {
     modeProps(mode) {
       switch (mode) {
         case AUTO_ENDGAME_MODE.AMOUNTCP: return {
-          title: "Endgame at X CP",
+          title: "CP X개에서 엔드게임",
           input: {
             property: "amount",
             type: "decimal"
           },
         };
         case AUTO_ENDGAME_MODE.AMOUNTDP: return {
-          title: "Endgame at X DP",
+          title: "DP X개에서 엔드게임",
           input: {
             property: "amount",
             type: "decimal"
           },
         };
         case AUTO_ENDGAME_MODE.TIME: return {
-          title: "Seconds between Endgames",
+          title: "엔드게임 간격(초)",
           input: {
             property: "time",
             type: "float"
           },
         };
         case AUTO_ENDGAME_MODE.X_HIGHEST_CP: return {
-          title: "X times highest CP",
+          title: "최고 CP의 X배",
           input: {
             property: "xHighest",
             type: "decimal"
           },
         };
         case AUTO_ENDGAME_MODE.X_HIGHEST_DP: return {
-          title: "X times highest DP",
+          title: "최고 DP의 X배",
           input: {
             property: "xHighest",
             type: "decimal"
@@ -100,7 +100,7 @@ export default {
   <AutobuyerBox
     :autobuyer="autobuyer"
     :is-modal="isModal"
-    name="Automatic Endgame"
+    name="엔드게임 자동 진행"
   >
     <template #intervalSlot>
       <ExpandingControlBox
@@ -109,7 +109,7 @@ export default {
       >
         <template #header>
           <div class="o-primary-btn c-autobuyer-box__mode-select c-autobuyer-box__mode-select-header">
-            ▼ Current Setting: ▼
+            ▼ 현재 설정: ▼
             <br>
             {{ modeName(mode) }}
           </div>
@@ -143,7 +143,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Dynamic amount
+        동적 수량
       </label>
     </template>
   </AutobuyerBox>

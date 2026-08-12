@@ -37,7 +37,7 @@ export default {
   computed: {
     isDoomed: () => Pelle.isDoomed,
     name() {
-      return `${AntimatterDimension(this.tier).shortDisplayName} Antimatter Dimension`;
+      return `${AntimatterDimension(this.tier).shortDisplayName} 반물질 차원`;
     },
     costDisplay() {
       return this.buyUntil10 ? format(this.until10Cost) : format(this.singleCost);
@@ -49,24 +49,24 @@ export default {
       return this.isShown || this.isUnlocked || this.amount.gt(0);
     },
     boughtTooltip() {
-      if (this.isCapped) return `Nameless prevents the purchase of more than ${format(1)} 8th Antimatter Dimension`;
-      if (this.isContinuumActive) return "Continuum produces all your Antimatter Dimensions";
-      return `Purchased ${quantifyHybridLarge("time", this.bought)}`;
+      if (this.isCapped) return `이름없는 자들이 제8 반물질 차원을 ${format(1)}개 넘게 구매하지 못하게 합니다`;
+      if (this.isContinuumActive) return "연속체가 모든 반물질 차원을 생산합니다";
+      return `총 ${quantifyHybridLarge("번", this.bought)} 구매함`;
     },
     costUnit() {
-      return `${AntimatterDimension(this.tier - 2).shortDisplayName} AD`;
+      return `${AntimatterDimension(this.tier - 2).shortDisplayName} 반물질 차원`;
     },
     buttonPrefix() {
-      if (!this.isUnlocked) return "Locked";
-      if (this.isCapped) return "Shattered by Nameless";
-      if (this.isContinuumActive) return "Continuum: ";
-      return `Buy ${formatInt(this.howManyCanBuy)}`;
+      if (!this.isUnlocked) return "잠김";
+      if (this.isCapped) return "이름없는 자들에 의해 파괴됨";
+      if (this.isContinuumActive) return "연속체: ";
+      return `${formatInt(this.howManyCanBuy)}개 구매`;
     },
     buttonValue() {
       if (this.isCapped) return "";
       if (this.isContinuumActive) return this.continuumString;
-      const prefix = this.showCostTitle(this.buyUntil10 ? this.until10Cost : this.singleCost) ? "Cost: " : "";
-      const suffix = this.isCostsAD ? this.costUnit : "AM";
+      const prefix = this.showCostTitle(this.buyUntil10 ? this.until10Cost : this.singleCost) ? "가격: " : "";
+      const suffix = this.isCostsAD ? this.costUnit : "반물질";
       return `${prefix}${this.costDisplay} ${suffix}`;
     },
     hasLongText() {

@@ -3,18 +3,18 @@ import { createEntryInfo } from "./breakdown-entry-info";
 import MultiplierBreakdownEntry from "./MultiplierBreakdownEntry";
 
 const MULT_TAB_OPTIONS = [
-  { id: 0, key: "AM", text: "Antimatter Production" },
-  { id: 1, key: "tickspeed", text: "Tickspeed" },
-  { id: 2, key: "AD", text: "Antimatter Dimensions" },
-  { id: 3, key: "IP", text: "Infinity Points" },
-  { id: 4, key: "ID", text: "Infinity Dimensions" },
-  { id: 5, key: "infinities", text: "Infinities" },
-  { id: 6, key: "replicanti", text: "Replicanti Speed" },
-  { id: 7, key: "EP", text: "Eternity Points" },
-  { id: 8, key: "TD", text: "Time Dimensions" },
-  { id: 9, key: "eternities", text: "Eternities" },
-  { id: 10, key: "DT", text: "Dilated Time" },
-  { id: 11, key: "gamespeed", text: "Game Speed" },
+  { id: 0, key: "AM", text: "반물질 생산" },
+  { id: 1, key: "tickspeed", text: "틱스피드" },
+  { id: 2, key: "AD", text: "반물질 차원" },
+  { id: 3, key: "IP", text: "무한 포인트" },
+  { id: 4, key: "ID", text: "무한 차원" },
+  { id: 5, key: "infinities", text: "무한" },
+  { id: 6, key: "replicanti", text: "복제자 속도" },
+  { id: 7, key: "EP", text: "영원 포인트" },
+  { id: 8, key: "TD", text: "시간 차원" },
+  { id: 9, key: "eternities", text: "영원" },
+  { id: 10, key: "DT", text: "팽창된 시간" },
+  { id: 11, key: "gamespeed", text: "게임 시간" },
 ];
 
 export default {
@@ -95,14 +95,13 @@ export default {
         :is-root="true"
       />
       <div class="c-multiplier-tab-text-line">
-        Note: Entries are only expandable if they contain multiple sources which can be different values.
-        For example, any effects which affect all Dimensions of any type equally will not expand into a
-        list of eight identical numbers.
+        참고: 값이 서로 다를 수 있는 출처를 여러 개 포함한 항목만 펼칠 수 있습니다.
+        예를 들어 모든 종류의 차원에 동일하게 영향을 주는 효과는 같은 숫자 여덟 개의 목록으로 펼쳐지지 않습니다.
         <br>
         <b>
-          Some entries may cause lag if expanded out fully. Resizing happens over 200 ms (instead of instantly)
-          in order to reduce possible adverse effects due to photosensitivity. This may cause some visual weirdness
-          after prestige events.
+          일부 항목을 완전히 펼치면 지연이 발생할 수 있습니다. 광과민성으로 인한 부작용 가능성을 줄이기 위해
+          크기 조절은 즉시 이루어지지 않고 200 ms에 걸쳐 진행됩니다. 이 때문에 프레스티지 후
+          화면이 잠시 어색하게 보일 수 있습니다.
         </b>
       </div>
     </div>

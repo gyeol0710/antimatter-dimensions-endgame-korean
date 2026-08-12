@@ -68,7 +68,7 @@ export default {
       <CostDisplay
         v-if="!isBought"
         :config="upgrade.config"
-        name="Antimatter"
+        name="반물질"
       />
     </button>
     <button
@@ -87,7 +87,7 @@ export default {
       <CostDisplay
         v-if="!isBought"
         :config="upgrade.config"
-        name="Antimatter"
+        name="반물질"
       />
     </button>
   </div>

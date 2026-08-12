@@ -74,16 +74,15 @@ export default {
 <template>
   <ModalWrapper>
     <template #header>
-      Exponent Notation Settings
+      지수 표기법 설정
     </template>
-    You can adjust what your numbers look like when very large. With small values, the exponent will
-    be directly displayed with no additional formatting. Larger values will have commas inserted into the exponent
-    for clarity, and the largest values will apply notation formatting to the exponent in order to shorten it. You can
-    adjust the two thresholds between these regions below:
+    매우 큰 숫자가 표시되는 방식을 조정할 수 있습니다. 값이 작으면 지수가 별도 서식 없이 표시되고,
+    값이 더 커지면 지수에 쉼표가 삽입됩니다. 가장 큰 값에는 지수를 줄여 표시하기 위해
+    현재 표기법이 적용됩니다. 아래에서 각 표시 방식이 바뀌는 두 임계값을 조정할 수 있습니다.
     <br>
     <br>
     <div class="c-single-slider">
-      <b class="o-digit-text">Minimum for commas in exponent: {{ formatInt(commaDigits) }} digits</b>
+      <b class="o-digit-text">지수에 쉼표를 사용할 최소 자릿수: {{ formatInt(commaDigits) }}자리</b>
       <SliderComponent
         class="o-primary-btn--slider__slider o-slider"
         v-bind="sliderProps"
@@ -92,7 +91,7 @@ export default {
       />
     </div>
     <div class="c-single-slider">
-      <b class="o-digit-text">Minimum for notation in exponent: {{ formatInt(notationDigits) }} digits</b>
+      <b class="o-digit-text">지수에 표기법을 적용할 최소 자릿수: {{ formatInt(notationDigits) }}자리</b>
       <SliderComponent
         class="o-primary-btn--slider__slider o-slider"
         v-bind="sliderProps"
@@ -101,7 +100,7 @@ export default {
       />
     </div>
     <br>
-    Sample numbers for exponent formatting:
+    지수 표시 예시:
     <div class="c-sample-numbers">
       <span
         v-for="(num, id) in sampleNums"
@@ -112,10 +111,9 @@ export default {
       </span>
     </div>
     <br>
-    Note: The interface is generally optimized for Scientific notation with settings of {{ formatInt(5) }}
-    and {{ formatInt(9) }} digits. Some text may look odd or overflow out of boxes if you
-    differ significantly from these values. Additionally, these settings might not cause any visual changes
-    when using certain notations.
+    참고: 인터페이스는 일반적으로 과학 표기법에서 {{ formatInt(5) }}자리와 {{ formatInt(9) }}자리 설정에
+    최적화되어 있습니다. 이 값과 크게 다르게 설정하면 일부 문구가 어색하게 보이거나 상자 밖으로
+    넘칠 수 있습니다. 또한 일부 표기법에서는 이 설정을 바꿔도 시각적인 차이가 없을 수 있습니다.
   </ModalWrapper>
 </template>
 

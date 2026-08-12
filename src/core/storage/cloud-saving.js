@@ -55,11 +55,11 @@ export const Cloud = {
     try {
       await signInWithPopup(this.auth, this.provider);
       ShopPurchaseData.syncSTD();
-      if (player.options.hideGoogleName) GameUI.notify.success(`Successfully logged in to Google Account`);
-      else GameUI.notify.success(`Successfully logged in as ${this.user.displayName}`);
+      if (player.options.hideGoogleName) GameUI.notify.success(`Google 계정에 로그인했습니다`);
+      else GameUI.notify.success(`${this.user.displayName}(으)로 로그인했습니다`);
       if (ShopPurchaseData.isIAPEnabled) Speedrun.setSTDUse(true);
     } catch (e) {
-      GameUI.notify.error("Google Account login failed");
+      GameUI.notify.error("Google 계정 로그인에 실패했습니다");
     }
   },
 
@@ -175,12 +175,12 @@ export const Cloud = {
     // since the hiding motivation was identifying info, and Steam usernames are generally more publicly
     // visible than Google info. Also affects the visibility of the button in the Options/Saving subtab
     if (STEAM) {
-      GameUI.notify.info(`Game saved (slot ${slot + 1}) to cloud as user ${this.user.displayName}`);
+      GameUI.notify.info(`${this.user.displayName} 사용자로 게임(슬롯 ${slot + 1})을 클라우드에 저장했습니다`);
       return;
     }
 
-    if (player.options.hideGoogleName) GameUI.notify.info(`Game saved (slot ${slot + 1}) to cloud`);
-    else GameUI.notify.info(`Game saved (slot ${slot + 1}) to cloud as user ${this.user.displayName}`);
+    if (player.options.hideGoogleName) GameUI.notify.info(`게임(슬롯 ${slot + 1})을 클라우드에 저장했습니다`);
+    else GameUI.notify.info(`${this.user.displayName} 사용자로 게임(슬롯 ${slot + 1})을 클라우드에 저장했습니다`);
   },
 
   async loadCheck() {
@@ -190,8 +190,8 @@ export const Cloud = {
 
     const save = await this.load();
     if (save === null) {
-      if (player.options.hideGoogleName) GameUI.notify.info(`No cloud save for current Google Account`);
-      else GameUI.notify.info(`No cloud save for user ${this.user.displayName}`);
+      if (player.options.hideGoogleName) GameUI.notify.info(`현재 Google 계정에 클라우드 세이브가 없습니다`);
+      else GameUI.notify.info(`${this.user.displayName} 사용자의 클라우드 세이브가 없습니다`);
     } else {
       const cloudSave = save;
       const saveId = GameStorage.currentSlot;
@@ -203,12 +203,12 @@ export const Cloud = {
         GameStorage.overwriteSlot(saveId, cloudSave);
 
         if (STEAM) {
-          GameUI.notify.info(`Cloud save loaded`);
+          GameUI.notify.info(`클라우드 세이브를 불러왔습니다`);
           return;
         }
 
-        if (player.options.hideGoogleName) GameUI.notify.info(`Cloud save (slot ${saveId + 1}) loaded`);
-        else GameUI.notify.info(`Cloud save (slot ${saveId + 1}) loaded for user ${this.user.displayName}`);
+        if (player.options.hideGoogleName) GameUI.notify.info(`클라우드 세이브(슬롯 ${saveId + 1})를 불러왔습니다`);
+        else GameUI.notify.info(`${this.user.displayName} 사용자의 클라우드 세이브(슬롯 ${saveId + 1})를 불러왔습니다`);
       };
 
       // If the comparison fails, we assume the cloud data is corrupted and show the relevant modal

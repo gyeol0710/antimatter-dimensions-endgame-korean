@@ -52,7 +52,7 @@ export default {
     class="l-endgame-milestone"
   >
     <span class="o-endgame-milestone__goal">
-      {{ quantifyInt("Endgame", endgames) }}:
+      {{ quantifyInt("엔드게임", endgames) }}:
     </span>
     <button
       v-tooltip="activeCondition"

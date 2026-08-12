@@ -10,23 +10,22 @@ export default {
   },
   computed: {
     message() {
-      return `Dilating time will start a new Eternity, and all Dimension multiplier's exponents and
-        tickspeed multiplier's exponent will be reduced to ${formatPow(0.75, 2, 2)}. If you can Eternity while Dilated,
-        your Tachyon Particles will be increased to a value based on your highest antimatter and any Tachyon Particle
-        multipliers you have.`;
+      return `시간을 팽창시키면 새로운 영원이 시작되고, 모든 차원 배수의 지수와 틱스피드 배수의 지수가
+        ${formatPow(0.75, 2, 2)}로 감소합니다. 시간 팽창 중 영원에 도달할 수 있다면 최고 반물질과
+        보유한 타키온 입자 배율에 따라 타키온 입자가 증가합니다.`;
     },
     entranceLabel() {
-      return `You are about to enter Dilation`;
+      return `시간 팽창에 진입하려 합니다`;
     },
     EPSinceLabel() {
       if (player.dilation.lastEP.eq(-1)) {
-        return "This is your first Dilation";
+        return "첫 시간 팽창입니다.";
       }
       if (!isInCelestialReality() && Ra.unlocks.unlockDilationStartingTP.canBeApplied && !player.disablePostReality) {
-        return `You already have the maximum feasible amount of Tachyon Particles you can attain due to
-          Teresa's Level ${formatInt(25)} reward.`;
+        return `테레사의 레벨 ${formatInt(25)} 보상으로 얻을 수 있는 최대량의 타키온 입자를 이미 보유하고 있습니다.`;
       }
-      return `You last completed Dilation at ${format(player.dilation.lastEP, 2, 2)} Eternity Points.`;
+      return `마지막으로 시간 팽창을 완료했을 때 보유한 영원 포인트는
+        ${format(player.dilation.lastEP, 2, 2)}였습니다.`;
     }
   },
   methods: {
@@ -59,7 +58,7 @@ export default {
       {{ message }}
     </div>
     <template #confirm-text>
-      Enter
+      진입
     </template>
   </ModalWrapperChoice>
 </template>

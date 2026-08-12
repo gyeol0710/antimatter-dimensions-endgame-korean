@@ -130,56 +130,56 @@ export default {
     infinityCountString() {
       const num = this.infinity.count;
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Infinity", num.floor())}`
-        : "no Infinities";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("무한", num.floor())}`
+        : "무한 없음";
     },
     eternityCountString() {
       const num = this.eternity.count;
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Eternity", num.floor())}`
-        : "no Eternities";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("영원", num.floor())}`
+        : "영원 없음";
     },
     realityCountString() {
       const num = new Decimal(this.reality.count);
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Reality", num.floor())}`
-        : "no Realities";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("현실", num.floor())}`
+        : "현실 없음";
     },
     endgameCountString() {
       const num = new Decimal(this.endgame.count);
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Endgame", num.floor())}`
-        : "no Endgames";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("엔드게임", num.floor())}`
+        : "엔드게임 없음";
     },
     celestialInfinityCountString() {
       const num = this.celestialInfinity.count;
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Celestial Infinity", num.floor())}`
-        : "no Celestial Infinities";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("셀레스티얼 무한", num.floor())}`
+        : "셀레스티얼 무한 없음";
     },
     celestialEternityCountString() {
       const num = this.celestialEternity.count;
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Celestial Eternity", num.floor())}`
-        : "no Celestial Eternities";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("셀레스티얼 영원", num.floor())}`
+        : "셀레스티얼 영원 없음";
     },
     divinityCountString() {
       const num = new Decimal(this.divinity.count);
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Divinity", num.floor())}`
-        : "no Divinities";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("신성", num.floor())}`
+        : "신성 없음";
     },
     condenseCountString() {
       const num = this.condense.count;
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Condense", num.floor())}`
-        : "no Condenses";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("응축", num.floor())}`
+        : "응축 없음";
     },
     supernovaCountString() {
       const num = this.supernova.count;
       return num.gt(0)
-        ? `${this.formatDecimalAmount(num)} ${pluralize("Supernova", num.floor())}`
-        : "no Supernovae";
+        ? `${this.formatDecimalAmount(num)} ${pluralize("초신성", num.floor())}`
+        : "초신성 없음";
     },
     fullGameCompletions() {
       return player.records.fullGameCompletions;
@@ -377,78 +377,78 @@ export default {
   <div class="c-stats-tab">
     <div>
       <PrimaryButton onclick="Modal.catchup.show(0)">
-        View Content Summary
+        컨텐츠 요약 확인하기
       </PrimaryButton>
       <div class="c-stats-tab-title c-stats-tab-general">
-        General
+        일반
       </div>
       <div class="c-stats-tab-general">
-        <div>You have made a total of {{ format(totalAntimatter, 2, 1) }} antimatter.</div>
+        <div>총 {{ format(totalAntimatter, 2, 1) }} 반물질을 만들었습니다.</div>
         <div v-if="divinity.isUnlocked">
-          You have made a total of {{ format(bestDoomedAntimatterThisDivinity, 2, 1) }} antimatter in Doom this Divinity.
+          이번 신성의 파멸에서 총 {{ format(bestDoomedAntimatterThisDivinity, 2, 1) }} 반물질을 생산했습니다.
         </div>
         <div v-if="endgame.isUnlocked">
-          You have made a total of {{ format(totalAntimatterOutsideDoom, 2, 1) }} antimatter outside Doom.
+          파멸 밖에서 총 {{ format(totalAntimatterOutsideDoom, 2, 1) }} 반물질을 생산했습니다.
         </div>
         <div v-if="endgame.isUnlocked">
-          You have made a total of {{ format(endgame.totalEndgameAntimatter, 2, 1) }} antimatter this Endgame.
+          이번 엔드게임에서 총 {{ format(endgame.totalEndgameAntimatter, 2, 1) }} 반물질을 생산했습니다.
         </div>
         <div v-if="reality.isUnlocked" :class="{ 'c-stats-tab-doomed' : isDoomed }">
-          You have made a total of {{ format(reality.totalRealityAntimatter, 2, 1) }} antimatter
-          this {{ isDoomed ? "Armageddon" : "Reality" }}.
+          총 {{ format(reality.totalRealityAntimatter, 2, 1) }} 반물질을
+          이번 {{ isDoomed ? "아마겟돈" : "현실" }}에서 생산했습니다.
         </div>
         <div v-if="eternity.isUnlocked">
-          You have made a total of {{ format(eternity.totalEternityAntimatter, 2, 1) }} antimatter this Eternity.
+          이번 영원에서 총 {{ format(eternity.totalEternityAntimatter, 2, 1) }} 반물질을 생산했습니다.
         </div>
         <div v-if="infinity.isUnlocked">
-          You have made a total of {{ format(infinity.totalInfinityAntimatter, 2, 1) }} antimatter this Infinity.
+          이번 무한에서 총 {{ format(infinity.totalInfinityAntimatter, 2, 1) }} 반물질을 생산했습니다.
         </div>
         <div v-if="endgame.isUnlocked" class="c-stats-tab-celestials">
-          You have made a total of {{ format(totalCelMatter, 2, 1) }} Celestial Matter.
+          총 {{ format(totalCelMatter, 2, 1) }} 셀레스티얼 물질을 생산했습니다.
         </div>
         <div v-if="celestialEternity.isUnlocked" class="c-stats-tab-celestials">
-          You have made a total of {{ format(celestialEternity.totalCelestialEternityCelMatter, 2, 1) }} Celestial Matter
-          this Celestial Eternity.
+          이번 셀레스티얼 영원에서 총
+          {{ format(celestialEternity.totalCelestialEternityCelMatter, 2, 1) }} 셀레스티얼 물질을 생산했습니다.
         </div>
         <div v-if="celestialInfinity.isUnlocked" class="c-stats-tab-celestials">
-          You have made a total of {{ format(celestialInfinity.totalCelestialInfinityCelMatter, 2, 1) }} Celestial Matter
-          this Celestial Infinity.
+          이번 셀레스티얼 무한에서 총
+          {{ format(celestialInfinity.totalCelestialInfinityCelMatter, 2, 1) }} 셀레스티얼 물질을 생산했습니다.
         </div>
         <div v-if="hasSeenDivineDims" class="c-stats-tab-divinity">
-          You have made a total of {{ format(totalDivineMatter, 2, 1) }} Divine Matter.
+          총 {{ format(totalDivineMatter, 2, 1) }} 신성 물질을 생산했습니다.
         </div>
         <div v-if="supernova.isUnlocked" class="c-stats-tab-divinity">
-          You have made a total of {{ format(supernova.totalSupernovaDivineMatter, 2, 1) }} Divine Matter this Supernova.
+          이번 초신성에서 총 {{ format(supernova.totalSupernovaDivineMatter, 2, 1) }} 신성 물질을 생산했습니다.
         </div>
         <div v-if="condense.isUnlocked" class="c-stats-tab-divinity">
-          You have made a total of {{ format(condense.totalCondenseDivineMatter, 2, 1) }} Divine Matter this Condense.
+          이번 응축에서 총 {{ format(condense.totalCondenseDivineMatter, 2, 1) }} 신성 물질을 생산했습니다.
         </div>
-        <div>You have played for {{ realTimePlayed }}. (real time)</div>
+        <div>실제 시간으로 {{ realTimePlayed }} 동안 플레이했습니다.</div>
         <div v-if="reality.isUnlocked">
-          Your existence has spanned {{ reality.totalTimePlayed }} of time. (game time)
+          당신의 존재가 {{ reality.totalTimePlayed }} 전에 생성되었습니다. (게임 시간)
         </div>
         <div>
-          Your save was created on {{ startDate }} ({{ saveAge }} ago)
+          저장 데이터 생성일: {{ startDate }} ({{ saveAge }} 전)
         </div>
         <br>
         <div>
-          You have seen {{ quantifyHybridSmall("news message", totalNews) }} in total.
+          총 {{ quantifyHybridSmall("뉴스 메시지", totalNews) }}를 봤습니다.
         </div>
         <div>
-          You have seen {{ quantifyInt("unique news message", uniqueNews) }}.
+          서로 다른 {{ quantifyInt("뉴스 메시지", uniqueNews) }}를 봤습니다.
         </div>
         <div>
-          You have unlocked {{ quantifyInt("Secret Achievement", secretAchievementCount) }}.
+          {{ quantifyInt("비밀 도전과제", secretAchievementCount) }}를 해금했습니다.
         </div>
         <div v-if="paperclips">
-          You have {{ quantifyInt("useless paperclip", paperclips) }}.
+          {{ quantifyInt("쓸모없는 클립", paperclips) }}을 보유하고 있습니다.
         </div>
         <div v-if="fullGameCompletions">
           <br>
           <b>
-            You have completed the entire game {{ quantifyInt("time", fullGameCompletions) }}.
+            전체 게임을 {{ quantifyInt("회", fullGameCompletions) }} 완료했습니다.
             <br>
-            You have played for {{ fullTimePlayed }} across all playthroughs.
+            모든 플레이를 합쳐 {{ fullTimePlayed }} 동안 플레이했습니다.
           </b>
         </div>
       </div>
@@ -472,31 +472,30 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-infinity">
-        Infinity
+        무한
       </div>
       <div>
-        You have {{ infinityCountString }}<span v-if="eternity.isUnlocked"> this Eternity</span>.
+        {{ infinityCountString }}에 도달했습니다<span v-if="eternity.isUnlocked"> (이번 영원)</span>.
       </div>
       <div v-if="infinity.banked.gt(0)">
-        You have {{ formatDecimalAmount(infinity.banked.floor()) }}
-        {{ pluralize("Banked Infinity", infinity.banked.floor()) }}.
+        {{ formatDecimalAmount(infinity.banked.floor()) }}
+        {{ pluralize("저장된 무한", infinity.banked.floor()) }}을 보유하고 있습니다.
       </div>
       <div v-if="infinity.hasBest">
-        Your fastest Infinity was {{ infinity.best.toStringShort() }}.
+        가장 빠른 무한은 {{ infinity.best.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Infinity<span v-if="eternity.isUnlocked"> this Eternity</span>.
+        가장 빠른 무한 기록이 없습니다<span v-if="eternity.isUnlocked"> (이번 영원)</span>.
       </div>
       <div>
-        You have spent {{ infinity.this.toStringShort() }} in this Infinity.
+        이번 무한에서 {{ infinity.this.toStringShort() }}을 보냈습니다.
         <span v-if="reality.isUnlocked">
-          ({{ infinity.thisReal.toStringShort() }} real time)
+          ({{ infinity.thisReal.toStringShort() }} 현실 시간)
         </span>
       </div>
       <div>
-        Your best Infinity Points per minute
-        <span v-if="eternity.count.gt(0)">this Eternity </span>
-        is {{ format(infinity.bestRate, 2, 2) }}.
+        분당 최고 무한 포인트<span v-if="eternity.count.gt(0)"> (이번 영원)</span>:
+        {{ format(infinity.bestRate, 2, 2) }}
       </div>
       <br>
     </div>
@@ -505,39 +504,38 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-eternity">
-        Eternity
+        영원
       </div>
       <div>
-        You have {{ eternityCountString }}<span v-if="reality.isUnlocked"> this
-        <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "Armageddon" : "Reality" }}</span></span>.
+        {{ eternityCountString }}에 도달했습니다<span v-if="reality.isUnlocked"> (이번
+        <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "아마겟돈" : "현실" }}</span>)</span>.
       </div>
       <div v-if="infinity.projectedBanked.gt(0)">
-        You will gain {{ formatDecimalAmount(infinity.projectedBanked.floor()) }}
-        {{ pluralize("Banked Infinity", infinity.projectedBanked.floor()) }} on Eternity
-        ({{ formatDecimalAmount(infinity.bankRate) }} per minute).
+        영원 시 {{ formatDecimalAmount(infinity.projectedBanked.floor()) }}
+        {{ pluralize("저장된 무한", infinity.projectedBanked.floor()) }}을 얻습니다
+        (분당 {{ formatDecimalAmount(infinity.bankRate) }}).
       </div>
       <div v-else-if="infinity.banked.gt(0)">
-        You will gain no Banked Infinities on Eternity.
+        영원 시 저장된 무한을 얻지 못합니다.
       </div>
       <div v-if="eternity.hasBest">
-        Your fastest Eternity was {{ eternity.best.toStringShort() }}.
+        가장 빠른 영원은 {{ eternity.best.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Eternity<span v-if="reality.isUnlocked"> this
-        <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "Armageddon" : "Reality" }}</span></span>.
+        가장 빠른 영원 기록이 없습니다<span v-if="reality.isUnlocked"> (이번
+        <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "아마겟돈" : "현실" }}</span>)</span>.
       </div>
       <div>
-        You have spent {{ eternity.this.toStringShort() }} in this Eternity.
+        이번 영원에서 {{ eternity.this.toStringShort() }}을 보냈습니다.
         <span v-if="reality.isUnlocked">
-          ({{ eternity.thisReal.toStringShort() }} real time)
+          (실제 시간 {{ eternity.thisReal.toStringShort() }})
         </span>
       </div>
       <div>
-        Your best Eternity Points per minute
-        <span v-if="reality.isUnlocked">this
-        <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "Armageddon" : "Reality" }}</span>
-        </span>
-        is {{ format(eternity.bestRate, 2, 2) }}.
+        분당 최고 영원 포인트
+        <span v-if="reality.isUnlocked">(이번
+        <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "아마겟돈" : "현실" }}</span>)</span>:
+        {{ format(eternity.bestRate, 2, 2) }}
       </div>
       <br>
     </div>
@@ -546,38 +544,35 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div :class="realityClassObject()">
-        {{ isDoomed ? "Doomed Reality" : "Reality" }}
+        {{ isDoomed ? "파멸한 현실" : "현실" }}
       </div>
       <div>
-        You have {{ realityCountString }}<span v-if="endgame.isUnlocked"> this Endgame</span>.
+        {{ realityCountString }}에 도달했습니다<span v-if="endgame.isUnlocked"> (이번 엔드게임)</span>.
       </div>
       <div v-if="reality.hasBest">
-        Your fastest game-time Reality was {{ reality.best.toStringShort() }}.
-        Your fastest real-time Reality was {{ reality.bestReal.toStringShort() }}.
+        게임 시간 기준 가장 빠른 현실은 {{ reality.best.toStringShort() }}입니다.
+        실제 시간 기준 가장 빠른 현실은 {{ reality.bestReal.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Reality<span v-if="endgame.isUnlocked"> this Endgame</span>.
+        가장 빠른 현실 기록이 없습니다<span v-if="endgame.isUnlocked"> (이번 엔드게임)</span>.
       </div>
       <div :class="{ 'c-stats-tab-doomed' : isDoomed }">
-        You have spent {{ reality.this.toStringShort() }}
-        in this {{ isDoomed ? "Armageddon" : "Reality" }}.
-        ({{ reality.thisReal.toStringShort() }} real time)
+        {{ reality.this.toStringShort() }}을 이번 {{ isDoomed ? "아마겟돈" : "현실" }}에서 보냈습니다.
+        (실제 시간 {{ reality.thisReal.toStringShort() }})
       </div>
       <div
         v-if="isDoomed"
         class="c-stats-tab-doomed"
       >
-        You have been Doomed for {{ realTimeDoomed.toStringShort() }}, real time.
+        실제 시간으로 {{ realTimeDoomed.toStringShort() }} 동안 파멸한 상태였습니다.
       </div>
       <div>
-        Your best Reality Machines per minute 
-        <span v-if="endgame.isUnlocked">this Endgame </span>
-        is {{ format(reality.bestRate, 2, 2) }}.
+        분당 최고 리얼리티 머신<span v-if="endgame.isUnlocked"> (이번 엔드게임)</span>:
+        {{ format(reality.bestRate, 2, 2) }}
       </div>
       <div>
-        Your best Glyph rarity
-        <span v-if="endgame.isUnlocked">this Endgame </span>
-        is {{ formatRarity(reality.bestRarity) }}.</div>
+        최고 글리프 희귀도<span v-if="endgame.isUnlocked"> (이번 엔드게임)</span>:
+        {{ formatRarity(reality.bestRarity) }}</div>
       <br>
     </div>
     <div
@@ -585,30 +580,27 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-endgame">
-        Endgame
+        엔드게임
       </div>
       <div>
-        You have {{ endgameCountString }}.
+        {{ endgameCountString }}에 도달했습니다.
       </div>
       <div v-if="endgame.hasBest">
-        Your fastest game-time Endgame was {{ endgame.best.toStringShort() }}.
-        Your fastest real-time Endgame was {{ endgame.bestReal.toStringShort() }}.
+        게임 시간 기준 가장 빠른 엔드게임은 {{ endgame.best.toStringShort() }}입니다.
+        실제 시간 기준 가장 빠른 엔드게임은 {{ endgame.bestReal.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Endgame.
+        가장 빠른 엔드게임 기록이 없습니다.
       </div>
       <div>
-        You have spent {{ endgame.this.toStringShort() }}
-        in this Endgame.
-        ({{ endgame.thisReal.toStringShort() }} real time)
+        이번 엔드게임에서 {{ endgame.this.toStringShort() }}을 보냈습니다.
+        (실제 시간 {{ endgame.thisReal.toStringShort() }})
       </div>
       <div>
-        Your best Celestial Points per minute 
-        is {{ format(endgame.bestRateCP, 2, 2) }}.
+        분당 최고 셀레스티얼 포인트: {{ format(endgame.bestRateCP, 2, 2) }}
       </div>
       <div>
-        Your best Doomed Particles per minute 
-        is {{ format(endgame.bestRateDP, 2, 2) }}.
+        분당 최고 파멸 입자: {{ format(endgame.bestRateDP, 2, 2) }}
       </div>
       <br>
     </div>
@@ -617,25 +609,25 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-celestial-infinity">
-        Celestial Infinity
+        셀레스티얼 무한
       </div>
       <div>
-        You have {{ celestialInfinityCountString }}<span v-if="celestialEternity.isUnlocked"> this Celestial Eternity</span>.
+        {{ celestialInfinityCountString }}에 도달했습니다<span v-if="celestialEternity.isUnlocked"> (이번 셀레스티얼 영원)</span>.
       </div>
       <div v-if="celestialInfinity.hasBest">
-        Your fastest game-time Celestial Infinity was {{ celestialInfinity.best.toStringShort() }}.
-        Your fastest real-time Celestial Infinity was {{ celestialInfinity.bestReal.toStringShort() }}.
+        게임 시간 기준 가장 빠른 셀레스티얼 무한은 {{ celestialInfinity.best.toStringShort() }}입니다.
+        실제 시간 기준 가장 빠른 셀레스티얼 무한은 {{ celestialInfinity.bestReal.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Celestial Infinity<span v-if="celestialEternity.isUnlocked"> this Celestial Eternity</span>.
+        가장 빠른 셀레스티얼 무한 기록이 없습니다<span v-if="celestialEternity.isUnlocked"> (이번 셀레스티얼 영원)</span>.
       </div>
       <div>
-        You have spent {{ celestialInfinity.this.toStringShort() }} in this Celestial Infinity.
-        ({{ celestialInfinity.thisReal.toStringShort() }} real time)
+        이번 셀레스티얼 무한에서 {{ celestialInfinity.this.toStringShort() }}을 보냈습니다.
+        (실제 시간 {{ celestialInfinity.thisReal.toStringShort() }})
       </div>
       <div>
-        Your best Celestial Infinity Points per minute<span v-if="celestialEternity.isUnlocked"> this Celestial Eternity</span>
-        is {{ format(celestialInfinity.bestRate, 2, 2) }}.
+        분당 최고 셀레스티얼 무한 포인트<span v-if="celestialEternity.isUnlocked"> (이번 셀레스티얼 영원)</span>:
+        {{ format(celestialInfinity.bestRate, 2, 2) }}
       </div>
       <br>
     </div>
@@ -644,25 +636,24 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-celestial-eternity">
-        Celestial Eternity
+        셀레스티얼 영원
       </div>
       <div>
-        You have {{ celestialEternityCountString }}.
+        {{ celestialEternityCountString }}에 도달했습니다.
       </div>
       <div v-if="celestialEternity.hasBest">
-        Your fastest game-time Celestial Eternity was {{ celestialEternity.best.toStringShort() }}.
-        Your fastest real-time Celestial Eternity was {{ celestialEternity.bestReal.toStringShort() }}.
+        게임 시간 기준 가장 빠른 셀레스티얼 영원은 {{ celestialEternity.best.toStringShort() }}입니다.
+        실제 시간 기준 가장 빠른 셀레스티얼 영원은 {{ celestialEternity.bestReal.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Celestial Eternity.
+        가장 빠른 셀레스티얼 영원 기록이 없습니다.
       </div>
       <div>
-        You have spent {{ celestialEternity.this.toStringShort() }} in this Celestial Eternity.
-        ({{ celestialEternity.thisReal.toStringShort() }} real time)
+        이번 셀레스티얼 영원에서 {{ celestialEternity.this.toStringShort() }}을 보냈습니다.
+        (실제 시간 {{ celestialEternity.thisReal.toStringShort() }})
       </div>
       <div>
-        Your best Celestial Eternity Points per minute
-        is {{ format(celestialEternity.bestRate, 2, 2) }}.
+        분당 최고 셀레스티얼 영원 포인트: {{ format(celestialEternity.bestRate, 2, 2) }}
       </div>
       <br>
     </div>
@@ -671,10 +662,10 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-divinity">
-        Divinity
+        신성
       </div>
       <div>
-        You have {{ divinityCountString }}.
+        {{ divinityCountString }}에 도달했습니다.
       </div>
       <br>
     </div>
@@ -683,25 +674,25 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-condense">
-        Condense
+        응축
       </div>
       <div>
-        You have {{ condenseCountString }}<span v-if="supernova.isUnlocked"> this Supernova</span>.
+        {{ condenseCountString }}에 도달했습니다<span v-if="supernova.isUnlocked"> (이번 초신성)</span>.
       </div>
       <div v-if="condense.hasBest">
-        Your fastest game-time Condense was {{ condense.best.toStringShort() }}.
-        Your fastest real-time Condense was {{ condense.bestReal.toStringShort() }}.
+        게임 시간 기준 가장 빠른 응축은 {{ condense.best.toStringShort() }}입니다.
+        실제 시간 기준 가장 빠른 응축은 {{ condense.bestReal.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Condense<span v-if="supernova.isUnlocked"> this Supernova</span>.
+        가장 빠른 응축 기록이 없습니다<span v-if="supernova.isUnlocked"> (이번 초신성)</span>.
       </div>
       <div>
-        You have spent {{ condense.this.toStringShort() }} in this Condense.
-        ({{ condense.thisReal.toStringShort() }} real time)
+        이번 응축에서 {{ condense.this.toStringShort() }}을 보냈습니다.
+        (실제 시간 {{ condense.thisReal.toStringShort() }})
       </div>
       <div>
-        Your best Divine Stars per minute<span v-if="supernova.isUnlocked"> this Supernova</span>
-        is {{ format(condense.bestRate, 2, 2) }}.
+        분당 최고 신성한 별<span v-if="supernova.isUnlocked"> (이번 초신성)</span>:
+        {{ format(condense.bestRate, 2, 2) }}
       </div>
       <br>
     </div>
@@ -710,25 +701,24 @@ export default {
       class="c-stats-tab-subheader c-stats-tab-general"
     >
       <div class="c-stats-tab-title c-stats-tab-supernova">
-        Supernova
+        초신성
       </div>
       <div>
-        You have {{ supernovaCountString }}.
+        {{ supernovaCountString }}에 도달했습니다.
       </div>
       <div v-if="supernova.hasBest">
-        Your fastest game-time Supernova was {{ supernova.best.toStringShort() }}.
-        Your fastest real-time Supernova was {{ supernova.bestReal.toStringShort() }}.
+        게임 시간 기준 가장 빠른 초신성은 {{ supernova.best.toStringShort() }}입니다.
+        실제 시간 기준 가장 빠른 초신성은 {{ supernova.bestReal.toStringShort() }}입니다.
       </div>
       <div v-else>
-        You have no fastest Supernova.
+        가장 빠른 초신성 기록이 없습니다.
       </div>
       <div>
-        You have spent {{ supernova.this.toStringShort() }} in this Supernova.
-        ({{ supernova.thisReal.toStringShort() }} real time)
+        이번 초신성에서 {{ supernova.this.toStringShort() }}을 보냈습니다.
+        (실제 시간 {{ supernova.thisReal.toStringShort() }})
       </div>
       <div>
-        Your best Nebulae per minute
-        is {{ format(supernova.bestRate, 2, 2) }}.
+        분당 최고 성운: {{ format(supernova.bestRate, 2, 2) }}
       </div>
       <br>
     </div>

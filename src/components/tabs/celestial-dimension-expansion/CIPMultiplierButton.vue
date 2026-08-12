@@ -57,23 +57,23 @@ export default {
       @click="purchaseUpgrade"
     >
       <div>
-        Multiply Celestial Infinity Points from all sources by {{ formatX(2) }}
+        모든 셀레스티얼 무한 포인트 획득량에 {{ formatX(2) }}
         <br>
-        Currently: {{ formatX(multiplier, 2, 0) }}
+        현재: {{ formatX(multiplier, 2, 0) }}
       </div>
       <br>
-      Cost: {{ quantify("Celestial Infinity Point", cost, 2, 0) }}
+      비용: {{ quantify("셀레스티얼 무한 포인트", cost, 2, 0) }}
     </button>
     <PrimaryButton
       class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
       @click="upgrade.buyMax(false)"
     >
-      Max Cel Infinity Point mult
+      셀레스티얼 무한 포인트 배수 최대 구매
     </PrimaryButton>
     <PrimaryToggleButton
       v-if="isAutoUnlocked"
       v-model="isAutobuyerActive"
-      label="Autobuy CIP mult"
+      label="CIP 배수 자동 구매"
       class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
     />
   </div>

@@ -1,0 +1,942 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/port-adkorean.cjs",
+  "source": {
+    "repository": "https://github.com/Jihuu621/ADKorean",
+    "upstream": "https://github.com/Jihuu621/ADKorean",
+    "englishBase": "7767d453ee01d1b2f906dc98e90078140c0bed98",
+    "koreanRevision": "2747c4272ced074a3f68f251fd7e96cfc0c12ec0"
+  },
+  "policy": {
+    "match": "same path plus exact current source line, with code/markup skeleton preserved",
+    "placeholders": "template, Vue, printf placeholders preserved as a multiset",
+    "values": "numeric tokens preserved; repair only uniquely matched numeric template expressions",
+    "exclusions": [
+      "public/index.html",
+      "src/components/tabs/index.js",
+      "src/components/tabs/shop/ShopButton.vue",
+      "src/core/format.js",
+      "src/core/secret-formula/news.js",
+      "src/core/timespan.js",
+      "src/core/secret-formula/tabs.js"
+    ]
+  },
+  "totals": {
+    "referenceChangedFiles": 145,
+    "eligibleChangedFiles": 138,
+    "filesWithReusableText": 121,
+    "extractedSafePairs": 827,
+    "correctedReferencePairs": 3,
+    "appliedOccurrences": 781,
+    "plannedOccurrences": 0,
+    "alreadyAppliedOccurrences": 781,
+    "missingOrChangedSourceMappings": 50,
+    "reviewOrExcludedCandidates": 521,
+    "ambiguousMappings": 0
+  },
+  "correctedReferenceText": [
+    {
+      "file": "src/core/secret-formula/achievements/normal-achievements.js",
+      "context": "Achievement 41 reward",
+      "reason": "Restored the ×2 IP multiplier meaning instead of treating it as a negative upgrade count."
+    },
+    {
+      "file": "src/core/secret-formula/achievements/normal-achievements.js",
+      "context": "Achievement 92 description",
+      "reason": "Restored formatInt(20); the ADKorean text incorrectly used formatInt(2)."
+    },
+    {
+      "file": "src/core/secret-formula/confirmation-types.js",
+      "context": "Delete Glyph Preset confirmation",
+      "reason": "Corrected 'change preset' to 'delete preset'."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "src/components/tabs/Korean/KRTab.vue",
+      "reason": "adkorean-credit-tab"
+    },
+    {
+      "file": "src/components/tabs/index.js",
+      "reason": "explicit-scope-exclusion"
+    },
+    {
+      "file": "src/components/tabs/shop/ShopButton.vue",
+      "reason": "explicit-scope-exclusion"
+    },
+    {
+      "file": "src/core/format.js",
+      "reason": "explicit-scope-exclusion"
+    },
+    {
+      "file": "src/core/secret-formula/news.js",
+      "reason": "explicit-scope-exclusion"
+    },
+    {
+      "file": "src/core/secret-formula/tabs.js",
+      "reason": "explicit-scope-exclusion"
+    },
+    {
+      "file": "src/core/timespan.js",
+      "reason": "explicit-scope-exclusion"
+    }
+  ],
+  "excludedCandidatesByReason": {
+    "placeholder-expression-changed": 32,
+    "vue-placeholder-changed": 64,
+    "unaligned-diff-hunk": 30,
+    "numeric-value-changed": 63,
+    "code-or-markup-structure-changed": 151,
+    "placeholder-count-changed": 130,
+    "special-placeholder-changed": 1
+  },
+  "appliedFiles": [
+    {
+      "file": "src/components/ChallengeBox.vue",
+      "occurrences": 4,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 4,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ChallengeTabHeader.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/CostDisplay.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/EffectDisplay.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/EternityPointsHeader.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/InfinityUpgradeButton.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/PrimaryToggleButton.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/AwayProgressEntry.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/AwayProgressModal.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/BreakInfinityModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/ModalConfirmationCheck.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/ModalProgressBar.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/ModalWrapperChoice.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/SacrificeModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/catchup/CatchupModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/challenges/EternityChallengeStartModal.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/challenges/InfinityChallengeStartModal.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/challenges/NormalChallengeStartModal.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/AnimationOptionsModal.vue",
+      "occurrences": 8,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 8,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/AwayProgressOptionsModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/BackupEntry.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/BackupWindowModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/ConfirmationOptionsModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/InfoDisplayOptionsModal.vue",
+      "occurrences": 10,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 10,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/NewsOptionsModal.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/NotationModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/options/hidden-tabs/HiddenTabsModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/prestige/AntimatterGalaxyModal.vue",
+      "occurrences": 9,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 9,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/prestige/BigCrunchModal.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/prestige/DimensionBoostModal.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/prestige/EternityModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/prestige/HardResetModal.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/modals/prestige/ReplicantiGalaxyModal.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/antimatter-dimensions/AntimatterDimensionProgressBar.vue",
+      "occurrences": 16,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 16,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/antimatter-dimensions/ModernAntimatterDimensionRow.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/antimatter-dimensions/ModernAntimatterDimensionsTab.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/antimatter-dimensions/ModernAntimatterGalaxyRow.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/antimatter-dimensions/TickspeedRow.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/AutobuyerIntervalButton.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/AutobuyerIntervalLabel.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/AutobuyerModeButton.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/AutobuyersTab.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/BigCrunchAutobuyerBox.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/DimensionAutobuyerBox.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/DimensionBoostAutobuyerBox.vue",
+      "occurrences": 4,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 4,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/DimensionBulkButton.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/EternityAutobuyerBox.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/GalaxyAutobuyerBox.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/MultipleAutobuyersBox.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/RealityAutobuyerBox.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/SingleAutobuyerBox.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/autobuyers/TickspeedAutobuyerBox.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/break-infinity/BreakInfinityButton.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/eternity-challenges/EternityChallengeBox.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/eternity-challenges/EternityChallengeBoxWrapper.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/eternity-milestones/EternityMilestonesTab.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/eternity-upgrades/EternityUpgradeButton.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/glyphs/ResetRealityButton.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-challenges/InfinityChallengeBox.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-challenges/InfinityChallengesTab.vue",
+      "occurrences": 4,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 4,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-dimensions/ClassicInfinityDimensionsTab.vue",
+      "occurrences": 4,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 4,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-dimensions/ModernInfinityDimensionRow.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-dimensions/ModernInfinityDimensionsTab.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-upgrades/InfinityUpgradesTab.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/infinity-upgrades/IpMultiplierButton.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/normal-achievements/NormalAchievement.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/normal-achievements/NormalAchievementsTab.vue",
+      "occurrences": 11,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 11,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/normal-challenges/NormalChallengeBox.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/normal-challenges/NormalChallengesTab.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-gameplay/OptionsGameplayTab.vue",
+      "occurrences": 7,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 7,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-saving/AutosaveIntervalSlider.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-saving/OptionsSavingTab.vue",
+      "occurrences": 18,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 18,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-saving/SaveFileName.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-visual/OptionsVisualTab.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-visual/SelectSidebarDropdown.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/options-visual/UpdateRateSlider.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/replicanti/ReplicantiGainText.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/replicanti/ReplicantiGalaxyButton.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/replicanti/ReplicantiTab.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/replicanti/ReplicantiUpgradeButton.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/secret-achievements/SecretAchievementTab.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/statistics/MultiplierBreakdownTab.vue",
+      "occurrences": 12,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 12,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/statistics/StatisticsTab.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/statistics/matter-scale.js",
+      "occurrences": 37,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 37,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-dimensions/ModernTimeDimensionRow.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-dimensions/ModernTimeDimensionsTab.vue",
+      "occurrences": 7,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 7,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-studies/DilationTimeStudy.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-studies/ECTimeStudy.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-studies/TimeStudiesTab.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-studies/TimeStudyButton.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-studies/tt-shop/TimeStudySaveLoadButton.vue",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/tabs/time-studies/tt-shop/TimeTheoremShop.vue",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/BigCrunchButton.vue",
+      "occurrences": 4,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 4,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/FailableEcText.vue",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/HeaderChallengeDisplay.vue",
+      "occurrences": 15,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 15,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/HeaderTickspeedInfo.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/prestige-header/BigCrunchButton.vue",
+      "occurrences": 7,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 7,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/prestige-header/EternityButton.vue",
+      "occurrences": 7,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 7,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/prestige-header/HeaderEternityContainer.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/prestige-header/HeaderInfinityContainer.vue",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/components/ui-modes/prestige-header/UnlockInfinityDimButton.vue",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/achievements/normal-achievement.js",
+      "occurrences": 2,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 2,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/achievements/secret-achievement.js",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/autobuyers/galaxy-autobuyer.js",
+      "occurrences": 1,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 1,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/dimboost.js",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/sacrifice.js",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/achievements/normal-achievements.js",
+      "occurrences": 159,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 159,
+      "correctedReferenceOccurrences": 2
+    },
+    {
+      "file": "src/core/secret-formula/challenges/eternity-challenges.js",
+      "occurrences": 20,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 20,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/challenges/infinity-challenges.js",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/challenges/normal-challenges.js",
+      "occurrences": 27,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 27,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/confirmation-types.js",
+      "occurrences": 21,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 21,
+      "correctedReferenceOccurrences": 1
+    },
+    {
+      "file": "src/core/secret-formula/eternity/eternity-milestones.js",
+      "occurrences": 24,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 24,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/eternity/eternity-upgrades.js",
+      "occurrences": 3,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 3,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/eternity/time-studies/dilation-time-studies.js",
+      "occurrences": 5,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 5,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/eternity/time-studies/ec-time-studies.js",
+      "occurrences": 12,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 12,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/eternity/time-studies/normal-time-studies.js",
+      "occurrences": 51,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 51,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/infinity/break-infinity-upgrades.js",
+      "occurrences": 11,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 11,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/infinity/infinity-upgrades.js",
+      "occurrences": 17,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 17,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/secret-formula/sidebar-resources.js",
+      "occurrences": 14,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 14,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/core/time-studies/normal-time-study.js",
+      "occurrences": 8,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 8,
+      "correctedReferenceOccurrences": 0
+    },
+    {
+      "file": "src/game.js",
+      "occurrences": 6,
+      "plannedOccurrences": 0,
+      "alreadyAppliedOccurrences": 6,
+      "correctedReferenceOccurrences": 0
+    }
+  ]
+}

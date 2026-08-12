@@ -94,11 +94,11 @@ export default {
       const showCostOverride = !EndgameMastery.permaMasteries.isBought || (this.mastery.id >= 180);
       const esStr = this.setup.isSmall
         ? `${formatInt(this.config.cost)} ES`
-        : quantifyInt("Endgame Skill", this.config.cost);
+        : quantifyInt("엔드게임 스킬", this.config.cost);
 
       const costs = [];
       if (this.config.cost) costs.push(esStr);
-      return showCostOverride ? "Free" : costs.join(" + ");
+      return showCostOverride ? "무료" : costs.join(" + ");
     },
   },
   methods: {
@@ -152,10 +152,10 @@ export class EndgameMasterySetup {
       v-if="showDefaultCostDisplay"
       br
       :config="config"
-      name="Endgame Skill"
+      name="엔드게임 스킬"
     />
     <div v-else>
-      Cost: {{ customCostStr }}
+      비용: {{ customCostStr }}
     </div>
   </button>
 </template>

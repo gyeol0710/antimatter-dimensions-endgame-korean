@@ -4,8 +4,8 @@ import { GameDatabase } from "../secret-formula/game-database";
 import { Quotes } from "./quotes";
 
 export const Alpha = {
-  displayName: "Alpha",
-  possessiveName: "Alpha's",
+  displayName: "알파",
+  possessiveName: "알파의",
   get isUnlocked() {
     return ImaginaryUpgrade(30).isBought;
   },
@@ -1062,19 +1062,21 @@ export const Alpha = {
     return player.celestials.alpha.stage;
   },
   get stageNames() {
-    return ["Reach the 4th Dimension Boost", "Reach the 5th Dimension Boost", "Reach the 1st Antimatter Galaxy", "Reach Infinity",
-            "Complete Normal Challenge 12", "Break Infinity", "Purchase the 5e11 Break Infinity Upgrade",
-            "Purchase All Break Infinity Upgrades", "Complete All Infinity Challenges", "Unlock Replicanti",
-            "Purchase the 8th Infinity Dimension", "Reach Eternity", "Purchase Time Study 61", "Purchase the 4th Time Dimension",
-            "Purchase the 3rd Eternity Upgrade", "Reach 115 Total Time Theorems", "Complete any Eternity Challenge Once",
-            "Complete any Eternity Challenge Five Times", "Purchase Time Study 181", "Complete Eternity Challenge 10 Once",
-            "Purchase Time Study 192", "Unlock Eternity Challenge 11", "Complete Eternity Challenge 11", "Unlock Time Dilation",
-            "Perform a Dilated Eternity", "Begin Generation of Time Theorems", "Purchase the 8th Time Dimension", "Reach Reality"];
+    return ["제4 차원 가속 도달", "제5 차원 가속 도달", "첫 반물질 은하 도달", "무한 도달",
+            "일반 도전 12 완료", "무한 돌파", "5e11 무한 돌파 업그레이드 구매",
+            "모든 무한 돌파 업그레이드 구매", "모든 무한 도전 완료", "복제자 해금",
+            "제8 무한 차원 구매", "영원 도달", "시간 연구 61 구매", "제4 시간 차원 구매",
+            "제3 영원 업그레이드 구매", "총 시간 정리 115개 도달", "아무 영원 도전 1회 완료",
+            "아무 영원 도전 5회 완료", "시간 연구 181 구매", "영원 도전 10을 1회 완료",
+            "시간 연구 192 구매", "영원 도전 11 해금", "영원 도전 11을 5회 완료", "시간 팽창 해금",
+            "팽창된 영원 수행", "시간 정리 생성 시작", "제8 시간 차원 구매", "현실 도달"];
   },
   get shortStageNames() {
-    return ["4th Dimboost", "5th Dimboost", "1st Galaxy", "Infinity", "NC12", "Break Infinity", "5e11 BIU", "All BIU", "All ICs",
-            "Replicanti", "ID8", "Eternity", "TS61", "TD4", "Eternity Upgrade 3", "115 Total TT", "ECx1", "ECx5", "TS181", "EC10x1",
-            "TS192", "EC11", "EC11x5", "Dilation", "Dilated Eternity", "TT Generation", "TD8", "Reality"];
+    return ["제4 차원 가속", "제5 차원 가속", "첫 은하", "무한", "일반 도전 12", "무한 돌파", "5e11 무한 돌파 업그레이드",
+            "모든 무한 돌파 업그레이드", "모든 무한 도전", "복제자", "제8 무한 차원", "영원", "시간 연구 61",
+            "제4 시간 차원", "제3 영원 업그레이드", "총 시간 정리 115개", "영원 도전 ×1", "영원 도전 ×5",
+            "시간 연구 181", "영원 도전 10 ×1", "시간 연구 192", "영원 도전 11", "영원 도전 11 ×5", "시간 팽창",
+            "팽창된 영원", "시간 정리 생성", "제8 시간 차원", "현실"];
   },
   get currentStageName() {
     return this.stageNames[this.currentStage];

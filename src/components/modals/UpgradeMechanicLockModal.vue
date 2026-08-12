@@ -31,9 +31,9 @@ export default {
   },
   computed: {
     upgradeStr() {
-      if (this.isEndgame) return "Endgame Upgrade";
-      if (this.isDual) return "Duality Upgrade";
-      return this.isImaginary ? "Imaginary Upgrade" : "Reality Upgrade";
+      if (this.isEndgame) return "엔드게임 업그레이드";
+      if (this.isDual) return "이중성 업그레이드";
+      return this.isImaginary ? "상상 업그레이드" : "현실 업그레이드";
     },
     lockEvent() {
       return this.specialLockText ?? this.upgrade.lockEvent;
@@ -52,26 +52,26 @@ export default {
     @confirm="disableLock"
   >
     <template #header>
-      {{ upgradeStr }} Condition Lock
+      {{ upgradeStr }} 조건 잠금
     </template>
     <div class="c-modal-message__text">
-      Are you sure you wish to {{ lockEvent }}? Doing this right now will cause you to
+      정말 {{ lockEvent }}하시겠습니까? 지금 이 동작을 수행하면 다음 업그레이드의
       <span class="l-emphasis">
-        fail the requirement for the {{ upgradeStr }} "{{ upgrade.name }}"
+        요구 조건을 달성하지 못하게 됩니다: {{ upgradeStr }} "{{ upgrade.name }}"
       </span>
       <span :ach-tooltip="upgrade.requirement">
         <i class="fas fa-question-circle" />
       </span>
       <br>
       <br>
-      Selecting "Cancel" will close this modal with no effect, while selecting "Disable Lock" will disable the
-      requirement check for this upgrade and prevent this message from reappearing unless you turn it back on.
+      "취소"를 선택하면 아무 효과 없이 창을 닫습니다. "잠금 비활성화"를 선택하면 이 업그레이드의
+      요구 조건 확인이 비활성화되며, 다시 켜기 전까지 이 메시지가 표시되지 않습니다.
       <br>
       <br>
-      Neither of these options will perform the action you just attempted, so you will need to try again.
+      어느 쪽을 선택해도 방금 시도한 동작은 실행되지 않으므로 다시 시도해야 합니다.
     </div>
     <template #confirm-text>
-      Disable Lock
+      잠금 비활성화
     </template>
   </ModalWrapperChoice>
 </template>

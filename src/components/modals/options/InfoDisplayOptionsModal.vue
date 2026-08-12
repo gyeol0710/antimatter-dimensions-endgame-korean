@@ -120,82 +120,82 @@ export default {
 <template>
   <ModalWrapperOptions class="c-modal-options__large">
     <template #header>
-      Info Display Options
+      정보 디스플레이 설정
     </template>
     <div class="c-modal-options__button-container">
       <ModalOptionsToggleButton
         v-model="showPercentage"
-        text="Show % gain:"
+        text="% 획득 보이기:"
       />
       <ModalOptionsToggleButton
         v-model="achievements"
-        text="Achievement IDs:"
+        text="도전과제 ID:"
       />
       <ModalOptionsToggleButton
         v-model="achievementUnlockStates"
-        text="Achievement unlock state indicators:"
+        text="도전과제 달성 알림:"
       />
       <ModalOptionsToggleButton
         v-if="infinityUnlocked"
         v-model="challenges"
-        text="Challenge IDs:"
+        text="도전 ID:"
       />
       <ModalOptionsToggleButton
         v-if="eternityUnlocked"
         v-model="studies"
-        text="Time Study IDs:"
+        text="시간 연구 ID:"
       />
       <ModalOptionsToggleButton
         v-if="realityUnlocked"
         v-model="glyphEffectDots"
-        text="Glyph effect dots:"
+        text="글리프 효과 도트:"
       />
       <ModalOptionsToggleButton
         v-if="realityUnlocked"
         v-model="realityUpgrades"
-        text="Reality Upgrade names:"
+        text="현실 업그레이드 이름:"
       />
       <ModalOptionsToggleButton
         v-if="realityUnlocked"
         v-model="perks"
-        text="Perk IDs:"
+        text="퍼크 ID:"
       />
       <ModalOptionsToggleButton
         v-if="alchemyUnlocked"
         v-model="alchemy"
-        text="Alchemy resource amounts:"
+        text="연금술 재료 갯수:"
       />
       <ModalOptionsToggleButton
         v-if="endgameUnlocked"
         v-model="masteries"
-        text="Endgame Mastery IDs:"
+        text="엔드게임 마스터리 ID:"
       />
       <ModalOptionsToggleButton
         v-if="endgameUnlocked"
         v-model="breakEternityUpgrades"
-        text="Break Eternity Upgrade names:"
+        text="영원 돌파 업그레이드 이름:"
       />
       <ModalOptionsToggleButton
         v-if="endgameUnlocked"
         v-model="endgameUpgrades"
-        text="Endgame Upgrade names:"
+        text="엔드게임 업그레이드 이름:"
       />
       <ModalOptionsToggleButton
         v-if="divinityUnlocked"
         v-model="divinityUpgrades"
-        text="Divinity Upgrade names:"
+        text="신성 업그레이드 이름:"
       />
       <ModalOptionsToggleButton
         v-if="divinityUnlocked"
         v-model="resurgenceUpgrades"
-        text="Resurgence Upgrade names:"
+        text="재기 업그레이드 이름:"
       />
       <ModalOptionsToggleButton
         v-if="lhcUnlocked"
         v-model="nullUpgrades"
-        text="Null Upgrade names:"
+        text="무효 업그레이드 이름:"
       />
     </div>
-    Note: All types of additional info above will always display when holding shift.
+    참고: Shift 키를 누르고 있으면 위의 모든 추가 정보가 항상 표시됩니다.
   </ModalWrapperOptions>
 </template>

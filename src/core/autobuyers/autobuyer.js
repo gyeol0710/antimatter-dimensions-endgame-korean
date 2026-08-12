@@ -1,3 +1,68 @@
+const AUTOBUYER_DISPLAY_NAMES = {
+  "Annihilation": "소멸",
+  "Infinity": "무한",
+  "Black Hole Power": "블랙홀 파워",
+  "Bulk Singularity": "대량 특이점",
+  "Celestial Infinity": "셀레스티얼 무한",
+  "Celestial Dimension Boost": "셀레스티얼 차원 가속",
+  "Celestial Dimension": "셀레스티얼 차원",
+  "Celestial Eternity": "셀레스티얼 영원",
+  "Celestial Galaxy": "셀레스티얼 은하",
+  "Celestial Tickspeed": "셀레스티얼 틱스피드",
+  "Dark Matter Dimension Ascension": "암흑 물질 차원 승천",
+  "Dark Matter Dimensions": "암흑 물질 차원",
+  "Dilated Time Multiplier": "팽창된 시간 배율",
+  "Tachyon Galaxy Threshold": "타키온 은하 기준치",
+  "Tachyon Particle Multiplier": "타키온 입자 배율",
+  "Dilation Upgrade": "시간 팽창 업그레이드",
+  "Dimension Boost": "차원 가속",
+  "Divine Dimension": "신성 차원",
+  "Duality Upgrade": "이중성 업그레이드",
+  "Endgame": "엔드게임",
+  "Eternity": "영원",
+  "Base Galaxy Multiplier": "기본 은하 배율",
+  "Multiplicative Galaxy Multiplier": "곱연산 은하 배율",
+  "Antimatter Multiplier": "반물질 배율",
+  "Infinity Point Multiplier": "무한 포인트 배율",
+  "Eternity Point Multiplier": "영원 포인트 배율",
+  "Reality Shard Multiplier": "현실 파편 배율",
+  "Remnant Power": "잔재 파워",
+  "Galaxy Power": "은하 파워",
+  "Galaxy Dilation": "은하 팽창",
+  "Galaxy Generator Upgrade": "은하 생성기 업그레이드",
+  "Imaginary Upgrade": "허수 업그레이드",
+  "Infinity Dimension": "무한 차원",
+  "Create and Purge Music Glyphs": "음악 글리프 생성 및 제거",
+  "Pelle Dilated Time Multiplier": "펠레의 팽창된 시간 배율",
+  "Tachyon Galaxy Multiplier": "타키온 은하 배율",
+  "Tickspeed Power": "틱스피드 파워",
+  "Pelle Dilation Upgrade": "펠레 시간 팽창 업그레이드",
+  "Reality": "현실",
+  "Reality Upgrade": "현실 업그레이드",
+  "Celestial Infinity Point Multiplier": "셀레스티얼 무한 포인트 배율",
+  "Replicanti Galaxy": "복제자 은하",
+  "Replicanti Chance": "복제자 확률",
+  "Replicanti Interval": "복제자 간격",
+  "Replicanti Max Galaxies": "복제자 최대 은하",
+  "Replicanti Upgrade": "복제자 업그레이드",
+  "Dimensional Sacrifice": "차원 희생",
+  "Singularity": "특이점",
+  "Tesseract": "테서랙트",
+  "Tickspeed": "틱스피드",
+  "Time Dimension": "시간 차원",
+  "Time Theorem": "시간 정리",
+  "Antimatter Dimension": "반물질 차원",
+};
+
+function autobuyerDisplayName(name) {
+  if (AUTOBUYER_DISPLAY_NAMES[name]) return AUTOBUYER_DISPLAY_NAMES[name];
+  const ordinal = /^(\d+)(?:st|nd|rd|th)$/u.exec(name);
+  if (ordinal) return `제${ordinal[1]}`;
+  const blackHolePower = /^Black Hole (\d+) Power$/u.exec(name);
+  if (blackHolePower) return `블랙홀 ${blackHolePower[1]} 파워`;
+  return name;
+}
+
 /**
  * @abstract
  */
@@ -17,6 +82,8 @@ export class AutobuyerState {
   get isUnlocked() { throw new NotImplementedError(); }
 
   get id() { return this._id; }
+
+  get displayName() { return autobuyerDisplayName(this.name); }
 
   get canTick() {
     const isDisabled = !player.auto.autobuyersOn || !this.constructor.isActive;
@@ -73,6 +140,7 @@ export class AutobuyerState {
       allUnlocked: { get: () => zeroIndexed.every(x => x.isUnlocked) },
       allActive: { get: () => zeroIndexed.every(x => x.isActive) },
       groupName: { get: () => this.autobuyerGroupName },
+      groupDisplayName: { get: () => autobuyerDisplayName(this.autobuyerGroupName) },
       isActive: {
         get: () => this.isActive,
         set: value => { this.isActive = value; },

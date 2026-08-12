@@ -13,24 +13,23 @@ export default {
   },
   computed: {
     refiningOrSacrificing() {
-      if (this.isRefining) return `Refine`;
-      return `Sacrifice`;
+      if (this.isRefining) return `정제`;
+      return `희생`;
     },
     topLabel() {
-      return `You are about to ${this.refiningOrSacrificing} all rejected Glyphs`;
+      return `제외된 모든 글리프를 ${this.refiningOrSacrificing}하려고 합니다`;
     },
     message() {
       const negativeWarning = AutoGlyphProcessor.hasNegativeEffectScore()
-        ? ` Note that some of your Effect Filter scores are negative, which may cause you to lose some Glyphs
-          you normally want to keep.`
+        ? ` 일부 효과 필터 점수가 음수이므로 평소 보관하려던 글리프를 잃을 수 있습니다.`
         : "";
-      return `Are you sure you want to ${this.refiningOrSacrificing} all rejected Glyphs? This will remove
-        all Glyphs that would be rejected by your current Glyph Filter settings.${negativeWarning}`;
+      return `제외된 모든 글리프를 정말 ${this.refiningOrSacrificing}하시겠습니까? 현재 글리프 필터 설정에서
+        제외되는 모든 글리프가 제거됩니다.${negativeWarning}`;
     },
     extraMessage() {
-      if (this.glyphsDeleted === 0) return `This will remove no Glyphs.`;
-      if (this.glyphsDeleted === this.glyphsTotal) return `This will remove all your Glyphs.`;
-      return `This process will remove ${this.glyphsDeleted}/${this.glyphsTotal} Glyphs.`;
+      if (this.glyphsDeleted === 0) return `제거되는 글리프가 없습니다.`;
+      if (this.glyphsDeleted === this.glyphsTotal) return `모든 글리프가 제거됩니다.`;
+      return `이 과정에서 글리프 ${this.glyphsDeleted}/${this.glyphsTotal}개가 제거됩니다.`;
     },
 
     // These two don't need to be reactive since the modal force-closes itself whenever glyphs change

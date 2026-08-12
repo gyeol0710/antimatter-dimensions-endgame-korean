@@ -21,28 +21,28 @@ export default {
     suggestions() {
       const arr = [];
       if (this.purchasableTS > 0) {
-        arr.push(`Purchase more Time Studies (${formatInt(this.purchasableTS)} available)`);
+        arr.push(`시간 연구를 더 구매하세요 (${formatInt(this.purchasableTS)}개 구매 가능)`);
       }
       if (this.missingAchievements > 0) {
-        arr.push(`Complete the rest of your Achievements (${formatInt(this.missingAchievements)} left)`);
+        arr.push(`남은 도전과제를 완료하세요 (${formatInt(this.missingAchievements)}개 남음)`);
       }
       if (this.unpurchasedDilationUpgrades > 0) {
-        arr.push(`Purchase the remaining Dilation Upgrades (${formatInt(this.unpurchasedDilationUpgrades)} left)`);
+        arr.push(`남은 팽창 업그레이드를 구매하세요 (${formatInt(this.unpurchasedDilationUpgrades)}개 남음)`);
       }
       if (this.currLog10EP.gt(this.cheapestLog10TD.times(1.3)) && !(Laitela.continuumActive && Alpha.currentStage >= 17)) {
-        arr.push(`Purchase more TDs (cheapest: ${format(Decimal.pow10(this.cheapestLog10TD))} EP)`);
+        arr.push(`시간 차원을 더 구매하세요 (최저 비용: ${format(Decimal.pow10(this.cheapestLog10TD))} EP)`);
       }
       if (this.currLog10EP.gt(this.multEPLog10Cost.times(1.3))) {
-        arr.push(`Purchase more ${formatX(5)} EP (cost: ${format(Decimal.pow10(this.multEPLog10Cost))} EP)`);
+        arr.push(`${formatX(5)} EP를 더 구매하세요 (비용: ${format(Decimal.pow10(this.multEPLog10Cost))} EP)`);
       }
       if (this.ecCount < 60) {
-        arr.push(`Finish the rest of your ECs (Done: ${formatInt(this.ecCount)}/${formatInt(60)})`);
+        arr.push(`남은 영원 도전을 완료하세요 (완료: ${formatInt(this.ecCount)}/${formatInt(60)})`);
       }
       if (!this.hasDilated) {
-        arr.push("Perform a Dilated Eternity");
+        arr.push("팽창된 영원을 달성하세요");
       }
       if (this.availableCharges > 0) {
-        arr.push(`Charge more Infinity Upgrades (${formatInt(this.availableCharges)} available)`);
+        arr.push(`무한 업그레이드를 더 충전하세요 (${formatInt(this.availableCharges)}개 충전 가능)`);
       }
       return arr;
     },
@@ -59,7 +59,7 @@ export default {
       };
     },
     clickText() {
-      return `(click to ${this.isExpanded ? "collapse" : "expand"})`;
+      return `(클릭하여 ${this.isExpanded ? "접기" : "펼치기"})`;
     },
     realityReminderClass() {
       return {
@@ -108,15 +108,15 @@ export default {
     @click="clicked"
   >
     <span v-if="!canReality">
-      You still need to unlock Reality in the Time Study Tree.
+      시간 연구 트리에서 현실을 해금해야 합니다.
     </span>
     <span v-else-if="suggestions.length === 0">
-      Ready to Reality! You have unlocked every available upgrade within this Reality.
+      현실에 도달할 준비가 되었습니다! 이번 현실에서 가능한 모든 업그레이드를 해금했습니다.
     </span>
     <span v-else>
       <i :class="dropDownIconClass" />
-      You have {{ quantifyInt("thing", suggestions.length) }}
-      you may want to do before Reality. {{ clickText }}
+      현실에 도달하기 전에 해 두면 좋은 {{ quantifyInt("항목", suggestions.length) }}이 있습니다.
+      {{ clickText }}
       <div
         v-if="isExpanded"
         class="l-suggestions"

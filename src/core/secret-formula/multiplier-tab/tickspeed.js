@@ -4,12 +4,12 @@ import { MultiplierTabIcons } from "./icons";
 // See index.js for documentation
 export const tickspeed = {
   total: {
-    name: "Total Tickspeed",
+    name: "총 틱스피드",
     displayOverride: () => {
       const tickRate = Tickspeed.perSecond;
       const activeDims = MultiplierTabHelper.activeDimCount("AD");
       const dimString = MultiplierTabHelper.pluralizeDimensions(activeDims);
-      return `${format(tickRate, 2, 2)}/sec on ${formatInt(activeDims)} ${dimString}
+      return `${format(tickRate, 2, 2)}/초, ${formatInt(activeDims)}개 ${dimString}적용
         ➜ ${formatX(tickRate.pow(activeDims), 2, 2)}`;
     },
     // This is necessary to make multValue entries from the other props scale properly, which are also all pow10
@@ -24,7 +24,7 @@ export const tickspeed = {
     icon: MultiplierTabIcons.TICKSPEED,
   },
   base: {
-    name: "Base Tickspeed from Achievements",
+    name: "도전과제의 기본 틱스피드",
     displayOverride: () => {
       const val = DC.D1.dividedByEffectsOf(
         Achievement(36),
@@ -32,33 +32,33 @@ export const tickspeed = {
         Achievement(66),
         Achievement(83)
       );
-      return `${format(val, 2, 2)}/sec`;
+      return `${format(val, 2, 2)}/초`;
     },
     multValue: () => new Decimal.pow10(100 * MultiplierTabHelper.decomposeTickspeed().base),
     isActive: () => [36, 45, 66, 83].some(a => Achievement(a).canBeApplied),
     icon: MultiplierTabIcons.ACHIEVEMENT,
   },
   upgrades: {
-    name: "Tickspeed Upgrades",
-    displayOverride: () => `${formatInt(Tickspeed.totalUpgrades)} Total`,
+    name: "틱스피드 업그레이드",
+    displayOverride: () => `총 ${formatInt(Tickspeed.totalUpgrades)}개`,
     multValue: () => new Decimal.pow10(100 * MultiplierTabHelper.decomposeTickspeed().tickspeed),
     isActive: true,
     icon: MultiplierTabIcons.PURCHASE("AD"),
   },
   galaxies: {
-    name: "Galaxies",
+    name: "은하",
     displayOverride: () => {
       const ag = player.galaxies + GalaxyGenerator.galaxies;
       const rg = Replicanti.galaxies.total;
       const tg = player.dilation.totalTachyonGalaxies;
-      return `${formatInt(ag + rg + tg)} Total`;
+      return `총 ${formatInt(ag + rg + tg)}개`;
     },
     multValue: () => new Decimal.pow10(100 * MultiplierTabHelper.decomposeTickspeed().galaxies),
     isActive: true,
     icon: MultiplierTabIcons.GALAXY,
   },
   pelleTickspeedPow: {
-    name: "Tickspeed Dilation Upgrade",
+    name: "틱스피드 시간 팽창 업그레이드",
     powValue: () => DilationUpgrade.tickspeedPower.effectValue,
     isActive: () => DilationUpgrade.tickspeedPower.canBeApplied,
     icon: MultiplierTabIcons.UPGRADE("dilation"),
@@ -67,7 +67,7 @@ export const tickspeed = {
 
 export const tickspeedUpgrades = {
   purchased: {
-    name: "Purchased Tickspeed Upgrades",
+    name: "구매한 틱스피드 업그레이드",
     displayOverride: () => (Laitela.continuumActive
       ? formatFloat(Tickspeed.continuumValue, 2, 2)
       : formatInt(player.totalTickBought)),
@@ -76,7 +76,7 @@ export const tickspeedUpgrades = {
     icon: MultiplierTabIcons.PURCHASE("AD"),
   },
   free: {
-    name: "Tickspeed Upgrades from TD",
+    name: "시간 차원에서 얻는 틱스피드 업그레이드",
     displayOverride: () => formatInt(player.totalTickGained),
     multValue: () => Decimal.pow10(player.totalTickGained),
     isActive: () => Currency.timeShards.gt(0),

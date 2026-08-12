@@ -15,10 +15,10 @@ export default {
   computed: {
     compressionOptions() {
       return {
-        "AD Compression": ENDGAME_MASTERY_PATH.ANTIMATTER_DIM_COMPRESSION,
-        "ID Compression": ENDGAME_MASTERY_PATH.INFINITY_DIM_COMPRESSION,
-        "TD Compression": ENDGAME_MASTERY_PATH.TIME_DIM_COMPRESSION,
-        "CD Compression": ENDGAME_MASTERY_PATH.CELESTIAL_DIM_COMPRESSION,
+        "AD 압축": ENDGAME_MASTERY_PATH.ANTIMATTER_DIM_COMPRESSION,
+        "ID 압축": ENDGAME_MASTERY_PATH.INFINITY_DIM_COMPRESSION,
+        "TD 압축": ENDGAME_MASTERY_PATH.TIME_DIM_COMPRESSION,
+        "CD 압축": ENDGAME_MASTERY_PATH.CELESTIAL_DIM_COMPRESSION,
       };
     },
     currencyOptions() {
@@ -63,10 +63,10 @@ export default {
     classList(name) {
       const pref = this.isPreferred(name);
       const types = {
-        "AD Compression": "antimatter-dim-compression",
-        "ID Compression": "infinity-dim-compression",
-        "TD Compression": "time-dim-compression",
-        "CD Compression": "celestial-dim-compression",
+        "AD 압축": "antimatter-dim-compression",
+        "ID 압축": "infinity-dim-compression",
+        "TD 압축": "time-dim-compression",
+        "CD 압축": "celestial-dim-compression",
         "IP": "infinity-points",
         "EP": "eternity-points",
         "RM": "reality-machines",
@@ -84,7 +84,7 @@ export default {
 
 <template>
   <ModalWrapperChoice @confirm="confirmPrefs">
-    <h2>Compression Split Preference</h2>
+    <h2>압축 분기 우선순위</h2>
     <div class="l-modal-split-preferences">
       <button
         v-for="(id, name) in compressionOptions"
@@ -104,7 +104,7 @@ export default {
       </button>
     </div>
     <br>
-    <h2>Currency Split Preference</h2>
+    <h2>재화 분기 우선순위</h2>
     <div class="l-modal-split-preferences">
       <button
         v-for="(id, name) in currencyOptions"

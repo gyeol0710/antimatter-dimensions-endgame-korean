@@ -31,11 +31,11 @@ export default {
     },
     text() {
       if (this.currentEternityChallengeId === 4) {
-        return `${formatInt(this.currentResource)} / ${formatInt(this.maximumResource)} Infinities used`;
+        return `${formatInt(this.currentResource)} / ${formatInt(this.maximumResource)}번 무한에 도달함`;
       }
       // We're always either in EC4 or EC12 when displaying this text.
-      return `${TimeSpan.fromSeconds(this.currentResource).toString()} /
-        ${TimeSpan.fromSeconds(this.maximumResource).toString()} time spent`;
+      return `경과 시간 ${TimeSpan.fromSeconds(this.currentResource).toString()} /
+        ${TimeSpan.fromSeconds(this.maximumResource).toString()}`;
     }
   },
   methods: {

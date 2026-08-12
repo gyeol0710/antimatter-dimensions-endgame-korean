@@ -23,6 +23,7 @@ export default {
       return AwayProgressTypes.all[this.name];
     },
     text() {
+      if (this.name === "blackHole") return "블랙홀:";
       return `${this.type.formatName}:`;
     }
   },

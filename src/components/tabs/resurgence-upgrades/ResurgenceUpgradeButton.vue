@@ -69,7 +69,7 @@ export default {
             v-if="!isBought"
             :config="config"
             br
-            name="Divine Energy"
+            name="신성 에너지"
           />
         </template>
       </span>

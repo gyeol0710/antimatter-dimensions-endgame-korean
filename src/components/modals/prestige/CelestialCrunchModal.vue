@@ -21,23 +21,23 @@ export default {
     },
     message() {
       const info = this.isFirstCelInfinity ? this.firstCelInfinityInfo : ``;
-      return `Upon Celestial Infinity, all Celestial Dimensions, Celestial Dimension Boosts, and Celestial Galaxies are reset. ${info}`;
+      return `셀레스티얼 무한 시 모든 셀레스티얼 차원, 셀레스티얼 차원 가속, 셀레스티얼 은하가 초기화됩니다. ${info}`;
     },
     firstCelInfinityInfo() {
-      return `In return, you gain an Celestial Infinity Point (CIP). This allows you to buy multiple upgrades that you can
-        find in the Celestial Infinity tab. You will also gain one Celestial Infinity, which is the stat shown in the Statistics tab.`;
+      return `그 대신 셀레스티얼 무한 포인트(CIP)를 하나 얻습니다. 이 포인트로 셀레스티얼 무한 탭에 있는
+        여러 업그레이드를 구매할 수 있습니다. 통계 탭에 표시되는 셀레스티얼 무한도 하나 얻습니다.`;
     },
     cipGainInfo() {
-      return `You will gain ${quantify("Celestial Infinity", this.gainedCelestialInfinities, 2, 0)}
-        and ${quantify("Celestial Infinity Point", this.gainedCelestialInfinityPoints, 2, 0)}.`;
+      return `${quantify("셀레스티얼 무한", this.gainedCelestialInfinities, 2, 0)} 및
+        ${quantify("셀레스티얼 무한 포인트", this.gainedCelestialInfinityPoints, 2, 0)}를 얻습니다.`;
     },
     startingResources() {
       const gainedResources = [];
-      if (this.startingCM.gte(0)) gainedResources.push(`${quantify("Celestial Matter", this.startingCM, 2, 1)}`);
-      if (this.startingBoosts.gt(0)) gainedResources.push(`${quantify("Celestial Dimension Boost", this.startingBoosts)}`);
-      if (this.willStartWithGalaxy) gainedResources.push(`${quantify("Celestial Galaxy", 1)}`);
+      if (this.startingCM.gte(0)) gainedResources.push(`${quantify("셀레스티얼 물질", this.startingCM, 2, 1)}`);
+      if (this.startingBoosts.gt(0)) gainedResources.push(`${quantify("셀레스티얼 차원 가속", this.startingBoosts)}`);
+      if (this.willStartWithGalaxy) gainedResources.push(`${quantify("셀레스티얼 은하", 1)}`);
 
-      return `You will start your next Celestial Infinity with ${makeEnumeration(gainedResources)}.`;
+      return `다음 셀레스티얼 무한을 ${makeEnumeration(gainedResources)}와 함께 시작합니다.`;
     }
   },
   methods: {
@@ -58,7 +58,7 @@ export default {
 
 <template>
   <ResetModal
-    header="You are about to Celestial Crunch"
+    header="셀레스티얼 크런치를 진행하려 합니다"
     :message="message"
     :gained-resources="cipGainInfo"
     :starting-resources="startingResources"

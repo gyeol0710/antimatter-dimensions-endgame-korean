@@ -157,7 +157,7 @@ export const InfinityChallenges = {
       // This has a reasonably high likelihood of happening when the player isn't looking at the game, so
       // we also give it a tab notification
       TabNotification.ICUnlock.clearTrigger();
-      GameUI.notify.infinity(`You have unlocked Infinity Challenge ${ic.id}`, 7000);
+      GameUI.notify.infinity(`무한 도전 ${ic.id} 해금!`, 7000);
       TabNotification.ICUnlock.tryTrigger();
     }
   },

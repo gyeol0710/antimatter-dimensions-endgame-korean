@@ -125,40 +125,40 @@ const CEP_BUTTON_DISPLAY_TYPE = {
   >
     <!-- Cannot Eternity -->
     <template v-if="type === -1">
-      Reach {{ format(celestialEternityGoal, 2, 2) }}
+      {{ format(celestialEternityGoal, 2, 2) }} 도달 필요
       <br>
-      Celestial Infinity Points
+      셀레스티얼 무한 포인트
     </template>
 
     <!-- First time -->
     <template v-else-if="type === 0">
-      Divine timelines await... I need to become Celestially Eternal
+      신성한 시간선이 기다린다... 셀레스티얼 영원이 되어야 한다
     </template>
 
     <!-- Normal -->
     <template v-else-if="type === 1">
-      <span v-if="showCEPRate">Cel Eternity for </span>
-      <span v-else>Celestial Eternity for </span>
+      <span v-if="showCEPRate">셀레스티얼 영원으로 </span>
+      <span v-else>셀레스티얼 영원으로 </span>
       <span :style="amountStyle">{{ format(gainedCEP, 2) }}</span>
       <span v-if="showCEPRate"> CEP</span>
-      <span v-else> Celestial Eternity {{ pluralize("Point", gainedCEP) }}</span>
+      <span v-else> 셀레스티얼 영원 {{ pluralize("포인트", gainedCEP) }}</span>
       <br>
       <template v-if="showCEPRate">
-        Current: {{ format(currentCEPRate, 2, 2) }} CEP/min
+        현재: {{ format(currentCEPRate, 2, 2) }} CEP/분
         <br>
-        Peak: {{ format(peakCEPRate, 2, 2) }} CEP/min
+        최고: {{ format(peakCEPRate, 2, 2) }} CEP/분
         <br>
-        at {{ format(peakCEPRateVal, 2, 2) }} CEP
+        {{ format(peakCEPRateVal, 2, 2) }} CEP에서 달성
       </template>
     </template>
 
     <!-- New content available -->
     <template v-else-if="type === 2">
       <template>
-        Celestial Eternity for <span :style="amountStyle">{{ format(gainedCEP, 2, 2) }}</span> CEP
+        셀레스티얼 영원으로 <span :style="amountStyle">{{ format(gainedCEP, 2, 2) }}</span> CEP 획득
       </template>
       <br>
-      Someone waits for you. Do not keep them waiting.
+      누군가 당신을 기다립니다. 너무 오래 기다리게 하지 마세요.
     </template>
   </button>
 </template>

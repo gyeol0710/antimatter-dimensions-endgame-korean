@@ -18,18 +18,18 @@ export default {
 
 <template>
   <div class="c-automator-docs-page">
-    <b>NAME</b>
+    <b>이름</b>
     <div
       class="c-automator-docs-page__indented"
       v-html="command.keyword"
     />
-    <b>SYNTAX</b>
+    <b>문법</b>
     <div
       class="c-automator-docs-page__indented"
       v-html="command.syntax"
     />
     <template v-if="command.description">
-      <b>DESCRIPTION</b>
+      <b>설명</b>
       <div
         class="c-automator-docs-page__indented"
         v-html="description"
@@ -51,7 +51,7 @@ export default {
       </template>
     </template>
     <template v-if="command.examples">
-      <b>USAGE EXAMPLES</b>
+      <b>사용 예시</b>
       <div
         v-for="example in command.examples"
         :key="example"

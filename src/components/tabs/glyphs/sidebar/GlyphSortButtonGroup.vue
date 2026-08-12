@@ -32,33 +32,33 @@ export default {
 <template>
   <div class="o-glyph-inventory-management-group">
     <div class="l-glyph-sacrifice-options__header">
-      Sort Glyphs:
+      글리프 정렬:
     </div>
     <button
       class="c-glyph-inventory-option"
       @click="sortByLevel"
     >
-      Sort by level
+      레벨순 정렬
       <div class="c-glyph-inventory-option__tooltip">
-        Arranges by decreasing Glyph level
+        글리프 레벨이 높은 순서로 정렬합니다
       </div>
     </button>
     <button
       class="c-glyph-inventory-option"
       @click="sortByPower"
     >
-      Sort by power
+      성능순 정렬
       <div class="c-glyph-inventory-option__tooltip">
-        Arranges by decreasing level×rarity
+        레벨×희귀도가 높은 순서로 정렬합니다
       </div>
     </button>
     <button
       class="c-glyph-inventory-option"
       @click="sortByEffect"
     >
-      Sort by effect
+      효과순 정렬
       <div class="c-glyph-inventory-option__tooltip">
-        Groups Glyphs together based on effects
+        효과를 기준으로 같은 글리프끼리 모읍니다
       </div>
     </button>
     <button
@@ -66,18 +66,18 @@ export default {
       class="c-glyph-inventory-option"
       @click="sortByScore"
     >
-      Sort by score
+      점수순 정렬
       <div class="c-glyph-inventory-option__tooltip">
-        Arranges by decreasing Glyph filter score
+        글리프 필터 점수가 높은 순서로 정렬합니다
       </div>
     </button>
     <button
       class="c-glyph-inventory-option"
       @click="collapseEmpty"
     >
-      Collapse empty space
+      빈 공간 정리
       <div class="c-glyph-inventory-option__tooltip">
-        Moves all Glyphs to the earliest empty slots
+        모든 글리프를 앞쪽의 빈 슬롯으로 옮깁니다
       </div>
     </button>
   </div>

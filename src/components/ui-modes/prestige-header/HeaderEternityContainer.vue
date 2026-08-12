@@ -58,10 +58,10 @@ export default {
         v-if="showEP"
         class="c-eternity-points"
       >
-        You have
+        영원 포인트 보유량:
         <span class="c-game-header__ep-amount">{{ format(eternityPoints, 2) }}</span>
-        {{ pluralize("Eternity Point", eternityPoints) }}.
-        <span v-if="showNextEP">(Next EP at {{ format(nextEP, 1) }} IP)</span>
+        {{ pluralize("개", eternityPoints) }}.
+        <span v-if="showNextEP">(다음 EP까지 {{ format(nextEP, 1) }} IP)</span>
         <span
           v-if="isPenteractUnlocked"
           v-html="penteractText"
@@ -75,9 +75,9 @@ export default {
       class="c-prestige-button-container"
     >
       <div class="c-eternity-points">
-        You have
+        셀레스티얼 영원 포인트 보유량:
         <span class="c-game-header__cep-amount">{{ format(celEternityPoints, 2) }}</span>
-        {{ pluralize("Celestial Eternity Point", celEternityPoints) }}.
+        {{ pluralize("개", celEternityPoints) }}.
       </div>
       <CelestialEternityButton />
     </div>

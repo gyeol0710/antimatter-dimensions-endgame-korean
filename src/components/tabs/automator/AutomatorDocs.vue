@@ -66,14 +66,14 @@ export default {
       return this.fullScreen ? "fa-compress-arrows-alt" : "fa-expand-arrows-alt";
     },
     fullScreenTooltip() {
-      return this.fullScreen ? "Exit full screen" : "Expand to full screen";
+      return this.fullScreen ? "전체 화면 종료" : "전체 화면으로 확장";
     },
     errorTooltip() {
-      return `Your script has ${quantify("error", this.errorCount)}`;
+      return `스크립트에 ${quantify("오류", this.errorCount)}가 있습니다`;
     },
     nameTooltip() {
       return this.isNameTooLong
-        ? `Names cannot be longer than ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_NAME_LENGTH)} characters!`
+        ? `이름은 ${formatInt(AutomatorData.MAX_ALLOWED_SCRIPT_NAME_LENGTH)}자를 넘을 수 없습니다!`
         : "";
     },
     currentScriptID: {
@@ -107,8 +107,8 @@ export default {
     },
     importTooltip() {
       return this.canMakeNewScript
-        ? "Import single automator script or data"
-        : "You have too many scripts to import another!";
+        ? "단일 오토메이터 스크립트 또는 데이터 가져오기"
+        : "스크립트가 너무 많아 더 가져올 수 없습니다!";
     },
     currentEditorScriptName() {
       return this.scripts.find(s => s.id === this.currentScriptID).name;
@@ -143,9 +143,9 @@ export default {
       const toExport = AutomatorBackend.exportCurrentScriptContents();
       if (toExport) {
         copyToClipboard(toExport);
-        GameUI.notify.automator("Exported current Automator script to your clipboard");
+        GameUI.notify.automator("현재 오토메이터 스크립트를 클립보드로 내보냈습니다");
       } else {
-        GameUI.notify.error("Could not export blank Automator script!");
+        GameUI.notify.error("빈 오토메이터 스크립트는 내보낼 수 없습니다!");
       }
     },
     importScript() {
@@ -179,7 +179,7 @@ export default {
       // suppress the error modal instead
       if (this.isBlock && BlockAutomator.hasUnparsableCommands(this.currentScript) && this.currentScript !== "") {
         AutomatorBackend.changeModes(this.currentScriptID);
-        Modal.message.show("Some script commands were unrecognizable - defaulting to text editor.");
+        Modal.message.show("일부 스크립트 명령을 인식할 수 없어 텍스트 편집기를 사용합니다.");
       }
 
       this.$nextTick(() => {
@@ -242,13 +242,13 @@ export default {
     <div class="c-automator__controls l-automator__controls">
       <div class="l-automator-button-row">
         <AutomatorButton
-          v-tooltip="'Automator Introduction'"
+          v-tooltip="'오토메이터 소개'"
           class="fa-circle-info"
           :class="activePanelClass(panelEnum.INTRO_PAGE)"
           @click="infoPaneID = panelEnum.INTRO_PAGE"
         />
         <AutomatorButton
-          v-tooltip="'Scripting Information'"
+          v-tooltip="'스크립트 정보'"
           class="fa-list"
           :class="activePanelClass(panelEnum.COMMANDS)"
           @click="infoPaneID = panelEnum.COMMANDS"
@@ -261,32 +261,32 @@ export default {
           @click="infoPaneID = panelEnum.ERRORS"
         />
         <AutomatorButton
-          v-tooltip="'Extended Data Transfer'"
+          v-tooltip="'확장 데이터 전송'"
           class="fa-window-restore"
           :class="activePanelClass(panelEnum.DATA_TRANSFER)"
           @click="infoPaneID = panelEnum.DATA_TRANSFER"
         />
         <AutomatorButton
-          v-tooltip="'View recently executed commands'"
+          v-tooltip="'최근 실행한 명령 보기'"
           class="fa-eye"
           :class="activePanelClass(panelEnum.EVENTS)"
           @click="infoPaneID = panelEnum.EVENTS"
         />
         <AutomatorButton
-          v-tooltip="'Modify defined constants'"
+          v-tooltip="'정의된 상수 편집'"
           class="fa-book"
           :class="activePanelClass(panelEnum.CONSTANTS)"
           @click="infoPaneID = panelEnum.CONSTANTS"
         />
         <AutomatorButton
-          v-tooltip="'Template Creator List'"
+          v-tooltip="'템플릿 생성기 목록'"
           class="fa-file-code"
           :class="activePanelClass(panelEnum.TEMPLATES)"
           @click="infoPaneID = panelEnum.TEMPLATES"
         />
         <AutomatorButton
           v-if="isBlock"
-          v-tooltip="'Command menu for Block editor mode'"
+          v-tooltip="'블록 편집기 모드의 명령 메뉴'"
           class="fa-cubes"
           :class="activePanelClass(panelEnum.BLOCKS)"
           @click="infoPaneID = panelEnum.BLOCKS"
@@ -296,7 +296,7 @@ export default {
           class="c-automator__status-text c-automator__status-text--small"
           :class="{ 'c-automator__status-text--error' : totalChars > maxTotalChars }"
         >
-          Across all scripts: {{ formatInt(totalChars) }}/{{ formatInt(maxTotalChars) }}
+          전체 스크립트: {{ formatInt(totalChars) }}/{{ formatInt(maxTotalChars) }}
         </span>
         <AutomatorButton
           v-tooltip="fullScreenTooltip"
@@ -307,7 +307,7 @@ export default {
       </div>
       <div class="l-automator-button-row">
         <AutomatorButton
-          v-tooltip="'Export single automator script'"
+          v-tooltip="'단일 오토메이터 스크립트 내보내기'"
           class="fa-file-export"
           @click="exportScript"
         />
@@ -325,7 +325,7 @@ export default {
             >
               <template #header>
                 <div class="c-automator-docs-script-select">
-                  ▼ Current Script: {{ currentEditorScriptName }}
+                  ▼ 현재 스크립트: {{ currentEditorScriptName }}
                 </div>
               </template>
               <template #dropdown>
@@ -333,7 +333,7 @@ export default {
               </template>
             </ExpandingControlBox>
             <AutomatorButton
-              v-tooltip="'Rename script'"
+              v-tooltip="'스크립트 이름 변경'"
               class="far fa-edit"
               @click="rename"
             />
@@ -349,7 +349,7 @@ export default {
           >
         </div>
         <AutomatorButton
-          v-tooltip="'Delete this script'"
+          v-tooltip="'이 스크립트 삭제'"
           class="fas fa-trash"
           @click="deleteScript"
         />

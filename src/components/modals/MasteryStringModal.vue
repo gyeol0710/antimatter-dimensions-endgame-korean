@@ -82,8 +82,8 @@ export default {
       return combinedTree;
     },
     modalTitle() {
-      if (this.deleting) return `Deleting Mastery Preset "${this.name}"`;
-      return this.isImporting ? "Input your tree" : `Editing Mastery Preset "${this.name}"`;
+      if (this.deleting) return `마스터리 프리셋 "${this.name}" 삭제`;
+      return this.isImporting ? "트리 입력" : `마스터리 프리셋 "${this.name}" 편집`;
     },
     invalidMessage() {
       if (!this.inputIsValidTree || this.importedTree.invalidMasteries.length === 0) return null;
@@ -102,7 +102,7 @@ export default {
             break;
         }
       }
-      return `Your import string has invalid mastery IDs: ${coloredString.replaceAll("#", "").replaceAll(",", ", ")}
+      return `가져오기 문자열에 잘못된 마스터리 ID가 있습니다: ${coloredString.replaceAll("#", "").replaceAll(",", ", ")}
         <br><br>`;
     },
     truncatedInput() {
@@ -127,8 +127,8 @@ export default {
       return secretStrings.includes(sha512_256(this.input.toLowerCase()));
     },
     confirmText() {
-      if (this.deleting) return "Delete";
-      return this.isImporting ? "Import" : "Save";
+      if (this.deleting) return "삭제";
+      return this.isImporting ? "가져오기" : "저장";
     }
   },
   watch: {
@@ -179,16 +179,16 @@ export default {
     savePreset() {
       if (this.inputIsValid) {
         player.endgameMasteries.presets[this.id].masteries = this.input;
-        GameUI.notify.endgame(`Mastery Tree ${this.name} successfully edited.`);
+        GameUI.notify.endgame(`마스터리 트리 ${this.name} 편집을 완료했습니다.`);
         this.emitClose();
       }
     },
     deletePreset() {
       const name = player.endgameMasteries.presets[this.id].name;
-      const presetName = name ? `Mastery preset "${name}"` : "Mastery preset";
+      const presetName = name ? `마스터리 프리셋 "${name}"` : "마스터리 프리셋";
       player.endgameMasteries.presets[this.id].masteries = "";
       player.endgameMasteries.presets[this.id].name = "";
-      GameUI.notify.endgame(`${presetName} deleted from slot ${this.id + 1}`);
+      GameUI.notify.endgame(`${presetName}을 ${this.id + 1}번 슬롯에서 삭제했습니다.`);
     },
     masteryString(mastery) {
       return `${mastery.id}`;
@@ -240,22 +240,22 @@ export default {
           />
           <MasteryTreeInfo
             v-if="deleting && importedTree.hasInfo"
-            header-text="Mastery Preset contains:"
+            header-text="마스터리 프리셋 내용:"
             :tree-status="importedTree"
           />
           <MasteryTreeInfo
             v-if="!deleting && !isImporting && importedTree.hasInfo"
-            header-text="Status after loading with <b>no masteries</b>:"
+            header-text="<b>마스터리가 없는 상태</b>에서 불러온 결과:"
             :tree-status="importedTree"
           />
           <MasteryTreeInfo
             v-if="!deleting && combinedTree.hasInfo"
-            header-text="Status after loading with <b>current tree</b>:"
+            header-text="<b>현재 트리</b>에서 불러온 결과:"
             :tree-status="combinedTree"
           />
         </template>
         <div v-if="!deleting && !inputIsValidTree && hasInput">
-          Not a valid tree
+          올바른 트리가 아닙니다
         </div>
       </div>
       <div class="c-mastery-preview">
@@ -271,16 +271,16 @@ export default {
       <br>
       <PrimaryButton
         v-if="!deleting"
-        v-tooltip="'This will format the mastery preset text, for example, changing \'a,b,c|d\' to \'a, b, c | d\'.'"
+        v-tooltip="'마스터리 프리셋 텍스트의 형식을 정리합니다. 예: \'a,b,c|d\'를 \'a, b, c | d\'로 변경합니다.'"
         @click="convertInputShorthands"
       >
-        Format Preset Text
+        프리셋 텍스트 형식 정리
       </PrimaryButton>
     </div>
     <span v-if="isImporting">
       <br>
       <div
-        v-tooltip="canEndgame ? '' : 'You are currently unable to endgame, so this will only do a normal load.'"
+        v-tooltip="canEndgame ? '' : '현재 엔드게임을 진행할 수 없으므로 일반 불러오기만 수행합니다.'"
         class="c-modal__confirmation-toggle"
         @click="respecAndLoad = !respecAndLoad"
       >
@@ -296,7 +296,7 @@ export default {
           />
         </div>
         <span class="c-modal__confirmation-toggle__text">
-          Also respec tree and endgame
+          트리 재분배와 엔드게임도 함께 진행
           <span
             v-if="!canEndgame"
             class="c-modal__confirmation-toggle__warning"

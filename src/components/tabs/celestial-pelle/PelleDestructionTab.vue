@@ -126,7 +126,7 @@ export default {
     <div class="l-pelle-destruction-container">
       <div class="l-pelle-panel-container">
         <div class="c-pelle-panel-title">
-          Pelle Achievement Enabling
+          펠레 도전과제 활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -138,7 +138,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Destruction Upgrades
+          펠레 파괴 업그레이드
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -150,7 +150,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Reality Upgrade Enabling
+          펠레 현실 업그레이드 활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -162,7 +162,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Imaginary Upgrade Enabling
+          펠레 허수 업그레이드 활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -174,7 +174,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Celestial Reward Enabling
+          펠레 셀레스티얼 보상 활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -186,7 +186,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Perk Enabling
+          펠레 퍼크 활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -198,7 +198,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Alchemy Enabling
+          펠레 연금술 활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">
@@ -210,7 +210,7 @@ export default {
           </div>
         </div>
         <div class="c-pelle-panel-title">
-          Pelle Strike Disabling
+          펠레 타격 비활성화
         </div>
         <div class="l-pelle-content-container">
           <div class="c-pelle-destruction-upgrade-container">

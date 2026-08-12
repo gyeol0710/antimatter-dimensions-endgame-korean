@@ -111,8 +111,8 @@ EndgameSkillPurchaseType.dp = new class extends EndgameSkillPurchaseType {
 export const EndgameSkills = {
   checkForBuying(auto) {
     if (CelestialDimension(1).baseAmount.gt(0)) return true;
-    if (!auto) Modal.message.show(`You need to buy at least ${formatInt(1)} Celestial Dimension before you can purchase
-      Endgame Skills. You also need to be outside Doom to prevent AM overflow.`, { closeEvent: GAME_EVENT.ENDGAME_RESET_AFTER });
+    if (!auto) Modal.message.show(`엔드게임 스킬을 구매하려면 셀레스티얼 차원을 최소 ${formatInt(1)}개 구매해야 합니다.
+      또한 반물질 오버플로를 방지하려면 파멸 밖에 있어야 합니다.`, { closeEvent: GAME_EVENT.ENDGAME_RESET_AFTER });
     return false;
   },
 

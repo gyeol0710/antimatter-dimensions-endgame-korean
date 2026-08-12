@@ -65,47 +65,47 @@ export default {
       return per.div(100).min((100 + (Accelerators.emptiness.effectValue2 - 1) * 100 + EndgameMastery(251).effectOrDefault(0)) / 100);
     },
     effect1Text() {
-      if (this.effect1Time.lte(0)) return `Effect is capped`;
-      return `Time to cap: ${TimeSpan.fromHours(this.effect1Time).toStringShort()}`;
+      if (this.effect1Time.lte(0)) return `효과가 상한에 도달함`;
+      return `상한까지 남은 시간: ${TimeSpan.fromHours(this.effect1Time).toStringShort()}`;
     },
     effect2Text() {
-      if (this.effect2Time.lte(0)) return `Effect is capped`;
-      return `Time to cap: ${TimeSpan.fromHours(this.effect2Time).toStringShort()}`;
+      if (this.effect2Time.lte(0)) return `효과가 상한에 도달함`;
+      return `상한까지 남은 시간: ${TimeSpan.fromHours(this.effect2Time).toStringShort()}`;
     },
     effect3Text() {
-      if (this.effect3Time.lte(0)) return `Effect is capped`;
-      return `Time to cap: ${TimeSpan.fromHours(this.effect3Time).toStringShort()}`;
+      if (this.effect3Time.lte(0)) return `효과가 상한에 도달함`;
+      return `상한까지 남은 시간: ${TimeSpan.fromHours(this.effect3Time).toStringShort()}`;
     },
     effect4Text() {
-      if (this.effect4Time.lte(0)) return `Effect is capped`;
-      return `Time to cap: ${TimeSpan.fromHours(this.effect4Time).toStringShort()}`;
+      if (this.effect4Time.lte(0)) return `효과가 상한에 도달함`;
+      return `상한까지 남은 시간: ${TimeSpan.fromHours(this.effect4Time).toStringShort()}`;
     },
     effect5Text() {
-      if (this.effect5Time.lte(0)) return `Effect is capped`;
-      return `Time to cap: ${TimeSpan.fromHours(this.effect5Time).toStringShort()}`;
+      if (this.effect5Time.lte(0)) return `효과가 상한에 도달함`;
+      return `상한까지 남은 시간: ${TimeSpan.fromHours(this.effect5Time).toStringShort()}`;
     },
     hadronTime() {
       return TimeSpan.fromHours(this.hadronTimer).toStringShort();
     },
     buttonText1() {
-      if (this.hasExotic) return `Convert a Hadron and a Dark Hadron into an Exotic Hadron`;
-      return `Convert a Hadron into a Dark Hadron`;
+      if (this.hasExotic) return `강입자와 암흑 강입자를 이국 강입자로 변환`;
+      return `강입자를 암흑 강입자로 변환`;
     },
     buttonText2() {
-      if (this.hasExotic) return `Convert an Exotic Hadron into a Hadron and a Dark Hadron`;
-      return `Convert a Dark Hadron into a Hadron`;
+      if (this.hasExotic) return `이국 강입자를 강입자와 암흑 강입자로 변환`;
+      return `암흑 강입자를 강입자로 변환`;
     },
     buttonText3() {
-      if (this.hasExotic) return `Convert all Hadrons and all Dark Hadrons into Exotic Hadrons`;
-      return `Convert all Hadrons into Dark Hadrons`;
+      if (this.hasExotic) return `모든 강입자와 암흑 강입자를 이국 강입자로 변환`;
+      return `모든 강입자를 암흑 강입자로 변환`;
     },
     buttonText4() {
-      if (this.hasExotic) return `Convert all Exotic Hadrons into Hadrons and Dark Hadrons`;
-      return `Convert all Dark Hadrons into Hadrons`;
+      if (this.hasExotic) return `모든 이국 강입자를 강입자와 암흑 강입자로 변환`;
+      return `모든 암흑 강입자를 강입자로 변환`;
     },
     extraH1Text() {
       if (SingularityMilestone.hadronEffect1Improvement.isReached) {
-        return ` and ${formatPow(SingularityMilestone.hadronEffect1Improvement.effectOrDefault(1), 2, 3)}`;
+        return ` 및 ${formatPow(SingularityMilestone.hadronEffect1Improvement.effectOrDefault(1), 2, 3)}`;
       }
       return "";
     }
@@ -205,17 +205,17 @@ export default {
   <div class="c-laitela-hadrons-container">
     <div class="c-laitela-hadrons-row">
       <h2>
-        You have {{ quantify("Hadron", lightHadrons, 2) }}
+        강입자를 {{ quantify("개", lightHadrons, 2) }} 보유하고 있습니다.
       </h2>
       <h2 v-if="hasDark">
-        You have {{ quantify("Dark Hadron", darkHadrons, 2) }}
+        암흑 강입자를 {{ quantify("개", darkHadrons, 2) }} 보유하고 있습니다.
       </h2>
       <h2 v-if="hasExotic">
-        You have {{ quantify("Exotic Hadron", exoticHadrons, 2) }}
+        이국 강입자를 {{ quantify("개", exoticHadrons, 2) }} 보유하고 있습니다.
       </h2>
       <br>
       <h2>
-        You have spent {{ hadronTime }} in your current Endgame
+        현재 엔드게임에서 {{ hadronTime }}을 보냈습니다.
       </h2>
     </div>
     <div
@@ -223,16 +223,16 @@ export default {
       class="c-laitela-hadrons-row"
     >
       <div>
-        Hadron Effect 1:
+        강입자 효과 1:
       </div>
       <div>
-        Increase Singularities by {{ formatX(effect1, 2, 2) }}{{ extraH1Text }}
+        특이점을 {{ formatX(effect1, 2, 2) }}{{ extraH1Text }} 증가
       </div>
       <div>
         {{ effect1Text }}
       </div>
       <div>
-        Effectiveness: {{ formatDecimalPercents(effect1Percent, 2, 2) }}
+        효과율: {{ formatDecimalPercents(effect1Percent, 2, 2) }}
       </div>
     </div>
     <div
@@ -240,16 +240,16 @@ export default {
       class="c-laitela-hadrons-row"
     >
       <div>
-        Hadron Effect 2:
+        강입자 효과 2:
       </div>
       <div>
-        Multiply Dark Matter cap by {{ format(effect2, 2, 2) }}
+        암흑 물질 상한에 {{ format(effect2, 2, 2) }}를 곱함
       </div>
       <div>
         {{ effect2Text }}
       </div>
       <div>
-        Effectiveness: {{ formatDecimalPercents(effect2Percent, 2, 2) }}
+        효과율: {{ formatDecimalPercents(effect2Percent, 2, 2) }}
       </div>
     </div>
     <div
@@ -257,16 +257,16 @@ export default {
       class="c-laitela-hadrons-row"
     >
       <div>
-        Hadron Effect 3:
+        강입자 효과 3:
       </div>
       <div>
-        Increase Dark Energy Multiplier on Ascension by {{ format(effect3, 2, 2) }}
+        승천 시 암흑 에너지 배율을 {{ format(effect3, 2, 2) }} 증가
       </div>
       <div>
         {{ effect3Text }}
       </div>
       <div>
-        Effectiveness: {{ formatDecimalPercents(effect3Percent, 2, 2) }}
+        효과율: {{ formatDecimalPercents(effect3Percent, 2, 2) }}
       </div>
     </div>
     <div
@@ -274,16 +274,16 @@ export default {
       class="c-laitela-hadrons-row"
     >
       <div>
-        Hadron Effect 4:
+        강입자 효과 4:
       </div>
       <div>
-        Antimatter generates {{ formatX(effect4, 2, 2) }} more Entropy
+        반물질이 엔트로피를 {{ formatX(effect4, 2, 2) }} 더 생성
       </div>
       <div>
         {{ effect4Text }}
       </div>
       <div>
-        Effectiveness: {{ formatDecimalPercents(effect4Percent, 2, 2) }}
+        효과율: {{ formatDecimalPercents(effect4Percent, 2, 2) }}
       </div>
     </div>
     <div
@@ -291,16 +291,16 @@ export default {
       class="c-laitela-hadrons-row"
     >
       <div>
-        Dark Hadron Effect:
+        암흑 강입자 효과:
       </div>
       <div>
-        Multiply Continuum Purchases by {{ format(effect5, 2, 2) }}
+        연속체 구매 횟수에 {{ format(effect5, 2, 2) }}를 곱함
       </div>
       <div>
         {{ effect5Text }}
       </div>
       <div>
-        Effectiveness: {{ formatDecimalPercents(effect5Percent, 2, 2) }}
+        효과율: {{ formatDecimalPercents(effect5Percent, 2, 2) }}
       </div>
     </div>
     <div
@@ -340,7 +340,7 @@ export default {
       v-if="showWarning"
       class="c-laitela-warning"
     >
-      Hadron effectiveness will increase much slower above {{ formatPercents(1) }}
+      강입자 효과율은 {{ formatPercents(1) }}를 넘으면 훨씬 느리게 증가합니다.
     </div>
   </div>
 </template>

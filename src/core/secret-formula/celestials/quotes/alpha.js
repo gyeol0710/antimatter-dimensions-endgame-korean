@@ -2,355 +2,355 @@ export const alphaQuotes = {
   unlock: {
     id: 0,
     lines: [
-      "I sense...",
-      "Someone has arrived...",
-      "Hello?",
-      "Wait...",
-      "You're a mortal?",
+      "느껴진다...",
+      "누군가 왔군...",
+      "거기 누구냐?",
+      "잠깐...",
+      "넌 필멸자잖아?",
       "...",
-      "How can a mortal like you ever survive the ascent up to me?",
-      "To face true Celestial power?",
-      "You were helped, weren't you?",
-      "By the lesser Celestials, right?",
-      "And Pelle?",
-      "Should've known.",
-      "Pelle's never followed orders since I sent him out to recruit other Celestials.",
-      "He thinks he's the leader now.",
-      "I'll smite him soon enough.",
-      "For now, I must deal with you.",
-      "Go ahead, enter my domain.",
-      "But know this.",
-      "There is no escape.",
-      "For I am Alpha, Celestial of Darkness.",
-      "And you will never see the light again."
+      "너 같은 필멸자가 어떻게 나에게 이르는 승천에서 살아남았지?",
+      "진정한 셀레스티얼의 힘과 맞서려고?",
+      "누군가 도와준 거겠지?",
+      "하급 셀레스티얼들이 말이야, 그렇지?",
+      "펠레도?",
+      "진작 알아봤어야 했군.",
+      "다른 셀레스티얼을 모집하라고 보낸 뒤로 펠레는 한 번도 명령을 따르지 않았지.",
+      "이제 자기가 지도자라고 생각하는 모양이군.",
+      "조만간 벌을 내리겠다.",
+      "지금은 너부터 처리해야겠군.",
+      "어서 내 영역에 들어와라.",
+      "하지만 이것만은 알아둬라.",
+      "탈출구는 없다.",
+      "나는 어둠의 셀레스티얼, 알파이니.",
+      "너는 다시는 빛을 보지 못할 것이다."
     ]
   },
   enter: {
     id: 1,
     lines: [
-      "Welcome to my domain.",
-      "My perfect domain.",
-      "Only darkness lives in here.",
-      "None who go in come out.",
-      "Go ahead.",
-      "But take a good look.",
-      "This is the last time light will shine upon you."
+      "내 영역에 온 것을 환영한다.",
+      "나의 완벽한 영역에.",
+      "이곳에는 오직 어둠만이 살아 숨 쉬지.",
+      "들어온 자는 누구도 나가지 못한다.",
+      "어서 들어와라.",
+      "하지만 잘 봐 두는 게 좋을 거다.",
+      "빛이 너를 비추는 것은 이번이 마지막이니."
     ]
   },
   fourthDB: {
     id: 2,
     lines: [
-      "So.",
-      "All eight dimensions are intact once again.",
-      "But this is just the beginning.",
-      "You will never win.",
-      "The Darkness will bind you tighter."
+      "그래.",
+      "여덟 차원이 다시 모두 온전해졌군.",
+      "하지만 이건 시작일 뿐이다.",
+      "너는 절대 이기지 못한다.",
+      "어둠이 너를 더욱 옥죌 것이다."
     ]
   },
   fifthDB: {
     id: 3,
     lines: [
-      "Sacrifice?",
-      "(scoffing)",
-      "What good is Sacrifice to you?",
-      "After all, you have already lost everything."
+      "희생?",
+      "(비웃음)",
+      "희생이 네게 무슨 도움이 되지?",
+      "어차피 너는 이미 모든 것을 잃었다."
     ]
   },
   galaxy: {
     id: 4,
     lines: [
       "...",
-      "So this is the power...",
-      "This is what destroyed Pelle and the others, is it not?",
-      "The Galaxies, your unique source of strength.",
-      "Unfortunately for you, this is my playing field now.",
-      "Your Galaxies will destroy you...",
-      "With how small their effects will become."
+      "이것이 그 힘인가...",
+      "이 힘이 펠레와 다른 이들을 파괴한 것이겠지?",
+      "은하, 너만의 특별한 힘의 원천.",
+      "안타깝지만 이제 이 판은 내가 지배한다.",
+      "네 은하는 오히려 너를 파멸시킬 것이다...",
+      "효과가 턱없이 작아질 테니."
     ]
   },
   infinity: {
     id: 5,
     lines: [
-      "You have capped your Antimatter.",
-      "This is it for you.",
-      "Now you reset, only slightly faster than before...",
-      "It is useless to struggle, your end is coming.",
-      "Accept defeat.",
-      "Who knows? I might let you live."
+      "반물질 상한에 도달했군.",
+      "너는 여기까지다.",
+      "이제 초기화하겠지. 이전보다 아주 조금 빨라질 뿐...",
+      "발버둥 쳐 봐야 소용없다. 너의 끝이 다가오고 있으니.",
+      "패배를 받아들여라.",
+      "누가 알겠나? 목숨만은 살려 줄지도 모르지."
     ]
   },
   autoCrunch: {
     id: 6,
     lines: [
-      "Did you think that my Reality was normal?",
-      "Did you think you could Break Infinity and win?",
-      "Oh, no.",
-      "Not today.",
-      "I am too strong.",
-      "My Timewalls will make you suffer!"
+      "내 현실이 평범하다고 생각했나?",
+      "무한을 돌파하면 이길 수 있으리라 생각했나?",
+      "아, 아니지.",
+      "오늘은 안 된다.",
+      "나는 너무나 강하다.",
+      "나의 시간 장벽이 너를 고통스럽게 할 것이다!"
     ]
   },
   breakInfinity: {
     id: 7,
     lines: [
-      "You! You...",
-      "You thought that pathetic little upgrade would be enough to stop me?",
-      "Trust me, you won't live long enough to see me die.",
-      "Sure, you think you can now produce indefinite amounts of Antimatter...",
-      "But that's not how it works.",
-      "After all, the playing field is mine.",
-      "You are simply the pawn, and I am the kingpin.",
-      "You need to know that before you kill yourself trying to defeat me.",
-      "If you submit, I may let you live.",
-      "Otherwise, you're already dead."
+      "너! 네가...",
+      "그 한심하고 조그만 업그레이드로 나를 막을 수 있으리라 생각했나?",
+      "장담하지. 내가 죽는 모습을 보기 전에 네가 먼저 죽을 것이다.",
+      "물론 이제 한없이 많은 반물질을 생산할 수 있다고 생각하겠지...",
+      "하지만 그렇게 돌아가지 않는다.",
+      "어차피 이 판은 내 것이다.",
+      "너는 한낱 졸일 뿐이고, 이 판을 지배하는 건 나다.",
+      "나를 쓰러뜨리려다 죽기 전에 그 사실을 알아둬라.",
+      "굴복한다면 살려 줄지도 모른다.",
+      "그러지 않으면 넌 이미 죽은 목숨이다."
     ]
   },
   powerGalaxies: {
     id: 8,
     lines: [
-      "So.",
-      "You are trying to reverse your inevitable end.",
-      "It's useless to resist, you should know that now.",
-      "Why can't you understand that I have already won?",
-      "Yes, Pelle got that line from me.",
-      "But it doesn't matter now.",
-      "You will lose, some way or another.",
-      "After all, only the Darkness remains."
+      "그래.",
+      "피할 수 없는 최후를 되돌리려 하는군.",
+      "저항은 헛수고다. 이제 너도 알 텐데.",
+      "내가 이미 이겼다는 걸 왜 이해하지 못하지?",
+      "그래, 펠레가 내 말을 따라 한 거다.",
+      "하지만 이제는 상관없다.",
+      "어떤 식으로든 너는 패배할 테니.",
+      "결국 남는 것은 어둠뿐이다."
     ]
   },
   allBreakUpgrades: {
     id: 9,
     lines: [
-      "Just stop.",
-      "Make it easier for yourself.",
-      "You've failed.",
-      "Why can't you understand that?",
-      "Don't even try to struggle.",
-      "Your efforts are futile.",
-      "Your fall is near."
+      "그만둬라.",
+      "스스로를 더 힘들게 하지 마라.",
+      "너는 실패했다.",
+      "왜 그걸 이해하지 못하지?",
+      "발버둥 칠 생각조차 마라.",
+      "네 노력은 헛수고다.",
+      "너의 몰락이 머지않았다."
     ]
   },
   allInfinityChalls: {
     id: 10,
     lines: [
-      "Do you really think this will help?",
-      "Do you really think you can beat me?",
-      "You are wrong!",
-      "Your end is drawing close.",
-      "Prepare to face it."
+      "이게 정말 도움이 될 것 같나?",
+      "정말 나를 이길 수 있을 것 같나?",
+      "틀렸다!",
+      "너의 끝이 가까워지고 있다.",
+      "맞이할 준비나 해라."
     ]
   },
   replicanti: {
     id: 11,
     lines: [
-      "Why do you continue?",
-      "Why do you try and build up what is already so hopelessly lost?",
-      "You are a fool.",
-      "You must understand, sooner or later, that you are no match for me.",
-      "And I will make sure you understand."
+      "왜 계속하는 거지?",
+      "이미 돌이킬 수 없이 잃어버린 것을 왜 다시 쌓으려 하지?",
+      "어리석군.",
+      "언젠가는 네가 내 상대가 되지 못한다는 걸 이해해야 할 것이다.",
+      "그리고 반드시 이해하게 해 주겠다."
     ]
   },
   eighthInfinityDimension: {
     id: 12,
     lines: [
-      "Stop!",
-      "You can't go on like this!",
-      "You are weak, and your efforts are futile.",
-      "I am not like the other Celestials.",
-      "Those... weaklings.",
-      "No, I am much higher than they.",
-      "You cannot defeat me.",
-      "I have already won.",
-      "And now, I will make you suffer!"
+      "멈춰!",
+      "이대로 계속할 수는 없다!",
+      "너는 약하고, 네 노력은 헛수고다.",
+      "나는 다른 셀레스티얼들과 다르다.",
+      "그... 나약한 것들.",
+      "아니, 나는 그들보다 훨씬 높은 존재다.",
+      "너는 나를 쓰러뜨릴 수 없다.",
+      "나는 이미 이겼다.",
+      "이제 너를 고통스럽게 해 주마!"
     ]
   },
   eternity: {
     id: 13,
     lines: [
-      "You really thought other times would save you?",
-      "Do you not understand?",
-      "Those other times are just as cursed!",
-      "You will never overpower me."
+      "다른 시간선들이 정말 너를 구해 줄 거라 생각했나?",
+      "이해하지 못하겠나?",
+      "그 시간선들도 똑같이 저주받았다!",
+      "너는 절대 나를 능가하지 못한다."
     ]
   },
   improveEP: {
     id: 14,
     lines: [
-      "Stop now!",
-      "Are you mad?",
-      "You obviously are if you think such a futile upgrade as this will save you from me!",
-      "You haven't yet begun to feel my wrath!"
+      "당장 멈춰라!",
+      "미쳤나?",
+      "이런 쓸모없는 업그레이드가 나에게서 너를 구해 줄 거라 생각하다니, 분명 미쳤군!",
+      "넌 아직 내 분노를 맛보기조차 하지 못했다!"
     ]
   },
   fourthTimeDimension: {
     id: 15,
     lines: [
-      "You can feel it, can't you?",
-      "The weight of all the nerfs weighing down upon you?",
-      "Yes, my Reality is taking its toll on you.",
-      "Is your progression slowing?",
-      "It should be very soon.",
-      "After all, I have already won."
+      "느껴지지 않나?",
+      "온갖 약화 효과가 너를 짓누르는 그 무게가?",
+      "그래, 내 현실이 너를 갉아먹고 있다.",
+      "진행이 느려지고 있나?",
+      "곧 그렇게 될 거다.",
+      "어차피 나는 이미 이겼으니."
     ]
   },
   infinityChallTimeBoost: {
     id: 16,
     lines: [
-      "How are you still alive?",
-      "This... this power...",
-      "Will not stop me.",
-      "I will still crush you."
+      "어떻게 아직도 살아 있지?",
+      "이... 이 힘은...",
+      "나를 막지 못한다.",
+      "그래도 너를 짓밟아 주겠다."
     ]
   },
   prepareEternityChalls: {
     id: 17,
     lines: [
-      "Enough of this!",
-      "Why won't you accept defeat?",
-      "You know I've won, and yet...",
-      "Yet...",
-      "(sigh)",
-      "Pain will haunt you still, kid.",
-      "Mark my words."
+      "이제 그만!",
+      "왜 패배를 받아들이지 않는 거냐?",
+      "내가 이겼다는 걸 알면서도...",
+      "그런데도...",
+      "(한숨)",
+      "고통은 계속 너를 따라다닐 거다, 꼬마야.",
+      "내 말을 명심해라."
     ]
   },
   firstEternityChall: {
     id: 18,
     lines: [
-      "Only one?",
-      "Ha!",
-      "You cannot possibly finish them all.",
-      "You will die here, like so many before you."
+      "고작 하나?",
+      "하!",
+      "네가 그 모든 걸 끝낼 수 있을 리 없다.",
+      "너보다 앞서 온 수많은 이들처럼 여기서 죽을 것이다."
     ]
   },
   bulkEternityChall: {
     id: 19,
     lines: [
-      "You are still struggling?",
-      "Why?",
-      "You know you will lose.",
-      "Why do you persist?",
-      "I have already won, kid.",
-      "Get that into your thick skull."
+      "아직도 발버둥 치는 건가?",
+      "왜지?",
+      "네가 패배할 것을 알 텐데.",
+      "왜 고집을 부리지?",
+      "이미 내가 이겼다, 꼬마야.",
+      "그 꽉 막힌 머리에 새겨 둬라."
     ]
   },
   passiveIPGen: {
     id: 20,
     lines: [
-      "How?",
-      "How have you come so far?",
-      "After all I've done...",
-      "No!",
-      "This must stop now!"
+      "어떻게?",
+      "어떻게 여기까지 온 거지?",
+      "내가 그 모든 일을 했는데도...",
+      "안 돼!",
+      "당장 멈춰야 한다!"
     ]
   },
   eternityChallTen: {
     id: 21,
     lines: [
-      "No...",
-      "You must stop!",
-      "Your progression will end!",
-      "You...",
-      "You will still fall!"
+      "안 돼...",
+      "멈춰야 한다!",
+      "너의 진전은 여기서 끝날 것이다!",
+      "너...",
+      "너는 결국 쓰러질 것이다!"
     ]
   },
   uncapReplicanti: {
     id: 22,
     lines: [
-      "Don't think I'm done with you!",
-      "There will be much more suffering to come!",
-      "Mark my words!",
-      "Very soon...",
-      "You will feel true pain."
+      "내가 이걸로 끝낼 거라고 생각하지 마라!",
+      "앞으로 훨씬 더 많은 고통이 기다리고 있다!",
+      "내 말을 명심해라!",
+      "머지않아...",
+      "진정한 고통을 느끼게 될 것이다."
     ]
   },
   eternityChallEleven: {
     id: 23,
     lines: [
-      "You see now, don't you?",
-      "This was all planned out.",
-      "This is where you will fall.",
-      "Now, at last...",
-      "You will suffer!",
-      "Oh, and also, I have already won."
+      "이제 알겠지?",
+      "이 모든 것은 계획된 일이었다.",
+      "이곳이 네가 쓰러질 곳이다.",
+      "이제, 마침내...",
+      "너는 고통받을 것이다!",
+      "아, 그리고 나는 이미 이겼다."
     ]
   },
   completeEternityChallEleven: {
     id: 24,
     lines: [
       "...",
-      "How?",
-      "How did you do it?",
-      "I...",
-      "I made it impossible...",
-      "No!",
-      "You cannot continue...",
-      "You must not continue!"
+      "어떻게?",
+      "어떻게 해낸 거지?",
+      "내가...",
+      "불가능하게 만들었는데...",
+      "안 돼!",
+      "더는 계속할 수 없다...",
+      "계속해서는 안 돼!"
     ]
   },
   unlockDilation: {
     id: 25,
     lines: [
-      "There.",
-      "I've trapped you.",
-      "Your futile efforts end here!"
+      "됐다.",
+      "너를 가뒀다.",
+      "네 헛된 노력도 여기서 끝이다!"
     ]
   },
   dilatedEternity: {
     id: 26,
     lines: [
-      "Just...",
-      "Stop trying!",
-      "You can't beat me!",
-      "I'm too powerful for you!",
-      "You have lost!"
+      "그냥...",
+      "그만해!",
+      "넌 나를 이길 수 없어!",
+      "나는 네가 상대하기엔 너무 강해!",
+      "넌 졌어!"
     ]
   },
   ttGen: {
     id: 27,
     lines: [
-      "No...",
-      "You...",
-      "You shall not continue!"
+      "안 돼...",
+      "너...",
+      "더는 계속하지 못할 것이다!"
     ]
   },
   eighthTimeDimension: {
     id: 28,
     lines: [
-      "No!",
-      "You can't win!",
-      "I need... a plan...",
-      "Alright...",
-      "You will lose even still!"
+      "안 돼!",
+      "네가 이길 순 없어!",
+      "계획이... 필요해...",
+      "좋아...",
+      "그래도 결국 네가 질 거다!"
     ]
   },
   reality: {
     id: 29,
     lines: [
       "...",
-      "WHAT???",
-      "How...",
-      "How did you...",
-      "HOW DID YOU DO IT?!?!",
-      "After everything...",
-      "EVERYTHING I'VE DONE...",
-      "Wait...",
-      "My power...",
-      "It's... disappearing?",
-      "No...",
-      "You're stealing it!",
-      "CURSE YOU!",
-      "MORTAL FILTH!",
-      "I REFUSE TO BE DEFEATED BY THE LIKES OF YOU!",
-      "I swear...",
-      "One day I shall return.",
-      "And you...",
-      "You AND Pelle...",
-      "You will pay for your treason.",
-      "This isn't over, mortal scum.",
-      "The End will come for you.",
-      "You will see...",
-      "You ALL... will see...",
+      "뭐라고???",
+      "어떻게...",
+      "어떻게 네가...",
+      "어떻게 해낸 거냐?!?!",
+      "이 모든 일에도...",
+      "내가 해 온 그 모든 일에도...",
+      "잠깐...",
+      "내 힘이...",
+      "사라지고... 있나?",
+      "안 돼...",
+      "네가 빼앗고 있군!",
+      "저주받아라!",
+      "더러운 필멸자!",
+      "너 같은 것에게 패배하는 건 용납할 수 없다!",
+      "맹세하지...",
+      "언젠가 반드시 돌아오겠다.",
+      "그리고 너...",
+      "너와 펠레...",
+      "그 배신의 대가를 치르게 될 것이다.",
+      "아직 끝나지 않았다, 필멸의 쓰레기야.",
+      "종말이 너를 찾아갈 것이다.",
+      "두고 봐라...",
+      "너희 모두가... 똑똑히 보게 될 것이다...",
       "..."
     ]
   }

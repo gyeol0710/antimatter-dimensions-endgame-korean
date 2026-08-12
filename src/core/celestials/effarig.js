@@ -12,8 +12,8 @@ export const EFFARIG_STAGES = {
 };
 
 export const Effarig = {
-  displayName: "Effarig",
-  possessiveName: "Effarig's",
+  displayName: "에파리그",
+  possessiveName: "에파리그의",
   initializeRun() {
     if (!EffarigUnlock.endgame.isUnlocked && EffarigUnlock.extendRun.isUnlocked) {
       player.disablePostReality = true;
@@ -59,15 +59,15 @@ export const Effarig = {
   get currentStageName() {
     switch (this.currentStage) {
       case EFFARIG_STAGES.INFINITY:
-        return "Infinity";
+        return "무한";
       case EFFARIG_STAGES.ETERNITY:
-        return "Eternity";
+        return "영원";
       case EFFARIG_STAGES.REALITY:
-        return "Reality";
+        return "현실";
       case EFFARIG_STAGES.ENDGAME:
-        return "Endgame";
+        return "엔드게임";
       default:
-        return EffarigUnlock.extendRun.isUnlocked ? "Endgame" : "Reality";
+        return EffarigUnlock.extendRun.isUnlocked ? "엔드게임" : "현실";
     }
   },
   get eternityCap() {

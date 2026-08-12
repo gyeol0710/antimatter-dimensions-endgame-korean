@@ -49,13 +49,13 @@ export default {
     <ChallengeRecordsList
       :start="2"
       :times="normalChallenges"
-      name="Normal Challenge"
+      name="일반 도전"
     />
     <ChallengeRecordsList
       v-if="infinityChallengesUnlocked"
       :start="1"
       :times="infinityChallenges"
-      name="Infinity Challenge"
+      name="무한 도전"
       class="l-challenge-records-tab__infinity_challenges"
     />
   </div>

@@ -138,24 +138,24 @@ export default {
         :class="disChargeClassObject"
         @click="disCharge = !disCharge"
       >
-        Respec Charged Infinity Upgrades on next {{ isDoomed ? "Armageddon" : "Reality" }}
+        다음 {{ isDoomed ? "아마겟돈" : "현실" }} 시 충전된 무한 업그레이드 재지정
       </PrimaryButton>
     </div>
     <div v-if="chargeUnlocked">
-      You have charged {{ formatInt(chargesUsed) }}/{{ formatInt(totalCharges) }} Infinity Upgrades.
-      Charged Infinity Upgrades have their effect altered.
+      무한 업그레이드 {{ formatInt(chargesUsed) }}/{{ formatInt(totalCharges) }}개를 충전했습니다.
+      충전된 무한 업그레이드는 효과가 달라집니다.
       <br>
-      Hold shift to show Charged Infinity Upgrades.
-      <span v-if="!isDoomed || !alwaysRecpec"> You can freely respec your choices on Reality.</span>
+      Shift를 누르면 충전된 무한 업그레이드를 표시합니다.
+      <span v-if="!isDoomed || !alwaysRecpec"> 현실 시 선택을 자유롭게 재지정할 수 있습니다.</span>
     </div>
     <div v-if="isUseless">
-      You cannot Charge Infinity Upgrades while Doomed.
+      파멸한 동안에는 무한 업그레이드를 충전할 수 없습니다.
     </div>
     <div v-if="isDoomed && !isUseless && alwaysRecpec">
-      Charged Infinity Upgrades always reset on Armageddon, until you can keep your Break Infinity Upgrades on Armageddon.
+      아마겟돈 시 무한 돌파 업그레이드를 유지할 수 있게 될 때까지, 충전된 무한 업그레이드는 항상 초기화됩니다.
     </div>
     <br>
-    Within each column, the upgrades must be purchased from top to bottom.
+    각 열 내 업그레이드는 위에서 아래 순으로 구매해야 합니다.
     <br>
     <div class="l-infinity-upgrade-grid l-infinity-upgrades-tab__grid">
       <div
@@ -186,10 +186,10 @@ export default {
       />
     </div>
     <div v-if="eternityUnlocked && bottomRowUnlocked && isSoftcapApplicable">
-      The Infinity Point multiplier becomes more expensive
+      무한 포인트 배율은
       <br>
-      above {{ formatPostBreak(ipMultSoftCap, 2, 1) }} Infinity
-      Points<span v-if="!isUncapped">, and cannot be purchased past {{ formatPostBreak(ipMultHardCap, 2, 1) }} Infinity Points</span>.
+      무한 포인트 {{ formatPostBreak(ipMultSoftCap, 2, 1) }}부터 더 비싸집니다<span v-if="!isUncapped">.
+        무한 포인트 {{ formatPostBreak(ipMultHardCap, 2, 1) }}를 넘으면 구매할 수 없습니다</span>.
     </div>
   </div>
 </template>

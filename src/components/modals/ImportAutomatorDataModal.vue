@@ -77,10 +77,10 @@ export default {
       return this.constantCountAfterImport - this.maxConstantCount;
     },
     presetButtonText() {
-      return this.ignorePresets ? "Will Ignore Presets" : "Will Import Presets";
+      return this.ignorePresets ? "프리셋 무시" : "프리셋 가져오기";
     },
     constantButtonText() {
-      return this.ignoreConstants ? "Will Ignore Constants" : "Will Import Constants";
+      return this.ignoreConstants ? "상수 무시" : "상수 가져오기";
     }
   },
   mounted() {
@@ -134,10 +134,10 @@ export default {
     @confirm="importSave"
   >
     <template #header>
-      Import Automator Script Data
+      오토메이터 스크립트 데이터 가져오기
     </template>
-    This will create a new Automator script at the end of your list.
-    <span v-if="isImportingExtraData">This will also import additional data related to the script.</span>
+    목록 끝에 새 오토메이터 스크립트를 만듭니다.
+    <span v-if="isImportingExtraData">스크립트와 관련된 추가 데이터도 가져옵니다.</span>
     <input
       ref="input"
       v-model="input"
@@ -147,26 +147,25 @@ export default {
       @keyup.esc="emitClose"
     >
     <div v-if="isValid">
-      Script name: {{ scriptName }}
+      스크립트 이름: {{ scriptName }}
       <br>
-      Line count: {{ lineCount }}
+      줄 수: {{ lineCount }}
       <div v-if="hasPresets">
         <br>
-        Study Presets:
+        연구 프리셋:
         <span
           v-for="(preset, id) in importedPresets"
           :key="id"
           class="c-import-data-name"
         >
-          <span v-if="preset.name">"{{ preset.name }}" (slot {{ preset.id + 1 }})</span>
-          <span v-else>Preset slot #{{ preset.id + 1 }}</span>
+          <span v-if="preset.name">"{{ preset.name }}" (슬롯 {{ preset.id + 1 }})</span>
+          <span v-else>프리셋 슬롯 #{{ preset.id + 1 }}</span>
         </span>
         <div
           v-if="!ignorePresets && overwrittenPresetCount > 0"
           class="l-has-errors"
         >
-          {{ formatInt(overwrittenPresetCount) }} of your existing presets
-          will be overwritten by imported presets!
+          기존 프리셋 {{ formatInt(overwrittenPresetCount) }}개를 가져온 프리셋으로 덮어씁니다!
         </div>
         <br>
         <button
@@ -178,7 +177,7 @@ export default {
       </div>
       <div v-if="hasConstants">
         <br>
-        Constants:
+        상수:
         <span
           v-for="(constant, id) in importedConstants"
           :key="id + 10"
@@ -190,11 +189,10 @@ export default {
           v-if="!ignoreConstants && (willOverwriteConstant || extraConstants > 0)"
           class="l-has-errors"
         >
-          <span v-if="willOverwriteConstant">Some of your existing constants will be overwritten!</span>
+          <span v-if="willOverwriteConstant">기존 상수 일부를 덮어씁니다!</span>
           <br v-if="willOverwriteConstant && extraConstants > 0">
           <span v-if="extraConstants > 0">
-            {{ quantifyInt("constant", extraConstants) }} will not be imported due to the
-            {{ maxConstantCount }} constant limit.
+            상수 제한이 {{ maxConstantCount }}개이므로 {{ quantifyInt("개", extraConstants) }}를 가져오지 않습니다.
           </span>
         </div>
         <br>
@@ -210,17 +208,17 @@ export default {
         v-if="hasErrors"
         class="l-has-errors"
       >
-        This script has errors which need to be fixed before it can be run!
+        이 스크립트에는 실행 전에 수정해야 하는 오류가 있습니다!
       </div>
       <div v-if="hasErrors && isImportingExtraData">
-        <i>Some errors may be fixed with the additional data being imported.</i>
+        <i>추가 데이터를 가져오면 일부 오류가 해결될 수 있습니다.</i>
       </div>
     </div>
     <div v-else-if="input.length !== 0">
-      Invalid Automator data string
+      올바르지 않은 오토메이터 데이터 문자열
     </div>
     <template #confirm-text>
-      Import
+      가져오기
     </template>
   </ModalWrapperChoice>
 </template>

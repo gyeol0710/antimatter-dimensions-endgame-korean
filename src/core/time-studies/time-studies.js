@@ -4,7 +4,7 @@ function showSecondPreferredWarning(currTree) {
   const canPickSecond = currTree.allowedDimPathCount === 2 && currTree.currDimPathCount < 2;
   // Show a warning if the player can choose the second preferred dimension path and hasn't yet done so.
   if (canPickSecond && TimeStudy.preferredPaths.dimension.path.length < 2) {
-    GameUI.notify.error("You haven't selected a second preferred Dimension path.");
+    GameUI.notify.error("두 번째 선호 차원 경로를 선택하지 않았습니다.");
     return true;
   }
   return false;
@@ -58,7 +58,7 @@ export function buyStudiesUntil(id, ec = -1) {
   } else if (TimeStudy.preferredPaths.dimension.path.length > 0) {
     studyArray.push(...TimeStudy.preferredPaths.dimension.studies);
   } else if (currTree.currDimPathCount === 0) {
-    GameUI.notify.error("You haven't selected a preferred Dimension path.");
+    GameUI.notify.error("선호 차원 경로를 선택하지 않았습니다.");
     return studyArray;
   }
 
@@ -96,7 +96,7 @@ export function buyStudiesUntil(id, ec = -1) {
   } else if (TimeStudy.preferredPaths.pace.path !== 0) {
     studyArray.push(...TimeStudy.preferredPaths.pace.studies);
   } else if (pacePaths.length === 0) {
-    GameUI.notify.error("You haven't selected a preferred Pace path.");
+    GameUI.notify.error("선호 진행 방식 경로를 선택하지 않았습니다.");
     return studyArray;
   }
 

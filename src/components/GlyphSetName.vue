@@ -1,46 +1,46 @@
 <script>
 const GLYPH_NAMES = {
   companion: {
-    adjective: "Huggable",
-    noun: "Companion"
+    adjective: "포근한",
+    noun: "동료"
   },
   reality: {
-    adjective: "Real",
-    noun: "Reality"
+    adjective: "현실적인",
+    noun: "현실"
   },
   music: {
-    adjective: { high: "Melodic", mid: "Chordal", low: "Tuned" },
+    adjective: { high: "선율의", mid: "화음의", low: "조율된" },
     // This noun is only used in the case of a single companion reskinned as music (resulting in "Huggable Music");
     // otherwise the set's noun will always come from an actual glyph type instead of music
-    noun: "Music"
+    noun: "음악"
   },
   effarig: {
-    adjective: { both: "Meta", glyph: "Stable", rm: "Mechanical", none: "Fragmented" },
-    noun: { both: "Effarig", glyph: "Stability", rm: "Mechanism", none: "Fragmentation" }
+    adjective: { both: "메타", glyph: "안정된", rm: "기계적인", none: "파편화된" },
+    noun: { both: "에파리그", glyph: "안정성", rm: "기계 장치", none: "파편화" }
   },
   cursed: {
-    adjective: { high: "Cursed", mid: "Hexed", low: "Jinxed" },
-    noun: "Curse"
+    adjective: { high: "저주받은", mid: "주술에 걸린", low: "액운의" },
+    noun: "저주"
   },
   power: {
-    adjective: { high: "Powerful", mid: "Mastered", low: "Potential" },
-    noun: "Power"
+    adjective: { high: "강력한", mid: "숙련된", low: "잠재된" },
+    noun: "힘"
   },
   infinity: {
-    adjective: { high: "Infinite", mid: "Boundless", low: "Immense" },
-    noun: "Infinity"
+    adjective: { high: "무한한", mid: "끝없는", low: "거대한" },
+    noun: "무한"
   },
   replication: {
-    adjective: { high: "Replicated", mid: "Simulated", low: "Duplicated" },
-    noun: "Replication"
+    adjective: { high: "복제된", mid: "모의된", low: "복사된" },
+    noun: "복제"
   },
   time: {
-    adjective: { high: "Temporal", mid: "Chronal", low: "Transient" },
-    noun: "Time"
+    adjective: { high: "시간의", mid: "연대기의", low: "찰나의" },
+    noun: "시간"
   },
   dilation: {
-    adjective: { high: "Dilated", mid: "Attenuated", low: "Diluted" },
-    noun: "Dilation"
+    adjective: { high: "팽창된", mid: "약화된", low: "희석된" },
+    noun: "팽창"
   },
 };
 
@@ -81,7 +81,7 @@ export default {
     isDoomed: () => Pelle.isDoomed,
     setName() {
       this.sortGlyphList();
-      if (this.sortedGlyphs.length === 0) return "Void";
+      if (this.sortedGlyphs.length === 0) return "공허";
       if (this.sortedGlyphs.length === 1) return this.singletonName;
 
       // Figure out the noun part of the name first. If we have basic glyphs, this is generated through examining those
@@ -109,7 +109,7 @@ export default {
           if (basicGlyphList[0].perc === basicGlyphList[1].perc) {
             return [this.getAdjective(basicGlyphList[0]),
               this.getAdjective(basicGlyphList[1]),
-              "Mixture"
+              "혼합물"
             ].join(" ");
           }
           // Otherwise, give it a noun from the largest component
@@ -124,22 +124,22 @@ export default {
           }
           // This is relatively rare; we have 1/1/1, which means that we may also already have 3 other adjectives.
           // In this case we make an exception and shorten the name instead of providing another 4 words
-          if (basicGlyphList[0].perc === basicGlyphList[2].perc) return "Mixed Irregularity";
+          if (basicGlyphList[0].perc === basicGlyphList[2].perc) return "혼합 불규칙성";
           // The only case left is 2/2/1, where we have plenty of room for words
           return [this.getAdjective(basicGlyphList[0]),
             this.getAdjective(basicGlyphList[1]),
             this.getAdjective(basicGlyphList[2]),
-            "Irregularity"
+            "불규칙성"
           ].join(" ");
         case 4:
           // Don't bother filling the name with excessive adjectives if we have an equal proportion (1/1/1/1),
           // otherwise we take the largest component and ignore all the others (2/1/1/1)
-          if (basicGlyphList[0].perc === basicGlyphList[1].perc) return "Irregular Jumble";
-          return `${this.getAdjective(basicGlyphList[0])} Jumble`;
+          if (basicGlyphList[0].perc === basicGlyphList[1].perc) return "불규칙한 뒤섞임";
+          return `${this.getAdjective(basicGlyphList[0])} 뒤섞임`;
         case 5:
           // This is in reference to the achievement name, and can only occur with exactly one of every basic glyph.
           // Due to music glyphs doubling-up contributions, this may result in a "Melodic Royal Flush" or similar
-          return "Royal Flush";
+          return "로열 플러시";
         default:
           throw new Error("Unexpected glyph set configuration in GlyphSetName");
       }
@@ -155,11 +155,11 @@ export default {
       // We want a bit of additional flavor for partially-filled sets
       const word = GLYPH_NAMES[this.sortedGlyphs[0].type].noun;
       const perc = this.sortedGlyphs[0].perc;
-      if (this.isDoomed) return `Doomed ${word}`;
-      if (perc === 100) return `Full ${word}`;
-      if (perc >= 75) return `Strengthened ${word}`;
-      if (perc >= 40) return `Partial ${word}`;
-      return `Weak ${word}`;
+      if (this.isDoomed) return `파멸한 ${word}`;
+      if (perc === 100) return `완전한 ${word}`;
+      if (perc >= 75) return `강화된 ${word}`;
+      if (perc >= 40) return `부분적인 ${word}`;
+      return `약한 ${word}`;
     },
     mainGlyphName() {
       // This returns the type of Glyph that we want for color determinations.

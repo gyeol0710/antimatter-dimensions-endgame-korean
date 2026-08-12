@@ -3,14 +3,14 @@ import { MultiplierTabIcons } from "./icons";
 // See index.js for documentation
 export const AM = {
   total: {
-    name: "Antimatter Production",
-    displayOverride: () => `${format(Currency.antimatter.productionPerSecond, 2, 2)}/sec`,
+    name: "반물질 생산량",
+    displayOverride: () => `${format(Currency.antimatter.productionPerSecond, 2, 2)}/초`,
     multValue: () => new Decimal(Currency.antimatter.productionPerSecond).clampMin(1),
     isActive: true,
     overlay: ["<i class='fas fa-atom' />"],
   },
   effarigAM: {
-    name: "Glyph Effect - Effarig Antimatter Production",
+    name: "글리프 효과 - 에파리그 반물질 생산량",
     powValue: () => {
       const ad1 = AntimatterDimension(1);
       const baseProd = ad1.totalAmount.times(ad1.multiplier).times(Tickspeed.perSecond);

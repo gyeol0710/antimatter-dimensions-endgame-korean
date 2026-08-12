@@ -26,7 +26,7 @@ export default {
       this.decayRate = LHC.acceleratorSpeed;
       this.time = Date.now();
       this.nextAcceleratorReq.copyFrom(LHC.nextAccelerator ? LHC.nextAccelerator.config.unlockReq() : Decimal.pow10("1e1000"));
-      this.nextAcceleratorCurrency = LHC.nextAccelerator ? LHC.nextAccelerator.config.drainResource : "Antimatter";
+      this.nextAcceleratorCurrency = LHC.nextAccelerator ? LHC.nextAccelerator.config.drainResource : "반물질";
     }
   }
 };
@@ -35,16 +35,16 @@ export default {
 <template>
   <div class="l-accelerator-panel-container">
     <div class="c-accelerator-panel-title">
-      Accelerators
+      가속기
     </div>
     <div
       class="l-accelerator-content-container"
     >
-      Accelerators can be activated by clicking on their bars.
-      <span>You cannot activate more than one Accelerator at once.</span>
-      When active, Accelerators fill at a rate of {{ formatPercents(decayRate, 3) }} per second.
+      막대를 클릭하여 가속기를 활성화할 수 있습니다.
+      <span>한 번에 두 개 이상의 가속기를 활성화할 수 없습니다.</span>
+      활성화된 가속기는 초당 {{ formatPercents(decayRate, 3) }}의 속도로 충전됩니다.
       <br>
-      Accelerator effects apply even when not activated, and are based on the current fill percentage.
+      가속기 효과는 비활성 상태에서도 적용되며, 현재 충전 비율을 기반으로 합니다.
       <div class="c-accelerator-bar-container">
         <Accelerator
           v-for="accelerator in accelerators"
@@ -55,7 +55,7 @@ export default {
     </div>
     <PowerCoreButton />
     <div class="c-accelerator-panel-description">
-      The next Accelerator will unlock at {{ format(nextAcceleratorReq, 2, 2) }} {{ nextAcceleratorCurrency }}
+      다음 가속기 해금 조건: {{ format(nextAcceleratorReq, 2, 2) }} {{ nextAcceleratorCurrency }}
     </div>
   </div>
 </template>

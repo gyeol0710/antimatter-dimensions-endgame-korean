@@ -20,11 +20,11 @@ export default {
   },
   computed: {
     questionmarkTooltip() {
-      return `Glyph Presets work like Time Study Loadouts, allowing you to equip a
-        full set of previously-saved Glyphs`;
+      return `글리프 프리셋은 시간 연구 불러오기처럼 작동하며, 이전에 저장한
+        글리프 세트 전체를 장착할 수 있습니다`;
     },
     noSet() {
-      return `No Glyph Preset saved in this slot`;
+      return `이 슬롯에 저장된 글리프 프리셋이 없습니다`;
     },
   },
   watch: {
@@ -58,7 +58,7 @@ export default {
     },
     setName(id) {
       const name = this.names[id] === "" ? "" : `: ${this.names[id]}`;
-      return `Glyph Preset #${id + 1}${name}`;
+      return `글리프 프리셋 #${id + 1}${name}`;
     },
     saveGlyphSet(id) {
       if (!this.hasEquipped || player.reality.glyphs.sets[id].glyphs.length) return;
@@ -120,10 +120,10 @@ export default {
         }
       }
       if (missingGlyphs > 0) {
-        GameUI.notify.error(`Could not find or equip ${missingGlyphs} ${pluralize("Glyph", missingGlyphs)} from
-          ${this.setName(id)}.`);
+        GameUI.notify.error(`${missingGlyphs} ${pluralize("글리프", missingGlyphs)}를 ${this.setName(id)}에서
+          찾거나 장착하지 못했습니다.`);
       } else {
-        GameUI.notify.success(`Successfully loaded ${this.setName(id)}.`);
+        GameUI.notify.success(`${this.setName(id)}을 성공적으로 불러왔습니다.`);
       }
     },
     // Given a list of options for suitable matches to those glyphs and a maximum glyph count to match, returns the
@@ -172,7 +172,7 @@ export default {
     },
     loadingTooltip(set) {
       return this.setLengthValid(set) && this.hasEquipped
-        ? "This set may not load properly because you already have some Glyphs equipped"
+        ? "이미 장착한 글리프가 있어 이 세트를 제대로 불러오지 못할 수 있습니다"
         : null;
     },
     glyphSetKey(set, index) {
@@ -191,31 +191,30 @@ export default {
       ?
     </span>
     <div class="l-glyph-set-save__header">
-      When loading a preset, try to match the following attributes. "Exact" will only equip Glyphs
-      identical to the ones in the preset. The other settings will, loosely speaking, allow "better" Glyphs to be
-      equipped in their place.
+      프리셋을 불러올 때 다음 속성을 기준으로 일치하는 글리프를 찾습니다. "정확히"는 프리셋에 있는 것과
+      동일한 글리프만 장착합니다. 다른 설정은 대체로 조건에 맞는 "더 좋은" 글리프를 대신 장착할 수 있게 합니다.
     </div>
     <div class="c-glyph-set-save-container">
       <ToggleButton
         v-model="effects"
         class="c-glyph-set-save-setting-button"
-        label="Effects:"
-        on="Including"
-        off="Exact"
+        label="효과:"
+        on="포함"
+        off="정확히"
       />
       <ToggleButton
         v-model="level"
         class="c-glyph-set-save-setting-button"
-        label="Level:"
-        on="Increased"
-        off="Exact"
+        label="레벨:"
+        on="이상"
+        off="정확히"
       />
       <ToggleButton
         v-model="rarity"
         class="c-glyph-set-save-setting-button"
-        label="Rarity:"
-        on="Increased"
-        off="Exact"
+        label="희귀도:"
+        on="이상"
+        off="정확히"
       />
     </div>
     <div
@@ -234,13 +233,13 @@ export default {
         />
       </div>
       <div class="c-glyph-single-set-save-flexbox">
-        <div ach-tooltip="Set a custom name (up to 20 characters)">
+        <div ach-tooltip="사용자 지정 이름 설정 (최대 20자)">
           <input
             :id="id"
             type="text"
             size="20"
             maxlength="20"
-            placeholder="Custom set name"
+            placeholder="사용자 지정 세트 이름"
             class="c-glyph-sets-save-name__input"
             :value="names[id]"
             @blur="nicknameBlur"
@@ -252,7 +251,7 @@ export default {
             :class="{'c-glyph-set-save-button--unavailable': !hasEquipped || set.length}"
             @click="saveGlyphSet(id)"
           >
-            Save
+            저장
           </button>
           <button
             v-tooltip="loadingTooltip(set)"
@@ -260,14 +259,14 @@ export default {
             :class="{'c-glyph-set-save-button--unavailable': !setLengthValid(set)}"
             @click="loadGlyphSet(set, id)"
           >
-            Load
+            불러오기
           </button>
           <button
             class="c-glyph-set-save-button"
             :class="{'c-glyph-set-save-button--unavailable': !set.length}"
             @click="deleteGlyphSet(id)"
           >
-            Delete
+            삭제
           </button>
         </div>
       </div>

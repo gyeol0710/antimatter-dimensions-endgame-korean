@@ -24,9 +24,10 @@ export default {
       return Glyphs.findByInventoryIndex(this.idx);
     },
     message() {
-      return `Do you really want to sacrifice this Glyph? Your total power of sacrificed ${this.glyph.type}
-      Glyphs will increase from ${format(this.currentGlyphSacrifice, 2, 2)} to
-      ${format(this.currentGlyphSacrifice.add(this.gain), 2, 2)}.`;
+      return `이 글리프를 정말 희생하시겠습니까? 희생한 ${this.glyph.type}
+      글리프의 총 희생 수치가 ${format(this.currentGlyphSacrifice, 2, 2)}에서
+      ${format(this.currentGlyphSacrifice.add(this.gain), 2, 2)}로 증가합니다.`
+        .replace(this.glyph.type, this.glyphTypeName(this.glyph.type));
     }
   },
   methods: {
@@ -43,12 +44,26 @@ export default {
         // the sac will break things so this is the best I could do. - Scar
 
         this.emitClose();
-        Modal.message.show("The selected Glyph changed position or was otherwise changed!");
+        Modal.message.show("선택한 글리프의 위치나 상태가 변경되었습니다!");
       }
     },
     handleYesClick() {
       this.confirmedSacrifice = true;
       GlyphSacrificeHandler.sacrificeGlyph(this.glyph, true);
+    },
+    glyphTypeName(type) {
+      const names = {
+        time: "시간",
+        dilation: "팽창",
+        replication: "복제",
+        infinity: "무한",
+        power: "동력",
+        effarig: "에파리그",
+        reality: "현실",
+        cursed: "저주받은",
+        companion: "동반자",
+      };
+      return names[type] ?? type.capitalize();
     },
   },
 };
@@ -60,7 +75,7 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are about to sacrifice a Glyph
+      글리프를 희생하려고 합니다
     </template>
     <div class="c-modal-message__text">
       {{ message }}

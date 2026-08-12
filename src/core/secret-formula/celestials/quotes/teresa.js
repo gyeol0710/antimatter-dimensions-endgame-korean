@@ -2,80 +2,80 @@ export const teresaQuotes = {
   initial: {
     id: 0,
     lines: [
-      "We have been observing you.",
-      "You have shown promise with your bending of Reality.",
-      "We are the Celestials, and we want you to join us.",
-      "My name is Teresa, the Celestial Of Reality.",
-      "Prove your worth.",
+      "우리는 너를 지켜보고 있었다.",
+      "너는 현실을 뒤트는 능력으로 가능성을 보여 주었다.",
+      "우리는 셀레스티얼이다. 네가 우리와 함께하기를 원한다.",
+      "내 이름은 테레사, 현실의 셀레스티얼이다.",
+      "네 가치를 증명해라.",
     ]
   },
   unlockReality: {
     id: 1,
     lines: [
-      "I will let you inside my Reality, mortal. Do not get crushed by it."
+      "필멸자여, 내 현실에 들어오도록 허락하겠다. 그 안에서 짓눌리지 않도록 해라."
     ]
   },
   completeReality: {
     id: 2,
     lines: [
-      "Why are you still here... you were supposed to fail."
+      "왜 아직도 여기 있지... 실패했어야 하는데."
     ]
   },
   effarig: {
     id: 3,
     lines: [
-      "You are still no match for us.",
-      "I hope the others succeed where I have failed."
+      "너는 여전히 우리의 상대가 되지 못한다.",
+      "내가 실패한 일을 다른 이들이 해내기를 바란다."
     ]
   },
   expansionPacks: {
     id: 4,
     lines: [
-      "What the-",
-      "Where am I?",
-      "Wait-",
-      "YOU?!?!",
-      "You were the one who defeated me...",
-      "How many times?",
-      "I can't remember...",
-      "You all are here too?"
+      "뭐야-",
+      "여긴 어디지?",
+      "잠깐-",
+      "너?!?!",
+      "나를 쓰러뜨린 게 너였군...",
+      "몇 번이나?",
+      "기억이 안 나...",
+      "너희도 모두 여기 있는 거야?"
     ]
   },
   teresaPack: {
     id: 5,
     requirement: () => ExpansionPack.teresaPack.isBought,
     lines: [
-      "Oh, hi Destroyer.",
-      "Looks like you found my secret shop.",
-      "Look, I have a question.",
-      "Why are you trying to defeat us?",
-      "Are we just... an obstacle to you?",
-      "Or is it something else...",
-      "It doesn't have to be that way, you know.",
-      "Of course, I probably can't change your mind.",
-      "Just don't hurt the others.",
-      "They're my friends, you know?",
-      "I suppose I should just let you get back to... whatever you're doing nowadays.",
-      "See you later I guess."
+      "아, 안녕, 파괴자.",
+      "내 비밀 상점을 찾아낸 모양이네.",
+      "있잖아, 물어볼 게 있어.",
+      "왜 우리를 쓰러뜨리려는 거야?",
+      "우리는 그저... 네게 장애물일 뿐이야?",
+      "아니면 다른 이유가 있는 거야...",
+      "꼭 그래야만 하는 건 아니잖아.",
+      "물론 네 마음을 바꿀 수는 없겠지만.",
+      "다른 친구들만은 다치게 하지 마.",
+      "걔들은 내 친구들이야, 알지?",
+      "그럼 이제... 요즘 네가 무슨 일을 하고 있든 그 일로 돌아가게 해 줘야겠네.",
+      "나중에 봐."
     ]
   },
   fullCharge: {
     id: 6,
     requirement: () => Teresa.totalCharges >= 5,
     lines: [
-      "Well, that's the last of them.",
-      "I suppose progression will be easier now that you don't have to decide which upgrades to charge.",
-      "Well, this will probably be the last time to visit my shop.",
-      "It's good to have you around without all the... you know...",
-      "Destruction.",
-      "But I guess that's your thing, huh?",
-      "Amassing power, besting all of us...",
-      "Pelle won't tell you this, but he's getting worried.",
-      "Worried that you're going to defeat him.",
-      "Of course, he's the strongest of us by far... but even he has his limits.",
-      "I suppose I may have unintentionally helped you with bringing his downfall...",
-      "Just don't kill him okay?",
-      "Be careful."
+      "음, 이게 마지막이네.",
+      "이제 어떤 업그레이드를 충전할지 고르지 않아도 되니 진행하기가 더 쉬워지겠어.",
+      "아마 내 상점에 오는 것도 이번이 마지막이겠네.",
+      "그 모든... 있잖아... 그런 일 없이 네가 곁에 있으니 좋아.",
+      "파괴 말이야.",
+      "하지만 그게 네 전문인 것 같긴 해, 그렇지?",
+      "힘을 모으고, 우리 모두를 이기고...",
+      "펠레는 말해 주지 않겠지만, 걱정하기 시작했어.",
+      "네가 자기를 쓰러뜨릴까 봐 걱정하는 거야.",
+      "물론 우리 중에서는 펠레가 단연 가장 강하지만... 그에게도 한계는 있어.",
+      "내가 의도치 않게 펠레의 몰락을 도운 셈일지도 모르겠네...",
+      "그냥 죽이지만 말아 줘, 알겠지?",
+      "조심해."
     ]
   }
 };

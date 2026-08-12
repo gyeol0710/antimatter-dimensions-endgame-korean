@@ -16,6 +16,10 @@ export default {
       type: String,
       required: true,
     },
+    displayName: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -124,14 +128,14 @@ export default {
     copyAndClose() {
       if (this.isBlock) {
         const newTemplateBlock = {
-          name: `Template: ${this.name}`,
+          name: `템플릿: ${this.displayName}`,
           blocks: blockifyTextAutomator(this.templateScript.script).blocks
         };
         AutomatorData.blockTemplates.push(newTemplateBlock);
-        GameUI.notify.info("Custom template block created");
+        GameUI.notify.info("사용자 지정 템플릿 블록을 만들었습니다");
       } else {
         copyToClipboard(this.templateScript.script);
-        GameUI.notify.info("Template copied to clipboard");
+        GameUI.notify.info("템플릿을 클립보드에 복사했습니다");
       }
       this.emitClose();
     }
@@ -142,15 +146,15 @@ export default {
 <template>
   <ModalWrapper class="c-automator-template-container">
     <template #header>
-      {{ name }} Template
+      {{ displayName }} 템플릿
     </template>
     <div class="c-automator-template-description">
       {{ description }}
     </div>
     <div class="c-automator-template-inputs">
-      <b>Required Information:</b>
+      <b>필수 정보:</b>
       <br>
-      Use a preset Study Tree:
+      연구 트리 프리셋 사용:
       <button
         v-for="(preset, presetNumber) in presets"
         :key="preset.name"
@@ -163,7 +167,7 @@ export default {
         class="o-primary-btn o-load-preset-button-margin"
         @click="loadCurrent"
       >
-        <i>Current Tree</i>
+        <i>현재 트리</i>
       </button>
       <div
         v-for="input in inputs"
@@ -192,7 +196,7 @@ export default {
       </div>
     </div>
     <div class="c-automator-template-warnings">
-      <b>Possible things to consider:</b>
+      <b>확인할 사항:</b>
       <div v-if="validWarnings.length !== 0">
         <div
           v-for="warning in validWarnings"
@@ -203,7 +207,7 @@ export default {
         </div>
       </div>
       <div v-else>
-        (If something seems wrong with the template inputs, it will show up here)
+        (템플릿 입력에 문제가 있으면 여기에 표시됩니다)
       </div>
       <br>
       <br>
@@ -213,13 +217,13 @@ export default {
       class="o-primary-btn"
       @click="copyAndClose"
     >
-      {{ isBlock ? "Create custom template block" : "Copy this template to your clipboard" }} and close this modal
+      {{ isBlock ? "사용자 지정 템플릿 블록 만들기" : "이 템플릿을 클립보드에 복사" }} 후 창 닫기
     </button>
     <button
       v-else
       class="o-primary-btn o-primary-btn--disabled"
     >
-      Cannot generate template (You have {{ quantifyInt("invalid input", invalidInputCount) }})
+      템플릿을 생성할 수 없음 (잘못된 입력 {{ quantifyInt("개", invalidInputCount) }})
     </button>
   </ModalWrapper>
 </template>

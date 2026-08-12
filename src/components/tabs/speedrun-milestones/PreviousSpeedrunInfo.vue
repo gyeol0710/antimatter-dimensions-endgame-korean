@@ -17,13 +17,13 @@ export default {
     segmentAttr() {
       return {
         icon: `fas o-icon ${this.prevRunInfo.isSegmented ? "fa-stopwatch-20" : "fa-stopwatch"}`,
-        text: this.prevRunInfo.isSegmented ? "Segmented" : "Single Segment",
+        text: this.prevRunInfo.isSegmented ? "분할 스피드런" : "단일 구간 스피드런",
       };
     },
     stdAttr() {
       return {
         icon: `fas fa-coins o-icon ${this.prevRunInfo.usedSTD ? "l-icon-on" : "l-icon-off"}`,
-        text: this.prevRunInfo.usedSTD ? "Used STD Upgrades" : "No STDs used",
+        text: this.prevRunInfo.usedSTD ? "STD 업그레이드 사용" : "STD 업그레이드 미사용",
       };
     },
     offlineAttr() {
@@ -35,7 +35,7 @@ export default {
       else symbol = "fa-power-off";
       return {
         icon: `fas o-icon ${symbol}`,
-        text: `${offlineFrac === 0 ? "No" : formatPercents(offlineFrac, 1)} Offline Time`,
+        text: `오프라인 시간 ${offlineFrac === 0 ? "사용 안 함" : formatPercents(offlineFrac, 1)}`,
       };
     },
     seedAttr() {
@@ -80,7 +80,7 @@ export default {
     v-if="prevRunInfo"
     class="c-icon-container"
   >
-    <span>Run {{ index }}</span>
+    <span>스피드런 {{ index }}</span>
     <span>{{ prevRunInfo.name }}</span>
     <span
       v-for="attr in iconAttrs"
@@ -88,14 +88,14 @@ export default {
       v-tooltip="attr.text"
       :class="attr.icon"
     />
-    <span>Started: {{ startDate }}</span>
-    <span>Final Time: {{ finalTime }}</span>
+    <span>시작 시각: {{ startDate }}</span>
+    <span>최종 기록: {{ finalTime }}</span>
   </div>
   <div
     v-else
     class="c-no-record"
   >
-    No speedrun records found for run {{ index }}.
+    스피드런 {{ index }} 기록이 없습니다.
   </div>
 </template>
 

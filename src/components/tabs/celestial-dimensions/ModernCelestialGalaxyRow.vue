@@ -27,11 +27,11 @@ export default {
     buttonText() {
       if (this.lockText !== null) return this.lockText;
       const reset = [];
-      if (true) reset.push("Celestial Dimensions");
-      if (true) reset.push("Celestial Dimension Boosts");
+      if (true) reset.push("셀레스티얼 차원");
+      if (true) reset.push("셀레스티얼 차원 가속");
       return reset.length === 0
-        ? `Increase the power of Celestial Tickspeed upgrades`
-        : `Reset your ${makeEnumeration(reset)} to increase the power of Celestial Tickspeed upgrades`;
+        ? `셀레스티얼 틱스피드 업그레이드의 효과를 강화합니다`
+        : `${makeEnumeration(reset)}을 초기화하여 셀레스티얼 틱스피드 업그레이드의 효과를 강화합니다`;
     },
     sumText() {
       const parts = [Decimal.max(this.galaxies.celestial, 0)];
@@ -40,9 +40,9 @@ export default {
     },
     typeName() {
       switch (this.type) {
-        case CELESTIAL_GALAXY_TYPE.NORMAL: return "Celestial Galaxies";
-        case CELESTIAL_GALAXY_TYPE.DISTANT: return "Distant Celestial Galaxies";
-        case CELESTIAL_GALAXY_TYPE.REMOTE: return "Remote Celestial Galaxies";
+        case CELESTIAL_GALAXY_TYPE.NORMAL: return "셀레스티얼 은하";
+        case CELESTIAL_GALAXY_TYPE.DISTANT: return "반대편 셀레스티얼 은하";
+        case CELESTIAL_GALAXY_TYPE.REMOTE: return "아득한 셀레스티얼 은하";
       }
       return undefined;
     },
@@ -52,14 +52,14 @@ export default {
     costScalingText() {
       switch (this.type) {
         case CELESTIAL_GALAXY_TYPE.DISTANT:
-          return `Each Celestial Galaxy is more expensive past ${quantifyHybridLarge("Galaxy", this.distantStart)}`;
+          return `셀레스티얼 은하는 ${quantifyHybridLarge("셀레스티얼 은하", this.distantStart)}부터 하나씩 더 비싸집니다`;
         case CELESTIAL_GALAXY_TYPE.REMOTE: {
           const scalings = [
-            { type: "distant", function: "quadratic", amount: this.distantStart },
-            { type: "remote", function: "exponential", amount: this.remoteStart }
+            { type: "반대편", function: "이차", amount: this.distantStart },
+            { type: "아득한", function: "지수", amount: this.remoteStart }
           ];
-          return `Increased Celestial Galaxy cost scaling: ${scalings.sort((a, b) => a.amount - b.amount)
-            .map(scaling => `${scaling.function} scaling past ${this.formatCelestialGalaxies(scaling.amount)} (${scaling.type})`)
+          return `셀레스티얼 은하 비용 증가: ${scalings.sort((a, b) => a.amount - b.amount)
+            .map(scaling => `${this.formatCelestialGalaxies(scaling.amount)}개부터 ${scaling.function} 증가 (${scaling.type})`)
             .join(", ").capitalize()}`;
         }
       }
@@ -106,7 +106,7 @@ export default {
 <template>
   <div class="reset-container galaxy">
     <h4>{{ typeName }} ({{ sumText }})</h4>
-    <span>Requires: {{ formatHybridLarge(requirement.amount, 3) }} Cel Matter</span>
+    <span>필요량: 셀레스티얼 물질 {{ formatHybridLarge(requirement.amount, 3) }}개</span>
     <span v-if="hasIncreasedScaling">{{ costScalingText }}</span>
     <button
       :class="classObject"

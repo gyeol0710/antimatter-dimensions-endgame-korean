@@ -28,11 +28,11 @@ export default {
 <template>
   <ModalWrapper class="c-shop-modal">
     <template #header>
-      Support The Developer - coins
+      개발자 후원 - 코인
     </template>
     <span v-if="macPurchaser">
-      <button class="o-shop-button-button" @click="macConfirm()">Confirm Purchase to Receive STDs</button>
-      <br><span>(Required on Mac)</span><br>
+      <button class="o-shop-button-button" @click="macConfirm()">구매를 확인하고 STD 받기</button>
+      <br><span>(Mac에서 필요)</span><br>
     </span>
     <div class="l-modal-store-content">
       <img src="images/std_coin.png">

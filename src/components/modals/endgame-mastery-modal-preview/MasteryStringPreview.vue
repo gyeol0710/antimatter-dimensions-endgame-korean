@@ -134,7 +134,7 @@ export default {
       v-else
       class="c-unavailable-warning"
     >
-      Preview Unavailable
+      미리보기 사용 불가
     </span>
   </div>
 </template>

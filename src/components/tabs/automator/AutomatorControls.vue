@@ -34,9 +34,9 @@ export default {
       return this.$viewModel.tabs.reality.automator.editorScriptID;
     },
     playTooltip() {
-      if (this.isPaused) return "Resume Automator execution";
-      if (!this.isRunning) return "Start Automator";
-      return "Pause Automator execution";
+      if (this.isPaused) return "오토메이터 실행 재개";
+      if (!this.isRunning) return "오토메이터 시작";
+      return "오토메이터 일시 정지";
     },
     playButtonClass() {
       return {
@@ -53,10 +53,10 @@ export default {
       let lineNum = `0000${this.currentLine}`;
       lineNum = lineNum.slice(lineNum.length - digits);
 
-      if (this.isPaused) return `Paused: "${this.statusName}" (Resumes on Line ${lineNum})`;
-      if (this.isRunning) return `Running: "${this.statusName}" (Line ${lineNum})`;
-      if (this.hasErrors) return `Stopped: "${this.statusName}" has errors (Cannot run)`;
-      return `Stopped: Will start running "${this.statusName}"`;
+      if (this.isPaused) return `일시 정지: "${this.statusName}" (${lineNum}번째 줄에서 재개)`;
+      if (this.isRunning) return `실행 중: "${this.statusName}" (${lineNum}번째 줄)`;
+      if (this.hasErrors) return `정지: "${this.statusName}"에 오류가 있음 (실행 불가)`;
+      return `정지: "${this.statusName}" 실행 대기`;
     },
     maxScriptChars() {
       return AutomatorData.MAX_ALLOWED_SCRIPT_CHARACTERS;
@@ -121,7 +121,7 @@ export default {
     <div class="c-automator-control-row l-automator-button-row">
       <div class="c-button-group">
         <AutomatorButton
-          v-tooltip="'Rewind Automator to the first command'"
+          v-tooltip="'오토메이터를 첫 명령으로 되감기'"
           class="fa-fast-backward"
           @click="rewind"
         />
@@ -134,29 +134,29 @@ export default {
           @click="play"
         />
         <AutomatorButton
-          v-tooltip="'Stop Automator and reset position'"
+          v-tooltip="'오토메이터를 정지하고 위치 초기화'"
           class="fa-stop"
           @click="stop"
         />
         <AutomatorButton
-          v-tooltip="'Step forward one line'"
+          v-tooltip="'한 줄 앞으로 실행'"
           class="fa-step-forward"
           @click="step"
         />
         <AutomatorButton
-          v-tooltip="'Restart script automatically when it reaches the end'"
+          v-tooltip="'스크립트가 끝나면 자동으로 다시 시작'"
           class="fa-sync-alt"
           :class="{ 'c-automator__button--active' : repeatOn }"
           @click="repeat"
         />
         <AutomatorButton
-          v-tooltip="'Automatically restart the active script when finishing or restarting a Reality'"
+          v-tooltip="'현실을 완료하거나 다시 시작할 때 활성 스크립트를 자동으로 다시 시작'"
           class="fa-reply"
           :class="{ 'c-automator__button--active' : forceRestartOn }"
           @click="restart"
         />
         <AutomatorButton
-          v-tooltip="'Scroll Automator to follow current line'"
+          v-tooltip="'현재 줄을 따라가도록 오토메이터 스크롤'"
           class="fa-indent"
           :class="{ 'c-automator__button--active' : followExecution }"
           @click="follow"
@@ -166,18 +166,18 @@ export default {
           class="c-automator__status-text c-automator__status-text--small"
           :class="{ 'c-automator__status-text--error' : currentChars > maxScriptChars }"
         >
-          This script: {{ formatInt(currentChars) }}/{{ formatInt(maxScriptChars) }}
+          현재 스크립트: {{ formatInt(currentChars) }}/{{ formatInt(maxScriptChars) }}
         </span>
       </div>
       <div class="c-button-group">
         <AutomatorButton
-          v-tooltip="'Undo'"
+          v-tooltip="'실행 취소'"
           class="fa-arrow-rotate-left"
           :class="{ 'c-automator__button--inactive' : !hasUndo }"
           @click="undo"
         />
         <AutomatorButton
-          v-tooltip="'Redo'"
+          v-tooltip="'다시 실행'"
           class="fa-arrow-rotate-right"
           :class="{ 'c-automator__button--inactive' : !hasRedo }"
           @click="redo"
@@ -188,17 +188,17 @@ export default {
     <div class="l-automator-button-row">
       <span
         v-if="duplicateStatus"
-        v-tooltip="'More than one script has this name!'"
+        v-tooltip="'같은 이름의 스크립트가 여러 개 있습니다!'"
         class="fas fa-exclamation-triangle c-automator__status-text c-automator__status-text--error"
       />
       <span
         v-if="editingDifferentScript"
-        v-tooltip="'The automator is running a different script than the editor is showing'"
+        v-tooltip="'오토메이터가 편집기에 표시된 것과 다른 스크립트를 실행 중입니다'"
         class="fas fa-circle-exclamation c-automator__status-text c-automator__status-text--warning"
       />
       <span
         v-if="justCompleted"
-        v-tooltip="'The automator completed running the previous script'"
+        v-tooltip="'오토메이터가 이전 스크립트 실행을 완료했습니다'"
         class="fas fa-circle-check c-automator__status-text"
       />
       <span

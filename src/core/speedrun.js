@@ -5,10 +5,9 @@ export const Speedrun = {
   officialFixedSeed: 69420,
   unlock() {
     if (player.speedrun.isUnlocked) return;
-    Modal.message.show(`You have unlocked Speedrun Mode! This allows you to start a new save file with some slight
-      changes which can be helpful if you're trying to complete the game as quickly as possible. The option to
-      start a Speedrun Save is now available in the Options tab, under Saving. Choosing to start a Speedrun Save
-      will provide you with another modal with more in-depth information.`, {}, 3);
+    Modal.message.show(`스피드런 모드를 해금했습니다! 이제 게임을 최대한 빨리 완료하는 데 도움이 되는 몇 가지
+      변경 사항이 적용된 새 저장 파일을 시작할 수 있습니다. 옵션 탭의 저장 메뉴에서 스피드런 저장을 시작하는
+      항목을 사용할 수 있으며, 이 항목을 선택하면 자세한 내용을 안내하는 모달이 표시됩니다.`, {}, 3);
     player.speedrun.isUnlocked = true;
   },
   // Used to block the seed-changing modal from opening (other functions assume this is checked beforehand)
@@ -41,13 +40,13 @@ export const Speedrun = {
     const record = rec ?? player.speedrun;
     switch (record.seedSelection) {
       case SPEEDRUN_SEED_STATE.UNKNOWN:
-        return `No seed data (old save)`;
+        return `시드 데이터 없음 (이전 저장 파일)`;
       case SPEEDRUN_SEED_STATE.FIXED:
-        return `Official fixed seed (${record.initialSeed})`;
+        return `공식 고정 시드 (${record.initialSeed})`;
       case SPEEDRUN_SEED_STATE.RANDOM:
-        return `Random seed (${record.initialSeed})`;
+        return `무작위 시드 (${record.initialSeed})`;
       case SPEEDRUN_SEED_STATE.PLAYER:
-        return `Player seed (${record.initialSeed})`;
+        return `플레이어 시드 (${record.initialSeed})`;
       default:
         throw new Error("Unrecognized speedrun seed option in seedModeText");
     }
@@ -56,7 +55,7 @@ export const Speedrun = {
   generateName(name) {
     if (name.trim() === "") {
       const id = Math.floor((1e7 - 1) * Math.random()) + 1;
-      return `AD Player #${"0".repeat(6 - Math.floor(Math.log10(id)))}${id}`;
+      return `AD 플레이어 #${"0".repeat(6 - Math.floor(Math.log10(id)))}${id}`;
     }
     if (name.length > 40) return `${name.slice(0, 37)}...`;
     return name;
@@ -148,7 +147,7 @@ class SpeedrunMilestone extends GameMechanicState {
     if (this.isReached || !player.speedrun.isActive) return;
     // Rounding slightly reduces filesize by removing weird float rounding
     player.speedrun.records[this.config.id] = Math.round(player.records.realTimePlayed);
-    GameUI.notify.success(`Speedrun Milestone Reached: ${this.name}`);
+    GameUI.notify.success(`스피드런 마일스톤 달성: ${this.name}`);
   }
 }
 

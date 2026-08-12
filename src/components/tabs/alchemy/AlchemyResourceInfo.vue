@@ -65,8 +65,8 @@ export default {
     },
     formattedFlow() {
       const sign = this.flow >= 0 ? "+" : "-";
-      if (Math.abs(this.flow) < 0.01) return "None";
-      const resourceText = `${sign}${format(Math.abs(this.flow), 2, 2)}/sec`;
+      if (Math.abs(this.flow) < 0.01) return "없음";
+      const resourceText = `${sign}${format(Math.abs(this.flow), 2, 2)}/초`;
       const color = this.flow > 0 ? "9CCC65" : "CC6666";
       return `<span style="color:#${color}">${resourceText}</span>`;
     },
@@ -101,17 +101,17 @@ export default {
       {{ resource.symbol }} {{ resource.name }} {{ resource.symbol }}
     </span>
     <span v-if="isDoomed">
-      Destroyed by Pelle
+      펠레가 파괴함
     </span>
     <span v-else>
-      {{ capped ? "Capped" : "Current" }}: {{ resourceAmount }}/{{ resourceCap }}
-      (Recent change: <span v-html="formattedFlow" />)
+      {{ capped ? "상한" : "현재" }}: {{ resourceAmount }}/{{ resourceCap }}
+      (최근 변화: <span v-html="formattedFlow" />)
     </span>
-    <span v-if="isBaseResource">Base Resource</span>
-    <span v-else>Reaction: {{ isReactionActive ? "Active" : "Inactive" }} ({{ reactionText }})</span>
+    <span v-if="isBaseResource">기본 자원</span>
+    <span v-else>반응: {{ isReactionActive ? "활성" : "비활성" }} ({{ reactionText }})</span>
     <span :class="{ 'o-pelle-disabled': isDoomed }">
       <EffectDisplay
-        label="Effect"
+        label="효과"
         :config="effectConfig"
       />
     </span>
@@ -120,7 +120,7 @@ export default {
     v-else
     :class="classObject"
   >
-    Unlock requirement: {{ unlockRequirement }}
+    해금 조건: {{ unlockRequirement }}
   </div>
 </template>
 

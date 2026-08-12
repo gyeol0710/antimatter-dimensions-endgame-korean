@@ -9,10 +9,10 @@ export default {
   computed: {
     message() {
       const infinity = formatPostBreak(Number.MAX_VALUE, 2);
-      return `Breaking Celestial Infinity will allow you to gain Celestial Matter past ${infinity}.
-        Celestial Dimensions and Celestial Tickspeed Upgrades will scale in cost faster after ${infinity} Celestial Matter.
-        You will gain additional Celestial Infinity Points on Celestial Crunch based on Celestial Matter produced over ${infinity}.\
-        It will also unlock Celestial Break Infinity Upgrades.`.split("\n");
+      return `셀레스티얼 무한을 돌파하면 ${infinity}를 초과하여 셀레스티얼 물질을 얻을 수 있습니다.
+        셀레스티얼 물질이 ${infinity}를 넘으면 셀레스티얼 차원과 셀레스티얼 틱스피드 업그레이드의 비용 증가가 빨라집니다.
+        ${infinity}를 초과하여 생산한 셀레스티얼 물질에 따라 셀레스티얼 크런치 시 추가 셀레스티얼 무한 포인트를 얻습니다.\
+        또한 셀레스티얼 무한 돌파 업그레이드가 해금됩니다.`.split("\n");
     },
   },
   methods: {
@@ -29,7 +29,7 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are Breaking Celestial Infinity
+      셀레스티얼 무한 돌파
     </template>
     <div class="c-modal-message__text">
       <span
@@ -40,7 +40,7 @@ export default {
       </span>
     </div>
     <template #confirm-text>
-      Break
+      돌파
     </template>
   </ModalWrapperChoice>
 </template>

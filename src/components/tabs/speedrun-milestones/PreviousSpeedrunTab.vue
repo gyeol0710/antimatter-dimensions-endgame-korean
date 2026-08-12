@@ -58,7 +58,7 @@ export default {
     },
     spectateText() {
       return this.isSpectating
-        ? "Numbers here are unaffected by END so that you can see your final records."
+        ? "여기에 표시되는 수치는 END의 영향을 받지 않으므로 최종 기록을 확인할 수 있습니다."
         : null;
     }
   },
@@ -82,9 +82,9 @@ export default {
 
 <template>
   <div class="c-previous-runs">
-    <b>You have completed {{ quantify("speedrun", numRuns, 0, 0, x => x) }} prior to this playthrough.</b>
-    <b>Statistics of previous runs are below, mouseover icons for more details.</b>
-    <b>Click the magnifying glass to compare the milestones on a particular run to this run.</b>
+    <b>이번 플레이 전까지 스피드런을 완료한 횟수: {{ quantify("회", numRuns, 0, 0, x => x) }}</b>
+    <b>이전 스피드런의 통계입니다. 아이콘에 마우스를 올리면 자세한 정보를 볼 수 있습니다.</b>
+    <b>돋보기 아이콘을 클릭하면 해당 스피드런의 마일스톤 기록을 현재 스피드런과 비교합니다.</b>
     <b>{{ spectateText }}</b>
     <br>
     <div
@@ -96,7 +96,7 @@ export default {
         :class="{ 'o-primary-btn--disabled' : runPage === 0 }"
         @click="changePage(-1)"
       />
-      Showing runs {{ 10 * runPage + 1 }} to {{ 10 * (runPage + 1) }} ({{ highestIndex }} total runs)
+      스피드런 {{ 10 * runPage + 1 }}~{{ 10 * (runPage + 1) }} 표시 중 (총 {{ highestIndex }}회)
       <PrimaryButton
         class="o-primary-btn--subtab-option fas fa-arrow-right"
         :class="{ 'o-primary-btn--disabled' : runPage + 1 > highestIndex / 10 }"
@@ -128,16 +128,16 @@ export default {
     <br>
     <div class="c-legend">
       <div class="c-legend-cell">
-        <span class="o-box l-milestone-none" /> Not reached this run
+        <span class="o-box l-milestone-none" /> 이번 스피드런에서 미달성
       </div>
       <div class="c-legend-cell">
-        <span class="o-box l-milestone-slow" /> Slower than comparison
+        <span class="o-box l-milestone-slow" /> 비교 기록보다 느림
       </div>
       <div class="c-legend-cell">
-        <span class="o-box l-milestone-fast" /> Faster than comparison
+        <span class="o-box l-milestone-fast" /> 비교 기록보다 빠름
       </div>
       <div class="c-legend-cell">
-        <span class="o-box l-milestone-fastest" /> Faster than best
+        <span class="o-box l-milestone-fastest" /> 최고 기록보다 빠름
       </div>
     </div>
     <div class="l-speedrun-milestone-tab">

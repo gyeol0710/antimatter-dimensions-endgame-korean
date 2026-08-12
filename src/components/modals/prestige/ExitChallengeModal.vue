@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     isCelestial() {
-      return this.challengeName.match("Reality");
+      return this.challengeName.match("현실");
     },
     isRestarting() {
       return this.isCelestial ? player.options.retryCelestial : player.options.retryChallenge;
@@ -47,22 +47,22 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are about to {{ isRestarting ? "restart" : "exit" }} {{ challengeName }}
+      {{ challengeName }}을(를) {{ isRestarting ? "재시작" : "종료" }}하려 합니다
     </template>
 
     <div class="c-modal-message__text">
       <span v-if="isRestarting">
-        You will immediately re-enter {{ challengeName }} again after confirming this modal.
+        확인하면 {{ challengeName }}에 즉시 다시 진입합니다.
       </span>
       <span v-else>
-        This will place you back into a regular {{ normalName }} without any restrictions.
+        제한이 없는 일반 {{ normalName }} 상태로 돌아갑니다.
       </span>
       <span v-if="hasHigherLayers">
-        Other effects coming from higher-layer restrictions will still continue to apply.
+        더 높은 단계의 제한에서 비롯된 다른 효과는 계속 적용됩니다.
       </span>
     </div>
     <template #confirm-text>
-      {{ isRestarting ? "Restart" : "Exit" }}
+      {{ isRestarting ? "재시작" : "나가기" }}
     </template>
   </ModalWrapperChoice>
 </template>

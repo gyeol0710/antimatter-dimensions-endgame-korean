@@ -56,7 +56,7 @@ export default {
 <template>
   <div class="l-break-celestial-infinity-tab">
     <div v-if="!isUnlocked">
-      Reach {{ formatInt(10000) }} Celestial Infinity Points to unlock Celestial Breaking of Infinity.
+      셀레스티얼 무한 포인트를 {{ formatInt(10000) }}개 모으면 셀레스티얼 무한 돌파가 해금됩니다.
     </div>
     <CelestialBreakInfinityButton class="l-break-celestial-infinity-tab__break-btn" />
     <div

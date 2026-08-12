@@ -104,28 +104,28 @@ export default {
   >
     <!-- Cannot Crunch -->
     <template v-if="!canCrunch">
-      Reach {{ format(infinityGoal, 2, 2) }}
+      {{ format(infinityGoal, 2, 2) }} 도달 필요
       <br>
-      Celestial Matter
+      셀레스티얼 물질
     </template>
 
     <!-- Can Crunch -->
     <template v-else>
       <div v-if="!showCIPRate" />
       <b>
-        <span v-if="showCIPRate">Cel Crunch for </span>
-        <span v-else>Celestial Crunch for </span>
+        <span v-if="showCIPRate">셀레스티얼 크런치로 </span>
+        <span v-else>셀레스티얼 크런치로 </span>
         <span :style="amountStyle">{{ format(gainedCIP, 2) }}</span>
         <span v-if="showCIPRate"> CIP</span>
-        <span v-else> Celestial {{ pluralize("Point", gainedCIP) }} of Infinity</span>
+        <span v-else> 셀레스티얼 무한 {{ pluralize("포인트", gainedCIP) }}</span>
       </b>
       <template v-if="showCIPRate">
         <br>
-        Current: {{ format(currentCIPRate, 2) }} CIP/min
+        현재: {{ format(currentCIPRate, 2) }} CIP/분
         <br>
-        Peak: {{ format(peakCIPRate, 2) }} CIP/min
+        최고: {{ format(peakCIPRate, 2) }} CIP/분
         <br>
-        at {{ format(peakCIPRateVal, 2) }} CIP
+        {{ format(peakCIPRateVal, 2) }} CIP에서 달성
       </template>
       <div v-else />
     </template>

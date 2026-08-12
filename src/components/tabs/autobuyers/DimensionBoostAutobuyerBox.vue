@@ -53,7 +53,7 @@ export default {
     :autobuyer="autobuyer"
     :is-modal="isModal"
     :show-interval="!isBuyMaxUnlocked"
-    name="Automatic Dimension Boosts"
+    name="차원 가속 자동구매기"
   >
     <template
       v-if="!hasMaxedInterval"
@@ -107,12 +107,12 @@ export default {
           class="o-clickable"
         >
         <span v-if="isBuyMaxUnlocked">
-          Only Dimboost to unlock new<br>
+          반물질 은하 X개 도달 전까지 <br>
           Dimensions until X Galaxies:
         </span>
         <span v-else>
-          Galaxies required to always<br>
-          Dimboost, ignoring the limit:
+          반물질 은하 X개 도달 시<br>
+          차원 가속 최대 구매 갯수를 돌파:
         </span>
       </label>
       <AutobuyerInput

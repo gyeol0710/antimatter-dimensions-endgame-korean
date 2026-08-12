@@ -1,7 +1,7 @@
 export const effarigUnlocks = {
   adjuster: {
     id: 0,
-    description: "Adjustable Glyph level factor weights",
+    description: "글리프 레벨 요인의 가중치 조절",
     cost: 1e7,
     onPurchased: () => {
       Effarig.quotes.unlockWeights.show();
@@ -11,7 +11,7 @@ export const effarigUnlocks = {
   },
   glyphFilter: {
     id: 1,
-    description: "Glyph Filtering",
+    description: "글리프 필터링",
     cost: 2e8,
     onPurchased: () => {
       Effarig.quotes.unlockGlyphFilter.show();
@@ -20,7 +20,7 @@ export const effarigUnlocks = {
   },
   setSaves: {
     id: 2,
-    description: "Glyph Presets",
+    description: "글리프 프리셋",
     cost: 3e9,
     onPurchased: () => {
       Effarig.quotes.unlockSetSaves.show();
@@ -29,7 +29,7 @@ export const effarigUnlocks = {
   },
   run: {
     id: 3,
-    description: "Effarig's Reality",
+    description: "에파리그의 현실",
     cost: 5e11,
     onPurchased: () => {
       Effarig.quotes.unlockRun.show();
@@ -37,33 +37,33 @@ export const effarigUnlocks = {
   },
   infinity: {
     id: 4,
-    label: "Infinity",
+    label: "무한",
     get description() {
-      return ` Replicanti cap is multiplied by a value based on Infinities
-        Infinities increase your max Replicanti Galaxies
-        Base Infinity Point gain is capped at ${format(DC.E200)} in Effarig's Reality
-        Each type of Infinity Point multiplier is capped at ${format(DC.E50)} in Effarig's Reality`;
+      return ` 무한 횟수에 따라 복제자 상한에 배율이 적용됩니다
+        무한 횟수가 최대 복제자 은하를 증가시킵니다
+        에파리그의 현실에서는 기본 무한 포인트 획득량이 ${format(DC.E200)}에서 상한에 도달합니다
+        에파리그의 현실에서는 각 종류의 무한 포인트 배율이 ${format(DC.E50)}에서 상한에 도달합니다`;
     },
   },
   eternity: {
     id: 5,
-    label: "Eternity",
+    label: "영원",
     get description() {
-      return ` Eternities generates Infinities
-        Infinity Points are no longer limited in any way in Effarig's Reality
-        You have unlocked The Nameless Ones`;
+      return ` 영원 횟수가 무한 횟수를 생성합니다
+        에파리그의 현실에서 무한 포인트가 더 이상 어떤 방식으로도 제한되지 않습니다
+        이름없는 자들을 해금했습니다`;
     },
   },
   reality: {
     id: 6,
-    label: "Reality",
+    label: "현실",
     get description() {
-      return " You have unlocked Effarig Glyphs (You may equip at most one and some effects are mutually exclusive)";
+      return " 에파리그 글리프를 해금했습니다(최대 하나만 장착할 수 있고 일부 효과는 서로 동시에 적용되지 않습니다)";
     },
   },
   maintainRS: {
     id: 7,
-    description: "Keep Relic Shards on Endgame",
+    description: "엔드게임 시 유물 파편을 유지합니다",
     cost: new Decimal("1e4300"),
     onPurchased: () => {
       Effarig.quotes.keepRelicShard.show();
@@ -72,7 +72,7 @@ export const effarigUnlocks = {
   glyphGenerationBoost: {
     id: 8,
     get description() {
-      return `Effarig Level ${formatInt(100)} affects Glyphs generated on Doom and Endgame`;
+      return `에파리그 레벨 ${formatInt(100)}이 파멸과 엔드게임에서 생성되는 글리프에 영향을 줍니다`;
     },
     cost: new Decimal("1e4400"),
     onPurchased: () => {
@@ -81,7 +81,7 @@ export const effarigUnlocks = {
   },
   maxMomentum: {
     id: 9,
-    description: "Momentum is always maxed",
+    description: "모멘텀이 항상 최대치가 됩니다",
     cost: new Decimal("1e4550"),
     onPurchased: () => {
       Effarig.quotes.maxMomentum.show();
@@ -89,7 +89,7 @@ export const effarigUnlocks = {
   },
   maxRarityBoost: {
     id: 10,
-    description: "Relic Shards boost Glyph Rarity cap at a reduced rate",
+    description: "유물 파편이 감소된 비율로 글리프 희귀도 상한을 강화합니다",
     cost: new Decimal("1e4750"),
     onPurchased: () => {
       Effarig.quotes.moreRarityCap.show();
@@ -97,7 +97,7 @@ export const effarigUnlocks = {
   },
   extendRun: {
     id: 11,
-    description: "Unlock Effarig’s Endgame",
+    description: "에파리그의 엔드게임을 해금합니다",
     cost: new Decimal("1e5000"),
     onPurchased: () => {
       if (Effarig.isRunning) {
@@ -108,14 +108,14 @@ export const effarigUnlocks = {
   },
   endgame: {
     id: 12,
-    label: "Endgame",
+    label: "엔드게임",
     get description() {
-      return ` Every Glyph effect is improved
-        The RM Multiplier Effarig Glyph effect now boosts the RM cap
-        The Glyph Instability Delay Effarig Glyph effect now delays the first ${formatInt(4)} levels of Instability instead of the first ${formatInt(2)}
-        The Effarig Glyph Sacrifice effect is uncapped and values over ${formatPercents(1)} will boost the Glyph Rarity cap
-        Endgame Mastery ${formatInt(71)} now generates at your all-time highest Glyph Level and also generates ${formatInt(2)} Effarig Glyphs
-        Automatically generate ${formatInt(2)} Reality Glyphs on Endgame`;
+      return ` 모든 글리프 효과가 개선됩니다
+        에파리그 글리프의 리얼리티 머신 배율 효과가 이제 리얼리티 머신 상한도 강화합니다
+        에파리그 글리프의 글리프 불안정성 지연 효과가 이제 처음 ${formatInt(2)}단계가 아니라 처음 ${formatInt(4)}단계의 불안정성을 지연합니다
+        에파리그 글리프 희생 효과의 상한이 제거되고 ${formatPercents(1)}를 넘는 값은 글리프 희귀도 상한을 강화합니다
+        엔드게임 마스터리 ${formatInt(71)}이 이제 역대 최고 글리프 레벨로 생성하며 에파리그 글리프도 ${formatInt(2)}개 생성합니다
+        엔드게임 시 현실 글리프 ${formatInt(2)}개를 자동으로 생성합니다`;
     },
   },
 };

@@ -352,7 +352,7 @@ function roundPreservingSum(data) {
         :style="rowStyle('perk shop')"
         class="l-glyph-levels-and-weights__factor"
       >
-        Teresa's Perk shop
+        테레사의 퍼크 상점
       </div>
       <div
         :style="rowStyle('perk shop')"
@@ -372,7 +372,7 @@ function roundPreservingSum(data) {
         :style="rowStyle('shards')"
         class="l-glyph-levels-and-weights__factor"
       >
-        {{ formatInt(100) }}×Shards{{ formatPow(2) }}
+        {{ formatInt(100) }}×유물 파편{{ formatPow(2) }}
       </div>
       <div
         :style="rowStyle('shards')"
@@ -392,7 +392,7 @@ function roundPreservingSum(data) {
         :style="rowStyle('singularities')"
         class="l-glyph-levels-and-weights__factor"
       >
-        Singularities
+        특이점
       </div>
       <div
         :style="rowStyle('singularities')"
@@ -412,7 +412,7 @@ function roundPreservingSum(data) {
         :style="rowStyle('instability')"
         class="l-glyph-levels-and-weights__factor"
       >
-        Instability
+        불안정성
       </div>
       <div
         :style="rowStyle('instability')"
@@ -432,7 +432,7 @@ function roundPreservingSum(data) {
         :style="rowStyle('upgrade rows')"
         class="l-glyph-levels-and-weights__factor"
       >
-        Upgrade Rows
+        업그레이드 행
       </div>
       <div
         :style="rowStyle('upgrade rows')"
@@ -452,7 +452,7 @@ function roundPreservingSum(data) {
         :style="rowStyle('achievements')"
         class="l-glyph-levels-and-weights__factor"
       >
-        Achievements
+        도전과제
       </div>
       <div
         :style="rowStyle('achievements')"
@@ -471,7 +471,7 @@ function roundPreservingSum(data) {
       :style="rowStyle('level')"
       class="l-glyph-levels-and-weights__factor"
     >
-      Final Level
+      최종 레벨
     </div>
     <div
       :style="rowStyle('level')"
@@ -483,13 +483,13 @@ function roundPreservingSum(data) {
       :style="rowStyle('info')"
       class="l-glyph-levels-and-weights__factor l-glyph-level-and-weights-note"
     >
-      Note: All resources here are log10 of their actual values.
+      참고: 이곳의 모든 자원은 실제 값에 상용로그를 적용한 값입니다.
     </div>
     <div
       :style="rowStyle('info2')"
       class="l-glyph-levels-and-weights__factor l-glyph-level-and-weights-note"
     >
-      EP, Replicanti, and DT use their highest values this Reality.
+      EP, 복제자, DT는 이번 현실의 최고값을 사용합니다.
     </div>
     <template v-if="adjustVisible">
       <div
@@ -497,13 +497,13 @@ function roundPreservingSum(data) {
         class="l-glyph-levels-and-weights__adjust-outline"
       />
       <div class="l-glyph-levels-and-weights__adjust-label">
-        Adjust weights
+        가중치 조절
         <div class="l-glyph-levels-and-weights__reset-btn-outer">
           <div
             :class="resetWeightsButtonClass()"
             @click="resetWeights"
           >
-            Reset
+            초기화
           </div>
         </div>
       </div>
@@ -512,7 +512,7 @@ function roundPreservingSum(data) {
           v-if="showAutoAdjustWeights"
           v-model="isAutoAdjustWeightsOn"
           class="c-glyph-levels-and-weights__auto-btn"
-          label="Auto adjustment:"
+          label="자동 조절:"
         />
       </div>
       <div

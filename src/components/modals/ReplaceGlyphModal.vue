@@ -24,7 +24,7 @@ export default {
     };
   },
   computed: {
-    resetTerm() { return this.isDoomed ? "Armageddon" : "Reality"; },
+    resetTerm() { return this.isDoomed ? "아마겟돈" : "현실"; },
   },
   methods: {
     update() {
@@ -46,8 +46,8 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are about to replace a Glyph
+      글리프 교체
     </template>
-    Replacing a Glyph will restart this {{ resetTerm }}.
+    글리프를 교체하면 이번 {{ resetTerm }}이 다시 시작됩니다.
   </ModalWrapperChoice>
 </template>

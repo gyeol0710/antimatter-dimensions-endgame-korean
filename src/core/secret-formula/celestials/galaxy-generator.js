@@ -17,16 +17,16 @@ const rebuyable = config => {
 export const pelleGalaxyGeneratorUpgrades = {
   additive: rebuyable({
     id: "galaxyGeneratorAdditive",
-    description: "Increase base Galaxy generation by 2",
+    description: "기본 은하 생성량을 2만큼 증가시킵니다",
     cost: x => Decimal.pow(3, x),
     effect: x => Decimal.pow(x * 2, DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 2 : 1),
-    formatEffect: x => `${format(x, 2, 2)}/s`,
+    formatEffect: x => `${format(x, 2, 2)}/초`,
     currency: () => Currency.galaxyGeneratorGalaxies,
     currencyLabel: "Galaxy"
   }),
   multiplicative: rebuyable({
     id: "galaxyGeneratorMultiplicative",
-    description: "Multiply Galaxy generation",
+    description: "은하 생성량에 배율을 적용합니다",
     //The command "x > 10000 ? 10 : 1" is to prevent rounding error after the superscaling starts
     cost: x => Decimal.pow(10, Decimal.min(x, 10000)).times(x > 10000 ? 10 : 1).times(
       Decimal.pow(10, (Math.max(x-10001, 0)*(Math.max(x-10001, 0)+1)/2)+Math.max(x-10001, 0))),
@@ -37,34 +37,34 @@ export const pelleGalaxyGeneratorUpgrades = {
   }),
   antimatterMult: rebuyable({
     id: "galaxyGeneratorAntimatterMult",
-    description: "Multiply Galaxy generation",
+    description: "은하 생성량에 배율을 적용합니다",
     cost: x => Decimal.pow("1e100000000", Decimal.pow(10, x)),
     effect: x => Decimal.pow(2 ** (DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 2 : 1), x),
     formatEffect: x => formatX(x, 2),
     currency: () => Currency.antimatter,
-    currencyLabel: "Antimatter"
+    currencyLabel: "반물질"
   }),
   IPMult: rebuyable({
     id: "galaxyGeneratorIPMult",
-    description: "Multiply Galaxy generation",
+    description: "은하 생성량에 배율을 적용합니다",
     cost: x => Decimal.pow("1e2000000", Decimal.pow(100, x)),
     effect: x => Decimal.pow(2 ** (DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 2 : 1), x),
     formatEffect: x => formatX(x, 2),
     currency: () => Currency.infinityPoints,
-    currencyLabel: "Infinity Point"
+    currencyLabel: "무한 포인트"
   }),
   EPMult: rebuyable({
     id: "galaxyGeneratorEPMult",
-    description: "Multiply Galaxy generation",
+    description: "은하 생성량에 배율을 적용합니다",
     cost: x => Decimal.pow("1e10000", Decimal.pow(1000, x)),
     effect: x => Decimal.pow(2 ** (DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 2 : 1), x),
     formatEffect: x => formatX(x, 2),
     currency: () => Currency.eternityPoints,
-    currencyLabel: "Eternity Point"
+    currencyLabel: "영원 포인트"
   }),
   RSMult: rebuyable({
     id: "galaxyGeneratorRSMult",
-    description: "Multiply Galaxy generation",
+    description: "은하 생성량에 배율을 적용합니다",
     cost: x => new Decimal(1e100).times(Decimal.pow(1e10, x)),
     effect: x => Decimal.pow(2 ** (DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 2 : 1), x),
     formatEffect: x => formatX(x, 2),
@@ -73,7 +73,7 @@ export const pelleGalaxyGeneratorUpgrades = {
   }),
   DTMult: rebuyable({
     id: "galaxyGeneratorDTMult",
-    description: "Multiply Galaxy generation",
+    description: "은하 생성량에 배율을 적용합니다",
     cost: x => {
       let c = DC.D1;
       if (x <= 20000) c = new Decimal(1e100).times(Decimal.pow(1e100, (Math.min(x, 20000)*(Math.min(x, 20000)+1)/2)+Math.min(x, 20000)));
@@ -83,20 +83,20 @@ export const pelleGalaxyGeneratorUpgrades = {
     effect: x => Decimal.pow(2 ** (DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 2 : 1), x),
     formatEffect: x => formatX(x, 2),
     currency: () => Currency.dilatedTime,
-    currencyLabel: "Dilated Time"
+    currencyLabel: "팽창 시간"
   }),
   remnantPow: rebuyable({
     id: "galaxyGeneratorRemnantPow",
-    description: "Empower Galaxy generation",
+    description: "은하 생성량을 거듭제곱합니다",
     cost: x => new Decimal(10).times(Decimal.pow10(x)),
     effect: x => 1 + x / (DivinityMilestone.hadronEmpowerment.isReached ? 240 : 400),
     formatEffect: x => formatPow(x, 2, 3),
     currency: () => Currency.remnants,
-    currencyLabel: "Remnant"
+    currencyLabel: "잔재"
   }),
   exponential: rebuyable({
     id: "galaxyGeneratorExponential",
-    description: "Empower Galaxy generation",
+    description: "은하 생성량을 거듭제곱합니다",
     cost: x => new Decimal(1e100).times(Decimal.pow(1e100, (x*(x+1)/2)+x)),
     effect: x => 1 + x / 200,
     formatEffect: x => formatPow(x, 2, 3),
@@ -105,7 +105,7 @@ export const pelleGalaxyGeneratorUpgrades = {
   }),
   superExponential: rebuyable({
     id: "galaxyGeneratorSuperExponential",
-    description: "Dilate Galaxy generation",
+    description: "은하 생성량을 팽창시킵니다",
     cost: x => Decimal.pow(1e100, Decimal.pow(2, x)),
     effect: x => 1 + x / 1000,
     formatEffect: x => formatPow(x, 2, 3),

@@ -27,67 +27,67 @@ import { GameKeyboard } from "./keyboard";
 
 export const shortcuts = [
   {
-    name: "Toggle Autobuyers",
+    name: "자동구매기 전환",
     keys: ["a"],
     type: "bindHotkey",
     function: () => keyboardToggleAutobuyers(),
     visible: true
   }, {
-    name: "Buy one Tickspeed",
+    name: "틱스피드 하나 구매",
     keys: ["shift", "t"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? buyCelestialTickSpeed() : buyTickSpeed(),
     visible: true
   }, {
-    name: "Buy max Tickspeed",
+    name: "틱스피드 최대 구매",
     keys: ["t"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? buyMaxCelestialTickSpeed() : buyMaxTickSpeed(),
     visible: true
   }, {
-    name: "Max all",
+    name: "모두 최대 구매",
     keys: ["m"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? CelestialDimensions.buyMax() : maxAll(),
     visible: true
   }, {
-    name: "Dimensional Sacrifice",
+    name: "차원 희생",
     keys: ["s"],
     type: "bindRepeatableHotkey",
     function: () => sacrificeBtnClick(),
     visible: true
   }, {
-    name: "Dimension Boost",
+    name: "차원 가속",
     keys: ["d"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialDimensionBoost(true) : manualRequestDimensionBoost(true),
     visible: true
   }, {
-    name: "Single Dimension Boost",
+    name: "차원 가속 한 번",
     keys: ["shift", "d"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialDimensionBoost(false) : manualRequestDimensionBoost(false),
     visible: false
   }, {
-    name: "Antimatter Galaxy",
+    name: "반물질 은하",
     keys: ["g"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialGalaxyReset(true) : manualRequestGalaxyReset(true),
     visible: true
   }, {
-    name: "Single Antimatter Galaxy",
+    name: "반물질 은하 하나",
     keys: ["shift", "g"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialGalaxyReset(false) : manualRequestGalaxyReset(false),
     visible: false
   }, {
-    name: "Big Crunch",
+    name: "빅 크런치",
     keys: ["c"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualCelestialCrunchResetRequest() : manualBigCrunchResetRequest(),
     visible: true
   }, {
-    name: "Replicanti Galaxy",
+    name: "복제자 은하",
     keys: ["r"],
     type: "bindHotkey",
     function: () => {
@@ -96,95 +96,95 @@ export const shortcuts = [
     },
     visible: () => Replicanti.areUnlocked || PlayerProgress.eternityUnlocked() || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Eternity",
+    name: "영원",
     keys: ["e"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? celestialEternityResetRequest() : eternityResetRequest(),
     visible: () => PlayerProgress.eternityUnlocked() || Player.canEternity || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Time Study respec",
+    name: "시간 연구 재분배 전환",
     keys: ["shift", "e"],
     type: "bindHotkey",
     function: () => {
       player.respec = !player.respec;
-      GameUI.notify.info(`Time Study respec is now ${player.respec ? "active" : "inactive"}`);
+      GameUI.notify.info(`시간 연구 재분배가 ${player.respec ? "활성화" : "비활성화"}되었습니다`);
     },
     visible: () => PlayerProgress.eternityUnlocked() || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Enter/Exit Dilation",
+    name: "시간 팽창 진입/종료",
     keys: ["l"],
     type: "bindRepeatableHotkey",
     function: () => startDilatedEternityRequest(),
     visible: () => PlayerProgress.realityUnlocked() || PlayerProgress.dilationUnlocked() || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Reality",
+    name: "현실",
     keys: ["y"],
     type: "bindRepeatableHotkey",
     function: () => requestManualReality(),
     visible: () => PlayerProgress.realityUnlocked() || isRealityAvailable() || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Glyph unequip",
+    name: "글리프 장착 해제 전환",
     keys: ["shift", "y"],
     type: "bindHotkey",
     function: () => {
       player.reality.respec = !player.reality.respec;
-      GameUI.notify.info(`Glyph respec is now ${player.reality.respec ? "active" : "inactive"}`);
+      GameUI.notify.info(`글리프 재분배가 ${player.reality.respec ? "활성화" : "비활성화"}되었습니다`);
     },
     visible: () => PlayerProgress.realityUnlocked() || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Start/Pause Automator",
+    name: "오토메이터 시작/일시정지",
     keys: ["u"],
     type: "bindHotkey",
     function: () => keyboardAutomatorToggle(),
     visible: () => Player.automatorUnlocked || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Restart Automator",
+    name: "오토메이터 다시 시작",
     keys: ["shift", "u"],
     type: "bindHotkey",
     function: () => keyboardAutomatorRestart(),
     visible: () => Player.automatorUnlocked || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Undo Edit (Automator)",
+    name: "편집 실행 취소 (오토메이터)",
     keys: ["mod", "z"],
     type: "bind",
     function: () => AutomatorData.undoScriptEdit(),
     visible: () => Player.automatorUnlocked || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Redo Edit (Automator)",
+    name: "편집 다시 실행 (오토메이터)",
     keys: ["mod", "y"],
     type: "bind",
     function: () => AutomatorData.redoScriptEdit(),
     visible: () => Player.automatorUnlocked || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Black Hole",
+    name: "블랙홀 전환",
     keys: ["b"],
     type: "bindHotkey",
     function: () => BlackHoles.togglePause(),
     visible: () => PlayerProgress.realityUnlocked() || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Continuum",
+    name: "연속체 전환",
     keys: ["alt", "a"],
     type: "bindHotkey",
     function: () => keyboardToggleContinuum(),
     visible: () => Laitela.continuumUnlocked || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Armageddon",
+    name: "아마겟돈",
     keys: ["z"],
     type: "bindRepeatableHotkey",
     function: () => armageddonRequest(),
     visible: () => Pelle.isDoomed || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Glyph unequip (Pelle)",
+    name: "글리프 장착 해제 전환 (펠레)",
     keys: ["shift", "z"],
     type: "bindHotkey",
     function: () => {
       if (!Pelle.isDoomed) return;
       player.reality.respec = !player.reality.respec;
-      GameUI.notify.info(`Glyph respec is now ${player.reality.respec ? "active" : "inactive"}`);
+      GameUI.notify.info(`글리프 재분배가 ${player.reality.respec ? "활성화" : "비활성화"}되었습니다`);
     },
     visible: () => Pelle.isDoomed || PlayerProgress.endgameUnlocked()
   }, {
-    name: "Doom Reality",
+    name: "현실 파멸",
     keys: ["alt", "z"],
     type: "bindHotkey",
     function: () => {
@@ -193,7 +193,7 @@ export const shortcuts = [
     },
     visible: () => PlayerProgress.endgameUnlocked()
   }, {
-    name: "Endgame",
+    name: "엔드게임",
     keys: ["n"],
     type: "bindRepeatableHotkey",
     function: () => {
@@ -202,7 +202,7 @@ export const shortcuts = [
     },
     visible: () => PlayerProgress.endgameUnlocked()
   }, {
-    name: "Reset Endgame",
+    name: "엔드게임 초기화",
     keys: ["alt", "n"],
     type: "bindHotkey",
     function: () => {
@@ -211,26 +211,26 @@ export const shortcuts = [
     },
     visible: () => PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Endgame Mastery respec",
+    name: "엔드게임 마스터리 재분배 전환",
     keys: ["shift", "n"],
     type: "bindHotkey",
     function: () => {
       player.endgame.respec = !player.endgame.respec;
-      GameUI.notify.info(`Endgame Mastery respec is now ${player.endgame.respec ? "active" : "inactive"}`);
+      GameUI.notify.info(`엔드게임 마스터리 재분배가 ${player.endgame.respec ? "활성화" : "비활성화"}되었습니다`);
     },
     visible: () => PlayerProgress.endgameUnlocked()
   }, {
-    name: "Toggle Celestial Hotkeys",
+    name: "셀레스티얼 단축키 전환",
     keys: ["shift", "c"],
     type: "bindHotkey",
     function: () => {
       if (!Alpha.isDestroyedForDisplay) return;
       player.options.simpleHotkeysCelestialMode = !player.options.simpleHotkeysCelestialMode;
-      GameUI.notify.info(`Simple Hotkey Celestial commands are now ${player.options.simpleHotkeysCelestialMode ? "active" : "inactive"}`);
+      GameUI.notify.info(`간편 단축키의 셀레스티얼 명령이 ${player.options.simpleHotkeysCelestialMode ? "활성화" : "비활성화"}되었습니다`);
     },
     visible: () => Alpha.isDestroyedForDisplay
   }, {
-    name: "Condense",
+    name: "응축",
     keys: ["o"],
     type: "bindRepeatableHotkey",
     function: () => {
@@ -239,7 +239,7 @@ export const shortcuts = [
     },
     visible: () => PlayerProgress.condenseUnlocked()
   }, {
-    name: "Supernova",
+    name: "초신성",
     keys: ["v"],
     type: "bindRepeatableHotkey",
     function: () => {
@@ -248,7 +248,7 @@ export const shortcuts = [
     },
     visible: () => PlayerProgress.supernovaUnlocked()
   }, {
-    name: "Save game",
+    name: "게임 저장",
     keys: ["mod", "s"],
     type: "bind",
     function: () => {
@@ -257,7 +257,7 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Export game",
+    name: "게임 내보내기",
     keys: ["mod", "e"],
     type: "bind",
     function: () => {
@@ -266,7 +266,7 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Open Hotkey List Modal",
+    name: "단축키 목록 열기",
     keys: ["?"],
     type: "bind",
     function: () => {
@@ -275,7 +275,7 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Open How To Play Modal",
+    name: "게임 방법 열기",
     keys: ["h"],
     type: "bind",
     function: () => {
@@ -284,7 +284,7 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Modify visible tabs",
+    name: "표시할 탭 변경",
     keys: ["tab"],
     type: "bind",
     function: () => {
@@ -293,7 +293,7 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Confirm Modal",
+    name: "모달 확인",
     keys: ["enter"],
     type: "bind",
     function: () => {
@@ -302,7 +302,7 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Close Modal or open Options",
+    name: "모달 닫기 또는 설정 열기",
     keys: ["esc"],
     type: "bind",
     function: () => {
@@ -311,16 +311,16 @@ export const shortcuts = [
     },
     visible: true
   }, {
-    name: "Paying respects",
+    name: "경의를 표하기",
     keys: ["f"],
     type: "bindRepeatable",
     function: () => {
-      GameUI.notify.info("Paying respects");
+      GameUI.notify.info("경의를 표합니다");
       SecretAchievement(13).unlock();
     },
     visible: false
   }, {
-    name: "Change Tab",
+    name: "탭 변경",
     keys: ["up"],
     type: "bind",
     function: () => {
@@ -329,7 +329,7 @@ export const shortcuts = [
     },
     visible: false
   }, {
-    name: "Change Tab",
+    name: "탭 변경",
     keys: ["down"],
     type: "bind",
     function: () => {
@@ -338,7 +338,7 @@ export const shortcuts = [
     },
     visible: false
   }, {
-    name: "Change Subtab",
+    name: "하위 탭 변경",
     keys: ["left"],
     type: "bind",
     function: () => {
@@ -347,7 +347,7 @@ export const shortcuts = [
     },
     visible: false
   }, {
-    name: "Change Subtab",
+    name: "하위 탭 변경",
     keys: ["right"],
     type: "bind",
     function: () => {
@@ -356,49 +356,49 @@ export const shortcuts = [
     },
     visible: false
   }, {
-    name: "Doesn't exist",
+    name: "존재하지 않음",
     keys: ["9"],
     type: "bind",
     function: () => SecretAchievement(41).unlock(),
     visible: false
   },
   {
-    name: "Adjust Autobuyers",
+    name: "자동구매기 조정",
     keys: ["mod", "alt", "a"],
     type: "bind",
     function: () => keyboardEditAutobuyers(),
     visible: () => Autobuyers.hasAutobuyersForEditModal
   },
   {
-    name: "Fullscreen",
+    name: "전체 화면",
     keys: ["F10"],
     type: "bind",
     function: () => {},
     visible: () => false
   },
   {
-    name: "Zoom In",
+    name: "확대",
     keys: ["ctrl", "="],
     type: "bind",
     function: () => ElectronRuntime.increaseZoom(),
     visible: () => false
   },
   {
-    name: "Zoom In",
+    name: "확대",
     keys: ["ctrl", "+"],
     type: "bind",
     function: () => ElectronRuntime.increaseZoom(),
     visible: () => false
   },
   {
-    name: "Zoom Out",
+    name: "축소",
     keys: ["ctrl", "-"],
     type: "bind",
     function: () => ElectronRuntime.decreaseZoom(),
     visible: () => false
   },
   {
-    name: "Reset Zoom",
+    name: "확대/축소 초기화",
     keys: ["ctrl", "0"],
     type: "bind",
     function: () => ElectronRuntime.resetZoom(),
@@ -459,21 +459,21 @@ function toggleAutobuyer(buyer) {
   // Autobuyer.tickspeed.isUnlocked is false without NC9, but we still want the simpler one to be togglable via hotkey
   const isSimpleTickspeed = buyer === Autobuyer.tickspeed && buyer.isBought;
   if (buyer.disabledByContinuum) {
-    GameUI.notify.info("Continuum is enabled, you cannot alter this autobuyer");
+    GameUI.notify.info("연속체가 활성화되어 있어 이 자동구매기를 변경할 수 없습니다");
   } else if (buyer.isUnlocked || isSimpleTickspeed) {
     buyer.toggle();
-    GameUI.notify.info(`${buyer.name} Autobuyer toggled ${(buyer.isActive) ? "on" : "off"}`);
+    GameUI.notify.info(`${buyer.displayName} 자동구매기가 ${(buyer.isActive) ? "켜짐" : "꺼짐"}으로 전환되었습니다`);
   }
   return false;
 }
 
 function toggleBuySingles(buyer) {
   if (buyer.disabledByContinuum) {
-    GameUI.notify.info("Continuum is enabled, you cannot alter this autobuyer");
+    GameUI.notify.info("연속체가 활성화되어 있어 이 자동구매기를 변경할 수 없습니다");
   } else if (buyer.isUnlocked && buyer.toggleMode !== null) {
     buyer.toggleMode();
-    const bulkName = (buyer.name === "Tickspeed" || buyer.hasUnlimitedBulk) ? "max" : "10";
-    GameUI.notify.info(`${buyer.name} Autobuyer set to buy ${(buyer.mode === 1) ? "singles" : bulkName}`);
+    const bulkName = (buyer.name === "Tickspeed" || buyer.hasUnlimitedBulk) ? "최대" : "10";
+    GameUI.notify.info(`${buyer.displayName} 자동구매기가 ${(buyer.mode === 1) ? "하나씩" : bulkName} 구매하도록 설정되었습니다`);
   }
   return false;
 }
@@ -481,7 +481,7 @@ function toggleBuySingles(buyer) {
 function keyboardToggleAutobuyers() {
   if (Tab.automation.isUnlocked) {
     Autobuyers.toggle();
-    GameUI.notify.info(`Autobuyers ${player.auto.autobuyersOn ? "resumed" : "paused"}`);
+    GameUI.notify.info(`자동구매기가 ${player.auto.autobuyersOn ? "재개" : "일시정지"}되었습니다`);
   }
 }
 
@@ -498,7 +498,7 @@ function keyboardToggleContinuum() {
   // This is a toggle despite the lack of !, because player.auto.disableContinuum
   // is negated compared to whether continuum is on.
   Laitela.setContinuum(player.auto.disableContinuum);
-  GameUI.notify.info(`${(player.auto.disableContinuum) ? "Disabled" : "Enabled"} Continuum`);
+  GameUI.notify.info(`연속체가 ${(player.auto.disableContinuum) ? "비활성화" : "활성화"}되었습니다`);
 }
 
 function keyboardAutomatorToggle() {
@@ -514,22 +514,22 @@ function keyboardAutomatorToggle() {
       AutomatorBackend.restart();
       AutomatorBackend.start(visibleIndex);
       if (AutomatorData.currentErrors().length === 0) {
-        GameUI.notify.automator(`Starting script "${AutomatorBackend.scriptName}"`);
+        GameUI.notify.automator(`"${AutomatorBackend.scriptName}" 스크립트를 시작합니다`);
       } else {
-        GameUI.notify.error(`Cannot start script "${AutomatorBackend.scriptName}" (has errors)`);
+        GameUI.notify.error(`"${AutomatorBackend.scriptName}" 스크립트를 시작할 수 없습니다 (오류 있음)`);
       }
       return;
     }
-    const action = AutomatorBackend.isRunning ? "Resuming" : "Pausing";
+    const action = AutomatorBackend.isRunning ? "재개" : "일시정지";
     const linenum = AutomatorBackend.currentLineNumber;
-    GameUI.notify.automator(`${action} script "${AutomatorBackend.scriptName}" at line ${linenum}`);
+    GameUI.notify.automator(`"${AutomatorBackend.scriptName}" 스크립트를 ${linenum}번째 줄에서 ${action}합니다`);
   }
 }
 
 function keyboardAutomatorRestart() {
   if (Player.automatorUnlocked) {
-    const action = AutomatorBackend.isOn ? "Restarting" : "Starting";
-    GameUI.notify.automator(`${action} script "${AutomatorBackend.scriptName}"`);
+    const action = AutomatorBackend.isOn ? "다시 시작" : "시작";
+    GameUI.notify.automator(`"${AutomatorBackend.scriptName}" 스크립트를 ${action}합니다`);
 
     AutomatorBackend.restart();
     AutomatorBackend.start();

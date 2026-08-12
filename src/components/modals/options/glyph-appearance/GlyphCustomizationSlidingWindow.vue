@@ -37,6 +37,9 @@ export default {
     attrString() {
       return this.isSymbol ? "symbol" : "color";
     },
+    attrDisplay() {
+      return this.isSymbol ? "기호" : "색상";
+    },
     typeObject() {
       return CosmeticGlyphTypes;
     },
@@ -213,7 +216,7 @@ export default {
       v-else
       class="c-no-options"
     >
-      You have no custom options for changing Glyph {{ attrString }}s.
+      글리프 {{ attrDisplay }}을 변경할 사용자 설정 옵션이 없습니다.
     </div>
   </div>
 </template>

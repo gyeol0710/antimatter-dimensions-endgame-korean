@@ -87,20 +87,20 @@ export default {
       };
     },
     autoText() {
-      return this.autoPour ? "Auto ON" : "Auto OFF";
+      return this.autoPour ? "자동 켜짐" : "자동 꺼짐";
     },
     pourText() {
-      return this.isPouredAmountCapped ? "Filled" : "Pour RM";
+      return this.isPouredAmountCapped ? "가득 참" : "리얼리티 머신 붓기";
     },
     runDescription() {
       return GameDatabase.celestials.descriptions[0].effects();
     },
     lastMachinesString() {
       return this.lastMachines.gte(DC.E20000)
-        ? `${quantify("Dual Machine", this.lastMachines.dividedBy(DC.E20000), 2)}`
+        ? `${quantify("개의 이중성 머신", this.lastMachines.dividedBy(DC.E20000), 2)}`
         : (this.lastMachines.lt(DC.E10000)
-          ? `${quantify("Reality Machine", this.lastMachines, 2)}`
-          : `${quantify("Imaginary Machine", this.lastMachines.dividedBy(DC.E10000), 2)}`);
+          ? `${quantify("개의 리얼리티 머신", this.lastMachines, 2)}`
+          : `${quantify("개의 허수 머신", this.lastMachines.dividedBy(DC.E10000), 2)}`);
     },
     unlockInfoTooltipArrowStyle() {
       return {
@@ -116,7 +116,7 @@ export default {
       };
     },
     chargeDisplay() {
-      return `Charge Upgrades: ${this.chargeView ? "ON" : "OFF"}`;
+      return `업그레이드 충전: ${this.chargeView ? "켜짐" : "꺼짐"}`;
     },
     shouldDisplayPourLimit() {
       return this.pouredAmountCap.lt(DC.BEMAX);
@@ -170,7 +170,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "Teresa's", number: 0 });
+      Modal.celestials.show({ name: "테레사", number: 0 });
     },
     unlockDescriptionHeight(unlockInfo) {
       const maxPrice = TeresaUnlocks[Teresa.lastUnlock].price;
@@ -204,17 +204,17 @@ export default {
         :class="disChargeClassObject"
         @click="disCharge = !disCharge"
       >
-        Respec Charged Perk Upgrades on next Endgame
+        다음 엔드게임에서 충전된 퍼크 업그레이드 재분배
       </PrimaryButton>
     </div>
     <div v-if="chargeUnlocked">
-      You have charged {{ formatInt(chargesUsed) }}/{{ formatInt(totalCharges) }} Perk Upgrades.
-      Charged Perk Upgrades have their effect altered.
+      퍼크 업그레이드를 {{ formatInt(chargesUsed) }}/{{ formatInt(totalCharges) }}개 충전했습니다.
+      충전된 퍼크 업그레이드는 효과가 달라집니다.
       <br>
-      Hold shift to show Charged Perk Upgrades. You can freely respec your choices on Endgame.
+      Shift를 누르면 충전된 퍼크 업그레이드를 볼 수 있습니다. 엔드게임에서 선택을 자유롭게 재분배할 수 있습니다.
     </div>
     <div>
-      You have {{ quantify("Reality Machine", rm, 2, 2) }}.
+      리얼리티 머신을 {{ quantify("개", rm, 2, 2) }} 보유하고 있습니다.
     </div>
     <div class="l-mechanics-container">
       <div
@@ -223,7 +223,7 @@ export default {
       >
         <div class="c-teresa-unlock c-teresa-run-button">
           <span :class="{ 'o-pelle-disabled': isDoomed }">
-            Start Teresa's Reality.
+            테레사의 현실을 시작합니다.
           </span>
           <div
             :class="runButtonClassObject"
@@ -234,22 +234,22 @@ export default {
           {{ runDescription }}
           <br><br>
           <div>
-            This Reality can be repeated for a stronger reward based on the antimatter gained within it.
+            이 현실을 반복하면 그 안에서 획득한 반물질에 따라 보상이 강해집니다.
             <br><br>
             <span v-if="showRunReward">
-              Your record antimatter in Teresa's Reality is {{ format(bestAM, 2) }},
-              achieved with {{ lastMachinesString }}.
+              테레사의 현실에서 기록한 최고 반물질은 {{ format(bestAM, 2) }}이며,
+              {{ lastMachinesString }}으로 달성했습니다.
               <br><br>
-              Glyph Set used:
+              사용한 글리프 세트:
               <GlyphSetPreview
-                text="Teresa's Best Glyph Set"
+                text="테레사의 최고 글리프 세트"
                 :text-hidden="true"
                 :force-name-color="false"
                 :glyphs="bestAMSet"
               />
             </span>
             <span v-else>
-              You have not completed Teresa's Reality yet.
+              아직 테레사의 현실을 완료하지 못했습니다.
             </span>
           </div>
         </div>
@@ -257,14 +257,14 @@ export default {
           v-if="showRunReward"
           class="c-teresa-unlock"
         >
-          Teresa Reality reward: Glyph Sacrifice power {{ formatX(runReward, 2, 2) }}
+          테레사의 현실 보상: 글리프 희생 파워 {{ formatX(runReward, 2, 2) }}
         </div>
         <div
           v-if="hasEPGen"
           class="c-teresa-unlock"
         >
           <span :class="{ 'o-pelle-disabled': isEPGenDoomed }">
-            Every second, you gain {{ formatPercents(0.01) }} of your peaked Eternity Points per minute this Reality.
+            매초 이 현실에서 기록한 분당 최고 영원 포인트의 {{ formatPercents(0.01) }}를 획득합니다.
           </span>
         </div>
       </div>
@@ -296,14 +296,14 @@ export default {
             :style="{ height: percentage}"
           >
             <div class="c-rm-store-label">
-              {{ formatX(rmMult, 2, 2) }} RM gain
+              리얼리티 머신 획득량 {{ formatX(rmMult, 2, 2) }}
               <br>
               {{ format(pouredAmount, 2, 2) }}
               <span v-if="shouldDisplayPourLimit">
                 / {{ format(pouredAmountCap, 2, 2) }}
               </span>
               <span v-else>
-                RM
+                리얼리티 머신
               </span>
             </div>
           </div>
@@ -337,7 +337,7 @@ export default {
         class="c-teresa-shop"
       >
         <span class="o-teresa-pp">
-          You have {{ quantify("Perk Point", perkPoints, 2, 0) }}.
+          퍼크 포인트를 {{ quantify("개", perkPoints, 2, 0) }} 보유하고 있습니다.
         </span>
         <PerkShopUpgradeButton
           v-for="upgrade in upgrades"
@@ -351,7 +351,7 @@ export default {
         >
           {{ chargeDisplay }}
         </PrimaryButton>
-        You can now modify the appearance of your Glyphs to look like Music Glyphs.
+        이제 글리프의 외형을 음악 글리프처럼 바꿀 수 있습니다.
       </div>
       <div
         v-else

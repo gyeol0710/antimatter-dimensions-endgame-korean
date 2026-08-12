@@ -10,11 +10,11 @@ export const normalChallenges = [
     isQuickResettable: false,
     description() {
       return PlayerProgress.eternityUnlocked()
-        ? "reach Infinity for the first time outside of a challenge."
-        : "reach Infinity for the first time.";
+        ? "도전 밖에서 무한에 처음으로 도달하세요."
+        : "무한에 처음으로 도달하세요.";
     },
-    name: "1st Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 1st Antimatter Dimension Autobuyer",
+    name: "제1 반물질 차원 자동구매기",
+    reward: "제1 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D0
   },
@@ -23,10 +23,10 @@ export const normalChallenges = [
     legacyId: 2,
     isQuickResettable: false,
     description:
-      () => "buying Antimatter Dimensions or Tickspeed upgrades halts production of all Antimatter Dimensions. " +
-      `Production gradually returns to normal over ${formatInt(3)} minutes.`,
-    name: "2nd Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 2nd Antimatter Dimension Autobuyer",
+      () => "반물질 차원 또는 틱스피드 업그레이드를 구매하면 모든 반물질 차원의 생산이 중단됩니다. " +
+      `생산량은 ${formatInt(3)}분에 걸쳐 점차 정상으로 돌아옵니다.`,
+    name: "제2 반물질 차원 자동구매기",
+    reward: "제2 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -35,10 +35,10 @@ export const normalChallenges = [
     legacyId: 3,
     isQuickResettable: false,
     description:
-      `the 1st Antimatter Dimension is heavily weakened, but gets an uncapped exponentially increasing multiplier.
-        This multiplier resets after Dimension Boosts and Antimatter Galaxies.`,
-    name: "3rd Antimatter Dimension",
-    reward: "Upgradeable 3rd Antimatter Dimension Autobuyer",
+      `제1 반물질 차원이 크게 약해지지만 상한 없이 지수적으로 증가하는 배율을 얻습니다.
+        이 배율은 차원 가속 및 반물질 은하 이후 초기화됩니다.`,
+    name: "제3 반물질 차원 자동구매기",
+    reward: "제3 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -46,10 +46,10 @@ export const normalChallenges = [
     id: 4,
     legacyId: 8,
     isQuickResettable: false,
-    description: "buying an Antimatter Dimension automatically erases all lower tier Antimatter Dimensions, " +
-      "like a sacrifice without the boost.",
-    name: "4th Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 4th Antimatter Dimension Autobuyer",
+    description: "반물질 차원을 구매하면 그보다 낮은 단계의 모든 반물질 차원이 자동으로 사라집니다. " +
+      "배율을 주지 않는 희생과 같습니다.",
+    name: "제4 반물질 차원 자동구매기",
+    reward: "제4 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -58,9 +58,9 @@ export const normalChallenges = [
     legacyId: 6,
     isQuickResettable: false,
     description:
-      () => `the Tickspeed purchase multiplier starts at ${formatX(1.080, 0, 3)} instead of ${formatX(1.1245, 0, 3)}.`,
-    name: "5th Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 5th Antimatter Dimension Autobuyer",
+      () => `틱스피드 업그레이드 배율이  ${formatX(1.1245, 0, 3)}배가 아닌 ${formatX(1.080, 0, 3)}배에서 시작됩니다.`,
+    name: "제5 반물질 차원 자동구매기",
+    reward: "제5 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -68,10 +68,10 @@ export const normalChallenges = [
     id: 6,
     legacyId: 10,
     isQuickResettable: false,
-    description: () => `upgrading each Antimatter Dimension costs the Antimatter Dimension ${formatInt(2)} tiers ` +
-      "below it instead of antimatter. Antimatter Dimension prices are modified.",
-    name: "6th Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 6th Antimatter Dimension Autobuyer",
+    description: () => `각 반물질 차원의 업그레이드 비용으로 반물질 대신 ${formatInt(2)}단계 낮은 반물질 차원을 ` +
+      "사용합니다. 반물질 차원의 가격이 변경됩니다.",
+    name: "제6 반물질 차원 자동구매기",
+    reward: "제6 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -80,10 +80,10 @@ export const normalChallenges = [
     legacyId: 9,
     isQuickResettable: false,
     description: () =>
-      `the multiplier from buying ${formatInt(10)} Antimatter Dimensions is reduced to ${formatX(1)}. This increases by
-        ${formatX(0.2, 1, 1)} per Dimension Boost, to a maximum of ${formatX(2)}, and is unaffected by any upgrades.`,
-    name: "7th Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 7th Antimatter Dimension Autobuyer",
+      `반물질 차원 ${formatInt(10)}개 구매 배율이 ${formatX(1)}로 감소합니다. 차원 가속마다
+        ${formatX(0.2, 1, 1)}씩 증가해 최대 ${formatX(2)}가 되며, 어떤 업그레이드의 영향도 받지 않습니다.`,
+    name: "제7 반물질 차원 자동구매기",
+    reward: "제7 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -91,10 +91,10 @@ export const normalChallenges = [
     id: 8,
     legacyId: 11,
     isQuickResettable: false,
-    description: `Dimension Boosts provide no multiplier and Antimatter Galaxies cannot be bought. Dimensional
-      Sacrifice resets antimatter and all Antimatter Dimensions, but also gives a significantly stronger multiplier.`,
-    name: "8th Antimatter Dimension Autobuyer",
-    reward: "Upgradeable 8th Antimatter Dimension Autobuyer",
+    description: `차원 가속이 배율을 제공하지 않고 반물질 은하를 구매할 수 없습니다. 차원 희생은
+      반물질과 모든 반물질 차원을 초기화하지만 훨씬 더 강한 배율을 제공합니다.`,
+    name: "제8 반물질 차원 자동구매기",
+    reward: "제8 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -102,10 +102,10 @@ export const normalChallenges = [
     id: 9,
     legacyId: 5,
     isQuickResettable: true,
-    description: () => `whenever you buy Tickspeed upgrades or ${formatInt(10)} of an Antimatter Dimension, ` +
-      "everything else of equal cost will increase to its next cost step.",
-    name: "Tickspeed Autobuyer",
-    reward: "Upgradeable Tickspeed Autobuyer",
+    description: () => `틱스피드 업그레이드 또는 같은 반물질 차원 ${formatInt(10)}개를 구매할 때마다 ` +
+      "가격이 같은 다른 모든 항목의 가격이 다음 단계로 증가합니다.",
+    name: "틱스피드 자동구매기",
+    reward: "틱스피드 자동구매기 업그레이드",
     lockedAt: DC.D0,
     alphaLockedAt: DC.D1
   },
@@ -113,10 +113,10 @@ export const normalChallenges = [
     id: 10,
     legacyId: 4,
     isQuickResettable: false,
-    description: () => `there are only ${formatInt(6)} Antimatter Dimensions. Dimension Boost ` +
-      "and Antimatter Galaxy costs are modified.",
-    name: "Automated Dimension Boosts",
-    reward: "Dimension Boosts Autobuyer",
+    description: () => `반물질 차원이 ${formatInt(6)}개만 존재합니다. 차원 가속 및 ` +
+      "반물질 은하의 가격이 변경됩니다.",
+    name: "자동 차원 가속",
+    reward: "차원 가속 자동구매기",
     lockedAt: DC.D16,
     alphaLockedAt: DC.D16
   },
@@ -124,10 +124,10 @@ export const normalChallenges = [
     id: 11,
     legacyId: 12,
     isQuickResettable: true,
-    description: () => `there is normal matter which rises once you have at least ${formatInt(1)} 2nd Antimatter ` +
-      "Dimension. If it exceeds your antimatter, it will Dimension Boost without giving the bonus.",
-    name: "Automated Antimatter Galaxies",
-    reward: "Antimatter Galaxies Autobuyer",
+    description: () => `제2 반물질 차원을 ${formatInt(1)}개 이상 보유하면 일반 물질이 증가합니다. ` +
+      "일반 물질이 반물질을 초과하면 보너스 없이 차원 가속이 일어납니다.",
+    name: "자동 반물질 은하",
+    reward: "반물질 은하 자동구매기",
     lockedAt: DC.D16,
     alphaLockedAt: DC.D16
   },
@@ -135,11 +135,11 @@ export const normalChallenges = [
     id: 12,
     legacyId: 7,
     isQuickResettable: false,
-    description: () => `each Antimatter Dimension produces the Dimension ${formatInt(2)} tiers below it
-      instead of ${formatInt(1)}. Both 1st and 2nd Dimensions produce antimatter.
-      The 2nd, 4th, and 6th Dimensions are made stronger to compensate.`,
-    name: "Automated Big Crunches",
-    reward: "Big Crunches Autobuyer",
+    description: () => `각 반물질 차원이 ${formatInt(1)}단계가 아닌 ${formatInt(2)}단계 낮은 차원을 생산합니다.
+      제1 및 제2 반물질 차원은 모두 반물질을 생산합니다.
+      이를 보완하기 위해 제2, 제4, 제6 반물질 차원이 강해집니다.`,
+    name: "자동 빅 크런치",
+    reward: "빅 크런치 자동구매기",
     lockedAt: DC.D16,
     alphaLockedAt: DC.D16
   }

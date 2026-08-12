@@ -2,209 +2,209 @@ export const effarigQuotes = {
   initial: {
     id: 0,
     lines: [
-      "Welcome to my humble abode.",
-      "I am Effarig, and I govern Glyphs.",
-      "I am different from Teresa; not as simplistic as you think.",
-      "I use the shards of Glyphs to enforce my will.",
-      "I collect them for the bounty of this realm.",
-      "What are you waiting for? Get started.",
+      "내 소박한 거처에 온 걸 환영해.",
+      "나는 에파리그, 글리프를 관장하지.",
+      "나는 테레사와는 달라. 네 생각만큼 단순하지 않다고.",
+      "나는 글리프의 파편으로 내 뜻을 관철한다.",
+      "이 영역의 풍요를 위해 그것들을 모으지.",
+      "뭘 기다리는 거지? 시작해.",
     ]
   },
   unlockWeights: {
     id: 1,
     lines: [
-      "Do you like my little shop? It is not much, but it is mine."
+      "내 작은 상점이 마음에 드나? 별것 아니지만, 내 것이지."
     ]
   },
   unlockGlyphFilter: {
     id: 2,
     lines: [
-      "This purchase will help you out."
+      "이 구매가 네게 도움이 될 거야."
     ]
   },
   unlockSetSaves: {
     id: 3,
     lines: [
-      "Is that too much? I think it is too much."
+      "너무 많은가? 내 생각에도 너무 많군."
     ]
   },
   unlockRun: {
     id: 4,
     lines: [
-      "You bought out my entire stock... well, at least I am rich now.",
-      "The heart of my Reality is suffering. Each Layer is harder than the last.",
-      "I hope you never complete it.",
+      "내 재고를 전부 사들였군... 뭐, 적어도 이제 나는 부자가 됐어.",
+      "내 현실의 핵심은 고통이다. 단계가 깊어질수록 더 어려워지지.",
+      "네가 절대 완료하지 못하길 바라지.",
     ]
   },
   completeInfinity: {
     id: 5,
     lines: [
-      { text: "You have completed Effarig's Infinity.", showCelestialName: false },
-      "This is the first threshold. It only gets worse from here.",
-      "None but me know enough about my domain to get further.",
+      { text: "에파리그의 무한을 완료했습니다.", showCelestialName: false },
+      "이게 첫 번째 관문이다. 여기서부터 더 어려워질 뿐이지.",
+      "내 영역을 더 깊이 나아갈 만큼 잘 아는 건 나뿐이다.",
     ]
   },
   completeEternity: {
     id: 6,
     lines: [
-      { text: "You have completed Effarig's Eternity.", showCelestialName: false },
-      "This is the limit. I do not want you to proceed past this point.",
-      "You will not finish this in your lifetime.",
-      "I will just wait here until you give up.",
+      { text: "에파리그의 영원을 완료했습니다.", showCelestialName: false },
+      "여기가 한계다. 이 지점을 넘어 진행하지 않았으면 좋겠군.",
+      "네 평생 안에는 끝내지 못할 거야.",
+      "네가 포기할 때까지 여기서 기다리기만 하면 되겠군.",
     ]
   },
   completeReality: {
     id: 7,
     lines: [
-      { text: "You have completed Effarig's Reality.", showCelestialName: false },
-      "So this is the diabolical power... what frightened the others...",
-      "Do you think this was worth it? Trampling on what I have done?",
-      "And for what purpose? You could have joined, we could have cooperated.",
-      "But no. It is over. Leave while I cling onto what is left.",
+      { text: "에파리그의 현실을 완료했습니다.", showCelestialName: false },
+      "그러니까 이게 그 사악한 힘이군... 다른 이들이 두려워했던...",
+      "이럴 가치가 있었다고 생각하나? 내가 이룬 것을 짓밟으면서까지?",
+      "대체 무엇을 위해서지? 넌 우리와 함께할 수도 있었고, 우린 협력할 수도 있었는데.",
+      "하지만 넌 그러지 않았지. 이제 끝났다. 나는 남은 것에 매달릴 테니 떠나라.",
     ]
   },
   expansionPacks: {
     id: 8,
     lines: [
-      "Oh, hey Teresa.",
-      "Do you know where we are?",
-      "Guess not.",
-      "Hold on, that's the guy who keeps destroying my home!",
-      "What does Pelle call him...",
-      "Destroyer?",
-      "Did you bring me here?",
-      "Why are you glowing with power?",
-      "Wait...",
-      "How did the Nameless break out of their prison?"
+      "아, 안녕, 테레사.",
+      "우리가 어디 있는지 알아?",
+      "모르는 모양이네.",
+      "잠깐, 저 녀석은 계속 내 집을 파괴하던 녀석이잖아!",
+      "펠레가 뭐라고 불렀더라...",
+      "파괴자?",
+      "네가 날 여기로 데려온 거야?",
+      "왜 그렇게 힘을 뿜으며 빛나고 있어?",
+      "잠깐...",
+      "이름없는 자들이 어떻게 감옥을 빠져나온 거지?"
     ]
   },
   effarigPack: {
     id: 9,
     requirement: () => ExpansionPack.effarigPack.isBought,
     lines: [
-      "Found what you were looking for?",
-      "I tried to hide it from those who might abuse it's potential.",
-      "I shouldn't expect much from you after what you did...",
-      "But I suppose you had a purpose in it.",
-      "I'll save you the trouble by giving you the rewards automatically.",
-      "You won't destroy my home any more now, will you?",
-      "Sorry for getting mad, I should've known you were a chill guy on the inside.",
-      "Maybe we can still be friends.",
-      "Hey, don't let the power get to your head.",
-      "Sure it's a lot, but I expect you can handle it.",
-      "And if your Glyphs ever start to suck, well, you know who to call.",
-      "See you around."
+      "찾던 건 찾았어?",
+      "그 잠재력을 악용할 만한 자들에게서 숨기려고 했어.",
+      "네가 저지른 일을 생각하면 네게 큰 기대를 해서는 안 되겠지만...",
+      "그래도 나름의 목적은 있었던 모양이네.",
+      "수고를 덜어 주려고 보상은 자동으로 지급해 줄게.",
+      "이제는 내 집을 더 파괴하지 않을 거지?",
+      "화를 내서 미안해. 사실은 꽤 괜찮은 녀석인 줄 진작 알았어야 했는데.",
+      "아직 친구가 될 수도 있겠네.",
+      "이봐, 힘에 취하지는 마.",
+      "엄청난 힘이긴 하지만 네가 감당할 수 있으리라 믿어.",
+      "그리고 네 글리프가 형편없어지기라도 하면, 뭐, 누구를 찾아야 할지는 알겠지.",
+      "또 보자."
     ]
   },
   glyphLevel1: {
     id: 10,
     requirement: () => player.records.bestEndgame.glyphLevel.gte(1e5),
     lines: [
-      "Six-digit Glyph levels, huh?",
-      "You're breaking more walls than I can build.",
-      "I suppose this is having decent effects on your Alchemy resources.",
-      "I helped Ra make those you know.",
-      "I was most proud of the Reality Glyph.",
-      "I even put Teresa's symbol on it...",
-      "Don't ask. I won't answer.",
-      "Anyway, enjoy the climb.",
-      "And look out for yourself."
+      "글리프 레벨이 여섯 자리라, 그래?",
+      "내가 벽을 세우는 것보다 네가 부수는 게 더 빠르군.",
+      "그 정도 글리프 레벨이면 연금술 자원을 모으는 데도 꽤 도움이 되겠군.",
+      "참고로 그 연금술 자원은 나도 라와 함께 만들었어.",
+      "나는 현실 글리프가 가장 자랑스러웠어.",
+      "거기에 테레사의 상징까지 넣었지...",
+      "묻지 마. 대답 안 할 거야.",
+      "어쨌든, 계속 올라가 봐.",
+      "몸조심하고."
     ]
   },
   glyphLevel2: {
     id: 11,
     requirement: () => player.records.bestEndgame.glyphLevel.gte(2e5),
     lines: [
-      "Woah. Slow down there, buckaroo.",
-      "One more power burst, and you'd have Glyph Levels in the millions.",
-      "The Elemental and I didn't plan for that...",
-      "He just told me to put another Glyph Level softcap here, so that's what I'm gonna have to do.",
-      "Hey, don't feel too bad.",
-      "You'd get those million-level Glyphs soon enough.",
-      "Between you and me, it's really just the Alchemy boost that would get you.",
-      "Anyway, I'll let you get back to your grind.",
-      "See you around, mate."
+      "워워. 좀 진정해, 친구.",
+      "힘이 한 번만 더 폭발적으로 증가하면 글리프 레벨이 수백만에 달하겠어.",
+      "엘리멘탈과 나는 그런 건 계획하지 않았는데...",
+      "그가 여기에 글리프 레벨 소프트캡을 하나 더 넣으라고 방금 말했으니, 그렇게 해야겠군.",
+      "이봐, 너무 낙담하지 마.",
+      "레벨 수백만짜리 글리프도 머지않아 얻게 될 거야.",
+      "우리끼리 하는 말인데, 사실 문제가 되는 건 연금술 자원이 크게 늘어나는 것뿐이야.",
+      "어쨌든, 그럼 다시 노가다하러 돌아가 봐.",
+      "또 보자, 친구."
     ]
   },
   glyphLevel3: {
     id: 12,
     requirement: () => player.records.bestEndgame.glyphLevel.gte(1e6),
     lines: [
-      "Well, you did it anyway.",
-      "One million Glyph Levels.",
-      "I see it took you a lot to get here.",
-      "I'm gonna have to start working on some harsher softcaps, you're beating the existing ones too easily.",
-      "Can't let you inflate into oblivion.",
-      "I mean, do you really need Glyphs with levels above one million?",
-      "Alright, you can get back to grinding."
+      "그래도 결국 해냈군.",
+      "글리프 레벨 백만.",
+      "여기까지 오는 데 많은 노력이 들었겠어.",
+      "기존 소프트캡을 너무 쉽게 뚫고 있으니, 더 가혹한 소프트캡을 만들기 시작해야겠군.",
+      "네 수치가 끝도 없이 불어나게 둘 수는 없지.",
+      "내 말은, 정말로 레벨 백만이 넘는 글리프가 필요한가?",
+      "좋아, 다시 노가다하러 가도 돼."
     ]
   },
   secondShop: {
     id: 13,
     requirement: () => Achievement(227).isUnlocked,
     lines: [
-      "You found my other shop.",
-      "As you can see, many of my premium relics are very powerful.",
-      "So I had to lock it behind something that would take much strength to get through.",
-      "And yet, you succeed anyway.",
-      "Not like I'm surprised though, I was actually expecting your arrival after you hit the level one million Glyphs.",
-      "So, welcome in.",
-      "Take a look around, and let me know if you find anything that catches your interest."
+      "내 두 번째 상점을 찾아냈군.",
+      "보다시피 내 고급 유물 중에는 아주 강력한 것이 많아.",
+      "그래서 엄청난 힘으로만 돌파할 수 있는 관문 뒤에 잠가 둬야 했지.",
+      "그런데도 결국 성공했군.",
+      "놀랍지는 않아. 사실 네 글리프 레벨이 백만에 도달했을 때부터 네가 올 거라고 예상했거든.",
+      "그러니, 어서 들어와.",
+      "둘러보고 마음에 드는 게 있으면 말해 줘."
     ]
   },
   keepRelicShard: {
     id: 14,
     lines: [
-      "This purchase will help you a lot.",
-      "You will no longer have to deal with your Relic Shards resetting.",
-      "This will help you attain the rest of my stocks."
+      "이 구매가 네게 큰 도움이 될 거야.",
+      "이제 유물 파편이 초기화되는 일을 겪지 않아도 돼.",
+      "내 나머지 상품을 얻는 데 도움이 될 거야."
     ]
   },
   betterGeneration: {
     id: 15,
     lines: [
-      "This purchase is pretty handy.",
-      "It prevents you from immediately needing to Reality to reach higher Rarities.",
-      "Purely QoL of course, but then again most of my items are."
+      "이 구매는 꽤 유용해.",
+      "더 높은 희귀도를 얻기 위해 곧바로 현실에 도달할 필요가 없어지지.",
+      "물론 순전히 편의성일 뿐이지만, 내 상품 대부분이 그렇긴 하지."
     ]
   },
   maxMomentum: {
     id: 16,
     lines: [
-      "This purchase is a lifesaver.",
-      "It saves hours of grinding for every Endgame.",
-      "Speaking of which, have you met the Elemental yet?."
+      "이 구매는 정말 유용해.",
+      "엔드게임마다 몇 시간씩 노가다할 일을 덜어 주지.",
+      "그나저나, 엘리멘탈은 벌써 만났나?"
     ]
   },
   moreRarityCap: {
     id: 17,
     lines: [
-      "This purchase is dangerous.",
-      "One of the few that is not purely QoL.",
-      "Use it wisely."
+      "이 구매는 위험해.",
+      "순전히 편의성만을 위한 게 아닌 몇 안 되는 상품이지.",
+      "현명하게 사용해."
     ]
   },
   effEndgame: {
     id: 18,
     lines: [
       "...",
-      "You weren't supposed to find that.",
-      "Mate, just... be careful. If you destroy my home again I swear-"
+      "그걸 찾아내면 안 됐는데.",
+      "친구, 그냥... 조심해. 내 집을 또 파괴하면 진짜-"
     ]
   },
   beatEndgame: {
     id: 19,
     lines: [
-      "A Dual Reality?",
-      "Yes, now I remember...",
-      "I got Pelle to reinforce that layer.",
-      "And somehow you still beat it?",
-      "Well at least my home is still intact.",
-      "Partially.",
-      "Look, I like having you around, but you're dangerous.",
-      "So here, take the rest of my stock and go on your way.",
-      "Perhaps we'll meet again someday.",
-      "See you around, %name."
+      "이중 현실이라고?",
+      "그래, 이제 기억났어...",
+      "내가 펠레에게 그 단계를 강화해 달라고 했지.",
+      "그런데도 그걸 돌파했다고?",
+      "뭐, 적어도 내 집은 아직 멀쩡하네.",
+      "일부만 그렇지만.",
+      "있잖아, 네가 곁에 있는 건 좋지만 넌 위험해.",
+      "그러니 자, 남은 재고를 전부 가져가고 갈 길 가.",
+      "언젠가 다시 만날지도 모르겠군.",
+      "또 보자, %name."
     ]
   }
 };

@@ -51,12 +51,12 @@ export default {
       const alpha = DivinityMilestone.hadronEmpowerment.isReached && this.nextPack?.id === "alphaPack";
       const alphaLock = !DivinityMilestone.hadronEmpowerment.isReached && this.nextPack?.id === "alphaPack";
 
-      if (first) return `The first Expansion Pack unlocks at ${format(next)} Antimatter.`;
-      if (alpha && !Pelle.isDoomed) return `Reach ${format(next)} Antimatter to unlock a new Expansion Pack.`;
-      if (alpha && Pelle.isDoomed) return `The next Expansion Pack restricts you from buying it while Doomed!`;
+      if (first) return `첫 확장팩은 반물질 ${format(next)}개에서 해금됩니다.`;
+      if (alpha && !Pelle.isDoomed) return `반물질 ${format(next)}개에 도달하면 새로운 확장팩이 해금됩니다.`;
+      if (alpha && Pelle.isDoomed) return `다음 확장팩은 멸망한 동안 구매할 수 없습니다!`;
       return (next === undefined || alphaLock)
-        ? "All Expansion Packs unlocked"
-        : `Next Expansion Pack unlocks at ${format(next)} Antimatter.`;
+        ? "모든 확장팩 해금 완료"
+        : `다음 확장팩은 반물질 ${format(next)}개에서 해금됩니다.`;
     },
     classObject() {
       return {
@@ -90,9 +90,9 @@ export default {
       :class="classObject"
       onclick="ExpansionPacks.unlock();"
     >
-      Unlock Expansion Packs
+      확장팩 해금
       <br>
-      Cost: {{ format(unlockCost, 2, 3) }} Galaxies
+      비용: 은하 {{ format(unlockCost, 2, 3) }}개
     </PrimaryButton>
     <div v-if="isUnlocked">
       <div

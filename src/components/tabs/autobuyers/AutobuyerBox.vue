@@ -83,7 +83,7 @@ export default {
     },
     showEternity() {
       return PlayerProgress.eternityUnlocked()
-        ? "this Eternity"
+        ? "(이번 영원에서)"
         : "";
     },
     isShowingStateInfo() {
@@ -95,11 +95,11 @@ export default {
       switch (this.currMode) {
         case AUTO_ETERNITY_MODE.TIME:
           return this.nextTime > 0
-            ? `Will trigger in ${TimeSpan.fromSeconds(new Decimal(this.nextTime)).toStringShort()}`
-            : "Will trigger ASAP";
+            ? `${TimeSpan.fromSeconds(new Decimal(this.nextTime)).toStringShort()} 후 작동`
+            : "가능한 즉시 작동";
         case AUTO_ETERNITY_MODE.X_HIGHEST:
         default:
-          return `Will trigger at ${format(this.nextValue, 2)} ${this.autobuyer.name === "Infinity" ? "IP" : "EP"}`;
+          return `${format(this.nextValue, 2)} ${this.autobuyer.name === "Infinity" ? "IP" : "EP"}에서 작동`;
       }
     }
   },
@@ -188,7 +188,7 @@ export default {
   >
     {{ name }}
     <br>
-    Requirement: {{ format(antimatterCost) }} Total Antimatter {{ showEternity }}
+    요구 조건: 총 반물질 {{ format(antimatterCost) }} {{ showEternity }}
   </div>
 </template>
 

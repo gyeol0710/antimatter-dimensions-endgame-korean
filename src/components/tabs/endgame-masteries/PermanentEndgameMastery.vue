@@ -31,15 +31,15 @@ export default {
     requirement() {
       if (this.id === 1) {
         return `${formatInt(this.maxES)}/${formatInt(EndgameMastery.endgameUpgrades.totalEndgameSkillRequirement)}
-          total Endgame Skills`;
+          총 엔드게임 스킬`;
       }
       if (this.id === 2) {
         return `${formatInt(this.maxES)}/${formatInt(EndgameMastery.permaMasteries.totalEndgameSkillRequirement)}
-          total Endgame Skills`;
+          총 엔드게임 스킬`;
       }
       if (this.id === 3) {
         return `${formatInt(this.maxES)}/${formatInt(EndgameMastery.timeCompression.totalEndgameSkillRequirement)}
-          total Endgame Skills`;
+          총 엔드게임 스킬`;
       }
       return "";
     },

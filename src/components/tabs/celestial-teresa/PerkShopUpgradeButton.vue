@@ -84,7 +84,7 @@ export default {
         v-if="!isCapped && !viewingCharge"
         br
         :config="upgrade.config"
-        :name="otherCurr ? 'Celestial Point' : 'Perk Point'"
+        :name="otherCurr ? '셀레스티얼 포인트' : '퍼크 포인트'"
       />
     </button>
   </div>

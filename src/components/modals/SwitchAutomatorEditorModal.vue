@@ -34,7 +34,7 @@ export default {
       }
     },
     otherMode() {
-      return this.isCurrentlyBlocks ? "Text" : "Block";
+      return this.isCurrentlyBlocks ? "텍스트" : "블록";
     }
   },
   methods: {
@@ -56,38 +56,35 @@ export default {
     @confirm="toggleAutomatorMode"
   >
     <template #header>
-      Change Automator to {{ otherMode }} editor
+      오토메이터 편집기를 {{ otherMode }} 모드로 변경
     </template>
     <div class="c-modal-message__text">
-      This will stop your current script if it is running!
+      현재 스크립트가 실행 중이라면 정지합니다!
       <div v-if="errorCount">
         <br>
-        Your script has some errors which may not get converted properly to {{ otherMode }} mode. Continuing on will
-        make the Automator attempt to parse these lines anyway, although some information may get lost or not be
-        converted properly.
+        스크립트에 오류가 있어 {{ otherMode }} 모드로 올바르게 변환되지 않을 수 있습니다. 계속하면 오토메이터가
+        해당 줄을 변환하려고 시도하지만, 일부 정보가 사라지거나 올바르게 변환되지 않을 수 있습니다.
       </div>
       <!-- Note: this can only ever appear on text-to-block -->
       <b v-if="lostBlocks">
         <br>
-        Warning: Your script also currently has some lines which cannot interpreted as particular commands. These
-        lines will end up being deleted since there is no block they can be converted into.
-        If an error occurs at the start of a loop or IF, this may end up deleting large portions of your script!
+        경고: 현재 스크립트에는 특정 명령으로 해석할 수 없는 줄도 있습니다. 변환할 수 있는 블록이 없으므로
+        해당 줄은 삭제됩니다. 반복문이나 IF의 시작 부분에서 오류가 발생했다면 스크립트의 많은 부분이 삭제될 수 있습니다!
         <span class="l-lost-text">
-          Changing editor modes right now will cause {{ quantifyInt("line", lostBlocks) }} of code to be irreversibly
-          lost!
+          지금 편집기 모드를 바꾸면 코드 {{ quantifyInt("줄", lostBlocks) }}이 되돌릴 수 없게 사라집니다!
         </span>
       </b>
       <br>
       <span class="l-lost-text">
-        Hiding this confirmation is not recommended, as it may cause parts of scripts to be immediately and irreversibly
-        lost if your script has errors when attempting to switch modes.
+        이 확인 창을 숨기는 것은 권장하지 않습니다. 오류가 있는 스크립트의 모드를 전환할 때 일부 내용이 즉시,
+        되돌릴 수 없게 사라질 수 있습니다.
       </span>
       <br>
       <br>
-      Are you sure you want to change to the {{ otherMode }} editor?
+      {{ otherMode }} 편집기로 변경하시겠습니까?
     </div>
     <template #confirm-text>
-      Change Modes
+      모드 변경
     </template>
   </ModalWrapperChoice>
 </template>

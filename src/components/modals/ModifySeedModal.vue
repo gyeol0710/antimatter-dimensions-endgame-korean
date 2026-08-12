@@ -76,48 +76,47 @@ export default {
 <template>
   <ModalWrapper>
     <template #header>
-      Modifying Glyph RNG Seed
+      글리프 난수 시드 변경
     </template>
     <div>
-      All Glyph options beyond the first Reality for an entire playthrough are randomly determined from the very
-      beginning, based on the value of an initial seed number. The role of this seed is that it chooses a single,
-      <i>particular</i> set of Glyph options for your playthrough. If you or anyone else chooses the same seed
-      in a different run, you will get the same options for Glyphs.
+      첫 현실 이후 플레이 전체에서 나타나는 모든 글리프 선택지는 초기 시드 값에 따라 게임 시작 시
+      무작위로 결정됩니다. 이 시드는 플레이에 사용할 <i>특정한</i> 글리프 선택지 묶음 하나를 정합니다.
+      자신이나 다른 사람이 다른 스피드런에서 같은 시드를 선택하면 같은 글리프 선택지가 나타납니다.
       <br>
       <br>
-      You can switch between these three options any point before you generate your first Glyph.
+      첫 글리프를 생성하기 전이라면 언제든 다음 세 설정 사이를 전환할 수 있습니다.
       <br>
-      Current Setting: <b>{{ seedText }}</b>
+      현재 설정: <b>{{ seedText }}</b>
       <br>
       <br>
       <PrimaryButton
         :class="buttonClass(choiceEnum.FIXED)"
         @click="setMode(choiceEnum.FIXED)"
       >
-        Official Preset Seed
+        공식 사전 설정 시드
       </PrimaryButton>
       <br>
-      This is the default option which chooses the seed <b>{{ officialSeed }}</b>. Anyone who
-      chooses to not modify the seed at all will get these Glyph options.
+      시드 <b>{{ officialSeed }}</b>을(를) 선택하는 기본 설정입니다. 시드를 전혀 변경하지 않은
+      모든 플레이어에게 같은 글리프 선택지가 나타납니다.
       <br>
       <br>
       <PrimaryButton
         :class="buttonClass(choiceEnum.RANDOM)"
         @click="setMode(choiceEnum.RANDOM)"
       >
-        Randomized Seed
+        무작위 시드
       </PrimaryButton>
       <br>
-      This selects a completely randomized seed value, producing Glyph options which are very likely to be
-      different from anyone else's playthrough unless they intentionally choose the same value.
+      완전히 무작위인 시드 값을 선택합니다. 다른 플레이어가 의도적으로 같은 값을 선택하지 않는 한
+      서로 다른 글리프 선택지가 나타날 가능성이 매우 높습니다.
       <br>
       <br>
       <PrimaryButton
-        v-tooltip="seedValue === 0 ? 'Input seed cannot be zero!' : ''"
+        v-tooltip="seedValue === 0 ? '입력 시드는 0일 수 없습니다!' : ''"
         :class="buttonClass(choiceEnum.PLAYER)"
         @click="setMode(choiceEnum.PLAYER, seedValue)"
       >
-        Player-selected Seed:
+        플레이어 지정 시드:
       </PrimaryButton>
       <input
         ref="inputSeed"
@@ -127,17 +126,17 @@ export default {
         @input="handleSeedInput()"
       >
       <br>
-      This option sets your seed to the value you type into the text box.
+      텍스트 상자에 입력한 값을 시드로 설정합니다.
       <br>
       <span v-if="seedValue !== 0">
-        Your current input will be {{ convertedInput ? "converted to" : "used as" }} the number <b>{{ seedValue }}</b>.
+        현재 입력은 {{ convertedInput ? "변환되어" : "그대로" }} 숫자 <b>{{ seedValue }}</b>(으)로 사용됩니다.
       </span>
       <span v-else>
-        Your current input {{ convertedInput ? "converts to" : "is equal to" }} <b>0</b>;
-        the seed will default to Official Preset.
+        현재 입력은 {{ convertedInput ? "변환하면" : "그 자체로" }} <b>0</b>이며,
+        시드는 공식 사전 설정값으로 돌아갑니다.
       </span>
       <br>
-      For technical reasons, this value must be must be non-zero to be accepted.
+      기술적인 이유로 이 값은 0이 아니어야 사용할 수 있습니다.
     </div>
   </ModalWrapper>
 </template>

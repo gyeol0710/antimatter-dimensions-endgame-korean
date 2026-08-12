@@ -29,21 +29,21 @@ export default {
       return this.slotCount + 1;
     },
     respecTooltip() {
-      const reset = Pelle.isDoomed ? "Armageddon" : "Reality";
+      const reset = Pelle.isDoomed ? "아마겟돈" : "현실";
       return this.respec
-        ? `Respec is active and will place your currently - equipped Glyphs into your inventory after ${reset}.`
-        : `Your currently-equipped Glyphs will stay equipped on ${reset}.`;
+        ? `재설정이 활성화되어 있어 ${reset} 이후 현재 장착한 글리프를 인벤토리로 옮깁니다.`
+        : `${reset} 이후에도 현재 장착한 글리프가 계속 장착됩니다.`;
     },
     undoTooltip() {
-      if (!this.undoSlotsAvailable) return "You do not have available inventory space to unequip Glyphs to";
+      if (!this.undoSlotsAvailable) return "글리프를 장착 해제할 인벤토리 공간이 없습니다";
       return this.undoAvailable
-        ? ("Unequip the last equipped Glyph and rewind Reality to when you equipped it." +
-          " (Most resources will be fully reset)")
-        : "Undo is only available for Glyphs equipped during this Reality";
+        ? ("마지막으로 장착한 글리프를 해제하고 장착했던 시점으로 현실을 되돌립니다." +
+          " (대부분의 자원이 완전히 초기화됩니다)")
+        : "되돌리기는 이번 현실에서 장착한 글리프에만 사용할 수 있습니다";
     },
     unequipText() {
-      if (Pelle.isDoomed) return "Unequip Glyphs on Armageddon";
-      return "Unequip Glyphs on Reality";
+      if (Pelle.isDoomed) return "아마겟돈 시 글리프 장착 해제";
+      return "현실 달성 시 글리프 장착 해제";
     },
     isDoomed() {
       return Pelle.isDoomed;
@@ -137,7 +137,7 @@ export default {
       // If there aren't any glyphs equipped, the array is full of nulls which get filtered out by x => x
       if (this.glyphs.filter(x => x).length === 0) return;
       Modal.glyphShowcasePanel.show({
-        name: "Equipped Glyphs",
+        name: "장착한 글리프",
         glyphSet: this.glyphs,
         closeEvent: GAME_EVENT.GLYPHS_EQUIPPED_CHANGED,
       });
@@ -204,23 +204,23 @@ export default {
         :ach-tooltip="undoTooltip"
         @click="undo"
       >
-        <span>Rewind to <b>undo</b> the last equipped Glyph</span>
+        <span>시간을 되돌려 마지막 글리프 장착을 <b>취소</b></span>
       </button>
       <button
         class="l-glyph-equip-button c-reality-upgrade-btn"
         @click="toggleRespecIntoProtected"
       >
-        Unequip Glyphs to:
+        글리프 장착 해제 위치:
         <br>
-        <span v-if="respecIntoProtected">Protected slots</span>
-        <span v-else>Main inventory</span>
+        <span v-if="respecIntoProtected">보호된 슬롯</span>
+        <span v-else>기본 인벤토리</span>
       </button>
       <button
         class="l-glyph-equip-button-short c-reality-upgrade-btn"
         :class="{'tutorial--glow': cosmeticGlow}"
         @click="showOptionModal"
       >
-        Open Glyph Visual Options
+        글리프 외형 설정 열기
       </button>
     </div>
   </div>

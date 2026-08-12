@@ -30,7 +30,7 @@ export default {
         // Why is confirmedDelete here: refer to SacrificeGlyphModal.vue
 
         this.emitClose();
-        Modal.message.show("The selected Glyph changed position or was otherwise changed!");
+        Modal.message.show("선택한 글리프의 위치나 상태가 변경되었습니다!");
       }
     },
     handleYesClick() {
@@ -44,12 +44,12 @@ export default {
 <template>
   <ModalWrapperChoice @confirm="handleYesClick">
     <template #header>
-      You are about to delete a Glyph
+      글리프를 삭제하려고 합니다
     </template>
     <div class="c-modal-message__text">
-      Deleting a Glyph will remove the Glyph from your inventory!
+      글리프를 삭제하면 인벤토리에서 영구적으로 제거됩니다!
       <div class="c-modal-hard-reset-danger">
-        There is no benefit in deleting a Glyph before you have unlocked Glyph Sacrifice!
+        글리프 희생을 해금하기 전에 글리프를 삭제해도 얻는 것은 없습니다!
       </div>
     </div>
   </ModalWrapperChoice>

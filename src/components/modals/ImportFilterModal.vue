@@ -69,8 +69,8 @@ export default {
       return ALCHEMY_BASIC_GLYPH_TYPES.filter(t => !GlyphTypes.locked.map(e => e.id).includes(t));
     },
     settingTooltipText() {
-      return `Mouseover each box for more details. ✔ and ✘ symbols denote an effect
-        selected/unselected for Specified Effect mode.`;
+      return `각 칸에 마우스를 올리면 자세한 정보를 확인할 수 있습니다. ✔와 ✘ 기호는 지정 효과 모드에서
+        해당 효과를 선택했는지 나타냅니다.`;
     }
   },
   mounted() {
@@ -81,7 +81,7 @@ export default {
       this.currentSettings = JSON.parse(JSON.stringify(player.reality.glyphs.filter));
     },
     changedValue(oldVal, newVal, applyFn) {
-      if (oldVal === newVal) return "(No change)";
+      if (oldVal === newVal) return "(변경 없음)";
       return `${applyFn(oldVal)} ➜ ${applyFn(newVal)}`;
     },
     importFilter() {
@@ -99,11 +99,11 @@ export default {
     :show-confirm="false"
   >
     <template #header>
-      Import Glyph filter settings
+      글리프 필터 설정 가져오기
     </template>
-    Note: Importing Glyph filter options will overwrite settings
+    참고: 글리프 필터 설정을 가져오면 현재 선택한 모드뿐 아니라
     <br>
-    in all filter modes, not just the currently-selected one.
+    모든 필터 모드의 설정을 덮어씁니다.
     <input
       ref="input"
       v-model="input"
@@ -115,13 +115,13 @@ export default {
     <div class="c-modal-import__save-info">
       <div v-if="!input" />
       <div v-else-if="inputIsValid">
-        <b>Selection mode:</b> {{ selectStr }}
+        <b>선택 모드:</b> {{ selectStr }}
         <br>
-        <b>Effect Count ("Number of Effects"):</b> {{ basicCountStr }}
+        <b>"효과 개수" 모드의 기준값:</b> {{ basicCountStr }}
         <br>
-        <b>Rejected Glyphs:</b> {{ trashStr }}
+        <b>거부한 글리프:</b> {{ trashStr }}
         <br>
-        <u><b>Type-specific Settings</b></u> <span :ach-tooltip="settingTooltipText">
+        <u><b>종류별 설정</b></u> <span :ach-tooltip="settingTooltipText">
           <i class="fas fa-question-circle" />
         </span>
         <br>
@@ -135,7 +135,7 @@ export default {
         />
       </div>
       <div v-else>
-        Not a valid Glyph filter string
+        올바른 글리프 필터 문자열이 아닙니다
       </div>
     </div>
 
@@ -144,7 +144,7 @@ export default {
       class="o-primary-btn--width-medium c-modal-message__okay-btn c-modal__confirm-btn"
       @click="importFilter"
     >
-      Import
+      가져오기
     </PrimaryButton>
   </ModalWrapperChoice>
 </template>

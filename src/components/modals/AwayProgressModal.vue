@@ -37,9 +37,9 @@ export default {
     headerText() {
       const timeDisplay = TimeSpan.fromSeconds(new Decimal(this.seconds)).toString();
       if (this.nothingHappened || !this.somethingHappened) {
-        return `While you were away for ${timeDisplay}... Nothing happened.`;
+        return `당신이 ${timeDisplay}동안 오프라인이었을 때... 아무 일도 일어나지 않았습니다.`;
       }
-      return `While you were away for ${timeDisplay}: `;
+      return `당신이 ${timeDisplay}동안 오프라인이었을 때: `;
     },
   },
   mounted() {
@@ -69,7 +69,7 @@ export default {
         @something-happened="somethingHappened = true"
       />
     </div>
-    <span v-if="!nothingHappened && somethingHappened">Note: Click an entry to hide it in the future.</span>
+    <span v-if="!nothingHappened && somethingHappened">참고: 자원 설명을 클릭하면 이후에는 해당 자원의 증가 여부가 표시되지 않습니다.</span>
   </ModalWrapper>
 </template>
 

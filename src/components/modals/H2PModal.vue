@@ -64,7 +64,7 @@ export default {
     <ModalCloseButton @click="emitClose" />
     <div class="l-h2p-header">
       <div class="c-h2p-title">
-        How To Play
+        게임 방법
       </div>
     </div>
     <div class="l-h2p-container">
@@ -72,7 +72,7 @@ export default {
         <input
           ref="input"
           v-model="searchValue"
-          placeholder="Type to search..."
+          placeholder="검색어 입력..."
           class="c-h2p-search-bar"
           @keyup.esc="emitClose"
         >

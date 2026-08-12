@@ -7,7 +7,7 @@
 .general-tooltip .tooltip-inner {
   width: 20rem;
   text-align: center;
-  font-family: Typewriter, serif;
+  font-family: Typewriter, "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", monospace;
   font-size: 1.4rem;
   line-height: 1.2;
   color: white;

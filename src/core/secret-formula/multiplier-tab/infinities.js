@@ -3,7 +3,7 @@ import { MultiplierTabIcons } from "./icons";
 // See index.js for documentation
 export const infinities = {
   total: {
-    name: "Infinities gained per Crunch",
+    name: "빅 크런치 1회당 획득 무한 횟수",
     isBase: true,
     multValue: () => gainedInfinities(),
     // The earliest sources of infinity multipliers are ach87 and TS32, which may happen in either order
@@ -12,7 +12,7 @@ export const infinities = {
     overlay: ["∞", "<i class='fa-solid fa-arrows-rotate' />"],
   },
   achievement: {
-    name: "Achievements",
+    name: "도전과제",
     multValue: () => DC.D1.timesEffectsOf(
       Achievement(87),
       Achievement(131).effects.infinitiesGain,
@@ -22,43 +22,43 @@ export const infinities = {
     icon: MultiplierTabIcons.ACHIEVEMENT,
   },
   timeStudy: {
-    name: "Time Study 32",
+    name: "시간 연구 32",
     multValue: () => TimeStudy(32).effectOrDefault(1),
     isActive: () => TimeStudy(32).isBought,
     icon: MultiplierTabIcons.TIME_STUDY,
   },
   timeStudy2: {
-    name: "Time Study 191",
+    name: "시간 연구 191",
     multValue: 2,
     isActive: () => TimeStudy(191).isBought,
     icon: MultiplierTabIcons.TIME_STUDY,
   },
   amplifierInf: {
-    name: "Reality Upgrade - Boundless Amplifier",
+    name: "현실 업그레이드 - 무한 증폭기",
     multValue: () => DC.D1.timesEffectsOf(RealityUpgrade(5)),
     isActive: () => PlayerProgress.realityUnlocked() && !Pelle.isDoomed,
     icon: MultiplierTabIcons.UPGRADE("reality"),
   },
   realityUpgrades: {
-    name: "Reality Upgrade - Innumerably Construct",
+    name: "현실 업그레이드 - 무수한 구축",
     multValue: () => DC.D1.timesEffectsOf(RealityUpgrade(7)),
     isActive: () => PlayerProgress.realityUnlocked(),
     icon: MultiplierTabIcons.UPGRADE("reality"),
   },
   glyph: {
-    name: "Equipped Glyphs",
+    name: "장착한 글리프",
     multValue: () => getAdjustedGlyphEffect("infinityinfmult"),
     isActive: () => PlayerProgress.realityUnlocked(),
     icon: MultiplierTabIcons.GENERIC_GLYPH,
   },
   ra: {
-    name: "Ra Upgrade - Multiplier based on TT",
+    name: "라 업그레이드 - 시간 정리 기반 배율",
     multValue: () => Ra.unlocks.continuousTTBoost.effects.infinity.effectOrDefault(1),
     isActive: () => Ra.unlocks.continuousTTBoost.isUnlocked,
     icon: MultiplierTabIcons.GENERIC_RA,
   },
   singularity: {
-    name: "Singularity Milestone - Power from Singularities",
+    name: "특이점 마일스톤 - 특이점 기반 거듭제곱",
     powValue: () => SingularityMilestone.infinitiedPow.effectOrDefault(1),
     isActive: () => SingularityMilestone.infinitiedPow.canBeApplied,
     icon: MultiplierTabIcons.SINGULARITY,

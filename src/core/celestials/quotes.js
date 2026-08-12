@@ -190,9 +190,6 @@ class CelQuotes extends GameMechanicState {
   }
 
   onUnlock() {
-    player.celestials[this._celestial]
-      ? player.celestials[this._celestial].quotes.push(this.id)
-      : player.expanse.elemental.quotes.push(this.id);
     this.present();
   }
 

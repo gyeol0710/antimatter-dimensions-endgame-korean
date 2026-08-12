@@ -82,8 +82,8 @@ class VRunUnlockState extends GameMechanicState {
     Decimal.gte(playerData.runRecords[this.id], this.conditionValue)) {
       if (!V.isFlipped && this.config.isHard) break;
       this.completions++;
-      GameUI.notify.success(`You have unlocked V-Achievement
-        '${this.config.name}' tier ${formatInt(this.completions)}`);
+      GameUI.notify.success(`V 도전과제 '${this.config.name}'의
+        ${formatInt(this.completions)}단계를 해금했습니다`);
 
       V.updateTotalRunUnlocks();
 
@@ -211,7 +211,7 @@ export const V = {
   },
   unlockCelestial() {
     player.celestials.v.unlockBits |= (1 << VUnlocks.vAchievementUnlock.id);
-    GameUI.notify.success("You have unlocked V, The Celestial Of Achievements!", 10000);
+    GameUI.notify.success("도전과제의 셀레스티얼 V를 해금했습니다!", 10000);
     V.quotes.unlock.show();
   },
   initializeRun() {

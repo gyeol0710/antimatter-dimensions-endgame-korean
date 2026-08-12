@@ -1,6 +1,34 @@
 <script>
 import GlyphTooltipEffect from "@/components/GlyphTooltipEffect";
 
+const GLYPH_TYPE_NAMES = {
+  power: "힘",
+  infinity: "무한",
+  replication: "복제",
+  time: "시간",
+  dilation: "팽창",
+  effarig: "에파리그",
+  reality: "현실",
+  cursed: "저주받은",
+  companion: "동료",
+};
+
+const GLYPH_RARITY_NAMES = {
+  Common: "일반",
+  Uncommon: "고급",
+  Rare: "희귀",
+  Epic: "영웅",
+  Legendary: "전설",
+  Mythical: "신화",
+  Transcendent: "초월",
+  Celestial: "천상",
+  Elysian: "낙원",
+  Empyrean: "최고천",
+  Sublime: "숭고",
+  Superlunary: "달 너머",
+  Perfect: "완벽",
+};
+
 export default {
   name: "GlyphTooltip",
   components: {
@@ -106,16 +134,19 @@ export default {
       };
     },
     description() {
-      const glyphName = `${this.type.capitalize()}`;
+      const glyphName = GLYPH_TYPE_NAMES[this.type] ?? this.type.capitalize();
       switch (this.type) {
         case "companion":
-          return "Companion Glyph";
+          return "동료 글리프";
         case "cursed":
-          return "Cursed Glyph";
+          return "저주받은 글리프";
         case "reality":
-          return `Pure Glyph of ${glyphName}`;
-        default:
-          return `${this.rarityInfo.name} Glyph of ${glyphName}`;
+          return `순수한 ${glyphName} 글리프`;
+        default: {
+          const description = `${this.rarityInfo.name} ${glyphName} 글리프`;
+          return description.replace(this.rarityInfo.name,
+            GLYPH_RARITY_NAMES[this.rarityInfo.name] ?? this.rarityInfo.name);
+        }
       }
     },
     isLevelCapped() {
@@ -127,7 +158,7 @@ export default {
     rarityText() {
       if (!GlyphTypes[this.type].hasRarity) return "";
       const strength = Pelle.isDoomed && !PelleDestructionUpgrade.glyphRarity.canBeApplied ? Pelle.glyphStrength : this.strength;
-      return `| Rarity:
+      return `| 희귀도:
         <span style="color: ${this.descriptionStyle.color}">${formatRarity(strengthToRarity(strength))}</span>`;
     },
     levelText() {
@@ -140,7 +171,7 @@ export default {
       const color = this.isLevelCapped
         ? "#ff4444"
         : (this.isLevelBoosted ? "#44FF44" : undefined);
-      return `Level: <span style="color: ${color}">
+      return `레벨: <span style="color: ${color}">
               ${arrow}${formatHybridLarge(this.effectiveLevel, 3)}${arrow}
               </span>`;
     },
@@ -231,7 +262,7 @@ export default {
       const powerText = `${format(this.sacrificeReward, 2, 2)}`;
       const isCurrentAction = this.currentAction === "sacrifice";
       return `<span style="font-weight: ${isCurrentAction ? "bold" : ""};">
-              Sacrifice: ${powerText}
+              희생: ${powerText}
               </span>`;
     },
     refineText() {
@@ -239,18 +270,18 @@ export default {
       if (!AlchemyResource[this.type].isUnlocked) return "";
       let refinementText = `${format(this.uncappedRefineReward, 2, 2)} ${GLYPH_SYMBOLS[this.type]}`;
       if (this.uncappedRefineReward !== this.refineReward) {
-        refinementText += ` (Actual value due to cap: ${format(this.refineReward, 2, 2)} ${GLYPH_SYMBOLS[this.type]})`;
+        refinementText += ` (상한 적용 실제 가치: ${format(this.refineReward, 2, 2)} ${GLYPH_SYMBOLS[this.type]})`;
       }
       const isCurrentAction = this.currentAction === "refine";
       return `<span style="font-weight: ${isCurrentAction ? "bold" : ""};">
-              Refine: ${refinementText}
+              정제: ${refinementText}
               </span>`;
     },
     scoreText() {
       if (this.type === "companion" || this.type === "cursed" || this.type === "reality") return "";
       const showFilterScoreModes = [AUTO_GLYPH_SCORE.SPECIFIED_EFFECT, AUTO_GLYPH_SCORE.EFFECT_SCORE];
       if (!showFilterScoreModes.includes(this.scoreMode)) return "";
-      return `Score: ${format(AutoGlyphProcessor.filterValue(this.$parent.glyph), 1, 1)}`;
+      return `점수: ${format(AutoGlyphProcessor.filterValue(this.$parent.glyph), 1, 1)}`;
     }
   }
 };

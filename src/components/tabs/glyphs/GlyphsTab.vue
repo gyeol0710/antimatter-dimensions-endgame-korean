@@ -87,7 +87,7 @@ export default {
       if (!Enslaved.isRunning) return;
       const haveBoost = Glyphs.activeWithoutCompanion.find(e => e.level.lt(Enslaved.glyphLevelMin)) !== undefined;
       if (haveBoost) {
-        this.enslavedHint = "done... what little... I can... with Glyphs...";
+        this.enslavedHint = "됐다... 글리프로... 내가 할 수 있는... 최소한은...";
       }
     },
     toggleAutoRestartCelestial() {
@@ -157,7 +157,7 @@ export default {
             for="autoRestart"
             class="o-clickable"
           >
-            Repeat this Celestial's Reality
+            이 셀레스티얼의 현실 반복
           </label>
         </div>
 
@@ -167,29 +167,29 @@ export default {
 
         <div v-if="showInstability">
           <br>
-          Glyphs are becoming unstable.
+          글리프가 불안정해지고 있습니다.
           <br>
-          Glyph levels higher than {{ formatInt(instabilityThreshold) }} are harder to reach.
+          {{ formatInt(instabilityThreshold) }}보다 높은 글리프 레벨에는 도달하기가 더 어렵습니다.
           <br>
-          This effect is even stronger above level {{ formatInt(hyperInstabilityThreshold) }}.
+          이 효과는 레벨 {{ formatInt(hyperInstabilityThreshold) }}부터 더욱 강해집니다.
           <br>
           <div v-if="showHigherInstability">
-            Above level {{ formatInt(extremeInstabilityThreshold) }}, higher Glyph levels are nearly impossible to reach.
+            레벨 {{ formatInt(extremeInstabilityThreshold) }}부터는 더 높은 글리프 레벨에 도달하기가 거의 불가능합니다.
           </div>
           <div v-if="showMoreHigherInstability">
-            Past level {{ formatInt(immenseInstabilityThreshold) }}, higher Glyph levels become not much more than a dream.
+            레벨 {{ formatInt(immenseInstabilityThreshold) }}부터 더 높은 글리프 레벨은 꿈에 가까워집니다.
           </div>
           <div v-if="showEvenMoreHigherInstability">
-            Beyond level {{ formatInt(extensiveInstabilityThreshold) }}, just pretend higher Glyph levels don't exist.
+            레벨 {{ formatInt(extensiveInstabilityThreshold) }}부터는 더 높은 글리프 레벨이 존재하지 않는다고 생각하세요.
           </div>
           <div v-if="showStillEvenMoreHigherInstability">
-            Upon exceeding level {{ formatInt(prodigiousInstabilityThreshold) }}, your Glyph Levels just die.
+            레벨 {{ formatInt(prodigiousInstabilityThreshold) }}을 넘으면 글리프 레벨은 사실상 죽어 버립니다.
           </div>
         </div>
         <SingleGlyphCustomzationPanel />
         <ExpandingControlBox
           width-source="content"
-          label="Glyph Level Factors"
+          label="글리프 레벨 요소"
           container-class="c-glyph-level-factors-dropdown-header"
           class="l-glyph-level-factors"
         >
@@ -228,13 +228,13 @@ export default {
                 :class="glyphInfoClass(!sacrificeDisplayed)"
                 @click="setInfoState(false)"
               >
-                Current Glyph effects
+                현재 글리프 효과
               </button>
               <button
                 :class="glyphInfoClass(sacrificeDisplayed)"
                 @click="setInfoState(true)"
               >
-                Glyph Sacrifice totals
+                글리프 희생 총합
               </button>
             </div>
             <SacrificedGlyphs v-if="sacrificeUnlocked && sacrificeDisplayed" />

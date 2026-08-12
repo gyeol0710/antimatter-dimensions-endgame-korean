@@ -56,7 +56,7 @@ export default {
       v-if="!isBought"
       br
       :config="upgrade.config"
-      name="Celestial Infinity Point"
+      name="셀레스티얼 무한 포인트"
     />
   </button>
 </template>

@@ -32,14 +32,25 @@ export default {
       return this.config.description(this.reward);
     },
     name() {
-      return this.config.name.capitalize();
+      const names = {
+        red: "붉은",
+        orange: "주황",
+        yellow: "노란",
+        green: "초록",
+        blue: "파란",
+        purple: "보라",
+        white: "흰",
+        black: "검은",
+        gray: "회색"
+      };
+      return names[this.config.name] ?? this.config.name.capitalize();
     },
     canReset() {
       return Currency.etherealPower.value.gte(this.config.resetReq);
     },
     resetText() {
-      if (!this.canReset) return `Reach ${format(this.config.resetReq, 2, 2)} Ethereal Power`;
-      return `Condense Ethereal Power for ${format(this.pending, 2, 2)} ${this.name} Stars`;
+      if (!this.canReset) return `에테리얼 파워 ${format(this.config.resetReq, 2, 2)} 도달 필요`;
+      return `에테리얼 파워를 응축하여 ${format(this.pending, 2, 2)}개의 ${this.name} 별 획득`;
     },
     rewardClassObject() {
       return {
@@ -83,11 +94,11 @@ export default {
       @mouseleave="isHovering = false"
     >
       <span>
-        You have <span v-if="showPending && canReset">▲</span>{{ format(displayedAmount, 2, 2) }} {{ name }} Stars
+        보유량: <span v-if="showPending && canReset">▲</span>{{ format(displayedAmount, 2, 2) }} {{ name }} 별
       </span>
       <br>
       <span>
-        Effect: <span v-if="showPending && canReset">▲</span>{{ description }}
+        효과: <span v-if="showPending && canReset">▲</span>{{ description }}
       </span>
       <br>
       <br>

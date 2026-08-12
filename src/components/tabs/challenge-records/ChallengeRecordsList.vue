@@ -27,8 +27,8 @@ export default {
     timeDisplayShort,
     completionString(time) {
       return time.lt(DC.BEMAX)
-        ? `record time: ${timeDisplayShort(time)}`
-        : "has not yet been completed";
+        ? `기록: ${timeDisplayShort(time)}`
+        : "아직 완료하지 않음";
     }
   }
 };
@@ -45,10 +45,10 @@ export default {
     </div>
     <br>
     <div v-if="completedAllChallenges">
-      Sum of {{ name }} record times: {{ timeDisplayShort(timeSum) }}
+      {{ name }} 기록 시간 합계: {{ timeDisplayShort(timeSum) }}
     </div>
     <div v-else>
-      You have not completed all {{ name }}s yet.
+      {{ name }} 전체를 아직 완료하지 않았습니다.
     </div>
   </div>
 </template>

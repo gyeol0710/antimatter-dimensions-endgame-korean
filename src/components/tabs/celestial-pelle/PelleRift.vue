@@ -37,8 +37,8 @@ export default {
       return this.rift.id === 3;
     },
     infoTooltip() {
-      return `The Replicanti requirement for the 2nd Rift is based on the total amount you have ever filled, including
-        any amount drained to fill this Rift.`;
+      return `두 번째 균열의 복제자 조건은 이 균열을 채우는 데 소모한 양을 포함하여
+        지금까지 채운 총량을 기준으로 합니다.`;
     }
   },
   methods: {
@@ -104,7 +104,7 @@ export default {
               {{ riftName() }}
             </h2>
             <div class="c-pelle-rift-rift-info-container">
-              Drains {{ drainResource() }} to fill.
+              충전에 소모되는 자원: {{ drainResource() }}
               <span
                 v-if="specialRift"
                 :ach-tooltip="infoTooltip"
@@ -113,10 +113,10 @@ export default {
               </span>
               <br>
               <template v-if="!isMaxed">
-                Current Amount: {{ formatRift(resource) }}
+                현재 보유량: {{ formatRift(resource) }}
               </template>
               <br>
-              Total Filled: {{ formatRift(rift.totalFill) }}
+              총 충전량: {{ formatRift(rift.totalFill) }}
             </div>
           </div>
         </div>

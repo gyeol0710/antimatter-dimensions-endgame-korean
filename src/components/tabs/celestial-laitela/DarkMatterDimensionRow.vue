@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     name() {
-      return `${DarkMatterDimension(this.tier).shortDisplayName} Dark Matter Dimension`;
+      return `${DarkMatterDimension(this.tier).shortDisplayName} 암흑 물질 차원`;
     },
     ascensionText() {
       return `(⯅${formatInt(this.ascension)})`;
@@ -69,8 +69,8 @@ export default {
       const line1 = this.hoverOverAscension ? `<b>${str}</b>` : str;
 
       let line2;
-      if (this.isIntervalCapped) line2 = this.hoverOverAscension ? "On ascend ➜" : "Ascend!";
-      else line2 = `Cost: ${this.formatDMCost(this.intervalCost)} DM`;
+      if (this.isIntervalCapped) line2 = this.hoverOverAscension ? "승천 시 ➜" : "승천!";
+      else line2 = `비용: 암흑 물질 ${this.formatDMCost(this.intervalCost)}`;
       return ` ${line1}<br>${line2}`;
     },
     darkMatterText() {
@@ -80,8 +80,8 @@ export default {
 
       const ascMult = this.powerDMPerAscension.mul(this.interval).div(this.intervalAfterAscension);
       const line2 = this.hoverOverAscension
-        ? `${formatX(ascMult, 2, 2)} / sec`
-        : `Cost: ${this.formatDMCost(this.powerDMCost)} DM`;
+        ? `초당 ${formatX(ascMult, 2, 2)}`
+        : `비용: 암흑 물질 ${this.formatDMCost(this.powerDMCost)}`;
       return `${line1}<br>${line2}`;
     },
     darkEnergyText() {
@@ -90,14 +90,14 @@ export default {
       const line1 = this.hoverOverAscension ? `<b>${str}</b>` : str;
       const ascMult = POWER_DE_PER_ASCENSION.mul(this.interval).div(this.intervalAfterAscension);
       const line2 = this.hoverOverAscension
-        ? `${formatX(ascMult, 2, 2)} / sec`
-        : `Cost: ${this.formatDMCost(this.powerDECost)} DM`;
+        ? `초당 ${formatX(ascMult, 2, 2)}`
+        : `비용: 암흑 물질 ${this.formatDMCost(this.powerDECost)}`;
       return `${line1}<br>${line2}`;
     },
     ascensionTooltip() {
-      return `Interval is capped at ${formatInt(DarkMatterDimension(this.tier).intervalPurchaseCap)}ms.
-        Ascension multiplies interval by ${formatInt(this.intervalAscensionBump)},
-        DM by ${formatHybridSmall(this.powerDMPerAscension, 3)}, and DE by ${formatInt(POWER_DE_PER_ASCENSION)}.`;
+      return `간격은 ${formatInt(DarkMatterDimension(this.tier).intervalPurchaseCap)}ms가 하한입니다.
+        승천하면 간격에 ${formatInt(this.intervalAscensionBump)},
+        암흑 물질에 ${formatHybridSmall(this.powerDMPerAscension, 3)}, 암흑 에너지에 ${formatInt(POWER_DE_PER_ASCENSION)}를 곱합니다.`;
     }
   },
   methods: {
@@ -176,8 +176,8 @@ export default {
       {{ name }}<span v-if="hasAscended"> {{ ascensionText }}</span>: {{ format(amount, 2) }}
     </div>
     <div>
-      Average gain: {{ format(productionPerSecond, 2, 2) }}/s
-      (+{{ formatPercents(percentPerSecond, 2, 2) }}/s)
+      평균 획득량: {{ format(productionPerSecond, 2, 2) }}/초
+      (+{{ formatPercents(percentPerSecond, 2, 2) }}/초)
     </div>
     <div class="c-dark-matter-dimension-buttons">
       <button
@@ -208,13 +208,13 @@ export default {
       </button>
     </div>
     <div v-if="interval.gt(200)">
-      Tick: {{ formatInt(timer) }} ms ({{ formatPercents(timerPercent, 1) }})
+      틱: {{ formatInt(timer) }} ms ({{ formatPercents(timerPercent, 1) }})
     </div>
     <div v-else>
-      {{ format(interval.div(1000).recip(), 2, 2) }} ticks / sec
+      초당 {{ format(interval.div(1000).recip(), 2, 2) }}틱
     </div>
     <div>
-      Dark Energy: {{ format(darkEnergyPerSecond, 2, 4) }}/s ({{ formatPercents(portionDE, 1) }} of total)
+      암흑 에너지: {{ format(darkEnergyPerSecond, 2, 4) }}/초 (전체의 {{ formatPercents(portionDE, 1) }})
     </div>
   </div>
 </template>

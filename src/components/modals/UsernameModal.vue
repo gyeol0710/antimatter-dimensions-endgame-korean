@@ -39,14 +39,14 @@ export default {
     @confirm="saveUsername"
   >
     <template #header>
-      ENTER USERNAME
+      사용자 이름 입력
     </template>
     <div class="c-modal-message__text">
-      Please confirm your username.
-      <span class="c-modal-username-danger">You can only choose your username once.</span>
-      Type in your desired username to confirm.
+      사용자 이름을 확인해 주세요.
+      <span class="c-modal-username-danger">사용자 이름은 한 번만 정할 수 있습니다.</span>
+      원하는 사용자 이름을 입력하여 확인하세요.
       <div class="c-modal-username-danger">
-        THIS ACTION IS IRREVERSIBLE
+        이 작업은 되돌릴 수 없습니다
       </div>
     </div>
     <input
@@ -61,14 +61,14 @@ export default {
         v-if="notEmpty"
         class="c-modal-username-danger"
       >
-        Username confirmed - are you sure this is your desired username?
+        입력한 사용자 이름이 맞습니까?
       </div>
       <div v-else>
-        Please type something.
+        사용자 이름을 입력해 주세요.
       </div>
     </div>
     <template #confirm-text>
-      CONFIRM
+      확인
     </template>
   </ModalWrapperChoice>
 </template>

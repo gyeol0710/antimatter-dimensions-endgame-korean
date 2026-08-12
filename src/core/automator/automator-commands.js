@@ -29,15 +29,15 @@ function compileConditionLoop(evalComparison, commands, ctx, isUntil) {
     run: () => {
       const loopStr = isUntil ? "UNTIL" : "WHILE";
       if (!evalComparison()) {
-        AutomatorData.logCommandEvent(`Checked ${parseConditionalIntoText(ctx)} (${isUntil}),
-          exiting loop at line ${AutomatorBackend.translateLineNumber(ctx.RCurly[0].startLine + 1) - 1}
-          (end of ${loopStr} loop)`, ctx.startLine);
+        AutomatorData.logCommandEvent(`${parseConditionalIntoText(ctx)} 확인 (${isUntil}),
+          ${AutomatorBackend.translateLineNumber(ctx.RCurly[0].startLine + 1) - 1}번째 줄에서 반복문 종료
+          (${loopStr} 반복문 끝)`, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_NEXT_INSTRUCTION;
       }
       AutomatorBackend.push(commands);
-      AutomatorData.logCommandEvent(`Checked ${parseConditionalIntoText(ctx)} (${!isUntil}),
-        moving to line ${AutomatorBackend.translateLineNumber(ctx.LCurly[0].startLine + 1) - 1}
-        (start of ${loopStr} loop)`, ctx.startLine);
+      AutomatorData.logCommandEvent(`${parseConditionalIntoText(ctx)} 확인 (${!isUntil}),
+        ${AutomatorBackend.translateLineNumber(ctx.LCurly[0].startLine + 1) - 1}번째 줄로 이동
+        (${loopStr} 반복문 시작)`, ctx.startLine);
       return AUTOMATOR_COMMAND_STATUS.SAME_INSTRUCTION;
     },
     blockCommands: commands,
@@ -68,13 +68,13 @@ function findLastPrestigeRecord(layer) {
       gainedEP = `${format(player.records.recentEternities[0][1], 2)} EP`;
       return addedECs === 0
         ? `${gainedEP}`
-        : `${gainedEP}, ${addedECs} completions`;
+        : `${gainedEP}, 완료 ${addedECs}회`;
     case "REALITY":
       return `${format(player.records.recentRealities[0][1], 2)} RM`;
     case "DOOM":
-      return `Dooming your Reality does not give a currency`;
+      return `현실 파멸은 재화를 지급하지 않음`;
     case "ARMAGEDDON":
-      return `There is no currency logging for Armageddon (yet)`;
+      return `아마겟돈 재화 기록은 아직 지원하지 않음`;
     case "ENDGAME":
       return `${format(player.records.recentEndgames[0][1], 2)} CP`;
     default:
@@ -105,8 +105,8 @@ export const AutomatorCommands = [
         const desired$ = ctx.PrestigeEvent[0].tokenType.$prestigeCurrency;
         const specified$ = ctx.currencyAmount[0].children.AutomatorCurrency[0].tokenType.name;
         if (desired$ !== specified$) {
-          V.addError(ctx.currencyAmount, `AutomatorCurrency doesn't match prestige (${desired$} vs ${specified$})`,
-            `Use ${desired$} for the specified prestige resource`);
+          V.addError(ctx.currencyAmount, `오토메이터 재화가 프레스티지와 일치하지 않습니다 (${desired$} vs ${specified$})`,
+            `지정한 프레스티지 재화에는 ${desired$}을(를) 사용하세요`);
           return false;
         }
       }
@@ -116,55 +116,53 @@ export const AutomatorCommands = [
       // Do not change to switch statement; T.XXX are Objects, not primitive values
       if (ctx.PrestigeEvent[0].tokenType === T.Infinity) {
         if (!Autobuyer.bigCrunch.isUnlocked) {
-          V.addError(ctx.PrestigeEvent, "Infinity autobuyer is not unlocked",
-            "Complete the Big Crunch Autobuyer challenge to use this command");
+          V.addError(ctx.PrestigeEvent, "무한 자동구매기가 해금되지 않았습니다",
+            "이 명령을 사용하려면 빅 크런치 자동구매기 도전을 완료하세요");
           return false;
         }
         if (advSetting && !EternityMilestone.bigCrunchModes.isReached) {
           V.addError((ctx.duration || ctx.xHighest)[0],
-            "Advanced Infinity autobuyer settings are not unlocked",
-            `Reach ${quantifyInt("Eternity", EternityMilestone.bigCrunchModes.config.eternities)}
-            to use this command`);
+            "고급 무한 자동구매기 설정이 해금되지 않았습니다",
+            `이 명령을 사용하려면 영원 횟수 ${quantifyInt("회", EternityMilestone.bigCrunchModes.config.eternities)}에 도달하세요`);
           return false;
         }
       }
       if (ctx.PrestigeEvent[0].tokenType === T.Eternity) {
         if (!EternityMilestone.autobuyerEternity.isReached) {
-          V.addError(ctx.PrestigeEvent, "Eternity autobuyer is not unlocked",
-            `Reach ${quantifyInt("Eternity", EternityMilestone.autobuyerEternity.config.eternities)}
-            to use this command`);
+          V.addError(ctx.PrestigeEvent, "영원 자동구매기가 해금되지 않았습니다",
+            `이 명령을 사용하려면 영원 횟수 ${quantifyInt("회", EternityMilestone.autobuyerEternity.config.eternities)}에 도달하세요`);
           return false;
         }
         if (advSetting && !RealityUpgrade(13).isBought) {
           V.addError((ctx.duration || ctx.xHighest)[0],
-            "Advanced Eternity autobuyer settings are not unlocked",
-            "Purchase the Reality Upgrade which unlocks advanced Eternity autobuyer settings");
+            "고급 영원 자동구매기 설정이 해금되지 않았습니다",
+            "고급 영원 자동구매기 설정을 해금하는 현실 업그레이드를 구매하세요");
           return false;
         }
       }
       if (ctx.PrestigeEvent[0].tokenType === T.Reality) {
         if (!RealityUpgrade(25).isBought) {
-          V.addError(ctx.PrestigeEvent, "Reality autobuyer is not unlocked",
-            "Purchase the Reality Upgrade which unlocks the Reality autobuyer");
+          V.addError(ctx.PrestigeEvent, "현실 자동구매기가 해금되지 않았습니다",
+            "현실 자동구매기를 해금하는 현실 업그레이드를 구매하세요");
           return false;
         }
         if (advSetting) {
           V.addError((ctx.duration || ctx.xHighest)[0],
-            "Auto Reality cannot be set to a duration or x highest",
-            "Use RM for Auto Reality");
+            "자동 현실에는 기간이나 x highest를 설정할 수 없습니다",
+            "자동 현실에는 RM을 사용하세요");
           return false;
         }
       }
       if (ctx.PrestigeEvent[0].tokenType === T.Endgame) {
         if (!EndgameMilestone.autobuyerEndgame.isReached) {
-          V.addError(ctx.PrestigeEvent, "Endgame autobuyer is not unlocked",
-            "Reach the Endgame Milestone which unlocks the Endgame autobuyer");
+          V.addError(ctx.PrestigeEvent, "엔드게임 자동구매기가 해금되지 않았습니다",
+            "엔드게임 자동구매기를 해금하는 엔드게임 마일스톤에 도달하세요");
           return false;
         }
         if (advSetting) {
           V.addError((ctx.duration || ctx.xHighest)[0],
-            "Auto Endgame cannot be set to a duration or x highest",
-            "Use CP for Auto Endgame");
+            "자동 엔드게임에는 기간이나 x highest를 설정할 수 없습니다",
+            "자동 엔드게임에는 CP를 사용하세요");
           return false;
         }
       }
@@ -188,11 +186,11 @@ export const AutomatorCommands = [
           autobuyer.mode = durationMode;
           autobuyer.time = duration / 1000;
           // Can't do the units provided in the script because it's been parsed away like 4 layers up the call stack
-          currSetting = `${autobuyer.time > 1000 ? formatInt(autobuyer.time) : quantify("second", autobuyer.time)}`;
+          currSetting = `${autobuyer.time > 1000 ? formatInt(autobuyer.time) : quantify("초", autobuyer.time)}`;
         } else if (xHighest !== undefined) {
           autobuyer.mode = xHighestMode;
           autobuyer.xHighest = new Decimal(xHighest);
-          currSetting = `${format(xHighest, 2, 2)} times highest`;
+          currSetting = `최고 기록의 ${format(xHighest, 2, 2)}배`;
         } else if (fixedAmount !== undefined) {
           autobuyer.mode = fixedMode;
           if (isReality) {
@@ -205,9 +203,9 @@ export const AutomatorCommands = [
         }
         // Settings are drawn from the actual automator text; it's not feasible to parse out all the settings
         // for every combination of autobuyers when they get turned off
-        const settingString = (autobuyer.isActive && currSetting !== "") ? `(Setting: ${currSetting})` : "";
-        AutomatorData.logCommandEvent(`Automatic ${ctx.PrestigeEvent[0].image}
-          turned ${autobuyer.isActive ? "ON" : "OFF"} ${settingString}`, ctx.startLine);
+        const settingString = (autobuyer.isActive && currSetting !== "") ? `(설정: ${currSetting})` : "";
+        AutomatorData.logCommandEvent(`자동 ${ctx.PrestigeEvent[0].image}
+          ${autobuyer.isActive ? "ON" : "OFF"} ${settingString}`, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       };
     },
@@ -254,11 +252,11 @@ export const AutomatorCommands = [
         if (on === BlackHoles.arePaused) BlackHoles.togglePause();
         let blackHoleEvent;
         if (BlackHole(1).isUnlocked) {
-          blackHoleEvent = `Black Holes toggled ${ctx.On ? "ON" : "OFF"}`;
+          blackHoleEvent = `블랙홀을 ${ctx.On ? "ON" : "OFF"}(으)로 전환`;
         } else if (Enslaved.isRunning || Pelle.isDisabled("blackhole")) {
-          blackHoleEvent = "Black Hole command ignored because BH is disabled in your current Reality";
+          blackHoleEvent = "현재 현실에서 BH가 비활성화되어 BLACK HOLE 명령을 무시함";
         } else {
-          blackHoleEvent = "Black Hole command ignored because BH is not unlocked";
+          blackHoleEvent = "BH가 해금되지 않아 BLACK HOLE 명령을 무시함";
         }
         AutomatorData.logCommandEvent(blackHoleEvent, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
@@ -327,13 +325,13 @@ export const AutomatorCommands = [
             ifEndLine: ctx.RCurly[0].startLine
           };
           if (!evalComparison()) {
-            AutomatorData.logCommandEvent(`Checked ${parseConditionalIntoText(ctx)} (false),
-              skipping to line ${AutomatorBackend.translateLineNumber(ctx.RCurly[0].startLine + 1)}`, ctx.startLine);
+            AutomatorData.logCommandEvent(`${parseConditionalIntoText(ctx)} 확인 (false),
+              ${AutomatorBackend.translateLineNumber(ctx.RCurly[0].startLine + 1)}번째 줄로 건너뜀`, ctx.startLine);
             return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
           }
           AutomatorBackend.push(commands);
-          AutomatorData.logCommandEvent(`Checked ${parseConditionalIntoText(ctx)} (true),
-            entering IF block`, ctx.startLine);
+          AutomatorData.logCommandEvent(`${parseConditionalIntoText(ctx)} 확인 (true),
+            IF 블록 진입`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.SAME_INSTRUCTION;
         },
         blockCommands: commands,
@@ -368,8 +366,8 @@ export const AutomatorCommands = [
     compile: ctx => {
       const notifyText = ctx.StringLiteral || ctx.StringLiteralSingleQuote;
       return () => {
-        GameUI.notify.automator(`Automator: ${notifyText[0].image}`);
-        AutomatorData.logCommandEvent(`NOTIFY call: ${notifyText[0].image}`, ctx.startLine);
+        GameUI.notify.automator(`오토메이터: ${notifyText[0].image}`);
+        AutomatorData.logCommandEvent(`NOTIFY 호출: ${notifyText[0].image}`, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       };
     },
@@ -393,9 +391,8 @@ export const AutomatorCommands = [
       let duration;
       if (ctx.Identifier) {
         if (!V.isValidVarFormat(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.DURATION)) {
-          V.addError(ctx, `Constant ${ctx.Identifier[0].image} is not a valid time duration constant`,
-            `Ensure that ${ctx.Identifier[0].image} is a number of seconds less than
-            ${format(Number.MAX_VALUE / 1000)}`);
+          V.addError(ctx, `상수 ${ctx.Identifier[0].image}은(는) 올바른 시간 기간 상수가 아닙니다`,
+            `${ctx.Identifier[0].image}이(가) ${format(Number.MAX_VALUE / 1000)}보다 작은 초 단위 숫자인지 확인하세요`);
           return false;
         }
         const lookup = V.lookupVar(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.DURATION);
@@ -419,13 +416,13 @@ export const AutomatorCommands = [
         }
         if (S.commandState === null) {
           S.commandState = { timeMs: 0 };
-          AutomatorData.logCommandEvent(`Pause started (waiting ${timeString})`, ctx.startLine);
+          AutomatorData.logCommandEvent(`일시 정지 시작 (${timeString} 대기)`, ctx.startLine);
         } else {
           S.commandState.timeMs += Math.max(Time.unscaledDeltaTime.totalMilliseconds.toNumber(), AutomatorBackend.currentInterval);
         }
         const finishPause = S.commandState.timeMs >= duration;
         if (finishPause) {
-          AutomatorData.logCommandEvent(`Pause finished (waited ${timeString})`, ctx.startLine);
+          AutomatorData.logCommandEvent(`일시 정지 종료 (${timeString} 대기함)`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_SAME_INSTRUCTION;
@@ -457,21 +454,20 @@ export const AutomatorCommands = [
 
       if (ctx.PrestigeEvent && ctx.PrestigeEvent[0].tokenType === T.Eternity &&
         !EternityMilestone.autobuyerEternity.isReached) {
-        V.addError(ctx.PrestigeEvent, "Eternity autobuyer is not unlocked",
-          `Reach ${quantifyInt("Eternity", EternityMilestone.autobuyerEternity.config.eternities)}
-          to use this command`);
+        V.addError(ctx.PrestigeEvent, "영원 자동구매기가 해금되지 않았습니다",
+          `이 명령을 사용하려면 영원 횟수 ${quantifyInt("회", EternityMilestone.autobuyerEternity.config.eternities)}에 도달하세요`);
         return false;
       }
 
       if (ctx.PrestigeEvent && ctx.PrestigeEvent[0].tokenType === T.Reality && !RealityUpgrade(25).isBought) {
-        V.addError(ctx.PrestigeEvent, "Reality autobuyer is not unlocked",
-          "Purchase the Reality Upgrade which unlocks the Reality autobuyer");
+        V.addError(ctx.PrestigeEvent, "현실 자동구매기가 해금되지 않았습니다",
+          "현실 자동구매기를 해금하는 현실 업그레이드를 구매하세요");
         return false;
       }
 
       if (ctx.PrestigeEvent && ctx.PrestigeEvent[0].tokenType === T.Infinity && ctx.Respec) {
-        V.addError(ctx.Respec, "There's no 'respec' for infinity",
-          "Remove 'respec' from the command");
+        V.addError(ctx.Respec, "infinity에는 'respec'이 없습니다",
+          "명령에서 'respec'을 제거하세요");
       }
       return true;
     },
@@ -483,14 +479,14 @@ export const AutomatorCommands = [
         const available = prestigeToken.$prestigeAvailable();
         if (!available) {
           if (!nowait) return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_SAME_INSTRUCTION;
-          AutomatorData.logCommandEvent(`${ctx.PrestigeEvent.image} attempted, but skipped due to NOWAIT`,
+          AutomatorData.logCommandEvent(`${ctx.PrestigeEvent.image} 시도 실패, NOWAIT로 건너뜀`,
             ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         if (respec) prestigeToken.$respec();
         prestigeToken.$prestige();
         const prestigeName = ctx.PrestigeEvent[0].image.toUpperCase();
-        AutomatorData.logCommandEvent(`${prestigeName} triggered (${findLastPrestigeRecord(prestigeName)})`,
+        AutomatorData.logCommandEvent(`${prestigeName} 실행 (${findLastPrestigeRecord(prestigeName)})`,
           ctx.startLine);
         // In the prestigeToken.$prestige() line above, performing a reality reset has code internal to the call
         // which makes the automator restart. However, in that case we also need to update the execution state here,
@@ -520,12 +516,12 @@ export const AutomatorCommands = [
     },
     compile: ctx => () => {
       if (player.dilation.active) {
-        AutomatorData.logCommandEvent(`Start Dilation encountered but ignored due to already being dilated`,
+        AutomatorData.logCommandEvent(`이미 시간 팽창 중이므로 START DILATION을 무시함`,
           ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       }
       if (startDilatedEternity(true)) {
-        AutomatorData.logCommandEvent(`Dilation entered`, ctx.startLine);
+        AutomatorData.logCommandEvent(`시간 팽창 진입`, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_NEXT_INSTRUCTION;
       }
       return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_SAME_INSTRUCTION;
@@ -547,7 +543,7 @@ export const AutomatorCommands = [
       return () => {
         const ec = EternityChallenge(ecNumber);
         if (ec.isRunning) {
-          AutomatorData.logCommandEvent(`Start EC encountered but ignored due to already being in the specified EC`,
+          AutomatorData.logCommandEvent(`이미 지정한 EC를 진행 중이므로 START EC를 무시함`,
             ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
@@ -557,7 +553,7 @@ export const AutomatorCommands = [
           }
         }
         if (ec.start(true)) {
-          AutomatorData.logCommandEvent(`Eternity Challenge ${ecNumber} started`, ctx.startLine);
+          AutomatorData.logCommandEvent(`영원 도전 ${ecNumber} 시작`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_NEXT_INSTRUCTION;
         }
         return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_SAME_INSTRUCTION;
@@ -582,8 +578,8 @@ export const AutomatorCommands = [
     validate: (ctx, V) => {
       ctx.startLine = ctx.StoreGameTime[0].startLine;
       if (!Enslaved.isUnlocked) {
-        V.addError(ctx.StoreGameTime[0], "You do not yet know how to store game time",
-          "Unlock the ability to store game time");
+        V.addError(ctx.StoreGameTime[0], "아직 게임 시간을 저장할 수 없습니다",
+          "게임 시간 저장 기능을 해금하세요");
         return false;
       }
       return true;
@@ -592,9 +588,9 @@ export const AutomatorCommands = [
       if (ctx.Use) return () => {
         if (Enslaved.isUnlocked) {
           Enslaved.useStoredTime(false);
-          AutomatorData.logCommandEvent(`Stored game time used`, ctx.startLine);
+          AutomatorData.logCommandEvent(`저장한 게임 시간 사용`, ctx.startLine);
         } else {
-          AutomatorData.logCommandEvent(`Attempted to use stored game time, but failed (not unlocked yet)`,
+          AutomatorData.logCommandEvent(`저장한 게임 시간 사용 실패 (아직 해금되지 않음)`,
             ctx.startLine);
         }
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
@@ -602,7 +598,7 @@ export const AutomatorCommands = [
       const on = Boolean(ctx.On);
       return () => {
         if (on !== player.celestials.enslaved.isStoring) Enslaved.toggleStoreBlackHole();
-        AutomatorData.logCommandEvent(`Storing game time toggled ${ctx.On ? "ON" : "OFF"}`, ctx.startLine);
+        AutomatorData.logCommandEvent(`게임 시간 저장을 ${ctx.On ? "ON" : "OFF"}(으)로 전환`, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       };
     },
@@ -627,8 +623,8 @@ export const AutomatorCommands = [
       ctx.startLine = ctx.Studies[0].startLine;
       if (ctx.Identifier) {
         if (!V.isValidVarFormat(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.STUDIES)) {
-          V.addError(ctx, `Constant ${ctx.Identifier[0].image} is not a valid Time Study constant`,
-            `Ensure that ${ctx.Identifier[0].image} is a properly-formatted Time Study string`);
+          V.addError(ctx, `상수 ${ctx.Identifier[0].image}은(는) 올바른 시간 연구 상수가 아닙니다`,
+            `${ctx.Identifier[0].image}이(가) 올바른 형식의 시간 연구 문자열인지 확인하세요`);
           return false;
         }
         const varInfo = V.lookupVar(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.STUDIES);
@@ -652,17 +648,17 @@ export const AutomatorCommands = [
         }
         if (prePurchasedStudies + purchasedStudies < studies.normal.length) {
           if (prePurchasedStudies + purchasedStudies === 0) {
-            AutomatorData.logCommandEvent(`Could not purchase any of the specified Time Studies`, ctx.startLine);
+            AutomatorData.logCommandEvent(`지정한 시간 연구를 하나도 구매하지 못함`, ctx.startLine);
           }
           if (purchasedStudies > 0 && finalPurchasedTS) {
-            AutomatorData.logCommandEvent(`Purchased ${quantifyInt("Time Study", purchasedStudies)} and stopped at
-            Time Study ${finalPurchasedTS}, waiting to attempt to purchase more Time Studies`, ctx.startLine);
+            AutomatorData.logCommandEvent(`시간 연구 ${quantifyInt("개", purchasedStudies)}를 구매하고
+            시간 연구 ${finalPurchasedTS}에서 멈춤, 더 구매할 수 있을 때까지 대기`, ctx.startLine);
           }
           return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_SAME_INSTRUCTION;
         }
         const hasEC = studies.ec ? TimeStudy.eternityChallenge(studies.ec).isBought : false;
         if (!studies.ec || (hasEC && !studies.startEC)) {
-          AutomatorData.logCommandEvent(`Purchased all specified Time Studies`, ctx.startLine);
+          AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매함`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         const unlockedEC = TimeStudy.eternityChallenge(studies.ec).purchase(true);
@@ -670,15 +666,15 @@ export const AutomatorCommands = [
           if (studies.startEC) {
             EternityChallenge(studies.ec).start(true);
             if (EternityChallenge(studies.ec).isRunning) {
-              AutomatorData.logCommandEvent(`Purchased all specified Time Studies, then unlocked and started running
-                Eternity Challenge ${studies.ec}`, ctx.startLine);
+              AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매한 뒤 영원 도전 ${studies.ec}을(를)
+                해금하고 시작함`, ctx.startLine);
             } else {
-              AutomatorData.logCommandEvent(`Purchased all specified Time Studies and unlocked Eternity Challenge
-                ${studies.ec}, but failed to start it`, ctx.startLine);
+              AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매하고 영원 도전 ${studies.ec}을(를)
+                해금했지만 시작하지 못함`, ctx.startLine);
             }
           } else {
-            AutomatorData.logCommandEvent(`Purchased all specified Time Studies and unlocked Eternity Challenge
-              ${studies.ec}`, ctx.startLine);
+            AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매하고 영원 도전 ${studies.ec}을(를) 해금함`,
+              ctx.startLine);
           }
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
@@ -717,15 +713,15 @@ export const AutomatorCommands = [
         const split = idSplitter.exec(ctx.Id[0].image);
 
         if (!split || ctx.Id[0].isInsertedInRecovery) {
-          V.addError(ctx, "Missing preset id",
-            "Provide the id of a saved study preset slot from the Time Studies page");
+          V.addError(ctx, "프리셋 ID가 없습니다",
+            "시간 연구 페이지에 저장된 연구 프리셋 슬롯의 ID를 입력하세요");
           return false;
         }
 
         const id = parseInt(split[1], 10);
         if (id < 1 || id > 6) {
-          V.addError(ctx.Id[0], `Could not find a preset with an id of ${id}`,
-            "Type in a valid id (1 - 6) for your study preset");
+          V.addError(ctx.Id[0], `ID가 ${id}인 프리셋을 찾을 수 없습니다`,
+            "연구 프리셋에 올바른 ID(1 - 6)를 입력하세요");
           return false;
         }
         ctx.$presetIndex = id;
@@ -736,16 +732,16 @@ export const AutomatorCommands = [
         const split = presetSplitter.exec(ctx.Name[0].image);
 
         if (!split || ctx.Name[0].isInsertedInRecovery) {
-          V.addError(ctx, "Missing preset name",
-            "Provide the name of a saved study preset from the Time Studies page");
+          V.addError(ctx, "프리셋 이름이 없습니다",
+            "시간 연구 페이지에 저장된 연구 프리셋 이름을 입력하세요");
           return false;
         }
 
         // If it's a name, we check to make sure it exists:
         const presetIndex = player.timestudy.presets.findIndex(e => e.name === split[1]) + 1;
         if (presetIndex === 0) {
-          V.addError(ctx.Name[0], `Could not find preset named ${split[1]} (Note: Names are case-sensitive)`,
-            "Check to make sure you typed in the correct name for your study preset");
+          V.addError(ctx.Name[0], `${split[1]} 프리셋을 찾을 수 없습니다 (참고: 이름은 대소문자를 구분합니다)`,
+            "연구 프리셋 이름을 올바르게 입력했는지 확인하세요");
           return false;
         }
         ctx.$presetIndex = presetIndex;
@@ -768,10 +764,10 @@ export const AutomatorCommands = [
         const presetRepresentation = ctx.Name ? ctx.Name[0].image : ctx.Id[0].image;
 
         if (missingStudyCount === 0) {
-          AutomatorData.logCommandEvent(`Fully loaded study preset ${presetRepresentation}`, ctx.startLine);
+          AutomatorData.logCommandEvent(`연구 프리셋 ${presetRepresentation} 전체 불러오기 완료`, ctx.startLine);
         } else if (afterCount > beforeCount) {
-          AutomatorData.logCommandEvent(`Partially loaded study preset ${presetRepresentation}
-            (missing ${quantifyInt("study", missingStudyCount)})`, ctx.startLine);
+          AutomatorData.logCommandEvent(`연구 프리셋 ${presetRepresentation} 일부만 불러옴
+            (연구 ${quantifyInt("개", missingStudyCount)} 누락)`, ctx.startLine);
         }
         return ctx.Nowait !== undefined || missingStudyCount === 0
           ? AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION
@@ -797,7 +793,7 @@ export const AutomatorCommands = [
     },
     compile: ctx => () => {
       player.respec = true;
-      AutomatorData.logCommandEvent(`Turned study respec ON`, ctx.startLine);
+      AutomatorData.logCommandEvent(`연구 재설정을 ON으로 전환`, ctx.startLine);
       return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
     },
     blockify: () => automatorBlocksMap["STUDIES RESPEC"]
@@ -817,16 +813,16 @@ export const AutomatorCommands = [
       const nowait = ctx.Nowait !== undefined;
       return () => {
         if (PlayerProgress.dilationUnlocked()) {
-          AutomatorData.logCommandEvent(`Skipped dilation unlock due to being already unlocked`, ctx.startLine);
+          AutomatorData.logCommandEvent(`시간 팽창이 이미 해금되어 해금을 건너뜀`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         const unlockedThisTick = TimeStudy.dilation.purchase(true);
         if (unlockedThisTick) {
-          AutomatorData.logCommandEvent(`Unlocked Dilation`, ctx.startLine);
+          AutomatorData.logCommandEvent(`시간 팽창 해금`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         if (nowait) {
-          AutomatorData.logCommandEvent(`Skipped dilation unlock due to lack of requirements (NOWAIT)`,
+          AutomatorData.logCommandEvent(`요구 조건이 부족하여 시간 팽창 해금을 건너뜀 (NOWAIT)`,
             ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
@@ -855,16 +851,16 @@ export const AutomatorCommands = [
       const ecNumber = ctx.eternityChallenge[0].children.$ecNumber;
       return () => {
         if (EternityChallenge(ecNumber).isUnlocked) {
-          AutomatorData.logCommandEvent(`Skipped EC ${ecNumber} unlock due to being already unlocked`, ctx.startLine);
+          AutomatorData.logCommandEvent(`EC ${ecNumber}이(가) 이미 해금되어 해금을 건너뜀`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         if (nowait) {
-          AutomatorData.logCommandEvent(`EC ${ecNumber} unlock failed and skipped (NOWAIT)`, ctx.startLine);
+          AutomatorData.logCommandEvent(`EC ${ecNumber} 해금 실패 후 건너뜀 (NOWAIT)`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         const purchased = TimeStudy.eternityChallenge(ecNumber).purchase(true);
         if (purchased) {
-          AutomatorData.logCommandEvent(`EC ${ecNumber} unlocked`, ctx.startLine);
+          AutomatorData.logCommandEvent(`EC ${ecNumber} 해금`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         return AUTOMATOR_COMMAND_STATUS.NEXT_TICK_SAME_INSTRUCTION;
@@ -904,22 +900,22 @@ export const AutomatorCommands = [
       let prestigeName;
       switch (ctx.PrestigeEvent[0].tokenType) {
         case T.Infinity:
-          prestigeName = "Infinity";
+          prestigeName = "무한";
           break;
         case T.Eternity:
-          prestigeName = "Eternity";
+          prestigeName = "영원";
           break;
         case T.Reality:
-          prestigeName = "Reality";
+          prestigeName = "현실";
           break;
         case T.Doom:
-          prestigeName = "Doom";
+          prestigeName = "파멸";
           break;
         case T.Armageddon:
-          prestigeName = "Armageddon";
+          prestigeName = "아마겟돈";
           break;
         case T.Endgame:
-          prestigeName = "Endgame";
+          prestigeName = "엔드게임";
           break;
         default:
           throw Error("Unrecognized prestige layer in until loop");
@@ -930,13 +926,13 @@ export const AutomatorCommands = [
             S.commandState = { prestigeLevel: 0 };
           }
           if (S.commandState.prestigeLevel >= prestigeLevel) {
-            AutomatorData.logCommandEvent(`${prestigeName} prestige has occurred, exiting until loop`,
+            AutomatorData.logCommandEvent(`${prestigeName} 프레스티지가 발생하여 UNTIL 반복문 종료`,
               ctx.startLine);
             return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
           }
           AutomatorBackend.push(commands);
-          AutomatorData.logCommandEvent(`${prestigeName} prestige has not occurred yet, moving to line
-            ${AutomatorBackend.translateLineNumber(ctx.LCurly[0].startLine + 1)} (start of until loop)`,
+          AutomatorData.logCommandEvent(`${prestigeName} 프레스티지가 아직 발생하지 않아
+            ${AutomatorBackend.translateLineNumber(ctx.LCurly[0].startLine + 1)}번째 줄로 이동 (UNTIL 반복문 시작)`,
           ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.SAME_INSTRUCTION;
         },
@@ -979,17 +975,17 @@ export const AutomatorCommands = [
       if (doneWaiting) {
         const timeWaited = TimeSpan.fromMilliseconds(new Decimal(Date.now() - AutomatorData.waitStart)).toStringShort();
         if (AutomatorData.isWaiting) {
-          AutomatorData.logCommandEvent(`Continuing after WAIT
-            (${parseConditionalIntoText(ctx)} is true, after ${timeWaited})`, ctx.startLine);
+          AutomatorData.logCommandEvent(`WAIT 후 계속 실행
+            (${parseConditionalIntoText(ctx)}이(가) true, ${timeWaited} 후)`, ctx.startLine);
         } else {
-          AutomatorData.logCommandEvent(`WAIT skipped (${parseConditionalIntoText(ctx)} is already true)`,
+          AutomatorData.logCommandEvent(`WAIT 건너뜀 (${parseConditionalIntoText(ctx)}이(가) 이미 true)`,
             ctx.startLine);
         }
         AutomatorData.isWaiting = false;
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       }
       if (!AutomatorData.isWaiting) {
-        AutomatorData.logCommandEvent(`Started WAIT for ${parseConditionalIntoText(ctx)}`, ctx.startLine);
+        AutomatorData.logCommandEvent(`${parseConditionalIntoText(ctx)} 조건으로 WAIT 시작`, ctx.startLine);
         AutomatorData.waitStart = Date.now();
       }
       AutomatorData.isWaiting = true;
@@ -1028,13 +1024,13 @@ export const AutomatorCommands = [
         const prestigeName = ctx.PrestigeEvent[0].image.toUpperCase();
         if (prestigeOccurred) {
           const timeWaited = TimeSpan.fromMilliseconds(new Decimal(Date.now() - AutomatorData.waitStart)).toStringShort();
-          AutomatorData.logCommandEvent(`Continuing after WAIT (${prestigeName} occurred for
-            ${findLastPrestigeRecord(prestigeName)}, after ${timeWaited})`, ctx.startLine);
+          AutomatorData.logCommandEvent(`WAIT 후 계속 실행 (${prestigeName} 발생,
+            ${findLastPrestigeRecord(prestigeName)}, ${timeWaited} 후)`, ctx.startLine);
           AutomatorData.isWaiting = false;
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         if (!AutomatorData.isWaiting) {
-          AutomatorData.logCommandEvent(`Started WAIT for ${prestigeName}`, ctx.startLine);
+          AutomatorData.logCommandEvent(`${prestigeName}을(를) 기다리는 WAIT 시작`, ctx.startLine);
           AutomatorData.waitStart = Date.now();
         }
         AutomatorData.isWaiting = true;
@@ -1065,16 +1061,16 @@ export const AutomatorCommands = [
       // This input has the format "bh#"
       const holeID = ctx.BlackHoleStr ? Number(ctx.BlackHoleStr[0].image.charAt(2)) : 0;
       const bhCond = off ? !BlackHole(1).isActive : BlackHole(holeID).isActive;
-      const bhStr = off ? "inactive Black Holes" : `active Black Hole ${holeID}`;
+      const bhStr = off ? "비활성 블랙홀" : `활성 블랙홀 ${holeID}`;
       if (bhCond) {
         const timeWaited = TimeSpan.fromMilliseconds(new Decimal(Date.now() - AutomatorData.waitStart)).toStringShort();
-        AutomatorData.logCommandEvent(`Continuing after WAIT (waited ${timeWaited} for ${bhStr})`,
+        AutomatorData.logCommandEvent(`WAIT 후 계속 실행 (${bhStr}까지 ${timeWaited} 대기)`,
           ctx.startLine);
         AutomatorData.isWaiting = false;
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       }
       if (!AutomatorData.isWaiting) {
-        AutomatorData.logCommandEvent(`Started WAIT for ${bhStr}`, ctx.startLine);
+        AutomatorData.logCommandEvent(`${bhStr}을(를) 기다리는 WAIT 시작`, ctx.startLine);
         AutomatorData.waitStart = Date.now();
       }
       AutomatorData.isWaiting = true;
@@ -1126,7 +1122,7 @@ export const AutomatorCommands = [
       return true;
     },
     compile: ctx => () => {
-      AutomatorData.logCommandEvent(`Automator execution stopped with STOP command`, ctx.startLine);
+      AutomatorData.logCommandEvent(`STOP 명령으로 오토메이터 실행 정지`, ctx.startLine);
       return AUTOMATOR_COMMAND_STATUS.HALT;
     },
     blockify: () => ({

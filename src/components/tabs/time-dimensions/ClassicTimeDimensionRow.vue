@@ -46,7 +46,7 @@ export default {
       return ui.view.shiftDown;
     },
     name() {
-      return `${TimeDimension(this.tier).shortDisplayName} Time Dimension`;
+      return `${TimeDimension(this.tier).shortDisplayName} 시간 차원`;
     },
     buttonContents() {
       if (this.showTTCost) return this.formattedTTCost;
@@ -54,20 +54,20 @@ export default {
     },
     tooltipContents() {
       if (this.showTTCost) return `${this.formattedEPCost}<br>${this.timeEstimate}`;
-      if (this.isCapped) return `Nameless prevents the purchase of more than ${format(1)} Time Dimension`;
-      if (this.isContinuumActive) return "Continuum produces all your Time Dimensions";
-      return `Purchased ${quantifyHybridLarge("time", this.bought)}`;
+      if (this.isCapped) return `이름없는 자들이 시간 차원을 ${format(1)}개 넘게 구매하지 못하게 합니다`;
+      if (this.isContinuumActive) return "연속체가 모든 시간 차원을 생산합니다";
+      return `총 ${quantifyHybridLarge("번", this.bought)} 구매함`;
     },
     showRow() {
       return this.realityUnlocked || this.isUnlocked || this.requirementReached;
     },
     formattedTTCost() {
-      return `Unlock: ${format(this.ttCost)} TT`;
+      return `해금: ${format(this.ttCost)} TT`;
     },
     formattedEPCost() {
-      if (this.isCapped) return "Capped";
-      if (this.isContinuumActive) return `Continuum: ${this.continuumString}`;
-      return `${this.showCostTitle ? "Cost: " : ""}${format(this.cost, 2)} EP`;
+      if (this.isCapped) return "상한 도달";
+      if (this.isContinuumActive) return `연속체: ${this.continuumString}`;
+      return `${this.showCostTitle ? "가격: " : ""}${format(this.cost, 2)} EP`;
     },
     continuumString() {
       return formatHybridFloat(this.continuumValue, 2);
@@ -81,7 +81,7 @@ export default {
     timeEstimate() {
       if (!this.showTTCost || this.ttGen.eq(0)) return "";
       const time = Decimal.sub(this.ttCost, this.currTT).dividedBy(this.ttGen);
-      return time.gt(0) ? `Enough TT in ${TimeSpan.fromSeconds(time).toStringShort()}` : "";
+      return time.gt(0) ? `${TimeSpan.fromSeconds(time).toStringShort()} 후 TT가 충분해집니다` : "";
     }
   },
   watch: {
@@ -173,7 +173,7 @@ export default {
         v-if="areAutobuyersUnlocked"
         v-model="isAutobuyerOn"
         class="o-primary-btn--buy-td-auto"
-        label="Auto:"
+        label="자동:"
       />
       <PrimaryButton
         v-else
@@ -181,7 +181,7 @@ export default {
         :class="maxButtonClass()"
         @click="buyMaxTimeDimension"
       >
-        Buy Max
+        최대 구매
       </PrimaryButton>
     </div>
   </div>

@@ -42,21 +42,21 @@ export default {
     @confirm="hardReset"
   >
     <template #header>
-      HARD RESET
+      하드 리셋
     </template>
     <div class="c-modal-message__text">
-      Please confirm your desire to hard reset this save slot.
-      <span class="c-modal-hard-reset-danger">Deleting your save will not unlock anything secret.</span>
-      Type in "Shrek is love, Shrek is life" to confirm.
+      이 세이브 슬롯을 하드 리셋하려면 확인 절차를 거쳐야 합니다.
+      <span class="c-modal-hard-reset-danger">세이브를 삭제해도 숨겨진 요소는 아무것도 해금되지 않습니다.</span>
+      확인하려면 "Shrek is love, Shrek is life"를 입력하세요.
       <div class="c-modal-hard-reset-danger">
-        THIS WILL WIPE YOUR SAVE.
+        이 작업은 세이브를 완전히 삭제합니다.
         <span v-if="hasExtraNG">
           <br>
-          This will also remove any Glyph cosmetics you have unlocked from completing the game!
+          게임 완료로 해금한 모든 글리프 꾸미기 요소도 삭제됩니다!
         </span>
         <span v-if="hasSpeedrun">
           <br>
-          You will lose the ability to do a Speedrun. To restart your run, use the "Start Speedrun" button instead.
+          스피드런을 진행할 권한도 잃습니다. 스피드런을 다시 시작하려면 대신 "스피드런 시작" 버튼을 사용하세요.
         </span>
       </div>
     </div>
@@ -72,14 +72,14 @@ export default {
         v-if="willHardReset"
         class="c-modal-hard-reset-danger"
       >
-        Phrase confirmed - continuing will irreversibly delete your save!
+        문구가 확인되었습니다. 계속하면 세이브가 되돌릴 수 없게 삭제됩니다!
       </div>
       <div v-else>
-        Type in the correct phrase to hard reset.
+        하드 리셋하려면 올바른 문구를 입력하세요.
       </div>
     </div>
     <template #confirm-text>
-      HARD RESET
+      하드 리셋
     </template>
   </ModalWrapperChoice>
 </template>

@@ -35,11 +35,11 @@ export default {
       return this.fullScreen ? "fa-compress-arrows-alt" : "fa-expand-arrows-alt";
     },
     intervalText() {
-      const speedupText = `Each Reality makes it run ${formatPercents(this.speed, 1)} faster, up to a maximum of
-        ${formatInt(1000)} per second.`;
+      const speedupText = `현실마다 실행 속도가 ${formatPercents(this.speed, 1)} 빨라지며, 최대 초당
+        ${formatInt(1000)}회까지 빨라집니다.`;
       return this.interval === 1
-        ? `The Automator is running at max speed (${formatInt(1000)} commands per real-time second).`
-        : `The Automator is running ${quantify("command", 1000 / this.interval, 2, 2)} per real-time second.
+        ? `오토메이터가 최대 속도로 실행 중입니다 (실제 시간 기준 초당 명령 ${formatInt(1000)}개).`
+        : `오토메이터가 실제 시간 기준 초당 ${quantify("명령", 1000 / this.interval, 2, 2)}을 실행 중입니다.
           ${speedupText}`;
     },
     maxScriptChars() {
@@ -72,18 +72,18 @@ export default {
         {{ intervalText }}
       </div>
       <span :class="{ 'c-overlimit': currentChars > maxScriptChars }">
-        This script: {{ formatInt(currentChars) }} / {{ formatInt(maxScriptChars) }}
+        현재 스크립트: {{ formatInt(currentChars) }} / {{ formatInt(maxScriptChars) }}
       </span>
       |
       <span :class="{ 'c-overlimit': totalChars > maxTotalChars }">
-        Across all scripts: {{ formatInt(totalChars) }} / {{ formatInt(maxTotalChars) }}
+        전체 스크립트: {{ formatInt(totalChars) }} / {{ formatInt(maxTotalChars) }}
       </span>
       <br>
       <span
         v-if="!withinLimit"
         class="c-overlimit"
       >
-        (Your changes will not be saved due to being over a character limit!)
+        (글자 수 제한을 초과하여 변경 사항이 저장되지 않습니다!)
       </span>
       <div class="c-automator-split-pane">
         <SplitPane

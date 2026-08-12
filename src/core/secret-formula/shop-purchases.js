@@ -5,7 +5,7 @@ export const shopPurchases = {
   dimPurchases: {
     key: "dimPurchases",
     cost: 30,
-    description: "Double all your Antimatter Dimension multipliers. Forever.",
+    description: "모든 반물질 차원 배율이 2배가 됩니다. 영구적으로 적용됩니다.",
     multiplier: purchases => Math.pow(2, purchases),
     formatEffect: x => `×${x > 1000 ? Notation.scientific.formatDecimal(new Decimal(x), 2) : x.toFixed(0)}`,
   },
@@ -13,10 +13,10 @@ export const shopPurchases = {
     key: "allDimPurchases",
     cost: 60,
     description: () => {
-      const dims = ["Antimatter"];
-      if (InfinityDimension(1).isUnlocked || PlayerProgress.eternityUnlocked()) dims.push("Infinity");
-      if (PlayerProgress.eternityUnlocked()) dims.push("Time");
-      return `Double ALL Dimension multipliers (${makeEnumeration(dims)}; multiplicative until 32x). Forever.`;
+      const dims = ["반물질"];
+      if (InfinityDimension(1).isUnlocked || PlayerProgress.eternityUnlocked()) dims.push("무한");
+      if (PlayerProgress.eternityUnlocked()) dims.push("시간");
+      return `모든 차원 배율이 2배가 됩니다(${makeEnumeration(dims)}; 32배까지 곱연산). 영구적으로 적용됩니다.`;
     },
     multiplier: purchases => (purchases > 4 ? 32 + (purchases - 5) * 2 : Math.pow(2, purchases)),
     formatEffect: x => `×${x.toFixed(0)}`,
@@ -24,52 +24,52 @@ export const shopPurchases = {
   IPPurchases: {
     key: "IPPurchases",
     cost: 40,
-    description: "Double your Infinity Point gain from all sources. (additive)",
+    description: "모든 출처의 무한 포인트 획득량이 2배 증가합니다. (합연산)",
     multiplier: purchases => (purchases === 0 ? 1 : 2 * purchases),
     formatEffect: x => `×${x.toFixed(0)}`,
     isUnlocked: () => PlayerProgress.infinityUnlocked(),
-    lockText: "Infinity",
+    lockText: "무한",
   },
   replicantiPurchases: {
     key: "replicantiPurchases",
     cost: 60,
-    description: "Increase your Replicanti gain by 50%. (additive)",
+    description: "복제자 획득량이 50% 증가합니다. (합연산)",
     multiplier: purchases => (purchases === 0 ? 1 : 1 + 0.5 * purchases),
     formatEffect: x => `×${x.toFixed(1)}`,
     isUnlocked: () => Replicanti.areUnlocked || PlayerProgress.eternityUnlocked(),
-    lockText: "Replicanti",
+    lockText: "복제자",
   },
   EPPurchases: {
     key: "EPPurchases",
     cost: 50,
-    description: "Triple your Eternity Point gain from all sources. (additive)",
+    description: "모든 출처의 영원 포인트 획득량이 3배 증가합니다. (합연산)",
     multiplier: purchases => (purchases === 0 ? 1 : 3 * purchases),
     formatEffect: x => `×${x.toFixed(0)}`,
     isUnlocked: () => PlayerProgress.eternityUnlocked(),
-    lockText: "Eternity",
+    lockText: "영원",
   },
   dilatedTimePurchases: {
     key: "dilatedTimePurchases",
     cost: 40,
-    description: "Increase your Dilated Time gain by 50%. (additive)",
+    description: "팽창 시간 획득량이 50% 증가합니다. (합연산)",
     multiplier: purchases => (purchases === 0 ? 1 : 1 + 0.5 * purchases),
     formatEffect: x => `×${x.toFixed(1)}`,
     isUnlocked: () => PlayerProgress.dilationUnlocked() || PlayerProgress.realityUnlocked(),
-    lockText: "Dilation",
+    lockText: "시간 팽창",
   },
   RMPurchases: {
     key: "RMPurchases",
     cost: 60,
-    description: "Increase your Reality Machine gain by 100%. (additive)",
+    description: "리얼리티 머신 획득량이 100% 증가합니다. (합연산)",
     multiplier: purchases => purchases + 1,
     formatEffect: x => `×${x.toFixed(0)}`,
     isUnlocked: () => PlayerProgress.realityUnlocked(),
-    lockText: "Reality",
+    lockText: "현실",
   },
   smallTimeSkip: {
     key: "smallTimeSkip",
     cost: 10,
-    description: "Get 6 hours worth of offline production. (Autobuyers don't work at full speed)",
+    description: "오프라인 생산 6시간분을 획득합니다. (자동구매기는 최대 속도로 작동하지 않음)",
     instantPurchase: true,
     onPurchase: () => {
       shop.purchaseTimeSkip();
@@ -78,7 +78,7 @@ export const shopPurchases = {
   bigTimeSkip: {
     key: "bigTimeSkip",
     cost: 20,
-    description: "Get 24 hours worth of offline production. (Autobuyers don't work at full speed)",
+    description: "오프라인 생산 24시간분을 획득합니다. (자동구매기는 최대 속도로 작동하지 않음)",
     instantPurchase: true,
     onPurchase: () => {
       shop.purchaseLongerTimeSkip();
@@ -87,18 +87,18 @@ export const shopPurchases = {
   singleCosmeticSet: {
     key: "singleCosmeticSet",
     cost: 20,
-    description: "Unlock a Glyph cosmetic set of your choice",
+    description: "원하는 글리프 꾸미기 세트 하나를 해금합니다",
     instantPurchase: true,
     onPurchase: () => {
       // The actual unlocks are handled in the ShopPurchaseData object, so we just show notifications here
       GameUI.notify.info(
-        `You have purchased the "${GlyphAppearanceHandler.chosenFromModal.name}" Set for Glyph cosmetics!`,
+        `글리프 꾸미기용 "${GlyphAppearanceHandler.chosenFromModal.name}" 세트를 구매했습니다!`,
         10000);
       GlyphAppearanceHandler.chosenFromModal = null;
       GlyphAppearanceHandler.applyNotification();
     },
     isUnlocked: () => PlayerProgress.realityUnlocked(),
-    lockText: "Reality",
+    lockText: "현실",
   },
   allCosmeticSets: {
     key: "allCosmeticSets",
@@ -112,15 +112,15 @@ export const shopPurchases = {
       const currentSetCount = GlyphAppearanceHandler.expectedSetCount;
       return Math.floor(baseCost * (totalSets - currentSetCount) / totalSets);
     },
-    description: "Unlock all remaining Glyph cosmetic sets at once",
+    description: "남은 모든 글리프 꾸미기 세트를 한 번에 해금합니다",
     instantPurchase: true,
     onPurchase: () => {
       // The actual unlocks are handled in the ShopPurchaseData object, so we just show notifications here
-      GameUI.notify.info(`You have unlocked all sets for Glyph cosmetics!`, 15000);
+      GameUI.notify.info(`모든 글리프 꾸미기 세트를 해금했습니다!`, 15000);
       GlyphAppearanceHandler.applyNotification();
     },
     isUnlocked: () => PlayerProgress.realityUnlocked(),
-    lockText: "Reality",
+    lockText: "현실",
   },
 };
 

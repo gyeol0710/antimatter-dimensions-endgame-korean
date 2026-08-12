@@ -191,7 +191,7 @@ export const AutomatorData = {
   },
   createNewScript(content, name) {
     const newScript = AutomatorScript.create(name, content);
-    GameUI.notify.automator(`Imported Script "${name}"`);
+    GameUI.notify.automator(`스크립트 "${name}"을(를) 가져왔습니다`);
     player.reality.automator.state.editorScript = newScript.id;
     AutomatorData.clearUndoData();
     EventHub.dispatch(GAME_EVENT.AUTOMATOR_SAVE_CHANGED);
@@ -783,8 +783,8 @@ export const AutomatorBackend = {
     // and input 3000 comments in a row. If hasJustCompleted is true, then we actually broke out because the end of
     // the script has no-ops and we just looped through them, and therefore shouldn't show these messages
     if (!this.hasJustCompleted) {
-      GameUI.notify.error("Automator halted - too many consecutive no-ops detected");
-      AutomatorData.logCommandEvent("Automator halted due to excessive no-op commands", this.currentLineNumber);
+      GameUI.notify.error("연속으로 실행할 동작이 없는 명령이 너무 많이 감지되어 오토메이터를 정지했습니다");
+      AutomatorData.logCommandEvent("실행할 동작이 없는 명령이 너무 많아 오토메이터 정지", this.currentLineNumber);
     }
 
     this.stop();
@@ -832,7 +832,7 @@ export const AutomatorBackend = {
         }
         this.stop();
       } else if (this.stack.top.commandState && this.stack.top.commandState.advanceOnPop) {
-        AutomatorData.logCommandEvent(`Exiting IF block`, this.stack.top.commandState.ifEndLine);
+        AutomatorData.logCommandEvent(`IF 블록 종료`, this.stack.top.commandState.ifEndLine);
         return this.nextCommand();
       }
     } else {
@@ -853,7 +853,7 @@ export const AutomatorBackend = {
   },
 
   _createDefaultScript() {
-    const defaultScript = AutomatorScript.create("New Script");
+    const defaultScript = AutomatorScript.create("새 스크립트");
     this._scripts = [defaultScript];
     this.state.topLevelScript = defaultScript.id;
     return defaultScript.id;
@@ -897,12 +897,12 @@ export const AutomatorBackend = {
     // Make sure the new script has a unique name
     const scriptNames = AutomatorBackend._scripts.map(s => s.name);
     let newScript;
-    if (scriptNames.includes("New Script")) {
+    if (scriptNames.includes("새 스크립트")) {
       let newIndex = 2;
-      while (scriptNames.includes(`New Script (${newIndex})`)) newIndex++;
-      newScript = AutomatorScript.create(`New Script (${newIndex})`);
+      while (scriptNames.includes(`새 스크립트 (${newIndex})`)) newIndex++;
+      newScript = AutomatorScript.create(`새 스크립트 (${newIndex})`);
     } else {
-      newScript = AutomatorScript.create("New Script");
+      newScript = AutomatorScript.create("새 스크립트");
     }
 
     this._scripts.push(newScript);

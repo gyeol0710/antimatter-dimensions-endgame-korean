@@ -21,14 +21,14 @@ export default {
     },
     multiplierDisplay() {
       const tickmult = this.mult;
-      return `${formatX(tickmult, 2, 3)} faster / upgrade.`;
+      return `업그레이드당 ${formatX(tickmult, 2, 3)} 더 빠르게`;
     },
     celestialTickspeedDisplay() {
-      return `Celestial Tickspeed: ${format(this.celestialTickspeed, 2, 3)} / sec`;
+      return `셀레스티얼 틱스피드: ${format(this.celestialTickspeed, 2, 3)} /초`;
     },
     upgradeCount() {
       const purchased = this.purchasedCelestialTickspeed;
-      return quantifyHybridLarge("Purchased Upgrade", purchased);
+      return quantifyHybridLarge("구매한 업그레이드", purchased);
     }
   },
   methods: {
@@ -62,7 +62,7 @@ export default {
         onclick="buyCelestialTickSpeed()"
       >
         <span>
-          Celestial Tickspeed Cost: {{ format(cost) }}
+          셀레스티얼 틱스피드 비용: {{ format(cost) }}
         </span>
       </button>
       <button
@@ -70,7 +70,7 @@ export default {
         :class="{ 'o-primary-btn--disabled': !isAffordable }"
         onclick="buyMaxCelestialTickSpeed()"
       >
-        Buy Max
+        최대 구매
       </button>
     </div>
     <div class="celestial-tickspeed-labels">

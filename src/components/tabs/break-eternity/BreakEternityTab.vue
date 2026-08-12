@@ -62,7 +62,7 @@ export default {
 <template>
   <div class="l-break-eternity-tab">
     <div v-if="!isUnlocked">
-      Reach {{ format(antimatterReq, 2, 1) }} with at least one Endgame to unlock Break Eternity
+      엔드게임을 한 번 이상 달성하고 반물질 {{ format(antimatterReq, 2, 1) }}개에 도달하면 영원 돌파가 해금됩니다.
     </div>
     <BreakEternityButton class="l-break-eternity-tab__break-btn" />
     <div
@@ -83,7 +83,7 @@ export default {
       </div>
     </div>
     <div>
-      All Break Eternity Upgrades can only be purchased with Antimatter gained outside Pelle.
+      모든 영원 돌파 업그레이드는 펠레 밖에서 획득한 반물질로만 구매할 수 있습니다.
     </div>
   </div>
 </template>

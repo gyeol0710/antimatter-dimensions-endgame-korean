@@ -74,10 +74,10 @@ export default {
       return !this.isRecent(this.lastNotEmptyAt);
     },
     disabledText() {
-      if (!this.resource.isBase) return `Total effect inactive, disabled, or reduced to ${formatX(1)}`;
+      if (!this.resource.isBase) return `전체 효과가 비활성화되었거나 ${formatX(1)}로 감소했습니다`;
       return Decimal.eq(this.resource.mult, 0)
-        ? `You cannot gain this resource (prestige requirement not reached)`
-        : `You have no multipliers for this resource (will gain ${format(1)} on prestige)`;
+        ? `이 자원을 얻을 수 없습니다 (프레스티지 요구 조건에 도달하지 못함)`
+        : `이 자원에 적용되는 배율이 없습니다 (프레스티지 시 ${format(1)} 획득)`;
     },
     // IC4 is the first time the player sees a power-based effect, not counting how infinity power is handled.
     // This doesn't need to be reactive because completing IC4 for the first time forces a tab switch
@@ -343,7 +343,7 @@ export default {
       const formatFn = resource.isBase
         ? x => format(x, 2, 2)
         : x => formatX(x, 2, 2);
-      return `Dilation Effect: Exponent${formatPow(this.dilationExponent, 2, 3)}
+      return `시간 팽창 효과: 지수${formatPow(this.dilationExponent, 2, 3)}
         (${formatFn(beforeMult, 2, 2)} ➜ ${formatFn(afterMult, 2, 2)})`;
     },
     isRecent(date) {
@@ -384,14 +384,14 @@ export default {
           <PrimaryToggleButton
             v-if="hasSeenPowers && allowPowerToggle"
             v-model="replacePowers"
-            v-tooltip="'Change Display for Power effects'"
+            v-tooltip="'거듭제곱 효과 표시 방식 변경'"
             off="^N"
             on="×N"
             class="o-primary-btn c-change-display-btn"
           />
           <i
             v-if="groups.length > 1"
-            v-tooltip="'Change Multiplier Grouping'"
+            v-tooltip="'배율 그룹 변경'"
             class="o-primary-btn c-change-display-btn fas fa-arrows-rotate"
             @click="changeGroup"
           />
@@ -401,7 +401,7 @@ export default {
         v-if="isEmpty"
         class="c-no-effect"
       >
-        No Active Effects
+        활성 효과 없음
         <br>
         <br>
         {{ disabledText }}
@@ -442,15 +442,14 @@ export default {
         class="c-no-effect"
       >
         <div>
-          "Base AD Production" is the amount of Antimatter that you would be producing with your current AD upgrades
-          as if you had waited a fixed amount of time ({{ formatInt(10) }}-{{ formatInt(40) }} seconds depending on
-          your AD count) after a Sacrifice. This may misrepresent your actual production if your ADs have been
-          producing for a while, but the relative mismatch will become smaller as you progress further in the game
-          and numbers become larger.
+          "기본 반물질 차원 생산량"은 현재 반물질 차원 업그레이드를 적용한 상태에서 희생 후 일정 시간
+          (반물질 차원 수에 따라 {{ formatInt(10) }}~{{ formatInt(40) }}초)을 기다렸을 때 생산하고 있을 반물질의
+          양입니다. 반물질 차원이 한동안 생산한 뒤라면 실제 생산량과 다를 수 있지만, 게임을 더 진행하여
+          수가 커질수록 상대적인 오차는 줄어듭니다.
         </div>
         <div v-if="inNC12">
-          The breakdown in this tab within Normal Challenge 12 may be inaccurate for some entries, and might count
-          extra multipliers which apply to all Antimatter Dimensions rather than just the ones which are displayed.
+          일반 도전 12에서는 이 탭의 일부 항목이 부정확할 수 있으며, 표시된 차원뿐 아니라 모든 반물질 차원에
+          적용되는 추가 배율까지 계산할 수 있습니다.
         </div>
       </div>
     </div>

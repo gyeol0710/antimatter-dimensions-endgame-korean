@@ -2,83 +2,83 @@ export const alchemyResources = {
   // T1 resources (Non-Effarig "base" resources)
   "power": {
     id: ALCHEMY_RESOURCE.POWER,
-    name: "Power",
+    name: "힘",
     symbol: "Ω",
     isBaseResource: true,
     effect: amount => 1 + amount / 125000,
     tier: 1,
     uiOrder: 1,
     unlockedAt: 2,
-    description: "provides a power to Antimatter Dimensions",
-    formatEffect: value => `Antimatter Dimension multipliers ${formatPow(value, 4, 4)}`,
+    description: "반물질 차원 배율을 거듭제곱합니다",
+    formatEffect: value => `반물질 차원 배율 ${formatPow(value, 4, 4)}`,
     destroyed: () => !PelleAlchemyUpgrade.alchemyPower.isBought
   },
   "infinity": {
     id: ALCHEMY_RESOURCE.INFINITY,
-    name: "Infinity",
+    name: "무한",
     symbol: "∞",
     isBaseResource: true,
     effect: amount => 1 + amount / 125000,
     tier: 1,
     uiOrder: 2,
     unlockedAt: 3,
-    description: "provides a power to Infinity Dimensions",
-    formatEffect: value => `Infinity Dimension multipliers ${formatPow(value, 4, 4)}`,
+    description: "무한 차원 배율을 거듭제곱합니다",
+    formatEffect: value => `무한 차원 배율 ${formatPow(value, 4, 4)}`,
     destroyed: () => !PelleAlchemyUpgrade.alchemyInfinity.isBought
   },
   "time": {
     id: ALCHEMY_RESOURCE.TIME,
-    name: "Time",
+    name: "시간",
     symbol: "Δ",
     isBaseResource: true,
     effect: amount => 1 + amount / 125000,
     tier: 1,
     uiOrder: 3,
     unlockedAt: 4,
-    description: "provides a power to Time Dimensions",
-    formatEffect: value => `Time Dimension multipliers ${formatPow(value, 4, 4)}`,
+    description: "시간 차원 배율을 거듭제곱합니다",
+    formatEffect: value => `시간 차원 배율 ${formatPow(value, 4, 4)}`,
     destroyed: () => !PelleAlchemyUpgrade.alchemyTime.isBought
   },
   "replication": {
     id: ALCHEMY_RESOURCE.REPLICATION,
-    name: "Replication",
+    name: "복제",
     symbol: "Ξ",
     isBaseResource: true,
     effect: amount => Decimal.pow10(amount / 500),
     tier: 1,
     uiOrder: 4,
     unlockedAt: 5,
-    description: `increases Replication speed`,
-    formatEffect: value => `Replication speed is increased by ${formatX(value, 2, 2)}`,
+    description: `복제 속도를 증가시킵니다`,
+    formatEffect: value => `복제 속도 ${formatX(value, 2, 2)}`,
     destroyed: () => !PelleAlchemyUpgrade.alchemyReplication.isBought
   },
   "dilation": {
     id: ALCHEMY_RESOURCE.DILATION,
-    name: "Dilation",
+    name: "팽창",
     symbol: "Ψ",
     isBaseResource: true,
     effect: amount => Decimal.pow10(amount / 1000),
     tier: 1,
     uiOrder: 5,
     unlockedAt: 6,
-    description: "increases Dilated Time production",
-    formatEffect: value => `Dilated Time production is increased by ${formatX(value, 2, 2)}`,
+    description: "팽창 시간 생산량을 증가시킵니다",
+    formatEffect: value => `팽창 시간 생산량 ${formatX(value, 2, 2)}`,
     destroyed: () => !PelleAlchemyUpgrade.alchemyDilation.isBought
   },
 
   // T2 resources (combinations of pairs of T1 resources)
   "cardinality": {
     id: ALCHEMY_RESOURCE.CARDINALITY,
-    name: "Cardinality",
+    name: "기수",
     symbol: "α",
     isBaseResource: false,
     effect: amount => 1 + 0.2 / (1 + amount / 12500),
     tier: 2,
     uiOrder: 3,
     unlockedAt: 8,
-    description: "reduces Replicanti slowdown when above the cap",
-    formatEffect: value => `Replicanti interval increases slower ${formatX(1.2, 1, 1)} ➜
-      ${formatX(value, 4, 4)} per ${format(Number.MAX_VALUE, 2)}`,
+    description: "복제자가 상한을 넘었을 때의 감속을 줄입니다",
+    formatEffect: value => `복제자 간격 증가량: ${format(Number.MAX_VALUE, 2)}마다 ${formatX(1.2, 1, 1)} ➜
+      ${formatX(value, 4, 4)}`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.TIME,
@@ -93,15 +93,15 @@ export const alchemyResources = {
   },
   "eternity": {
     id: ALCHEMY_RESOURCE.ETERNITY,
-    name: "Eternity",
+    name: "영원",
     symbol: "τ",
     isBaseResource: false,
     effect: amount => 1 + amount / 12500,
     tier: 2,
     uiOrder: 2,
     unlockedAt: 9,
-    description: "provides a power to Eternity generation",
-    formatEffect: value => `Eternity generation ${formatPow(value, 4, 4)}`,
+    description: "영원 생성량을 거듭제곱합니다",
+    formatEffect: value => `영원 생성량 ${formatPow(value, 4, 4)}`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.TIME,
@@ -116,15 +116,15 @@ export const alchemyResources = {
   },
   "dimensionality": {
     id: ALCHEMY_RESOURCE.DIMENSIONALITY,
-    name: "Dimensionality",
+    name: "차원성",
     symbol: "ρ",
     isBaseResource: false,
     effect: amount => Decimal.pow10(6 * amount),
     tier: 2,
     uiOrder: 1,
     unlockedAt: 10,
-    description: "provides a large multiplier to all Dimensions",
-    formatEffect: value => `All Dimensions ${formatX(value)}`,
+    description: "모든 차원에 큰 배율을 적용합니다",
+    formatEffect: value => `모든 차원 ${formatX(value)}`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.POWER,
@@ -139,16 +139,16 @@ export const alchemyResources = {
   },
   "inflation": {
     id: ALCHEMY_RESOURCE.INFLATION,
-    name: "Inflation",
+    name: "인플레이션",
     symbol: "λ",
     isBaseResource: false,
     effect: amount => Decimal.pow10(6e9 - 3e5 * amount),
     tier: 2,
     uiOrder: 5,
     unlockedAt: 11,
-    description: "provides an additional power for very large multipliers",
-    formatEffect: value => `All Antimatter Dimension multipliers are ${formatPow(1.05, 2, 2)}
-      if they are above ${format(value)} `,
+    description: "매우 큰 배율에 추가 거듭제곱을 적용합니다",
+    formatEffect: value => `모든 반물질 차원 배율이 ${format(value)}보다 높으면
+      ${formatPow(1.05, 2, 2)}만큼 거듭제곱합니다 `,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.POWER,
@@ -163,16 +163,16 @@ export const alchemyResources = {
   },
   "alternation": {
     id: ALCHEMY_RESOURCE.ALTERNATION,
-    name: "Alternation",
+    name: "교대",
     symbol: "ω",
     isBaseResource: false,
     effect: amount => amount / 125000,
     tier: 2,
     uiOrder: 4,
     unlockedAt: 12,
-    description: "increases the strength of Tachyon Galaxies based on Replicanti",
-    formatEffect: value => `Tachyon Galaxies are ${formatPercents(value, 2, 2)} stronger
-      per ${format(DC.E1E6)} Replicanti`,
+    description: "복제자에 따라 타키온 은하의 위력을 증가시킵니다",
+    formatEffect: value => `복제자 ${format(DC.E1E6)}개마다 타키온 은하가
+      ${formatPercents(value, 2, 2)} 더 강해집니다`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.REPLICATION,
@@ -189,20 +189,20 @@ export const alchemyResources = {
   // T3 resources (Effarig and conbinations of T1/T2 with Effarig)
   "effarig": {
     id: ALCHEMY_RESOURCE.EFFARIG,
-    name: "Effarig",
+    name: "에파리그",
     symbol: "Ϙ",
     isBaseResource: true,
     effect: amount => Decimal.pow10(amount / 1250),
     tier: 1,
     uiOrder: 1.5,
     unlockedAt: 7,
-    description: "increases Relic Shard gain",
-    formatEffect: value => `Relic Shard gain is multiplied ${formatX(value, 2, 2)}`,
+    description: "유물 파편 획득량을 증가시킵니다",
+    formatEffect: value => `유물 파편 획득량 ${formatX(value, 2, 2)}`,
     destroyed: () => !PelleAlchemyUpgrade.alchemyEffarig.isBought
   },
   "synergism": {
     id: ALCHEMY_RESOURCE.SYNERGISM,
-    name: "Synergism",
+    name: "상승 작용",
     symbol: "π",
     isBaseResource: false,
     effect: amount => {
@@ -212,10 +212,10 @@ export const alchemyResources = {
     tier: 3,
     uiOrder: 2,
     unlockedAt: 13,
-    description: "increases the yield of Alchemy Reactions",
+    description: "연금술 반응의 생산량을 증가시킵니다",
     formatEffect(value) {
-      return `Alchemy Reaction efficiency ${formatPercents(0.3)} ➜ ${formatPercents(value, 2, 2)}
-        ${(!Achievement(175).isUnlocked && value >= 1) ? " (Capped)" : ""}`;
+      return `연금술 반응 효율 ${formatPercents(0.3)} ➜ ${formatPercents(value, 2, 2)}
+        ${(!Achievement(175).isUnlocked && value >= 1) ? " (상한)" : ""}`;
     },
     reagents: [
       {
@@ -235,17 +235,17 @@ export const alchemyResources = {
   },
   "momentum": {
     id: ALCHEMY_RESOURCE.MOMENTUM,
-    name: "Momentum",
+    name: "모멘텀",
     symbol: "μ",
     isBaseResource: false,
     effect: amount => 1 + amount / 100000,
     tier: 3,
     uiOrder: 3,
     unlockedAt: 15,
-    description: "provides a power to all Dimensions that permanently grows over time",
-    formatEffect: value => `All Dimensions ${formatPow(Ra.momentumValue, 4, 4)}, increasing by
-      ${format(0.01 * Effects.product(Achievement(175), EndgameMastery(171), Achievement(222)), 3, 3)}
-      per real-time hour after the resource is unlocked, up to a maximum of ${formatPow(value, 4, 4)}`,
+    description: "시간이 지날수록 영구적으로 증가하는 거듭제곱을 모든 차원에 적용합니다",
+    formatEffect: value => `모든 차원 ${formatPow(Ra.momentumValue, 4, 4)}, 자원을 해금한 뒤 현실 시간으로 한 시간마다
+      ${format(0.01 * Effects.product(Achievement(175), EndgameMastery(171), Achievement(222)), 3, 3)}씩 증가하며
+      최대 ${formatPow(value, 4, 4)}`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.EFFARIG,
@@ -264,16 +264,16 @@ export const alchemyResources = {
   },
   "decoherence": {
     id: ALCHEMY_RESOURCE.DECOHERENCE,
-    name: "Decoherence",
+    name: "결어긋남",
     symbol: "ξ",
     isBaseResource: false,
     effect: amount => 0.2 * Math.sqrt(amount / 25000),
     tier: 3,
     uiOrder: 4,
     unlockedAt: 14,
-    description: "gives all basic Alchemy Resources upon refinement",
-    formatEffect: value => `Refined Glyphs also give ${formatPercents(value, 2)} of their value ` +
-      "to all other base resources",
+    description: "정제할 때 모든 기본 연금술 자원을 얻습니다",
+    formatEffect: value => `정제한 글리프 가치의 ${formatPercents(value, 2)}를 ` +
+      "다른 모든 기본 자원에도 제공합니다",
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.EFFARIG,
@@ -290,15 +290,15 @@ export const alchemyResources = {
   // T4 resources (resources which feed directly into the final resource)
   "exponential": {
     id: ALCHEMY_RESOURCE.EXPONENTIAL,
-    name: "Exponential",
+    name: "지수",
     symbol: "Γ",
     isBaseResource: false,
     effect: amount => 10 * Math.pow(amount / 10000, 3),
     tier: 4,
     uiOrder: 2,
     unlockedAt: 18,
-    description: "multiplies Infinity Points based on Replicanti",
-    formatEffect: value => `Infinity Points multiplied by Replicanti${formatPow(value, 2, 3)}`,
+    description: "복제자에 따라 무한 포인트에 배율을 적용합니다",
+    formatEffect: value => `무한 포인트에 복제자${formatPow(value, 2, 3)}만큼 배율 적용`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.INFLATION,
@@ -313,15 +313,15 @@ export const alchemyResources = {
   },
   "force": {
     id: ALCHEMY_RESOURCE.FORCE,
-    name: "Force",
+    name: "강제력",
     symbol: "Φ",
     isBaseResource: false,
     effect: amount => 10 * amount,
     tier: 4,
     uiOrder: 2,
     unlockedAt: 17,
-    description: "multiplies Antimatter Dimensions based on Reality Machines",
-    formatEffect: value => `Multiply Antimatter Dimensions by Reality Machines${formatPow(value, 2, 2)}`,
+    description: "리얼리티 머신에 따라 반물질 차원에 배율을 적용합니다",
+    formatEffect: value => `반물질 차원에 리얼리티 머신${formatPow(value, 2, 2)}만큼 배율 적용`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.DIMENSIONALITY,
@@ -336,15 +336,15 @@ export const alchemyResources = {
   },
   "uncountability": {
     id: ALCHEMY_RESOURCE.UNCOUNTABILITY,
-    name: "Uncountability",
+    name: "비가산성",
     symbol: "Θ",
     isBaseResource: false,
     effect: amount => 1600 * Math.sqrt(amount / 6250),
     tier: 4,
     uiOrder: 3,
     unlockedAt: 19,
-    description: "passively generates Realities and Perk Points",
-    formatEffect: value => `Generate ${format(value, 2, 2)} Realities and Perk Points per second`,
+    description: "현실 횟수와 퍼크 포인트를 자동으로 생성합니다",
+    formatEffect: value => `초당 현실 횟수와 퍼크 포인트를 각각 ${format(value, 2, 2)}씩 생성`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.INFINITY,
@@ -363,15 +363,15 @@ export const alchemyResources = {
   },
   "boundless": {
     id: ALCHEMY_RESOURCE.BOUNDLESS,
-    name: "Boundless",
+    name: "무한성",
     symbol: "Π",
     isBaseResource: false,
     effect: amount => amount / 62500,
     tier: 4,
     uiOrder: 1,
     unlockedAt: 20,
-    description: "makes Tesseracts stronger",
-    formatEffect: value => `Tesseracts are +${formatPercents(value, 2, 2)} stronger`,
+    description: "테서랙트를 강화합니다",
+    formatEffect: value => `테서랙트가 +${formatPercents(value, 2, 2)} 더 강해집니다`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.ETERNITY,
@@ -386,16 +386,16 @@ export const alchemyResources = {
   },
   "multiversal": {
     id: ALCHEMY_RESOURCE.MULTIVERSAL,
-    name: "Multiversal",
+    name: "다중우주",
     symbol: "Σ",
     isBaseResource: false,
     effect: amount => 32 * Math.pow(amount / 20000, 2),
     tier: 4,
     uiOrder: 5,
     unlockedAt: 16,
-    description: "makes each Reality simulate more Realities",
-    formatEffect: value => `Each Reality simulates ${format(value, 2, 3)} additional Realities, giving all
-      the same rewards as if it was amplified`,
+    description: "각 현실이 더 많은 현실을 시뮬레이션하게 합니다",
+    formatEffect: value => `각 현실이 현실 ${format(value, 2, 3)}회를 추가로 시뮬레이션하고,
+      증폭된 것과 동일한 모든 보상을 제공합니다`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.ALTERNATION,
@@ -410,7 +410,7 @@ export const alchemyResources = {
   },
   "unpredictability": {
     id: ALCHEMY_RESOURCE.UNPREDICTABILITY,
-    name: "Unpredictability",
+    name: "예측 불가능성",
     symbol: "Λ",
     isBaseResource: false,
     // Somewhat ugly number to make this show 75.00% at cap
@@ -418,9 +418,9 @@ export const alchemyResources = {
     tier: 4,
     uiOrder: 4,
     unlockedAt: 21,
-    description: "makes each Alchemy Reaction have a chance to happen twice",
-    formatEffect: value => `Any Alchemy Reaction has a ${formatPercents(value, 2, 2)}
-      chance of triggering again`,
+    description: "각 연금술 반응이 두 번 일어날 확률을 부여합니다",
+    formatEffect: value => `모든 연금술 반응이 ${formatPercents(value, 2, 2)} 확률로
+      다시 발동합니다`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.EFFARIG,
@@ -441,14 +441,14 @@ export const alchemyResources = {
   // T5 (Reality)
   "reality": {
     id: ALCHEMY_RESOURCE.REALITY,
-    name: "Reality",
+    name: "현실",
     symbol: "Ϟ",
     isBaseResource: false,
     effect: amount => Math.floor(amount),
     tier: 5,
     unlockedAt: 25,
-    description: "can be consumed to create Reality Glyphs",
-    formatEffect: value => `Consume all Reality Resource to create a level ${formatHybridLarge(value, 3)} Reality Glyph`,
+    description: "소모하여 현실 글리프를 만들 수 있습니다",
+    formatEffect: value => `모든 현실 자원을 소모해 레벨 ${formatHybridLarge(value, 3)} 현실 글리프를 만듭니다`,
     reagents: [
       {
         resource: ALCHEMY_RESOURCE.EXPONENTIAL,

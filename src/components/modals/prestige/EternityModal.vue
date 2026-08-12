@@ -17,30 +17,29 @@ export default {
   computed: {
     message() {
       return PlayerProgress.eternityUnlocked()
-        ? `Eternity will reset everything except Achievements, Challenge records, and anything under the General header
-          on the Statistics tab.`
-        : `Eternity will reset everything except Achievements, Challenge records, and anything under the General header
-          on the Statistics tab. You will also gain an Eternity Point and unlock various upgrades.`;
+        ? `영원은 도전과제, 도전 기록, 통계 탭의 일반 항목을 제외한 모든 것을 초기화합니다.`
+        : `영원은 도전과제, 도전 기록, 통계 탭의 일반 항목을 제외한 모든 것을 초기화합니다.
+          영원 포인트도 하나 얻고 여러 업그레이드를 해금합니다.`;
     },
     gainedEPOnEternity() {
-      return `You will gain ${quantify("Eternity", this.gainedEternities, 2)} 
-      and ${quantify("Eternity Point", this.gainedEternityPoints, 2)} on Eternity.`;
+      return `영원 시 ${quantify("영원", this.gainedEternities, 2)} 및
+      ${quantify("영원 포인트", this.gainedEternityPoints, 2)}를 얻습니다.`;
     },
     startWithIP() {
       return this.startingIP.gt(0)
-        ? `You will start your next Eternity with ${quantify("Infinity Point", this.startingIP, 2)}.`
+        ? `다음 영원을 ${quantify("무한 포인트", this.startingIP, 2)}와 함께 시작합니다.`
         : ``;
     },
     eternityChallenge() {
       const ec = EternityChallenge.current;
       if (ec.isFullyCompleted) {
-        return `Eternity Challenge ${ec.id} is already fully completed.`;
+        return `영원 도전 ${ec.id}은 이미 모두 완료했습니다.`;
       }
       if (!Perk.studyECBulk.isBought) {
-        return `You will gain one completion of Eternity Challenge ${ec.id}.`;
+        return `영원 도전 ${ec.id}의 완료 횟수를 하나 얻습니다.`;
       }
       const gainedCompletions = ec.gainedCompletionStatus.gainedCompletions;
-      return `You will gain ${quantifyInt("completion", gainedCompletions)} for Eternity Challenge ${ec.id}.`;
+      return `영원 도전 ${ec.id}의 완료 횟수를 ${quantifyInt("회", gainedCompletions)} 얻습니다.`;
     }
   },
   methods: {
@@ -60,7 +59,7 @@ export default {
 
 <template>
   <ResetModal
-    :header="exitingEC ? 'Complete Eternity Challenge' : 'You are about to Eternity'"
+    :header="exitingEC ? '영원 도전 완료' : '영원에 도달하려 합니다'"
     :message="message"
     :gained-resources="gainedEPOnEternity"
     :starting-resources="startWithIP"

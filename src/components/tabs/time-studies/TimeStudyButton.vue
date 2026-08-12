@@ -117,11 +117,11 @@ export default {
     },
     customCostStr() {
       const ttStr = this.setup.isSmall
-        ? `${formatInt(this.config.cost)} TT`
-        : quantifyInt("Time Theorem", this.config.cost);
+        ? `${formatInt(this.config.cost)} 시간 정리`
+        : quantifyInt("시간 정리", this.config.cost);
       const stStr = this.setup.isSmall
-        ? `${formatInt(this.STCost)} ST`
-        : quantifyInt("Space Theorem", this.STCost);
+        ? `${formatInt(this.STCost)} 우주 정리`
+        : quantifyInt("우주 정리", this.STCost);
 
       const costs = [];
       if (this.config.cost) costs.push(ttStr);
@@ -189,10 +189,10 @@ export class TimeStudySetup {
       v-if="showDefaultCostDisplay"
       br
       :config="config"
-      name="Time Theorem"
+      name="시간 정리"
     />
     <div v-else-if="!doomedRealityStudy && !isDisabledByEnslaved">
-      Cost: {{ customCostStr }}
+      가격: {{ customCostStr }}
     </div>
   </button>
 </template>

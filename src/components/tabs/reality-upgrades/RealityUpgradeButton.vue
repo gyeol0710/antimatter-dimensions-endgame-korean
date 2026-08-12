@@ -106,7 +106,7 @@ export default {
           <br>
           <DescriptionDisplay
             :config="requirementConfig"
-            label="Requirement:"
+            label="요구 조건:"
             class="c-reality-upgrade-btn__requirement"
           />
         </template>
@@ -119,7 +119,7 @@ export default {
             v-if="!isBought"
             :config="config"
             br
-            name="Reality Machine"
+            name="리얼리티 머신"
           />
         </template>
         <b v-if="automatorPoints && !isBought">
@@ -143,7 +143,7 @@ export default {
     <PrimaryToggleButton
       v-if="isRebuyable && isAutoUnlocked"
       v-model="isAutobuyerOn"
-      label="Auto:"
+      label="자동:"
       class="l--spoon-btn-group__little-spoon-reality-btn o-primary-btn--reality-upgrade-toggle"
     />
   </div>

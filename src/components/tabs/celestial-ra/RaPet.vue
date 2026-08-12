@@ -50,7 +50,12 @@ export default {
       return this.petConfig.pet;
     },
     name() {
-      return this.pet.name;
+      return {
+        Teresa: "테레사",
+        Effarig: "에파리그",
+        Enslaved: "이름없는 자들",
+        V: "V",
+      }[this.pet.name] ?? this.pet.name;
     },
     petStyle() {
       return {
@@ -61,10 +66,10 @@ export default {
       return this.pet.unlocks;
     },
     chunkTooltip() {
-      return `Based on ${this.pet.chunkGain}`;
+      return `${this.pet.chunkGain}을 기준으로 함`;
     },
     memoryGainTooltip() {
-      return `Based on ${this.pet.memoryGain}`;
+      return `${this.pet.memoryGain}을 기준으로 함`;
     },
   },
   methods: {
@@ -143,7 +148,7 @@ export default {
     >
       <div class="c-ra-pet-title">
         <!-- The full name doesn't fit here, so we shorten it as a special case -->
-        {{ pet.id === "enslaved" ? "Nameless" : name }} Level {{ formatInt(level) }}/{{ formatInt(levelCap) }}
+        {{ pet.id === "enslaved" ? "이름없는 자들" : name }} 레벨 {{ formatInt(level) }}/{{ formatInt(levelCap) }}
       </div>
       <div
         v-if="showScalingUpgrade"
@@ -154,7 +159,7 @@ export default {
       <br v-else>
       <div v-if="!isCapped">
         <div>
-          {{ name }} {{ pet.id === "enslaved" ? "have" : "has" }} {{ quantify("Memory", memories, 2) }}
+          {{ name }}{{ pet.id === "enslaved" ? "의" : "의" }} 기억: {{ quantify("개", memories, 2) }}
         </div>
       </div>
       <div
@@ -173,18 +178,18 @@ export default {
                 class="c-ra-pet-upgrade__tooltip"
               >
                 <div class="c-ra-pet-upgrade__tooltip__name">
-                  {{ name }}'s Recollection
+                  {{ name }}의 회상
                 </div>
                 <div class="c-ra-pet-upgrade__tooltip__description">
-                  Gain {{ formatPercents(0.3) }} more Memories
+                  기억을 {{ formatPercents(0.3) }} 더 획득
                 </div>
                 <div class="c-ra-pet-upgrade__tooltip__footer">
-                  Cost: {{ quantify("Memory", memoryUpgradeCost, 2, 2) }}
+                  비용: 기억 {{ quantify("개", memoryUpgradeCost, 2, 2) }}
                   <span v-if="memories.lte(memoryUpgradeCost)">
                     {{ nextMemoryUpgradeEstimate }}
                   </span>
                   <br>
-                  Currently: {{ formatX(currentMemoryMult, 2, 2) }}
+                  현재: {{ formatX(currentMemoryMult, 2, 2) }}
                 </div>
               </div>
               <div
@@ -192,10 +197,10 @@ export default {
                 class="c-ra-pet-upgrade__tooltip"
               >
                 <div class="c-ra-pet-upgrade__tooltip__name">
-                  {{ name }}'s Recollection
+                  {{ name }}의 회상
                 </div>
                 <div class="c-ra-pet-upgrade__tooltip__description">
-                  Capped: {{ formatX(currentMemoryMult, 2, 2) }}
+                  상한: {{ formatX(currentMemoryMult, 2, 2) }}
                 </div>
               </div>
             </button>
@@ -217,18 +222,18 @@ export default {
                 class="c-ra-pet-upgrade__tooltip"
               >
                 <div class="c-ra-pet-upgrade__tooltip__name">
-                  {{ name }}'s Fragmentation
+                  {{ name }}의 파편화
                 </div>
                 <div class="c-ra-pet-upgrade__tooltip__description">
-                  Gain {{ formatPercents(0.5) }} more Memory Chunks
+                  기억 조각을 {{ formatPercents(0.5) }} 더 획득
                 </div>
                 <div class="c-ra-pet-upgrade__tooltip__footer">
-                  Cost: {{ quantify("Memory", chunkUpgradeCost, 2, 2) }}
+                  비용: 기억 {{ quantify("개", chunkUpgradeCost, 2, 2) }}
                   <span v-if="memories.lte(chunkUpgradeCost)">
                     {{ nextMemoryChunkUpgradeEstimate }}
                   </span>
                   <br>
-                  Currently: {{ formatX(currentChunkMult, 2, 2) }}
+                  현재: {{ formatX(currentChunkMult, 2, 2) }}
                 </div>
               </div>
               <div
@@ -236,10 +241,10 @@ export default {
                 class="c-ra-pet-upgrade__tooltip"
               >
                 <div class="c-ra-pet-upgrade__tooltip__name">
-                  {{ name }}'s Fragmentation
+                  {{ name }}의 파편화
                 </div>
                 <div class="c-ra-pet-upgrade__tooltip__description">
-                  Capped: {{ formatX(currentChunkMult, 2, 2) }}
+                  상한: {{ formatX(currentChunkMult, 2, 2) }}
                 </div>
               </div>
             </button>
@@ -258,17 +263,17 @@ export default {
       </div>
       <div v-if="!isCapped">
         <div>
-          {{ quantify("Memory Chunk", memoryChunks, 2, 2) }}, {{ quantify("Memory", memoriesPerSecond, 2, 2) }}/sec
+          기억 조각 {{ quantify("개", memoryChunks, 2, 2) }}, 기억 {{ quantify("개", memoriesPerSecond, 2, 2) }}/초
         </div>
         <div>
-          Gaining {{ quantify("Memory Chunk", memoryChunksPerSecond, 2, 2) }}/sec
+          기억 조각 {{ quantify("개", memoryChunksPerSecond, 2, 2) }}/초 획득 중
           <span :ach-tooltip="chunkTooltip">
             <i class="fas fa-question-circle" />
           </span>
         </div>
       </div>
       <div v-if="memoryMultiplier > 1 && !isRaCapped">
-        Multiplying all Memory production by {{ format(memoryMultiplier, 2, 3) }}
+        모든 기억 생산량에 {{ format(memoryMultiplier, 2, 3) }}를 곱함
         <span :ach-tooltip="memoryGainTooltip">
           <i class="fas fa-question-circle" />
         </span>

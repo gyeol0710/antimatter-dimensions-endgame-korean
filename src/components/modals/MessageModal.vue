@@ -59,13 +59,13 @@ export default {
       class="o-primary-btn--width-medium c-modal-message__okay-btn c-modal__confirm-btn"
       @click="handleClick"
     >
-      Okay
+      확인
     </PrimaryButton>
     <div
       v-if="isThemeS12"
       class="c-modal__title"
     >
-      Message
+      메시지
     </div>
   </div>
 </template>

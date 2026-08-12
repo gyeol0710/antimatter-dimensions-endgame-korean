@@ -23,7 +23,7 @@ export default {
     };
   },
   computed: {
-    resetTerm() { return "Endgame"; },
+    resetTerm() { return "엔드게임"; },
   },
   methods: {
     update() {
@@ -44,21 +44,21 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      You are about to reset your {{ resetTerm }}
+      {{ resetTerm }}을 초기화하려 합니다
     </template>
     <div class="c-modal-message__text">
-      This will reset you to the start of your {{ resetTerm }},
-      giving you no rewards from your progress in your current {{ resetTerm }}.
+      현재 {{ resetTerm }}의 진행도에 따른 보상을 받지 않고
+      {{ resetTerm }} 시작 시점으로 돌아갑니다.
       <br>
       <br>
-      Are you sure you want to do this?
+      정말로 초기화하시겠습니까?
       <br>
-      Currently, you are {{ endgameState }}. Based on the current state of your Endgame,
-      it is suggested that you {{ suggestion }}.
+      현재 상태: {{ endgameState }}. 현재 엔드게임 상태를 고려하면
+      {{ suggestion }}이 권장됩니다.
       <br>
     </div>
     <template #confirm-text>
-      Reset
+      초기화
     </template>
   </ModalWrapperChoice>
 </template>

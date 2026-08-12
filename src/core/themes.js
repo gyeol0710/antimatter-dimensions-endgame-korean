@@ -1,5 +1,16 @@
 import { sha512_256 } from "js-sha512";
 
+const THEME_DISPLAY_NAMES = {
+  Normal: "일반",
+  Metro: "메트로",
+  Dark: "다크",
+  "Dark Metro": "다크 메트로",
+  Inverted: "반전",
+  "Inverted Metro": "반전 메트로",
+  AMOLED: "AMOLED",
+  "AMOLED Metro": "AMOLED 메트로",
+};
+
 export const Theme = function Theme(name, config) {
   this.name = name;
 
@@ -26,7 +37,7 @@ export const Theme = function Theme(name, config) {
   };
 
   this.displayName = function() {
-    if (!this.isSecret || !this.isAvailable()) return name;
+    if (!this.isSecret || !this.isAvailable()) return THEME_DISPLAY_NAMES[name] ?? name;
     // Secret themes are stored as "S9Whatever", so we need to strip the SN part
     return player.secretUnlocks.themes.find(theme => theme.match(/^S[0-9]*/u)[0] === name).replace(/^S[0-9]*/u, "");
   };
@@ -115,10 +126,10 @@ Theme.tryUnlock = function(name) {
   Theme.set(prefix);
   SecretAchievement(25).unlock();
   if (!isAlreadyUnlocked) {
-    GameUI.notify.success(`You have unlocked the ${name.capitalize()} theme!`, 5000);
+    GameUI.notify.success(`${name.capitalize()} 테마를 해금했습니다!`, 5000);
     if (Theme.current().isAnimated) {
-      setTimeout(Modal.message.show(`This secret theme has animations. If they are giving you performance issues,
-        you can turn them off in the Options/Visual tab to reduce lag.`), 100);
+      setTimeout(Modal.message.show(`이 비밀 테마에는 애니메이션이 있습니다. 성능 문제가 생기면
+        옵션/시각 설정 탭에서 애니메이션을 꺼 지연을 줄일 수 있습니다.`), 100);
     }
   }
   return true;

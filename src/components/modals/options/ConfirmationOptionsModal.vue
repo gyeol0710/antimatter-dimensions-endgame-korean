@@ -22,12 +22,12 @@ export default {
 <template>
   <ModalWrapperOptions class="c-modal-options__large">
     <template #header>
-      Confirmation Options
+      재확인 설정
     </template>
     <div class="c-modal-options__button-container">
       <span v-if="noConfirmations">
-        You do not have anything that requires confirmation,
-        but if you did it would appear here.
+        현재 확인 설정을 사용할 수 있는 항목이 없습니다.
+        해당 항목을 해금하면 여기에 표시됩니다.
       </span>
       <ConfirmationOptionsEntry
         v-for="entryNumber in count"
