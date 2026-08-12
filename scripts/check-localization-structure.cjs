@@ -808,6 +808,17 @@ function hasLocalizedHumanText(node) {
     .some(token => bindingHasLocalizedHumanText(token["@binding"])));
 }
 
+function normalizeStaticClass(value) {
+  if (value === null || value === undefined) return null;
+  try {
+    const className = JSON.parse(value);
+    if (typeof className === "string") return JSON.stringify(className.trim());
+  } catch {
+    // Keep unexpected compiler output fail-closed instead of guessing how to normalize it.
+  }
+  return value;
+}
+
 function canonicalTemplateNode(node, visited = new Set()) {
   if (!node || visited.has(node)) return null;
   visited.add(node);
@@ -840,7 +851,7 @@ function canonicalTemplateNode(node, visited = new Set()) {
     alias: node.alias ?? null,
     iterator1: node.iterator1 ?? null,
     iterator2: node.iterator2 ?? null,
-    staticClass: node.staticClass ?? null,
+    staticClass: normalizeStaticClass(node.staticClass),
     classBinding: normalizeStructuralBinding(node.classBinding),
     staticStyle: node.staticStyle ?? null,
     styleBinding: normalizeStructuralBinding(node.styleBinding),
@@ -1741,6 +1752,11 @@ function runSelfTest() {
     "Vue attribute order must not be structural",
     `<Widget class="fixed" :label="'Visible'" :value="amount" />`,
     `<Widget :value="amount" :label="'표시'" class="fixed" />`
+  );
+  assertCanonicalVueEquality(
+    "Static class whitespace must not be structural",
+    `<div class="first second" />`,
+    `<div class="  first second  " />`
   );
   assertCanonicalVueEquality(
     "Literal v-tooltip text must remain translatable",
