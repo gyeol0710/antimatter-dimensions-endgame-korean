@@ -67,7 +67,7 @@ export const gamespeed = {
     icon: MultiplierTabIcons.SINGULARITY,
   },
   pelle: {
-    name: "펠레 업그레이드 - 반복 구매 게임 속도",
+    name: "Pelle 업그레이드 - 반복 구매 게임 속도",
     multValue: () => PelleUpgrade.timeSpeedMult.effectValue.toNumber(),
     isActive: () => Pelle.isDoomed && !EternityChallenge(12).isRunning,
     icon: MultiplierTabIcons.PELLE,
@@ -93,7 +93,7 @@ export const gamespeed = {
     icon: MultiplierTabIcons.CHALLENGE("eternity"),
   },
   nerfLaitela: {
-    name: "라이텔라의 현실",
+    name: "Lai'tela의 현실",
     powValue: () => Math.clampMax(Time.thisRealityRealTime.totalMinutes / 10, 1),
     isActive: () => Laitela.isRunning,
     icon: MultiplierTabIcons.GENERIC_LAITELA,

@@ -39,7 +39,7 @@ export default {
       if (!this.hasEffarig && !this.hasReality) return "";
       const uniqueGlyphs = [];
       if (this.hasEffarig) uniqueGlyphs.push(
-        `<span style="color: ${GlyphAppearanceHandler.getBorderColor("effarig")};">에파리그</span>`);
+        `<span style="color: ${GlyphAppearanceHandler.getBorderColor("effarig")};">Effarig</span>`);
       if (this.hasReality) uniqueGlyphs.push(
         `<span style="animation: a-reality-glyph-description-cycle 10s infinite;">현실</span>`);
       return `최대 ${formatInt(this.maxSpecialGlyphs)}개의 ${uniqueGlyphs.join(" 또는 ")}

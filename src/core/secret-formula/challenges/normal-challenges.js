@@ -58,7 +58,7 @@ export const normalChallenges = [
     legacyId: 6,
     isQuickResettable: false,
     description:
-      () => `틱스피드 업그레이드 배율이  ${formatX(1.1245, 0, 3)}배가 아닌 ${formatX(1.080, 0, 3)}배에서 시작됩니다.`,
+      () => `틱스피드 업그레이드 배율이 ${formatX(1.1245, 0, 3)}가 아닌 ${formatX(1.080, 0, 3)}에서 시작됩니다.`,
     name: "제5 반물질 차원 자동구매기",
     reward: "제5 반물질 차원 자동구매기 업그레이드",
     lockedAt: DC.D0,

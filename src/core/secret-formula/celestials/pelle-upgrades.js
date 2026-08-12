@@ -36,7 +36,7 @@ export const pelleUpgrades = {
   }),
   glyphLevels: rebuyable({
     id: "glyphLevels",
-    description: "펠레에서 허용되는 글리프 레벨을 증가시킵니다",
+    description: "Pelle에서 허용되는 글리프 레벨을 증가시킵니다",
     cost: [30, 1e3, 25, 1e15],
     effect: x => Math.floor(((3 * (x + 1)) - 2) ** 1.6),
     formatEffect: x => formatInt(x),

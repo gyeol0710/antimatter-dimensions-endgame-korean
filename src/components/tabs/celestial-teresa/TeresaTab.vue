@@ -170,7 +170,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "테레사", number: 0 });
+      Modal.celestials.show({ name: "Teresa", number: 0 });
     },
     unlockDescriptionHeight(unlockInfo) {
       const maxPrice = TeresaUnlocks[Teresa.lastUnlock].price;
@@ -223,7 +223,7 @@ export default {
       >
         <div class="c-teresa-unlock c-teresa-run-button">
           <span :class="{ 'o-pelle-disabled': isDoomed }">
-            테레사의 현실을 시작합니다.
+            Teresa의 현실을 시작합니다.
           </span>
           <div
             :class="runButtonClassObject"
@@ -237,19 +237,19 @@ export default {
             이 현실을 반복하면 그 안에서 획득한 반물질에 따라 보상이 강해집니다.
             <br><br>
             <span v-if="showRunReward">
-              테레사의 현실에서 기록한 최고 반물질은 {{ format(bestAM, 2) }}이며,
+              Teresa의 현실에서 기록한 최고 반물질은 {{ format(bestAM, 2) }}이며,
               {{ lastMachinesString }}으로 달성했습니다.
               <br><br>
               사용한 글리프 세트:
               <GlyphSetPreview
-                text="테레사의 최고 글리프 세트"
+                text="Teresa의 최고 글리프 세트"
                 :text-hidden="true"
                 :force-name-color="false"
                 :glyphs="bestAMSet"
               />
             </span>
             <span v-else>
-              아직 테레사의 현실을 완료하지 못했습니다.
+              아직 Teresa의 현실을 완료하지 못했습니다.
             </span>
           </div>
         </div>
@@ -257,7 +257,7 @@ export default {
           v-if="showRunReward"
           class="c-teresa-unlock"
         >
-          테레사의 현실 보상: 글리프 희생 파워 {{ formatX(runReward, 2, 2) }}
+          Teresa의 현실 보상: 글리프 희생 파워 {{ formatX(runReward, 2, 2) }}
         </div>
         <div
           v-if="hasEPGen"

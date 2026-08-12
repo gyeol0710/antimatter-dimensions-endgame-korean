@@ -332,11 +332,11 @@ function giveRealityRewards(realityProps) {
     const current = Teresa.runRewardMultiplier;
     const newMultiplier = Teresa.rewardMultiplier(player.antimatter);
     const isHigher = newMultiplier.gt(current);
-    const modalText = `테레사의 현실을 완료했습니다! ${isHigher
+    const modalText = `Teresa의 현실을 완료했습니다! ${isHigher
       ? `더 많은 반물질을 획득하여 글리프 희생 배수가
       ${format(current, 2, 2)}에서 ${format(newMultiplier, 2, 2)}로 증가했습니다`
       : `이번 진행에서 더 많은 반물질을 획득하지 못했으므로
-      테레사의 글리프 희생 배수가 증가하지 않았습니다`}`;
+      Teresa의 글리프 희생 배수가 증가하지 않았습니다`}`;
     Modal.message.show(modalText, {}, 2);
     if (Currency.antimatter.gt(player.celestials.teresa.bestRunAM)) {
       player.celestials.teresa.bestRunAM = Currency.antimatter.value;

@@ -80,8 +80,7 @@ export default {
 <template>
   <div class="l-break-infinity-tab">
     <div v-if="!isUnlocked">
-      Reduce the interval of Automatic Big Crunch Autobuyer to
-      {{ format(0.1, 1, 1) }} seconds to unlock Break Infinity.
+      빅 크런치 자동구매기의 간격을 {{ format(0.1, 1, 1) }}초까지 줄이면 무한 돌파가 해금됩니다.
     </div>
     <div
       v-if="chargeUnlocked"
@@ -91,15 +90,15 @@ export default {
         :class="disChargeClassObject"
         @click="disCharge = !disCharge"
       >
-        Respec Charged Break Infinity Upgrades on next Endgame
+        다음 엔드게임에서 충전된 무한 돌파 업그레이드 재분배
       </PrimaryButton>
     </div>
     <div v-if="chargeUnlocked">
-      You have charged {{ formatInt(chargesUsed) }}/{{ formatInt(totalCharges) }} Break Infinity Upgrades.
-      Charged Break Infinity Upgrades have their effect altered.
+      무한 돌파 업그레이드 {{ formatInt(totalCharges) }}개 중 {{ formatInt(chargesUsed) }}개를 충전했습니다.
+      충전된 무한 돌파 업그레이드는 효과가 달라집니다.
       <br>
-      Hold shift to show Charged Break Infinity Upgrades.
-      <span> You can freely respec your choices on Endgame.</span>
+      Shift 키를 누르면 충전된 무한 돌파 업그레이드를 표시합니다.
+      <span> 엔드게임에서 선택을 자유롭게 재분배할 수 있습니다.</span>
     </div>
     <BreakInfinityButton class="l-break-infinity-tab__break-btn" />
     <div

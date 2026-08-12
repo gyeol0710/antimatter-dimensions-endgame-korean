@@ -196,7 +196,21 @@ export default {
     challengeText(run) {
       // Special-case Nameless reality in order to keep this column small and not force a linebreak
       const rawText = run[4];
-      return rawText === "The Nameless Ones" ? "이름없는 자들" : rawText;
+      const legacyCelestialNames = {
+        테레사: "Teresa",
+        에파리그: "Effarig",
+        "이름없는 자들": "The Nameless Ones",
+        "이름 없는 자들": "The Nameless Ones",
+        라: "Ra",
+        라이텔라: "Lai'tela"
+      };
+      if (legacyCelestialNames[rawText]) return legacyCelestialNames[rawText];
+      if (typeof rawText !== "string") return rawText;
+      if (rawText === "The Nameless Ones") return "The Nameless Ones";
+      if (rawText === "Time Dilation") return "시간 팽창";
+      if (rawText.startsWith("Dilated EC ")) return rawText.replace("Dilated EC ", "팽창한 영원 도전 ");
+      if (rawText.startsWith("Eternity Challenge ")) return rawText.replace("Eternity Challenge ", "영원 도전 ");
+      return rawText;
     },
     toggleShown() {
       player.shownRuns[this.singular] = !player.shownRuns[this.singular];

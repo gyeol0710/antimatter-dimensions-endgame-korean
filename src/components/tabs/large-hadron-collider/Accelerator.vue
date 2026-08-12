@@ -82,7 +82,7 @@ export default {
               {{ acceleratorName() }}
             </h2>
             <div class="c-accelerator-info-container">
-              {{ drainResource() }}을 소모하여 충전합니다.
+              충전에 소모하는 자원: {{ drainResource() }}
               <br>
               <template v-if="!isMaxed">
                 현재 보유량: {{ formatAccelerator(resource) }}

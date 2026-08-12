@@ -34,7 +34,7 @@ export default {
 
 <template>
   <div class="l-eternity-milestone-grid">
-    <div>You have {{ quantify("Eternity", eternityCount, 3) }}.</div>
+    <div>영원 횟수: {{ quantify("회", eternityCount, 3) }}</div>
     <div>
       오프라인 생성 마일스톤은 특정 조건에서만 활성화됩니다. 해당 마일스톤에 마우스를 올려놓으면 이러한 조건을 볼 수 있습니다.
     </div>

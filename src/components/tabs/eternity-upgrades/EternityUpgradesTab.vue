@@ -57,14 +57,14 @@ export default {
     </div>
     <EPMultiplierButton />
     <div v-if="areSoftcapsApplicable">
-      The cost for the {{ formatX(5) }} multiplier jumps at {{ format(costIncreases[0]) }},
-      {{ formatPostBreak(costIncreases[1], 2) }}, and {{ formatPostBreak(costIncreases[2]) }} Eternity Points.
+      {{ formatX(5) }} 배율의 가격은 영원 포인트 {{ format(costIncreases[0]) }},
+      {{ formatPostBreak(costIncreases[1], 2) }}, {{ formatPostBreak(costIncreases[2]) }}에서 크게 상승합니다.
       <br>
-      The cost increases super-exponentially after {{ formatPostBreak(costIncreases[3]) }} Eternity Points.
+      영원 포인트 {{ formatPostBreak(costIncreases[3]) }} 이후에는 가격이 초지수적으로 증가합니다.
     </div>
     <div v-if="hasSeenFinalSoftcap">
       <br>
-      The cost increases greatly beyond {{ formatPostBreak(costIncreases[4]) }} Eternity Points.
+      영원 포인트 {{ formatPostBreak(costIncreases[4]) }} 이후에는 가격이 더욱 크게 상승합니다.
     </div>
   </div>
 </template>

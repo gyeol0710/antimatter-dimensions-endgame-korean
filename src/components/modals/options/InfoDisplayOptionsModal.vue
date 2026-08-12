@@ -163,7 +163,7 @@ export default {
       <ModalOptionsToggleButton
         v-if="alchemyUnlocked"
         v-model="alchemy"
-        text="연금술 재료 갯수:"
+        text="연금술 재료 개수:"
       />
       <ModalOptionsToggleButton
         v-if="endgameUnlocked"

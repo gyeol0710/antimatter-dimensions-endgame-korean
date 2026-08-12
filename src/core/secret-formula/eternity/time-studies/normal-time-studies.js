@@ -100,7 +100,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [31],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `모든 은하들의 수만큼 무한 포인트의 지급량을 ${formatX(DC.D1_2, 1, 1)}배 늘린다`,
+    description: () => `모든 은하들의 수만큼 무한 포인트의 지급량을 ${formatX(DC.D1_2, 1, 1)} 늘린다`,
     effect: () => DC.D1_2.pow(GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(
       player.galaxies.max(1)).times(player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)) :
       Replicanti.galaxies.total.add(player.galaxies).add(player.dilation.totalTachyonGalaxies).add(GalacticPower.freeGalaxies)),
@@ -120,7 +120,7 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [41, 42],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `무한 포인트를 ${formatX(1e15)}배 더 얻는다.`,
+    description: () => `무한 포인트를 ${formatX(1e15)} 더 얻는다.`,
     effect: 1e15
   },
   {
@@ -128,7 +128,7 @@ export const normalTimeStudies = [
     cost: 3,
     requirement: [51],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `영원 포인트를 ${formatX(25)}배 더 얻는다.`,
+    description: () => `영원 포인트를 ${formatX(25)} 더 얻는다.`,
     effect: 25
   },
   {
@@ -176,7 +176,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [71],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `차원 가속의 생산량 증가 효과가 ${formatX(10)}배로 바뀐다.`,
+    description: () => `차원 가속의 생산량 증가 효과가 ${formatX(10)}으로 바뀐다.`,
     effect: 10
   },
   {
@@ -236,7 +236,7 @@ export const normalTimeStudies = [
     cost: 4,
     requirement: [91],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "반물질 차원이 복제자의 갯수만큼 증폭된다.",
+    description: "반물질 차원이 복제자의 개수만큼 증폭된다.",
     effect: () => Decimal.max(Replicanti.amount, 1),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -276,7 +276,7 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [122, 123],
     description: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
-      ? `영원 포인트를 ${formatX(50)}배 더 얻는다.`
+      ? `영원 포인트를 ${formatX(50)} 더 얻는다.`
       : `최근 영원 10회의 속도에 따라 영원 포인트를 더 얻는다${PlayerProgress.realityUnlocked() ? " (실제 시간)" : ""}`),
     effect: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
       ? 50
@@ -292,8 +292,8 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [121, 123],
     description: () => ((Perk.studyPassive.isBought && !player.disablePostReality)
-      ? `영원 포인트를 ${formatX(50)}배 더 얻는다.`
-      : `영원 포인트를 ${formatX(35)}배 더 얻는다.`),
+      ? `영원 포인트를 ${formatX(50)} 더 얻는다.`
+      : `영원 포인트를 ${formatX(35)} 더 얻는다.`),
     effect: () => ((Perk.studyPassive.isBought && !player.disablePostReality) ? 50 : 35)
   },
   {
@@ -335,7 +335,7 @@ export const normalTimeStudies = [
     description: () => ((Pelle.isDoomed && !PelleDestructionUpgrade.timestudy132.canBeApplied)
       ? `복제자 은하가 ${formatPercents(0.4)} 더 강해진다.`
       : `복제자 은하가 ${formatPercents(0.4)} 더 강해지고 복제자 생성 속도가
-        ${(Perk.studyPassive.isBought && !player.disablePostReality) ? formatX(3) : formatX(1.5, 1, 1)}배 빨라진다.`),
+        ${(Perk.studyPassive.isBought && !player.disablePostReality) ? formatX(3) : formatX(1.5, 1, 1)} 빨라진다.`),
     effect: 0.4
   },
   {
@@ -347,7 +347,7 @@ export const normalTimeStudies = [
     requiresST: [131, 132],
     description: () => (Achievement(138).isUnlocked
       ? `복제자 은하가 ${formatPercents(0.5)} 효율적이게 된다.`
-      : `복제자가 ${format(Number.MAX_VALUE, 2)}개가 될 때까지 생성 속도가 ${formatX(10)}배 느려지지만, ` +
+      : `복제자가 ${format(Number.MAX_VALUE, 2)}개가 될 때까지 생성 속도가 ${formatX(10)} 느려지지만, ` +
     `복제자 은하가 ${formatPercents(0.5)} 더 강해진다.`),
     effect: 0.5
   },
@@ -359,7 +359,7 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [142, 143],
     description: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
-      ? `무한 포인트를 ${formatX(DC.E45)}배 더 얻는다.`
+      ? `무한 포인트를 ${formatX(DC.E45)} 더 얻는다.`
       : "현재 무한에서 지낸 시간에 반비례하여 무한 포인트의 획득량을 증폭한다."),
     effect: () => ((Perk.studyActiveEP.isBought && !player.disablePostReality)
       ? DC.E45
@@ -375,7 +375,7 @@ export const normalTimeStudies = [
     requirement: [132],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [141, 143],
-    description: () => `무한 포인트를 ${formatX(passiveIPMult())}배 더 얻는다.`,
+    description: () => `무한 포인트를 ${formatX(passiveIPMult())} 더 얻는다.`,
     effect: passiveIPMult,
     cap: () => (Effarig.eternityCap === undefined ? undefined : Effarig.eternityCap.toNumber())
   },
@@ -410,7 +410,7 @@ export const normalTimeStudies = [
     cost: 7,
     requirement: [151],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `모든 반물질 차원이 ${formatX(DC.E616)}배 증폭된다.`,
+    description: () => `모든 반물질 차원이 ${formatX(DC.E616)} 증폭된다.`,
     effect: () => DC.E616
   },
   {
@@ -418,7 +418,7 @@ export const normalTimeStudies = [
     cost: 7,
     requirement: [151],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `모든 무한 차원이 ${formatX(1e11)}배 증폭된다.`,
+    description: () => `모든 무한 차원이 ${formatX(1e11)} 증폭된다.`,
     effect: 1e11
   },
   {
@@ -461,7 +461,7 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.ALL,
     description: () => (Enslaved.isRunning
       ? "이 현실에서 복제자를 만들 공간이 충분하지 않다."
-      : `복제자를 ${format(replicantiCap(), 2, 1)}개 이상 획득할 수 있지만, 복제자 갯수가 많을수록 복제자의 생성 속도가 느려진다.`)
+      : `복제자를 ${format(replicantiCap(), 2, 1)}개 이상 획득할 수 있지만, 복제자 개수가 많을수록 복제자의 생성 속도가 느려진다.`)
   },
   {
     id: 193,
@@ -479,7 +479,7 @@ export const normalTimeStudies = [
     cost: 900,
     requirement: [192],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "첫번째 시간 연구 분기점에서 하나의 길을 더 고를 수 있다."
+    description: "첫 번째 시간 연구 분기점에서 하나의 길을 더 고를 수 있다."
   },
   {
     id: 211,
@@ -494,7 +494,7 @@ export const normalTimeStudies = [
     cost: 150,
     requirement: [191],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "모든 은하들의 성능이 시간 파편의 갯수에 비례해 증가한다.",
+    description: "모든 은하들의 성능이 시간 파편의 개수에 비례해 증가한다.",
     effect: () => Decimal.pow(Currency.timeShards.value.clampMin(2).log2(), 0.008).min(1.2).times(
       Currency.timeShards.value.clampMin(2).log2().add(1).log2().add(1).log2().sub(2.1).div(3).max(1)).toNumber(),
     cap: () => Alpha.isDestroyed ? Infinity : 1.2,
@@ -542,7 +542,7 @@ export const normalTimeStudies = [
     requirement: [211],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [221],
-    description: () => `차원 가속 구매시 가격 상승량이 ${formatInt(2)}개 더 감소한다.`,
+    description: () => `차원 가속 구매 시 가격 상승량이 ${formatInt(2)}개 더 감소한다.`,
     effect: 2
   },
   {
@@ -576,7 +576,7 @@ export const normalTimeStudies = [
     requirement: [213],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [226],
-    description: "복제자의 갯수에 따라서 복제자 은하를 추가로 얻는다.",
+    description: "복제자의 개수에 따라서 복제자 은하를 추가로 얻는다.",
     effect: () => Decimal.floor(Replicanti.amount.add(1).log10().div(1000).min(1e10).times(Replicanti.amount.add(1).log10().add(1).log10().sub(3).div(10).max(1))),
     formatEffect: value => `+${formatHybridLarge(value, 3)} RG`
   },
@@ -587,7 +587,7 @@ export const normalTimeStudies = [
     requirement: [213],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [225],
-    description: "복제자 은하의 최대 보유 갯수에 비례하여 복제자 은하를 추가로 얻는다.",
+    description: "복제자 은하의 최대 보유 개수에 비례하여 복제자 은하를 추가로 얻는다.",
     effect: () => Decimal.floor(player.replicanti.boughtGalaxyCap.div(12)),
     formatEffect: value => `+${formatHybridLarge(value, 3)} RG`
   },
@@ -633,7 +633,7 @@ export const normalTimeStudies = [
     requirement: [223, 224],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [231],
-    description: "모든 은하들의 성능이 반물질 은하의 갯수에 비례하여 증가한다.",
+    description: "모든 은하들의 성능이 반물질 은하의 개수에 비례하여 증가한다.",
     effect: () => Decimal.pow(player.galaxies.div(500).add(1), 0.25).toNumber(),
     formatEffect: value => `+${formatPercents(value - 1, 3)}`
   },
@@ -644,7 +644,7 @@ export const normalTimeStudies = [
     requirement: [225, 226],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [234],
-    description: "복제자 은하 최대 보유 갯수 업그레이드의 비용이 복제자의 갯수가 많을수록 감소한다.",
+    description: "복제자 은하 최대 보유 개수 업그레이드의 비용이 복제자의 개수가 많을수록 감소한다.",
     effect: () => Replicanti.amount.pow(0.625),
     formatEffect: value => `/ ${format(value, 1, 2)}`
   },
@@ -691,7 +691,7 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3, 225, 226, 233],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [225, 226, 233],
-    description: () => `시간 연구 225와 226 및 에파리그의 무한에서 추가 복제자 은하를
+    description: () => `시간 연구 225와 226 및 Effarig의 무한에서 추가 복제자 은하를
       ${formatPercents(0.5 * Ra.unlocks.triadBuff.effectOrDefault(1))} 더 얻는다.`,
     effect: () => 1 + 0.5 * Ra.unlocks.triadBuff.effectOrDefault(1),
     unlocked: () => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3

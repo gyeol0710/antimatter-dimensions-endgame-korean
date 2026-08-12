@@ -37,7 +37,7 @@ class Validator extends BaseVisitor {
         startOffset: err.offset,
         endOffset: err.offset + err.length,
         info: `예상하지 못한 문자: ${this.rawText.substr(err.offset, err.length)}`,
-        tip: `${this.rawText.substr(err.offset, err.length)}은(는) 명령에 포함할 수 없으므로 제거하세요`
+        tip: `${this.rawText.substr(err.offset, err.length)} 문자를 명령에서 제거하세요`
       });
     }
   }
@@ -65,7 +65,7 @@ class Validator extends BaseVisitor {
       if (parseError.name === "NoViableAltException") {
         if (!isEndToken) {
           err.info = `예상하지 못한 입력 ${parseError.token.image}`;
-          err.tip = `${parseError.token.image}을(를) 제거하세요`;
+          err.tip = `${parseError.token.image} 입력을 제거하세요`;
         }
       } else if (parseError.name === "EarlyExitException") {
         err.info = "명령이 예상보다 일찍 끝났습니다";
@@ -193,8 +193,8 @@ class Validator extends BaseVisitor {
     const varInfo = {};
     const constants = player.reality.automator.constants;
     if (!Object.keys(constants).includes(varName)) {
-      this.addError(identifier, `변수 ${varName}이(가) 정의되지 않았습니다`,
-        `정의 패널에서 ${varName}을(를) 정의한 뒤 참조하거나 오타를 확인하세요`);
+      this.addError(identifier, `변수 ${varName} 정의를 찾을 수 없습니다`,
+        `정의 패널에서 ${varName} 변수를 정의한 뒤 참조하거나 오타를 확인하세요`);
       return undefined;
     }
     const value = constants[varName];
@@ -333,7 +333,7 @@ class Validator extends BaseVisitor {
       const ecNumber = parseFloat(ctx.ECNumber[0].image);
       if (!Number.isInteger(ecNumber) || ecNumber < 0 || ecNumber > 12) {
         this.addError(ctx.ECNumber, `올바르지 않은 영원 도전 ID ${ecNumber}`,
-          `영원 도전 ${ecNumber}은(는) 존재하지 않습니다. ${format(1)}에서 ${format(12)} 사이의 정수를 사용하세요`);
+          `영원 도전 ${ecNumber}: 존재하지 않는 ID입니다. ${format(1)}에서 ${format(12)} 사이의 정수를 사용하세요`);
       }
       ctx.$cached.ec = ecNumber;
     }
@@ -346,7 +346,7 @@ class Validator extends BaseVisitor {
       ctx.$value = new Decimal(ctx.NumberLiteral[0].image);
     } else if (ctx.Identifier) {
       if (!this.isValidVarFormat(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.NUMBER)) {
-        this.addError(ctx, `상수 ${ctx.Identifier[0].image}은(는) 비교에 사용할 수 없습니다`,
+        this.addError(ctx, `상수 ${ctx.Identifier[0].image} 값은 비교에 사용할 수 없습니다`,
           `${ctx.Identifier[0].image}에 시간 연구 문자열이 아닌 올바른 형식의 숫자가 들어 있는지 확인하세요`);
       }
       const varLookup = this.lookupVar(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.NUMBER);
@@ -392,7 +392,7 @@ class Validator extends BaseVisitor {
     }
     if (!Number.isInteger(ecNumber) || ecNumber < 1 || ecNumber > 12) {
       this.addError(errToken, `올바르지 않은 영원 도전 ID ${ecNumber}`,
-        `영원 도전 ${ecNumber}은(는) 존재하지 않습니다. ${format(1)}에서 ${format(12)} 사이의 정수를 사용하세요`);
+        `영원 도전 ${ecNumber}: 존재하지 않는 ID입니다. ${format(1)}에서 ${format(12)} 사이의 정수를 사용하세요`);
     }
     ctx.$ecNumber = ecNumber;
   }

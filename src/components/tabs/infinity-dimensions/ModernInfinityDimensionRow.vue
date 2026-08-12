@@ -67,7 +67,7 @@ export default {
       return this.costDisplay.length > 20;
     },
     capTooltip() {
-      if (this.enslavedRunning) return `이름없는 자들이 무한 차원을 ${format(10)}개 이상 구매하는 것을 막고 있습니다.`;
+      if (this.enslavedRunning) return `The Nameless Ones가 무한 차원을 ${format(10)}개 이상 구매하는 것을 막고 있습니다.`;
       if (this.isCapped) return `${format(this.capIP)} IP에서 상한에 도달`;
       if (this.isContinuumActive) return "연속체가 모든 무한 차원을 생산합니다";
       return `총 ${quantifyHybridLarge("번", this.purchases)} 구매함`;

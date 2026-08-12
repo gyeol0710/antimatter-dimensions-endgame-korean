@@ -108,7 +108,7 @@ export default {
     <template #bottom>
       <div :style="{ visiblity: completions < 5 ? 'visible' : 'hidden' }">
         <div>
-          Completed {{ quantifyInt("time", completions) }}
+          완료 횟수: {{ quantifyInt("회", completions) }}
         </div>
         {{ goalDisplay }}
       </div>

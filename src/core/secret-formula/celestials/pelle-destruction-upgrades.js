@@ -284,7 +284,7 @@ export const pelleDestructionUpgrades = {
   },
   glyphSlot1: {
     id: 13,
-    description: "펠레에서 글리프 슬롯 하나 회복",
+    description: "Pelle에서 글리프 슬롯 하나 회복",
     cost: 1e12,
     formatCost
   },
@@ -368,7 +368,7 @@ export const pelleDestructionUpgrades = {
   },
   glyphSlot2: {
     id: 27,
-    description: "펠레에서 글리프 슬롯 하나 회복",
+    description: "Pelle에서 글리프 슬롯 하나 회복",
     cost: 1e24,
     formatCost,
   },
@@ -404,13 +404,13 @@ export const pelleDestructionUpgrades = {
   },
   reenableIPDilationUpgrade: {
     id: 33,
-    description: "2e12 팽창 시간 시간 팽창 업그레이드 재활성화",
+    description: "팽창 시간 2e12가 필요한 시간 팽창 업그레이드 재활성화",
     cost: 1e33,
     formatCost,
   },
   glyphSlot3: {
     id: 34,
-    description: "펠레에서 글리프 슬롯 하나 회복",
+    description: "Pelle에서 글리프 슬롯 하나 회복",
     cost: 1e36,
     formatCost,
   },
@@ -434,7 +434,7 @@ export const pelleDestructionUpgrades = {
   },
   pelleGlyphEffects: {
     id: 38,
-    description: "영원 도전 9-12에서 펠레 무한 글리프 특수 효과 활성화",
+    description: "영원 도전 9-12에서 Pelle 무한 글리프 특수 효과 활성화",
     cost: 1e42,
     formatCost,
   },
@@ -458,7 +458,7 @@ export const pelleDestructionUpgrades = {
   },
   glyphSlot4: {
     id: 42,
-    description: "펠레에서 글리프 슬롯 하나 회복",
+    description: "Pelle에서 글리프 슬롯 하나 회복",
     cost: 1e48,
     formatCost,
   },
@@ -476,7 +476,7 @@ export const pelleDestructionUpgrades = {
   },
   teresaShop: {
     id: 45,
-    description: "테레사의 퍼크 포인트 상점 재활성화",
+    description: "Teresa의 퍼크 포인트 상점 재활성화",
     cost: 1e50,
     formatCost,
   },
@@ -494,7 +494,7 @@ export const pelleDestructionUpgrades = {
   },
   specialGlyphEffects: {
     id: 48,
-    description: "에파리그 글리프의 글리프 효과 재활성화",
+    description: "Effarig 글리프의 글리프 효과 재활성화",
     cost: 1e60,
     formatCost,
   },
@@ -749,37 +749,37 @@ export const pelleImaginaryUpgradeEnabling = {
 export const pelleCelestialRewardEnabling = {
   allEternityUpgrades: {
     id: 0,
-    description: "테레사의 용기 마일스톤 1 재활성화",
+    description: "Teresa의 용기 마일스톤 1 재활성화",
     cost: 1e48,
     formatCost,
   },
   undoGlyph: {
     id: 1,
-    description: "테레사의 용기 마일스톤 2 재활성화",
+    description: "Teresa의 용기 마일스톤 2 재활성화",
     cost: 1e48,
     formatCost,
   },
   passiveEPGen: {
     id: 2,
-    description: "테레사의 용기 마일스톤 3 재활성화",
+    description: "Teresa의 용기 마일스톤 3 재활성화",
     cost: 1e48,
     formatCost,
   },
   replicantiCapIncrease: {
     id: 3,
-    description: "에파리그의 무한 보상 1 재활성화",
+    description: "Effarig의 무한 보상 1 재활성화",
     cost: 1e52,
     formatCost,
   },
   maxRGIncrease: {
     id: 4,
-    description: "에파리그의 무한 보상 2 재활성화",
+    description: "Effarig의 무한 보상 2 재활성화",
     cost: 1e52,
     formatCost,
   },
   effarigRewards: {
     id: 5,
-    description: "에파리그의 나머지 모든 보상 재활성화",
+    description: "Effarig의 나머지 모든 보상 재활성화",
     cost: 1e52,
     formatCost,
   },
@@ -803,43 +803,43 @@ export const pelleCelestialRewardEnabling = {
   },
   raTeresa1: {
     id: 9,
-    description: "테레사 레벨 1 보상 재활성화",
+    description: "Teresa 레벨 1 보상 재활성화",
     cost: 1e57,
     formatCost,
   },
   raTeresa2: {
     id: 10,
-    description: "테레사 레벨 2 보상 재활성화",
+    description: "Teresa 레벨 2 보상 재활성화",
     cost: 1e57,
     formatCost,
   },
   raTeresa3: {
     id: 11,
-    description: "테레사 레벨 10 보상 재활성화(변형 글리프)",
+    description: "Teresa 레벨 10 보상 재활성화(변형 글리프)",
     cost: 1e57,
     formatCost,
   },
   raNameless1: {
     id: 12,
-    description: "이름없는 자들의 레벨 1 보상 재활성화",
+    description: "The Nameless Ones의 레벨 1 보상 재활성화",
     cost: 1e57,
     formatCost,
   },
   raNameless2: {
     id: 13,
-    description: "이름없는 자들의 레벨 2 보상 재활성화(블랙홀 저장도 재활성화)",
+    description: "The Nameless Ones의 레벨 2 보상 재활성화(블랙홀 저장도 재활성화)",
     cost: 1e57,
     formatCost,
   },
   raNameless3: {
     id: 14,
-    description: "이름없는 자들의 레벨 10 보상 재활성화(블랙홀 파동)",
+    description: "The Nameless Ones의 레벨 10 보상 재활성화(블랙홀 파동)",
     cost: 1e57,
     formatCost,
   },
   raNameless4: {
     id: 15,
-    description: "이름없는 자들의 레벨 15 보상 재활성화",
+    description: "The Nameless Ones의 레벨 15 보상 재활성화",
     cost: 1e57,
     formatCost,
   },
@@ -1085,7 +1085,7 @@ export const pelleAlchemyEnabling = {
   },
   alchemyEffarig: {
     id: 5,
-    description: "연금술의 에파리그 재활성화",
+    description: "연금술의 Effarig 재활성화",
     cost: 1e52,
     formatCost,
   },

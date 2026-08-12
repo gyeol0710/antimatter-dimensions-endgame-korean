@@ -101,7 +101,7 @@ export default {
         </template>
       </ExpandingControlBox>
       <div v-if="currentSet">
-        "{{ currentSet.name }}" 세트에는 다음 {{ setContents }}이 포함됩니다:
+        "{{ currentSet.name }}" 세트 구성: {{ setContents }}
         <br>
         <span
           v-for="symbol of symbols"

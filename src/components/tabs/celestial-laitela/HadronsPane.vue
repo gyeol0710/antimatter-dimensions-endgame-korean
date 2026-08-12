@@ -215,7 +215,7 @@ export default {
       </h2>
       <br>
       <h2>
-        현재 엔드게임에서 {{ hadronTime }}을 보냈습니다.
+        현재 엔드게임에서 {{ hadronTime }} 동안 진행했습니다.
       </h2>
     </div>
     <div

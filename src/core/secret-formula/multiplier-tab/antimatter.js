@@ -10,7 +10,7 @@ export const AM = {
     overlay: ["<i class='fas fa-atom' />"],
   },
   effarigAM: {
-    name: "글리프 효과 - 에파리그 반물질 생산량",
+    name: "글리프 효과 - Effarig 반물질 생산량",
     powValue: () => {
       const ad1 = AntimatterDimension(1);
       const baseProd = ad1.totalAmount.times(ad1.multiplier).times(Tickspeed.perSecond);

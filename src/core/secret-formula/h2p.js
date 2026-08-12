@@ -51,9 +51,9 @@ export const h2p = {
 메신저 앱은 문자열의 일부를 잘라낼 수 있습니다.
 <br>
 <br>
-현실 업데이트 이후의 올바른 저장 문자열은 <b>${GameSaveSerializer.startingString.savefile}</b>(으)로
-시작해 <b>${GameSaveSerializer.endingString.savefile}</b>(으)로 끝납니다. 현실 출시 이전 버전의 저장
-파일이라면 대신 <b>eyJ</b>(으)로 시작해 <b>In19</b>, <b>fX0=</b>, 또는 <b>fQ==</b>(으)로 끝납니다. 어느
+현실 업데이트 이후의 올바른 저장 문자열 표식은 시작 <b>${GameSaveSerializer.startingString.savefile}</b>,
+끝 <b>${GameSaveSerializer.endingString.savefile}</b>입니다. 현실 출시 이전 버전의 저장 파일은 시작
+<b>eyJ</b>, 끝 <b>In19</b>, <b>fX0=</b>, 또는 <b>fQ==</b> 표식을 사용합니다. 어느
 형식에도 해당하지 않으면 저장 문자열 일부가 빠진 것이므로 불러오기에 실패합니다. 클립보드뿐 아니라 텍스트
 파일을 통해서도 저장 데이터를 불러오거나 내보낼 수 있습니다.
 <br>
@@ -322,7 +322,7 @@ ${formatInt(20)}개가 필요한 식입니다. 차원 ${formatInt(8)}개를 모�
 배율은 계속 증가합니다.
 <br>
 <br>
-차원 가속 하나마다 1번째 차원에 ${formatX(2)} 배율을 얻습니다. 상위 차원으로 갈수록 바로 이전 차원보다
+차원 가속 하나마다 1번째 차원에 ${formatX(2)} 배율이 적용됩니다. 상위 차원으로 갈수록 바로 이전 차원보다
 배율이 한 번 덜 적용되며, 최소 ${formatInt(0)}번까지 줄어듭니다. 예를 들어 가속이 ${formatInt(3)}회라면
 1번째 차원은 ${formatX(8)}, 2번째 차원은 ${formatX(4)}, 3번째 차원은 ${formatX(2)}를 얻고 나머지 차원은
 영향을 받지 않습니다.
@@ -984,8 +984,8 @@ ${formatInt(1)}개만 필요합니다.
 <br>
 <br>
 전체 저장 파일과 마찬가지로 개별 오토메이터 스크립트도 게임에서 불러오거나 내보낼 수 있습니다. 올바른 형식의
-스크립트 문자열은 <b>${GameSaveSerializer.startingString["automator script"]}</b>(으)로 시작해
-<b>${GameSaveSerializer.endingString["automator script"]}</b>(으)로 끝납니다. 그렇지 않다면 복사하고 붙여
+스크립트 문자열 표식은 시작 <b>${GameSaveSerializer.startingString["automator script"]}</b>, 끝
+<b>${GameSaveSerializer.endingString["automator script"]}</b>입니다. 이 형식이 아니라면 복사하고 붙여
 넣는 과정에서 스크립트 일부가 빠진 것입니다. 불러온 스크립트는 새 슬롯에 저장되며 현재 스크립트는 사라지거나
 덮어쓰이지 않습니다.
 <br>
@@ -1149,71 +1149,71 @@ ${formatInt(8)}분이라면, 첫 번째 블랙홀의 간격이 아무리 짧아�
       tags: ["reality", "challenges", "lategame"],
       tab: "celestials/celestial-navigation"
     }, {
-      name: "테레사, 현실의 셀레스티얼",
+      name: "Teresa, 현실의 셀레스티얼",
       alias: "Teresa",
       info: () => `
-테레사는 첫 번째 셀레스티얼입니다. 모든 현실 업그레이드를 얻어야 하는 도전과제 147을 달성하면 잠금
+Teresa는 첫 번째 셀레스티얼입니다. 모든 현실 업그레이드를 얻어야 하는 도전과제 147을 달성하면 잠금
 해제됩니다.
 <br>
 <br>
 메인 화면에는 위에 "RM 붓기" 버튼이 있는 막대가 있습니다. RM을 용기에 넣어 리얼리티 머신 배율을 얻을 수
 있습니다. 용기에 부은 RM은 되찾을 수 없습니다. 용기 안의 RM이 ${format(TeresaUnlocks.run.price)}에
-도달하면 테레사의 현실이 잠금 해제됩니다.
+도달하면 Teresa의 현실이 잠금 해제됩니다.
 <br>
 <br>
-테레사의 현실을 완료하면
+Teresa의 현실을 완료하면
 ${Teresa.runCompleted
     ? "도전 중 얻은 반물질에 따라 글리프 희생에 배율이 적용됩니다"
-    : "<div style='color: var(--color-bad);'>(보상을 보려면 테레사의 현실을 완료하세요)</div>"}.
-테레사의 현실 완료는 이야기의 일부일 뿐이며, 진행하려면 계속 RM을 부어야 합니다. 용기의 RM이
+    : "<div style='color: var(--color-bad);'>(보상을 보려면 Teresa의 현실을 완료하세요)</div>"}.
+Teresa의 현실 완료는 이야기의 일부일 뿐이며, 진행하려면 계속 RM을 부어야 합니다. 용기의 RM이
 ${format(TeresaUnlocks.effarig.price)}에 도달하면 다음 셀레스티얼이 잠금 해제됩니다.
 <br>
 <br>
 ${Teresa.runCompleted
-    ? "테레사의 현실은 완료한 뒤에도 다시 진입할 수 있으며, 반복 도전에서 더 많은 반물질에 도달하면 " +
+    ? "Teresa의 현실은 완료한 뒤에도 다시 진입할 수 있으며, 반복 도전에서 더 많은 반물질에 도달하면 " +
       "보상이 강해집니다."
-    : "(추가 정보가 있습니다 - 테레사의 현실을 완료하세요)"}
+    : "(추가 정보가 있습니다 - Teresa의 현실을 완료하세요)"}
 `,
       isUnlocked: () => Teresa.isUnlocked,
       tags: ["rm", "lategame", "perks", "sacrifice", "boo", "ghost", "celestial"],
       tab: "celestials/teresa"
     }, {
-      name: "에파리그, 고대 유물의 셀레스티얼",
+      name: "Effarig, 고대 유물의 셀레스티얼",
       alias: "Effarig",
       info: () => `
-에파리그는 두 번째로 만나는 셀레스티얼입니다. 테레사의 용기에 RM을 적어도
+Effarig는 두 번째로 만나는 셀레스티얼입니다. Teresa의 용기에 RM을 적어도
 ${format(TeresaUnlocks.effarig.price)}만큼 부으면 잠금 해제됩니다.
 <br>
 <br>
-에파리그는 현실에서 서로 다른 종류의 글리프 효과를 사용해 얻는 유물 파편이라는 화폐를 도입합니다.
+Effarig는 현실에서 서로 다른 종류의 글리프 효과를 사용해 얻는 유물 파편이라는 화폐를 도입합니다.
 현실 중 활성화된 고유 효과의 수가 유물 파편 획득량에 매우 큰 영향을 주며, 영원 포인트도 훨씬 약하게
-영향을 줍니다. 유물 파편은 에파리그 잠금 해제에 쓰이는 화폐이며, 이제부터 모든 현실에서 얻습니다.
+영향을 줍니다. 유물 파편은 Effarig 잠금 해제에 쓰이는 화폐이며, 이제부터 모든 현실에서 얻습니다.
 <br>
 <br>
 유물 파편으로 글리프를 개선하고 완전 자동 현실에서 효과와 희귀도에 따라 글리프를 거르는 여러 업그레이드를
 구매할 수 있습니다("고급 글리프 메커니즘" 참고).
 <br>
 <br>
-에파리그의 마지막 잠금 해제 요소는 유물 파편 ${format(GameDatabase.celestials.effarig.unlocks.run.cost)}개에서
-열리는 에파리그의 현실입니다.
+Effarig의 마지막 잠금 해제 요소는 유물 파편 ${format(GameDatabase.celestials.effarig.unlocks.run.cost)}개에서
+열리는 Effarig의 현실입니다.
 ${EffarigUnlock.run.isUnlocked
-    ? "에파리그의 현실은 무한, 영원, 현실의 세 단계로 나뉩니다. 각 단계를 완료해야 다음 단계에 " +
-      "진입할 수 있습니다. 에파리그의 영원을 완료하면 다음 셀레스티얼이 잠금 해제됩니다."
-    : "<div style='color: var(--color-effarig--base);'>(자세한 내용을 보려면 에파리그의 현실을 잠금 해제하세요)</div>"
+    ? "Effarig의 현실은 무한, 영원, 현실의 세 단계로 나뉩니다. 각 단계를 완료해야 다음 단계에 " +
+      "진입할 수 있습니다. Effarig의 영원을 완료하면 다음 셀레스티얼이 잠금 해제됩니다."
+    : "<div style='color: var(--color-effarig--base);'>(자세한 내용을 보려면 Effarig의 현실을 잠금 해제하세요)</div>"
 }
 <br>
 <br>
-에파리그의 현실을 완료하면
+Effarig의 현실을 완료하면
 ${EffarigUnlock.reality.isUnlocked
-    ? `새 글리프 종류인 <span style='color: var(--color-effarig--base);'>에파리그</span> 글리프가 잠금
-      해제됩니다. 에파리그 글리프는 ${formatInt(7)}가지 효과를 가질 수 있으며 글리프 필터 설정에서 확인할 수
-      있습니다. 한 번에 에파리그 글리프 하나만 장착할 수 있습니다.
+    ? `새 글리프 종류인 <span style='color: var(--color-effarig--base);'>Effarig</span> 글리프가 잠금
+      해제됩니다. Effarig 글리프는 ${formatInt(7)}가지 효과를 가질 수 있으며 글리프 필터 설정에서 확인할 수
+      있습니다. 한 번에 Effarig 글리프 하나만 장착할 수 있습니다.
 ${Ra.unlocks.glyphEffectCount.canBeApplied
-    ? `라 안에서 에파리그가 레벨 10에 도달했으므로 에파리그 글리프에 나타나는 효과 제한이 사라집니다.
-      이제 에파리그 글리프 하나에 ${formatInt(7)}가지 효과가 모두 동시에 나타날 수 있습니다.`
-    : `에파리그 글리프는 최대 ${formatInt(4)}개의 효과만 가질 수 있으며, RM 배율과 글리프 불안정 효과는
+    ? `Ra 안에서 Effarig가 레벨 10에 도달했으므로 Effarig 글리프에 나타나는 효과 제한이 사라집니다.
+      이제 Effarig 글리프 하나에 ${formatInt(7)}가지 효과가 모두 동시에 나타날 수 있습니다.`
+    : `Effarig 글리프는 최대 ${formatInt(4)}개의 효과만 가질 수 있으며, RM 배율과 글리프 불안정 효과는
       같은 글리프에 함께 나타날 수 없습니다.`}`
-    : "<span style='color: var(--color-effarig--base);'>(보상 정보를 보려면 에파리그의 현실을 완료하세요)</span>"}
+    : "<span style='color: var(--color-effarig--base);'>(보상 정보를 보려면 Effarig의 현실을 완료하세요)</span>"}
 <br>
 <br>
 `,
@@ -1287,15 +1287,15 @@ ${formatInt(6)}개 요구하면 힘 글리프가 선택되지 않습니다.
       tags: ["glyph", "weight", "adjustment", "sacrifice", "filter", "threshold", "set", "save", "reality", "lategame"],
       tab: "celestials/glyphfilter"
     }, {
-      name: "이름없는 자들, 시간의 셀레스티얼",
+      name: "The Nameless Ones, 시간의 셀레스티얼",
       alias: "Nameless Ones",
       info: () => `
-이름없는 자들은 세 번째 셀레스티얼이며, 에파리그의 영원을 완료하면 잠금 해제됩니다.
+The Nameless Ones는 세 번째 셀레스티얼이며, Effarig의 영원을 완료하면 잠금 해제됩니다.
 <br>
 <br>
-이름없는 자들을 잠금 해제하면 시간과 관련된 두 가지 새 메커니즘을 즉시 이용할 수 있습니다. 블랙홀을 충전해
-"게임 시간"을 저장하고, 생산을 의도적으로 멈춰 "현실 시간"을 저장할 수 있습니다. 저장된 게임 시간은 이름
-없는 자들의 잠금 해제 요소를 구매하는 화폐로도 사용됩니다.
+The Nameless Ones를 잠금 해제하면 시간과 관련된 두 가지 새 메커니즘을 즉시 이용할 수 있습니다. 블랙홀을 충전해
+"게임 시간"을 저장하고, 생산을 의도적으로 멈춰 "현실 시간"을 저장할 수 있습니다. 저장된 게임 시간은
+The Nameless Ones의 잠금 해제 요소를 구매하는 화폐로도 사용됩니다.
 <br>
 <br>
 블랙홀을 충전하면 게임 속도가 ${formatInt(1)}로 고정되는 대신 게임 시간을 저장합니다. 실질적으로 증가한
@@ -1328,13 +1328,13 @@ ${format(TimeSpan.fromMilliseconds(new Decimal(ENSLAVED_UNLOCKS.FREE_TICKSPEED_S
 <br>
 <br>
 저장된 게임 시간이 ${format(TimeSpan.fromMilliseconds(new Decimal(ENSLAVED_UNLOCKS.RUN.price)).totalYears)}년에
-도달하면 마침내 이름없는 자들의 현실을 잠금 해제할 수 있습니다. 현실 완료 보상은
+도달하면 마침내 The Nameless Ones의 현실을 잠금 해제할 수 있습니다. 현실 완료 보상은
 ${Enslaved.isCompleted
     ? "별도의 게임 방법 항목이 있는 테서랙트 잠금 해제입니다."
-    : "<span style='color: var(--color-bad);'>(보상 정보를 보려면 이름없는 자들의 현실을 완료하세요)</span>"}
+    : "<span style='color: var(--color-bad);'>(보상 정보를 보려면 The Nameless Ones의 현실을 완료하세요)</span>"}
 <br>
 <br>
-이름없는 자들은 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.
+The Nameless Ones는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.
 `,
       isUnlocked: () => EffarigUnlock.eternity.isUnlocked,
       tags: ["reality", "time", "blackhole", "lategame", "testers", "celestial",
@@ -1344,7 +1344,7 @@ ${Enslaved.isCompleted
     }, {
       name: "테서랙트",
       info: () => `
-테서랙트는 이름없는 자들의 현실을 완료하면 잠금 해제되는 새 자원입니다.
+테서랙트는 The Nameless Ones의 현실을 완료하면 잠금 해제되는 새 자원입니다.
 <br>
 <br>
 무한 차원은 일반적으로 총 구매 횟수가 ${format(InfinityDimensions.HARDCAP_PURCHASES)}회로 제한됩니다.
@@ -1416,41 +1416,41 @@ ${VUnlocks.vAchievementUnlock.isUnlocked
         "study", "triad", "celestial"],
       tab: "celestials/v"
     }, {
-      name: "라, 잊힌 자들의 셀레스티얼",
+      name: "Ra, 잊힌 자들의 셀레스티얼",
       alias: "Ra",
       info: () => `
-라는 다섯 번째 셀레스티얼이며, V의 도전과제를 모두 완료하면 잠금 해제됩니다. 라는 기억을 사용해 이전
-셀레스티얼의 긍정적인 효과를 더 강한 모습으로 되돌립니다. 진행하면서 라 <i>안에서</i> 이전 네 셀레스티얼을
+Ra는 다섯 번째 셀레스티얼이며, V의 도전과제를 모두 완료하면 잠금 해제됩니다. Ra는 기억을 사용해 이전
+셀레스티얼의 긍정적인 효과를 더 강한 모습으로 되돌립니다. 진행하면서 Ra <i>안에서</i> 이전 네 셀레스티얼을
 잠금 해제하며, 각 셀레스티얼은 원래 주제와 관련된 추가 업그레이드를 제공합니다.
 <br>
 <br>
-라 안의 이전 셀레스티얼은 기억을 사용해 레벨을 올립니다. 기억은 시간이 지나면 기억 조각에서 자동으로
-생성됩니다. 기억 조각은 라의 현실에 진입해야만 얻을 수 있으며, 현실 안에서는 특정 자원 총량에 따라
-자동으로 생성됩니다. 현실 시간을 저장하는 동안에는 라의 현실 안에서 기억 조각을 얻지 못하지만 기억은
+Ra 안의 이전 셀레스티얼은 기억을 사용해 레벨을 올립니다. 기억은 시간이 지나면 기억 조각에서 자동으로
+생성됩니다. 기억 조각은 Ra의 현실에 진입해야만 얻을 수 있으며, 현실 안에서는 특정 자원 총량에 따라
+자동으로 생성됩니다. 현실 시간을 저장하는 동안에는 Ra의 현실 안에서 기억 조각을 얻지 못하지만 기억은
 정상적으로 생성됩니다. 모든 셀레스티얼의 총레벨이 ${formatInt(Ra.remembrance.requiredLevels)}에 도달하면
-회상이 잠금 해제되어, 라의 현실 안에서 더 많은 조각을 얻을 셀레스티얼 하나를 선택할 수 있습니다.
+회상이 잠금 해제되어, Ra의 현실 안에서 더 많은 조각을 얻을 셀레스티얼 하나를 선택할 수 있습니다.
 <br>
 <br>
-기억은 기억 조각 획득량 증가, 기억 획득량 증가, 셀레스티얼 레벨 상승의 세 가지 용도로 사용합니다. 라를
-시작할 때는 테레사만 잠금 해제되어 있으며, 이전 셀레스티얼이 레벨 ${formatInt(8)}에 도달할 때마다 다음
+기억은 기억 조각 획득량 증가, 기억 획득량 증가, 셀레스티얼 레벨 상승의 세 가지 용도로 사용합니다. Ra를
+시작할 때는 Teresa만 잠금 해제되어 있으며, 이전 셀레스티얼이 레벨 ${formatInt(8)}에 도달할 때마다 다음
 셀레스티얼이 잠금 해제됩니다. 레벨 상한은 ${formatInt(25)}입니다.
 <br>
 <br>
-테레사는 무한 업그레이드를 충전해 훨씬 강하게 만드는 능력을 잠금 해제합니다. 또한 글리프 희생 수치가 특정
+Teresa는 무한 업그레이드를 충전해 훨씬 강하게 만드는 능력을 잠금 해제합니다. 또한 글리프 희생 수치가 특정
 기준에 도달하면 글리프 효과를 개선합니다.
 <br>
 <br>
-레벨 ${formatInt(2)}에서 에파리그는
+레벨 ${formatInt(2)}에서 Effarig는
 ${Ra.unlocks.effarigUnlock.canBeApplied
-    ? "글리프 연금술이라는 새 메커니즘을 잠금 해제합니다. 이후 에파리그 글리프를 강화하고 글리프 생성의 " +
+    ? "글리프 연금술이라는 새 메커니즘을 잠금 해제합니다. 이후 Effarig 글리프를 강화하고 글리프 생성의 " +
       "무작위 요소를 거의 모두 서서히 제거합니다. 글리프 연금술에는 별도의 게임 방법 항목도 있습니다."
-    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 라 안에서 에파리그를 잠금 해제하세요)</span>"}
+    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 Ra 안에서 Effarig를 잠금 해제하세요)</span>"}
 <br>
 <br>
-이름없는 자들은
+The Nameless Ones는
 ${Ra.unlocks.enslavedUnlock.canBeApplied
     ? "블랙홀 충전과 관련된 추가 메커니즘을 잠금 해제하고 블랙홀을 크게 강화합니다."
-    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 라 안에서 이름없는 자들을 잠금 해제하세요)</span>"}
+    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 Ra 안에서 The Nameless Ones를 잠금 해제하세요)</span>"}
 <br>
 <br>
 V는
@@ -1458,10 +1458,10 @@ ${Ra.unlocks.vUnlock.canBeApplied
     ? "트리 아래쪽에서 공간 정리로 구매하는 새 연구인 삼원 연구를 잠금 해제합니다. 각 삼원 연구를 구매하려면 " +
       "주변의 세 연구도 보유해야 합니다. 또한 더 어려운 소규모 V 도전과제를 잠금 해제하여 추가 공간 정리를 " +
       "얻을 수 있게 합니다."
-    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 라 안에서 V를 잠금 해제하세요)</span>"}
+    : "<span style='color: var(--color-bad);'>(잠금 해제 정보를 보려면 Ra 안에서 V를 잠금 해제하세요)</span>"}
 <br>
 <br>
-라는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.`,
+Ra는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.`,
       isUnlocked: () => VUnlocks.raUnlock.isUnlocked,
       tags: ["reality", "memories", "razenpok", "levels", "glyphs", "lategame",
         "effarig", "teresa", "nameless", "v", "celestial"],
@@ -1469,7 +1469,7 @@ ${Ra.unlocks.vUnlock.canBeApplied
     }, {
       name: "글리프 연금술 자원",
       info: () => `
-글리프 연금술은 라 안에서 에파리그가 레벨 ${formatInt(2)}에 도달하면 잠금 해제되는 메커니즘입니다. 글리프를
+글리프 연금술은 Ra 안에서 Effarig가 레벨 ${formatInt(2)}에 도달하면 잠금 해제되는 메커니즘입니다. 글리프를
 종류와 연관된 연금술 자원으로 정제해 소모할 수 있게 합니다. 글리프 탭에서 희생 방식을 "항상 희생"이 아닌
 것으로 설정한 뒤 일반적인 희생 절차를 수행하면 글리프를 정제할 수 있습니다. 각 연금술 자원에는 고유한 효과가
 있으며 연금술 탭에서 확인할 수 있습니다.
@@ -1499,7 +1499,7 @@ ${formatInt(GlyphSacrificeHandler.levelRefinementValue(8000))}보다 많이 보�
     }, {
       name: "글리프 연금술 반응",
       info: () => `
-연금술 자원을 특정 조합으로 결합해 새로운 복합 자원을 만들 수 있으며, 복합 자원은 에파리그의 특정 레벨에서
+연금술 자원을 특정 조합으로 결합해 새로운 복합 자원을 만들 수 있으며, 복합 자원은 Effarig의 특정 레벨에서
 잠금 해제됩니다. 자원은 현실마다 한 번 결합되며 현실 시간 증폭의 영향을 받지 않습니다. 시약이 많을수록
 반응의 수율이 높아져 더 빠르게 진행됩니다. 복합 자원의 상한은 모든 시약의 상한 중 가장 낮은 값과 같습니다.
 반응이 일어나려면 모든 시약의 현재량이 생산할 자원의 현재량보다 많아야 합니다.
@@ -1552,14 +1552,14 @@ ${formatInt(2500)}개만 반응 속도 계산에 사용됩니다. 생산물이 $
       tags: ["imaginary", "machines", "reality", "lategame"],
       tab: "reality/imag_upgrades"
     }, {
-      name: "라이텔라, 차원의 셀레스티얼",
+      name: "Lai'tela, 차원의 셀레스티얼",
       alias: "Lai'tela",
       info: () => `
-라이텔라는 여섯 번째 셀레스티얼이며, 허수 머신 ${format(ImaginaryUpgrade(15).cost)}개로 해당 허수 업그레이드를
+Lai'tela는 여섯 번째 셀레스티얼이며, 허수 머신 ${format(ImaginaryUpgrade(15).cost)}개로 해당 허수 업그레이드를
 구매하면 잠금 해제됩니다.
 <br>
 <br>
-라이텔라는 암흑 물질이라는 새 화폐를 제공합니다. 지금까지 보유한 암흑 물질 최고량에 따라 연속체 효과에 배율을
+Lai'tela는 암흑 물질이라는 새 화폐를 제공합니다. 지금까지 보유한 암흑 물질 최고량에 따라 연속체 효과에 배율을
 제공합니다. 암흑 물질은 게임의 다른 차원 종류처럼 연쇄적인 방식으로 암흑 물질 차원이 생산합니다. 다른 차원과
 달리 암흑 물질 차원은 여덟 개가 아니라 네 개뿐입니다. 처음부터 첫 번째 차원이 잠금 해제되어 있으며 상위 차원은
 허수 업그레이드로 잠금 해제됩니다. 차원을 잠금 해제하면 해당 차원을 ${formatInt(1)}개 받으며, 바로 위 단계의
@@ -1585,13 +1585,13 @@ ${formatInt(POWER_DM_PER_ASCENSION)}, 암흑 에너지 획득량에 ${formatInt(
 ${format(Laitela.annihilationDMRequirement)}개 보유해야 합니다.
 <br>
 <br>
-라이텔라에게는 현실에서 거둔 성과에 따라 암흑 물질 차원의 암흑 물질 생산력에 배율을 제공하는 현실이
+Lai'tela에게는 현실에서 거둔 성과에 따라 암흑 물질 차원의 암흑 물질 생산력에 배율을 제공하는 현실이
 있습니다. 현실을 ${formatInt(30)}초 안에 완료할 때마다 이후 현실 시도에서 사용할 수 있는 가장 높은
 차원이 영구적으로 비활성화됩니다. ${formatInt(30)}초 안에 현실을 여덟 번 완료해 모든 차원을 비활성화하면
 암흑 에너지 획득량에 ${formatX(8)} 배율도 얻습니다.
 <br>
 <br>
-라이텔라는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.
+Lai'tela는 다음 셀레스티얼을 직접 잠금 해제하지 않습니다.
 `,
       isUnlocked: () => Laitela.isUnlocked,
       tags: ["omsi", "reality", "dark", "matter", "dimensions", "lategame", "ascend", "celestial"],
@@ -1599,7 +1599,7 @@ ${format(Laitela.annihilationDMRequirement)}개 보유해야 합니다.
     }, {
       name: "연속체",
       info: () => `
-라이텔라를 잠금 해제하면 반물질 차원과 틱스피드 업그레이드가 연속체라는 새 생산 모드로 전환됩니다. 이전과
+Lai'tela를 잠금 해제하면 반물질 차원과 틱스피드 업그레이드가 연속체라는 새 생산 모드로 전환됩니다. 이전과
 같은 효과를 제공하지만 차원이나 틱스피드 업그레이드의 일부만 구매할 수 있습니다. 이 소수 단위 구매는 반물질을
 사용하지 않고 무료로 주어지며 그에 맞는 배율 일부를 제공합니다.
 <br>
@@ -1625,7 +1625,7 @@ ${formatX(10)}씩 증가하여 ${formatInt(5)}번 구매할 수 있으며 다음
     }, {
       name: "특이점",
       info: () => `
-특이점은 라이텔라의 기능을 이용해 얻는 새 자원입니다.
+특이점은 Lai'tela의 기능을 이용해 얻는 새 자원입니다.
 <br>
 <br>
 특이점을 얻으려면 암흑 에너지 ${format(200)}에 도달해야 합니다. 도달하면 모든 암흑 에너지를 특이점 하나로
@@ -1645,20 +1645,20 @@ ${formatInt(10)}배보다 <i>더 크게</i> 증가하거나 감소하므로, 기
 <br>
 종류와 별개로 각 마일스톤에는 일반적으로 어떤 업그레이드를 제공하는지 나타내는 아이콘도 있습니다.
 <br>
-<b>ᛝ</b> 라이텔라 전용 메커니즘을 돕는 마일스톤
+<b>ᛝ</b> Lai'tela 전용 메커니즘을 돕는 마일스톤
 <br>
-<i class="fas fa-arrows-alt"></i> 라이텔라의 자원이 게임의 나머지 부분에 영향을 주게 하는 마일스톤
+<i class="fas fa-arrows-alt"></i> Lai'tela의 자원이 게임의 나머지 부분에 영향을 주게 하는 마일스톤
 <br>
-<i class="fas fa-compress-arrows-alt"></i> 라이텔라 외부의 요소를 바탕으로 라이텔라를 개선하는 마일스톤
+<i class="fas fa-compress-arrows-alt"></i> Lai'tela 외부의 요소를 바탕으로 Lai'tela를 개선하는 마일스톤
 `,
       isUnlocked: () => Laitela.isUnlocked,
       tags: ["reality", "lategame", "laitela", "dark"],
       tab: ""
     }, {
-      name: "펠레, 반물질의 셀레스티얼",
+      name: "Pelle, 반물질의 셀레스티얼",
       alias: "Pelle",
       info: () => `
-마지막 허수 업그레이드를 구매해 펠레를 잠금 해제하면 펠레 탭이 열리며, "현실을 파멸시키세요" 버튼을 찾을
+마지막 허수 업그레이드를 구매해 Pelle를 잠금 해제하면 Pelle 탭이 열리며, "현실을 파멸시키세요" 버튼을 찾을
 수 있습니다. 현실을 파멸시키려면 이 시점에 이용할 수 있는 도전과제 ${formatInt(17)}줄을 모두 완료하고 각
 연금술 자원을 ${formatInt(25000)}개씩 보유해야 합니다.
 <br>
@@ -1670,21 +1670,21 @@ ${Pelle.isDoomed
       <br>
       파멸한 현실에 진입하면 통계 탭의 일반 및 현실 제목 아래에 있는 모든 값과 각 도전의 최고 기록이
       유지됩니다. 파멸한 현실 안에서는 여러 업그레이드, 시간 연구, 도전 및 셀레스티얼 보상, 퍼크와 그 밖의
-      게임 메커니즘이 비활성화되거나 보상을 제공하지 않습니다. 자세한 내용은 펠레 탭의 "파멸한 현실의 효과
+      게임 메커니즘이 비활성화되거나 보상을 제공하지 않습니다. 자세한 내용은 Pelle 탭의 "파멸한 현실의 효과
       보기"에서 확인할 수 있습니다.
       <br>
       <br>
       잔재는 아마겟돈 초기화에서 얻는 새 화폐입니다. 잔재 획득량은 모든 파멸한 현실에서 기록한 역대 최고
-      반물질, 무한 포인트, 영원 포인트를 기준으로 합니다. 잔재는 펠레 업그레이드에 사용할 수 있는 현실 파편을
+      반물질, 무한 포인트, 영원 포인트를 기준으로 합니다. 잔재는 Pelle 업그레이드에 사용할 수 있는 현실 파편을
       생산합니다.
       <br>
       <br>
-      펠레 업그레이드는 두 범주로 나뉩니다. 첫 줄의 다섯 업그레이드는 반복 구매할 수 있지만 결국 상한에
+      Pelle 업그레이드는 두 범주로 나뉩니다. 첫 줄의 다섯 업그레이드는 반복 구매할 수 있지만 결국 상한에
       도달합니다. 게임의 여러 요소를 강화하여 파멸한 현실 안의 진행을 더 쉽게 만듭니다.
       <br>
       <br>
       아래쪽 줄의 나머지 업그레이드는 자동화와 편의성 개선을 제공합니다. 이 업그레이드에서 잠금 해제하는
-      모든 요소는 게임의 일반적인 방법으로 잠금 해제할 수 없습니다. 예를 들어 자동구매기는 펠레 업그레이드
+      모든 요소는 게임의 일반적인 방법으로 잠금 해제할 수 없습니다. 예를 들어 자동구매기는 Pelle 업그레이드
       뒤에 잠겨 있으므로 일반 도전을 완료해도 자동구매기가 잠금 해제되지 않습니다. 업그레이드 위의 버튼으로
       구매한 업그레이드를 숨기거나 <i class="fas fa-compress-arrows-alt"></i> 아이콘을 눌러 패널 전체를
       접고 숨길 수 있습니다.
@@ -1698,11 +1698,11 @@ ${Pelle.isDoomed
       tags: ["reality", "antimatter", "lategame", "final", "hevipelle", "celestial", "doom"],
       tab: "celestials/pelle"
     }, {
-      name: "펠레 타격",
+      name: "Pelle 타격",
       info: () => `
-펠레 타격은 파멸한 현실의 여러 사건에서 발생합니다. 파멸한 현실 안에서 처음으로 무한에 도달해 첫 번째 펠레
-타격을 만났습니다. 더 진행하면 추가 타격이 발생합니다. 각 펠레 타격은 게임의 특정 요소를 약화하며, 타격
-이름을 클릭해 확인할 수 있습니다. 각 펠레 타격은 균열 막대도 잠금 해제합니다.
+Pelle 타격은 파멸한 현실의 여러 사건에서 발생합니다. 파멸한 현실 안에서 처음으로 무한에 도달해 첫 번째 Pelle
+타격을 만났습니다. 더 진행하면 추가 타격이 발생합니다. 각 Pelle 타격은 게임의 특정 요소를 약화하며, 타격
+이름을 클릭해 확인할 수 있습니다. 각 Pelle 타격은 균열 막대도 잠금 해제합니다.
 <br>
 <br>
 균열 막대를 클릭하면 "대기"와 "채우는 중" 상태를 전환해 채울 수 있지만, 동시에 "채우는 중"일 수 있는

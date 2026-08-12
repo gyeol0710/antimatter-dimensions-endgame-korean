@@ -1,5 +1,5 @@
 const specialInfinityGlyphDisabledEffectText = () => (PelleRifts.chaos.milestones[1].canBeApplied && !PelleDestructionUpgrade.pelleGlyphEffects.canBeApplied
-  ? "또한, 무한 글리프의 펠레 전용 효과가 비활성화됩니다."
+  ? "또한, 무한 글리프의 Pelle 전용 효과가 비활성화됩니다."
   : "");
 
 export const eternityChallenges = [
@@ -65,7 +65,7 @@ export const eternityChallenges = [
       : `무한 ${quantifyInt("회", restriction)} 이내`),
     failedRestriction: "(무한에 너무 많이 도달함)",
     reward: {
-      description: "보유중인 무한 포인트에 따라 무한 차원이 배율을 받습니다.",
+      description: "보유 중인 무한 포인트에 따라 무한 차원이 배율을 받습니다.",
       effect: completions => Currency.infinityPoints.value.pow(0.003 + completions * 0.002),
       cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E200,
       formatEffect: value => formatX(value, 2, 1)

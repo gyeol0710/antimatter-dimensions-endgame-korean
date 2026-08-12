@@ -215,6 +215,13 @@ window.generatePlural = function generatePlural(word) {
   return word;
 };
 
+// Korean counters attach directly to the preceding number. This deliberately only handles counter-first names which
+// are already passed to the quantify helpers; resource names such as "무한 포인트" retain their existing spacing.
+const KOREAN_COUNTER_NAME = /^(?:개(?:의)?|회|번|줄|초)(?:$|\s)/u;
+function joinQuantityName(number, name) {
+  return KOREAN_COUNTER_NAME.test(name) ? `${number}${name}` : `${number} ${name}`;
+}
+
 /**
  * Returns the formatted value followed by a name, pluralized based on the value input.
  * @param  {string} name                  - name to pluralize and display after {value}
@@ -230,7 +237,7 @@ window.quantify = function quantify(name, value, places, placesUnder1000, format
 
   const number = formatType(value, places, placesUnder1000);
   const plural = pluralize(name, value);
-  return `${number} ${plural}`;
+  return joinQuantityName(number, plural);
 };
 
 /**
@@ -244,7 +251,7 @@ window.quantifyInt = function quantifyInt(name, value) {
 
   const number = formatInt(value);
   const plural = pluralize(name, value);
-  return `${number} ${plural}`;
+  return joinQuantityName(number, plural);
 };
 
 /**
@@ -258,7 +265,7 @@ window.quantifyHybridSmall = function quantifyHybridSmall(name, value) {
 
   const number = formatHybridSmall(value, 3);
   const plural = pluralize(name, value);
-  return `${number} ${plural}`;
+  return joinQuantityName(number, plural);
 };
 
 /**
@@ -272,7 +279,7 @@ window.quantifyHybridLarge = function quantifyHybridLarge(name, value) {
 
   const number = formatHybridLarge(value, 3);
   const plural = pluralize(name, value);
-  return `${number} ${plural}`;
+  return joinQuantityName(number, plural);
 };
 
 /**

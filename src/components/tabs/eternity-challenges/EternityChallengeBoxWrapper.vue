@@ -77,7 +77,7 @@ export default {
     },
     buttonText() {
       if (this.overrideLabel.length) return this.overrideLabel;
-      if (this.isRunning) return "실행중";
+      if (this.isRunning) return "실행 중";
       if (this.isCompleted) {
         if (this.isUnlocked) return "재도전";
         return "완료";

@@ -106,7 +106,7 @@ export const AutomatorCommands = [
         const specified$ = ctx.currencyAmount[0].children.AutomatorCurrency[0].tokenType.name;
         if (desired$ !== specified$) {
           V.addError(ctx.currencyAmount, `오토메이터 재화가 프레스티지와 일치하지 않습니다 (${desired$} vs ${specified$})`,
-            `지정한 프레스티지 재화에는 ${desired$}을(를) 사용하세요`);
+            `지정한 프레스티지 재화에는 ${desired$} 값을 사용하세요`);
           return false;
         }
       }
@@ -252,7 +252,7 @@ export const AutomatorCommands = [
         if (on === BlackHoles.arePaused) BlackHoles.togglePause();
         let blackHoleEvent;
         if (BlackHole(1).isUnlocked) {
-          blackHoleEvent = `블랙홀을 ${ctx.On ? "ON" : "OFF"}(으)로 전환`;
+          blackHoleEvent = `블랙홀 상태 전환: ${ctx.On ? "ON" : "OFF"}`;
         } else if (Enslaved.isRunning || Pelle.isDisabled("blackhole")) {
           blackHoleEvent = "현재 현실에서 BH가 비활성화되어 BLACK HOLE 명령을 무시함";
         } else {
@@ -391,8 +391,8 @@ export const AutomatorCommands = [
       let duration;
       if (ctx.Identifier) {
         if (!V.isValidVarFormat(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.DURATION)) {
-          V.addError(ctx, `상수 ${ctx.Identifier[0].image}은(는) 올바른 시간 기간 상수가 아닙니다`,
-            `${ctx.Identifier[0].image}이(가) ${format(Number.MAX_VALUE / 1000)}보다 작은 초 단위 숫자인지 확인하세요`);
+          V.addError(ctx, `상수 ${ctx.Identifier[0].image}: 올바른 시간 기간 상수가 아닙니다`,
+            `상수 값을 확인하세요: ${ctx.Identifier[0].image}. 값은 ${format(Number.MAX_VALUE / 1000)}보다 작은 초 단위 숫자여야 합니다`);
           return false;
         }
         const lookup = V.lookupVar(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.DURATION);
@@ -598,7 +598,7 @@ export const AutomatorCommands = [
       const on = Boolean(ctx.On);
       return () => {
         if (on !== player.celestials.enslaved.isStoring) Enslaved.toggleStoreBlackHole();
-        AutomatorData.logCommandEvent(`게임 시간 저장을 ${ctx.On ? "ON" : "OFF"}(으)로 전환`, ctx.startLine);
+        AutomatorData.logCommandEvent(`게임 시간 저장 상태 전환: ${ctx.On ? "ON" : "OFF"}`, ctx.startLine);
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       };
     },
@@ -623,8 +623,8 @@ export const AutomatorCommands = [
       ctx.startLine = ctx.Studies[0].startLine;
       if (ctx.Identifier) {
         if (!V.isValidVarFormat(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.STUDIES)) {
-          V.addError(ctx, `상수 ${ctx.Identifier[0].image}은(는) 올바른 시간 연구 상수가 아닙니다`,
-            `${ctx.Identifier[0].image}이(가) 올바른 형식의 시간 연구 문자열인지 확인하세요`);
+          V.addError(ctx, `상수 ${ctx.Identifier[0].image}: 올바른 시간 연구 상수가 아닙니다`,
+            `올바른 형식의 시간 연구 문자열인지 상수 값을 확인하세요: ${ctx.Identifier[0].image}`);
           return false;
         }
         const varInfo = V.lookupVar(ctx.Identifier[0], AUTOMATOR_VAR_TYPES.STUDIES);
@@ -666,14 +666,14 @@ export const AutomatorCommands = [
           if (studies.startEC) {
             EternityChallenge(studies.ec).start(true);
             if (EternityChallenge(studies.ec).isRunning) {
-              AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매한 뒤 영원 도전 ${studies.ec}을(를)
-                해금하고 시작함`, ctx.startLine);
+              AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매한 뒤 영원 도전 ${studies.ec} 해금 및 시작 완료`,
+                ctx.startLine);
             } else {
-              AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매하고 영원 도전 ${studies.ec}을(를)
-                해금했지만 시작하지 못함`, ctx.startLine);
+              AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매하고 영원 도전 ${studies.ec} 해금 완료, 시작 실패`,
+                ctx.startLine);
             }
           } else {
-            AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매하고 영원 도전 ${studies.ec}을(를) 해금함`,
+            AutomatorData.logCommandEvent(`지정한 시간 연구를 모두 구매하고 영원 도전 ${studies.ec} 해금 완료`,
               ctx.startLine);
           }
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
@@ -851,7 +851,7 @@ export const AutomatorCommands = [
       const ecNumber = ctx.eternityChallenge[0].children.$ecNumber;
       return () => {
         if (EternityChallenge(ecNumber).isUnlocked) {
-          AutomatorData.logCommandEvent(`EC ${ecNumber}이(가) 이미 해금되어 해금을 건너뜀`, ctx.startLine);
+          AutomatorData.logCommandEvent(`EC ${ecNumber}: 이미 해금되어 있어 해금을 건너뜀`, ctx.startLine);
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         if (nowait) {
@@ -976,9 +976,9 @@ export const AutomatorCommands = [
         const timeWaited = TimeSpan.fromMilliseconds(new Decimal(Date.now() - AutomatorData.waitStart)).toStringShort();
         if (AutomatorData.isWaiting) {
           AutomatorData.logCommandEvent(`WAIT 후 계속 실행
-            (${parseConditionalIntoText(ctx)}이(가) true, ${timeWaited} 후)`, ctx.startLine);
+            (조건 결과: ${parseConditionalIntoText(ctx)} = true, ${timeWaited} 후)`, ctx.startLine);
         } else {
-          AutomatorData.logCommandEvent(`WAIT 건너뜀 (${parseConditionalIntoText(ctx)}이(가) 이미 true)`,
+          AutomatorData.logCommandEvent(`WAIT 건너뜀 (이미 true인 조건: ${parseConditionalIntoText(ctx)})`,
             ctx.startLine);
         }
         AutomatorData.isWaiting = false;
@@ -1030,7 +1030,7 @@ export const AutomatorCommands = [
           return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
         }
         if (!AutomatorData.isWaiting) {
-          AutomatorData.logCommandEvent(`${prestigeName}을(를) 기다리는 WAIT 시작`, ctx.startLine);
+          AutomatorData.logCommandEvent(`WAIT 시작 (대상 프레스티지: ${prestigeName})`, ctx.startLine);
           AutomatorData.waitStart = Date.now();
         }
         AutomatorData.isWaiting = true;
@@ -1070,7 +1070,7 @@ export const AutomatorCommands = [
         return AUTOMATOR_COMMAND_STATUS.NEXT_INSTRUCTION;
       }
       if (!AutomatorData.isWaiting) {
-        AutomatorData.logCommandEvent(`${bhStr}을(를) 기다리는 WAIT 시작`, ctx.startLine);
+        AutomatorData.logCommandEvent(`WAIT 시작 (대상: ${bhStr})`, ctx.startLine);
         AutomatorData.waitStart = Date.now();
       }
       AutomatorData.isWaiting = true;

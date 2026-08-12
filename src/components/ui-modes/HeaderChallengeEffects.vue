@@ -22,11 +22,11 @@ export default {
   },
   computed: {
     enslavedText() {
-      return `${Enslaved.displayName}이 현실의 균열을 찾는 것을 돕고 있습니다. ${this.enslavedTimer} 후 조언을 받을 수 있습니다`;
+      return `${Enslaved.displayName}: 현실의 균열을 찾는 것을 돕고 있습니다. ${this.enslavedTimer} 후 조언을 받을 수 있습니다`;
     },
     alphaText() {
-      if (this.alphaDecayTimer.lte(0)) return `알파 붕괴가 상한에 도달했습니다`;
-      return `알파 붕괴가 ${this.alphaDecayTimeToMax} 후 상한에 도달합니다`;
+      if (this.alphaDecayTimer.lte(0)) return `Alpha 붕괴가 상한에 도달했습니다`;
+      return `Alpha 붕괴가 ${this.alphaDecayTimeToMax} 후 상한에 도달합니다`;
     },
   },
   methods: {

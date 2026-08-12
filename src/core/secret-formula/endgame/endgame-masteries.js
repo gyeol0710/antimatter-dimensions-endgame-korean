@@ -75,7 +75,7 @@ export const endgameMasteries = [
     cost: 4,
     requirement: [42],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `라의 모든 레벨 ${formatInt(1)} 보상을 보유한 채 엔드게임을 시작합니다`
+    description: () => `Ra의 모든 레벨 ${formatInt(1)} 보상을 보유한 채 엔드게임을 시작합니다`
   },
   {
     id: 61,
@@ -212,7 +212,7 @@ export const endgameMasteries = [
     cost: 7,
     requirement: [111],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: "펠레에서 글리프 슬롯을 하나 더 얻습니다",
+    description: "Pelle에서 글리프 슬롯을 하나 더 얻습니다",
     effect: 1
   },
   {
@@ -383,7 +383,7 @@ export const endgameMasteries = [
     cost: 150000,
     requirement: [212],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
-    description: () => `펠레에서 반물질 지수를 ${formatPow(1.2, 1, 1)}만큼 거듭제곱합니다`,
+    description: () => `Pelle에서 반물질 지수를 ${formatPow(1.2, 1, 1)}만큼 거듭제곱합니다`,
     effect: () => player.disablePostReality ? 1 : 1.2
   },
   {

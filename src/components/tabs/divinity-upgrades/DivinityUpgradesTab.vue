@@ -109,9 +109,9 @@ export default {
 <template>
   <div class="l-divinity-upgrade-grid">
     <div v-if="hasBonus">
-      힘 움켜쥐기가 현재 신성 에너지에 <span class="c-divinity-effects">{{ formatX(bonus1, 2) }}</span>,
-      모든 신성 차원에 <span class="c-divinity-effects">{{ formatPow(bonus2, 2, 3) }}</span>,
-      신성 별에 <span class="c-divinity-effects">{{ formatX(bonus3, 2) }}</span>의 효과를 제공합니다.
+      힘 움켜쥐기는 현재 신성 에너지에 <span class="c-divinity-effects">{{ formatX(bonus1, 2) }}</span> 배율을 적용하고,
+      모든 신성 차원에 <span class="c-divinity-effects">{{ formatPow(bonus2, 2, 3) }}</span>을 적용하며,
+      신성 별에 <span class="c-divinity-effects">{{ formatX(bonus3, 2) }}</span> 배율을 적용합니다.
     </div>
     <div v-if="has1">
       <div class="c-divinity-header">

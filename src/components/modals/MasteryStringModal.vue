@@ -188,7 +188,7 @@ export default {
       const presetName = name ? `마스터리 프리셋 "${name}"` : "마스터리 프리셋";
       player.endgameMasteries.presets[this.id].masteries = "";
       player.endgameMasteries.presets[this.id].name = "";
-      GameUI.notify.endgame(`${presetName}을 ${this.id + 1}번 슬롯에서 삭제했습니다.`);
+      GameUI.notify.endgame(`삭제 완료: ${presetName} (${this.id + 1}번 슬롯)`);
     },
     masteryString(mastery) {
       return `${mastery.id}`;

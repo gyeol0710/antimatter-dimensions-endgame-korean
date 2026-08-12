@@ -39,7 +39,7 @@ export const divinityUpgrades = {
     id: "divineL1U2",
     layer: 1,
     cost: new Decimal(1e9),
-    description: () => `알파 붕괴의 잔재가 상한에 도달하는 시간을 ${formatPercents(0.1)}만큼 줄입니다`,
+    description: () => `Alpha 붕괴의 잔재가 상한에 도달하는 시간을 ${formatPercents(0.1)}만큼 줄입니다`,
     effect: 0.9
   },
   divineL1U3: {
@@ -56,7 +56,7 @@ export const divinityUpgrades = {
     id: "divineL1U4",
     layer: 1,
     cost: new Decimal(1e50),
-    description: () => `펠레에서만 반물질 지수의 지수에
+    description: () => `Pelle에서만 반물질 지수의 지수에
       ${format(DivinityUpgrade.divineL5U2.isBought ? 1.02 : 1.01, 2, 2)}제곱을 적용합니다`,
     effect: () => DivinityUpgrade.divineL5U2.isBought ? 1.02 : 1.01
   },

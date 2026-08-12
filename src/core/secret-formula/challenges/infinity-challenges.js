@@ -29,7 +29,7 @@ export const infinityChallenges = [
     id: 3,
     description: () =>
       `틱스피드 업그레이드는 항상 ${formatX(1)}입니다. 대신 틱스피드 업그레이드를 구매할 때마다
-      모든 반물질 차원에 고정 배율을 얻으며, 이 배율은 반물질 은하에 따라 증가합니다.`,
+      모든 반물질 차원에 고정 배율이 적용되며, 이 배율은 반물질 은하에 따라 증가합니다.`,
     goal: DC.E5000,
     isQuickResettable: false,
     effect: () => Decimal.pow(player.galaxies.times(0.005).add(1.05), player.totalTickBought),
@@ -107,7 +107,7 @@ export const infinityChallenges = [
     isQuickResettable: false,
     effect: 10,
     reward: {
-      description: () => `차원 가속의 배율이 ${formatX(4)}배 상승합니다.`,
+      description: () => `차원 가속의 배율이 ${formatX(4)} 상승합니다.`,
       effect: 4
     },
     unlockAM: DC.E23000,

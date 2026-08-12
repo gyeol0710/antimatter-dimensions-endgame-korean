@@ -56,7 +56,7 @@ export default {
     },
     tooltipContents() {
       if (this.showTTCost) return `${this.formattedEPCost}<br>${this.timeEstimate}`;
-      if (this.isCapped) return `이름없는 자들이 시간 차원을 ${format(1)}개 이상 구매하는 것을 막고 있습니다.`;
+      if (this.isCapped) return `The Nameless Ones가 시간 차원을 ${format(1)}개 이상 구매하는 것을 막고 있습니다.`;
       if (this.isContinuumActive) return "연속체가 모든 시간 차원을 생산합니다";
       return `총 ${quantifyHybridLarge("번", this.bought)} 구매함`;
     },

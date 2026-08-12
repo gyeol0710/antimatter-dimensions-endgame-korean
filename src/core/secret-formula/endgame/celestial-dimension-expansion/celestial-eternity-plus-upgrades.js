@@ -22,7 +22,7 @@ export const celestialEternityPlusUpgrades = {
   oldStoneSlabAndSteelDrill: {
     id: "oldStoneSlabAndSteelDrill",
     cost: DC.E4000,
-    description: () => (false ? "저주받은 현실을 해금합니다" : "펠레의 영역을 해금합니다"),
+    description: () => (false ? "저주받은 현실을 해금합니다" : "Pelle의 영역을 해금합니다"),
     onPurchased: () => Pelle.quotes.reachGoal.show()
   }
 };

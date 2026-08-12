@@ -191,7 +191,7 @@ export const AutomatorData = {
   },
   createNewScript(content, name) {
     const newScript = AutomatorScript.create(name, content);
-    GameUI.notify.automator(`스크립트 "${name}"을(를) 가져왔습니다`);
+    GameUI.notify.automator(`스크립트 가져오기 완료: "${name}"`);
     player.reality.automator.state.editorScript = newScript.id;
     AutomatorData.clearUndoData();
     EventHub.dispatch(GAME_EVENT.AUTOMATOR_SAVE_CHANGED);

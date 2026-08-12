@@ -49,7 +49,7 @@ export default {
       <br>
       <div>
         현재 Antimatter Dimensions: {{ stage === "Endgame" ? "엔드게임" : "셀레스티얼 플러스" }} 업데이트,
-        챕터 {{ chapter }}을 플레이하고 있습니다.
+        {{ chapter }}번 챕터를 플레이하고 있습니다.
         <br>
         다음 챕터까지의 진행도: {{ formatPercents(percentage, 2, 2) }}
       </div>

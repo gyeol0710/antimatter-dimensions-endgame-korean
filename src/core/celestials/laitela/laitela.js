@@ -3,8 +3,8 @@ import { Quotes } from "../quotes";
 import { DarkMatterDimensions } from "./dark-matter-dimension";
 
 export const Laitela = {
-  displayName: "라이텔라",
-  possessiveName: "라이텔라의",
+  displayName: "Lai'tela",
+  possessiveName: "Lai'tela의",
   get celestial() {
     return player.celestials.laitela;
   },

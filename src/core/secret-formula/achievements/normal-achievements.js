@@ -315,14 +315,14 @@ export const normalAchievements = [
     get description() { return `초당 틱스피드를 ${format(DC.E29)} 이상으로 만든다.`; },
     checkRequirement: () => Tickspeed.current.log10().lte(-26),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    get reward() { return `초기 틱스피드를 ${formatX(1.02, 0, 2)}배로 만든다.`; },
+    get reward() { return `초기 틱스피드를 ${formatX(1.02, 0, 2)}로 만든다.`; },
     effect: 0.98,
     progress: () => Achievement(45).isUnlocked ? DC.D1 : Decimal.clamp(Tickspeed.current.log10().sub(3).neg().div(29), 0, 1)
   },
   {
     id: 46,
     name: "다차원적",
-    get description() { return `제8 반물질 차원을 제외하고 나머지 반물질 차원들의 갯수를 ${format(DC.E12)} 이상으로 만든다.`; },
+    get description() { return `제8 반물질 차원을 제외하고 나머지 반물질 차원들의 개수를 ${format(DC.E12)} 이상으로 만든다.`; },
     checkRequirement: () => AntimatterDimension(7).amount.add(1).log10().gte(12),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     progress: () => Achievement(46).isUnlocked ? DC.D1 : Decimal.clamp(AntimatterDimension(7).amount.add(1).log10().div(12), 0, 1)
@@ -499,7 +499,7 @@ export const normalAchievements = [
     get description() { return `초당 ${format(DC.E58)}틱 이상으로 만든다.`; },
     checkRequirement: () => Tickspeed.current.log10().lte(-55),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    get reward() { return `초기 틱스피드를 ${formatX(1.02, 0, 2)}배로 만든다.`; },
+    get reward() { return `초기 틱스피드를 ${formatX(1.02, 0, 2)}로 만든다.`; },
     effect: 0.98,
     progress: () => Achievement(66).isUnlocked ? DC.D1 : Decimal.clamp(Tickspeed.current.log10().sub(3).neg().div(58), 0, 1)
   },
@@ -557,7 +557,7 @@ export const normalAchievements = [
     get description() { return `${formatPostBreak(DC.D9_9999E9999, 4)} 반물질에 도달한다.`; },
     checkRequirement: () => Currency.antimatter.gte(DC.D9_9999E9999),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    reward: "보유중인 반물질에 비례하여 반물질 차원이 강해진다.",
+    reward: "보유 중인 반물질에 비례하여 반물질 차원이 강해진다.",
     effect: () => Currency.antimatter.value.pow(0.00002).plus(1).clampMax(Decimal.pow(10, 1e30)).pow(
       Decimal.max(Decimal.pow(2, Decimal.log10(Decimal.log10(Currency.antimatter.value.pow(0.00002).plus(1)).div(1e30))), 1)),
     formatEffect: value => `${formatX(value, 2, 2)}`,
@@ -645,7 +645,7 @@ export const normalAchievements = [
     get description() { return `${formatInt(50)}개의 반물질 은하를 구매한다.`; },
     checkRequirement: () => player.galaxies.gte(50),
     checkEvent: GAME_EVENT.GALAXY_RESET_AFTER,
-    get reward() { return `틱스피드가 반물질 은하의 갯수마다 ${formatPercents(0.05)}씩 빨라진다.`; },
+    get reward() { return `틱스피드가 반물질 은하의 개수마다 ${formatPercents(0.05)}씩 빨라진다.`; },
     effect: () => DC.D0_95.pow(player.galaxies),
     formatEffect: value => `${formatX(value.recip(), 2, 2)}`,
     progress: () => Achievement(83).isUnlocked ? DC.D1 : Decimal.clamp(player.galaxies.div(50), 0, 1)
@@ -668,14 +668,14 @@ export const normalAchievements = [
     get description() { return `한 번의 빅 크런치로 ${format(DC.E150)} 이상의 무한 포인트를 획득한다.`; },
     checkRequirement: () => gainedInfinityPoints().add(1).log10().gte(150),
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
-    get reward() { return `무한 포인트를 ${formatX(4)}배 더 얻는다.`; },
+    get reward() { return `무한 포인트를 ${formatX(4)} 더 얻는다.`; },
     effect: () => player.disablePostReality ? 1 : 4,
     progress: () => Achievement(85).isUnlocked ? DC.D1 : Decimal.clamp(gainedInfinityPoints().add(1).log10().div(150), 0, 1)
   },
   {
     id: 86,
     name: "버거도 접고 폰도 접고 시간도 접냐?",
-    get description() { return `틱스피드 업그레이드의 증가량을 ${formatX(1000)}배 이상으로 만든다.`; },
+    get description() { return `틱스피드 업그레이드의 증가량을 ${formatX(1000)} 이상으로 만든다.`; },
     checkRequirement: () => Tickspeed.multiplier.recip().gte(1000),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() { return `모든 은하가 ${formatPercents(0.01)} 강해진다.`; },
@@ -753,7 +753,7 @@ export const normalAchievements = [
     get description() { return `한 번의 빅 크런치로 ${format(DC.E300)}개의 무한 포인트를 획득한다.`; },
     checkRequirement: () => gainedInfinityPoints().add(1).log10().gte(300),
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
-    get reward() { return `무한 포인트를 ${formatX(4)}배 더 얻는다.`; },
+    get reward() { return `무한 포인트를 ${formatX(4)} 더 얻는다.`; },
     effect: () => player.disablePostReality ? 1 : 4,
     progress: () => Achievement(93).isUnlocked ? DC.D1 : Decimal.clamp(gainedInfinityPoints().add(1).log10().div(300), 0, 1)
   },
@@ -1268,7 +1268,7 @@ export const normalAchievements = [
     description: "모든 현실 업그레이드를 구매한다.",
     checkRequirement: () => RealityUpgrades.allBought,
     checkEvent: GAME_EVENT.REALITY_UPGRADE_BOUGHT,
-    reward: "현실의 셀레스티얼 테레사를 해금한다.",
+    reward: "현실의 셀레스티얼 Teresa를 해금한다.",
     progress: () => Achievement(147).isUnlocked ? DC.D1 : Decimal.clamp(new Decimal(RealityUpgrades.all.filter(u => u.isBought || u.boughtAmount > 0).length).div(RealityUpgrades.all.length), 0, 1)
   },
   {
@@ -1437,7 +1437,7 @@ export const normalAchievements = [
   {
     id: 168,
     name: "와, 절반 왔네",
-    get description() { return `라의 셀레스티얼 기억 레벨 합계 ${formatInt(50)}을 달성한다.`; },
+    get description() { return `Ra의 셀레스티얼 기억 레벨 합계 ${formatInt(50)}을 달성한다.`; },
     checkRequirement: () => Ra.totalPetLevel >= 50,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() { return `기억을 ${formatPercents(0.1)} 더 획득한다.`; },
@@ -1552,7 +1552,7 @@ export const normalAchievements = [
   {
     id: 184,
     name: "넌 아웃이야!",
-    description: "세 번째 펠레 스트라이크를 마주한다.",
+    description: "세 번째 Pelle 스트라이크를 마주한다.",
     checkRequirement: () => PelleStrikes.eternity.hasStrike,
     checkEvent: GAME_EVENT.PELLE_STRIKE_UNLOCKED,
     progress: () => Achievement(184).isUnlocked ? DC.D1 : (!Pelle.isDoomed ? DC.DM1 : Decimal.clamp(Currency.infinityPoints.value.add(1).log10().div(Decimal.log10(DC.NUMMAX)), 0, 1))
@@ -1560,7 +1560,7 @@ export const normalAchievements = [
   {
     id: 185,
     name: "87년 전",
-    description: "네 번째 펠레 스트라이크를 마주한다.",
+    description: "네 번째 Pelle 스트라이크를 마주한다.",
     checkRequirement: () => PelleStrikes.ECs.hasStrike,
     checkEvent: GAME_EVENT.PELLE_STRIKE_UNLOCKED,
     progress: () => Achievement(185).isUnlocked ? DC.D1 : (!Pelle.isDoomed ? DC.DM1 : Decimal.clamp(player.timestudy.maxTheorem.div(115), 0, 1))
@@ -1642,11 +1642,11 @@ export const normalAchievements = [
   {
     id: 196,
     name: "마침내",
-    description: "펠레에서 모든 도전과제를 되찾는다.",
+    description: "Pelle에서 모든 도전과제를 되찾는다.",
     checkRequirement: () => PelleAchievementUpgrade.all.filter(u => u.canBeApplied).length >= 33,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
-      return `에파리그 글리프와 현실 글리프를 각각 최대 ${formatInt(2)}개 장착할 수 있다.`;
+      return `Effarig 글리프와 현실 글리프를 각각 최대 ${formatInt(2)}개 장착할 수 있다.`;
     },
     progress: () => Achievement(196).isUnlocked ? DC.D1 : Decimal.clamp(new Decimal(PelleAchievementUpgrade.all.filter(u => u.canBeApplied).length).div(33), 0, 1)
   },
@@ -1693,7 +1693,7 @@ export const normalAchievements = [
   {
     id: 204,
     name: "하드 리셋",
-    description: "모든 펠레 약화를 비활성화한다.",
+    description: "모든 Pelle 약화를 비활성화한다.",
     checkRequirement: () => PelleAchievementUpgrade.all.filter(u => u.canBeApplied).length >= 33 &&
       PelleDestructionUpgrade.all.filter(u => u.canBeApplied).length >= 50 &&
       PelleRealityUpgrade.all.filter(u => u.canBeApplied).length >= 20 &&
@@ -1730,7 +1730,7 @@ export const normalAchievements = [
   {
     id: 207,
     name: "사라졌다...",
-    description: "펠레를 파괴한다.",
+    description: "Pelle를 파괴한다.",
     checkRequirement: () => PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length >= 5,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
@@ -1754,7 +1754,7 @@ export const normalAchievements = [
   {
     id: 211,
     name: "실수?",
-    get description() { return `알파의 현실에 진입한다.` },
+    get description() { return `Alpha의 현실에 진입한다.` },
     checkRequirement: () => Alpha.isRunning,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     progress: () => Achievement(211).isUnlocked ? DC.D1 : Decimal.clamp(new Decimal(PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length).div(10).min(0.5).add(Currency.imaginaryMachines.value.add(1).log10().div(Decimal.log10(DC.NUMMAX).times(2)).min(0.5)), 0, 1)
@@ -1762,11 +1762,11 @@ export const normalAchievements = [
   {
     id: 212,
     name: "어둠의 크런치",
-    get description() { return `알파의 현실에서 무한에 도달한다.` },
+    get description() { return `Alpha의 현실에서 무한에 도달한다.` },
     checkRequirement: () => Alpha.isRunning,
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
     get reward() {
-      return `알파 붕괴가 ${formatX(1.1, 1, 1)} 빠르게 증가한다`;
+      return `Alpha 붕괴가 ${formatX(1.1, 1, 1)} 빠르게 증가한다`;
     },
     effect: 1.1,
     progress: () => Achievement(212).isUnlocked ? DC.D1 : (!Alpha.isRunning ? DC.DM1 : Decimal.clamp(player.antimatter.max(1).log10().div(Decimal.log10(DC.NUMMAX)), 0, 1))
@@ -1774,11 +1774,11 @@ export const normalAchievements = [
   {
     id: 213,
     name: "절대 멈추지 않아",
-    get description() { return `알파의 현실에서 영원에 도달한다.` },
+    get description() { return `Alpha의 현실에서 영원에 도달한다.` },
     checkRequirement: () => Alpha.isRunning,
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE,
     get reward() {
-      return `이중성 머신에 따라 알파 붕괴 속도가 증가한다.`;
+      return `이중성 머신에 따라 Alpha 붕괴 속도가 증가한다.`;
     },
     effect: () => Decimal.max(Decimal.ln(Decimal.ln(Currency.dualMachines.value.add(1)).add(1)), 1),
     formatEffect: value => `${formatX(value, 2, 2)}`,
@@ -1824,7 +1824,7 @@ export const normalAchievements = [
   {
     id: 218,
     name: "...그저 고통받기 위해?",
-    get description() { return `이름없는 자들의 현실에서 반물질 ${formatPostBreak("ee50")}개에 도달한다.` },
+    get description() { return `The Nameless Ones의 현실에서 반물질 ${formatPostBreak("ee50")}개에 도달한다.` },
     checkRequirement: () => Currency.antimatter.value.gte("ee50") && Enslaved.isRunning,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     progress: () => Achievement(218).isUnlocked ? DC.D1 : (!Enslaved.isRunning ? DC.DM1 : Decimal.clamp(player.antimatter.add(1).log10().add(1).log10().div(50), 0, 1))
@@ -1832,7 +1832,7 @@ export const normalAchievements = [
   {
     id: 221,
     name: "빛",
-    get description() { return `알파를 물리친다.` },
+    get description() { return `Alpha를 물리친다.` },
     checkRequirement: () => Alpha.isRunning,
     checkEvent: GAME_EVENT.REALITY_RESET_BEFORE,
     get reward() {
@@ -1866,7 +1866,7 @@ export const normalAchievements = [
   {
     id: 224,
     name: "우주의 파괴자",
-    get description() { return `펠레 밖에서 반물질 ${formatPostBreak(Decimal.pow10(1e100), 2)}개에 도달한다.` },
+    get description() { return `Pelle 밖에서 반물질 ${formatPostBreak(Decimal.pow10(1e100), 2)}개에 도달한다.` },
     checkRequirement: () => Currency.antimatter.value.gte(Decimal.pow10(1e100)) && !Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
@@ -1902,7 +1902,7 @@ export const normalAchievements = [
     checkRequirement: () => player.endgame.hypercubes.penteracts >= 1,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
-      return `에파리그의 두 번째 상점을 해금한다.`;
+      return `Effarig의 두 번째 상점을 해금한다.`;
     },
     progress: () => Achievement(227).isUnlocked ? DC.D1 : Decimal.clamp((DualityUpgrade(25).isBought ? new Decimal(0.75) : new Decimal(player.celestials.laitela.hadrons.dark).div(128).min(0.25).add(Hadrons.timeFactor.div(2000).min(0.25)).add(Currency.dualMachines.value.add(1).log10().div(80).min(0.25))).add(Currency.eternityPoints.value.add(1).log10().add(1).log10().div(420).min(0.25)), 0, 1)
   },
@@ -1924,7 +1924,7 @@ export const normalAchievements = [
     checkRequirement: () => EndgameSkills.totalPurchased() >= 1000,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
-      return `구매한 엔드게임 스킬에 따라 반물질 차원 배율을 팽창시키며, 펠레에서는 더 강해진다.`;
+      return `구매한 엔드게임 스킬에 따라 반물질 차원 배율을 팽창시키며, Pelle에서는 더 강해진다.`;
     },
     effect: () => player.disablePostReality ? 1 : 1 + ((Math.min(EndgameSkills.totalPurchased(), 2000) + (Math.max(Math.log2(EndgameSkills.totalPurchased() / 2000), 0) * 1000)) / (Pelle.isDoomed ? 20000 : 100000)),
     formatEffect: value => `${formatPow(value, 2, 3)}`,
@@ -1951,7 +1951,7 @@ export const normalAchievements = [
       BreakEternityUpgrade.all.filter(u => u.isBought).length === 5,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
-      return `펠레 안에서만 반물질 지수를 ${format(1.4, 2, 1)}로 제곱한다.`;
+      return `Pelle 안에서만 반물질 지수를 ${format(1.4, 2, 1)}로 제곱한다.`;
     },
     effect: () => player.disablePostReality || !Pelle.isDoomed ? 1 : 1.4,
     progress: () => Achievement(233).isUnlocked ? DC.D1 : Decimal.clamp(new Decimal(BreakEternityUpgrade.all.filter(u => u.isCapped).length + BreakEternityUpgrade.all.filter(u => u.isBought).length).div(15), 0, 1)
@@ -1967,7 +1967,7 @@ export const normalAchievements = [
   {
     id: 235,
     name: "끝나지 않는 어둠",
-    get description() { return `라이텔라의 현실을 ${formatInt(50)}번 강입자화한다.` },
+    get description() { return `Lai'tela의 현실을 ${formatInt(50)}번 강입자화한다.` },
     checkRequirement: () => Laitela.hadronizes >= 50,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
@@ -1979,7 +1979,7 @@ export const normalAchievements = [
   {
     id: 236,
     name: "초신성",
-    get description() { return `라의 셀레스티얼 기억 레벨 합계 ${formatInt(500)}을 달성한다.` },
+    get description() { return `Ra의 셀레스티얼 기억 레벨 합계 ${formatInt(500)}을 달성한다.` },
     checkRequirement: () => Ra.totalPetLevel >= 500,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() { return `기억을 ${formatX(500)} 더 획득한다.`; },

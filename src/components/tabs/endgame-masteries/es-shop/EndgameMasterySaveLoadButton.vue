@@ -53,7 +53,7 @@ export default {
       this.hideContextMenu();
       this.preset.masteries = GameCache.currentMasteryTree.value.exportString;
       const presetName = this.name ? `마스터리 프리셋 "${this.name}"` : "마스터리 프리셋";
-      GameUI.notify.endgame(`${presetName}을 ${this.saveslot}번 슬롯에 저장했습니다.`);
+      GameUI.notify.endgame(`저장 완료: ${presetName} (${this.saveslot}번 슬롯)`);
     },
     load() {
       this.hideContextMenu();
@@ -66,7 +66,7 @@ export default {
         EndgameMasteryTree.commitToGameState(combinedTree.purchasedMasteries, false);
 
         const presetName = this.name ? `마스터리 프리셋 "${this.name}"` : "마스터리 프리셋";
-        GameUI.notify.endgame(`${this.saveslot}번 슬롯에서 ${presetName}을 불러왔습니다.`);
+        GameUI.notify.endgame(`불러오기 완료: ${presetName} (${this.saveslot}번 슬롯)`);
       } else {
         Modal.message.show("이 엔드게임 마스터리 목록에는 현재 엔드게임 마스터리가 없습니다.");
       }
@@ -88,7 +88,7 @@ export default {
       this.hideContextMenu();
       copyToClipboard(this.preset.masteries);
       const presetName = this.name ? `마스터리 프리셋 "${this.name}"` : "마스터리 프리셋";
-      GameUI.notify.endgame(`${this.saveslot}번 슬롯의 ${presetName}을 클립보드로 내보냈습니다.`);
+      GameUI.notify.endgame(`클립보드로 내보내기 완료: ${presetName} (${this.saveslot}번 슬롯)`);
     },
     edit() {
       Modal.masteryString.show({ id: this.saveslot - 1 });

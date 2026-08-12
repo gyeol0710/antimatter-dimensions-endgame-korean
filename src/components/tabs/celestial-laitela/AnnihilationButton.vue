@@ -111,7 +111,7 @@ export default {
     </span>
     <span v-else>
       소멸하면 암흑 물질과 암흑 물질 차원 보유량이 초기화되지만, 모든 암흑 물질 차원에
-      <b>{{ formatX(darkMatterMultGain.add(1), 2, 2) }}</b>의 영구 배율을 부여합니다.
+      <b>{{ formatX(darkMatterMultGain.add(1), 2, 2) }}</b> 배율을 영구적으로 부여합니다.
     </span>
     <br>
     <br>

@@ -47,7 +47,7 @@ export const eternityUpgrades = {
   tdMultTheorems: {
     id: 5,
     cost: 1e40,
-    description: "보유중인 시간 정리에 비례하여 시간 차원을 증폭합니다.",
+    description: "보유 중인 시간 정리에 비례하여 시간 차원을 증폭합니다.",
     effect: () => Decimal.max(Currency.timeTheorems.value, 1),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -56,7 +56,7 @@ export const eternityUpgrades = {
     cost: 1e50,
     description: () => (Pelle.isDoomed
       ? "이번 아마겟돈에서 플레이한 일수에 비례하여 시간 차원을 증폭합니다."
-      : (Alpha.isRunning ? "알파의 현실에서 보낸 실제 시간(일)에 따라 시간 차원에 배율을 적용합니다"
+      : (Alpha.isRunning ? "Alpha의 현실에서 보낸 실제 시간(일)에 따라 시간 차원에 배율을 적용합니다"
          : "플레이한 일수에 따라 시간 차원에 배율을 적용합니다")
     ),
     effect: () => (Pelle.isDoomed ? Time.thisReality.totalDays.add(1) : (Alpha.isRunning

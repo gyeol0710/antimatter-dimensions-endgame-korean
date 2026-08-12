@@ -13,7 +13,7 @@ export const infinityUpgrades = {
     effect: () => Decimal.pow(Time.totalTimePlayed.totalMinutes.div(2), 0.15),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
-      description: "플레이 시간과 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+      description: "플레이 시간과 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => 1 +
         Decimal.log10(Decimal.log10(Time.totalTimePlayed.totalMilliseconds)).times(
         Math.pow(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1)), 0.5)).div(150).toNumber(),
@@ -28,7 +28,7 @@ export const infinityUpgrades = {
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
-      description: "무한 횟수와 테레사 레벨에 따라 제1 및 제8 반물질 차원을 거듭제곱합니다",
+      description: "무한 횟수와 Teresa 레벨에 따라 제1 및 제8 반물질 차원을 거듭제곱합니다",
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -41,7 +41,7 @@ export const infinityUpgrades = {
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
-      description: "무한 횟수와 테레사 레벨에 따라 제2 및 제7 반물질 차원을 거듭제곱합니다",
+      description: "무한 횟수와 Teresa 레벨에 따라 제2 및 제7 반물질 차원을 거듭제곱합니다",
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -54,7 +54,7 @@ export const infinityUpgrades = {
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
-      description: "무한 횟수와 테레사 레벨에 따라 제3 및 제6 반물질 차원을 거듭제곱합니다",
+      description: "무한 횟수와 Teresa 레벨에 따라 제3 및 제6 반물질 차원을 거듭제곱합니다",
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -67,7 +67,7 @@ export const infinityUpgrades = {
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
-      description: "무한 횟수와 테레사 레벨에 따라 제4 및 제5 반물질 차원을 거듭제곱합니다",
+      description: "무한 횟수와 Teresa 레벨에 따라 제4 및 제5 반물질 차원을 거듭제곱합니다",
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -80,7 +80,7 @@ export const infinityUpgrades = {
       `차원 가속과 반물질 은하에 필요한 차원 수가 ${formatInt(9)}만큼 감소합니다.`,
     effect: 9,
     charged: {
-      description: () => "테레사 레벨에 따라 차원 가속 요구량을 줄입니다",
+      description: () => "Teresa 레벨에 따라 차원 가속 요구량을 줄입니다",
       effect: () => 1 / (1 + Math.sqrt(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1))) / 10),
       formatEffect: value => `${formatX(value, 4, 4)}`
     }
@@ -93,7 +93,7 @@ export const infinityUpgrades = {
     formatEffect: () => `${formatX(2, 0, 1)} ➜ ${formatX(2.2, 0, 1)}`,
     charged: {
       description: () => `반물질 차원 ${formatInt(10)}개 구매 배율을 ` +
-        "테레사 레벨에 따라 거듭제곱합니다",
+        "Teresa 레벨에 따라 거듭제곱합니다",
       effect: () => 1 + (Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1))) / 200,
       formatEffect: value => formatPow(value, 3, 3)
     }
@@ -105,7 +105,7 @@ export const infinityUpgrades = {
     description: "모든 은하의 효과가 두 배가 됩니다.",
     effect: 2,
     charged: {
-      description: "테레사 레벨에 따라 모든 은하가 강해집니다",
+      description: "Teresa 레벨에 따라 모든 은하가 강해집니다",
       effect: () => 2 + Math.sqrt(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1))) / 100,
       formatEffect: value => `+${formatPercents(value - 1)}`
     }
@@ -118,7 +118,7 @@ export const infinityUpgrades = {
     formatEffect: value => formatX(value, 2, 2),
     charged: {
       description:
-        "현재 무한에서 보낸 시간과 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+        "현재 무한에서 보낸 시간과 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => 1 +
         Decimal.log10(Decimal.log10(Time.thisInfinity.totalMilliseconds.plus(100))).times(
         Math.sqrt(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1)))).div(150).toNumber(),
@@ -137,7 +137,7 @@ export const infinityUpgrades = {
     },
     formatEffect: value => formatX(value, 2, 2),
     charged: {
-      description: "사용하지 않은 무한 포인트에 따른 제1 반물질 차원 배율을 테레사 레벨에 따라 거듭제곱합니다",
+      description: "사용하지 않은 무한 포인트에 따른 제1 반물질 차원 배율을 Teresa 레벨에 따라 거듭제곱합니다",
       effect: () => {
         const divisor = (EndgameMastery(81).isBought && !player.disablePostReality) ? 5 : 10;
         const subtrahend = (EndgameMastery(81).isBought && !player.disablePostReality) ? 1.5 : 0;
@@ -154,7 +154,7 @@ export const infinityUpgrades = {
     effect: () => 2.5,
     formatEffect: () => `${formatX(2, 0, 1)} ➜ ${formatX(2.5, 0, 1)}`,
     charged: {
-      description: "테레사 레벨에 따라 차원 가속 배율을 거듭제곱합니다",
+      description: "Teresa 레벨에 따라 차원 가속 배율을 거듭제곱합니다",
       effect: () => 1 + (Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1))) / 200,
       formatEffect: value => formatPow(value, 3, 3)
     }
@@ -177,7 +177,7 @@ export const infinityUpgrades = {
     charged: {
       description: () =>
         `현실에서 획득한 양에 비례해 실제 시간으로 매초 리얼리티 머신을 획득하며,
-        테레사 레벨에 따라 증가합니다`,
+        Teresa 레벨에 따라 증가합니다`,
       effect: () => Math.pow(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1)), 2) *
         Ra.unlocks.continuousTTBoost.effects.autoPrestige.effectOrDefault(1),
       formatEffect: value => formatX(value, 2, 1)

@@ -332,7 +332,7 @@ export const Glyphs = {
     }
 
     if (specialGlyphEquippedAfterChange > maxSpecialGlyph) {
-      const glyphTypeDisplay = glyph.type === "effarig" ? "에파리그" : "현실";
+      const glyphTypeDisplay = glyph.type === "effarig" ? "Effarig" : "현실";
       Modal.message.show(`${glyphTypeDisplay} 글리프는 ${formatInt(maxSpecialGlyph)}개까지만 장착할 수 있습니다!`,
         { closeEvent: GAME_EVENT.GLYPHS_CHANGED });
       return;

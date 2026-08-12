@@ -53,7 +53,7 @@ export const resurgenceUpgrades = {
     name: "팽창 쇄도",
     id: "curr2Surge",
     cost: new Decimal(1e80),
-    description: "펠레 밖에서만 팽창 시간과 타키온 입자에 각각 자신의 이중 로그만큼 거듭제곱을 적용합니다"
+    description: "Pelle 밖에서만 팽창 시간과 타키온 입자에 각각 자신의 이중 로그만큼 거듭제곱을 적용합니다"
   },
   glyphSurge: {
     name: "희생의 쇄도",
@@ -87,7 +87,7 @@ export const resurgenceUpgrades = {
     name: "기억 증폭",
     id: "memSurge",
     cost: new Decimal("1e800"),
-    description: "이름 없는 자와 V의 기억 기본 획득량을 향상시킵니다"
+    description: "The Nameless Ones와 V의 기억 기본 획득량을 향상시킵니다"
   },
   entropySurge: {
     name: "엔트로피의 맺음말",
@@ -109,7 +109,7 @@ export const resurgenceUpgrades = {
     name: "시공간 왜곡 II",
     id: "synergy2",
     cost: new Decimal("1e2400"),
-    description: "펠레 밖에서 생산한 총 반물질에 따라 셀레스티얼 차원에 거듭제곱을 적용합니다",
+    description: "Pelle 밖에서 생산한 총 반물질에 따라 셀레스티얼 차원에 거듭제곱을 적용합니다",
     effect: () => Decimal.log10(Decimal.log10(Decimal.log10(player.records.totalAntimatterOutsideDoom).add(1)).add(1)).div(15).add(1),
     formatEffect: value => formatPow(value, 2, 3)
   },

@@ -439,6 +439,24 @@ export const migrations = {
     },
     105: player => {
       endgameMigration(player);
+    },
+    105.1: player => {
+      const legacyPetNames = {
+        테레사: "Teresa",
+        에파리그: "Effarig",
+        "이름없는 자들": "The Nameless Ones",
+        "이름 없는 자들": "The Nameless Ones"
+      };
+      const currentPet = player.celestials.ra.petWithRemembrance;
+      player.celestials.ra.petWithRemembrance = legacyPetNames[currentPet] ?? currentPet;
+    },
+    105.2: player => {
+      const refinementValues = player.celestials.ra.highestRefinementValue;
+      const legacyEffarigValue = refinementValues?.["에파리그"];
+      if (legacyEffarigValue !== undefined) {
+        refinementValues.effarig = Math.max(refinementValues.effarig ?? 0, legacyEffarigValue);
+        delete refinementValues["에파리그"];
+      }
     }
   },
 

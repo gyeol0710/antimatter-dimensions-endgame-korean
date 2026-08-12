@@ -14,7 +14,7 @@ export class Sacrifice {
   static get disabledCondition() {
     if (NormalChallenge(10).isRunning) return "제8 반물질 차원이 비활성화됨";
     if (EternityChallenge(3).isRunning) return "영원 도전 3";
-    if (DimBoost.purchasedBoosts.lt(5)) return `Requires ${formatInt(5)} Dimension Boosts`;
+    if (DimBoost.purchasedBoosts.lt(5)) return `차원 가속 ${formatInt(5)}회 필요`;
     if (AntimatterDimension(8).totalAmount.eq(0)) return "제8 반물질 차원이 없음";
     if (this.nextBoost.lte(1)) return `${formatX(1)} 배율`;
     if (Player.isInAntimatterChallenge) return "챌린지 목표 도달함";

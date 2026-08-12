@@ -44,7 +44,7 @@ export default {
       한 번 구매하면 사라지거나 재분배되지 않습니다.
       <br>
       <br>
-      <b class="o-warning">STD 코인을 더 구매하기 전까지 다시 재분배할 수 없습니다.</b>
+      <b class="o-warning">STD 코인을 더 구매하기 전까지 재분배할 수 없습니다.</b>
     </div>
   </ModalWrapperChoice>
 </template>

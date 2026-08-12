@@ -189,7 +189,7 @@ export const alchemyResources = {
   // T3 resources (Effarig and conbinations of T1/T2 with Effarig)
   "effarig": {
     id: ALCHEMY_RESOURCE.EFFARIG,
-    name: "에파리그",
+    name: "Effarig",
     symbol: "Ϙ",
     isBaseResource: true,
     effect: amount => Decimal.pow10(amount / 1250),

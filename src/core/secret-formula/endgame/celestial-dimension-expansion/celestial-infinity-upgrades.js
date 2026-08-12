@@ -2,7 +2,7 @@ export const celestialInfinityUpgrades = {
   gameSpeedMultCIP: {
     id: "gameSpeedMultCIP",
     cost: 1,
-    description: () => `사용하지 않은 셀레스티얼 무한 포인트에 따라 게임 속도에 배율을 얻습니다`,
+    description: () => `사용하지 않은 셀레스티얼 무한 포인트에 따라 게임 속도에 배율이 적용됩니다`,
     effect: () => player.disablePostReality ? DC.D1 : Currency.celestialInfinityPoints.value.plus(1).pow(308),
     formatEffect: value => formatX(value, 2, 1)
   },
@@ -15,7 +15,7 @@ export const celestialInfinityUpgrades = {
   alphaDecayStartBoost: {
     id: "alphaDecayStartBoost",
     cost: 5,
-    description: () => `셀레스티얼 무한 횟수에 따라 알파 붕괴 시작 시간에 아주 작은 보너스를 얻습니다`,
+    description: () => `셀레스티얼 무한 횟수에 따라 Alpha 붕괴 시작 시간에 아주 작은 보너스를 얻습니다`,
     effect: () => Decimal.pow(player.endgame.celDimExpansion.celestialInfinities, 0.5).div(100).min(1).add(
       DC.D4.times(DC.D1.sub(Decimal.pow(0.8, player.endgame.celDimExpansion.celestialInfinities.max(1).log10().sub(4).max(0))))),
     formatEffect: value => `${TimeSpan.fromHours(value).toStringShort()}`
@@ -41,7 +41,7 @@ export const celestialInfinityUpgrades = {
   antimatterCelestialDimBuff: {
     id: "antimatterCelestialDimBuff",
     cost: 100,
-    description: "알파 붕괴 후 반물질 지수의 지수만큼 모든 셀레스티얼 차원에 배율을 적용합니다",
+    description: "Alpha 붕괴 후 반물질 지수의 지수만큼 모든 셀레스티얼 차원에 배율을 적용합니다",
     effect: () => Decimal.log10(Decimal.log10(player.antimatter.add(1)).add(1)).max(1)
   },
   cipGen: {

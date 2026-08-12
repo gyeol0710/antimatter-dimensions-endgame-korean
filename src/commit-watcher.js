@@ -20,8 +20,8 @@ export function watchLatestCommit() {
         }
 
         Modal.message.show(
-          "Refresh the page (game will be saved), we've got new stuff: " +
-          `"${json.message}" by ${json.author}`,
+          "새로운 업데이트가 있습니다. 페이지를 새로고침하면 게임이 저장됩니다: " +
+          `"${json.message}" (${json.author})`,
           {
             callback: updateRefresh,
             closeButton: true

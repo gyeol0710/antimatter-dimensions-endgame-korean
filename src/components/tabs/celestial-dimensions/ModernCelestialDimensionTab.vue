@@ -160,7 +160,7 @@ export default {
           <span :class="instabilityClassObject()">
             {{ formatX(dimMultiplier, 2, 1) }}<span v-if="!isEffectActive"> (비활성화)</span>
           </span>
-          의 배수를 <span>제공합니다.</span>
+          배율을 <span>제공합니다.</span>
           <div v-if="unstable">
             소프트캡이 없었다면 <i>셀레스티얼 물질을</i>
             <span :class="instabilityClassObject()">{{ format(unnerfedCelestialMatter, 2, 1) }}</span>개
@@ -198,7 +198,7 @@ export default {
         </div>
       </div>
       <div v-if="hasRemnant">
-        알파 붕괴의 잔재가 모든 셀레스티얼 차원에
+        Alpha 붕괴의 잔재가 모든 셀레스티얼 차원에
         <span class="c-celestial-dim-description__accent-unstable">{{ format(alphaDecayRemnant, 2, 3) }}</span>
         제곱을 적용합니다. 이 값은 상한인 {{ formatInt(1) }}까지 이번 셀레스티얼 무한에서 {{ timeToCapText }}에 걸쳐 증가합니다.
       </div>

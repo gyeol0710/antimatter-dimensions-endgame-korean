@@ -54,7 +54,7 @@ const disabledMechanicUnlocks = {
 export const Pelle = {
   symbol: "♅",
   // Suppress the randomness for this form
-  possessiveName: "펠레의",
+  possessiveName: "Pelle의",
 
   // This is called upon initial Dooming and after every Armageddon when using the modal
   initializeRun() {
@@ -472,7 +472,7 @@ export const Pelle = {
       default:
         if (onlyReturnUseful) return null;
         if (this.isGlyphTypeDisabled(type)) return "파멸한 동안에는 이 글리프를 장착할 수 없습니다!";
-        return "이 글리프에는 펠레 전용 효과가 없습니다! 안타깝네요.";
+        return "이 글리프에는 Pelle 전용 효과가 없습니다! 안타깝네요.";
     }
   },
 
@@ -600,7 +600,7 @@ export const Pelle = {
     } else if (player.celestials.pelle.divinities > 0) {
       return "그리하여 우리는 다시 나아간다 재탄생은 이제 필연이다 힘차게 앞으로 나아가라 Ω 너의 신성한 인도로".split(" ");
     } else if (Effarig.isRunning) {
-      return "축하한다 너는 이제 막 이중 셀레스티얼 현실 하나를 정복했다 Ω Ω 펠레는 깊이 감탄했다".split(" ");
+      return "축하한다 너는 이제 막 이중 셀레스티얼 현실 하나를 정복했다 Ω Ω Pelle는 깊이 감탄했다".split(" ");
     } else if (Alpha.isDestroyed) {
       return "왜 아직도 여기 있나 모두 파괴됐다 다만 남은 것은 Ω Ω 생성기 필라멘트 별들".split(" ");
     } else if (Achievement(191).isUnlocked) {

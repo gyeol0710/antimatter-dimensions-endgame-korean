@@ -16,7 +16,7 @@ const GLYPH_NAMES = {
   },
   effarig: {
     adjective: { both: "메타", glyph: "안정된", rm: "기계적인", none: "파편화된" },
-    noun: { both: "에파리그", glyph: "안정성", rm: "기계 장치", none: "파편화" }
+    noun: { both: "Effarig", glyph: "안정성", rm: "기계 장치", none: "파편화" }
   },
   cursed: {
     adjective: { high: "저주받은", mid: "주술에 걸린", low: "액운의" },

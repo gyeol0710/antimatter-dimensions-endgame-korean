@@ -96,7 +96,7 @@ export default {
         공식 사전 설정 시드
       </PrimaryButton>
       <br>
-      시드 <b>{{ officialSeed }}</b>을(를) 선택하는 기본 설정입니다. 시드를 전혀 변경하지 않은
+      시드 <b>{{ officialSeed }}</b> 값을 선택하는 기본 설정입니다. 시드를 전혀 변경하지 않은
       모든 플레이어에게 같은 글리프 선택지가 나타납니다.
       <br>
       <br>
@@ -129,7 +129,7 @@ export default {
       텍스트 상자에 입력한 값을 시드로 설정합니다.
       <br>
       <span v-if="seedValue !== 0">
-        현재 입력은 {{ convertedInput ? "변환되어" : "그대로" }} 숫자 <b>{{ seedValue }}</b>(으)로 사용됩니다.
+        현재 입력은 {{ convertedInput ? "숫자로 변환한" : "그대로 입력한" }} 시드 값 <b>{{ seedValue }}</b>입니다.
       </span>
       <span v-else>
         현재 입력은 {{ convertedInput ? "변환하면" : "그 자체로" }} <b>0</b>이며,

@@ -134,7 +134,7 @@ export default {
           <span class="c-replicanti-description__accent">${formatPow(this.powIP, 2, 3)}</span> 지수` : ""} 적용`);
       }
       if (this.hasDEMult) {
-        boostList.push(`알파 보상으로 얻는 암흑 에너지에
+        boostList.push(`Alpha 보상으로 얻는 암흑 에너지에
           <span class="c-replicanti-description__accent">${formatX(this.multDE, 2, 2)}</span>
           배율${this.hasDEPow ? ` 및
           <span class="c-replicanti-description__accent">${formatPow(this.powDE, 2, 3)}</span> 지수` : ""} 적용`);
@@ -247,7 +247,7 @@ export default {
         v-else-if="hasRaisedCap"
         class="modified-cap"
       >
-        에파리그의 무한을 완료하여 다음 보상을 받고 있습니다:
+        Effarig의 무한을 완료하여 다음 보상을 받고 있습니다:
         <br>
         TS192가 없을 때의 복제자 상한: {{ format(replicantiCap, 2) }}
         ({{ capMultText }})

@@ -43,7 +43,7 @@ export default {
         : `${tickspeedFixed}에서는 틱스피드 업그레이드 효율 보너스를 받지 못합니다.`;
       const message = (resetList === "")
         ? `아무것도 리셋하지 않고 ${tickspeedInfo}`
-        : `이는 당신의 ${resetList}을(를) 리셋합니다. 하지만, ${tickspeedInfo}`;
+        : `다음 항목이 리셋됩니다: ${resetList}. 하지만 ${tickspeedInfo}`;
 
       if (this.bulk) return `${quantifyInt("반물질 은하", this.newGalaxies)}를 구매하면
       ${message} 계속하시겠습니까?`;

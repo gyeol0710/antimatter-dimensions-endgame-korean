@@ -19,8 +19,8 @@ export default {
       return PerkLayouts[this.treeLayout].buttonText;
     },
     physicsText() {
-      const enableStr = (this.physicsOverride ?? this.physicsEnabled) ? "Enabled" : "Disabled";
-      return `${enableStr}${this.physicsOverride === undefined ? "" : " (fixed)"}`;
+      const enableStr = (this.physicsOverride ?? this.physicsEnabled) ? "켜짐" : "꺼짐";
+      return `${enableStr}${this.physicsOverride === undefined ? "" : " (고정)"}`;
     }
   },
   created() {
@@ -70,37 +70,37 @@ export default {
 
 <template>
   <div class="c-perk-tab__header">
-    You have <span class="c-perk-tab__perk-points">{{ format(pp, 2) }}</span> {{ pluralize("Perk Point", pp) }}.
+    현재 <span class="c-perk-tab__perk-points">{{ format(pp, 2) }}</span>{{ pluralize("개의 퍼크 포인트", pp) }}를 보유 중입니다.
     <br>
-    Perk choices are permanent and cannot be respecced.
+    선택한 퍼크는 영구 적용되며 재분배할 수 없습니다.
     <br>
-    Diamond-shaped perks also give Automator Points.
+    다이아몬드 모양 퍼크는 오토메이터 포인트도 제공합니다.
     <br>
     <div class="perk-settings">
       <PrimaryButton
         class="o-primary-btn c-button-perk-layout"
         @click="cycleLayout"
       >
-        Perk Layout: {{ layoutText }}
+        퍼크 배치: {{ layoutText }}
       </PrimaryButton>
       <PrimaryButton
         :class="physicsClassObject()"
         @click="togglePhysics"
       >
-        Physics: {{ physicsText }}
+        물리 효과: {{ physicsText }}
       </PrimaryButton>
       <br>
       <PrimaryButton
         class="o-primary-btn"
         @click="centerTree"
       >
-        Center Tree on START
+        START를 중심으로 트리 정렬
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn"
         @click="straightenEdges"
       >
-        Straighten Edges
+        연결선 곧게 펴기
       </PrimaryButton>
     </div>
   </div>

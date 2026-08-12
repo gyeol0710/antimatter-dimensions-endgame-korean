@@ -222,7 +222,7 @@ export const celestialNavigation = {
         rMinor: 64,
       },
       legend: {
-        text: "테레사",
+        text: "Teresa",
         angle: 135,
         diagonal: 32,
         horizontal: 16,
@@ -282,7 +282,7 @@ export const celestialNavigation = {
       },
       alwaysShowLegend: true,
       legend: {
-        text: "테레사의 현실",
+        text: "Teresa의 현실",
         angle: -135,
         diagonal: 96,
         horizontal: 16,
@@ -304,11 +304,11 @@ export const celestialNavigation = {
       },
       legend: {
         text: complete => {
-          if (complete >= 1) return "테레사의 퍼크 포인트 상점";
+          if (complete >= 1) return "Teresa의 퍼크 포인트 상점";
           const rm = Teresa.pouredAmount;
           const cost = TeresaUnlocks.shop.price;
           return [
-            "테레사의 퍼크 포인트 상점",
+            "Teresa의 퍼크 포인트 상점",
             `리얼리티 머신 ${format(rm, 2)} / ${format(cost, 2)}을 주입하세요`
           ];
         },
@@ -339,11 +339,11 @@ export const celestialNavigation = {
       },
       legend: {
         text: complete => {
-          if (complete >= 1) return "에파리그의 상점";
+          if (complete >= 1) return "Effarig의 상점";
           const rm = Teresa.pouredAmount;
           const cost = TeresaUnlocks.effarig.price;
           return [
-            "에파리그",
+            "Effarig",
             `리얼리티 머신 ${format(rm, 2)} / ${format(cost, 2)}을 주입하세요`
           ];
         },
@@ -376,11 +376,11 @@ export const celestialNavigation = {
       },
       legend: {
         text: complete => {
-          if (complete >= 1) return "에파리그의 현실 해금";
+          if (complete >= 1) return "Effarig의 현실 해금";
           const rs = Currency.relicShards.value;
           const cost = EffarigUnlock.run.cost;
           return [
-            "에파리그의 현실 해금",
+            "Effarig의 현실 해금",
             `유물 파편 ${format(rs, 2)} / ${format(cost, 2)}에 도달하세요`
           ];
         },
@@ -415,13 +415,13 @@ export const celestialNavigation = {
       },
       legend: {
         text: complete => {
-          if (complete >= 1) return "에파리그의 무한";
-          if (complete === 0) return "에파리그의 현실 해금";
+          if (complete >= 1) return "Effarig의 무한";
+          if (complete === 0) return "Effarig의 현실 해금";
           const am = Effarig.isRunning ? Currency.antimatter.value : 0;
           return [
-            "에파리그의 무한",
+            "Effarig의 무한",
             `${format(am, 2)} / ${format(Number.MAX_VALUE, 2)}에 도달하세요`,
-            "에파리그의 현실 안에서 반물질을 획득하세요."
+            "Effarig의 현실 안에서 반물질을 획득하세요."
           ];
         },
         angle: 0,
@@ -457,12 +457,12 @@ export const celestialNavigation = {
       },
       legend: {
         text: complete => {
-          if (complete >= 1) return "에파리그의 영원";
+          if (complete >= 1) return "Effarig의 영원";
           const ip = Effarig.isRunning ? Currency.infinityPoints.value : 0;
           return [
-            "에파리그의 영원",
+            "Effarig의 영원",
             `${format(ip, 2)} / ${format(Number.MAX_VALUE, 2)}에 도달하세요`,
-            "에파리그의 현실 안에서 무한 포인트를 획득하세요."
+            "Effarig의 현실 안에서 무한 포인트를 획득하세요."
           ];
         },
         angle: -45,
@@ -508,13 +508,13 @@ export const celestialNavigation = {
       alwaysShowLegend: true,
       legend: {
         text: complete => {
-          if (complete >= 1) return "에파리그의 현실";
+          if (complete >= 1) return "Effarig의 현실";
           const ep = Effarig.isRunning ? Currency.eternityPoints.value : 0;
           const goal = DC.E4000;
           return [
-            "에파리그의 현실",
+            "Effarig의 현실",
             `${format(ep, 2)} / ${format(goal, 2)}에 도달하세요`,
-            "에파리그의 현실 안에서 영원 포인트를 획득하세요."
+            "Effarig의 현실 안에서 영원 포인트를 획득하세요."
           ];
         },
         angle: -120,
@@ -555,7 +555,7 @@ export const celestialNavigation = {
       },
       alwaysShowLegend: false,
       legend: {
-        text: "이름없는 자들",
+        text: "The Nameless Ones",
         angle: -90,
         diagonal: 20,
         horizontal: 16,
@@ -677,13 +677,13 @@ export const celestialNavigation = {
       alwaysShowLegend: true,
       legend: {
         text: complete => {
-          if (complete >= 1) return "이름없는 자들의 현실";
+          if (complete >= 1) return "The Nameless Ones의 현실";
           const ep = Enslaved.isRunning ? Currency.eternityPoints.value : 0;
           const goal = DC.E4000;
           return [
-            "이름없는 자들의 현실",
+            "The Nameless Ones의 현실",
             `${format(ep, 2)} / ${format(goal, 2)}에 도달하세요`,
-            "이름없는 자들의 현실 안에서 영원 포인트를 획득하세요."
+            "The Nameless Ones의 현실 안에서 영원 포인트를 획득하세요."
           ];
         },
         angle: 45,
@@ -1145,7 +1145,7 @@ export const celestialNavigation = {
       },
       alwaysShowLegend: true,
       legend: {
-        text: "라의 현실",
+        text: "Ra의 현실",
         angle: 230,
         diagonal: 85,
         horizontal: 16,
@@ -1168,9 +1168,9 @@ export const celestialNavigation = {
       legend: {
         text: () => {
           const level = Ra.pets.teresa.level;
-          if (level === 25) return `라의 테레사 기억을 모두 되찾았습니다`;
+          if (level === 25) return `Ra의 Teresa 기억을 모두 되찾았습니다`;
           return [
-            "라의 테레사 기억 레벨",
+            "Ra의 Teresa 기억 레벨",
             `${formatInt(level)} / ${formatInt(25)}`
           ];
         },
@@ -1218,10 +1218,10 @@ export const celestialNavigation = {
         text: complete => {
           const unlocked = Ra.pets.teresa.level;
           const level = Ra.pets.effarig.level;
-          if (complete < 1) return `라의 테레사 기억 레벨 ${unlocked} / ${formatInt(8)}`;
-          if (level === 25) return `라의 에파리그 기억을 모두 되찾았습니다`;
+          if (complete < 1) return `Ra의 Teresa 기억 레벨 ${unlocked} / ${formatInt(8)}`;
+          if (level === 25) return `Ra의 Effarig 기억을 모두 되찾았습니다`;
           return [
-            "라의 에파리그 기억 레벨",
+            "Ra의 Effarig 기억 레벨",
             `${formatInt(level)} / ${formatInt(25)}`
           ];
         },
@@ -1269,10 +1269,10 @@ export const celestialNavigation = {
         text: complete => {
           const unlocked = Ra.pets.effarig.level;
           const level = Ra.pets.enslaved.level;
-          if (complete < 1) return `라의 에파리그 기억 레벨 ${unlocked} / ${formatInt(8)}`;
-          if (level === 25) return `라의 이름없는 자들 기억을 모두 되찾았습니다`;
+          if (complete < 1) return `Ra의 Effarig 기억 레벨 ${unlocked} / ${formatInt(8)}`;
+          if (level === 25) return `Ra의 The Nameless Ones 기억을 모두 되찾았습니다`;
           return [
-            "라의 이름없는 자들 기억 레벨",
+            "Ra의 The Nameless Ones 기억 레벨",
             `${formatInt(level)} / ${formatInt(25)}`
           ];
         },
@@ -1320,10 +1320,10 @@ export const celestialNavigation = {
         text: complete => {
           const unlocked = Ra.pets.enslaved.level;
           const level = Ra.pets.v.level;
-          if (complete < 1) return `라의 이름없는 자들 기억 레벨 ${unlocked} / ${formatInt(8)}`;
-          if (level === 25) return `라의 V 기억을 모두 되찾았습니다`;
+          if (complete < 1) return `Ra의 The Nameless Ones 기억 레벨 ${unlocked} / ${formatInt(8)}`;
+          if (level === 25) return `Ra의 V 기억을 모두 되찾았습니다`;
           return [
-            "라의 V 기억 레벨",
+            "Ra의 V 기억 레벨",
             `${formatInt(level)} / ${formatInt(25)}`
           ];
         },
@@ -1454,7 +1454,7 @@ export const celestialNavigation = {
       alwaysShowLegend: true,
       legend: {
         text: complete => {
-          const realityName = "라이텔라의 현실";
+          const realityName = "Lai'tela의 현실";
           if (complete >= 1) return [realityName];
 
           if (!MachineHandler.isIMUnlocked) {
@@ -1535,11 +1535,11 @@ export const celestialNavigation = {
 
           if (player.celestials.laitela.fastestCompletion > 30 && Laitela.difficultyTier < 0) return [
             dmdText,
-            `${format(30)}초 이내에 라이텔라의 현실을 완료하세요`
+            `${format(30)}초 이내에 Lai'tela의 현실을 완료하세요`
           ];
           return [
             dmdText,
-            `라이텔라의 현실을 완료하세요`
+            `Lai'tela의 현실을 완료하세요`
           ];
         },
         angle: 135,
@@ -1782,14 +1782,14 @@ export const celestialNavigation = {
       legend: {
         text: complete => {
           if (complete < 1) return [
-            "라이텔라의 현실을 불안정화하여",
+            "Lai'tela의 현실을 불안정화하여",
             "어떤 차원도 사용할 수 없는",
             "상태로 만드세요",
             `차원 ${format(Laitela.difficultyTier)} / ${format(8)}개 비활성화`
           ];
           return [
             "완전히 불안정화된",
-            "라이텔라의 현실",
+            "Lai'tela의 현실",
           ];
         },
         angle: 180,
@@ -1837,18 +1837,18 @@ export const celestialNavigation = {
         text: complete => {
           if (complete === 1) {
             return [
-              "펠레 해금",
+              "Pelle 해금",
               "반물질의 셀레스티얼"
             ];
           }
           let laitelaString = `${format(Currency.eternityPoints.value)} / ${format("1e4000")} 영원 포인트`;
           if (!Laitela.isRunning || Laitela.difficultyTier !== 8 || Glyphs.activeWithoutCompanion.length > 1) {
-            laitelaString = "라이텔라의 현실이 아직 온전합니다";
+            laitelaString = "Lai'tela의 현실이 아직 온전합니다";
           } else if (ImaginaryUpgrade(25).isAvailableForPurchase) {
-            laitelaString = "라이텔라의 현실이 파괴되었습니다";
+            laitelaString = "Lai'tela의 현실이 파괴되었습니다";
           }
           return [
-            "펠레 해금",
+            "Pelle 해금",
             "반물질의 셀레스티얼",
             `${format(Currency.imaginaryMachines.value, 2)} / ${format(1.6e15, 2)} 허수 머신`,
             laitelaString
@@ -1949,16 +1949,16 @@ export const celestialNavigation = {
         text: complete => {
           if (complete === 1) {
             return [
-              "알파의 현실"
+              "Alpha의 현실"
             ];
           }
           if (complete === 0.999) {
             return [
-              "알파 해금",
+              "Alpha 해금",
               "어둠의 셀레스티얼"
             ];
           }
-          let pelleString = "펠레의 파멸한 현실이 아직 온전합니다";
+          let pelleString = "Pelle의 파멸한 현실이 아직 온전합니다";
           let progressString = "계속하려면 약화/공격을 더 비활성화하세요";
           if (!Achievement(204).isUnlocked && !ImaginaryUpgrade(30).isAvailableForPurchase) {
             const remainingNerfs = (PelleAchievementUpgrade.all.length + PelleDestructionUpgrade.all.length +
@@ -1967,16 +1967,16 @@ export const celestialNavigation = {
               PelleDestructionUpgrade.all.filter(u => u.canBeApplied).length + PelleRealityUpgrade.all.filter(u => u.canBeApplied).length +
               PelleImaginaryUpgrade.all.filter(u => u.canBeApplied).length + PelleCelestialUpgrade.all.filter(u => u.canBeApplied).length +
               PellePerkUpgrade.all.filter(u => u.canBeApplied).length + PelleAchievementUpgrade.all.filter(u => u.canBeApplied).length);
-            pelleString = "펠레의 파멸한 현실이 아직 온전합니다";
+            pelleString = "Pelle의 파멸한 현실이 아직 온전합니다";
             progressString = `약화 ${formatInt(remainingNerfs)}개 남음`;
           } else if (Achievement(204).isUnlocked && !ImaginaryUpgrade(30).isAvailableForPurchase) {
             const hexString = ["무너지기 시작했습니다", "산산이 부서지고 있습니다", "눈에 띄게 무너지고 있습니다", "거의 무너졌습니다", "무너지기 직전입니다"];
             const remainingStrikes = PelleStrikeUpgrade.all.length - PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length;
-            pelleString = "펠레의 파멸한 현실이 " + hexString[5 - remainingStrikes];
+            pelleString = "Pelle의 파멸한 현실이 " + hexString[5 - remainingStrikes];
             progressString = `공격 ${formatInt(remainingStrikes)}개가 온전하게 남음`;
           } else if (ImaginaryUpgrade(30).isAvailableForPurchase) {
-            pelleString = "펠레의 파멸한 현실이 파괴되었습니다";
-            progressString = "펠레의 모든 공격이 파괴되었습니다";
+            pelleString = "Pelle의 파멸한 현실이 파괴되었습니다";
+            progressString = "Pelle의 모든 공격이 파괴되었습니다";
           }
           if (!MachineHandler.isIMUnlocked) {
             const realityMachines = Currency.realityMachines.value;
@@ -2027,12 +2027,12 @@ export const celestialNavigation = {
       legend: {
         text: complete => {
           if (complete >= 1) return "셀레스티얼 차원 확장";
-          if (complete === 0) return "알파의 현실 해금";
+          if (complete === 0) return "Alpha의 현실 해금";
           const layer = player.celestials.alpha.stage;
           return [
             "셀레스티얼 차원을 확장하세요",
             `${formatInt(layer)} / ${formatInt(28)} 완료`,
-            "알파의 현실 단계"
+            "Alpha의 현실 단계"
           ];
         },
         angle: 105,
@@ -2162,14 +2162,14 @@ export const celestialNavigation = {
           }
           if (true && complete === 0.999) {
             return [
-              "펠레의 영역에 진입하세요"
+              "Pelle의 영역에 진입하세요"
             ];
           }
           if (!CelestialEternityPlusUpgrade.oldStoneSlabAndSteelDrill.isBought) {
             const cep = Currency.celestialEternityPoints.value;
             const entryFee = DC.E4000;
             return [
-              "펠레의 영역",
+              "Pelle의 영역",
               "아직 입장료를 지불하지 않았습니다",
               `${format(cep)} / ${format(entryFee)}`
             ];

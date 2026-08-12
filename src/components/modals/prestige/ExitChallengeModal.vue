@@ -47,7 +47,7 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      {{ challengeName }}을(를) {{ isRestarting ? "재시작" : "종료" }}하려 합니다
+      {{ isRestarting ? "재시작" : "종료" }}하려는 도전: {{ challengeName }}
     </template>
 
     <div class="c-modal-message__text">

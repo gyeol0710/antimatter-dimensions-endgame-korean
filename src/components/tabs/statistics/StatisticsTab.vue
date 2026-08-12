@@ -377,7 +377,7 @@ export default {
   <div class="c-stats-tab">
     <div>
       <PrimaryButton onclick="Modal.catchup.show(0)">
-        컨텐츠 요약 확인하기
+        콘텐츠 요약 확인하기
       </PrimaryButton>
       <div class="c-stats-tab-title c-stats-tab-general">
         일반
@@ -488,7 +488,7 @@ export default {
         가장 빠른 무한 기록이 없습니다<span v-if="eternity.isUnlocked"> (이번 영원)</span>.
       </div>
       <div>
-        이번 무한에서 {{ infinity.this.toStringShort() }}을 보냈습니다.
+        이번 무한에서 {{ infinity.this.toStringShort() }} 동안 진행했습니다.
         <span v-if="reality.isUnlocked">
           ({{ infinity.thisReal.toStringShort() }} 현실 시간)
         </span>
@@ -526,7 +526,7 @@ export default {
         <span :class="{ 'c-stats-tab-doomed' : isDoomed }">{{ isDoomed ? "아마겟돈" : "현실" }}</span>)</span>.
       </div>
       <div>
-        이번 영원에서 {{ eternity.this.toStringShort() }}을 보냈습니다.
+        이번 영원에서 {{ eternity.this.toStringShort() }} 동안 진행했습니다.
         <span v-if="reality.isUnlocked">
           (실제 시간 {{ eternity.thisReal.toStringShort() }})
         </span>
@@ -557,7 +557,7 @@ export default {
         가장 빠른 현실 기록이 없습니다<span v-if="endgame.isUnlocked"> (이번 엔드게임)</span>.
       </div>
       <div :class="{ 'c-stats-tab-doomed' : isDoomed }">
-        {{ reality.this.toStringShort() }}을 이번 {{ isDoomed ? "아마겟돈" : "현실" }}에서 보냈습니다.
+        이번 {{ isDoomed ? "아마겟돈" : "현실" }}에서 {{ reality.this.toStringShort() }} 동안 진행했습니다.
         (실제 시간 {{ reality.thisReal.toStringShort() }})
       </div>
       <div
@@ -593,7 +593,7 @@ export default {
         가장 빠른 엔드게임 기록이 없습니다.
       </div>
       <div>
-        이번 엔드게임에서 {{ endgame.this.toStringShort() }}을 보냈습니다.
+        이번 엔드게임에서 {{ endgame.this.toStringShort() }} 동안 진행했습니다.
         (실제 시간 {{ endgame.thisReal.toStringShort() }})
       </div>
       <div>
@@ -622,7 +622,7 @@ export default {
         가장 빠른 셀레스티얼 무한 기록이 없습니다<span v-if="celestialEternity.isUnlocked"> (이번 셀레스티얼 영원)</span>.
       </div>
       <div>
-        이번 셀레스티얼 무한에서 {{ celestialInfinity.this.toStringShort() }}을 보냈습니다.
+        이번 셀레스티얼 무한에서 {{ celestialInfinity.this.toStringShort() }} 동안 진행했습니다.
         (실제 시간 {{ celestialInfinity.thisReal.toStringShort() }})
       </div>
       <div>
@@ -649,7 +649,7 @@ export default {
         가장 빠른 셀레스티얼 영원 기록이 없습니다.
       </div>
       <div>
-        이번 셀레스티얼 영원에서 {{ celestialEternity.this.toStringShort() }}을 보냈습니다.
+        이번 셀레스티얼 영원에서 {{ celestialEternity.this.toStringShort() }} 동안 진행했습니다.
         (실제 시간 {{ celestialEternity.thisReal.toStringShort() }})
       </div>
       <div>
@@ -687,7 +687,7 @@ export default {
         가장 빠른 응축 기록이 없습니다<span v-if="supernova.isUnlocked"> (이번 초신성)</span>.
       </div>
       <div>
-        이번 응축에서 {{ condense.this.toStringShort() }}을 보냈습니다.
+        이번 응축에서 {{ condense.this.toStringShort() }} 동안 진행했습니다.
         (실제 시간 {{ condense.thisReal.toStringShort() }})
       </div>
       <div>
@@ -714,7 +714,7 @@ export default {
         가장 빠른 초신성 기록이 없습니다.
       </div>
       <div>
-        이번 초신성에서 {{ supernova.this.toStringShort() }}을 보냈습니다.
+        이번 초신성에서 {{ supernova.this.toStringShort() }} 동안 진행했습니다.
         (실제 시간 {{ supernova.thisReal.toStringShort() }})
       </div>
       <div>

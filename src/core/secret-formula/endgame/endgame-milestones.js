@@ -11,7 +11,7 @@ export const endgameMilestones = {
   remnantGalaxy: {
     endgames: 2,
     reward: () => {
-      return "잔재에 따라 은하 위력에 배율을 얻습니다 " +
+      return "잔재에 따라 은하 위력에 배율이 적용됩니다 " +
         (player.disablePostReality ? "(파괴됨)" : (player.endgames >= 2 && Pelle.isDoomed
          ? `(현재: +${formatDecimalPercents(Decimal.pow(Decimal.log10(Currency.remnants.value.add(1)).add(1), 0.5).sub(1), 2, 2)})`
          : (player.endgames < 2 ? "(아직 이 마일스톤에 도달하지 않았습니다)" : "(현재 효과 없음)")));
@@ -32,7 +32,7 @@ export const endgameMilestones = {
   },
   remnantFormula: {
     endgames: 15,
-    reward: "잔재 공식을 개선합니다(펠레 하위 탭의 잔재 획득 요인 참조)"
+    reward: "잔재 공식을 개선합니다(Pelle 하위 탭의 잔재 획득 요인 참조)"
   },
   celestialEarlyUnlock: {
     endgames: 25,
@@ -58,7 +58,7 @@ export const endgameMilestones = {
   moreFasterGalaxies: {
     endgames: 250,
     reward: () => {
-      return "엔드게임이 펠레에서 은하 생산량을 강화합니다 " +
+      return "엔드게임이 Pelle에서 은하 생산량을 강화합니다 " +
         (player.disablePostReality ? "(파괴됨)" : (player.endgames >= 250
          ? `(현재: ${formatX(Decimal.pow(10, Math.min(Currency.endgames.value / 200, 50)).times(Decimal.pow(10, Math.max((Math.log10(Currency.endgames.value + 1) - 4) * 50, 0))), 2, 2)})`
          : "(아직 이 마일스톤에 도달하지 않았습니다)"));
@@ -71,7 +71,7 @@ export const endgameMilestones = {
   endgameAntimatter: {
     endgames: 10000,
     reward: () => {
-      return "엔드게임 횟수에 따라 반물질 생산량을 거듭제곱하며, 펠레에서는 더 강해집니다 " +
+      return "엔드게임 횟수에 따라 반물질 생산량을 거듭제곱하며, Pelle에서는 더 강해집니다 " +
         (player.disablePostReality ? "(파괴됨)" : (player.endgames >= 10000
          ? `(현재: ${formatPow(Pelle.isDoomed ? 1 + (Math.log10(Math.min(Currency.endgames.value, 1e6) * Math.max(Math.log2(Currency.endgames.value + 1) - Math.log2(5e5), 1) + 1) / 80) : 1 + (Math.log10(Math.min(Currency.endgames.value, 1e6) * Math.max(Math.log2(Currency.endgames.value + 1) - Math.log2(5e5), 1) + 1) / 200), 2, 3)})`
          : "(아직 이 마일스톤에 도달하지 않았습니다)"));

@@ -58,7 +58,7 @@ export default {
         replication: "복제",
         infinity: "무한",
         power: "동력",
-        effarig: "에파리그",
+        effarig: "Effarig",
         reality: "현실",
         cursed: "저주받은",
         companion: "동반자",

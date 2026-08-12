@@ -40,7 +40,7 @@ export default {
     }"
     @click="show"
   >
-    {{ possessiveForm }} Quotes
+    {{ possessiveForm }} 대사 기록
   </button>
 </template>
 

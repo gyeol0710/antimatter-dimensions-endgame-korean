@@ -98,7 +98,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "에파리그", number: 1 });
+      Modal.celestials.show({ name: "Effarig", number: 1 });
     },
     createCursedGlyph() {
       Glyphs.giveCursedGlyph();
@@ -125,7 +125,7 @@ export default {
           </span>
           <span v-if="shardPower > 1">
             <br>
-            글리프 희생 획득량도 {{ formatPow(shardPower, 0, 2) }}제곱으로 증가합니다.
+            글리프 희생 획득량도 {{ formatPow(shardPower, 0, 2) }}만큼 증가합니다.
           </span>
           <span v-if="shardMaxRarityIncrease > 0">
             <br>
@@ -174,7 +174,7 @@ export default {
       >
         <div class="c-effarig-run-description">
           <span :class="{ 'o-pelle-disabled': isDoomed }">
-            에파리그의 현실에 진입합니다.
+            Effarig의 현실에 진입합니다.
           </span>
         </div>
         <div

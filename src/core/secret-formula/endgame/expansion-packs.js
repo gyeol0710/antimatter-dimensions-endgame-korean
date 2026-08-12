@@ -1,34 +1,34 @@
 export const expansionPacks = {
   teresaPack: {
-    name: "테레사의 확장팩",
+    name: "Teresa의 확장팩",
     id: "teresaPack",
     symbol: "Ϟ",
     description: () =>
-      `테레사의 용기 상한을 제거합니다. 이제 테레사의 용기가 리얼리티 머신 획득량뿐 아니라 리얼리티 머신 상한에도 영향을 줍니다.
-      테레사 탭에서 충전된 퍼크 업그레이드를 해금합니다. 리얼리티 머신을 테레사에게 자동으로 붓습니다.`,
+      `Teresa의 용기 상한을 제거합니다. 이제 Teresa의 용기가 리얼리티 머신 획득량뿐 아니라 리얼리티 머신 상한에도 영향을 줍니다.
+      Teresa 탭에서 충전된 퍼크 업그레이드를 해금합니다. 리얼리티 머신을 Teresa에게 자동으로 붓습니다.`,
     cost: Decimal.pow(10, 1e30),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   effarigPack: {
-    name: "에파리그의 확장팩",
+    name: "Effarig의 확장팩",
     id: "effarigPack",
     symbol: "Ϙ",
     description: () =>
-      `유물 파편 획득량에 보유 반물질의 로그값을 곱합니다. 라의 에파리그 레벨 ${formatInt(10)} 보상이 개선되어
-      에파리그 글리프가 항상 효과 ${formatInt(7)}개를 가진 채 생성됩니다. 글리프 연금술 상한이 역대 최고 글리프 레벨의 삼분의 일로 증가합니다.
-      엔드게임 시 연금술 자원을 유지하며, 현실 글리프를 만들어도 현실 자원이 소모되지 않습니다. 에파리그의 상점이 완료된 상태로 시작합니다.
-      에파리그의 현실 각 단계가 가장 빠른 엔드게임 시간의 십분의 일이 지나면 자동으로 완료됩니다.`,
+      `유물 파편 획득량에 보유 반물질의 로그값을 곱합니다. Ra의 Effarig 레벨 ${formatInt(10)} 보상이 개선되어
+      Effarig 글리프가 항상 효과 ${formatInt(7)}개를 가진 채 생성됩니다. 글리프 연금술 상한이 역대 최고 글리프 레벨의 삼분의 일로 증가합니다.
+      엔드게임 시 연금술 자원을 유지하며, 현실 글리프를 만들어도 현실 자원이 소모되지 않습니다. Effarig의 상점이 완료된 상태로 시작합니다.
+      Effarig의 현실 각 단계가 가장 빠른 엔드게임 시간의 십분의 일이 지나면 자동으로 완료됩니다.`,
     cost: Decimal.pow(10, 1e50),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   enslavedPack: {
-    name: "이름없는 자들의 확장팩",
+    name: "The Nameless Ones의 확장팩",
     id: "enslavedPack",
     symbol: "\uf0c1",
     description: () =>
       `블랙홀 충전에 항상 총 게임 속도의 ${formatPercents(0.99)}만 사용합니다. 방출할 저장된 시간의 양과
       저장된 시간을 방출할 간격을 조정하는 최적화 기능을 해금합니다. 모든 유효 테서랙트의 효과를 두 배로 만듭니다.
-      테서랙트가 엔드게임에 배율을 적용하고 무한 차원 압축 규모를 소폭 감소시킵니다. 이름없는 자들을 완료한 상태로 엔드게임을 시작합니다.
+      테서랙트가 엔드게임에 배율을 적용하고 무한 차원 압축 규모를 소폭 감소시킵니다. The Nameless Ones를 완료한 상태로 엔드게임을 시작합니다.
       테서랙트 자동구매기를 해금합니다.`,
     cost: Decimal.pow(10, 1e70),
     formatCost: value => formatPostBreak(value, 2, 0)
@@ -44,34 +44,34 @@ export const expansionPacks = {
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   raPack: {
-    name: "라의 확장팩",
+    name: "Ra의 확장팩",
     id: "raPack",
     symbol: "\uf185",
     description: () =>
-      `엔드게임 시 라를 유지합니다. 모든 셀레스티얼의 레벨 상한이 최고 반물질 기록의 이중 로그값까지 증가합니다.
+      `엔드게임 시 Ra를 유지합니다. 모든 셀레스티얼의 레벨 상한이 최고 반물질 기록의 이중 로그값까지 증가합니다.
       각 셀레스티얼의 레벨을 올려 획득할 수 있는 새로운 효과를 셀레스티얼마다 ${formatInt(7)}개씩 해금합니다.
       기억과 기억 덩어리 획득량에 ${formatX(10)}를 곱합니다.`,
     cost: Decimal.pow(10, 1e110),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   laitelaPack: {
-    name: "라이텔라의 확장팩",
+    name: "Lai'tela의 확장팩",
     id: "laitelaPack",
     symbol: "ᛝ",
     description: () =>
-      `각각 입력한 시간을 기준으로 일괄 특이점 레벨을 높이거나 낮추는 자동구매기를 해금합니다. 라이텔라의 현실에서는
-      게임 속도가 정상으로 두 배 더 빠르게 돌아옵니다. 소멸 배율이 현재 ${formatInt(8)}번째 암흑 물질 차원에 영향을 준다면
+      `각각 입력한 시간을 기준으로 일괄 특이점 레벨을 높이거나 낮추는 자동구매기를 해금합니다. Lai'tela의 현실에서는
+      게임 속도가 정상으로 돌아오는 데 걸리는 시간이 절반으로 줄어듭니다. 소멸 배율이 현재 ${formatInt(8)}번째 암흑 물질 차원에 영향을 준다면
       ${formatInt(8)}번째 암흑 물질 차원에 적용되는 소멸 배율을 제곱합니다. 승천 시 암흑 물질 차원 간격 증가량을
       ${formatInt(200)}만큼 감소시킵니다. 반물질 양의 이중 로그값과 허수 머신 양의 로그값 중 큰 값을 암흑 물질 획득량에 곱합니다.
       특이점 ${formatInt(10)}개를 보유한 채 엔드게임을 시작합니다. 암흑 에너지 획득량에 특이점 개수 로그값의 제곱을 곱합니다.
-      암흑 물질에 따라 소멸 효과를 거듭제곱합니다. 소멸 자동구매기를 개선합니다. 라이텔라의 현실을 하드론화하는 능력을 해금합니다.
-      이제 라이텔라의 현실을 불안정화하는 보상이 암흑 물질 상한에도 영향을 줍니다.
+      암흑 물질에 따라 소멸 효과를 거듭제곱합니다. 소멸 자동구매기를 개선합니다. Lai'tela의 현실을 하드론화하는 능력을 해금합니다.
+      이제 Lai'tela의 현실을 불안정화하는 보상이 암흑 물질 상한에도 영향을 줍니다.
       초당 엔트로피 최대 획득량에 ${formatInt(10)}을 곱합니다.`,
     cost: Decimal.pow(10, 1e130),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   pellePack: {
-    name: "펠레의 확장팩",
+    name: "Pelle의 확장팩",
     id: "pellePack",
     symbol: "♅",
     description: () =>
@@ -81,7 +81,7 @@ export const expansionPacks = {
     formatCost: value => formatPostBreak(value, 2, 0)
   },
   alphaPack: {
-    name: "알파의 확장팩",
+    name: "Alpha의 확장팩",
     id: "alphaPack",
     symbol: "α",
     description: () =>

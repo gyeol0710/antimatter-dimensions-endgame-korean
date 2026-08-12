@@ -94,7 +94,7 @@ export default {
     },
     hexeractLockString() {
       if (this.hexeractsUnlocked) return `헥서랙트 구매 (${this.hexeractCountString})`;
-      else return `라이텔라를 ${formatInt(40)}회 하드론화하면 헥서랙트가 해금됩니다.`;
+      else return `Lai'tela를 ${formatInt(40)}회 하드론화하면 헥서랙트가 해금됩니다.`;
     },
     hepteractLockString() {
       if (this.hepteractsUnlocked) return `헵터랙트 구매 (${this.hepteractCountString})`;

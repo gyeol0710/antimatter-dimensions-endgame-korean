@@ -49,7 +49,7 @@ export default {
       return this.isShown || this.isUnlocked || this.amount.gt(0);
     },
     boughtTooltip() {
-      if (this.isCapped) return `이름없는 자들이 제8 반물질 차원을 ${format(1)}개 넘게 구매하지 못하게 합니다`;
+      if (this.isCapped) return `The Nameless Ones가 제8 반물질 차원을 ${format(1)}개 넘게 구매하지 못하게 합니다`;
       if (this.isContinuumActive) return "연속체가 모든 반물질 차원을 생산합니다";
       return `총 ${quantifyHybridLarge("번", this.bought)} 구매함`;
     },
@@ -58,7 +58,7 @@ export default {
     },
     buttonPrefix() {
       if (!this.isUnlocked) return "잠김";
-      if (this.isCapped) return "이름없는 자들에 의해 파괴됨";
+      if (this.isCapped) return "The Nameless Ones에 의해 파괴됨";
       if (this.isContinuumActive) return "연속체: ";
       return `${formatInt(this.howManyCanBuy)}개 구매`;
     },

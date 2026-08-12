@@ -39,10 +39,10 @@ export default {
         const timeToThousand = coeff.times(nextMilestone.divide(replicantiAmount).pow(postScale).minus(1));
         // The calculation seems to choke and return zero if the time is too large, probably because of rounding issues
         const timeEstimateText = timeToThousand.eq(0)
-          ? "an extremely long time"
+          ? "매우 오랜 시간"
           : `${TimeSpan.fromSeconds(timeToThousand)}`;
-        this.remainingTimeText = `You are gaining ${formatX(gainFactorPerSecond, 2, 1)} Replicanti per second` +
-          ` (${timeEstimateText} until ${format(nextMilestone)})`;
+        this.remainingTimeText = `복제자 초당 증가율: ${formatX(gainFactorPerSecond, 2, 1)}` +
+          ` (${format(nextMilestone)}까지 ${timeEstimateText})`;
       } else {
         this.remainingTimeText = "";
       }
@@ -73,20 +73,21 @@ export default {
 
       if (this.remainingTimeText === "") {
         if (remainingTime.eq(0)) {
-          this.remainingTimeText = `At Infinite Replicanti (normally takes
-            ${TimeSpan.fromSeconds(secondsPerGalaxy)})`;
+          this.remainingTimeText = `복제자가 무한에 도달했습니다 (일반적으로
+            ${TimeSpan.fromSeconds(secondsPerGalaxy)} 소요)`;
         } else if (replicantiAmount.lt(100)) {
           // Because of discrete replication, we add "Approximately" at very low amounts
-          this.remainingTimeText = `Approximately ${TimeSpan.fromSeconds(new Decimal(remainingTime))} remaining
-            until Infinite Replicanti`;
+          this.remainingTimeText = `복제자가 무한에 도달하기까지 약
+            ${TimeSpan.fromSeconds(new Decimal(remainingTime))} 남았습니다`;
         } else {
-          this.remainingTimeText = `${TimeSpan.fromSeconds(new Decimal(remainingTime))} remaining until Infinite Replicanti`;
+          this.remainingTimeText = `복제자가 무한에 도달하기까지
+            ${TimeSpan.fromSeconds(new Decimal(remainingTime))} 남았습니다`;
         }
       }
 
       // If the player can get RG, this text is redundant with text below. It denotes total time from 1 to e308
       if (Replicanti.galaxies.max.eq(0) && !isAbove308) {
-        this.remainingTimeText += ` (${TimeSpan.fromSeconds(new Decimal(totalTime))} total)`;
+        this.remainingTimeText += ` (총 ${TimeSpan.fromSeconds(new Decimal(totalTime))})`;
       }
 
 
@@ -95,10 +96,10 @@ export default {
         if (player.replicanti.galaxies.eq(Replicanti.galaxies.max)) {
           this.galaxyText = "복제자 은하의 최대 개수에 도달했습니다.";
         } else {
-          this.galaxyText = `You are gaining a Replicanti Galaxy every
+          this.galaxyText = `복제자 은하 획득 간격:
             ${TimeSpan.fromSeconds(secondsPerGalaxy)}`;
           if (galaxiesPerSecond.gte(1)) {
-            this.galaxyText = `You are gaining ${quantify("Replicanti Galaxy", galaxiesPerSecond, 2, 1)} per second`;
+            this.galaxyText = `초당 복제자 은하 획득량: ${quantify("개", galaxiesPerSecond, 2, 1)}`;
           }
           // Take the total time from zero replicanti to max RG + e308 replicanti and then subtract away the time which
           // has already elapsed. The time elapsed is calculated from your current RG total (including the current one)
@@ -121,7 +122,7 @@ export default {
             pendingTime += leftPercentAfterGalaxy * secondsPerGalaxy.toNumber();
           }
           const thisGalaxyTime = pending.gt(0) ? pendingTime : secondsPerGalaxy.sub(remainingTime).toNumber();
-          this.galaxyText += ` (all Replicanti Galaxies within
+          this.galaxyText += ` (모든 복제자 은하 획득까지
             ${TimeSpan.fromSeconds(Decimal.clampMin(new Decimal(allGalaxyTime - thisGalaxyTime), 0))})`;
         }
       } else {

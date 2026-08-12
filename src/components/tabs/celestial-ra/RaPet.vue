@@ -51,9 +51,9 @@ export default {
     },
     name() {
       return {
-        Teresa: "테레사",
-        Effarig: "에파리그",
-        Enslaved: "이름없는 자들",
+        Teresa: "Teresa",
+        Effarig: "Effarig",
+        Enslaved: "The Nameless Ones",
         V: "V",
       }[this.pet.name] ?? this.pet.name;
     },
@@ -66,7 +66,7 @@ export default {
       return this.pet.unlocks;
     },
     chunkTooltip() {
-      return `${this.pet.chunkGain}을 기준으로 함`;
+      return `기준: ${this.pet.chunkGain}`;
     },
     memoryGainTooltip() {
       return `${this.pet.memoryGain}을 기준으로 함`;
@@ -148,7 +148,7 @@ export default {
     >
       <div class="c-ra-pet-title">
         <!-- The full name doesn't fit here, so we shorten it as a special case -->
-        {{ pet.id === "enslaved" ? "이름없는 자들" : name }} 레벨 {{ formatInt(level) }}/{{ formatInt(levelCap) }}
+        {{ pet.id === "enslaved" ? "The Nameless Ones" : name }} 레벨 {{ formatInt(level) }}/{{ formatInt(levelCap) }}
       </div>
       <div
         v-if="showScalingUpgrade"

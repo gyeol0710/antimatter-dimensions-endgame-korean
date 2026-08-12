@@ -71,7 +71,7 @@ export default {
     <span v-else-if="hasGain">
       {{ disableText }}
       <br>
-      {{ quantify("무한 포인트", eternityGoal, 1, 0) }}에 도달해 영원하고 타키온 입자를 획득합니다.
+      {{ quantify("무한 포인트", eternityGoal, 1, 0) }}를 모아 영원에 도달하고 타키온 입자를 획득합니다.
     </span>
     <span v-else>
       {{ disableText }}

@@ -70,7 +70,7 @@ export default {
         class="c-collapse-icon-clickable"
         @click="toggleCollapse"
       />
-      펠레 업그레이드
+      Pelle 업그레이드
     </div>
     <div
       v-if="!isCollapsed"

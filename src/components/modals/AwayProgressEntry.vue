@@ -117,7 +117,7 @@ export default {
     <span v-else>
       <b>{{ formattedName }}</b>
       <i v-if="isVeryLarge">의 지수</i>
-      이(가)
+      값이
       {{ formatBefore }}에서 {{ formatAfter }}로 증가했습니다.
     </span>
   </div>

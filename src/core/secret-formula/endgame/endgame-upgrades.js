@@ -76,7 +76,7 @@ export const endgameUpgrades = [
     lockEvent: "여섯 번째 은하 생성기 업그레이드 구매",
     description: () =>
       `퍼크 포인트 ${format(1e7)}개, 현실 ${formatInt(1000)}회, 영구 블랙홀, 유물 파편 ${format(1e12)}개를 보유하고
-      이름없는 자들의 업그레이드 두 개가 모두 해금된 상태로 시작합니다`
+      The Nameless Ones의 업그레이드 두 개가 모두 해금된 상태로 시작합니다`
   },
   {
     name: "파국적 시간 측정",
@@ -131,14 +131,14 @@ export const endgameUpgrades = [
     name: "셀레스티얼 혼돈",
     id: 10,
     cost: new Decimal(1e83),
-    requirement: () => "테레사에게 아무것도 붓기 전에 에파리그, 이름없는 자들, V, 라를 완료하세요",
+    requirement: () => "Teresa에게 아무것도 붓기 전에 Effarig, The Nameless Ones, V, Ra를 완료하세요",
     hasFailed: () => player.celestials.teresa.pouredAmount.gt(0),
     checkRequirement: () => player.celestials.teresa.pouredAmount.eq(0) &&
       EffarigUnlock.reality.isUnlocked && Enslaved.isCompleted && V.spaceTheorems >= 36 && Ra.totalPetLevel >= 100,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     canLock: true,
-    lockEvent: "테레사에게 리얼리티 머신 붓기",
-    description: () => "엔드게임 시 테레사의 최고 반물질 기록을 유지합니다"
+    lockEvent: "Teresa에게 리얼리티 머신 붓기",
+    description: () => "엔드게임 시 Teresa의 최고 반물질 기록을 유지합니다"
   },
   {
     name: "아홉 단계 무력화",
@@ -189,7 +189,7 @@ export const endgameUpgrades = [
     name: "반물질 축적",
     id: 15,
     cost: new Decimal(1e150),
-    requirement: () => `펠레 밖에서 반물질 ${format(Decimal.pow(10, 1e33))}개에 도달하세요`,
+    requirement: () => `Pelle 밖에서 반물질 ${format(Decimal.pow(10, 1e33))}개에 도달하세요`,
     hasFailed: () => Pelle.isDoomed,
     checkRequirement: () => Currency.antimatter.value.add(1).log10().gte(1e33) && !Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
@@ -306,7 +306,7 @@ export const endgameUpgrades = [
     hasFailed: () => !BreakEternityUpgrade.glyphSlotImprovement.isBought,
     checkRequirement: () => BreakEternityUpgrade.glyphSlotImprovement.isBought,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    description: "반물질에 따라 글리프 레벨에 불안정성 적용 후 계산되는 배율을 얻습니다",
+    description: "반물질에 따라 글리프 레벨에 불안정성 적용 후 계산되는 배율이 적용됩니다",
     effect: () => player.disablePostReality ? 1 : Decimal.min(Decimal.pow(Decimal.max(Decimal.log10(Decimal.log10(player.antimatter.add(1)).add(1)).div(100), 1), 0.05), 1.2).toNumber(),
     formatEffect: value => formatX(value, 2, 4)
   },

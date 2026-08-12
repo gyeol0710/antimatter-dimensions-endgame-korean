@@ -357,7 +357,7 @@ export const AD = {
     icon: MultiplierTabIcons.ALCHEMY,
   },
   pelle: {
-    name: "펠레 업그레이드",
+    name: "Pelle 업그레이드",
     multValue: dim => Decimal.pow(PelleUpgrade.antimatterDimensionMult.effectOrDefault(1),
       dim ? 1 : MultiplierTabHelper.activeDimCount("AD")),
     powValue: () => PelleRifts.paradox.effectOrDefault(DC.D1).toNumber(),

@@ -86,7 +86,7 @@ export default {
       Laitela.maxAllDMDimensions(8);
     },
     showLaitelaHowTo() {
-      ui.view.h2pForcedTab = GameDatabase.h2p.tabs.filter(tab => tab.name === "Lai'tela")[0];
+      ui.view.h2pForcedTab = GameDatabase.h2p.tabs.filter(tab => tab.alias === "Lai'tela")[0];
       Modal.h2p.show();
     },
     formatContinuumPercentage() {
@@ -106,7 +106,7 @@ export default {
         class="o-primary-btn--subtab-option"
         @click="showLaitelaHowTo()"
       >
-        라이텔라 정보 보기
+        Lai'tela 정보 보기
       </PrimaryButton>
       <PrimaryButton
         class="o-primary-btn--subtab-option"

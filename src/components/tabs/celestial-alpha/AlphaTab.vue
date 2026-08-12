@@ -60,7 +60,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "알파", number: 7 });
+      Modal.celestials.show({ name: "Alpha", number: 7 });
     }
   }
 };
@@ -72,7 +72,7 @@ export default {
     <br>
     <div>
       <span class="l-alpha-text">
-        알파의 각 계층을 완료할 때마다 엔드게임 및 에테리얼 파워 획득량도 {{ formatPercents(0.33) }} 증가합니다.
+        Alpha의 각 계층을 완료할 때마다 엔드게임 및 에테리얼 파워 획득량도 {{ formatPercents(0.33) }} 증가합니다.
       </span>
     </div>
     <div class="l-alpha-unlocks-and-run">
@@ -114,7 +114,7 @@ export default {
       <div class="l-alpha-run">
         <div class="c-alpha-run-description">
           <span :class="{ 'o-pelle-disabled': isDoomed || isDestroyed }">
-            알파의 현실에 진입합니다.
+            Alpha의 현실에 진입합니다.
           </span>
         </div>
         <div

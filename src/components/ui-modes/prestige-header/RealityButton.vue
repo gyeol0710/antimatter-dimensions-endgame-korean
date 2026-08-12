@@ -61,7 +61,7 @@ export default {
       return quantify("유물 파편", this.shardsGained, 2);
     },
     warpMessage() {
-      return false ? "현실을 저주하기" : "펠레의 영역에 진입";
+      return false ? "현실을 저주하기" : "Pelle의 영역에 진입";
     },
     classObject() {
       return {

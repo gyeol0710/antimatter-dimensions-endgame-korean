@@ -50,7 +50,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "라이텔라", number: 5 });
+      Modal.celestials.show({ name: "Lai'tela", number: 5 });
     },
     classObject() {
       return {
@@ -77,7 +77,7 @@ export default {
 <template>
   <button :class="classObject()">
     <span :class="{ 'o-pelle-disabled': isDoomed }">
-      <b>라이텔라의 현실 시작</b>
+      <b>Lai'tela의 현실 시작</b>
     </span>
     <div
       :class="runButtonClassObject()"
@@ -95,7 +95,7 @@ export default {
       </span>
       <span v-if="hasHadronizes">
         <b>
-          라이텔라의 현실을 {{ formatHybridSmall(hadronizes, 3) }}회 강입자화했습니다.
+          Lai'tela의 현실을 {{ formatHybridSmall(hadronizes, 3) }}회 강입자화했습니다.
         </b>
       </span>
       <span v-if="maxDimTier > 0">
@@ -116,7 +116,7 @@ export default {
       </span>
       <span v-else>
         <br><br>
-        라이텔라의 현실이 완전히 불안정화되어 보상을 더 개선할 수 없습니다.
+        Lai'tela의 현실이 완전히 불안정화되어 보상을 더 개선할 수 없습니다.
       </span>
       <br>
     </div>
@@ -134,13 +134,13 @@ export default {
         class="l-laitela-hadronize-button c-laitela-hadronize-button"
         @click="hadronize"
       >
-        <b>라이텔라의 현실 강입자화</b>
+        <b>Lai'tela의 현실 강입자화</b>
       </button>
       <br>
       <br>
-      라이텔라의 현실을 강입자화하면 {{ formatInt(8) }}개 차원이 모두 다시 안정되어 다시 사용할 수 있습니다.
-      이전 강입자화 전에 라이텔라의 현실을 완료해 얻은 보상은 유지되며, 현실을 다시 불안정화하여
-      보상을 더 얻을 수 있습니다. 강입자화할 때마다 라이텔라의 현실 불안정화 보상이 {{ formatInt(8) }}배로 증가합니다.
+      Lai'tela의 현실을 강입자화하면 {{ formatInt(8) }}개 차원이 모두 다시 안정되어 사용할 수 있습니다.
+      이전 강입자화 전에 Lai'tela의 현실을 완료해 얻은 보상은 유지되며, 현실을 다시 불안정화하여
+      보상을 더 얻을 수 있습니다. 강입자화할 때마다 Lai'tela의 현실 불안정화 보상이 {{ formatInt(8) }}배로 증가합니다.
     </div>
   </button>
 </template>

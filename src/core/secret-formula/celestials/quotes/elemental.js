@@ -138,7 +138,7 @@ export const elementalQuotes = {
         celestialName: "Laitela"
       },
       {
-        text: "반갑군, 라이텔라. 차원 연구는 잘되고 있겠지?",
+        text: "반갑군, Lai'tela. 차원 연구는 잘되고 있겠지?",
         background: "elemental",
         celestialName: () => "elemental"
       },
@@ -148,7 +148,7 @@ export const elementalQuotes = {
         celestialName: "Laitela"
       },
       {
-        text: "훌륭해. 펠레가 떠나기 전에 둘이 이야기할 시간을 주지.",
+        text: "훌륭해. Pelle가 떠나기 전에 둘이 이야기할 시간을 주지.",
         background: "elemental",
         celestialName: () => "elemental"
       },
@@ -158,12 +158,12 @@ export const elementalQuotes = {
         celestialName: "Laitela"
       },
       {
-        text: "괜찮아, 라이텔라. 석 달도 안 돼서 나와 함께 이곳에 오게 될 거야.",
+        text: "괜찮아, Lai'tela. 석 달도 안 돼서 나와 함께 이곳에 오게 될 거야.",
         background: "pelle",
         celestialName: "Pelle"
       },
       {
-        text: "알아, 펠레. 그저 널 찾을 수 있기를 바랄 뿐이야.",
+        text: "알아, Pelle. 그저 널 찾을 수 있기를 바랄 뿐이야.",
         background: "laitela",
         celestialName: "Laitela"
       },
@@ -178,7 +178,7 @@ export const elementalQuotes = {
         celestialName: "Laitela"
       },
       {
-        text: "나도 네가 그리울 거야, 라이텔라. 하지만 정말 오래 걸리지는 않을 거야.",
+        text: "나도 네가 그리울 거야, Lai'tela. 하지만 정말 오래 걸리지는 않을 거야.",
         background: "pelle",
         celestialName: "Pelle"
       },
@@ -223,7 +223,7 @@ export const elementalQuotes = {
         celestialName: "Pelle"
       },
       {
-        text: "(그 말을 끝으로 펠레는 우주선에 올라 별들 사이로 사라졌다.)",
+        text: "(그 말을 끝으로 Pelle는 우주선에 올라 별들 사이로 사라졌다.)",
         background: "destroyer",
         celestialName: () => "destroyer"
       },
@@ -288,7 +288,7 @@ export const elementalQuotes = {
         celestialName: () => "elemental"
       },
       {
-        text: "적어도 자네와 펠레 앞에는 말이지. 나는 그 영광에 끼고 싶지 않네. 그저 자네가 성공하고 내가 존중받는 모습을 보고 싶을 뿐이야.",
+        text: "적어도 자네와 Pelle 앞에는 말이지. 나는 그 영광에 끼고 싶지 않네. 그저 자네가 성공하고 내가 존중받는 모습을 보고 싶을 뿐이야.",
         background: "elemental",
         celestialName: () => "elemental"
       },
@@ -403,7 +403,7 @@ export const elementalQuotes = {
         celestialName: () => "destroyer"
       },
       {
-        text: "곧 갈게, 펠레...",
+        text: "곧 갈게, Pelle...",
         background: "destroyer",
         celestialName: () => "destroyer"
       },
@@ -449,7 +449,7 @@ export const elementalQuotes = {
     id: 6,
     requirement: () => PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length >= 5,
     lines: [
-      "펠레가 조금 안쓰럽군.",
+      "Pelle가 조금 안쓰럽군.",
       "이 일을 몇 번이고 견뎌야 하다니.",
       "그나마 많아야 스물네 번뿐인 게 다행이지.",
       "파괴자가 여기까지 오는 일은 거의 없어.",
@@ -464,8 +464,8 @@ export const elementalQuotes = {
       "이번 파괴자가 이 문턱을 넘은 건 고작...",
       "몇 번이었지... 세 번? 네 번?",
       "많아야 다섯 번.",
-      "많은 이가 알파가 넘을 수 없는 벽이라는 거짓말에 쓰러진다. 그게 바로 그의 기만이지.",
-      "알파는 자신의 약점을 안다. 수년 전부터 알고 있었지.",
+      "많은 이가 Alpha가 넘을 수 없는 벽이라는 거짓말에 쓰러진다. 그게 바로 그의 기만이지.",
+      "Alpha는 자신의 약점을 안다. 수년 전부터 알고 있었지.",
       "하지만 겹겹이 쌓인 현실 뒤에 그 약점을 숨긴다.",
       "파괴자가 또다시 거짓의 그물을 꿰뚫어 보아서 다행이군."
     ]

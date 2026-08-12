@@ -175,7 +175,7 @@ export const perks = {
     id: 44,
     label: "ATT",
     family: PERK_FAMILY.DILATION,
-    description: "구매할 수 있게 되면 시간 정리 자동 생산 시간 팽창 업그레이드를 자동 구매합니다.",
+    description: "구매할 수 있게 되면 시간 정리를 자동 생산하는 시간 팽창 업그레이드를 자동으로 구매합니다.",
     automatorPoints: 5,
     shortDescription: () => "시간 정리 생산 자동 구매",
     layoutPosList: [124289, 82601, 79002, 79396, 80206, 72282],

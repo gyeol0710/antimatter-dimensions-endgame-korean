@@ -4,8 +4,8 @@ import { GameDatabase } from "../secret-formula/game-database";
 import { Quotes } from "./quotes";
 
 export const Alpha = {
-  displayName: "알파",
-  possessiveName: "알파의",
+  displayName: "Alpha",
+  possessiveName: "Alpha의",
   get isUnlocked() {
     return ImaginaryUpgrade(30).isBought;
   },

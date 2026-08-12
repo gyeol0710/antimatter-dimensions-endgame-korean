@@ -62,8 +62,8 @@ export default {
       return Enslaved.storedTimeInsideEnslaved(this.storedBlackHole);
     },
     realityTitle() {
-      if (this.isRunning) return "이름없는 자들의 현실에 진입한 상태입니다";
-      return "이름없는 자들의 현실 시작";
+      if (this.isRunning) return "The Nameless Ones의 현실에 진입한 상태입니다";
+      return "The Nameless Ones의 현실 시작";
     },
     runButtonClassObject() {
       return {
@@ -180,7 +180,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "이름없는 자들", number: 2 });
+      Modal.celestials.show({ name: "The Nameless Ones", number: 2 });
     },
     hasUnlock(info) {
       return Enslaved.has(info);

@@ -149,7 +149,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Dynamic amount
+        동적 수량
       </label>
     </template>
   </AutobuyerBox>

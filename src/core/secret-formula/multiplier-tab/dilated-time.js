@@ -58,13 +58,13 @@ export const DT = {
     icon: MultiplierTabIcons.GENERIC_GLYPH
   },
   ra1: {
-    name: "라 업그레이드 - 시간 정리 기반 배율",
+    name: "Ra 업그레이드 - 시간 정리 기반 배율",
     multValue: () => DC.D1.timesEffectsOf(Ra.unlocks.continuousTTBoost.effects.dilatedTime),
     isActive: () => Ra.unlocks.autoTP.canBeApplied && getDilationGainPerSecond().neq(0),
     icon: MultiplierTabIcons.GENERIC_RA,
   },
   ra2: {
-    name: "라 업그레이드 - 최고 게임 속도 기반 배율",
+    name: "Ra 업그레이드 - 최고 게임 속도 기반 배율",
     multValue: () => DC.D1.timesEffectsOf(Ra.unlocks.peakGamespeedDT),
     isActive: () => Ra.unlocks.autoTP.canBeApplied && getDilationGainPerSecond().neq(0),
     icon: MultiplierTabIcons.GENERIC_RA,

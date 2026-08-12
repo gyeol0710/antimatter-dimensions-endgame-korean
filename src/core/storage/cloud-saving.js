@@ -56,7 +56,7 @@ export const Cloud = {
       await signInWithPopup(this.auth, this.provider);
       ShopPurchaseData.syncSTD();
       if (player.options.hideGoogleName) GameUI.notify.success(`Google 계정에 로그인했습니다`);
-      else GameUI.notify.success(`${this.user.displayName}(으)로 로그인했습니다`);
+      else GameUI.notify.success(`로그인 계정: ${this.user.displayName}`);
       if (ShopPurchaseData.isIAPEnabled) Speedrun.setSTDUse(true);
     } catch (e) {
       GameUI.notify.error("Google 계정 로그인에 실패했습니다");

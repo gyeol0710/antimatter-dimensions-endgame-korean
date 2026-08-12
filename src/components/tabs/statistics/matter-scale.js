@@ -22,7 +22,7 @@ export const MatterScale = {
       return [
         `매 초 ${formatInt(3)}개의 숫자를 쓴다면, 반물질의 개수를 쓰기 위해`,
         TimeSpan.fromSeconds(matter.log10().div(3)).toString(),
-        "이(가) 걸릴 것입니다."
+        "그만큼 시간이 걸릴 것입니다."
       ];
     }
     const planckedMatter = matter.times(planck);

@@ -7,7 +7,7 @@ const GLYPH_TYPE_NAMES = {
   replication: "복제",
   time: "시간",
   dilation: "팽창",
-  effarig: "에파리그",
+  effarig: "Effarig",
   reality: "현실",
   cursed: "저주받은",
   companion: "동료",

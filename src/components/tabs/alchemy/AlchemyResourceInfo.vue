@@ -101,7 +101,7 @@ export default {
       {{ resource.symbol }} {{ resource.name }} {{ resource.symbol }}
     </span>
     <span v-if="isDoomed">
-      펠레가 파괴함
+      Pelle가 파괴함
     </span>
     <span v-else>
       {{ capped ? "상한" : "현재" }}: {{ resourceAmount }}/{{ resourceCap }}

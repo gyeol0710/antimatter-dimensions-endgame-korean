@@ -60,7 +60,7 @@ export default {
         희귀도는 항상 {{ formatPercents(1) }}이며 레벨은 현재 현실 자원의 양에 따라 결정됩니다.
         현실 자원은 모두 소모되지만 다른 연금술 자원에는 영향을 주지 않습니다. 현실 글리프에는 고유한 효과가
         있으며, 일부 효과는 글리프 레벨이 높아야 사용할 수 있습니다. 현실 글리프를 희생하면 모든 기억 조각
-        획득량도 증가합니다. 에파리그 글리프처럼 한 번에 하나만 장착할 수 있습니다.
+        획득량도 증가합니다. Effarig 글리프처럼 한 번에 하나만 장착할 수 있습니다.
       </div>
       <div class="o-available-effects-container">
         <div class="o-available-effects">

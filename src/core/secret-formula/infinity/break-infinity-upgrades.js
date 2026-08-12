@@ -36,7 +36,7 @@ export const breakInfinityUpgrades = {
     effect: () => Decimal.pow(player.records.totalEndgameAntimatter.add(1).log10().add(1), 1.5),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
-      description: "총 반물질과 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+      description: "총 반물질과 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => Decimal.pow(player.records.totalEndgameAntimatter.add(1).log10().add(1).log10().times(
         Ra.pets.teresa.level).add(1), 0.2).toNumber(),
       formatEffect: value => formatPow(value, 4, 4)
@@ -45,11 +45,11 @@ export const breakInfinityUpgrades = {
   currentAMMult: {
     id: "currentMult",
     cost: () => 5e4 * (Alpha.isRunning ? AlphaUnlocks.breakInfinity.effects.nerfA.effectOrDefault(1) : 1),
-    description: "현재 보유중인 반물질 양에 따라 반물질 차원에 배율이 적용됩니다.",
+    description: "현재 보유 중인 반물질 양에 따라 반물질 차원에 배율이 적용됩니다.",
     effect: () => Decimal.pow(Currency.antimatter.value.add(1).log10().add(1), 1.5),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
-      description: "현재 반물질과 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+      description: "현재 반물질과 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => Decimal.pow(Currency.antimatter.value.add(1).log10().add(1).log10().times(
         Ra.pets.teresa.level).add(1), 0.2).toNumber(),
       formatEffect: value => formatPow(value, 4, 4)
@@ -61,7 +61,7 @@ export const breakInfinityUpgrades = {
     description: () => `모든 은하들이 ${formatPercents(0.5)} 더 강해집니다.`,
     effect: 1.5,
     charged: {
-      description: "테레사 레벨에 따라 모든 은하가 강해집니다",
+      description: "Teresa 레벨에 따라 모든 은하가 강해집니다",
       effect: () => Decimal.pow(Ra.pets.teresa.level, 2).add(50).div(100).add(1).toNumber(),
       formatEffect: value => `${value >= 11 ? formatX(value, 2, 2) : formatPercents(value - 1, 2, 2)}`
     }
@@ -73,7 +73,7 @@ export const breakInfinityUpgrades = {
     effect: () => Currency.infinitiesTotal.value.add(1).pLog10().times(25).add(1),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
-      description: "무한 횟수와 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+      description: "무한 횟수와 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => Decimal.pow(Currency.infinitiesTotal.value.add(1).log10().add(1).log10().times(
         Ra.pets.teresa.level).add(1), 0.5).toNumber(),
       formatEffect: value => formatPow(value, 4, 4)
@@ -86,7 +86,7 @@ export const breakInfinityUpgrades = {
     effect: () => Math.max(Math.pow((Achievements.effectiveCount - 30), 4) / 20, 1),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
-      description: "완료한 도전과제 수와 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+      description: "완료한 도전과제 수와 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => Math.pow(Achievements.effectiveCount * Ra.pets.teresa.level + 1, 0.25),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -102,7 +102,7 @@ export const breakInfinityUpgrades = {
     hasCap: true,
     cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.D2E5,
     charged: {
-      description: "하드론화 횟수와 테레사 레벨에 따라 반물질 차원을 거듭제곱합니다",
+      description: "하드론화 횟수와 Teresa 레벨에 따라 반물질 차원을 거듭제곱합니다",
       effect: () => Decimal.pow(Laitela.hadronizes * Ra.pets.teresa.level + 1, 0.25),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -127,7 +127,7 @@ export const breakInfinityUpgrades = {
       return `${timeStr}마다 ${quantify("무한", infinities)}`;
     },
     charged: {
-      description: "테레사 레벨에 따라 무한 횟수를 거듭제곱합니다",
+      description: "Teresa 레벨에 따라 무한 횟수를 거듭제곱합니다",
       effect: () => Math.pow(Ra.pets.teresa.level + 1, 1.5),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -137,7 +137,7 @@ export const breakInfinityUpgrades = {
     cost: () => 2e7 * (Alpha.isRunning ? AlphaUnlocks.breakInfinity.effects.nerfA.effectOrDefault(1) : 1),
     description: "차원 가속 자동구매기의 최대 구매 모드를 해금합니다",
     charged: {
-      description: "테레사 레벨에 따라 차원 쇄도가 강해집니다",
+      description: "Teresa 레벨에 따라 차원 쇄도가 강해집니다",
       effect: () => Math.pow(Ra.pets.teresa.level + 1, 0.5),
       formatEffect: value => `${value >= 11 ? formatX(value, 2, 2) : formatPercents(value - 1, 2, 2)}`
     }
@@ -147,7 +147,7 @@ export const breakInfinityUpgrades = {
     cost: () => 1e15 * (Alpha.isRunning ? AlphaUnlocks.breakInfinity.effects.nerfA.effectOrDefault(1) : 1),
     description: "일반 도전으로 해금되거나 강화된 자동구매기가 두 배 빠르게 작동합니다",
     charged: {
-      description: "테레사 레벨에 따라 연속체 구매량에 배율을 적용합니다",
+      description: "Teresa 레벨에 따라 연속체 구매량에 배율을 적용합니다",
       effect: () => Math.pow(Ra.pets.teresa.level + 1, 2),
       formatEffect: value => formatX(value, 2, 2)
     }

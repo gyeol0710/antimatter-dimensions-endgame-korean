@@ -9,8 +9,8 @@ export const Teresa = {
   get pouredAmountCap() {
     return (ExpansionPack.teresaPack.isBought && !player.disablePostReality) ? DC.BEMAX : new Decimal(1e24);
   },
-  displayName: "테레사",
-  possessiveName: "테레사의",
+  displayName: "Teresa",
+  possessiveName: "Teresa의",
   get isUnlocked() {
     if (EndgameMilestone.celestialEarlyUnlock.isReached) return true;
     return Achievement(147).isUnlocked;

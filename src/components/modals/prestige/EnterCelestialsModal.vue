@@ -56,24 +56,24 @@ export default {
       switch (this.number) {
         case 0:
           return this.teresaBestAM.eq(1)
-            ? `아직 테레사의 현실 보상을 해금하지 못했습니다. 보상을 해금하려면
+            ? `아직 Teresa의 현실 보상을 해금하지 못했습니다. 보상을 해금하려면
               현실 연구를 구매하고 현실을 처음으로 완료해야 합니다.`
-            : `테레사의 현실 최고 기록은 반물질 ${format(this.teresaBestAM, 2, 2)}이며,
-              글리프 희생 효과에 ${formatX(this.teresaRunMult, 2)}의 배수를 제공합니다.`;
+            : `Teresa의 현실 최고 기록은 반물질 ${format(this.teresaBestAM, 2, 2)}이며,
+              이에 따라 글리프 희생 효과에 ${formatX(this.teresaRunMult, 2)} 배율이 적용됩니다.`;
         case 1: return this.effarigDone
-          ? "에파리그를 완료했습니다!"
+          ? "Effarig를 완료했습니다!"
           : `현재 ${this.effarigLayer} 단계입니다.`;
         case 2: return this.enslavedDone
           ? "우리가... 아직... 충분히 돕지 못했나..."
           : "우리는... 도울 수 있어... 우리가... 돕게 해줘...";
         case 3: return "";
-        case 4: return `라의 현실 안에서는 일부 자원이 보유량에 따라
+        case 4: return `Ra의 현실 안에서는 일부 자원이 보유량에 따라
           셀레스티얼 기억을 위한 기억 조각을 생성합니다:`;
         case 5: return this.laitelaFastest >= 300
-          ? "이 단계의 라이텔라를 완료하지 못했습니다."
+          ? "이 단계의 Lai'tela를 완료하지 못했습니다."
           : `이 단계의 최단 완료 시간은 ${this.laitelaTime}입니다.`;
         case 6: return "";
-        case 7: return `현재 알파의 현실 ${this.formatStageNum} 단계입니다.
+        case 7: return `현재 Alpha의 현실 ${this.formatStageNum} 단계입니다.
           현재 목표는 ${this.alphaReq}입니다.`;
         default: throw new Error(`Attempted to start an Unknown Celestial in Celestial Modal Confirmation.`);
       }

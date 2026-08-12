@@ -93,7 +93,7 @@ export default {
         </span>
         게임 속도에
         <span class="c-celestial-dim-description__accent">{{ formatX(dimMultiplier, 2, 1) }}</span>
-        배의 효과를 <span>제공합니다.</span>
+        배율을 <span>제공합니다.</span>
       </p>
     </div>
     <div>

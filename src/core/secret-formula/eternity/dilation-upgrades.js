@@ -112,7 +112,7 @@ export const dilationUpgrades = {
           multiplier = ratio.toFixed(2);
         }
       }
-      return `시간 차원이 복제자 배율의 ${formatPow(multiplier, 1, 3)}제곱만큼 영향을 받으며,
+      return `시간 차원이 ${formatPow(multiplier, 1, 3)}만큼 거듭제곱된 복제자 배율의 영향을 받으며,
         ${formatX(DC.E9000)} 이상에서는 효과가 감소합니다`;
     },
     effect: () => {

@@ -174,7 +174,7 @@ export const shortcuts = [
     function: () => armageddonRequest(),
     visible: () => Pelle.isDoomed || PlayerProgress.endgameUnlocked()
   }, {
-    name: "글리프 장착 해제 전환 (펠레)",
+    name: "글리프 장착 해제 전환 (Pelle)",
     keys: ["shift", "z"],
     type: "bindHotkey",
     function: () => {

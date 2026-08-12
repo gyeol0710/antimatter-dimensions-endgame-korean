@@ -33,13 +33,13 @@ export default {
     eternityChallenge() {
       const ec = EternityChallenge.current;
       if (ec.isFullyCompleted) {
-        return `영원 도전 ${ec.id}은 이미 모두 완료했습니다.`;
+        return `영원 도전 ${ec.id}: 이미 모두 완료했습니다.`;
       }
       if (!Perk.studyECBulk.isBought) {
-        return `영원 도전 ${ec.id}의 완료 횟수를 하나 얻습니다.`;
+        return `영원 도전 ${ec.id}의 완료 횟수가 한 번 증가합니다.`;
       }
       const gainedCompletions = ec.gainedCompletionStatus.gainedCompletions;
-      return `영원 도전 ${ec.id}의 완료 횟수를 ${quantifyInt("회", gainedCompletions)} 얻습니다.`;
+      return `영원 도전 ${ec.id}의 완료 횟수가 ${quantifyInt("회", gainedCompletions)} 증가합니다.`;
     }
   },
   methods: {

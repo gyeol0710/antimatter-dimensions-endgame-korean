@@ -41,12 +41,12 @@ export default {
     },
     isDoomed: () => Pelle.isDoomed && !PelleDestructionUpgrade.x5EPUpgrade.canBeApplied,
     epEffectText() {
-      if (Ascensions.epA.isUnlocked) return `Increase the exponent of Eternity Points by +${formatPow(1.01, 2, 2)}`;
-      return `Multiply Eternity Points from all sources by ${formatX(5)}`;
+      if (Ascensions.epA.isUnlocked) return `영원 포인트 획득량에 ${formatPow(1.01, 2, 2)}의 추가 지수 적용`;
+      return `모든 획득원의 영원 포인트에 ${formatX(5)} 배율 적용`;
     },
     totalEPEffectText() {
-      if (Ascensions.epA.isUnlocked) return `Currently: ${formatPow(this.multiplier, 2, 2)}`;
-      return `Currently: ${formatX(this.multiplier, 2, 0)}`;
+      if (Ascensions.epA.isUnlocked) return `현재 효과: ${formatPow(this.multiplier, 2, 2)}`;
+      return `현재 효과: ${formatX(this.multiplier, 2, 0)}`;
     }
   },
   watch: {
@@ -83,18 +83,18 @@ export default {
         {{ totalEPEffectText }}
       </div>
       <br>
-      Cost: {{ quantify("Eternity Point", cost, 2, 0) }}
+      가격: {{ quantify("영원 포인트", cost, 2, 0) }}
     </button>
     <PrimaryButton
       class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
       @click="upgrade.buyMax(false)"
     >
-      Max Eternity Point mult
+      영원 포인트 배율 최대 구매
     </PrimaryButton>
     <PrimaryToggleButton
       v-if="isAutoUnlocked"
       v-model="isAutobuyerActive"
-      label="Autobuy EP mult"
+      label="영원 포인트 배율 자동구매"
       class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
     />
   </div>

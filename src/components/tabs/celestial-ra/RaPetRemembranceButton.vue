@@ -19,9 +19,9 @@ export default {
     },
     name() {
       return {
-        Teresa: "테레사",
-        Effarig: "에파리그",
-        Enslaved: "이름없는 자들",
+        Teresa: "Teresa",
+        Effarig: "Effarig",
+        Enslaved: "The Nameless Ones",
         V: "V",
       }[this.pet.name] ?? this.pet.name;
     },

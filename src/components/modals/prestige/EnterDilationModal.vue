@@ -22,7 +22,7 @@ export default {
         return "첫 시간 팽창입니다.";
       }
       if (!isInCelestialReality() && Ra.unlocks.unlockDilationStartingTP.canBeApplied && !player.disablePostReality) {
-        return `테레사의 레벨 ${formatInt(25)} 보상으로 얻을 수 있는 최대량의 타키온 입자를 이미 보유하고 있습니다.`;
+        return `Teresa의 레벨 ${formatInt(25)} 보상으로 얻을 수 있는 최대량의 타키온 입자를 이미 보유하고 있습니다.`;
       }
       return `마지막으로 시간 팽창을 완료했을 때 보유한 영원 포인트는
         ${format(player.dilation.lastEP, 2, 2)}였습니다.`;

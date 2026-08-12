@@ -37,7 +37,7 @@ export default {
       if (this.startingBoosts.gt(0)) gainedResources.push(`${quantify("차원 가속", this.startingBoosts)}`);
       if (this.willStartWithGalaxy) gainedResources.push(`${quantify("반물질 은하", 1)}`);
 
-      return `당신은 다음 무한을 ${makeEnumeration(gainedResources)}를 보유한 상태로 시작하게 됩니다.`;
+      return `다음 무한의 시작 자원: ${makeEnumeration(gainedResources)}`;
     }
   },
   methods: {

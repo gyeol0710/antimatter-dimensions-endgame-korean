@@ -3,7 +3,7 @@ export const teresa = {
     run: {
       id: 0,
       price: 1e14,
-      description: "테레사의 현실을 해금합니다.",
+      description: "Teresa의 현실을 해금합니다.",
       onUnlock: () => Teresa.quotes.unlockReality.show(),
     },
     epGen: {
@@ -15,13 +15,13 @@ export const teresa = {
     effarig: {
       id: 3,
       price: 1e24,
-      description: "고대 유물의 셀레스티얼, 에파리그를 해금합니다.",
+      description: "고대 유물의 셀레스티얼, Effarig를 해금합니다.",
       onUnlock: () => Teresa.quotes.effarig.show(),
     },
     shop: {
       id: 2,
       price: 1e21,
-      description: "테레사의 퍼크 포인트 상점을 해금합니다.",
+      description: "Teresa의 퍼크 포인트 상점을 해금합니다.",
     },
     undo: {
       id: 4,

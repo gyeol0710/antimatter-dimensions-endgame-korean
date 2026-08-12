@@ -100,11 +100,11 @@ export default {
         <span class="c-divine-dim-description__accent">{{ formatPow(conversionFormula2, 2, 3) }}</span>
         파멸 상태의 반물질 지수와 모든 기계에 적용되는 제곱,
         <span class="c-divine-dim-description__accent">{{ formatPercents(conversionFormula3, 2, 2) }}</span>
-        하드론과 알파 붕괴 잔재의 상한 도달 시간 감소.
+        하드론과 Alpha 붕괴 잔재의 상한 도달 시간 감소.
       </p>
     </div>
     <div>신성 물질의 상한은 {{ format(hardcap, 2, 0) }}입니다.</div>
-    <div v-if="!dispBoth">초당 {{ currencyProd }} {{ incomeType }}을 획득하고 있습니다.</div>
+    <div v-if="!dispBoth">초당 획득량: {{ currencyProd }} {{ incomeType }}</div>
     <div v-if="dispBoth">
       <div>초당 신성 물질을 {{ format(matterPerSecond, 2, 0) }} 획득하고 있습니다.</div>
       <div>초당 신성 에너지를 {{ format(energyPerSecond, 2, 2) }} 획득하고 있습니다.</div>

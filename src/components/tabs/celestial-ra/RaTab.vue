@@ -77,7 +77,7 @@ export default {
       return GameDatabase.celestials.descriptions[4].effects().replace(/^\w/u, c => c.toUpperCase()).split("\n");
     },
     memoryDescription() {
-      return `라의 현실에서는 특정 자원의 보유량에 따라
+      return `Ra의 현실에서는 특정 자원의 보유량에 따라
         셀레스티얼 기억을 위한 기억 조각이 생성됩니다.`;
     },
     isDoomed: () => Pelle.isDoomed,
@@ -98,7 +98,7 @@ export default {
     },
     startRun() {
       if (this.isDoomed) return;
-      Modal.celestials.show({ name: "라", number: 4 });
+      Modal.celestials.show({ name: "Ra", number: 4 });
     },
     toggleMode() {
       Ra.toggleMode();
@@ -142,7 +142,7 @@ export default {
         <h2 :class="{ 'o-pelle-disabled': isDoomed }">
           <span v-if="isRunning">진입 중: </span>
           <span v-else>시작: </span>
-          라의 현실
+          Ra의 현실
         </h2>
         <div
           :class="runButtonClassObject"
@@ -169,8 +169,8 @@ export default {
           회상
         </h1>
         <span :style="petStyle">
-          회상을 받은 셀레스티얼은 기억 조각 획득량이 {{ formatX(remembranceMult) }}가 됩니다. 다른
-          셀레스티얼의 기억 조각 획득량은 {{ formatX(remembranceNerf, 1, 1) }}가 됩니다.
+          회상을 받은 셀레스티얼의 기억 조각 획득량에는 {{ formatX(remembranceMult) }} 배율이 적용됩니다. 다른
+          셀레스티얼의 기억 조각 획득량에는 {{ formatX(remembranceNerf, 1, 1) }} 배율이 적용됩니다.
         </span>
         <div
           v-if="hasRemembrance"

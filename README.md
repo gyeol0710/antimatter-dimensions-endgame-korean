@@ -4,7 +4,7 @@
 GitHub 포크를 기반으로 SameMa가 번역하고 유지보수하는 비공식·비상업 팬 프로젝트입니다.
 원작, Endgame 및 ADKorean 제작진과 공식 제휴되거나 공식 승인을 받은 배포판은 아닙니다.
 
-- 배포 예정 사이트: <https://gyeol0710.github.io/antimatter-dimensions-endgame-korean/>
+- 플레이하기: <https://gyeol0710.github.io/antimatter-dimensions-endgame-korean/>
 - 한국어 패치 소스: <https://github.com/gyeol0710/antimatter-dimensions-endgame-korean>
 
 ## 크레딧과 출처

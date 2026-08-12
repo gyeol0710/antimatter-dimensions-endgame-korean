@@ -162,7 +162,7 @@ export default {
     <div v-if="anySacrifices && !isDoomed">
       <div v-if="teresaMult.gt(1)">
         글리프 희생 수치에 {{ formatX(teresaMult, 2, 2) }} 배율이 적용됩니다.
-        테레사를 마지막으로 완료했을 때는 {{ lastMachines }}이었습니다.
+        Teresa를 마지막으로 완료했을 때는 {{ lastMachines }}이었습니다.
         <span v-if="hasSeenRealityGlyph">
           현실 글리프는 이 배율의 영향을 받지 않으며 변형 효과도 없습니다.
         </span>

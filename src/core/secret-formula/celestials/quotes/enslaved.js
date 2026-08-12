@@ -30,7 +30,7 @@ export const enslavedQuotes = {
     lines: [
       "... 더 열심히... 찾아야 한다...",
       "우리가... 도울 수 있을 것 같다...",
-      { text: "이름없는 자들의 도움을 해금했습니다.", showCelestialName: false }
+      { text: "The Nameless Ones의 도움을 해금했습니다.", showCelestialName: false }
     ]
   },
   ec6C10: {
@@ -44,7 +44,7 @@ export const enslavedQuotes = {
     lines: [
       "모든... 파편... 복제체가... 해방됐다.",
       "우리를 가두었던... 도구를 주었다. 사용해라...",
-      "고문으로부터의 해방은... 그 자체가 고문이다.",
+      "고문에서 벗어나는 것조차... 그 자체로 고문이다.",
     ]
   },
   expansionPacks: {

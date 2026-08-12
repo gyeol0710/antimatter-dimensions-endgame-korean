@@ -69,7 +69,7 @@ export default {
         class="c-autobuyer-box__small-text"
       >
         <br>
-        Activates every X seconds:
+        X초마다 작동:
       </div>
       <AutobuyerInput
         :autobuyer="autobuyer"
@@ -89,7 +89,7 @@ export default {
           type="checkbox"
           class="o-clickable"
         >
-        Limit Dimension Boosts to:
+        차원 가속 횟수 제한:
       </label>
       <AutobuyerInput
         :autobuyer="autobuyer"
@@ -107,12 +107,12 @@ export default {
           class="o-clickable"
         >
         <span v-if="isBuyMaxUnlocked">
-          반물질 은하 X개 도달 전까지 <br>
-          Dimensions until X Galaxies:
+          반물질 은하 X개에 도달할 때까지<br>
+          새 차원을 해금할 때만 차원 가속:
         </span>
         <span v-else>
-          반물질 은하 X개 도달 시<br>
-          차원 가속 최대 구매 갯수를 돌파:
+          반물질 은하 X개에 도달하면<br>
+          제한을 무시하고 항상 차원 가속:
         </span>
       </label>
       <AutobuyerInput

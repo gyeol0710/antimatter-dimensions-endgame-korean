@@ -1393,7 +1393,7 @@ function laitelaRealityTick(realDiff) {
 
   // Setting entropy to -1 on completion prevents the modal from showing up repeatedly
   if (laitelaInfo.entropy.gte(1)) {
-    let completionText = `${Time.thisRealityRealTime.toStringShort()} 만에 라이텔라의 현실을 불안정화했습니다.`;
+    let completionText = `${Time.thisRealityRealTime.toStringShort()} 만에 Lai'tela의 현실을 불안정화했습니다.`;
     laitelaInfo.entropy = new Decimal(-1);
     const oldInfo = {
       fastestCompletion: laitelaInfo.fastestCompletion,
@@ -1452,19 +1452,19 @@ function laitelaRealityTick(realDiff) {
 
 function laitelaBeatText(disabledDim) {
   switch (disabledDim) {
-    case 1: return `<br><br>이제 라이텔라의 현실에서 모든 차원의 생산이 완전히 비활성화됩니다.
+    case 1: return `<br><br>이제 Lai'tela의 현실에서 모든 차원의 생산이 완전히 비활성화됩니다.
         현실에는 계속 진입할 수 있지만 더 이상 불안정화할 수 없습니다.
-        현실을 완전히 불안정화한 보상으로 암흑 에너지 획득량에 ${formatX(Math.pow(8, Laitela.hadronizes + 1))}의
+        현실을 완전히 불안정화한 보상으로 암흑 에너지 획득량에 ${formatX(Math.pow(8, Laitela.hadronizes + 1))}
         추가 배율도 적용됩니다.`;
-    case 2: return `<br><br>이제 이후 라이텔라의 현실에서 모든 제2 차원의 생산이 비활성화되지만,
+    case 2: return `<br><br>이제 Lai'tela의 현실에서 모든 제2 차원의 생산이 비활성화되지만,
       보상은 이전보다 ${formatInt(100)}배 강해집니다. 마지막 차원까지 현실을 완전히 불안정화하면
-      암흑 에너지 획득량에 ${formatX(Math.pow(8, Laitela.hadronizes + 1))}의 추가 배율을 얻습니다.`;
-    case 3: return `<br><br>이제 이후 라이텔라의 현실에서 모든 제3 차원의 생산이 비활성화되지만,
+      암흑 에너지 획득량에 ${formatX(Math.pow(8, Laitela.hadronizes + 1))} 추가 배율이 적용됩니다.`;
+    case 3: return `<br><br>이제 Lai'tela의 현실에서 모든 제3 차원의 생산이 비활성화되지만,
         보상은 이전보다 ${formatInt(100)}배 강해집니다.`;
-    case 8: return `<br><br>이제 이후 라이텔라의 현실에서 모든 제8 차원의 생산이 비활성화되지만,
+    case 8: return `<br><br>이제 Lai'tela의 현실에서 모든 제8 차원의 생산이 비활성화되지만,
         보상은 이전보다 ${formatInt(100)}배 강해집니다. 남은 각 차원도 다시 ${formatInt(30)}초 안에
         불안정화하면 이 강화 효과를 반복해서 얻을 수 있습니다.`;
-    default: return `<br><br>이제 이후 라이텔라의 현실에서 모든 제${disabledDim} 차원의 생산이
+    default: return `<br><br>이제 Lai'tela의 현실에서 모든 제${disabledDim} 차원의 생산이
         비활성화되지만, 보상은 이전보다 ${formatInt(100)}배 강해집니다.`;
   }
 }

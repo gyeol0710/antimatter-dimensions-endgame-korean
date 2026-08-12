@@ -34,13 +34,13 @@ export default {
     },
     nextECText() {
       return this.untilNextEC.totalMilliseconds === 0 && !this.autoEC
-        ? "Immediately upon unpausing"
-        : `${this.untilNextEC} (real time)`;
+        ? "일시 정지 해제 즉시"
+        : `${this.untilNextEC} 후 (현실 시간)`;
     },
     allECText() {
       return this.untilAllEC.totalMilliseconds === 0 && !this.autoEC
-        ? "Immediately upon unpausing"
-        : `After ${this.untilAllEC} (real time)`;
+        ? "일시 정지 해제 즉시"
+        : `${this.untilAllEC} 후 (현실 시간)`;
     }
   },
   methods: {
@@ -77,8 +77,7 @@ export default {
   <div class="l-challenges-tab">
     <ChallengeTabHeader />
     <div v-if="isAutoECVisible">
-      Eternity Challenges are automatically completed sequentially, requiring all previous
-      Eternity Challenges to be fully completed before any progress is made.
+      영원 도전은 순서대로 자동 완료됩니다. 앞선 모든 영원 도전을 전부 완료해야 다음 도전의 진행도가 쌓입니다.
     </div>
     <div
       v-if="isAutoECVisible && remainingECTiers > 0"
@@ -89,30 +88,30 @@ export default {
           v-if="hasUpgradeLock"
           class="l-emphasis"
         >
-          Auto EC is currently disabled because of the "{{ upgradeLockNameText }}" upgrade requirement lock.
+          {{ upgradeLockNameText }} 업그레이드의 요구 조건 잠금 때문에 자동 영원 도전이 비활성화되었습니다.
         </span>
         <span v-if="remainingECTiers > 0">
-          Next Auto Eternity Challenge completion: {{ nextECText }}
+          다음 영원 도전 자동 완료: {{ nextECText }}
         </span>
         <span>
-          All Auto Eternity Challenge completions: {{ allECText }}
+          모든 영원 도전 자동 완료: {{ allECText }}
         </span>
         <br>
       </div>
     </div>
     <div>
-      Complete Eternity Challenges again for a bigger reward, maximum of {{ formatInt(5) }} times.<br>
-      The rewards are applied permanently with no need to have the respective Eternity Challenge Time Study purchased.
+      영원 도전을 반복 완료하면 보상이 강화되며, 최대 {{ formatInt(5) }}회까지 완료할 수 있습니다.<br>
+      각 보상은 해당 영원 도전 시간 연구를 구매하지 않아도 영구적으로 적용됩니다.
     </div>
     <div v-if="!hasECR">
-      When you respec out of an unlocked Eternity Challenge, you don't need to redo the secondary requirement<br>
-      in order to unlock it again until you complete it; only the Time Theorems are required.
+      해금한 영원 도전을 재분배로 제거해도, 완료하기 전까지는 보조 요구 조건을 다시 달성할 필요가 없습니다.<br>
+      다시 해금할 때는 시간 정리만 있으면 됩니다.
     </div>
     <div v-if="unlockedCount !== 12">
-      You have seen {{ formatInt(unlockedCount) }} out of {{ formatInt(12) }} Eternity Challenges.
+      발견한 영원 도전: {{ formatInt(unlockedCount) }}/{{ formatInt(12) }}
     </div>
     <div v-else>
-      You have seen all {{ formatInt(12) }} Eternity Challenges.
+      영원 도전 {{ formatInt(12) }}개를 모두 발견했습니다.
     </div>
     <ChallengeGrid
       v-slot="{ challenge }"

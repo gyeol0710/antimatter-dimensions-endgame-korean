@@ -32,21 +32,21 @@ export default {
         };
       }
       return [
-        celestialReality(Teresa, "테레사의", "teresa"),
-        celestialReality(Effarig, "에파리그의", "effarig"),
-        celestialReality(Enslaved, "이름없는 자들", "enslaved"),
+        celestialReality(Teresa, "Teresa의", "teresa"),
+        celestialReality(Effarig, "Effarig의", "effarig"),
+        celestialReality(Enslaved, "The Nameless Ones의", "enslaved"),
         celestialReality(V, "V의", "v"),
-        celestialReality(Ra, "라의", "ra"),
-        celestialReality(Laitela, "라이텔라의", "laitela"),
+        celestialReality(Ra, "Ra의", "ra"),
+        celestialReality(Laitela, "Lai'tela의", "laitela"),
         {
           name: () => "파멸한 현실",
           isActive: token => token,
           activityToken: () => Pelle.isDoomed,
           tabName: () => "pelle",
         },
-        celestialReality(Alpha, "알파의", "alpha"),
+        celestialReality(Alpha, "Alpha의", "alpha"),
         {
-          name: () => "에파리그의 엔드게임",
+          name: () => "Effarig의 엔드게임",
           isActive: token => token,
           activityToken: () => Effarig.isRunning && Effarig.currentStage === EFFARIG_STAGES.ENDGAME,
           tabName: () => "effarig",

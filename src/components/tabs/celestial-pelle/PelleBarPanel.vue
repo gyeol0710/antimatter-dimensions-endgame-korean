@@ -36,19 +36,27 @@ export default {
     },
     sickVisualStrikeText() {
       if (PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length === 0) {
-        return `펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!`;
+        return `Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!`;
       }
       if (PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length === 1) {
-        return this.time % 2500 > 500 ? `펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!` : wordShift.randomCrossWords("펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
+        return this.time % 2500 > 500
+          ? `Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!`
+          : wordShift.randomCrossWords("Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
       }
       if (PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length === 2) {
-        return this.time % 2500 > 1000 ? `펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!` : wordShift.randomCrossWords("펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
+        return this.time % 2500 > 1000
+          ? `Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!`
+          : wordShift.randomCrossWords("Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
       }
       if (PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length === 3) {
-        return this.time % 2500 > 1500 ? `펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!` : wordShift.randomCrossWords("펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
+        return this.time % 2500 > 1500
+          ? `Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!`
+          : wordShift.randomCrossWords("Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
       }
       if (PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length === 4) {
-        return this.time % 2500 > 2000 ? `펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!` : wordShift.randomCrossWords("펠레 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
+        return this.time % 2500 > 2000
+          ? `Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!`
+          : wordShift.randomCrossWords("Pelle 타격의 페널티는 영구적이며 아마겟돈 이후에도 유지됩니다!");
       }
       if (PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length === 5) {
         return this.time % 2500 > 2400 ? `우리는 다시 만나게 될 것이다...` : wordShift.randomCrossWords("우리는 다시 만나게 될 것이다...");
@@ -66,7 +74,7 @@ export default {
         class="c-collapse-icon-clickable"
         @click="toggleCollapse"
       />
-      펠레 타격과 균열
+      Pelle 타격과 균열
     </div>
     <div
       v-if="!isCollapsed"

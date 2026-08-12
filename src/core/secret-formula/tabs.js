@@ -461,7 +461,7 @@ export const tabs = [
       },
       {
         key: "teresa",
-        name: "테레사",
+        name: "Teresa",
         symbol: "Ϟ",
         component: "TeresaTab",
         condition: () => Teresa.isUnlocked,
@@ -470,7 +470,7 @@ export const tabs = [
       },
       {
         key: "effarig",
-        name: "에파리그",
+        name: "Effarig",
         symbol: "Ϙ",
         component: "EffarigTab",
         condition: () => TeresaUnlocks.effarig.isUnlocked || EndgameMilestone.celestialEarlyUnlock.isReached,
@@ -479,7 +479,7 @@ export const tabs = [
       },
       {
         key: "enslaved",
-        name: "이름없는 자들",
+        name: "The Nameless Ones",
         symbol: "<div class='o-tab-btn--cel3'>\uf0c1</div>",
         component: "EnslavedTab",
         condition: () => EffarigUnlock.eternity.isUnlocked || EndgameMilestone.celestialEarlyUnlock.isReached,
@@ -497,7 +497,7 @@ export const tabs = [
       },
       {
         key: "ra",
-        name: "라",
+        name: "Ra",
         symbol: "<i class='fas fa-sun'></i>",
         component: "RaTab",
         condition: () => VUnlocks.raUnlock.isUnlocked || EndgameMilestone.celestialEarlyUnlock.isReached,
@@ -506,7 +506,7 @@ export const tabs = [
       },
       {
         key: "laitela",
-        name: "라이텔라",
+        name: "Lai'tela",
         symbol: "ᛝ",
         component: "LaitelaTab",
         condition: () => Laitela.isUnlocked,
@@ -515,7 +515,7 @@ export const tabs = [
       },
       {
         key: "pelle",
-        name: "펠레",
+        name: "Pelle",
         symbol: "♅",
         component: "PelleTab",
         condition: () => Pelle.isUnlocked,
@@ -524,7 +524,7 @@ export const tabs = [
       },
       {
         key: "alpha",
-        name: "알파",
+        name: "Alpha",
         symbol: "α",
         component: "AlphaTab",
         condition: () => Alpha.isUnlocked,
@@ -579,7 +579,7 @@ export const tabs = [
       },
       {
         key: "pelle-destruction",
-        name: "펠레 파괴",
+        name: "Pelle 파괴",
         symbol: "♆",
         component: "PelleDestructionTab",
         id: 2,

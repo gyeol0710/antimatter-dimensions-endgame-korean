@@ -24,13 +24,18 @@ export const Time = {
     setValue(timespan.totalMilliseconds);
   },
   /**
-   * Returns a string indicating the current date and time of day, as indicated by a Date.now() timestamp. After
-   * regex formatting, this gives a string resembling "[month] [day] [year] HH:MM:SS"
+   * Returns a Korean date and local time of day for a Date.now() timestamp.
    * @param {number} timestamp
    * @returns {string}
    */
   toDateTimeString(timestamp) {
-    return new Date(timestamp).toString().replace(/^.{4}(.*:..:..).*$/u, "$1");
+    const date = new Date(timestamp);
+    if (Number.isNaN(date.getTime())) return date.toString();
+
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const seconds = date.getSeconds().toString().padStart(2, "0");
+    return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${hours}:${minutes}:${seconds}`;
   },
   /**
    * Frame delta time

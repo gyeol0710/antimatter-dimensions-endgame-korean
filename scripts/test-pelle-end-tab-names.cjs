@@ -68,9 +68,13 @@ for (const [index, phrase] of targetPhrases.entries()) {
     expectedOmegaIndices[index],
     `Pelle.endTabNames branch ${index + 1} must preserve its Ω tab positions`
   );
-  assert.ok(!tokens.some(token => /[A-Za-z]/u.test(token)),
-    `Pelle.endTabNames branch ${index + 1} must not leave English tab labels`);
+  const unexpectedEnglish = tokens.filter(token => /[A-Za-z]/u.test(token) && token !== "Pelle는");
+  assert.deepStrictEqual(unexpectedEnglish, [],
+    `Pelle.endTabNames branch ${index + 1} must only use approved English Celestial names`);
 }
+
+assert.equal(targetPhrases[2].split(" ")[11], "Pelle는",
+  "the Effarig branch must retain Pelle's canonical English display name");
 
 assert.deepStrictEqual(targetPhrases[0].split(" ").slice(-3), ["재미", "혼란", "웃음"],
   "the final divinity labels must match Pelle's existing confusing word cycle");

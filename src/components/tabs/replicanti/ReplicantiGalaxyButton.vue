@@ -22,7 +22,7 @@ export default {
   computed: {
     resetActionDisplay() {
       return this.isDivideUnlocked && !Pelle.isDoomed
-        ? `복제자의 갯수를 ${format(Number.MAX_VALUE, 1, 1)}로 나누고`
+        ? `복제자의 개수를 ${format(Number.MAX_VALUE, 1, 1)}로 나누고`
         : "복제자를 전부 초기화하고";
     },
     galaxyCountDisplay() {

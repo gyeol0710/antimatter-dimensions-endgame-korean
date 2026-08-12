@@ -59,7 +59,7 @@ export default {
     },
     buttonText() {
       if (this.overrideLabel.length > 0) return this.overrideLabel;
-      if (this.isRunning || this.inC1) return "진행중";
+      if (this.isRunning || this.inC1) return "진행 중";
       if (this.isCompleted) return "완료";
       if (this.isUnlocked) return "시작";
       const lockedText = this.lockedAt === undefined

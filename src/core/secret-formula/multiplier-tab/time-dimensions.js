@@ -236,7 +236,7 @@ export const TD = {
     icon: MultiplierTabIcons.UPGRADE("imaginary"),
   },
   pelle: {
-    name: "펠레 균열 효과",
+    name: "Pelle 균열 효과",
     multValue: dim => Decimal.pow(PelleRifts.chaos.effectOrDefault(1),
       dim ? 1 : MultiplierTabHelper.activeDimCount("TD")),
     powValue: () => PelleRifts.paradox.effectOrDefault(DC.D1).toNumber(),

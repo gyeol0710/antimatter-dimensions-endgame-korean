@@ -169,7 +169,7 @@ export const breakEternityUpgrades = {
     name: "효력 증대",
     id: "glyphSlotImprovement",
     cost: Decimal.pow(10, 1e100),
-    description: "펠레 밖에서 글리프 슬롯을 3개 더 추가합니다",
+    description: "Pelle 밖에서 글리프 슬롯을 3개 더 추가합니다",
     effect: 3
   },
 };

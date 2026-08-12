@@ -42,7 +42,7 @@ export const alphaUnlocks = {
     id: 4,
     requirement: 5,
     nerfDescription: () => `빅 크런치 자동구매기의 구매 스케일링이 ${formatX(2.5, 1, 1)}로 증가합니다`,
-    buffDescription: "충전된 무한 업그레이드에 테레사 레벨이 두 배인 것처럼 적용됩니다",
+    buffDescription: "충전된 무한 업그레이드에 Teresa 레벨이 두 배인 것처럼 적용됩니다",
     effects: {
       nerf: 2.5,
       buff: 2

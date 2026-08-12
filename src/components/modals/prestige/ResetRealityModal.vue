@@ -34,7 +34,7 @@ export default {
     @confirm="handleYesClick"
   >
     <template #header>
-      {{ resetTerm }}을(를) 초기화하려 합니다
+      초기화하려는 대상: {{ resetTerm }}
     </template>
     <div class="c-modal-message__text">
       현재 {{ resetTerm }} 진행도에 따른 보상을 받지 않고

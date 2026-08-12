@@ -66,7 +66,7 @@ export const pelleRifts = {
       {
         resource: "decay",
         requirement: 0.2,
-        description: "첫 번째 반복 구매 펠레 업그레이드가 첫 번째 무한 차원에도 적용됩니다",
+        description: "첫 번째 반복 구매 Pelle 업그레이드가 첫 번째 무한 차원에도 적용됩니다",
         effect: () => {
           const x = player.celestials.pelle.rebuyables.antimatterDimensionMult;
           return Decimal.pow(1e50, x - 9);
@@ -133,7 +133,7 @@ export const pelleRifts = {
       {
         resource: "chaos",
         requirement: 0.15,
-        description: "글리프에 펠레 전용 효과가 새로 생깁니다",
+        description: "글리프에 Pelle 전용 효과가 새로 생깁니다",
       },
       {
         resource: "chaos",
@@ -220,6 +220,6 @@ export const pelleRifts = {
         formatEffect: x => `무한 동력 변환율 ${formatX(x, 2, 2)}`
       },
     ],
-    galaxyGeneratorText: "더 만들 수 있어야 하지만 펠레가 제한했습니다. $value 균열을 무시하세요"
+    galaxyGeneratorText: "더 만들 수 있어야 하지만 Pelle가 제한했습니다. $value 균열을 무시하세요"
   }
 };

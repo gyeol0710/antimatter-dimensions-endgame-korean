@@ -70,7 +70,7 @@ export default {
     </div>
     <div v-if="isDoomed">
       <span class="c-galactic-power-description-text">
-        펠레의 제한으로 멸망한 동안에는 은하력을 생산할 수 없습니다!
+        Pelle의 제한으로 멸망한 동안에는 은하력을 생산할 수 없습니다!
       </span>
     </div>
     <div

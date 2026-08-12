@@ -123,7 +123,7 @@ export default {
         GameUI.notify.error(`${missingGlyphs} ${pluralize("글리프", missingGlyphs)}를 ${this.setName(id)}에서
           찾거나 장착하지 못했습니다.`);
       } else {
-        GameUI.notify.success(`${this.setName(id)}을 성공적으로 불러왔습니다.`);
+        GameUI.notify.success(`불러오기 완료: ${this.setName(id)}`);
       }
     },
     // Given a list of options for suitable matches to those glyphs and a maximum glyph count to match, returns the

@@ -166,7 +166,7 @@ export default {
       this.setRarityThreshold(type, newRarity);
     },
     showFilterHowTo() {
-      ui.view.h2pForcedTab = GameDatabase.h2p.tabs.filter(tab => tab.name === "Advanced Glyph Mechanics")[0];
+      ui.view.h2pForcedTab = GameDatabase.h2p.tabs.filter(tab => tab.tab === "celestials/glyphfilter")[0];
       Modal.h2p.show();
     },
     getSymbol(type) {
@@ -179,7 +179,7 @@ export default {
         replication: "복제",
         infinity: "무한",
         power: "동력",
-        effarig: "에파리그",
+        effarig: "Effarig",
         reality: "현실",
         cursed: "저주받은",
         companion: "동반자",

@@ -216,7 +216,7 @@ export default {
       v-else
       class="c-no-options"
     >
-      글리프 {{ attrDisplay }}을 변경할 사용자 설정 옵션이 없습니다.
+      글리프 {{ attrDisplay }} 변경 옵션이 없습니다.
     </div>
   </div>
 </template>

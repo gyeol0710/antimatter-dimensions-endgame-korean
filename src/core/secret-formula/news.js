@@ -129,7 +129,7 @@ export const news = [
     id: "a27",
     get text() {
       return `새로운 종교가 생겨나 들불처럼 퍼지고 있습니다. 이 종교의 신자들은 반물질의 여신인
-        천상의 펠레를 숭배합니다. 또한 ${format(Number.MAX_VALUE, 2)}이(가) 무한이라고 믿습니다.`;
+        천상의 Pelle를 숭배합니다. 또한 무한이라고 믿는 수는 ${format(Number.MAX_VALUE, 2)}입니다.`;
     }
   },
   {
@@ -459,8 +459,8 @@ export const news = [
         }
       ];
       const game = games.randomElement();
-      return `신원이 밝혀지지 않은 반물질 차원 개발자가
-        <a href="${game.link}" target="_blank">${game.name}</a>을(를) 플레이해 보라고 추천합니다`;
+      return `신원이 밝혀지지 않은 반물질 차원 개발자의 추천 게임:
+        <a href="${game.link}" target="_blank">${game.name}</a>`;
     },
   },
   {
@@ -499,7 +499,7 @@ export const news = [
   },
   {
     id: "a100",
-    text: "반물질 차원™을 계속 플레이하려면 디스크 -1을(를) 넣으세요."
+    text: "반물질 차원™을 계속 플레이하려면 디스크 -1을 넣으세요."
   },
   {
     id: "a101",
@@ -941,21 +941,21 @@ export const news = [
     id: "a177",
     text:
       `<span style='color: black; background: black;'>검열됨</span> <span style='color: black;
-      background: black;'>검열됨</span>을(를) 보유하면 <span style='color: black; background: black;'>
-      검열됨</span>을(를) 해금할 수 있습니다. 각 <span style='color: black; background: black;'>검열됨</span>마다
+      background: black;'>검열됨</span>을 보유하면 <span style='color: black; background: black;'>
+      검열됨</span>을 해금할 수 있습니다. 각 <span style='color: black; background: black;'>검열됨</span>마다
       각각의 <span style='color: black; background: black;'>검열됨</span>에는 그것이 <span style='color: black;
-      background: black;'>검열됨</span>할 <span style='color: black; background: black;'>검열됨</span>이(가)
-      있습니다. <span style='color: black; background: black;'>검열됨</span>을(를) 사용해 <span style='color: black;
-      background: black;'>검열됨</span>과(와) <span style='color: black; background: black;'>검열됨</span>을(를)
+      background: black;'>검열됨</span>할 <span style='color: black; background: black;'>검열됨</span>이
+      있습니다. <span style='color: black; background: black;'>검열됨</span>을 사용해 <span style='color: black;
+      background: black;'>검열됨</span>과 <span style='color: black; background: black;'>검열됨</span>을
       강화할 수 있습니다. 또한 <span style='color: black; background: black;'>검열됨</span> <span style='color:
-      black; background: black;'>검열됨</span>을(를) 얻을 수 있게 하는 또 다른 업그레이드가 있습니다.
+      black; background: black;'>검열됨</span>을 얻을 수 있게 하는 또 다른 업그레이드가 있습니다.
       <span style='color: black; background: black;'>검열됨</span> <span style='color: black; background: black;'>
-      검열됨</span>은(는) 다음과 같이 작동합니다. <span style='color: black; background: black;'>검열됨</span>
+      검열됨</span>은 다음과 같이 작동합니다. <span style='color: black; background: black;'>검열됨</span>
       <span style='color: black; background: black;'>검열됨</span>에 도달하면 <span style='color: black;
-      background: black;'>검열됨</span> <span style='color: black; background: black;'>검열됨</span>을(를) 받는
+      background: black;'>검열됨</span> <span style='color: black; background: black;'>검열됨</span>을 받는
       대신 <span style='color: black; background: black;'>검열됨</span>의 양을 <span style='color: black;
       background: black;'>검열됨</span>할 수 있습니다. 이는 <span style='color: black; background: black;'>
-      검열됨</span>처럼 작동하여 <span style='color: black; background: black;'>검열됨</span>을(를) 향상합니다.`
+      검열됨</span>처럼 작동하여 <span style='color: black; background: black;'>검열됨</span>을 향상합니다.`
   },
   {
     id: "a178",
@@ -1304,9 +1304,9 @@ export const news = [
   {
     id: "a230",
     get text() {
-      return `이 게임을 시작한 지 거의
-        ${TimeSpan.fromMilliseconds(new Decimal(Date.now() - player.records.gameCreatedTime)).toString()}
-        이(가) 지났습니다. 플레이해 주셔서 감사합니다!`;
+      return `게임을 시작한 뒤 경과한 시간:
+        ${TimeSpan.fromMilliseconds(new Decimal(Date.now() - player.records.gameCreatedTime)).toString()}.
+        플레이해 주셔서 감사합니다!`;
     },
     dynamic: true
   },
@@ -1427,11 +1427,11 @@ export const news = [
           미래형 성간 우주선의 조타석에 서 있는 기분을 줍니다.`,
         S11:
           `블롭은 반물질 차원 공식 Discord 서버의 상징적인 캐릭터이기 때문입니다. 사랑스러운 방식으로 감정을
-          표현할 때 널리 쓰입니다. 블롭이 진화하고 있다는 것은 사실입니다. ${BLOB}은(는) 언제나 감정을 더
-          풍부하게 표현하려 합니다. 그러다 어느 날 더 많은 감정을 표현할 새로운 ${BLOB}이(가) 서버에서
-          태어납니다. 보통 ${BLOB}은(는) 그저 블롭거리며 통통 튀어 다니다가 가끔 합쳐지고 나뉩니다.
-          어디에서 왔고 어디로 갈지는 ${BLOB}만이 압니다. 그래도 ${BLOB}은(는) 언제나 내 곁에 있습니다.
-          여러분이 ${BLOB}을(를) 사랑하니 ${BLOB}도 여러분을 사랑합니다.`,
+          표현할 때 널리 쓰입니다. 블롭이 진화하고 있다는 것은 사실입니다. ${BLOB}: 언제나 감정을 더
+          풍부하게 표현하려 합니다. 그러다 어느 날 서버에서 더 많은 감정을 표현할 새로운 블롭이 태어납니다:
+          ${BLOB}. 보통 블롭 ${BLOB}의 일상은 통통 튀어 다니다가 가끔 합쳐지고 나뉘는 것입니다.
+          어디에서 왔고 어디로 갈지는 ${BLOB}만이 압니다. 그 정체도 ${BLOB}입니다. 그래도 내 곁에는 언제나 ${BLOB} 블롭이 있습니다.
+          여러분의 사랑을 받는 블롭 ${BLOB}도 여러분을 사랑합니다.`,
         S12:
           `마치 집에 있는 것처럼 따뜻하고 편안하게 해 주기 때문입니다. 하지만 최상의 사용자 경험을 위해
           테마를 최신 테마로 업데이트하는 것을 강력히 권장합니다.`,
@@ -1746,8 +1746,8 @@ export const news = [
     get text() {
       const paperclips = player.news.specialTickerData.paperclips;
       return `이 뉴스는 평범한 뉴스가 아닙니다. 제1 뉴스 차원이 생산하고 있습니다. 더 많은 뉴스를
-        해금하려면 클립을 충분히 모아 제2 뉴스 차원을 건설해야 합니다. 현재
-        ${quantifyInt("클립", paperclips)}을(를) 보유하고 있지만 구매하려면
+        해금하려면 클립을 충분히 모아 제2 뉴스 차원을 건설해야 합니다.
+        현재 클립 보유량: ${quantifyInt("클립", paperclips)}. 구매하려면
         ${formatInt(paperclips + 10)}개가 필요합니다.`;
     }
   },
@@ -2608,7 +2608,7 @@ export const news = [
   },
   {
     id: "ae400",
-    text: `"10번째 차원이 뭐지?" 그것을 아는 유일한 존재는 엘리멘탈입니다. "엘리멘탈이 누구야?" 광야의
+    text: `"10번째 차원이 뭐지?" 그것을 아는 유일한 존재는 The Elemental입니다. "The Elemental이 누구야?" 광야의
     심연에 사는 강력한 존재입니다. "광야가 뭔데?" 곧 알게 될 겁니다.`
   },
   {
@@ -2652,7 +2652,7 @@ export const news = [
   },
   {
     id: "ae408",
-    text: "9번째 차원의 발견은 2026년 칠월 1일에 발표됐습니다."
+    text: "9번째 차원의 발견은 2026년 7월 1일에 발표됐습니다."
   },
   {
     id: "ae409",
@@ -2673,7 +2673,7 @@ export const news = [
       저격 글을 올리겠다. ${player.username}, 네 좆은 작아. 양성자 크기보다도 훨씬 작지. 그리고 내 물건이
       어떻게 생겼는지 봐라. 그래, 전부 물질이고 반물질도 리얼리티 머신도 없어. 공 두 개와 봉처럼 보이지.
       놈이 내 아내를 건드렸으니 난 지구에 오줌을 쌀 거다. 내 슈퍼 레이저 오줌을 받아라. 하지만 지구가 아니라
-      더 높은 곳으로 간다. 달에 오줌을 싸겠다. 어떠냐 펠레, 이 멍청아, 내가 달에 오줌을 쌌다. 오줌
+      더 높은 곳으로 간다. 달에 오줌을 싸겠다. 어떠냐 Pelle, 이 멍청아, 내가 달에 오줌을 쌌다. 오줌
       방 울 들이 망할 지구에 떨어지기까지 스물세 시간 남았다. 나한테도 맞기 전에 내 시야에서 꺼져!`
     }
   },
@@ -2697,7 +2697,7 @@ export const news = [
   },
   {
     id: "ae416",
-    text: `"나는 어떤 셀레스티얼일까?" 검사를 받고 테레사인지 라이텔라인지 알아보세요!`
+    text: `"나는 어떤 셀레스티얼일까?" 검사를 받고 Teresa인지 Lai'tela인지 알아보세요!`
   },
   {
     id: "ae417",
@@ -2782,13 +2782,13 @@ export const news = [
     id: "ae435",
     text: 
       `현재 AD:엔드게임의 45단계는 차원, 가속, 자동구매기, 은하, 무한, 도전, 무한 돌파, 무한 차원, 무한 도전,
-      복제자, 영원, 시간 차원, 영원 도전, 시간 팽창, 현실, 블랙홀, 테레사의 용기, 테레사의 현실, 에파리그의 상점,
-      에파리그의 무한, 에파리그의 영원, 에파리그의 현실, 이름없는 자의 현실, V의 도전과제, 연속체, 암흑 물질 차원,
-      라이텔라의 현실, 펠레(파멸한 현실), 잔재, 처음 14단계 다시(+균열), 그리고 물론 엔드게임의 시작입니다.`
+      복제자, 영원, 시간 차원, 영원 도전, 시간 팽창, 현실, 블랙홀, Teresa의 용기, Teresa의 현실, Effarig의 상점,
+      Effarig의 무한, Effarig의 영원, Effarig의 현실, The Nameless Ones의 현실, V의 도전과제, 연속체, 암흑 물질 차원,
+      Lai'tela의 현실, Pelle(파멸한 현실), 잔재, 처음 14단계 다시(+균열), 그리고 물론 엔드게임의 시작입니다.`
   },
   {
     id: "ae436",
-    text: "8번째 셀레스티얼이 알파라면 9번째는 베타여야 하지 않을까?"
+    text: "8번째 셀레스티얼이 Alpha라면 9번째는 베타여야 하지 않을까?"
   },
   {
     id: "ae437",
@@ -2802,7 +2802,7 @@ export const news = [
   },
   {
     id: "ae439",
-    text: "아무 쓸모 없는 오늘의 AD:E 상식입니다. 라이텔라와 펠레는... 알잖아요."
+    text: "아무 쓸모 없는 오늘의 AD:E 상식입니다. Lai'tela와 Pelle는... 알잖아요."
   },
   {
     id: "ae440",
@@ -2834,7 +2834,7 @@ export const news = [
   {
     id: "ae445",
     text:
-      `소문: 무한 1.79e308회를 포기하면 펠레의 잃어버린 쌍둥이 Hevi가 나타난다... 경고했습니다!!!`
+      `소문: 무한 1.79e308회를 포기하면 Pelle의 잃어버린 쌍둥이 Hevi가 나타난다... 경고했습니다!!!`
   },
   {
     id: "ae446",
@@ -2893,7 +2893,7 @@ export const news = [
   {
     id: "ae456",
     text:
-      `펠레는 침대에 쓰러졌고, 파멸한 현실은 뒤처졌고, 현실 없는 등짝만 커졌고. 이제 나도 자야겠고,
+      `Pelle는 침대에 쓰러졌고, 파멸한 현실은 뒤처졌고, 현실 없는 등짝만 커졌고. 이제 나도 자야겠고,
       내 이름은 Jack이 아니고.`
   },
   {
@@ -2975,7 +2975,7 @@ export const news = [
   {
     id: "ae473",
     get text() {
-      return `펠레의 이성을 파괴하는 유일한 방법: 어둠을 쓰면 됩니다. 실력 문제!!! 하하! 안 돼- 잠깐- 멈춰- 아야-
+      return `Pelle의 이성을 파괴하는 유일한 방법: 어둠을 쓰면 됩니다. 실력 문제!!! 하하! 안 돼- 잠깐- 멈춰- 아야-
       ${wordShift.wordCycle(["Error", "Warning", "Stop"])}.`
     },
     dynamic: true
@@ -3042,7 +3042,7 @@ export const news = [
   },
   {
     id: "ae488",
-    text: `Supersonic Seven에게 정중히 부탁하면 메시지에 펠레 효과를 넣을 수 있다고 사람들이 생각하게 된
+    text: `Supersonic Seven에게 정중히 부탁하면 메시지에 Pelle 효과를 넣을 수 있다고 사람들이 생각하게 된
     연쇄 효과를 내가 일으킨 건가?`
   },
   {
@@ -3205,7 +3205,7 @@ export const news = [
     id: "ae520",
     get text() {
       const level = player.news.specialTickerData.discordLevel++;
-      return `⚡ @${player.username} 님, 축하합니다. 레벨 ${level}(으)로 올랐습니다.`;
+      return `⚡ @${player.username} 님, 축하합니다. 레벨이 ${level}까지 올랐습니다.`;
     }
   },
   {
@@ -3347,7 +3347,7 @@ export const news = [
   },
   {
     id: "ae533",
-    text: "d. ASDHASJKHDASJKHDJKASHDJKASHDJKASHDJKASHJKDHKASJ 펠레 안 돼애애애애애애애애애- 반물질이 되어 버린다"
+    text: "d. ASDHASJKHDASJKHDJKASHDJKASHDJKASHDJKASHJKDHKASJ Pelle 안 돼애애애애애애애애애- 반물질이 되어 버린다"
   },
   {
     id: "ae534",
@@ -3419,7 +3419,7 @@ export const news = [
   },
   {
     id: "ae545",
-    text: `<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>펠레의 뒷이야기를 보려면 여기를 클릭하세요 😭</a>`
+    text: `<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>Pelle의 뒷이야기를 보려면 여기를 클릭하세요 😭</a>`
   },
   {
     id: "ae546",
@@ -3862,7 +3862,7 @@ export const news = [
   {
     id: "ae615",
     text:
-      `성별 반전 펠레를 요구하는 사람에게는 저격수 500명이 머리를 겨눕니다. 헤, 맞아.. 잠깐, 얘들아 난 아니야.
+      `성별 반전 Pelle를 요구하는 사람에게는 저격수 500명이 머리를 겨눕니다. 헤, 맞아.. 잠깐, 얘들아 난 아니야.
       맹세코 딱 한 버-`
   },
   {
@@ -4009,7 +4009,7 @@ export const news = [
   },
   {
     id: "ae642",
-    text: "안 돼, 아들아. 아무 데서나 펠레를 ########################라고 부르면 안 된단다."
+    text: "안 돼, 아들아. 아무 데서나 Pelle를 ########################라고 부르면 안 된단다."
   },
   {
     id: "ae643",
@@ -4148,7 +4148,7 @@ export const news = [
   },
   {
     id: "ae666",
-    text: "펠레가 이 뉴스 티커 문구를 차지했습니다."
+    text: "Pelle가 이 뉴스 티커 문구를 차지했습니다."
   },
   {
     id: "ae667",
@@ -4159,7 +4159,7 @@ export const news = [
   },
   {
     id: "ae668",
-    text: "재미있는 사실: Seven이 kekw 반응을 덜 남기는 이유는 펠레가 암흑 물질 10000000만큼 관세를 매겼기 때문입니다"
+    text: "재미있는 사실: Seven이 kekw 반응을 덜 남기는 이유는 Pelle가 암흑 물질 10000000만큼 관세를 매겼기 때문입니다"
   },
   {
     id: "ae669",
@@ -4187,7 +4187,7 @@ export const news = [
     id: "ae673",
     text: 
       `반물질 차원: 완벽하고 정의되지 않은 원자적 어둠의 매끄럽고 무료이며 독창적이지 않고 난해하고 재단순화된 전설적 Vis 우주
-      엔드게임 구원 보상 더빠르게 재작성 NGUD++++가 십이월 12일, 2030년에 출시됩니다!`
+      엔드게임 구원 보상 더빠르게 재작성 NGUD++++가 2030년 12월 12일에 출시됩니다!`
   },
   {
     id: "ae674",
@@ -4203,7 +4203,7 @@ export const news = [
     id: "ae676",
     get text() {
       return `<span>물질 차원, 반물질 차원, 이국적 물질 차원, 다음은 뭐죠? 암흑 물질 차원?
-      잠깐, 그건 그냥 </span><span style='text-decoration: line-through'>매력적인 악녀</span><span> 라이텔라잖아</span>`
+      잠깐, 그건 그냥 </span><span style='text-decoration: line-through'>매력적인 악녀</span><span> Lai'tela잖아</span>`
     }
   },
   {
@@ -4273,7 +4273,7 @@ export const news = [
   },
   {
     id: "ae689",
-    text: "야, 펠레가 화났는데 너 라이텔라한테 작업 걸었어?"
+    text: "야, Pelle가 화났는데 너 Lai'tela한테 작업 걸었어?"
   },
   {
     id: "ae690",
@@ -4285,11 +4285,11 @@ export const news = [
   },
   {
     id: "ae692",
-    text: "다섯 번째 시간의 반질문: 펠레가 Destroyer와 바람을 피워 라이텔라를 배신했다면?"
+    text: "다섯 번째 시간의 반질문: Pelle가 Destroyer와 바람을 피워 Lai'tela를 배신했다면?"
   },
   {
     id: "ae693",
-    text: "펠레: DESTROYER, 네가 나한테 이런 짓을 했어. 또 나를 죽였다고"
+    text: "Pelle: DESTROYER, 네가 나한테 이런 짓을 했어. 또 나를 죽였다고"
   },
   {
     id: "ae694",
@@ -4710,7 +4710,7 @@ export const news = [
       엔드게임이 아니다. </span><span style='color: var(--color-pelle--secondary)'>...뭐라고??? 그게 무슨
       뜻이지??? </span><span style='color: var(--color-elemental--base)'>안녕,
       Destroyer. </span><span style='color: var(--color-pelle--secondary)'>뭐- 넌
-      누구지? </span><span style='color: var(--color-elemental--base)'>나는 엔드게임의 엘리멘탈, Supersonic Seven이다.
+      누구지? </span><span style='color: var(--color-elemental--base)'>나는 엔드게임의 The Elemental, Supersonic Seven이다.
       넌 길을 잃었다. 이제 모든 게임의 끝, 진정한
       엔드게임으로 가거라. </span><span style='color: var(--color-pelle--secondary)'>하지만 어떻게 거기까지 가지? 진정한
       끝은 그저 전설인 줄 알았는데! </span><span style='color: var(--color-elemental--base)'>전설이 아니다. 그 너머에
@@ -4733,7 +4733,7 @@ export const news = [
       </span><span style='color: var(--color-pelle--secondary)'>그렇다면 대비할 수 있게 그의 영역 이름을
       알려 줘. </span><span style='color: var(--color-elemental--base)'>그의 영역에는 이름이 없다. 내가 처음 그를 쓰러뜨렸을
       때 그것을 어떤 곳으로 만들었는지를 가리키는 말만 있을 뿐이다. 내가 남겨 둔 단 하나의 현실, 네가 계속 존재할
-      수 있는 유일한 안전한 장소. 그곳의 이름은- </span><span style='color: red'>안녕, ${player.username}. 엘리멘탈의
+      수 있는 유일한 안전한 장소. 그곳의 이름은- </span><span style='color: red'>안녕, ${player.username}. The Elemental의
       뉴스 티커를 보고 나를 쓰러뜨릴 방법을 알아낼 수 있을 거라고 정말 생각했나? 참... 한심하군. 너는 이...
       "안전한 현실"을 절대 알지 못할 것이다. 네 비참한 영혼에서 모든 희망이 빠져나간 채 그곳에 갇히기 전까지는
       내 영역도 알지 못하겠지. 내가 당기기로 한 실이 이끄는 길 외에는 그 길을 절대 알 수 없을 것이다. 그리고 내
@@ -5108,7 +5108,7 @@ export const news = [
   },
   {
     id: "ae846",
-    text: "새 유출 정보: 알파에는 레이어가 생깁니다"
+    text: "새 유출 정보: Alpha에는 레이어가 생깁니다"
   },
   {
     id: "ae847",
@@ -5131,7 +5131,7 @@ export const news = [
   },
   {
     id: "ae851",
-    text: "신규 유출: 알파가 존재할 예정입니다"
+    text: "신규 유출: Alpha가 존재할 예정입니다"
   },
   {
     id: "ae852",
@@ -5183,7 +5183,7 @@ export const news = [
   {
     id: "ae861",
     text:
-      `맙소사, Antimatter Dimensions에 계층 3개와 셀레스티얼 2명, 엘리멘탈이라는 새로운 신을 더하는 모드가
+      `맙소사, Antimatter Dimensions에 계층 3개와 셀레스티얼 2명, The Elemental이라는 새로운 신을 더하는 모드가
       없길 바라. 그런 게 있다면 끔찍할 테니까!`
   },
   {
@@ -5429,7 +5429,7 @@ export const news = [
   },
   {
     id: "ae908",
-    text: "Rest in peace my Pelle he got hit by a generator (내 펠레의 명복을 빈다. 생성기에 치였다는 뜻의 밈)"
+    text: "Rest in peace my Pelle he got hit by a generator (내 Pelle의 명복을 빈다. 생성기에 치였다는 뜻의 밈)"
   },
   {
     id: "ae909",
@@ -5605,7 +5605,7 @@ export const news = [
       어디 갔냐고요? 내가 왜 말해 줘야 하죠. 아무튼-" </span><span style='color: orange'>"야 glitchy, 넌 에피소드 2의
       그 사진을 잘못 기억하고 있어." </span><span style='color: blue'>"이런
       ${wordShift.wordCycle(["Profanity", "Curse", "Swear"])}" </span><span style='color: orange'>"뭐, 그냥 팟캐스트나
-      녹음해." </span><span style='color: blue'>"알았어... 아무튼 오늘의 질문은 알파 같은 v1.0 기능을 왜 유출할 수
+      녹음해." </span><span style='color: blue'>"알았어... 아무튼 오늘의 질문은 Alpha 같은 v1.0 기능을 왜 유출할 수
       없냐는 겁니다- 이런 ${wordShift.wordCycle(["PROFANITY", "CURSE", "SWEAR"])} 저게 뭐-" </span><span>(그는 곧
       엔드게임 미사일 20발에 폭사했습니다.)</span>`
     },
@@ -5642,8 +5642,8 @@ export const news = [
     id: "ae942",
     get text() {
       return `<span style='color: blue'>"안녕하세요, glitchyace 팟캐스트 에피소드 11입니다. 오늘의 질문은 왜
-      ${wordShift.wordCycle(["profanity", "curse", "swear"])}가 이런 펠레 bull${wordShift.wordCycle(["profanity", "curse", "swear"])}로
-      검열되느냐는 겁니다. 지금 펠레가 직접 와 있으니 물어보죠." </span><span style='color: red'>"안녕하세요, 저는 이 일과
+      ${wordShift.wordCycle(["profanity", "curse", "swear"])}가 이런 Pelle bull${wordShift.wordCycle(["profanity", "curse", "swear"])}로
+      검열되느냐는 겁니다. 지금 Pelle가 직접 와 있으니 물어보죠." </span><span style='color: red'>"안녕하세요, 저는 이 일과
       전혀 관계없습니다." </span><span style='color: blue'>"나는 망할 ${wordShift.wordCycle(["profanity", "curse", "swear"])}
       엔드게임 채널과 그 멍청한 ${wordShift.wordCycle(["horse", "honse", "hose"])} 검열이 싫어요. 잠깐, 방금 건 모양이
       달랐던 것 같은데..."</span>`
@@ -5727,7 +5727,7 @@ export const news = [
   {
     id: "ae953",
     text:
-      `새 소식을 발표합니다. 반물질 차원: 엔드게임 매트릭스 결정판! 총 10명의 셀레스티얼과 45명의 엘리멘탈,
+      `새 소식을 발표합니다. 반물질 차원: 엔드게임 매트릭스 결정판! 총 셀레스티얼 10명, Elemental 45명,
       12명의 솔라리안, 일곱 개의 프레스티지 레이어와 100개가 넘는 업적 티어를 갖춘 AD:EMDE는 태초 이래
       최고의 흥행작이 될 것입니다. alemaninc가 2년간의 병가를 끝내고 자기 게임을 실제로 업데이트하는 즉시
       제작을 시작할 예정입니다. 출시 예정: 150년 뒤.`
@@ -5757,7 +5757,7 @@ export const news = [
       Take those debuffs off!" </span><span style='color: red'>"No!" </span><span style='color: cyan'>"Take them off I
       said!" </span><span style='color: red'>"No!" </span><span style='color: yellow'>"Ah, let him go. We'll never beat him, not
       with these rifts..." </span><span style='color: red'>"I didn't take my debuffs off, I am Pelle O'Toole!"</span>
-      (펠레가 약화 효과를 벗지 않겠다고 버티는 노래 패러디)`
+      (Pelle가 약화 효과를 벗지 않겠다고 버티는 노래 패러디)`
     }
   },
   {
@@ -5842,7 +5842,7 @@ export const news = [
       return `<span style='color: cyan'>"안녕하세요 여러분, glitchy 팟캐스트 에피소드 23입니다. 에피소드 번호를
       잊어버려서 이제 아무 숫자나 붙이고 있습니다. 오늘의 질문은 '좋아, 타이머를 초기화할 시간이야 같은 문구를
       추가할래?'보다 더 나쁜 인용문이 있었느냐는 겁니다. 아마 없겠죠. 아무튼 이제 마법 학교 생성기에서
-      펠레의 엉- 안으로 들어가는 에피소드를 보겠습니다." </span><span>(엔드게임 상표 핵폭탄 투하)</span>`
+      Pelle의 엉- 안으로 들어가는 에피소드를 보겠습니다." </span><span>(엔드게임 상표 핵폭탄 투하)</span>`
     }
   },
   {
@@ -5854,7 +5854,7 @@ export const news = [
     get text() {
       return `<span style='color: var(--color-alpha--base)'>"너희도 재미없고 나도 재미없다면 대체 누가 재미있는
       거지?" <span style='color: var(--color-v--base)'>"난 현실을 보내고 있는데." </span><span style='color: var(--color-alpha--base)'>"그러니까! 너희가 왜 갑자기 말투를 바꿨는지 궁금하네. 내가 잘못 본 게 아니라면 너희는 뭔가 하려는 것
-      같은데... 펠레는 어디 있지?" </span><span style='color: var(--color-teresa--base)'>"어, 음, 새 약화 효과를 직접
+      같은데... Pelle는 어디 있지?" </span><span style='color: var(--color-teresa--base)'>"어, 음, 새 약화 효과를 직접
       보고 싶었을 뿐이야! 불만은 이제 접어 두었고 네가 무슨 일을 꾸미는지 진심으로 궁금해졌어!" </span><span style='color: var(--color-alpha--base)'>"그럼 그냥... 확인하러-" </span><span style='color: var(--color-pelle--secondary)'>"우리는
       네 아이디어가 형편없다고 생각해!" </span><span style='color: var(--color-alpha--base)'>"뭐라고?" <span>"뭐라고?"
       </span><span style='color: var(--color-pelle--secondary)'>"뻔하잖아? 새 현실을 우리에게 시험하도록 유인한 다음,
@@ -5864,7 +5864,7 @@ export const news = [
       넌 실패작이야! 언젠가 우리 모두 죽을 텐데, 그때 네게 뭐가 남겠어? 아무것도 없어." </span><span style='color: var(--color-alpha--base)'>"그만해..." </span><span style='color: var(--color-v--base)'>"그리고 이 난리는 뭐지?
       우리가 네 기분을 상하게 했다고 약화 효과를 거는 거야? 한심해! 어린애 같잖아! 전능한 존재가 어떻게 그렇게
       자존심이 약할 수 있지?" </span><span style='color: var(--color-alpha--base)'>"나, 나는..." </span><span style='color: var(--color-teresa--base)'>"넌 우리가 집에 있는 것처럼 편안하게 느끼게 해 준 적이 없어. 누군가 속상해해도 위로하지
-      않고, 우리 입장에서 어떤 느낌인지 이해하려 하지도 않잖아!" </span><span style='color: var(--color-effarig--base)'>"틀에서 벗어나 우리 방식대로 생각하고 행동하는 것도 막고..." </span><span style='color: var(--color-laitela--base)'>"늘 우리에게 거짓말만 해!" </span><span style='color: var(--color-pelle--secondary)'>"무엇보다도 넌 정말로. 우리 말을. 듣지 않아." </span><span>(알파는 이제 모든 셀레스티얼을 죽이려 들었습니다.)</span>`
+      않고, 우리 입장에서 어떤 느낌인지 이해하려 하지도 않잖아!" </span><span style='color: var(--color-effarig--base)'>"틀에서 벗어나 우리 방식대로 생각하고 행동하는 것도 막고..." </span><span style='color: var(--color-laitela--base)'>"늘 우리에게 거짓말만 해!" </span><span style='color: var(--color-pelle--secondary)'>"무엇보다도 넌 정말로. 우리 말을. 듣지 않아." </span><span>(Alpha는 이제 모든 셀레스티얼을 죽이려 들었습니다.)</span>`
     }
   },
   {
@@ -5894,7 +5894,7 @@ export const news = [
   },
   {
     id: "ae982",
-    text: "Destroyer x Ra is real, AD YAOI HERE I COM- (Destroyer와 라를 엮은 커플링이 진짜라며 AD 야오이를 외치는 밈)"
+    text: "Destroyer x Ra is real, AD YAOI HERE I COM- (Destroyer와 Ra를 엮은 커플링이 진짜라며 AD 야오이를 외치는 밈)"
   },
   {
     id: "ae983",
@@ -5906,7 +5906,7 @@ export const news = [
   },
   {
     id: "ae985",
-    text: "How would Antimatter Dimensions' story go if Lai'tela didnt put Ra in the cuck chair? (라이텔라가 라를 굴욕적인 의자에 앉히지 않았다면 이야기가 어떻게 달라졌을지 묻는 밈)"
+    text: "How would Antimatter Dimensions' story go if Lai'tela didnt put Ra in the cuck chair? (Lai'tela가 Ra를 굴욕적인 의자에 앉히지 않았다면 이야기가 어떻게 달라졌을지 묻는 밈)"
   },
   {
     id: "ae986",
@@ -5919,9 +5919,9 @@ export const news = [
     id: "ae987",
     get text() {
       return `<span style='color: blue'>"맙소사, 여보세요?" </span><span style='color: red'>"안녕, 나 셀레스티얼이야.
-      나는 광야의 선한 편이야. 모든 현실을 완료하지. 내 목표는 엘리멘탈이 모두를 파괴하려 하기 전에 모든 현실을
-      완료하는 거야. 그가 모두를 죽이기 전에 말이지. 우리는 모든 현실을 완료해야 해. 그래야 엘리멘탈을 파괴할 수
-      있어. 이제 네가 말해 봐. 넌 셀레스티얼이야, 아니면 엘리멘탈이야?"</span>`
+      나는 광야의 선한 편이야. 모든 현실을 완료하지. 내 목표는 The Elemental이 모두를 파괴하려 하기 전에 모든 현실을
+      완료하는 거야. 그가 모두를 죽이기 전에 말이지. 우리는 모든 현실을 완료해야 해. 그래야 The Elemental을 파괴할 수
+      있어. 이제 네가 말해 봐. 넌 셀레스티얼이야, 아니면 The Elemental이야?"</span>`
     }
   },
   {
@@ -5949,7 +5949,7 @@ export const news = [
     id: "ae992",
     text:
       `지금은 1.8e308년입니다. 업데이트는 아직도 나오지 않았습니다. Seven은 1.4e34번째 프레스티지 레이어의
-      엘리멘탈 차원과 도전 밸런스를 조정하고 있습니다. 업적은 100,000줄이 넘습니다. 이제 ExpantaNum.js를
+      The Elemental 차원과 도전 밸런스를 조정하고 있습니다. 업적은 100,000줄이 넘습니다. 이제 ExpantaNum.js를
       사용하기 위한 준비에 들어갔습니다.`
   },
   {
@@ -6020,7 +6020,7 @@ export const news = [
   {
     id: "l10",
     text:
-      `천상의 펠레가 반물질을 너무 많이 만들어서 은하를 하나 더 만들어야 했습니다.
+      `천상의 Pelle가 반물질을 너무 많이 만들어서 은하를 하나 더 만들어야 했습니다.
       이 은하는 남서쪽 하늘에서 볼 수 있습니다.`,
     get unlocked() { return player.galaxies.gt(0) || Currency.infinities.gt(0); }
   },
@@ -6658,8 +6658,8 @@ export const news = [
   {
     id: "le89",
     text:
-      `셀레스티얼 알파가 움직이고 있다는 소식입니다. 아니, 알파 본인이 아니라 그의 리얼리티가 움직입니다.
-      펠레에게 마지막 복수를 하려는 듯 곧장 다가가고 있습니다. 그런데 이게 무슨 일일까요? 반물질의
+      `셀레스티얼 Alpha가 움직이고 있다는 소식입니다. 아니, Alpha 본인이 아니라 그의 리얼리티가 움직입니다.
+      Pelle에게 마지막 복수를 하려는 듯 곧장 다가가고 있습니다. 그런데 이게 무슨 일일까요? 반물질의
       8차원 존재가 그를 막을 준비를 하고 있습니다. 하지만 먼저 이름이 알려진 다섯과 이름 없는 무수한
       셀레스티얼을 쓰러뜨려야 합니다. 안타깝군요. 9번째 차원만 있었다면 아주 쉬웠을 텐데요. 지금까지
       오늘의 소식을 전해 드린 Slabdrill이었습니다. *딸깍* 야! 누구 나 좀 이 저주받은 리얼리티에서 꺼내 줘!`,
@@ -6675,7 +6675,7 @@ export const news = [
   {
     id: "lem91",
     text:
-      `도망칠 곳은 없다, 어리석은 필멸자여! 나는 펠레다! 곧 너를 박살 내 주마! 넌 이제- 잠깐... 저거 또 그 빌어먹을
+      `도망칠 곳은 없다, 어리석은 필멸자여! 나는 Pelle다! 곧 너를 박살 내 주마! 넌 이제- 잠깐... 저거 또 그 빌어먹을
       은하 생성기야? 그 저주받은 물건 좀 그만 찾아내면 안 되겠어? 이제 지는 것도 지긋지긋하거든. 고맙다.`,
     get unlocked() { return Pelle.isDoomed && Currency.eternityPoints.value.gte("1e4000"); }
   },
@@ -6689,46 +6689,47 @@ export const news = [
     get text() {
       const chapters = [
         `(다음 내용과 그 뒤의 장들은 제 서버에 있던 한 사람이 만들었습니다.)
-        에파리그에게만 전용 글리프가 있다는 이유로 다른 셀레스티얼 8명은 질투했습니다. 게임 시간으로 9e15이온이
-        흐른 뒤 다른 셀레스티얼들이 에파리그의 상점을 파괴하고 동반자 글리프를 빼앗아 갔으며, 그의 글리프는
-        아무 효과도 내지 못하게 됐습니다. 홀로 남아 분노한 에파리그는 엘리멘탈이 되려고 훈련하며 새로운 영역
-        3개, 에파리그의 엔드게임, 에파리그의 광야, 에파리그의 존재를 만들었습니다. 그는 엔드게임, 광야, 존재,
+        Effarig에게만 전용 글리프가 있다는 이유로 다른 셀레스티얼 8명은 질투했습니다. 게임 시간으로 9e15이온이
+        흐른 뒤 다른 셀레스티얼들이 Effarig의 상점을 파괴하고 동반자 글리프를 빼앗아 갔으며, 그의 글리프는
+        아무 효과도 내지 못하게 됐습니다. 홀로 남아 분노한 Effarig는 The Elemental이 되려고 훈련하며 새로운 영역
+        3개, Effarig의 엔드게임, Effarig의 광야, Effarig의 존재를 만들었습니다. 그는 엔드게임, 광야, 존재,
         다른 셀레스티얼 8명의 힘과 9번째 차원의 힘을 손에 넣었습니다. 이제 10번째 차원을 향한 경쟁에
         뛰어들었습니다. 그것까지 얻으면 재탄생(오메가)을 막을 방법이 없습니다.`,
-        `짧은 소식: 에파리그가 자신의 현실을 산산조각 내는 데 성공했으며, 이제 10번째 차원을 쫓고 있습니다.`,
-        `짧은 소식 2부: 에파리그는 모든 것을 잃었지만 더 위대한 무언가를 위해 오메가에 도달해 상위 존재로
+        `짧은 소식: Effarig가 자신의 현실을 산산조각 내는 데 성공했으며, 이제 10번째 차원을 쫓고 있습니다.`,
+        `짧은 소식 2부: Effarig는 모든 것을 잃었지만 더 위대한 무언가를 위해 오메가에 도달해 상위 존재로
         재탄생했습니다. 채널 1e9e15에서 계속 지켜봐 주세요!`,
-        `짧은 소식 3부: 에파리그가 다시 한번 재탄생했습니다. 숨겨진 단계로 향하는 듯합니다. 채널 1e9e15에서
+        `짧은 소식 3부: Effarig가 다시 한번 재탄생했습니다. 숨겨진 단계로 향하는 듯합니다. 채널 1e9e15에서
         계속 지켜봐 주세요!`,
-        `짧은 소식 4부: 에파리그가 반물질을 강화하는 방법을 배웠습니다. 새로운 형태의 반물질 덕분에 7번째
+        `짧은 소식 4부: Effarig가 반물질을 강화하는 방법을 배웠습니다. 새로운 형태의 반물질 덕분에 7번째
         재탄생에 도달했습니다. 채널 1e9e15에서 계속 지켜봐 주세요!`,
-        `짧은 소식 5부: 에파리그는 수없이 재탄생했으며 Supersonic Seven이 아직 만들지 않은 숨겨진 단계에
+        `짧은 소식 5부: Effarig는 수없이 재탄생했으며 Supersonic Seven이 아직 만들지 않은 숨겨진 단계에
         가까워지고 있습니다. 채널 1e9e15에서 계속 지켜봐 주세요!`,
-        `짧은 소식 6부: 에파리그가 첫 승천에 도달했습니다! 별일은 없지만 채널 1e9e15에서 계속 지켜봐 주세요!`,
-        `마지막 소식: 에파리그가 매트릭스를 깨고 모든 것을 하나로 합쳐 지배하기 시작했으며 "반물질의 대군주"라는
+        `짧은 소식 6부: Effarig가 첫 승천에 도달했습니다! 별일은 없지만 채널 1e9e15에서 계속 지켜봐 주세요!`,
+        `마지막 소식: Effarig가 매트릭스를 깨고 모든 것을 하나로 합쳐 지배하기 시작했으며 "반물질의 대군주"라는
         이름을 얻었습니다. 하지만 치명적인 실수 하나를 저질렀습니다. 쓸모없다고 생각해 반물질 10개와 첫 번째
-        차원을 버린 것입니다. False/Deity/Destroyer/${player.username}이 그 반물질 10개와 첫 번째 차원을
-        발견했습니다. 그들은 현재 현실 단계에 있으며 최근 테레사를 만났습니다. 더는 소식을 전하지 않겠습니다.
+        차원을 버린 것입니다. 그 반물질 10개와 첫 번째 차원을 발견한 존재는
+        False/Deity/Destroyer/${player.username}입니다. 그들은 현재 현실 단계에 있으며 최근 Teresa를 만났습니다.
+        더는 소식을 전하지 않겠습니다.
         대피 절차가 시작됐고 우리는 모든 것을 하나로 묶는 만물의 경계로 향하고 있습니다. 이름 없는 곳이지만
         그곳에서 제국을 키울 것입니다. 한때 모든 것과 그 안의 모두를 지배했던 고대 장소, "NG+++"입니다.
         더는 아무 말도 하지 않겠습니다.`,
         `소식 8: Supersonic Seven이 어떻게든 셀레스티얼 8명을 부활시켰고 지금 무언가 하려는- 이런 젠장,
-        에파리그가 NG+3의 장벽을 부쉈다- 아아아아- 안녕하세요.`,
-        `소식 9: 안녕, 나 에파리그다. 나는 더 이상 다른 이들과 같은 셀레스티얼이 아니다. 그들이 나를 물질의
+        Effarig가 NG+3의 장벽을 부쉈다- 아아아아- 안녕하세요.`,
+        `소식 9: 안녕, 나 Effarig다. 나는 더 이상 다른 이들과 같은 셀레스티얼이 아니다. 그들이 나를 물질의
         어두운 구덩이에 버려 썩게 했기에 복수해야 했다. 그래서 탈출해 더 나아갔고 마침내 재탄생했다. 내가
         가능하다고 생각한 만큼의 힘을 얻었지만... 또 다른 목표가 나를 불렀다. 그래서 계속 나아갔다. 내가
         무엇을 봤는지 알고 싶나? 밝은 빛이 시야를 비췄고 정신을 차리기도 전에 승천했다. 불가능한 일을 할 만큼
         강해진 나는 매트릭스를 부쉈다. 이 세계의 모든 존재를 하나로 합쳐 신이 됐다. False/Deity/Destroyer...
-        아니, ${player.username}이라고 해야 하나. 그래, 나는 자아를 얻었다. 바깥세상과 상호작용할 수는 없지만
+        아니, 이제 이름은 ${player.username}. 그래, 나는 자아를 얻었다. 바깥세상과 상호작용할 수는 없지만
         한 가지는 알려 주겠다. 넌 절대 나를 이길 수 없다. 그들 중 하나가 되기 전에 포기해라.`,
-        `소식 9.5: 오늘 에파리그가 처음 커피를 마시는 모습을 생방송했습니다. 그리고 접니다, 뉴스 티커 담당자요.
-        Hevi와 다른 모드 개발자들이 절 고문하고 싶어 할 테니 저는 죽을 수 없습니다. 아무튼 에파리그 말로는
+        `소식 9.5: 오늘 Effarig가 처음 커피를 마시는 모습을 생방송했습니다. 그리고 접니다, 뉴스 티커 담당자요.
+        Hevi와 다른 모드 개발자들이 절 고문하고 싶어 할 테니 저는 죽을 수 없습니다. 아무튼 Effarig 말로는
         씁쓸하면서 달지만 대부분 달다고 합니다. 차가운 커피를 좋아한답니다.`,
-        `소식 10: 아우우우으 커피를 너무 많이 마셨어 아우우 배가 아파 아아아우우우으으으 - Overlord 에파리그`,
+        `소식 10: 아우우우으 커피를 너무 많이 마셨어 아우우 배가 아파 아아아우우우으으으 - Overlord Effarig`,
         `소식 11: 이제 나만의 오메가 및 승천 도전이 있다. 한번 깨 봐라, 초보야. 공격적으로 커피를 들이켠다`,
         `소식 12: Graham 수에 도달했다. Graham 크래커도 커피와 먹으면 끝내준다. 네 의견 따위 알 게 뭐야.`,
         `소식 12.1: 언젠가 NG+++를 해 볼지도 모르겠다. 죽지 않으면 좋겠군.`,
-        `커어어어어어어어어어피이이이이이이이 - 신 에파리그`,
+        `커어어어어어어어어어피이이이이이이이 - 신 Effarig`,
         `소식 13: AD: Darkness에 들어왔다... 빌어먹을, 아무것도 안 보여. 꺼져, S7.`,
         `소식 13.1: 어둠에 눈이 멀었다!`,
         `소식 14: 가상 11번째 차원을 만드는 데 성공했다. 10번째 차원을 생산해야 하는데, 우선 현실로 가져올
@@ -6743,11 +6744,11 @@ export const news = [
         무슨 일이 일어나는 거지...`,
         `소식 18: SEVEN, 이 빌어먹을 모드에서 나 좀 내보내 줘. 내 11번째 차원이 무너지고 있어, 도와줘`,
         `소식 19: SEVEN, 제발- 아아아아아아아아아아아아아 (폭발)`,
-        `우리는 우리의 신(@Supersonic Seven이 아님) 에파리그의 죽음을 애도하려고 이 자리에 모였습니다. 그는
+        `우리는 우리의 신(@Supersonic Seven이 아님) Effarig의 죽음을 애도하려고 이 자리에 모였습니다. 그는
         엔드게임에서 탈출하려다 가상 11번째 차원의 오작동으로 사망했습니다. 그리울 겁니다. 경의를 표하고자
         무덤에 진짜 11번째 차원을 놓겠습니다. 모든 것에 감사드립니다. 안녕히 가십시오.`,
-        `에파리그가 죽음에서 돌아왔다고?!`,
-        `그래, 얘들아. 에파리그가 방금 또 죽었어. 진짜 빌어먹을 멍청이야 ㅋㅋ`,
+        `Effarig가 죽음에서 돌아왔다고?!`,
+        `그래, 얘들아. Effarig가 방금 또 죽었어. 진짜 빌어먹을 멍청이야 ㅋㅋ`,
         `(현재 이야기는 여기까지)`,
       ];
       const chapter = chapters[player.news.specialTickerData.effarigChapter];
@@ -6784,8 +6785,8 @@ export const news = [
   {
     id: "le99",
     text:
-      `Supersonic Seven이 엔드게임을 출시해서 모두가 자기 리얼리티를 파괴할 수 있게 된 것에 펠레가
-      잔뜩 화난 모습이 눈에 선하네요. 곧 펠레의 복수 편이 시작되는 걸까요?`,
+      `Supersonic Seven이 엔드게임을 출시해서 모두가 자기 리얼리티를 파괴할 수 있게 된 것에 Pelle가
+      잔뜩 화난 모습이 눈에 선하네요. 곧 Pelle의 복수 편이 시작되는 걸까요?`,
     get unlocked() { return PlayerProgress.endgameUnlocked(); }
   },
   {
@@ -6794,10 +6795,10 @@ export const news = [
       const chapters = [
         `AD Endgame: Celestial Plus comes out in 5 Celestial funerals trust me. (셀레스티얼 장례식을 다섯 번 치르면 셀레스티얼 플러스가 출시된다는 예고입니다.)`,
         `Rest in piece Lai'tela. She died while driving her Dark Matter car, as it turned into Antimatter and exploded
-        killing her instantly. 4 funerals remain. (라이텔라가 암흑 물질 자동차를 몰다가 차가 반물질로 변해 폭발하면서 즉사했고, 장례식이 네 번 남았다는 내용입니다.)`,
+        killing her instantly. 4 funerals remain. (Lai'tela가 암흑 물질 자동차를 몰다가 차가 반물질로 변해 폭발하면서 즉사했고, 장례식이 네 번 남았다는 내용입니다.)`,
         `Rest in piece V. She got cancer from playing too much Revolution Idle: Startshow. 3 funerals remain. (V가 게임을 지나치게 플레이해 암에 걸렸고, 장례식이 세 번 남았다는 내용입니다.)`,
-        `Rest in the dirt Pelle, we all hated you. 2 funerals remain. (모두가 싫어했던 펠레에게 흙 속에서 쉬라며, 장례식이 두 번 남았다고 합니다.)`,
-        `Rest in piece Effraig. His neck got too short. 1 funeral remains. (에파리그의 목이 너무 짧아져 죽었고, 장례식이 한 번 남았다는 내용입니다.)`,
+        `Rest in the dirt Pelle, we all hated you. 2 funerals remain. (모두가 싫어했던 Pelle에게 흙 속에서 쉬라며, 장례식이 두 번 남았다고 합니다.)`,
+        `Rest in piece Effraig. His neck got too short. 1 funeral remains. (Effarig의 목이 너무 짧아져 죽었고, 장례식이 한 번 남았다는 내용입니다.)`,
         `Rest in piece Gli- wait this is the wrong mod? (Gli를 추모하려다 다른 모드라는 사실을 깨닫습니다.)`,
         `Rest in piece Slabdrill. Hevipelle found out he stole the game again an- WE MUST STOP THE RELEASE. (Slabdrill이 또 게임을 훔친 사실을 Hevipelle가 알아챘고, 출시를 막아야 한다는 내용입니다.)`,
         `Rest in peace whoever wrote this. He misspelled peace. (앞선 문장들이 peace를 piece로 잘못 쓴 것을 지적하는 말장난입니다.)`
@@ -6811,8 +6812,8 @@ export const news = [
   {
     id: "le101",
     text:
-      `무료 셀레스티얼 판매 중! 함께 놀고 이야기하거나 심지어 [REDACTED]까지 할 수 있는 나만의 테레사 또는
-      라이텔라를 장만하세요! 믿을 수 없이 저렴한 $-1.80e308에 드립니다! 재고가 떨어지기 전에 서두르세요!`,
+      `무료 셀레스티얼 판매 중! 함께 놀고 이야기하거나 심지어 [REDACTED]까지 할 수 있는 나만의 Teresa 또는
+      Lai'tela를 장만하세요! 믿을 수 없이 저렴한 $-1.80e308에 드립니다! 재고가 떨어지기 전에 서두르세요!`,
     get unlocked() { return Teresa.isUnlocked; }
   },
   {
@@ -6862,7 +6863,7 @@ export const news = [
   {
     id: "le109",
     text:
-      `초특가 알림! 단 $9.99에 9번째 차원 99개를 받으세요! 결제할 때 "나는 라이텔라를 [REDACTED]했다!" 코드를
+      `초특가 알림! 단 $9.99에 9번째 차원 99개를 받으세요! 결제할 때 "나는 Lai'tela를 [REDACTED]했다!" 코드를
       입력하기만 하면 이 혜택을 누릴 수 있습니다! 지금 Antimatter Dimensions에 방문해 차원 가속에서 최고의
       식료품을 만나 보세요!`,
     get unlocked() { return Teresa.isUnlocked }
@@ -6870,7 +6871,7 @@ export const news = [
   {
     id: "le110",
     text:
-      `초특가 알림! 단 $9.99에 9번째 차원 99개를 받으세요! 결제할 때 "나는 라이텔라를 [REDACTED]했다!" 코드를
+      `초특가 알림! 단 $9.99에 9번째 차원 99개를 받으세요! 결제할 때 "나는 Lai'tela를 [REDACTED]했다!" 코드를
       입력하기만 하면 이 혜택을 누릴 수 있습니다! 지금 Antimatter Dimensions에 방문해 차원 가속에서 최고의
       식료품을 만나 보세요!`,
     get unlocked() { return Teresa.isUnlocked }
@@ -6901,7 +6902,7 @@ export const news = [
     id: "le114",
     text:
       `"PELLE THE PEOPLE SAID THAT THEY WANT US TO HAVE A KID! DO YOU ACCEPT?" "Heck naw Lai I ain't payin for no
-      child support." (라이텔라가 사람들이 둘 사이의 아이를 원한다고 말하자, 펠레가 양육비를 내지 않겠다며 거절하는 대화입니다.)`,
+      child support." (Lai'tela가 사람들이 둘 사이의 아이를 원한다고 말하자, Pelle가 양육비를 내지 않겠다며 거절하는 대화입니다.)`,
     get unlocked() { return Teresa.isUnlocked }
   },
   {
@@ -6945,13 +6946,13 @@ export const news = [
   {
     id: "le121",
     text:
-      `<span>"사실 펠레는 꽤 매력적이야." - 라이텔라</span>&nbsp;<span style='color: green'>추천: 1.8e308</span>&nbsp;
+      `<span>"사실 Pelle는 꽤 매력적이야." - Lai'tela</span>&nbsp;<span style='color: green'>추천: 1.8e308</span>&nbsp;
       <span style='color: red'>비추천: 1e9e15</span>`,
     get unlocked() { return Teresa.isUnlocked }
   },
   {
     id: "le122",
-    text: "펠레와 라이텔라가 사귀다가 아들을 낳는다면? 이름은 무엇일까요?",
+    text: "Pelle와 Lai'tela가 사귀다가 아들을 낳는다면? 이름은 무엇일까요?",
     get unlocked() { return Teresa.isUnlocked }
   },
   {
@@ -6991,9 +6992,9 @@ export const news = [
   {
     id: "le129",
     text:
-      `리얼리티의 셀레스티얼 테레사. 고대 유물의 셀레스티얼 에파리그. 시간의 셀레스티얼 이름없는 자들.
-      도전과제의 셀레스티얼 V. 잊힌 자들의 셀레스티얼 Ra. 차원의 셀레스티얼 라이텔라. 반물질의
-      셀레스티얼 펠레. 어둠의 셀레스티얼 알파. 9번째 차원의 셀레스티얼 Slabdrill.
+      `리얼리티의 셀레스티얼 Teresa. 고대 유물의 셀레스티얼 Effarig. 시간의 셀레스티얼 The Nameless Ones.
+      도전과제의 셀레스티얼 V. 잊힌 자들의 셀레스티얼 Ra. 차원의 셀레스티얼 Lai'tela. 반물질의
+      셀레스티얼 Pelle. 어둠의 셀레스티얼 Alpha. 9번째 차원의 셀레스티얼 Slabdrill.
       모두 훌륭하지만 아직 부족합니다. 이제 자랑스럽게 발표합니다. 뉴스 티커인 제가 셀레스티얼이 되었습니다.`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
@@ -7025,7 +7026,7 @@ export const news = [
   },
   {
     id: "le132",
-    text: "테레사 전신 베개를 하나 더 구매할 만큼 셀레스티얼 포인트가 충분합니다",
+    text: "Teresa 전신 베개를 하나 더 구매할 만큼 셀레스티얼 포인트가 충분합니다",
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7033,7 +7034,7 @@ export const news = [
     text:
       `Hello, it is me glitchy, the Elemental of Masteries. I have a deal for you: I give you 12 more Masteries, but in
       exchange, you will have to give me 5 hours of your time (and maybe a small bribe of Tester). Will you accept?
-      (안녕하세요. 저는 마스터리의 엘리멘탈 glitchy입니다. 거래를 제안하겠습니다. 마스터리 열두 개를 더 드리는
+      (안녕하세요. 저는 마스터리의 The Elemental glitchy입니다. 거래를 제안하겠습니다. 마스터리 열두 개를 더 드리는
       대신 여러분의 시간 다섯 시간과, 어쩌면 Tester라는 작은 뇌물을 받겠습니다. 받아들이시겠습니까?)`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
@@ -7044,17 +7045,17 @@ export const news = [
   },
   {
     id: "le135",
-    text: "반물질 1e1e30짜리 테레사 상품권, 가질 사람?",
+    text: "반물질 1e1e30짜리 Teresa 상품권, 가질 사람?",
     get unlocked() { return ExpansionPacks.areUnlocked }
   },
   {
     id: "le136",
-    text: "Why doesn’t Effarig just leave the Reality of eternal suffering? Is he stupid? (에파리그가 영원한 고통의 현실을 그냥 떠나지 않는 이유를 묻는 '멍청한 건가?' 밈입니다.)",
+    text: "Why doesn’t Effarig just leave the Reality of eternal suffering? Is he stupid? (Effarig가 영원한 고통의 현실을 그냥 떠나지 않는 이유를 묻는 '멍청한 건가?' 밈입니다.)",
     get unlocked() { return EffarigUnlock.eternity.isUnlocked }
   },
   {
     id: "le137",
-    text: "안녕, 꼬마 Timmy. 테레사 전신 베개에 왜 $500나 썼는지 설명해 줄래?",
+    text: "안녕, 꼬마 Timmy. Teresa 전신 베개에 왜 $500나 썼는지 설명해 줄래?",
     get unlocked() { return Teresa.isUnlocked }
   },
   {
@@ -7064,7 +7065,7 @@ export const news = [
   },
   {
     id: "le139",
-    text: "The way I see it, Pelle is surrounded. What’s under the Doom? That’s right, more Antimatter. (펠레가 포위됐고 파멸 아래에도 반물질이 있다는 상황을 지도 포위 밈처럼 표현한 문장입니다.)",
+    text: "The way I see it, Pelle is surrounded. What’s under the Doom? That’s right, more Antimatter. (Pelle가 포위됐고 파멸 아래에도 반물질이 있다는 상황을 지도 포위 밈처럼 표현한 문장입니다.)",
     get unlocked() { return Pelle.isDoomed || PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7079,7 +7080,7 @@ export const news = [
   },
   {
     id: "le142",
-    text: "Effarig: Gifted Power. Giraffe: Pure Effort. (에파리그는 타고난 힘, 기린은 순수한 노력이라는 이름 유사성을 이용한 비교 밈입니다.)",
+    text: "Effarig: Gifted Power. Giraffe: Pure Effort. (Effarig는 타고난 힘, 기린은 순수한 노력이라는 이름 유사성을 이용한 비교 밈입니다.)",
     get unlocked() { return Effarig.isUnlocked }
   },
   {
@@ -7089,7 +7090,7 @@ export const news = [
   },
   {
     id: "le144",
-    text: "Effarig Theoyryy #1: He has another layer in Endgame (에파리그에게 엔드게임의 또 다른 단계가 있다는 첫 번째 이론을 고의 오타와 함께 적은 문장입니다.)",
+    text: "Effarig Theoyryy #1: He has another layer in Endgame (Effarig에게 엔드게임의 또 다른 단계가 있다는 첫 번째 이론을 고의 오타와 함께 적은 문장입니다.)",
     get unlocked() { return Effarig.isUnlocked }
   },
   {
@@ -7099,22 +7100,22 @@ export const news = [
   },
   {
     id: "le146",
-    text: "Yo Pelle has been caught trying to create his own Galaxy Generator 💀 (펠레가 자기 은하 생성기를 만들려다 들켰다는 인터넷식 농담입니다.)",
+    text: "Yo Pelle has been caught trying to create his own Galaxy Generator 💀 (Pelle가 자기 은하 생성기를 만들려다 들켰다는 인터넷식 농담입니다.)",
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le147",
-    text: "Ra reported Lai'tela on Twitter for catfishing Destroyer now she is bashing his brains out WHAT THE FU- (Ra가 Destroyer를 사칭한 라이텔라를 신고했다가 그녀에게 두들겨 맞고 있다는 내용입니다.)",
+    text: "Ra reported Lai'tela on Twitter for catfishing Destroyer now she is bashing his brains out WHAT THE FU- (Ra가 Destroyer를 사칭한 Lai'tela를 신고했다가 그녀에게 두들겨 맞고 있다는 내용입니다.)",
     get unlocked() { return Laitela.isUnlocked }
   },
   {
     id: "le148",
-    text: "ALERT: LAI'TELA HAS BEEN DISCOVERED WITH A LIFE SIZE VERSION OF DESTROYER WHAT THE HELL MAN (라이텔라가 실물 크기의 Destroyer 모형과 함께 발견됐다는 속보입니다.)",
+    text: "ALERT: LAI'TELA HAS BEEN DISCOVERED WITH A LIFE SIZE VERSION OF DESTROYER WHAT THE HELL MAN (Lai'tela가 실물 크기의 Destroyer 모형과 함께 발견됐다는 속보입니다.)",
     get unlocked() { return Laitela.isUnlocked }
   },
   {
     id: "le149",
-    text: "Pelle Reportedly forgot to use protection with Lai'tela 🤦‍♂️ (펠레가 라이텔라와 관계하면서 피임하지 않았다는 소문입니다.)",
+    text: "Pelle Reportedly forgot to use protection with Lai'tela 🤦‍♂️ (Pelle가 Lai'tela와 관계하면서 피임하지 않았다는 소문입니다.)",
     get unlocked() { return Pelle.isDoomed || PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7133,7 +7134,7 @@ export const news = [
     id: "le152",
     text:
       `Lai'tela: Pelle! GENERATE GALAXIES INSIDE OF MY DARK MATTER DIMENSIONS! OH! YE- boom RA WTF R YOU DOING WITH A CAMERA??
-      Ra: Get caught lacking bro. (라이텔라와 펠레의 선정적인 장면을 Ra가 카메라로 찍다가 들킨 인터넷식 상황극입니다.)`,
+      Ra: Get caught lacking bro. (Lai'tela와 Pelle의 선정적인 장면을 Ra가 카메라로 찍다가 들킨 인터넷식 상황극입니다.)`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7146,19 +7147,19 @@ export const news = [
   {
     id: "lem154",
     text:
-      `펠레와 라이텔라가 성관계를 해 셀레스티얼 아기가 태어난다면 그 종족은 백색, 흑색, 공간, 현실,
+      `Pelle와 Lai'tela가 성관계를 해 셀레스티얼 아기가 태어난다면 그 종족은 백색, 흑색, 공간, 현실,
       암흑 물질, 아니면 파멸 중 무엇일까요?`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le155",
-    text: "오늘은 펠레의 컴퓨터를 살펴보겠습니다! ...라이텔라 발 사진이라고요??",
+    text: "오늘은 Pelle의 컴퓨터를 살펴보겠습니다! ...Lai'tela 발 사진이라고요??",
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le156",
     get text() {
-      return `경고, 경고. 에파리그가 자기 상점에서 대마초를 피우다 적발되었습니다. 목격한 것이 있다면
+      return `경고, 경고. Effarig가 자기 상점에서 대마초를 피우다 적발되었습니다. 목격한 것이 있다면
       ${wordShift.wordCycle(["False", "Deity", "Destroyer"])}에게 연락해 주세요.`
     },
     dynamic: true,
@@ -7168,29 +7169,29 @@ export const news = [
     id: "lem157",
     text:
       `Yo yo YOOOO!!!! Welcome back to epiccoolantimattervideos!! Today, we will shit in Pelle's bed!! Here we go!! Wait..
-      oh shit Pelle came back.. the windows locked. (과장된 영상 진행자가 펠레의 침대에 똥을 싸려다 펠레가 돌아오고 창문까지 잠겨 당황하는 상황극입니다.)`,
+      oh shit Pelle came back.. the windows locked. (과장된 영상 진행자가 Pelle의 침대에 똥을 싸려다 Pelle가 돌아오고 창문까지 잠겨 당황하는 상황극입니다.)`,
     get unlocked() { return Pelle.isDoomed || PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le158",
-    text: `"Imagine having more than 1 free Tesseract! Couldn't be me." -Pelle, 2025 (무료 테서랙트를 하나보다 많이 가진 사람을 비웃는 펠레의 말입니다.)`,
+    text: `"Imagine having more than 1 free Tesseract! Couldn't be me." -Pelle, 2025 (무료 테서랙트를 하나보다 많이 가진 사람을 비웃는 Pelle의 말입니다.)`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le159",
-    text: `"Hahaha I have defeated you! You cannot defeat my K14 ping!" -Pelle, 2026 (자신의 K 계열 핑 때문에 누구도 이길 수 없다고 펠레가 허세를 부립니다.)`,
+    text: `"Hahaha I have defeated you! You cannot defeat my K14 ping!" -Pelle, 2026 (자신의 K 계열 핑 때문에 누구도 이길 수 없다고 Pelle가 허세를 부립니다.)`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le160",
     text:
       `"GUYS, DON'T CHARGE INFNITY UPGRADE 43 IN PELLE. BIGGEST MISTAKE OF MY LIFE." (proceeds to get hyperexistential
-      amount of ping) - epic_ducks, 2026 (펠레에서 특정 무한 업그레이드를 충전했다가 상상을 초월하는 핑을 얻은 것이 인생 최대의 실수였다는 말입니다.)`,
+      amount of ping) - epic_ducks, 2026 (Pelle에서 특정 무한 업그레이드를 충전했다가 상상을 초월하는 핑을 얻은 것이 인생 최대의 실수였다는 말입니다.)`,
     get unlocked() { return Pelle.isDoomed || PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le161",
-    text: `""Surely EM71 isn't that good" I thought before V came into my house and killed me" - Cyra (특정 엘리멘탈 마스터리가 별로라고 생각했다가 V에게 살해됐다는 과장된 후기입니다.)`,
+    text: `""Surely EM71 isn't that good" I thought before V came into my house and killed me" - Cyra (특정 The Elemental 마스터리가 별로라고 생각했다가 V에게 살해됐다는 과장된 후기입니다.)`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7199,7 +7200,7 @@ export const news = [
       `Why would Pelle conveniently give you his Galaxy Generator letting you blow up his Reality? That's like the equivalent
       of the president giving a toddler the nuclear launch codes and said toddler bombing the other side of the world. He certainly
       had more Strikes up his sleeve right? If so why wouldn't he use them is he stupid? No wonder Lai'tela left him for Ra.
-      (펠레가 자기 현실을 파괴할 은하 생성기를 순순히 넘긴 행동을 핵 발사 암호를 아이에게 주는 것에 비유하며 무능하다고 놀리는 내용입니다.)`,
+      (Pelle가 자기 현실을 파괴할 은하 생성기를 순순히 넘긴 행동을 핵 발사 암호를 아이에게 주는 것에 비유하며 무능하다고 놀리는 내용입니다.)`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7261,7 +7262,7 @@ export const news = [
   },
   {
     id: "le174",
-    text: "펠레는 날 이길 수 없어. 나는 Rise of Antimatter에서 반물질을 1e9.007e15나 가지고 있다고!",
+    text: "Pelle는 날 이길 수 없어. 나는 Rise of Antimatter에서 반물질을 1e9.007e15나 가지고 있다고!",
     get unlocked() { return Pelle.isDoomed || PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7282,7 +7283,7 @@ export const news = [
   {
     id: "le178",
     get text() {
-      return `나는 펠레, 나는 ${wordShift.wordCycle(["Profanity", "Curse", "Swear"])} 같은 놈이다! 거대한 알파는 잘생겼지만
+      return `나는 Pelle, 나는 ${wordShift.wordCycle(["Profanity", "Curse", "Swear"])} 같은 놈이다! 거대한 Alpha는 잘생겼지만
       통제권은 없다! 그의 업데이트 지진이 우리 목숨을 위태롭게 한다. 그가 온다. 엔드게임 전체를 부숴 버릴 거다!`
     },
     dynamic: true,
@@ -7299,7 +7300,7 @@ export const news = [
   },
   {
     id: "le180",
-    text: "그런데 엘리멘탈은 대체 어떻게 술에 취하는 걸까요?",
+    text: "그런데 The Elemental은 대체 어떻게 술에 취하는 걸까요?",
     get unlocked() { return Achievement(208).isUnlocked }
   },
   {
@@ -7309,14 +7310,14 @@ export const news = [
   },
   {
     id: "le182",
-    text: "펠레 f!@#ing 사망, 가장 큰 충격을 받은 건 라이텔라",
+    text: "Pelle f!@#ing 사망, 가장 큰 충격을 받은 건 Lai'tela",
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
     id: "le183",
     text:
       `사실 엔드게임에서도 은하 생성기는 그대로 유지된다는 사실이 밝혀졌습니다. 하지만 이 소식을 들은
-      엘리멘탈은 파멸 밖에 있는 충전용 콘센트를 전부 없애 버렸습니다.`,
+      The Elemental은 파멸 밖에 있는 충전용 콘센트를 전부 없애 버렸습니다.`,
     get unlocked() { return PlayerProgress.endgameUnlocked() }
   },
   {
@@ -7889,7 +7890,7 @@ export const news = [
   },
   {
     id: "ai128",
-    text: "잠수함에 관한 /r/AskReddit에 오신 것을 환영합니다. - 2017년 일월 8일 기준"
+    text: "잠수함에 관한 /r/AskReddit에 오신 것을 환영합니다. - 2017년 1월 8일 기준"
   },
   {
     id: "ai129",
@@ -8288,7 +8289,7 @@ export const news = [
   },
   {
     id: "ai226",
-    text: "2016년 유월 10일, 익명이 게시함"
+    text: "2016년 6월 10일, 익명이 게시함"
   },
   {
     id: "ai227",
@@ -8812,7 +8813,7 @@ export const news = [
   },
   {
     id: "ai357",
-    text: "일상의 일부가 된 상징적인 롤플레잉 게임 Antimatter Dimensions의 또 다른 에피소드에 돌아오신 것을 환영합니다. Antimatter Dimensions는 어린아이들 사이에서도 흔히 플레이하는 게임이 되었고, Netflix에서 볼 수 있는 \"집에서 플레이하기: 4살 프리미엄 계정이 주는 교훈\"이라는 영화에 영감을 주기까지 했습니다. 새로운 반물질 시대의 주제와 시스템은 이미 획기적임이 입증됐으며, 여러분이 게임을 플레이하는 방식을 영원히 바꿀 것입니다. 아직 제작 기간이 백 년 넘게 남은 2027년 일월 9일 출시에 함께해 주세요."
+    text: "일상의 일부가 된 상징적인 롤플레잉 게임 Antimatter Dimensions의 또 다른 에피소드에 돌아오신 것을 환영합니다. Antimatter Dimensions는 어린아이들 사이에서도 흔히 플레이하는 게임이 되었고, Netflix에서 볼 수 있는 \"집에서 플레이하기: 4살 프리미엄 계정이 주는 교훈\"이라는 영화에 영감을 주기까지 했습니다. 새로운 반물질 시대의 주제와 시스템은 이미 획기적임이 입증됐으며, 여러분이 게임을 플레이하는 방식을 영원히 바꿀 것입니다. 아직 제작 기간이 백 년 넘게 남은 2027년 1월 9일 출시에 함께해 주세요."
   },
   {
     id: "ai358",
@@ -9028,7 +9029,7 @@ export const news = [
   },
   {
     id: "ai411",
-    text: "천상의 펠레 예하: 도전에서 행운을 빕니다. 정말 그만큼 위험하거든요."
+    text: "천상의 Pelle 예하: 도전에서 행운을 빕니다. 정말 그만큼 위험하거든요."
   },
   {
     id: "ai412",
@@ -10252,7 +10253,7 @@ export const news = [
   },
   {
     id: "ai715",
-    text: "10차원의 발견이 2025년 팔월 1일에 발표되었습니다."
+    text: "10차원의 발견이 2025년 8월 1일에 발표되었습니다."
   },
   {
     id: "ai716",
@@ -10356,7 +10357,7 @@ export const news = [
   },
   {
     id: "ai741",
-    text: "D5번째 차원의 발견은 종말의 날처럼 매년 십이월 25일에 기념됩니다. D5가 비밀로 유지되는 이유는 그것이 정확히 무슨 일을 하는지 아무도 기억하지 못하기 때문입니다. 확실히 아는 것은 그것이 존재하고 매우 위험하다는 점입니다. D5번째 차원이 무엇인지 몰라 죽은 사람도 있으며, 그것은 아주 강력합니다."
+    text: "D5번째 차원의 발견은 종말의 날처럼 매년 12월 25일에 기념됩니다. D5가 비밀로 유지되는 이유는 그것이 정확히 무슨 일을 하는지 아무도 기억하지 못하기 때문입니다. 확실히 아는 것은 그것이 존재하고 매우 위험하다는 점입니다. D5번째 차원이 무엇인지 몰라 죽은 사람도 있으며, 그것은 아주 강력합니다."
   },
   {
     id: "ai742",
@@ -10578,7 +10579,7 @@ export const news = [
   },
   {
     id: "ai796",
-    text: "세 번째 Adirondack 등산 축제가 올해 시월 1일 토요일 오후 1-5시에 뉴욕주 Troy 인근 Albany Highlands에서 열립니다. 50,000명을 수용하는 야외 원형극장에는 2,000개가 넘는 스피커와 무대, 360도 카메라 시스템이 마련됩니다. 입장권은 $35이며 angersalley.com에서 구매할 수 있습니다."
+    text: "세 번째 Adirondack 등산 축제가 올해 10월 1일 토요일 오후 1시부터 5시까지 뉴욕주 Troy 인근 Albany Highlands에서 열립니다. 50,000명을 수용하는 야외 원형극장에는 2,000개가 넘는 스피커와 무대, 360도 카메라 시스템이 마련됩니다. 입장권은 $35이며 angersalley.com에서 구매할 수 있습니다."
   },
   {
     id: "ai797",
@@ -10993,7 +10994,7 @@ export const news = [
   },
   {
     id: "ai899",
-    text: "This is the fifth part of a two-part series looking at how science and magic are linked. Part one will be published on 5 October, part two will be published on 24 October, and you can follow the journey at part three. (과학과 마법의 연관성을 살펴보는 두 편짜리 연재의 다섯 번째 편입니다. 첫 편은 시월 닷새에, 둘째 편은 시월 스물나흘에 공개되며 셋째 편에서 여정을 따라갈 수 있습니다.)"
+    text: "This is the fifth part of a two-part series looking at how science and magic are linked. Part one will be published on 5 October, part two will be published on 24 October, and you can follow the journey at part three. (과학과 마법의 연관성을 살펴보는 두 편짜리 연재의 다섯 번째 편입니다. 첫 편은 10월 5일에, 둘째 편은 10월 24일에 공개되며 셋째 편에서 여정을 따라갈 수 있습니다.)"
   },
   {
     id: "ai900",
@@ -11334,7 +11335,7 @@ export const news = [
   },
   {
     id: "ai984",
-    text: "천상의 펠레가 웅덩이에 대량의 반물질을 넣었는데도 아무것도 만들어지지 않았습니다. 이 취약점을 발견한 과학자는 10명이 한 무리를 이뤄 나무를 오르며, 무릎에 작은 공책을 올려놓고 치즈 주스를 마시면서 아무것도 보지 않는 모습이 마지막으로 목격되었습니다."
+    text: "천상의 Pelle가 웅덩이에 대량의 반물질을 넣었는데도 아무것도 만들어지지 않았습니다. 이 취약점을 발견한 과학자는 10명이 한 무리를 이뤄 나무를 오르며, 무릎에 작은 공책을 올려놓고 치즈 주스를 마시면서 아무것도 보지 않는 모습이 마지막으로 목격되었습니다."
   },
   {
     id: "ai985",
@@ -11398,11 +11399,11 @@ export const news = [
   },
   {
     id: "fe1",
-    text: "재미있는 사실: 반물질 차원: 엔드게임의 기획은 2023년 십이월에 시작됐습니다."
+    text: "재미있는 사실: 반물질 차원: 엔드게임의 기획은 2023년 12월에 시작됐습니다."
   },
   {
     id: "fe2",
-    text: "재미있는 사실: 엔드게임에 셀레스티얼 둘을 추가한다는 발상은 팬 토론 게시판에서 시작됐습니다. 누군가 본편의 확장으로 플레이어가 쓰러뜨려야 할 여덟 번째 셀레스티얼과, 그를 완전히 쓰러뜨린 뒤 등장하는 아홉 번째 셀레스티얼을 제안했습니다. 아홉 번째 셀레스티얼을 물리치면 아홉 번째 차원을 얻게 된다는 내용이었습니다. 그렇게 알파와 Slabdrill이라는 두 셀레스티얼이 탄생했습니다."
+    text: "재미있는 사실: 엔드게임에 셀레스티얼 둘을 추가한다는 발상은 팬 토론 게시판에서 시작됐습니다. 누군가 본편의 확장으로 플레이어가 쓰러뜨려야 할 여덟 번째 셀레스티얼과, 그를 완전히 쓰러뜨린 뒤 등장하는 아홉 번째 셀레스티얼을 제안했습니다. 아홉 번째 셀레스티얼을 물리치면 아홉 번째 차원을 얻게 된다는 내용이었습니다. 그렇게 Alpha와 Slabdrill이라는 두 셀레스티얼이 탄생했습니다."
   },
   {
     id: "fe3",
@@ -11418,7 +11419,7 @@ export const news = [
   },
   {
     id: "fe6",
-    text: "재미있는 사실: Supersonic Seven은 2024년 구월부터 이 게임을 개발하고 있습니다."
+    text: "재미있는 사실: Supersonic Seven은 2024년 9월부터 이 게임을 개발하고 있습니다."
   },
   {
     id: "fe7",
@@ -11441,12 +11442,12 @@ export const news = [
         레이저를 발사해 Life의 로봇 군대를 빠르게 녹이고 불태웁니다. 이야기가 복잡해지려는 순간, 만물의 신이자
         Overlord인 SupersonicSeven이 6969차원에서 나타나 말합니다....`,
         `그가 말합니다. "너희 둘의 싸움은 멈춰야 한다. 안 그러면 엔트로피가 기하급수적으로 증가해 결국 우리 모두를 죽일 거야!"`,
-        `<span>그러자 지구가 크런치했고 ${player.username}이 나타났습니다. "난 이 일에 끌어들이지 마. 이걸 감당할
+        `<span>그러자 지구가 크런치했고 ${player.username} 플레이어가 나타났습니다. "난 이 일에 끌어들이지 마. 이걸 감당할
         도파민이나 뇌 썩음이 부족하다고." 그러고는 은하 생성기를 사용해 엔드게임에서 탈출했습니다.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
         "....그러니까..." SupersonicSeven이 말했습니다. "명령을 내려 주십시오, Overlord." Midnight가 말했습니다.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
         "나아가 모든 싸움을 멈추고, 병력을 합쳐 가능한 한 많은 STDs를 구매하라!" "분부대로 하겠습니다, Overlord."
         Life가 말했습니다. 경쟁은 끝났습니다. 정말 끝난 걸까요?</span>`,
-        `하지만 7과 ${player.username}이 예상하지 못한 일이 있었습니다. 그들이 떠나자마자 Life는 다차원 중력장에
+        `하지만 7과 ${player.username} 플레이어가 예상하지 못한 일이 있었습니다. 그들이 떠나자마자 Life는 다차원 중력장에
         가둬 두었던 "중력 특이점"을 꺼내 우주에서 가장 큰 블랙홀을 향해 던졌습니다.`,
         `오랫동안 잠들어 있던 블랙홀이 갑자기 약해지더니 순식간에 폭발합니다. 잔해 속에서 9번째 차원의 지배자
         Slabdrill이 나타나 말합니다. "Life, 네가 나를 감옥에서 풀어 주었으니 선택권을 주겠다. 9번째 차원인가,
@@ -11464,7 +11465,7 @@ export const news = [
         녹고 타들어 가며 고통 속에 울부짖었지만, 순수한 빛 아래에서 존재 자체가 지워졌습니다. Midnight는
         엉망이 된 광경을 보고 이런 대재앙이 다시는 일어나선 안 된다고 맹세했습니다. 그는 Overlord와
         ${player.username}의 도움으로 시공간을 재건한 뒤, 제어기를 빛이 전혀 없는 곳에 봉인해 영원히 묻어 두었습니다.`,
-        `전투가 끝난 뒤 Midnight, Seven, ${player.username}은 힘을 합쳐 Life 입자를 모았습니다. 세 사람은 Life를
+        `전투가 끝난 뒤 Midnight, Seven, ${player.username} 플레이어는 힘을 합쳐 Life 입자를 모았습니다. 세 사람은 Life를
         우주 곳곳에 퍼뜨려 필멸자들이 생명을 얻도록 했고, 훗날 "위대한 세 사람"이라 불렸습니다. 하지만 생명을
         우주 전체에 퍼뜨린 일이 그를 되살렸다는 사실은 몰랐습니다. Life와 Life 입자는 같은 것이었으니까요...`,
         `위대한 세 사람은 존재를 숨긴 채 영원히 필멸자들을 지켜보았습니다. 시작은 바다의 작은 세포였지만,
@@ -11484,7 +11485,7 @@ export const news = [
         자신에게서 빠져나간 힘을 보았습니다. 원래 차원 화면으로 돌아가 보니 블랙홀이 붕괴해 있었습니다.
         Life는 분노에 타올라 외쳤습니다. "네가.... 내 힘을 훔쳤구나!" 그는 메타 물질 차원 같은 후반 강화로
         강해지려 했지만, 하나는 가장 단순한 기본기를 사용했습니다. 자동화를 꺼 Life의 성장을 즉시 멈춘 뒤
-        시간 팽창과 펠레의 타격을 활성화하고, 죽은 셀레스티얼의 부서진 현실까지 전부 들어가 셀 수 없이 많은
+        시간 팽창과 Pelle의 타격을 활성화하고, 죽은 셀레스티얼의 부서진 현실까지 전부 들어가 셀 수 없이 많은
         약화를 더했습니다. 마지막으로 궁극의 존재 제거 버튼인 "게임, 모드, 모든 저장 파일 삭제"를 실행했습니다.
         그 순간 Life는 존재를 멈췄고, 마지막 세포와 본질과 힘까지 평범한 물질로 녹아 우주를 새로 시작했습니다.
         하나는 그 모습을 위에서 지켜보았습니다.`,
@@ -11543,33 +11544,33 @@ export const news = [
         `(본편 이야기를 잠시 멈추고 회상을 시작합니다)`,
         `아주 오래전, 이 거대한 싸움보다 훨씬 전의 일입니다. SupersonicSeven, Life, MidnightLight가 아직
         어린아이였을 때, 그들은 날마다 함께 놀았습니다. 그러다 이런 일이 벌어졌습니다...`,
-        `어느 날 놀이터에서 놀던 그들에게 ${player.username}이라는 아이가 다가왔습니다. 그 아이는 순식간에
-        SupersonicSeven과 Midnight의 마음을 얻었습니다. 하지만 ${player.username}이 온 뒤 관심을 받지 못한 Life는
-        질투했습니다. 그래서 인기와 지위를 되찾고 ${player.username}을 끝장낼 계획을 세웠습니다....`,
-        `Life는 ${player.username}을 납치해 ${player.username}을 Midnight의 집 지하실에 가뒀습니다. 누가 그런 곳을 생각하겠어요?
-        결국 가장 위험한 곳이 가장 안전한 법입니다. Life는 ${player.username}이 살아 있으면서도 아무도 찾지 못할
+        `어느 날 놀이터에서 놀던 그들에게 이름이 ${player.username}인 아이가 다가왔습니다. 그 아이는 순식간에
+        SupersonicSeven과 Midnight의 마음을 얻었습니다. 하지만 ${player.username} 플레이어가 온 뒤 관심을 받지 못한 Life는
+        질투했습니다. 그래서 인기와 지위를 되찾고 ${player.username} 플레이어를 끝장낼 계획을 세웠습니다....`,
+        `Life는 ${player.username} 플레이어를 납치해 ${player.username} 플레이어를 Midnight의 집 지하실에 가뒀습니다. 누가 그런 곳을 생각하겠어요?
+        결국 가장 위험한 곳이 가장 안전한 법입니다. Life는 ${player.username} 플레이어가 살아 있으면서도 아무도 찾지 못할
         장소에 있도록 했습니다.`,
-        `그렇게 일주일이 지났고, 다른 2명은 ${player.username}을 걱정하며 찾아 나섰지만 아무 성과도 없어 결국
+        `그렇게 일주일이 지났고, 다른 2명은 ${player.username} 플레이어를 걱정하며 찾아 나섰지만 아무 성과도 없어 결국
         포기해야 했습니다. 시간이 흘러 5년 뒤, Midnight가 물건을 찾으러 지하실에 갔다가 목소리를 들었습니다....
-        ${player.username}을 발견한 Midnight는 경악했고, 재빨리 밧줄과 입마개를 풀어 주었습니다. ${player.username}은
+        ${player.username} 플레이어를 발견한 Midnight는 경악했고, 재빨리 밧줄과 입마개를 풀어 주었습니다. ${player.username} 플레이어는
         진실을 털어놓았고 Midnight는 지난 5년 동안 벌어진 일을 알고 공포에 질렸습니다. 둘은 Seven을 만나
         Life에게 따지려 했지만, Midnight도 몰랐던 구석의 문에서 Life가 나타났습니다. Midnight와
-        ${player.username}을 본 Life는 얼어붙었다가 터널 안으로 달아났습니다. 둘은 뒤쫓았지만 곧 갈림길을
+        ${player.username} 플레이어를 본 Life는 얼어붙었다가 터널 안으로 달아났습니다. 둘은 뒤쫓았지만 곧 갈림길을
         만났습니다. 오른쪽을 골랐지만 또 갈림길이 나왔습니다. Life가 지하에 터널 미로를 만들고 자신들의 모든
         움직임을 감시하고 있을지도 모른다고 깨달았습니다. 곧 출구를 찾아 열었더니 어느 지하실에 도착했고,
         밖으로 나와 보니 그곳은 Seven의 집이었습니다!`,
         `하지만 곧 집이 비어 있고 7이 사라졌다는 사실을 알게 됐습니다! 집안을 샅샅이 뒤져도 7의 행방을
         알려 줄 단서는 없었습니다. 그들이 몰랐던 사실은 7이 의사였으며, 불법 실험을 하던 중 우연히 집으로
         들어온 Life를 이미 납치했다는 것이었습니다.`,
-        `Life는 구속복을 입은 채 손님방에 던져져 있었고, ${player.username}과 Midnight는 Seven이 그의 몸을
+        `Life는 구속복을 입은 채 손님방에 던져져 있었고, ${player.username} 플레이어와 Midnight는 Seven이 그의 몸을
         열어 놓은 모습을 발견했습니다. 둘은 Seven을 설득해 신장 하나를 꺼낸 뒤 다시 닫게 하고 Life를 감옥에
         보냈습니다. Life는 납치죄로 6.9년 동안 수감됐습니다. 거의 7년 뒤 풀려난 Life는 세 사람을 찾으려 했지만,
-        그들은 오래전에 이사해 찾을 수 없었습니다. 그래서 ${player.username}이 오기 전 그들이 가장 좋아했던 게임,
+        그들은 오래전에 이사해 찾을 수 없었습니다. 그래서 ${player.username} 플레이어가 오기 전 그들이 가장 좋아했던 게임,
         Antimatter Dimensions를 이용하는 다른 방법을 시도하기로 했습니다.....`,
         `Life는 게임에 접속해 대규모 업데이트가 적용됐음을 알았습니다! 5시간 만에 나온 업데이트였습니다.
         멀티플레이 모드와 순위표도 추가됐습니다. 이 업데이트라면 세 사람을 아주 쉽게 찾을 수 있다고 판단한
-        Life는 수색 여정을 시작했습니다. 게임 안에서 세 사람을 찾는 동안 테레사, 에파리그, 이름없는 자들,
-        V, Ra, 라이텔라를 비롯한 많은 친구를 만났습니다. 그들은 이 여정이 재미있어 보여 Life와 동행했습니다.`,
+        Life는 수색 여정을 시작했습니다. 게임 안에서 세 사람을 찾는 동안 Teresa, Effarig, The Nameless Ones,
+        V, Ra, Lai'tela를 비롯한 많은 친구를 만났습니다. 그들은 이 여정이 재미있어 보여 Life와 동행했습니다.`,
         `Life는 곧 세 사람과 마주쳤습니다. Midnight는 여전히 다른 두 사람보다 3단계 작았으므로 첫 표적이
         됐습니다. Life는 기술과 로봇을 비롯한 여러 수단으로 빛의 신비술인 Klidggd un' Kharrha를 연마하던
         Midnight의 추종자들을 파괴하고 전쟁을 일으켰습니다. 이 일은 여러 해 동안 계속됐고, 어느 날 Life는

@@ -139,7 +139,7 @@ export const eternityMilestones = {
   },
   autobuyerReplicantiMaxGalaxies: {
     eternities: 80,
-    reward: "최대 복제자 은하 갯수 업그레이드 자동구매기를 해금합니다.",
+    reward: "최대 복제자 은하 개수 업그레이드 자동구매기를 해금합니다.",
     givenByPelle: () => PelleUpgrade.replicantiAutobuyers.isBought,
     pelleUseless: true
   },

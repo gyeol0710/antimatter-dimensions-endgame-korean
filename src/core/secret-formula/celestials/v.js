@@ -242,7 +242,7 @@ export const v = {
       effect: () => player.disablePostReality ? 1 : Achievements.power,
       // Base rate is 60 ECs at 20 minutes each
       format: x => ((Ra.unlocks.instantECAndRealityUpgradeAutobuyers.canBeApplied || EndgameMastery(53).isBought) && !player.disablePostReality
-        ? "즉시(라 업그레이드)"
+        ? "즉시(Ra 업그레이드)"
         : `전체 완료까지 ${TimeSpan.fromMinutes(new Decimal(60).times(20).div(x)).toStringShort()}`),
       requirement: () => V.spaceTheorems >= 10,
       pelleDisabled: () => !PelleCelestialUpgrade.vMilestones2.canBeApplied
@@ -267,7 +267,7 @@ export const v = {
       id: 6,
       reward() {
         return `시간 연구의 공간 정리 비용을 ${formatInt(2)}만큼 줄입니다.
-                잊힌 자의 셀레스티얼 라를 해금합니다.`;
+                잊힌 자의 셀레스티얼 Ra를 해금합니다.`;
       },
       description: () => `V-도전과제를 ${formatInt(36)}개 달성하세요`,
       effect: 2,

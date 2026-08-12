@@ -37,9 +37,9 @@ export default {
     headerText() {
       const timeDisplay = TimeSpan.fromSeconds(new Decimal(this.seconds)).toString();
       if (this.nothingHappened || !this.somethingHappened) {
-        return `당신이 ${timeDisplay}동안 오프라인이었을 때... 아무 일도 일어나지 않았습니다.`;
+        return `당신이 ${timeDisplay} 동안 오프라인이었을 때... 아무 일도 일어나지 않았습니다.`;
       }
-      return `당신이 ${timeDisplay}동안 오프라인이었을 때: `;
+      return `당신이 ${timeDisplay} 동안 오프라인이었을 때: `;
     },
   },
   mounted() {

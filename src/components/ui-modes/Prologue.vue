@@ -71,7 +71,7 @@ export default {
       v-if="!introFrozen && introTick > 0 && introTick < 10000"
       class="l-prologue-text"
     >
-      <span class="l-intro-text">2113년 오월 2일</span>
+      <span class="l-intro-text">2113년 5월 2일</span>
       <br>
       <span class="l-intro-text" :style="{ opacity: opac1 }">위치: ANTI-709B</span>
     </div>
@@ -79,9 +79,11 @@ export default {
       v-if="!introFrozen && introTick > 20000 && introTick < 30000"
       class="l-prologue-text--alternate"
     >
-      <span class="l-intro-text--alternate">다섯</span>
-      <span class="l-intro-text--alternate" :style="{ opacity: opac2 }">해 뒤</span>
-      <span class="l-intro-text--alternate" :style="{ opacity: opac3 }">...</span>
+      <span class="l-intro-text--alternate">5년</span>
+      <span class="l-intro-text--alternate" :style="{ opacity: opac2 }">후</span><span
+        class="l-intro-text--alternate"
+        :style="{ opacity: opac3 }"
+      >...</span>
     </div>
     <div
       v-if="!introFrozen && introTick > 50000 && introTick < 60000"

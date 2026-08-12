@@ -135,7 +135,7 @@ export default {
               이 현상은 은하 {{ format(harshInstabilityStart, 2, 1) }}개부터 시작됩니다.
               <br>
               이 효과는 현재 은하 생성기의 불안정성 크기를
-              <span class="c-galaxies-amount">{{ formatPow(harshGalGenInstability, 2, 3) }}</span>제곱하여 실질적으로
+              <span class="c-galaxies-amount">{{ formatPow(harshGalGenInstability, 2, 3) }}</span>만큼 거듭제곱하여 실질적으로
               <span class="c-galaxies-amount">{{ format(effectiveInstability, 2, 1) }}</span>가 됩니다.
               <br>
               따라서 평소라면 은하 생산량을 위의 수로 나누지만,

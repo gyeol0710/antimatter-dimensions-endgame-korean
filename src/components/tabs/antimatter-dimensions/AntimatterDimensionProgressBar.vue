@@ -52,7 +52,7 @@ export default {
           }
         } else if (player.dilation.active && !Pelle.isDoomed) {
           if (player.dilation.lastEP.gt(0)) {
-            setProgress(Currency.antimatter.value, getTachyonReq(), "팽창 중 더 많은 TP를 얻을 수 있을 때까지의 진행도");
+            setProgress(Currency.antimatter.value, getTachyonReq(), "팽창 중 더 많은 타키온 입자를 얻을 수 있을 때까지의 진행도");
           } else {
             setProgress(Currency.infinityPoints.value, Player.eternityGoal, "팽창 도중 영원까지의 진행도");
           }
@@ -66,32 +66,32 @@ export default {
         } else if (player.celestials.alpha.stage === 26) {
           setLinearProgress(Math.min(DilationTimeStudyState.studies.filter(u => u.isBought).length / 12, 1/3) +
             player.timestudy.theorem.div(3e9).min(1/3).toNumber() +
-            Currency.eternityPoints.value.add(1).log10().div(10050).min(1/3).toNumber(), 1, "Percentage to the eighth Time Dimension");
+            Currency.eternityPoints.value.add(1).log10().div(10050).min(1/3).toNumber(), 1, "여덟 번째 시간 차원까지의 진행도");
         } else if (player.celestials.alpha.stage === 25) {
-          setProgress(Currency.dilatedTime.value, DC.E15, "Percentage to unlocking Time Theorem generation");
+          setProgress(Currency.dilatedTime.value, DC.E15, "시간 정리 생성 해금까지의 진행도");
         } else if (player.celestials.alpha.stage === 24) {
           setProgress(player.dilation.active ? Currency.infinityPoints.value : DC.D1, DC.NUMMAX,
-          "Percentage to performing a Dilated Eternity");
+          "팽창된 영원 수행까지의 진행도");
         } else if (player.celestials.alpha.stage === 23) {
           setLinearProgress(player.timestudy.maxTheorem.div(38700).min(1/3).toNumber() +
             player.timestudy.theorem.div(30000).min(1/3).toNumber() +
             Math.min((EternityChallenge(11).completions + EternityChallenge(12).completions) / 30, 1/3), 1,
-            "Percentage to unlocking Time Dilation");
+            "시간 팽창 해금까지의 진행도");
         } else if (player.celestials.alpha.stage === 22) {
           setLinearProgress((EternityChallenge(11).isRunning ? Currency.infinityPoints.value.add(1).log10().div(
-            EternityChallenge(11).currentGoal.log10()).toNumber() : 0), 1, "Percentage to completing Eternity Challenge 11");
+            EternityChallenge(11).currentGoal.log10()).toNumber() : 0), 1, "영원 도전 11 완료까지의 진행도");
         } else if (player.celestials.alpha.stage === 21) {
-          setLinearProgress(player.timestudy.maxTheorem.toNumber(), 2214, "Percentage to unlocking Eternity Challenge 11");
+          setLinearProgress(player.timestudy.maxTheorem.toNumber(), 2214, "영원 도전 11 해금까지의 진행도");
         } else if (player.celestials.alpha.stage === 20) {
           setLinearProgress(((TimeStudy(181).isBought && EternityChallenge(10).completions >= 1) ?
-            player.timestudy.theorem.toNumber() : 0), 730, "Percentage to Time Study 192");
+            player.timestudy.theorem.toNumber() : 0), 730, "시간 연구 192까지의 진행도");
         } else if (player.celestials.alpha.stage === 19) {
           setLinearProgress(Math.min(TimeStudy(181).isBought ? player.timestudy.theorem.toNumber() / 1100 : 0, 0.5) +
             (EternityChallenge(10).isRunning ? Currency.infinityPoints.value.add(1).log10().div(
             EternityChallenge(10).currentGoal.log10().times(2)).min(0.5).toNumber() : 0), 1,
-            "Percentage to completing Eternity Challenge 10 once");
+            "영원 도전 10을 한 번 완료하기까지의 진행도");
         } else if (player.celestials.alpha.stage === 18) {
-          setLinearProgress(TimeStudy(171).isBought ? player.timestudy.theorem.toNumber() : 0, 200, "Percentage to Time Study 181");
+          setLinearProgress(TimeStudy(171).isBought ? player.timestudy.theorem.toNumber() : 0, 200, "시간 연구 181까지의 진행도");
         } else if (player.celestials.alpha.stage === 17) {
           let ec = [];
           for (let c = 1; c < 13; c++) {
@@ -101,99 +101,99 @@ export default {
           let maxEC = EternityChallenges.all.first(c => c.completions === maxC);
           setLinearProgress(Math.min(maxEC.completions / 8, 0.5) +
             (maxEC.isRunning ? Currency.infinityPoints.value.add(1).log10().div(
-            maxEC.currentGoal.log10().times(2)).min(0.5).toNumber() : 0), 1, "Percentage to completing any Eternity Challenge five times");
+            maxEC.currentGoal.log10().times(2)).min(0.5).toNumber() : 0), 1, "아무 영원 도전이나 다섯 번 완료하기까지의 진행도");
         } else if (player.celestials.alpha.stage === 16) {
           setLinearProgress(EternityChallenge(player.challenge.eternity.current)
             ? Currency.eternityPoints.value.add(1).log10().div(
               EternityChallenge(player.challenge.eternity.current).currentGoal.log10()).toNumber()
-            : 0, 1, "Percentage to completing an Eternity Challenge once");
+            : 0, 1, "아무 영원 도전이나 한 번 완료하기까지의 진행도");
         } else if (player.celestials.alpha.stage === 15) {
-          setLinearProgress(player.timestudy.maxTheorem.toNumber(), 115, "Percentage to 115 Time Theorems");
+          setLinearProgress(player.timestudy.maxTheorem.toNumber(), 115, "총 시간 정리 115개까지의 진행도");
         } else if (player.celestials.alpha.stage === 14) {
-          setLinearProgress(Currency.eternityPoints.value.toNumber(), 50000, "Percentage to the third Eternity Upgrade");
+          setLinearProgress(Currency.eternityPoints.value.toNumber(), 50000, "세 번째 영원 업그레이드까지의 진행도");
         } else if (player.celestials.alpha.stage === 13) {
-          setLinearProgress(Currency.eternityPoints.value.toNumber(), 1000, "Percentage to the fourth Time Dimension");
+          setLinearProgress(Currency.eternityPoints.value.toNumber(), 1000, "네 번째 시간 차원까지의 진행도");
         } else if (player.celestials.alpha.stage === 12) {
-          setLinearProgress(player.timestudy.maxTheorem.toNumber(), 17, "Percentage to Time Study 61");
+          setLinearProgress(player.timestudy.maxTheorem.toNumber(), 17, "시간 연구 61까지의 진행도");
         } else if (player.celestials.alpha.stage === 11) {
-          setProgress(Currency.infinityPoints.value, DC.NUMMAX, "Percentage to Eternity");
+          setProgress(Currency.infinityPoints.value, DC.NUMMAX, "영원까지의 진행도");
         } else if (player.celestials.alpha.stage === 10) {
-          setProgress(Currency.antimatter.value, DC.E60000, "Percentage to unlocking the eighth Infinity Dimension");
+          setProgress(Currency.antimatter.value, DC.E60000, "여덟 번째 무한 차원 해금까지의 진행도");
         } else if (player.celestials.alpha.stage === 9) {
-          setProgress(Currency.infinityPoints.value, DC.E140, "Percentage to unlocking Replicanti");
+          setProgress(Currency.infinityPoints.value, DC.E140, "복제자 해금까지의 진행도");
         } else if (player.celestials.alpha.stage === 8) {
-          setLinearProgress(InfinityChallenges.all.countWhere(u => u.isCompleted), 8, "Percentage to Completing all Infinity Challenges");
+          setLinearProgress(InfinityChallenges.all.countWhere(u => u.isCompleted), 8, "모든 무한 도전 완료까지의 진행도");
         } else if (player.celestials.alpha.stage === 7) {
           setLinearProgress(BreakInfinityUpgrade.all.countWhere(u => u.isBought) +
-            player.infinityRebuyables.sum(), 54, "Percentage to Purchasing all Break Infinity Upgrades");
+            player.infinityRebuyables.sum(), 54, "모든 무한 돌파 업그레이드 구매까지의 진행도");
         } else if (player.celestials.alpha.stage === 6) {
-          setProgress(Currency.infinityPoints.value, new Decimal(5e14), "Percentage to Strengthening Galaxies");
+          setProgress(Currency.infinityPoints.value, new Decimal(5e14), "은하 강화까지의 진행도");
         } else if (player.celestials.alpha.stage === 5) {
-          setLinearProgress(1 / Math.log10(player.auto.bigCrunch.interval / 10), 1, "Percentage to Break Infinity");
+          setLinearProgress(1 / Math.log10(player.auto.bigCrunch.interval / 10), 1, "무한 돌파까지의 진행도");
         } else if (player.celestials.alpha.stage === 4) {
           setLinearProgress(Currency.infinities.value.div(32).min(0.5).toNumber() +
             (NormalChallenge(12).isRunning ? Currency.antimatter.value.add(1).log10().div(
-            Decimal.log10(DC.NUMMAX).times(2)).min(0.5).toNumber() : 0), 1, "Percentage to completing the Big Crunch Autobuyer Challenge");
+            Decimal.log10(DC.NUMMAX).times(2)).min(0.5).toNumber() : 0), 1, "빅 크런치 자동구매기 도전 완료까지의 진행도");
         } else if (player.celestials.alpha.stage === 3) {
-          setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to Infinity");
+          setProgress(Currency.antimatter.value, DC.NUMMAX, "무한까지의 진행도");
         } else if (player.celestials.alpha.stage === 2) {
-          setProgress(Currency.antimatter.value, DC.E130, "Percentage to first Galaxy");
+          setProgress(Currency.antimatter.value, DC.E130, "첫 반물질 은하까지의 진행도");
         } else if (player.celestials.alpha.stage === 1) {
-          setProgress(Currency.antimatter.value, DC.E40, "Percentage to fifth Dimboost");
+          setProgress(Currency.antimatter.value, DC.E40, "다섯 번째 차원 가속까지의 진행도");
         } else {
           setLinearProgress(Currency.antimatter.value.add(1).log10().div(60).min(0.5).toNumber() +
-            player.dimensionBoosts.div(6).min(0.5).toNumber(), 1, "Percentage to fourth Dimboost");
+            player.dimensionBoosts.div(6).min(0.5).toNumber(), 1, "네 번째 차원 가속까지의 진행도");
         }
       } else if (Pelle.isDoomed) {
         if (Alpha.isDestroyedForDisplay) {
-          setProgress(Currency.antimatter.value.add(1).log10(), DC.NUMMAX, "Percentage to Divinity");
+          setProgress(Currency.antimatter.value.add(1).log10(), DC.NUMMAX, "신성까지의 진행도");
         } else if (ExpansionPacks.areUnlocked && ExpansionPacks.nextPackUnlockAM === undefined) {
-          setProgress(gainedCelestialPoints(), DC.NUMMAX, "Percentage to Celestial Point Cap");
+          setProgress(gainedCelestialPoints(), DC.NUMMAX, "셀레스티얼 포인트 상한까지의 진행도");
         } else if (ExpansionPacks.areUnlocked) {
           setProgress(new Decimal(Currency.antimatter.value.add(1).log10()), new Decimal(Decimal.log10(ExpansionPacks.nextPackUnlockAM)),
-            "Percentage to next Expansion Pack");
+            "다음 확장팩까지의 진행도");
         } else if (GalaxyGenerator.galaxies.gt(1e15)) {
-          setLinearProgress(GalaxyGenerator.galaxies.toNumber(), Math.pow(2, 64), "Percentage to Expansion Packs");
+          setLinearProgress(GalaxyGenerator.galaxies.toNumber(), Math.pow(2, 64), "확장팩 해금까지의 진행도");
         } else if (PelleRifts.recursion.milestones[2].canBeApplied || GalaxyGenerator.spentGalaxies.gt(0)) {
-          setProgress(new Decimal(Currency.antimatter.value.add(1).log10()), new Decimal(9e15), "Percentage to Endgame");
+          setProgress(new Decimal(Currency.antimatter.value.add(1).log10()), new Decimal(9e15), "엔드게임까지의 진행도");
         } else if (PelleStrikes.dilation.hasStrike) {
           setProgress(Currency.eternityPoints.value, DC.E4000, "은하 생성기까지의 진행도");
         } else if (PelleStrikes.ECs.hasStrike) {
           setLinearProgress(
             (Math.min(Currency.timeTheorems.max.toNumber() / 12900, 1) +
             Math.min(EternityChallenges.completions / 60, 1)) / 2,
-            1, "Percentage to fifth Strike");
+            1, "다섯 번째 스트라이크까지의 진행도");
         } else if (PelleStrikes.eternity.hasStrike) {
-          setLinearProgress(Currency.timeTheorems.max.toNumber(), 115, "네번째 스트라이크까지의 진행도");
+          setLinearProgress(Currency.timeTheorems.max.toNumber(), 115, "네 번째 스트라이크까지의 진행도");
         } else if (PelleStrikes.powerGalaxies.hasStrike) {
-          setProgress(Currency.infinityPoints.value, Player.eternityGoal, "세번째 스트라이크까지의 진행도");
+          setProgress(Currency.infinityPoints.value, Player.eternityGoal, "세 번째 스트라이크까지의 진행도");
         } else if (PelleStrikes.infinity.hasStrike) {
           if (player.break) {
-            setProgress(Currency.infinityPoints.value, 5e11, "두번째 스트라이크까지의 진행도");
+            setProgress(Currency.infinityPoints.value, 5e11, "두 번째 스트라이크까지의 진행도");
           } else {
-            setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to Infinity");
+            setProgress(Currency.antimatter.value, DC.NUMMAX, "무한까지의 진행도");
           }
         } else {
-          setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to first Strike");
+          setProgress(Currency.antimatter.value, DC.NUMMAX, "첫 번째 스트라이크까지의 진행도");
         }
       } else if (PlayerProgress.celestialEternityUnlocked()) {
         // Show all other goals from the top down, starting at features in the highest prestige layer
         setProgress(Currency.celestialEternityPoints.value, DC.E4000, false
-          ? "Percentage to Cursed Reality" : "Percentage to Pelle's Domain");
+          ? "저주받은 현실까지의 진행도" : "Pelle의 영역까지의 진행도");
       } else if (player.endgame.celDimExpansion.isBroken) {
-        setProgress(Currency.celestialInfinityPoints.value, DC.NUMMAX, "Percentage to Celestial Eternity");
+        setProgress(Currency.celestialInfinityPoints.value, DC.NUMMAX, "셀레스티얼 영원까지의 진행도");
       } else if (Alpha.isDestroyedForDisplay) {
-        setLinearProgress(Currency.celestialInfinityPoints.value.toNumber(), 10000, "Percentage to Celestial Breaking of Infinity");
+        setLinearProgress(Currency.celestialInfinityPoints.value.toNumber(), 10000, "셀레스티얼 무한 돌파까지의 진행도");
       } else if (MachineHandler.baseDMCap.gt(0)) {
-        setLinearProgress(player.celestials.alpha.stage, 28, "Percentage to destroying Alpha");
+        setLinearProgress(player.celestials.alpha.stage, 28, "Alpha 파괴까지의 진행도");
       } else if (Alpha.isUnlocked) {
-        setProgress(Currency.imaginaryMachines.value, DC.E1000, "Percentage to Duality");
+        setProgress(Currency.imaginaryMachines.value, DC.E1000, "이중성까지의 진행도");
       } else if (GalacticPower.isUnlocked && GalacticPower.nextPowerUnlockGP === undefined) {
-        setProgress(Currency.imaginaryMachines.value, DC.NUMMAX, "Percentage to Alpha");
+        setProgress(Currency.imaginaryMachines.value, DC.NUMMAX, "Alpha까지의 진행도");
       } else if (GalacticPower.isUnlocked) {
-        setProgress(Currency.galacticPower.value, GalacticPower.nextPowerUnlockGP, "Percentage to the next Galactic Power");
+        setProgress(Currency.galacticPower.value, GalacticPower.nextPowerUnlockGP, "다음 은하 파워까지의 진행도");
       } else if (Currency.antimatter.value.gte(DC.E9E15)) {
-        setProgress(Currency.singularities.value, DC.E300, "Percentage to Galactic Power");
+        setProgress(Currency.singularities.value, DC.E300, "은하 파워까지의 진행도");
       } else if (Enslaved.isCompleted) {
         setProgress(Currency.infinityPoints.value, Tesseracts.nextCost, "다음 테서랙트까지의 진행도");
       } else if (PlayerProgress.dilationUnlocked()) {
@@ -201,9 +201,9 @@ export default {
       } else if (InfinityDimension(8).isUnlocked) {
         setProgress(Currency.infinityPoints.value, Player.eternityGoal, "영원까지의 진행도");
       } else if (player.break) {
-        const text = `Percentage to unlock a new ${InfinityDimensions.next().hasIPUnlock
-          ? "종류의 차원을 해금하기까지의 진행도"
-          : "Infinity Dimension"}`;
+        const text = `${InfinityDimensions.next().hasIPUnlock
+          ? "새로운 종류의 차원 해금까지의 진행도"
+          : "무한 차원 해금까지의 진행도"}`;
         const nextID = InfinityDimensions.next();
         if (nextID.ipRequirementReached) {
           setProgress(player.records.thisEternity.maxAM, nextID.amRequirement, text);
@@ -211,7 +211,7 @@ export default {
           setProgress(player.infinityPoints, nextID.ipRequirement, text);
         }
       } else {
-        setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to Infinity");
+        setProgress(Currency.antimatter.value, DC.NUMMAX, "무한까지의 진행도");
       }
     }
   }

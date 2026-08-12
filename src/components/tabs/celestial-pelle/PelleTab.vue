@@ -95,7 +95,7 @@ export default {
       v-else
       class="pelle-unlock-requirements"
     >
-      반물질의 셀레스티얼 펠레를 해금하려면 도전과제 {{ formatInt(totalRows) }}개 행을 완료하고
+      반물질의 셀레스티얼 Pelle를 해금하려면 도전과제 {{ formatInt(totalRows) }}개 행을 완료하고
       모든 글리프 연금술 자원이 상한에 도달해야 합니다.
       <br>
       <br>

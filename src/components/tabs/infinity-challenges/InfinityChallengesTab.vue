@@ -46,8 +46,8 @@ export default {
   <div class="l-challenges-tab">
     <ChallengeTabHeader />
     <div>
-      빅 크런치 자동구매기는 반물질이 해당 무한 도전의 목표치에 도달하였을 시 즉시 빅 크런치를 실행합니다.
-      reaching an Infinity Challenge's antimatter goal, regardless of settings.
+      활성화된 빅 크런치 자동구매기는 설정과 관계없이 무한 도전의 반물질 목표에 도달하는 즉시
+      빅 크런치를 실행합니다.
     </div>
     <div>{{ nextAtDisplay }}</div>
     <ChallengeGrid

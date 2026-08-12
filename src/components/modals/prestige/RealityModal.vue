@@ -61,7 +61,7 @@ export default {
       if (this.effarigUnlocked) {
         gainedResources.push(`${quantify("유물 파편", this.shardsGained, 2)}`);
       }
-      return `${makeEnumeration(gainedResources)}를 얻습니다.`;
+      return `획득 자원: ${makeEnumeration(gainedResources)}`;
     },
     levelStats() {
       // Bit annoying to read due to needing >, <, and =, with = needing a different format.

@@ -12,8 +12,8 @@ export const EFFARIG_STAGES = {
 };
 
 export const Effarig = {
-  displayName: "에파리그",
-  possessiveName: "에파리그의",
+  displayName: "Effarig",
+  possessiveName: "Effarig의",
   initializeRun() {
     if (!EffarigUnlock.endgame.isUnlocked && EffarigUnlock.extendRun.isUnlocked) {
       player.disablePostReality = true;

@@ -139,7 +139,7 @@ export const dualityUpgrades = [
     name: "이중성의 덧없음",
     id: 13,
     cost: new Decimal(2e10),
-    requirement: () => `라이텔라의 현실을 ${formatInt(12)}번 강입자화`,
+    requirement: () => `Lai'tela의 현실을 ${formatInt(12)}번 강입자화`,
     hasFailed: () => false,
     checkRequirement: () => Laitela.hadronizes >= 12,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
@@ -163,7 +163,7 @@ export const dualityUpgrades = [
     id: 15,
     cost: new Decimal(1e12),
     requirement: () => `이번 엔드게임에서 무한 차원, 시간 차원, 제${formatInt(8)} 반물질 차원을 한 번도 보유하지 않고
-      시간 팽창 중 펠레 밖에서 반물질 ${format("e5e55")} 도달`,
+      시간 팽창 중 Pelle 밖에서 반물질 ${format("e5e55")} 도달`,
     hasFailed: () => !player.requirementChecks.endgame.onlyLowDims || Pelle.isDoomed,
     checkRequirement: () => player.requirementChecks.endgame.onlyLowDims && player.dilation.active &&
       player.antimatter.add(1).log10().gte(5e55) && !Pelle.isDoomed,
@@ -196,7 +196,7 @@ export const dualityUpgrades = [
     id: 18,
     cost: new Decimal(1.6e13),
     formatCost: x => format(x, 1),
-    requirement: () => `펠레 밖에서 모든 종류의 은하 총 ${format(2.4e9, 1)}개 보유`,
+    requirement: () => `Pelle 밖에서 모든 종류의 은하 총 ${format(2.4e9, 1)}개 보유`,
     hasFailed: () => Pelle.isDoomed,
     checkRequirement: () => GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(player.galaxies.max(1)).times(
     player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)).gte(2.4e9) : Replicanti.galaxies.total.add(player.galaxies).add(
@@ -209,7 +209,7 @@ export const dualityUpgrades = [
     id: 19,
     cost: new Decimal(4.2e13),
     formatCost: x => format(x, 1),
-    requirement: () => `이번 엔드게임에서 시간 연구를 한 번도 보유하지 않고 펠레 밖에서 틱스피드 연속체 ${format(1e45)} 보유`,
+    requirement: () => `이번 엔드게임에서 시간 연구를 한 번도 보유하지 않고 Pelle 밖에서 틱스피드 연속체 ${format(1e45)} 보유`,
     hasFailed: () => player.requirementChecks.endgame.maxStudies > 0 || Pelle.isDoomed,
     checkRequirement: () => player.requirementChecks.endgame.maxStudies <= 0 &&
       Tickspeed.continuumValue.gte(1e45) && !Pelle.isDoomed,
@@ -234,7 +234,7 @@ export const dualityUpgrades = [
     name: "천상의 근절",
     id: 21,
     cost: new Decimal(3e17),
-    requirement: () => `엔드게임 내내 연속체를 비활성화한 채 펠레 밖에서 반물질 ${format("e1e88")} 도달`,
+    requirement: () => `엔드게임 내내 연속체를 비활성화한 채 Pelle 밖에서 반물질 ${format("e1e88")} 도달`,
     hasFailed: () => !player.requirementChecks.endgame.noContinuum || Pelle.isDoomed,
     checkRequirement: () => player.requirementChecks.endgame.noContinuum &&
       Currency.antimatter.value.add(1).log10().gte(1e88) && !Pelle.isDoomed,
@@ -249,7 +249,7 @@ export const dualityUpgrades = [
     name: "묘사의 파괴",
     id: 22,
     cost: new Decimal(2e18),
-    requirement: () => `이번 엔드게임에서 글리프를 한 번도 장착하지 않고 펠레 밖에서 반물질 ${format("e1e85")} 도달`,
+    requirement: () => `이번 엔드게임에서 글리프를 한 번도 장착하지 않고 Pelle 밖에서 반물질 ${format("e1e85")} 도달`,
     hasFailed: () => !player.requirementChecks.endgame.noGlyphs || Pelle.isDoomed,
     checkRequirement: () => player.requirementChecks.endgame.noGlyphs &&
       Currency.antimatter.value.add(1).log10().gte(1e85) && !Pelle.isDoomed,
@@ -263,7 +263,7 @@ export const dualityUpgrades = [
     name: "사문자 외상",
     id: 23,
     cost: new Decimal(6e18),
-    requirement: () => `글리프를 최대 -15개 장착하고 라의 현실에서
+    requirement: () => `글리프를 최대 -15개 장착하고 Ra의 현실에서
       글리프 레벨 ${formatInt(385000)} 도달`,
     hasFailed: () => !Ra.isRunning ||
       player.requirementChecks.reality.maxGlyphs > -15,
@@ -279,7 +279,7 @@ export const dualityUpgrades = [
     id: 24,
     cost: new Decimal(1.5e19),
     formatCost: x => format(x, 1),
-    requirement: () => `셀레스티얼 물질을 끈 채 라의 현실에서
+    requirement: () => `셀레스티얼 물질을 끈 채 Ra의 현실에서
       반물질 은하 ${format(106e6, 2, 2)}개 보유`,
     hasFailed: () => !Ra.isRunning || !player.requirementChecks.reality.noCelMatter,
     checkRequirement: () => Ra.isRunning && player.requirementChecks.reality.noCelMatter &&

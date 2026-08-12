@@ -5,7 +5,117 @@
     "reason": "공개 배포 초기 스냅샷 이전의 내부 작업 이력은 포함하지 않음"
   },
   "historicalProtectedTokenDiff": {},
-  "activeProtectedTokenAllowances": {},
+  "activeProtectedTokenAllowances": {
+    "src/components/modals/prestige/EnterCelestialsRaPet.vue": {
+      "beforeContentSha256": "cbbe5d49de098fa4b7290714ce02d8b389dae36be265890123e2d78846c7fa9a",
+      "afterContentSha256": "9bc34cefc4e2a8d694a0fc661ab0c086dfdb70d4570f817f426bdba4001ac9e5",
+      "reason": "셀레스티얼 이름의 종성과 무관하게 자연스럽게 표시되도록 이름과 기억 획득 설명을 콜론으로 분리하며 펫 수치·조건은 유지",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/ui-modes/Prologue.vue": {
+      "beforeContentSha256": "aa130fe02913765f74795d46f59c0d6548320e0380d04e485e84bb241999e083",
+      "afterContentSha256": "a44108741380229d99b6aee8f77330d951a2eaa2f1aace1b425ad599d28e1d67",
+      "reason": "인트로 날짜와 시간 경과 문구를 자연스러운 숫자 표기인 2113년 5월 2일·5년 후로 교정하고 연출 의미는 유지",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/format.js": {
+      "beforeContentSha256": "9627436f1eeeb333408a2e8d7db248eb88cc459114beacd9ee341e662affe49c",
+      "afterContentSha256": "e4be926baaa0c30c636fdc38974c17bba5de924481dfdb04476c871e4741bdcf",
+      "reason": "개·회·번·줄·초로 시작하는 한국어 수량 단위만 숫자에 붙이고 일반 자원명과 영문 복수형 출력은 유지",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/player.js": {
+      "beforeContentSha256": "c67739b4d06bf091774c01bdc1b17d59144cdaea24134f4bc7f03cd5556c2830",
+      "afterContentSha256": "284796d378aa97c07b72418deea2bd0a01f41d92317622266b04e6586decd361",
+      "reason": "Ra 펫과 Effarig 정제 기록의 구형 한국어 저장 키를 영문 정본으로 변환하는 호환 패치를 위해 저장 버전을 105.2로 갱신",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/secret-formula/news.js": {
+      "beforeContentSha256": "3edab489f537c11113ae5c3e2fe37df534e88fec16c43a40bca21e6ea7b7d5fb",
+      "afterContentSha256": "8422cc53f4b252f655f27c0cf1aed95a3b5a51810b30836ce8bf01f7ac477106",
+      "reason": "뉴스 날짜의 고유어 월명을 숫자 월로 교정하고 Elementals의 수량 표현을 자연화하며 원문 날짜·ID·조건·동적 표현은 유지",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/storage/migrations.js": {
+      "beforeContentSha256": "003087047c253ee8515e16791a96ee3735b771c8e115bda14e110188fa51c15f",
+      "afterContentSha256": "3f32c28fd3b9df1bafde74457099a32abe455a3f40209c9551337b8a81c4923b",
+      "reason": "기존 한국어 Ra 회상 펫 이름과 Effarig 최고 정제 기록 키를 영문 정본으로 안전하게 변환하는 105.1·105.2 패치를 추가",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/time.js": {
+      "beforeContentSha256": "c1a01b810a739b9bd6372891b2d61e6a6f97698be6b02dc4548612601937a05a",
+      "afterContentSha256": "662e4e7f9379071a767dc104dd2b930c164738a2e051cb0bdc629f1c84c78b1f",
+      "reason": "저장·스피드런·이벤트 로그의 날짜 표시를 로컬 시간대의 한국어 숫자 날짜 형식으로 교정",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    }
+  },
   "historicalStructureDiff": {},
-  "activeStructureAllowances": {}
+  "activeStructureAllowances": {
+    "src/components/modals/prestige/EnterCelestialsRaPet.vue": {
+      "beforeCanonicalSha256": "25fee3102f4731e623ba19d24b6005b54dd0b13c5aa6b81126a3d128842aa60f",
+      "afterCanonicalSha256": "58b134727ce7b8ae3ab271a2d99e77de0d1ce39cf5b44b51d2d67e107fe28924",
+      "reason": "펫 해금·레벨·획득량 계산은 유지하고 이름 뒤 고정 조사를 없애는 표시 전용 문장 구조로 교체",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/alchemy/AlchemyTab.vue": {
+      "beforeCanonicalSha256": "97af999787fb0b6f29e3a835f80a83b5367fa9c084f5a73bcad98fe4577bf3c2",
+      "afterCanonicalSha256": "510a3c302c0b45156ff2ff6e0c95f4a784c7496e1d6dbe52b60c04cce1533376",
+      "reason": "번역 가능한 H2P 제목이나 화면에 노출되는 별칭 대신 안정적인 reality/alchemy 탭 경로로 도움말 항목을 조회해 링크 동작을 복구",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/celestial-laitela/LaitelaTab.vue": {
+      "beforeCanonicalSha256": "f2e38963c843fd728c0c98d366c7ad37119eb42a5c3d6d5a427b15398c12cc1f",
+      "afterCanonicalSha256": "18a8aeb8b845d55b91ddfac3127fe845034cf8d75f005d2753265ed8e4c2f350",
+      "reason": "번역 가능한 H2P 제목 대신 안정적인 Lai'tela 별칭으로 도움말 항목을 조회해 링크 동작을 복구",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/glyphs/CurrentGlyphEffects.vue": {
+      "beforeCanonicalSha256": "e9f65b9840aeeba42ac1d20d461febbef734564884a33685b9ed8782706424e8",
+      "afterCanonicalSha256": "84776deb90dee1a5cdb1a33b84d25efd715629f81355b617003dd583d95f8bbd",
+      "reason": "효과 계산과 색상은 유지하고 사용자 정책에 따라 셀레스티얼 고유명 Effarig만 영문 정식명으로 표시",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/glyphs/sidebar/GlyphFilterPanel.vue": {
+      "beforeCanonicalSha256": "13daf02082f1c95c656274d459c6e9e73212dcc53b48cdc04456cb8ea5615c8a",
+      "afterCanonicalSha256": "e3bdffff242809f1761d67b4b23f25d96413844c72b0ef704e354663fd7d1445",
+      "reason": "번역 가능한 H2P 제목이나 화면에 노출되는 별칭 대신 안정적인 celestials/glyphfilter 탭 경로로 도움말 항목을 조회해 링크 동작을 복구",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/components/tabs/past-prestige-runs/PastPrestigeRunsContainer.vue": {
+      "beforeCanonicalSha256": "191cccb427b50bbe72d0b0ba486fe5bd83e9e6ceded5393ed06bca506c1822c3",
+      "afterCanonicalSha256": "ee2281450655be5b2fc390a273d1d2b3cbbadac9ac73388d4922c7dba0e496a8",
+      "reason": "세이브의 영원 유형·도전 기록은 그대로 두고 화면에서 영문 도전 접두어와 구형 한국어 셀레스티얼 이름만 현재 표기로 매핑",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/automator/compiler.js": {
+      "beforeCanonicalSha256": "95e8ca325b2a75ac6b169830b88b9e19444f88ce90c6a56650bc177b5b972bec",
+      "afterCanonicalSha256": "4cdc322c16f6fb85313a6420f4e20f092949830879701a5e82c64997b8e1acbd",
+      "reason": "Automator 파서·컴파일·분기 로직은 유지하고 오류 메시지에서 괄호 조사 표기만 제거",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/format.js": {
+      "beforeCanonicalSha256": "5ee9ff2f7f8b61a20b1ebfb07b4bd52c879abe2c08d7366bafc915143b5ae273",
+      "afterCanonicalSha256": "c4d1994b51ad891fba0938a0614f2e2a41a5aedf59261346f0b72696b00a6f8e",
+      "reason": "한국어 카운터형 단위만 숫자에 붙이는 표시 전용 결합 helper를 추가하고 기존 수치 포맷과 영문 복수형은 유지",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/player.js": {
+      "beforeCanonicalSha256": "92a8ae4bb8b909240ac95c1184b4e1ac4d5dad24824d6458402d1688e7d02f8b",
+      "afterCanonicalSha256": "fa877df932d370da743aaa8b37af92b2ebb66fb9f2d72ec35100986212e00e72",
+      "reason": "두 셀레스티얼 내부 이름 호환 마이그레이션을 실행하도록 기본 저장 버전만 105.2로 갱신",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/storage/migrations.js": {
+      "beforeCanonicalSha256": "4182cd9dd204065a3bb2bc640852aded2bbdf4cd203795dfca54eecd5e64129d",
+      "afterCanonicalSha256": "3bec8e78dc5e73fd1b80a8c876d9d397770d03fdc865dc48fe205b26d6da6952",
+      "reason": "구형 한국어 Ra 회상 펫 이름과 Effarig 정제 기록 키를 영문 정본으로 변환하며 기존 영문·알 수 없는 값과 더 높은 기록은 보존",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
+    "src/core/time.js": {
+      "beforeCanonicalSha256": "17ef8a951486d6e66b445d5b216d045baffdfbfc3100b8cf38dfa0da2b2264b6",
+      "afterCanonicalSha256": "1c08c0ce752bc8c9e01dac5254a653dd2751ea9c5ec5818a1c9d58311472ef87",
+      "reason": "timestamp 값과 로컬 시간대는 유지하고 사용자 노출 날짜 문자열만 한국어 숫자 날짜 형식으로 조립",
+      "removeAfter": "이번 현지화 품질 교정 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    }
+  }
 }

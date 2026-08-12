@@ -37,7 +37,7 @@ export default {
       if (this.startingBoosts.gt(0)) gainedResources.push(`${quantify("셀레스티얼 차원 가속", this.startingBoosts)}`);
       if (this.willStartWithGalaxy) gainedResources.push(`${quantify("셀레스티얼 은하", 1)}`);
 
-      return `다음 셀레스티얼 무한을 ${makeEnumeration(gainedResources)}와 함께 시작합니다.`;
+      return `다음 셀레스티얼 무한의 시작 자원: ${makeEnumeration(gainedResources)}`;
     }
   },
   methods: {

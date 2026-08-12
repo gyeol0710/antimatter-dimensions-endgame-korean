@@ -2,7 +2,7 @@ export const ra = {
   pets: {
     teresa: {
       id: "teresa",
-      name: "테레사",
+      name: "Teresa",
       color: "#8596ea",
       chunkGain: "영원 포인트",
       memoryGain: "현재 리얼리티 머신",
@@ -12,7 +12,7 @@ export const ra = {
     },
     effarig: {
       id: "effarig",
-      name: "에파리그",
+      name: "Effarig",
       color: "#ea8585",
       chunkGain: "획득 유물 파편",
       memoryGain: "최고 글리프 레벨",
@@ -22,7 +22,7 @@ export const ra = {
     },
     enslaved: {
       id: "enslaved",
-      name: "이름없는 자들",
+      name: "The Nameless Ones",
       color: "#f1aa7f",
       chunkGain: "시간 조각",
       memoryGain: "총 플레이 시간",
@@ -78,14 +78,14 @@ export const ra = {
     },
     effarigUnlock: {
       id: 4,
-      reward: "에파리그의 기억을 해금합니다",
+      reward: "Effarig의 기억을 해금합니다",
       pet: "teresa",
       level: 8,
       displayIcon: `Ϙ`
     },
     perkShopIncrease: {
       id: 5,
-      reward: "테레사의 퍼크 포인트 상점 구매 상한이 증가합니다",
+      reward: "Teresa의 퍼크 포인트 상점 구매 상한이 증가합니다",
       pet: "teresa",
       level: 15,
       displayIcon: `<span class="fas fa-project-diagram"></span>`
@@ -111,7 +111,7 @@ export const ra = {
     unlockGlyphAlchemy: {
       id: 8,
       reward: `글리프를 정제하여 늘릴 수 있는 연금술 자원을 추가하는 글리프 연금술을 해금합니다.
-        에파리그 레벨에 따라 자원을 더 해금하며, 새로운 현실 탭에서 이용할 수 있습니다.`,
+        Effarig 레벨에 따라 자원을 더 해금하며, 새로운 현실 탭에서 이용할 수 있습니다.`,
       pet: "effarig",
       level: 2,
       displayIcon: `<span class="fas fa-vial"></span>`
@@ -126,14 +126,14 @@ export const ra = {
     },
     glyphEffectCount: {
       id: 10,
-      reward: () => `글리프가 항상 ${formatInt(4)}개의 효과를 가지며 에파리그 글리프는 이제 최대 ${formatInt(7)}개의 효과를 가집니다`,
+      reward: () => `글리프가 항상 ${formatInt(4)}개의 효과를 가지며 Effarig 글리프는 이제 최대 ${formatInt(7)}개의 효과를 가집니다`,
       pet: "effarig",
       level: 10,
       displayIcon: `<span class="fas fa-braille"></span>`
     },
     enslavedUnlock: {
       id: 11,
-      reward: "이름없는 자들의 기억을 해금합니다",
+      reward: "The Nameless Ones의 기억을 해금합니다",
       pet: "effarig",
       level: 8,
       displayIcon: `<span class="c-ra-pet-milestones-effarig-link">\uf0c1</span>`
@@ -165,7 +165,7 @@ export const ra = {
     },
     improvedStoredTime: {
       id: 15,
-      reward: "저장한 게임 시간이 증폭되고 이름없는 자들의 레벨에 따라 더 많은 실제 시간을 저장할 수 있습니다",
+      reward: "저장한 게임 시간이 증폭되고 The Nameless Ones의 레벨에 따라 더 많은 실제 시간을 저장할 수 있습니다",
       effects: {
         gameTimeAmplification: () => player.disablePostReality ? 1 : Decimal.pow(20, Decimal.clampMax(Ra.pets.enslaved.level, Ra.levelCap)),
         realTimeCap: () => player.disablePostReality ? 0 : 1000 * 3600 * Ra.pets.enslaved.level,
@@ -294,7 +294,7 @@ export const ra = {
     },
     eternityPointPower: {
       id: 28,
-      reward: "테레사 레벨에 따라 영원 포인트에 거듭제곱을 적용합니다",
+      reward: "Teresa 레벨에 따라 영원 포인트에 거듭제곱을 적용합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.teresa.level) / 100,
       pet: "teresa",
       level: 30,
@@ -303,7 +303,7 @@ export const ra = {
     },
     realityMachineCap: {
       id: 29,
-      reward: "테레사 레벨에 따라 리얼리티 머신 상한에 거듭제곱을 적용합니다",
+      reward: "Teresa 레벨에 따라 리얼리티 머신 상한에 거듭제곱을 적용합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.teresa.level) / 100,
       pet: "teresa",
       level: 40,
@@ -312,7 +312,7 @@ export const ra = {
     },
     celestialDimensionConversionPower: {
       id: 30,
-      reward: "테레사 레벨에 따라 셀레스티얼 차원 변환 지수가 증가합니다",
+      reward: "Teresa 레벨에 따라 셀레스티얼 차원 변환 지수가 증가합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.teresa.level) / 200,
       pet: "teresa",
       level: 50,
@@ -321,7 +321,7 @@ export const ra = {
     },
     chargeBoost: {
       id: 31,
-      reward: "충전된 무한 업그레이드에 테레사 레벨이 두 배인 것처럼 적용됩니다",
+      reward: "충전된 무한 업그레이드에 Teresa 레벨이 두 배인 것처럼 적용됩니다",
       effect: () => player.disablePostReality ? 1 : 2,
       pet: "teresa",
       level: 65,
@@ -353,7 +353,7 @@ export const ra = {
     },
     celestialDimensionPower: {
       id: 34,
-      reward: "엔드게임 횟수와 테레사 레벨이 셀레스티얼 차원에 거듭제곱을 적용합니다",
+      reward: "엔드게임 횟수와 Teresa 레벨이 셀레스티얼 차원에 거듭제곱을 적용합니다",
       effect: () => player.disablePostReality ? 1 : Math.pow(Math.clamp(Ra.pets.teresa.level * Math.log10(player.endgames + 1) / 2000, 1, 1.5) * Math.pow(Math.max(Ra.pets.teresa.level * Math.log10(player.endgames + 1) / 3000, 1), 0.1), 5),
       pet: "teresa",
       level: 125,
@@ -362,7 +362,7 @@ export const ra = {
     },
     relicShardBoost: {
       id: 35,
-      reward: "에파리그 레벨에 따라 유물 파편 획득량이 강화됩니다",
+      reward: "Effarig 레벨에 따라 유물 파편 획득량이 강화됩니다",
       effect: () => player.disablePostReality ? DC.D1 : Decimal.pow(10, Math.floor(Ra.pets.effarig.level)),
       pet: "effarig",
       level: 30,
@@ -380,7 +380,7 @@ export const ra = {
     },
     rarityBuff: {
       id: 37,
-      reward: "에파리그 레벨에 따라 글리프 최대 희귀도가 증가합니다",
+      reward: "Effarig 레벨에 따라 글리프 최대 희귀도가 증가합니다",
       effect: () => player.disablePostReality ? 0 : Math.floor(Ra.pets.effarig.level) / 2,
       pet: "effarig",
       level: 50,
@@ -389,7 +389,7 @@ export const ra = {
     },
     glyphLevelBuff: {
       id: 38,
-      reward: "에파리그 레벨에 따라 불안정성 이후에 적용되는 작은 글리프 레벨 배율을 얻습니다",
+      reward: "Effarig 레벨에 따라 불안정성 이후에 적용되는 작은 글리프 레벨 배율을 얻습니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.effarig.level) / 1000,
       pet: "effarig",
       level: 65,
@@ -398,7 +398,7 @@ export const ra = {
     },
     alchemyCapIncrease: {
       id: 39,
-      reward: "에파리그 레벨이 글리프 연금술 상한에 배율을 적용합니다",
+      reward: "Effarig 레벨이 글리프 연금술 상한에 배율을 적용합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.effarig.level) / 100,
       pet: "effarig",
       level: 80,
@@ -407,7 +407,7 @@ export const ra = {
     },
     realityGlyphRarity: {
       id: 40,
-      reward: "에파리그 레벨이 현실 글리프 희귀도를 증가시킵니다",
+      reward: "Effarig 레벨이 현실 글리프 희귀도를 증가시킵니다",
       effect: () => player.disablePostReality ? 0 : Math.floor(Ra.pets.effarig.level) / 5,
       pet: "effarig",
       level: 100,
@@ -425,7 +425,7 @@ export const ra = {
     },
     gameSpeedImprovement: {
       id: 42,
-      reward: "이름없는 자들의 레벨에 따라 게임 속도에 거듭제곱을 적용합니다",
+      reward: "The Nameless Ones의 레벨에 따라 게임 속도에 거듭제곱을 적용합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.pow(Math.floor(Ra.pets.enslaved.level) / 100, 2),
       pet: "enslaved",
       level: 30,
@@ -434,7 +434,7 @@ export const ra = {
     },
     tickspeedPower: {
       id: 43,
-      reward: "이름없는 자들의 레벨에 따라 틱스피드에 거듭제곱을 적용합니다",
+      reward: "The Nameless Ones의 레벨에 따라 틱스피드에 거듭제곱을 적용합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.enslaved.level) / 100,
       pet: "enslaved",
       level: 40,
@@ -461,7 +461,7 @@ export const ra = {
     },
     eternityGenBuff: {
       id: 46,
-      reward: "이름없는 자들의 레벨이 영원 생성량을 강화합니다",
+      reward: "The Nameless Ones의 레벨이 영원 생성량을 강화합니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.enslaved.level) / 100,
       pet: "enslaved",
       level: 80,
@@ -479,7 +479,7 @@ export const ra = {
     },
     freeTesseractIncrease: {
       id: 48,
-      reward: "이름없는 자들의 레벨이 무료 테서랙트 소프트캡 시작점을 증가시킵니다",
+      reward: "The Nameless Ones의 레벨이 무료 테서랙트 소프트캡 시작점을 증가시킵니다",
       effect: () => player.disablePostReality ? 1 : 1 + Math.floor(Ra.pets.enslaved.level) / 250,
       pet: "enslaved",
       level: 125,

@@ -46,11 +46,11 @@ export const dilationTimeStudies = [
     description: () => {
       if (Pelle.isDoomed) {
         if (player.celestials.pelle.galaxyGenerator.unlocked) return "*";
-        return "You cannot escape a Doomed Reality";
+        return "파멸한 현실에서 벗어날 수 없습니다";
       }
-      if (!Pelle.isDoomed) return "Unlock Reality";
+      if (!Pelle.isDoomed) return "현실 해금";
     },
-    scrambleText: ["You cannot escape a Doomed Reality", "Escape the Doomed Reality (Requires e9e15 Antimatter)"],
+    scrambleText: ["파멸한 현실에서 벗어날 수 없습니다", "파멸한 현실에서 탈출 (반물질 e9e15 필요)"],
     cost: 1,
     requirement: () => TimeStudy.timeDimension(8).isBought &&
       player.records.thisReality.maxEP.log10().gte(4000) &&

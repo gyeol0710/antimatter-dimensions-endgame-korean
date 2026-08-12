@@ -247,7 +247,7 @@ export const ID = {
     icon: MultiplierTabIcons.UPGRADE("imaginary"),
   },
   pelle: {
-    name: "펠레 균열 효과",
+    name: "Pelle 균열 효과",
     multValue: dim => {
       const mult = DC.D1.timesEffectsOf(PelleRifts.recursion.milestones[1]);
       const maxActiveDim = MultiplierTabHelper.activeDimCount("ID");

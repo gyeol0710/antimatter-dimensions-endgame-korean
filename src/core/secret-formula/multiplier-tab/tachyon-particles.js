@@ -67,7 +67,7 @@ export const TP = {
   },
 
   nerfEnslaved: {
-    name: "이름없는 자들의 현실",
+    name: "The Nameless Ones의 현실",
     powValue: () => Enslaved.tachyonNerf,
     isActive: () => Enslaved.isRunning,
     icon: MultiplierTabIcons.GENERIC_ENSLAVED,
