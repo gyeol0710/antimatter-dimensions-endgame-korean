@@ -20,6 +20,9 @@ export default {
       </div>
     </div>
     <div class="c-info-body">
+      <strong>한국어판 기준 버전: Endgame Update v1.1 patch-5</strong>
+      <br>
+      <br>
       Antimatter Dimensions는 핀란드 개발자 Hevipelle이 만든 방치형 증분 게임입니다. 2016년 개인 프로젝트로
       시작했으며, 이후 많은 개발자와 테스터가 참여해 확장되었습니다. 2024년에는 미국 개발자 Supersonic Seven이
       원작을 완료한 뒤 추가 콘텐츠와 더 깊은 이야기를 담은 모드를 만들기로 했습니다.

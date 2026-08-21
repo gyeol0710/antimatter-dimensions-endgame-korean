@@ -6,6 +6,12 @@
   },
   "historicalProtectedTokenDiff": {},
   "activeProtectedTokenAllowances": {
+    "src/components/modals/InformationModal.vue": {
+      "beforeContentSha256": "2bbd21a805364d93aae1250fe7de2b31cf704cce1bb61ed79bfe3818a00e737a",
+      "afterContentSha256": "c56c15d5a4ffa4180359602ed9802780654229e32c91a7fe857a662764c54287",
+      "reason": "게임 정보에 현재 한국어판 기준 Endgame patch 버전을 표시하며 게임 동작·외부 링크는 유지",
+      "removeAfter": "게임 내 버전 표기 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
     "src/components/modals/prestige/EnterCelestialsRaPet.vue": {
       "beforeContentSha256": "cbbe5d49de098fa4b7290714ce02d8b389dae36be265890123e2d78846c7fa9a",
       "afterContentSha256": "9bc34cefc4e2a8d694a0fc661ab0c086dfdb70d4570f817f426bdba4001ac9e5",
@@ -75,6 +81,12 @@
   },
   "historicalStructureDiff": {},
   "activeStructureAllowances": {
+    "src/components/modals/InformationModal.vue": {
+      "beforeCanonicalSha256": "de05965caada3cf0c503e7729b0bec1daa590c28d9fdc28c093d240fc00a3564",
+      "afterCanonicalSha256": "4e14fe3e7aa338c40f32331ef6586a2e679047dd7f1f1cde60675983849045b8",
+      "reason": "기존 모달 동작과 버튼 계약은 유지하고 게임 정보 본문 첫 줄에 굵은 버전 표기만 추가",
+      "removeAfter": "게임 내 버전 표기 커밋이 LOCALIZATION_AUDIT_BASE에 포함되도록 감사 기준을 갱신한 뒤"
+    },
     "src/components/BackgroundAnimations.vue": {
       "beforeCanonicalSha256": "392da0b43be48fa14e3fcc50456a8e8bb261f82bbd656634d164ea272ccc059e",
       "afterCanonicalSha256": "600f949ac87e5f9de8b3c21387e3f7a395a0c56cca4edcbca18ca6a893ba2274",
