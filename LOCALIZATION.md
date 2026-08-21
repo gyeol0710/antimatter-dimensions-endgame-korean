@@ -8,7 +8,7 @@ Endgame 정본의 의미를 유지합니다.
 
 - Endgame 비교 기준
   - 저장소: <https://github.com/Supersonic-Seven/AntimatterDimensionsEndgameUpdate>
-  - 리비전: `0e4e07bc55a2ae037454b55d70866a3e785df570`
+  - 리비전: `05f31bbeb3e1cc634629ad3232f012d47568e025`
 - ADKorean 번역 참고 기준
   - 저장소: <https://github.com/Jihuu621/ADKorean>
   - 영문 기준: `7767d453ee01d1b2f906dc98e90078140c0bed98`
